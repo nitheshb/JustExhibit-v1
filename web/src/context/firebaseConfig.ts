@@ -13,13 +13,13 @@ import { getStorage } from 'firebase/storage'
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: 'AIzaSyDlr5xlq378B5vyetXvE_rK1r4EhPhFTt4',
-  authDomain: 'redefine-erp.firebaseapp.com',
-  projectId: 'redefine-erp',
-  storageBucket: 'redefine-erp.appspot.com',
-  messagingSenderId: '805525655781',
-  appId: '1:805525655781:web:dfa846398899fe3ddc840c',
-  measurementId: 'G-C2BJ3N02SQ',
+  apiKey: 'AIzaSyD79M89HGlUGS1ytNN1eLgvQl19XjoOX14',
+  authDomain: 'eventmanagement-6e9dc.firebaseapp.com',
+  projectId: 'eventmanagement-6e9dc',
+  storageBucket: 'eventmanagement-6e9dc.appspot.com',
+  messagingSenderId: '416889387779',
+  appId: '1:416889387779:web:fece1160b340a061658736',
+  measurementId: 'G-3SQD5HFSRN',
 }
 
 const settings = {
