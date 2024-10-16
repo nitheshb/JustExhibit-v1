@@ -96,7 +96,7 @@ export function serialProjecVisitFixedData(projectListA, fullData) {
       )
 
       x.others = fullData?.filter(
-        (datObj) => !z.includes(datObj?.Project) && datObj?.to == ''
+        (datObj) => !z.includes(datObj?.Event) && datObj?.to == ''
       )
     } else {
       x.Total = fullData?.filter(

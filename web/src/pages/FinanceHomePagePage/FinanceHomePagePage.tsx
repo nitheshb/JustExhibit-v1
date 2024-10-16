@@ -391,7 +391,7 @@ const FinanceHomePagePage = () => {
                         <div className="flex flex-col w-8/12">
                           <div className="flex flex-row items-center py-4">
                             <span className="text-lg font-semibold mr-auto">
-                              All Project Accounts
+                              All Event Accounts
                             </span>
                             <div className="rounded w-2 h-2 mx-1 app-bg-black"></div>
                             <div className="rounded w-2 h-2 mx-1 app-bg-gray-2"></div>
@@ -618,12 +618,12 @@ const FinanceHomePagePage = () => {
               )}
             </div>
 
-            {viewable === 'Projects Lead Report' && (
+            {viewable === 'Events Lead Report' && (
               <>
                 <div className="">
                   <div className="flex items-center justify-between py-2  ">
                     <span className="relative z-10 flex items-center w-auto text-2xl font-bold leading-none pl-0">
-                      Projects
+                      Events
                     </span>
                     <button
                       onClick={() => setIsNewProjectOpen(true)}
@@ -643,7 +643,7 @@ const FinanceHomePagePage = () => {
                           d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                         />
                       </svg>
-                      <span className="ml-2 leading-none">Add Project</span>
+                      <span className="ml-2 leading-none">Add Event</span>
                     </button>
                   </div>
                 </div>
@@ -660,7 +660,7 @@ const FinanceHomePagePage = () => {
                               src="/apart.svg"
                             ></img>
                             <span className="relative z-10 flex items-center w-auto text-4xl font-bold leading-none pl-0 mt-[18px]">
-                              {'Projects vs Leads'}
+                              {'Events vs Leads'}
                             </span>
                           </span>
                           <section className="flex ml-auto mt-[18px]">
@@ -862,7 +862,7 @@ const FinanceHomePagePage = () => {
                 <div className="">
                   <div className="flex items-center justify-between py-2  ">
                     <span className="relative z-10 flex items-center w-auto text-2xl font-bold leading-none pl-0">
-                      Projects
+                      Events
                     </span>
                     <button
                       onClick={() => setIsNewProjectOpen(true)}
@@ -882,7 +882,7 @@ const FinanceHomePagePage = () => {
                           d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                         />
                       </svg>
-                      <span className="ml-2 leading-none">Add Project</span>
+                      <span className="ml-2 leading-none">Add Event</span>
                     </button>
                   </div>
                 </div>
@@ -1049,14 +1049,14 @@ const FinanceHomePagePage = () => {
             <SiderForm
               open={isNewProjectOpen}
               setOpen={handleNewProjectClose}
-              title="Create Project"
+              title="Create Event"
               data={{}}
               widthClass="max-w-2xl"
             />
             <SiderForm
               open={isEditProjectOpen}
               setOpen={handleEditProjectClose}
-              title="Edit Project"
+              title="Edit Event"
               data={project}
               widthClass="max-w-2xl"
             />

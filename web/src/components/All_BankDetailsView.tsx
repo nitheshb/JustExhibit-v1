@@ -235,7 +235,7 @@ const AllBankDetailsView = ({ title, pId, data }) => {
                         <div>
                           <p className="text-xs text-neutral-400">Linked In</p>
                           <p className="text-sm text-neutral-600 group-hover:text-red-600 duration-150">
-                            {bankDe?.usedInA?.length || 0} Projects
+                            {bankDe?.usedInA?.length || 0} Events
                           </p>
                         </div>
                         <div>

@@ -326,7 +326,7 @@ export default function UserListView() {
           user.value = user.projectName
         })
         console.log('fetched proejcts list is', projectsListA)
-        let z = [{'label': 'All Projects', value: 'allprojects'}, ...projectsListA]
+        let z = [{'label': 'All Events', value: 'allprojects'}, ...projectsListA]
         setprojectList(z)
       },
       (error) => setprojectList([])

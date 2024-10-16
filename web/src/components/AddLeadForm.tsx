@@ -283,7 +283,7 @@ const AddLeadForm = ({ title, dialogOpen, customerDetails }) => {
       countryCode: countryCode,
       Name: name,
       Note: '',
-      Project: project,
+      Event: project,
       ProjectId: projectId,
       Source: source,
       Status: assignedTo === '' ? 'unassigned' : 'new',
@@ -366,10 +366,10 @@ const AddLeadForm = ({ title, dialogOpen, customerDetails }) => {
       .required('Name is Required'),
 
     project: Yup.string()
-      .min(3, 'Project Selection is required')
-      .required('Project is Required'),
+      .min(3, 'Event Selection is required')
+      .required('Event is Required'),
     assignedTo: Yup.string()
-      .min(3, 'Project Selection is required')
+      .min(3, 'Event Selection is required')
       .required('Assigner is Required'),
 
     email: Yup.string().email('Email is invalid'),
@@ -416,7 +416,7 @@ const AddLeadForm = ({ title, dialogOpen, customerDetails }) => {
       <div className="grid  gap-8 grid-cols-1">
         <div className="flex flex-col  my-10 rounded-lg bg-white border border-gray-100 px-4 m-4 mt-4">
           <div className="mt-0">
-          
+
 
             <Formik
               enableReinitialize={true}
@@ -464,7 +464,7 @@ const AddLeadForm = ({ title, dialogOpen, customerDetails }) => {
                         />
                       </div>
 
-                      
+
                       {/* <div className="mb-1 space-y-2 w-full text-xs">
 <div className="flex">
     <div className="inline-block mt-5">
@@ -505,7 +505,7 @@ Mobile No
   <div className="flex border mb-6 mt-0 border-[#cccccc] rounded-md ">
 
     <div className="inline-block">
-      
+
       <input
         type="text"
         id="countryCode"
@@ -572,7 +572,7 @@ Mobile No
   // dateFormat="MMMM d, yyyy"
   //dateFormat="d-MMMM-yyyy"
   dateFormat="MMM dd, yyyy"
-/> 
+/>
 
                         </span>
                       </div>
@@ -683,7 +683,7 @@ Mobile No
                           <div className="w-full flex flex-col mb-3 mt-2">
                             <CustomSelect
                               name="project"
-                              label="Select Project"
+                              label="Select Event"
                               className="input mt-3"
                               onChange={(value) => {
                                 console.log('value of project is ', value)
@@ -875,7 +875,7 @@ Mobile No
                                 const {
                                   id,
                                   Name,
-                                  Project,
+                                  Event,
                                   ProjectId,
                                   Source,
                                   Status,
@@ -933,7 +933,7 @@ Mobile No
                                             <section className="">
                                               <div className="flex flex-row  cursor-pointer">
                                                 <div className="font-md text-xs text-gray-500 mb-[2px] tracking-wide mr-4">
-                                                  Project {}
+                                                  Event {}
                                                 </div>
                                               </div>
                                               <div className="font-semibold text-sm text-slate-900 tracking-wide overflow-ellipsis">
@@ -948,7 +948,7 @@ Mobile No
                                                     'dead',
                                                   ].includes(Status) && (
                                                     <AssigedToDropComp
-                                                      assignerName={Project}
+                                                      assignerName={Event}
                                                       id={id}
                                                       align="right"
                                                       // setAssigner={setNewProject}
@@ -964,7 +964,7 @@ Mobile No
                                                     'dead',
                                                   ].includes(Status) && (
                                                     <div className="font-semibold text-[#053219] text-sm  mt- px-[3px] pt-[2px] rounded ">
-                                                      {Project}{' '}
+                                                      {Event}{' '}
                                                     </div>
                                                   )}
                                               </div>
@@ -988,7 +988,7 @@ Mobile No
                                                         assignedToObj?.label
                                                       }
                                                       id={id}
-                                                    
+
                                                       usersList={usersList}
                                                       align={undefined}
                                                     />
@@ -1123,17 +1123,17 @@ source={row.Source.toString()}
                               })}
                             </p>
                           )}
-                          
-                         
 
-                          
+
+
+
                           <div className='mr-10'>
 
 
                           <div className="mt-8 z-10 w-[93%]  text-right md:block flex absolute bottom-0 pb-2 bg-white p-4 space-y-4 md:space-y-0 md:space-x-4" >
 
-                        
-                          
+
+
                               <button
                                    className="mb-4 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-sm hover:shadow-lg hover:bg-gray-100"
                                    type="reset"
@@ -1162,11 +1162,11 @@ source={row.Source.toString()}
 
                           </div>
 
-                         
 
-                        
+
+
                           </div>
-                      
+
                       </>
                     )}
                   </Form>

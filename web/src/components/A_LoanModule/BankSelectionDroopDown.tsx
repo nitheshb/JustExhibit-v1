@@ -97,7 +97,7 @@ export default function BankSelectionSwitchDrop({ type, setStatusFun }) {
                               <span className="absolute inset-0" />
                             </a>
                             {/* <p className="mt- pb-2 border-b text-gray-600">
-                              Project Setup, Insights, Access...
+                              Event Setup, Insights, Access...
                             </p> */}
                           </div>
                         </div>

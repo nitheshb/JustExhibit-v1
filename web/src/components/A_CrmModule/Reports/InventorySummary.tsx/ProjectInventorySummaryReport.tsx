@@ -67,7 +67,7 @@ const ProjectInventorySummaryReport = ({
   const [leadsFilA, setLeadsFilA] = useState([])
   const [unitsFeed, setUnitsFeed] = useState([])
   const [selProjectIs, setSelProject] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
   const [selVisitDoneBy, setVisitDoneBy] = useState({
@@ -80,7 +80,7 @@ const ProjectInventorySummaryReport = ({
   })
 
   const [selProjectEmpIs, setSelProjectEmp] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
 
@@ -259,12 +259,12 @@ console.log('units feed is ', y);
               align="right"
               setAssigner={setNewProject}
               usersList={[
-                ...[{ label: 'All Projects', value: 'allprojects' }],
+                ...[{ label: 'All Events', value: 'allprojects' }],
                 ...projectList,
               ]}
             />
             <div className="font-md text-xs text-gray-500 mb-[px] tracking-wide mr-4">
-              Project {}
+              Event {}
             </div>
           </section>
 

@@ -161,7 +161,7 @@ const AddTaskForm = ({ title, dialogOpen }) => {
   }, [])
 
   const aquaticCreatures = [
-    { label: 'Select the Project', value: '' },
+    { label: 'Select the Event', value: '' },
     { label: 'Subha Ecostone', value: 'subhaecostone' },
     { label: 'Esperanza', value: 'esperanza' },
     { label: 'Nakshatra Township', value: 'nakshatratownship' },
@@ -274,7 +274,7 @@ const AddTaskForm = ({ title, dialogOpen }) => {
       Mobile: mobileNo,
       Name: name,
       Note: '',
-      Project: project,
+      Event: project,
       ProjectId: projectId,
       Source: source,
       Status: assignedTo === '' ? 'unassigned' : 'new',
@@ -575,7 +575,7 @@ const AddTaskForm = ({ title, dialogOpen }) => {
                                       setHours(setMinutes(d, 59), 23),
                                     ]}
                                     dateFormat="MMM d, yyyy h:mm aa"
-                                    
+
                                   />
                                 </span>
                               </div>

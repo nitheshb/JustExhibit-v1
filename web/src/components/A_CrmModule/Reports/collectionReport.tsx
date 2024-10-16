@@ -218,7 +218,7 @@ const CrmCollectionReport = ({ projects }) => {
         </div>
 
         {[
-          { label: 'Project Collections', value: 'project_collections' },
+          { label: 'Event Collections', value: 'project_collections' },
           { label: 'Employee Collections', value: 'employee_collections' },
 
         ].map((data, i) => {
@@ -290,7 +290,7 @@ const CrmCollectionReport = ({ projects }) => {
           </tr>
           <tr className="bg-blue-200 text-gray-600 text-sm leading-normal">
             <th className="py-3 px-3 text-left border border-black">
-              Project Name
+              Event Name
             </th>
             <th className="py-3 px-6 text-left border border-black">
               Sold Units

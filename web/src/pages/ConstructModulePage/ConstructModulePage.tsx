@@ -81,7 +81,7 @@ const ConstructModulePage = () => {
               {viewable === 'ConstructUnits' && (
                 <ConstructUnitsHome
                   project={{
-                    projectName: 'Projects',
+                    projectName: 'Events',
                   }}
                   isEdit={undefined}
                 />

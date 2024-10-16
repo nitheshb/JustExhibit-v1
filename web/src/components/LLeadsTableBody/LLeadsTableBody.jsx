@@ -57,7 +57,7 @@ import LogSkelton from '../shimmerLoaders/logSkelton'
 //   Name,
 //   Mobile,
 //   Email,
-//   Project,
+//   Event,
 //   Source,
 //   Empmobile,
 //   Note
@@ -67,7 +67,7 @@ import LogSkelton from '../shimmerLoaders/logSkelton'
 //     Name,
 //     Mobile,
 //     Email,
-//     Project,
+//     Event,
 //     Source,
 //     Empmobile,
 //     Note,
@@ -138,10 +138,10 @@ const headCells = [
     label: 'Client Details',
   },
   {
-    id: 'Project',
+    id: 'Event',
     numeric: false,
     disablePadding: false,
-    label: 'Project',
+    label: 'Event',
   },
 
   {
@@ -381,7 +381,7 @@ const EnhancedTableToolbar = (props) => {
       row.AssignedTo = data?.assignedToObj?.name
       row.Source = data?.Source
       row.Status = data?.Status
-      row.Project = data?.Project
+      row.Event = data?.Event
       row.Remarks = remark
 
       downRows.push(row)
@@ -408,7 +408,7 @@ React.useEffect(()=>{
         item.Email.toLowerCase().includes(searchString.toLowerCase()) ||
         item.Mobile.toLowerCase().includes(searchString.toLowerCase()) ||
         item.Name.toLowerCase().includes(searchString.toLowerCase()) ||
-        item.Project.toLowerCase().includes(searchString.toLowerCase()) ||
+        item.Event.toLowerCase().includes(searchString.toLowerCase()) ||
         item.Source.toLowerCase().includes(searchString.toLowerCase()) ||
         item.Status.toLowerCase().includes(searchString.toLowerCase())
       ) {
@@ -953,7 +953,7 @@ export default function LLeadsTableBody({
                                           />
                                         </span>
 
-                                       
+
 
                                       </div>
                                     </div>
@@ -986,7 +986,7 @@ export default function LLeadsTableBody({
                             )}
                             {viewUnitStatusA.includes('Phone No') && (
                               <div>
-                              
+
 
                               <span className="font-bodyLato">
     <HighlighterStyle
@@ -1006,13 +1006,13 @@ export default function LLeadsTableBody({
                                   />
                                 </span>
 
-                              
+
                               </div>
                             )}
                           </section>
                         </TableCell>
 
-                        <TableCell align="left">{row.Project}</TableCell>
+                        <TableCell align="left">{row.Event}</TableCell>
                         {/* display:
                   viewUnitStatusA.includes('Assigned To') &&
                   headCell.id === 'Assigned'

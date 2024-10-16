@@ -382,7 +382,7 @@ const handleIncomeChange = (e: React.ChangeEvent<HTMLInputElement>, field: keyof
       Mobile: phoneNo1 || '',
       Name: customerName1,
       Note: '',
-      Project: '',
+      Event: '',
       Source: leadSource || '',
       Status: 'unassigned',
       intype: 'DirectBooking',

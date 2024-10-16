@@ -154,7 +154,7 @@ export default function TransactionUpdateSideView({
   const {
     id,
     Name,
-    Project,
+    Event,
     ProjectId,
     Source,
     Status,

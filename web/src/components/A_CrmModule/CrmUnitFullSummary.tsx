@@ -205,7 +205,7 @@ export default function UnitFullSummary({
   const {
     id,
     Name,
-    Project,
+    Event,
     ProjectId,
     Source,
     Status,
@@ -297,7 +297,7 @@ export default function UnitFullSummary({
   useEffect(() => {
     setAssignedTo(customerDetails?.assignedTo)
     setAssignerName(customerDetails?.assignedToObj?.label)
-    setSelProjectIs({ projectName: Project, uid: ProjectId })
+    setSelProjectIs({ projectName: Event, uid: ProjectId })
 
     setLeadStatus(Status)
     console.log('assinger to yo yo', customerDetails)
@@ -490,7 +490,7 @@ export default function UnitFullSummary({
     // save assigner Details in db
     // projectName
     const x = {
-      Project: value.projectName,
+      Event: value.projectName,
       ProjectId: value.uid,
     }
     setSelProjectIs(value)
@@ -1155,8 +1155,8 @@ export default function UnitFullSummary({
               </section> */}
 
 
-              <section className="flex flex-col  bg-[#F6F7FF] p-3 border border-[#e5e7f8] rounded-md "> 
-  
+              <section className="flex flex-col  bg-[#F6F7FF] p-3 border border-[#e5e7f8] rounded-md ">
+
 
   <div className="flex items-center mb-2">
     <div className="border-l-4 border-[#57C0D0] pl-2 text-sm font-semibold text-gray-700">Units
@@ -1195,8 +1195,8 @@ export default function UnitFullSummary({
 
 
 
-              <section className="flex flex-col  bg-[#F6F7FF] p-3 border border-[#e5e7f8] rounded-md "> 
-  
+              <section className="flex flex-col  bg-[#F6F7FF] p-3 border border-[#e5e7f8] rounded-md ">
+
 
   <div className="flex items-center mb-2">
     <div className="border-l-4 border-[#57C0D0] pl-2 text-sm font-semibold text-gray-700">Dimensions</div>
@@ -1227,8 +1227,8 @@ export default function UnitFullSummary({
 
 
 
-<section className="flex flex-col  bg-[#F6F7FF] p-3 border border-[#e5e7f8] rounded-md "> 
-  
+<section className="flex flex-col  bg-[#F6F7FF] p-3 border border-[#e5e7f8] rounded-md ">
+
 
   <div className="flex items-center mb-2">
     <div className="border-l-4 border-[#57C0D0] pl-2 text-sm font-semibold text-gray-700">Schedule
@@ -1259,8 +1259,8 @@ export default function UnitFullSummary({
 
 
 
-<section className="flex flex-col  bg-[#F6F7FF] p-3 border border-[#e5e7f8] rounded-md "> 
-  
+<section className="flex flex-col  bg-[#F6F7FF] p-3 border border-[#e5e7f8] rounded-md ">
+
 
   <div className="flex items-center mb-2">
     <div className="border-l-4 border-[#57C0D0] pl-2 text-sm font-semibold text-gray-700">Additonal Details
@@ -1439,9 +1439,9 @@ export default function UnitFullSummary({
 
             {(customerDetails?.projectType?.name === 'Villas' || customerDetails?.projectType?.name === 'Apartment') && (
 
-              
-<section className="flex flex-col  bg-[#F6F7FF] p-3 border border-[#e5e7f8] rounded-md "> 
-  
+
+<section className="flex flex-col  bg-[#F6F7FF] p-3 border border-[#e5e7f8] rounded-md ">
+
 
   <div className="flex items-center mb-2">
     <div className="border-l-4 border-[#57C0D0] pl-2 text-sm font-semibold text-gray-700">Details
@@ -1572,8 +1572,8 @@ export default function UnitFullSummary({
 
 
 
-              <section className="flex flex-col  bg-[#F6F7FF] p-3 border border-[#e5e7f8] rounded-md "> 
-  
+              <section className="flex flex-col  bg-[#F6F7FF] p-3 border border-[#e5e7f8] rounded-md ">
+
 
   <div className="flex items-center mb-2">
     <div className="border-l-4 border-[#57C0D0] pl-2 text-sm font-semibold text-gray-700">Status
@@ -1612,7 +1612,7 @@ export default function UnitFullSummary({
 
 
 
- 
+
 
 
 

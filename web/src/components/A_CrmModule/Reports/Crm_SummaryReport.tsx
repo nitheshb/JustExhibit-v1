@@ -14,7 +14,7 @@ const rows = [
     name: 'John 1',
     mobile: '1234567890',
     email: 'john@example.com',
-    project: 'Project A',
+    project: 'Event A',
     source: 'Referral',
   },
   {
@@ -24,7 +24,7 @@ const rows = [
     name: 'Jane Smith',
     mobile: '9876543210',
     email: 'jane@example.com',
-    project: 'Project B',
+    project: 'Event B',
     source: 'Website',
   },
   {
@@ -34,7 +34,7 @@ const rows = [
     name: 'Alice Johnson',
     mobile: '5556667777',
     email: 'alice@example.com',
-    project: 'Project C',
+    project: 'Event C',
     source: 'Advertisement',
   },
   {
@@ -44,7 +44,7 @@ const rows = [
     name: 'Bob Brown',
     mobile: '9998887777',
     email: 'bob@example.com',
-    project: 'Project D',
+    project: 'Event D',
     source: 'Social Media',
   },
   {
@@ -54,7 +54,7 @@ const rows = [
     name: 'Eva White',
     mobile: '4443332222',
     email: 'eva@example.com',
-    project: 'Project E',
+    project: 'Event E',
     source: 'Referral',
   },
 ]
@@ -469,7 +469,7 @@ const CrmSummaryReport = () => {
                         Email
                       </TableCell>
                       <TableCell align="left" className="text-left">
-                        Project
+                        Event
                       </TableCell>
                       <TableCell align="left" className="text-left">
                         Date

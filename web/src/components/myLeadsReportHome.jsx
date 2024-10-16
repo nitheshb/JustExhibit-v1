@@ -75,7 +75,7 @@ const MyLeadsReportHome = ({ project, onSliderOpen = () => {}, isEdit }) => {
     value: 'mytasks',
   })
   const [selProjectIs, setSelProject] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
   const [todaySch, setTodaySchL] = useState([])
@@ -94,7 +94,7 @@ const MyLeadsReportHome = ({ project, onSliderOpen = () => {}, isEdit }) => {
   const [leadsFetchedRawData, setLeadsFetchedRawData] = useState([])
   const [sourceListTuned, setSourceListTuned] = useState([])
   const [viewProjs, selProjs] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
 

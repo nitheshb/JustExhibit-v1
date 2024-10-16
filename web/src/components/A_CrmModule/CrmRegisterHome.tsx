@@ -138,7 +138,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
   const [isSubTopicOpen, setIsSubTopicOpen] = useState(false)
   const [isSubTopic, setIsSubTopic] = useState('')
   const [selProjectIs, setSelProject] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
 
@@ -559,7 +559,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                     value={selProjectIs?.value}
                     // options={aquaticCreatures}
                     options={[
-                      ...[{ label: 'All Projects', value: 'allprojects' }],
+                      ...[{ label: 'All Events', value: 'allprojects' }],
                       ...projectList,
                     ]}
                   />
@@ -722,7 +722,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                       value={selProjectIs?.value}
                       // options={aquaticCreatures}
                       options={[
-                        ...[{ label: 'All Projects', value: 'allprojects' }],
+                        ...[{ label: 'All Events', value: 'allprojects' }],
                         ...projectList,
                       ]}
                     />
@@ -1714,7 +1714,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
 
 
 
-                
+
 
                   {selCategory === 'unAssigned_crm' &&
                     crmCustomersDBData.map((finData, t) => {

@@ -171,29 +171,29 @@ const DialogFormBody = ({
           const x = docSnapshot.data()
           return x
         })
-  
+
         console.log('fetched users list is', bankA)
         // step 3: filter and set values to each title
         if (bankA?.length > 0) {
           const dA = bankA.filter((item) => item.title == 'State')
           const eA = bankA.filter((item) => item.title == 'Planning Authority')
-         
+
           setStatesList(dA.sort((a, b) => {
             return a.order - b.order
           }))
           setapprovalAuthority(eA.sort((a, b) => {
             return a.order - b.order
           }))
-  
-          
-          
-         
-      
+
+
+
+
+
         }
       },
-      
+
     )
-  
+
     return unsubscribe
   }, [])
 
@@ -416,7 +416,7 @@ const DialogFormBody = ({
                             </div>
                           </div>
                           <p className="text-sm text-gray-800 ">
-                            Project Name*
+                            Event Name*
                           </p>
                           <TextField label="" name="projectName" type="text" />
                           <section className="md:flex md:flex-row md:space-x-4 w-full text-xs mt-2">
@@ -425,7 +425,7 @@ const DialogFormBody = ({
                                 htmlFor="extent"
                                 className="label  text-sm"
                               >
-                                Project Extent*{' '}
+                                Event Extent*{' '}
                                 <span className="text-[11px] ">
                                   (
                                   {sqftConverter(
@@ -964,7 +964,7 @@ const DialogFormBody = ({
                                 }}
                                 value={formik.values.state}
                                 options={statesListA}
-                                
+
 
                               />
                               {/* {formik.errors.state ? (

@@ -33,7 +33,7 @@ export const DEPARTMENT_LIST = [
   { label: 'Helper', value: 'helper' },
   { label: 'HR', value: 'hr' },
   { label: 'Legal', value: 'legal' },
-  { label: 'Project', value: 'project' },
+  { label: 'Event', value: 'project' },
   { label: 'Marketing', value: 'marketing' },
   { label: 'Support', value: 'support' },
   { label: 'Sales', value: 'sales' },

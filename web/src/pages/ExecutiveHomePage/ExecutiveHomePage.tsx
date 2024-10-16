@@ -146,7 +146,7 @@ const BoardData = [
         priority: 0,
         title: 'NTR',
         mobile: 9000000001,
-        project: 'Project High',
+        project: 'Event High',
         chat: 13,
         attachment: 2,
         assignees: [

@@ -95,7 +95,7 @@ export default function Crm_legal_Clarity({
   const {
     id,
     Name,
-    Project,
+    Event,
     projectType,
     ProjectId,
     Source,
@@ -330,7 +330,7 @@ export default function Crm_legal_Clarity({
     receiverPhNo: Mobile,
   }
   const msgPayload = {
-    projectName: Project,
+    projectName: Event,
     broucherLink: '',
     locLink: '',
     projContactNo: '',
@@ -1268,7 +1268,7 @@ export default function Crm_legal_Clarity({
                                         setHours(setMinutes(d, 59), 23),
                                       ]}
                                       dateFormat="MMM d, yyyy h:mm aa"
-                                      
+
                                     />
                                   </span>
                                 </div>

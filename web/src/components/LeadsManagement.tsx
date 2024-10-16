@@ -227,7 +227,7 @@ const LeadsManagementHome = () => {
                       item.Name.toLowerCase().includes(
                         searchKey.toLowerCase()
                       ) ||
-                      item.Project.toLowerCase().includes(
+                      item.Event.toLowerCase().includes(
                         searchKey.toLowerCase()
                       ) ||
                       item.Source.toLowerCase().includes(
@@ -258,7 +258,7 @@ const LeadsManagementHome = () => {
                               </p>
                             ) : null}
                             <p className="ml-2 flex justify-center items-center">
-                              {listing.Project}
+                              {listing.Event}
                             </p>
                             {listing.featured ? (
                               <p className="tags new-tag rounded-xl px-2 p-1">

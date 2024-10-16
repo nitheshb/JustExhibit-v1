@@ -1099,11 +1099,11 @@ export function MultipleFileUploadField({
                 dRow['Status'] = 'unassigned'
               }
 
-              if (dRow['Project'] != '') {
+              if (dRow['Event'] != '') {
                 console.log('found row is 3', dRow, projectList)
                 const projectFilA = projectList.filter((data) => {
                   console.log('found row is 3.1', data)
-                  return data.projectName == dRow['Project']
+                  return data.projectName == dRow['Event']
                 })
                 if (projectFilA.length >= 1) {
                   console.log('found row is 4', dRow)

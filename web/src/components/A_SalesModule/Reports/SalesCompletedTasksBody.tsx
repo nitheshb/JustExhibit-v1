@@ -127,13 +127,13 @@ const SalesCompletedTasksBody = ({
                       { label: 'To', id: 'all' },
                       { label: 'Time', id: 'all' },
                       { label: 'Lead Id', id: 'new' },
-                     
+
                     ].map((d, i) => (
                       <th
                         key={i}
                         scope="col"
                         className={`text-sm font-medium text-gray-900 px-6 py-4 ${
-                          ['Project', 'Lead Name'].includes(d.label)
+                          ['Event', 'Lead Name'].includes(d.label)
                             ? 'text-left'
                             : ''
                         }`}
@@ -186,7 +186,7 @@ const SalesCompletedTasksBody = ({
                     )
                   })}
 
-                  
+
                 </tbody>
               </table>
             )}

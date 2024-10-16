@@ -83,7 +83,7 @@ export const SlimSelectBox = ({
         maxMenuHeight={150}
         name={name}
         value={defaultValue(options, value)}
-        placeholder={placeholder || label || 'All Projects'}
+        placeholder={placeholder || label || 'All Events'}
         onChange={(value) => {
           onChange(value)
         }}
@@ -128,7 +128,7 @@ export const VerySlimSelectBox = ({
         maxMenuHeight={150}
         name={name}
         value={defaultValue(options, value)}
-        placeholder={placeholder || label || 'All Projects'}
+        placeholder={placeholder || label || 'All Events'}
         onChange={(value) => {
           onChange(value)
         }}

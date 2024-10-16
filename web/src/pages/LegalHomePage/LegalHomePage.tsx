@@ -81,7 +81,7 @@ const LegalHomePage = () => {
               {viewable === 'legalDocuments' && (
                 <LegalDocsHome
                   project={{
-                    projectName: 'Projects',
+                    projectName: 'Events',
                   }}
                   isEdit={undefined}
                 />
@@ -104,7 +104,7 @@ const LegalHomePage = () => {
               {viewable === 'unitsInventory' && (
                 <ProjectsUnitInventory
                   project={{
-                    projectName: 'Projects',
+                    projectName: 'Events',
                   }}
                   isEdit={undefined}
                 />

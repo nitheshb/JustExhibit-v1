@@ -31,7 +31,7 @@ const WhatsAppTextQuillForm = ({ wbPayload }) => {
   const [projContactNo, setProjContactNo] = useState('')
   const [projLocLink, setProjLocLink] = useState('')
   const [selProjectIs, setSelProject] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allProjects',
   })
   const [projectList, setprojectList] = useState([])
@@ -231,7 +231,7 @@ const WhatsAppTextQuillForm = ({ wbPayload }) => {
             value={selProjectIs?.value}
             // options={aquaticCreatures}
             options={[
-              ...[{ label: 'All Projects', value: 'allProjects' }],
+              ...[{ label: 'All Events', value: 'allProjects' }],
               ...projectList,
             ]}
           />

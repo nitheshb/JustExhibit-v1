@@ -105,14 +105,14 @@ const CrmAnalyticsHome = ({ project }) => {
             value: 'crm_projection_report',
           },
 
-          { label: 'Project Summary', value: 'proj_summary' },
+          { label: 'Event Summary', value: 'proj_summary' },
           { label: 'Mortgage Details', value: 'mortgage_details' },
           { label: 'Credit Note', value: 'creditnote_summary' },
           // { label: 'Collections', value: 'collections-summary' },
           // { label: 'Home', value: 'crm_summary' },
           // { label: 'Source Report', value: 'source_report' },
           // { label: 'Employee Report', value: 'emp_status_report' },
-          // { label: 'Project Leads Report', value: 'proj_leads_report' },
+          // { label: 'Event Leads Report', value: 'proj_leads_report' },
           //  { label: 'Employee Leads Aging', value: 'emp_leads_report' },
         ].map((data, i) => {
           return (

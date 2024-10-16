@@ -115,7 +115,7 @@ const TemplatesHomeList = ({ title, dialogOpen, data }) => {
                     </svg>
                   </span>
 
-                  <span className="pt-[5px]"> Project Logo</span>
+                  <span className="pt-[5px]"> Event Logo</span>
                 </button>
                 <button className="templateItem" tabIndex="0" type="button">
                   <span className="pr-1">

@@ -60,7 +60,7 @@ const avgGrowingData = [
   },
   {
     percentage: '3.45%',
-    text: 'Projects',
+    text: 'Events',
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -345,7 +345,7 @@ const BookingSummaryReport = () => {
                             }
                           </p>
                         )}
-                        {data.text === 'Projects' && (
+                        {data.text === 'Events' && (
                           <p className="font-bold text-xl ml-12">
                             <CountUpComp value={projects?.length} />{' '}
                           </p>
@@ -412,7 +412,7 @@ const BookingSummaryReport = () => {
                   >
                     {[
                       {
-                        lab: 'Project Bookings',
+                        lab: 'Event Bookings',
                         val: 'project_bookings',
                         color: '#4F46E5',
                       },

@@ -135,7 +135,7 @@ const LeadsTransferBody = ({
   const [projectList, setprojectList] = useState([])
   const [projectFilList, setFiltProjectListTuned] = useState([])
   const [viewProjs, selProjs] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
   const [empListTuned, setEmployeeListTuned] = useState([])
@@ -149,7 +149,7 @@ const LeadsTransferBody = ({
 
   const [projectListTuned, setProjectListTuned] = useState([])
   const [selProjectEmpIs, setSelProjectEmp] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
   const [EmpRawFilData, setEmpRawFilData] = useState([])
@@ -157,7 +157,7 @@ const LeadsTransferBody = ({
   const [resettingEmpValues, setResettingEmpValues] = React.useState(false)
 
   const [selProjectIs, setSelProject] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
   const [sourceRawFilData, setSourceRawFilData] = useState([])
@@ -282,7 +282,7 @@ const LeadsTransferBody = ({
 
   // const [projectFilList, setFiltProjectListTuned] = useState([])
   // const [viewProjs, selProjs] = useState({
-  //   label: 'All Projects',
+  //   label: 'All Events',
   //   value: 'allprojects',
   // })
 
@@ -1086,7 +1086,7 @@ if(x.coveredA.any((elementA) => coveredStatus.contains(elementA))){
       row.AssignedTo = data?.assignedToObj?.name
       row.Source = data?.Source
       row.Status = data?.Status
-      row.Project = data?.Project
+      row.Event = data?.Event
 
       downRows.push(row)
     })
@@ -1106,7 +1106,7 @@ if(x.coveredA.any((elementA) => coveredStatus.contains(elementA))){
       row.AssignedTo = data?.assignedToObj?.name
       row.Source = data?.Source
       row.Status = data?.Status
-      row.Project = data?.Project
+      row.Event = data?.Event
 
       downRows.push(row)
     })
@@ -1125,7 +1125,7 @@ if(x.coveredA.any((elementA) => coveredStatus.contains(elementA))){
       row.AssignedTo = data?.assignedToObj?.name
       row.Source = data?.Source
       row.Status = data?.Status
-      row.Project = data?.Project
+      row.Event = data?.Event
 
       downRows.push(row)
     })
@@ -1523,7 +1523,7 @@ if(x.coveredA.any((elementA) => coveredStatus.contains(elementA))){
                         }}
                         value={selProjectEmpIs?.value}
                         options={[
-                          ...[{ label: 'All Projects', value: 'allprojects' }],
+                          ...[{ label: 'All Events', value: 'allprojects' }],
                           ...projectList,
                         ]}
                       /> */}
@@ -1775,7 +1775,7 @@ if(x.coveredA.any((elementA) => coveredStatus.contains(elementA))){
                             // options={aquaticCreatures}
                             options={[
                               ...[
-                                { label: 'All Projects', value: 'allprojects' },
+                                { label: 'All Events', value: 'allprojects' },
                               ],
                               ...projectList,
                             ]}
@@ -1962,7 +1962,7 @@ if(x.coveredA.any((elementA) => coveredStatus.contains(elementA))){
                             value={viewProjs?.value}
                             options={[
                               ...[
-                                { label: 'All Projects', value: 'allprojects' },
+                                { label: 'All Events', value: 'allprojects' },
                               ],
                               ...projectList,
                             ]} placeholder={undefined}                          />
@@ -2665,7 +2665,7 @@ if(x.coveredA.any((elementA) => coveredStatus.contains(elementA))){
                               options={[
                                 ...[
                                   {
-                                    label: 'All Projects',
+                                    label: 'All Events',
                                     value: 'allprojects',
                                   },
                                 ],
@@ -3378,7 +3378,7 @@ if(x.coveredA.any((elementA) => coveredStatus.contains(elementA))){
                           value={selProjectEmpIs?.value}
                           options={[
                             ...[
-                              { label: 'All Projects', value: 'allprojects' },
+                              { label: 'All Events', value: 'allprojects' },
                             ],
                             ...projectList,
                           ]}
@@ -3676,7 +3676,7 @@ if(x.coveredA.any((elementA) => coveredStatus.contains(elementA))){
                 >
                   <div className="overflow-hidden">
                     <div className=" text-md font-bold leading-none pl-0 mt-4 border-b pb-4 mb-4 ">
-                      {`Project vs Status `}
+                      {`Event vs Status `}
                     </div>
 
                     <section className="flex flex-row justify-between mt-[18px]">
@@ -3843,7 +3843,7 @@ if(x.coveredA.any((elementA) => coveredStatus.contains(elementA))){
                           value={viewProjs?.value}
                           options={[
                             ...[
-                              { label: 'All Projects', value: 'allprojects' },
+                              { label: 'All Events', value: 'allprojects' },
                             ],
                             ...projectList,
                           ]}
@@ -4171,7 +4171,7 @@ if(x.coveredA.any((elementA) => coveredStatus.contains(elementA))){
                         }}
                         value={selProjectEmpIs?.value}
                         options={[
-                          ...[{ label: 'All Projects', value: 'allprojects' }],
+                          ...[{ label: 'All Events', value: 'allprojects' }],
                           ...projectList,
                         ]}
                       /> */}

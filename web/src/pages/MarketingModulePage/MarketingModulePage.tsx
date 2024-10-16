@@ -117,7 +117,7 @@ const MarketingModulePage = (props) => {
                   />
                     {/* <CrmDashboardHome
                     project={{
-                      projectName: 'Projects',
+                      projectName: 'Events',
                     }}
                     isEdit={undefined}
                   /> */}

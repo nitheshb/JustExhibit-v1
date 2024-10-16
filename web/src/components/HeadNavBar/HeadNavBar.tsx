@@ -44,7 +44,7 @@ const HeadNavBar = (props) => {
       'blocked',
     ])
 
-    const [selModule, setSelModule] = useState('Projects')
+    const [selModule, setSelModule] = useState('Events')
 
     const open = Boolean(anchorEl)
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -147,7 +147,7 @@ const HeadNavBar = (props) => {
 
             <span className="ml- text-md" style={{ marginLeft: '41px' }}>
               {' '}
-              Redefine Erp .
+              JustMarket .
             </span>
             <section className="mt-1">
               <ModuleSwitchDrop

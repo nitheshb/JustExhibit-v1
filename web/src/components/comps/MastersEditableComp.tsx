@@ -1478,7 +1478,7 @@ if (title === 'Villa Type Category') {
                 <div className="inline">
                   <div className="">
                     <label className="  text-md   mb-8 lg:mb-3 font-bold text-slate-900">
-                      Add Project<abbr title="required"></abbr>
+                      Add Event<abbr title="required"></abbr>
                     </label>
                   </div>
 

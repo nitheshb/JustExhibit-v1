@@ -141,7 +141,7 @@ const LegalDocsHome = ({ project }) => {
                   />
                   <section className="absolute top-0 right-0  flex flex-row  w-1/4  ">
                     <DropDownSearchBar
-                      type={'All Projects'}
+                      type={'All Events'}
                       id={'id'}
                       setStatusFun={{}}
                       viewUnitStatusA={filteredUnits}

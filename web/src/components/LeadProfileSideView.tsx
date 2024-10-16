@@ -352,7 +352,7 @@ export default function LeadProfileSideView({
   const {
     id,
     Name,
-    Project,
+    Event,
     projectType,
     ProjectId,
     Source,
@@ -491,7 +491,7 @@ export default function LeadProfileSideView({
   useEffect(() => {
     setAssignedTo(customerDetails?.assignedTo)
     setAssignerName(customerDetails?.assignedToObj?.label)
-    // setSelProjectIs({ projectName: Project, uid: ProjectId })
+    // setSelProjectIs({ projectName: Event, uid: ProjectId })
     setStatusTimeLineA(
       [...statusTimeLineA, ...(customerDetails?.coveredA?.a || [])] || ['new']
     )
@@ -566,7 +566,7 @@ export default function LeadProfileSideView({
     receiverPhNo: Mobile,
   }
   const msgPayload = {
-    projectName: Project,
+    projectName: Event,
     broucherLink: '',
     locLink: '',
     projContactNo: '',
@@ -673,7 +673,7 @@ export default function LeadProfileSideView({
     // save assigner Details in db
     // projectName
     const x = {
-      Project: value.projectName,
+      Event: value.projectName,
       ProjectId: value.uid,
     }
     setSelProjectIs(value)
@@ -750,7 +750,7 @@ export default function LeadProfileSideView({
         )
       } else if (newStatus === 'visitfixed') {
         await setTakTitle(
-          `${customerDetails?.Project || 'Site'} visit @${
+          `${customerDetails?.Event || 'Site'} visit @${
             customerDetails?.Name || 'Customer'
           }   `
         )
@@ -1630,14 +1630,14 @@ export default function LeadProfileSideView({
                 <section className=" ml-2">
                   <div className="flex flex-row ">
                     <div className="font-md text-xs text-gray-500 mb-[2px] tracking-wide mr-4">
-                      Project {}
+                      Event {}
                     </div>
                   </div>
                   <div className="font-semibold text-sm text-slate-900 tracking-wide overflow-ellipsis">
-                    {/* {Project} */}
+                    {/* {Event} */}
                     {/* projectList */}
                     <AssigedToDropComp
-                      assignerName={selProjectIs?.projectName || Project}
+                      assignerName={selProjectIs?.projectName || Event}
                       id={id}
                       align="right"
                       setAssigner={setNewProject}
@@ -3095,7 +3095,7 @@ export default function LeadProfileSideView({
                                                   ),
                                                 ]}
                                                 dateFormat="MMM d, yyyy h:mm aa"
-                                                
+
                                               />
                                             </span>
                                           </div>

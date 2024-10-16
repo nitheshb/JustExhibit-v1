@@ -38,7 +38,7 @@ export default function CSVDownloader({
   if (sourceTab == 'visitsReport') {
     downloadRows = downloadRows.map((item) => {
       return {
-        Project: item.Project,
+        Event: item.Event,
         Name: item.Name,
         Mobile: item.Mobile?.toString(),
         Status: item.Status,

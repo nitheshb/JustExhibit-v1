@@ -54,7 +54,7 @@ const ConstructUnitsHome = ({ project }) => {
         })
         const allProA = [
           {
-            label: 'All Projects',
+            label: 'All Events',
             value: 'allprojects',
           },
         ]
@@ -141,7 +141,7 @@ const ConstructUnitsHome = ({ project }) => {
             <form className="">
               <div className="flex flex-row justify-between">
                 <span className="relative flex  items-center w-auto text-xl  leading-none pl-0">
-                  Projects
+                  Events
                 </span>
                 <div className="relative w-[286px]">
                   <input
@@ -153,7 +153,7 @@ const ConstructUnitsHome = ({ project }) => {
                   />
                   <section className="absolute top-0 right-0  flex flex-row">
                     <DropDownSearchBar
-                      type={'All Projects'}
+                      type={'All Events'}
                       id={'id'}
                       setStatusFun={{}}
                       viewUnitStatusA={filteredUnits}

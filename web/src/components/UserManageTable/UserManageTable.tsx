@@ -78,7 +78,7 @@ const UserManageTable = ({ editEmployeeFun, showCompletedTasks }) => {
               { label: 'Super User', val: 'admin' },
               { label: 'Crm', val: 'crm' },
               { label: 'Marketing', val: 'marketing' },
-              { label: 'Project', val: 'project' },
+              { label: 'Event', val: 'project' },
               { label: 'Legal', val: 'legal' },
               { label: 'Sales', val: 'sales' },
               { label: 'Hr', val: 'hr' },

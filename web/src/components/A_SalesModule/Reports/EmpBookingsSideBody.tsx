@@ -124,7 +124,7 @@ const EmpBookingSideBody = ({
                     {' '}
                     {[
                       { label: 'sNo', id: 'no' },
-                      { label: 'Project', id: 'label' },
+                      { label: 'Event', id: 'label' },
                       { label: 'Lead Name', id: 'all' },
                       { label: 'Status', id: 'new' },
                       { label: 'Booked On', id: 'all' },
@@ -138,7 +138,7 @@ const EmpBookingSideBody = ({
                         key={i}
                         scope="col"
                         className={`text-sm font-medium text-gray-900 px-6 py-4 ${
-                          ['Project', 'Lead Name'].includes(d.label)
+                          ['Event', 'Lead Name'].includes(d.label)
                             ? 'text-left'
                             : ''
                         }`}
@@ -165,7 +165,7 @@ const EmpBookingSideBody = ({
                           {i + 1}
                         </td>
                         <td className="text-sm text-gray-900 font-medium px-6 py-2 whitespace-nowrap text-left">
-                          {data?.Project}
+                          {data?.Event}
                         </td>
                         <td className="text-sm text-gray-900  px-6 py-2 whitespace-nowrap text-left">
                           {data?.Name}

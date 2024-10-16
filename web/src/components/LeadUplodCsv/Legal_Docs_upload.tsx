@@ -82,7 +82,7 @@ export default function LegalDocsUplaodHome({
                                   <div className="w-full mb-3">
                                     <CustomSelect
                                       name="mode"
-                                      label="Project Name"
+                                      label="Event Name"
                                       className="input"
                                       onChange={({ value }) => {
                                         formik.setFieldValue('mode', value)
@@ -96,7 +96,7 @@ export default function LegalDocsUplaodHome({
                                   <div className="w-full mb-3">
                                     <CustomSelect
                                       name="mode"
-                                      label="Project Phase"
+                                      label="Event Phase"
                                       className="input"
                                       onChange={({ value }) => {
                                         formik.setFieldValue('mode', value)

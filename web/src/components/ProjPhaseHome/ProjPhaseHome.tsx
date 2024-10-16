@@ -220,12 +220,12 @@ const ProjPhaseHome = ({
               pic: '/map.png',
             },
             {
-              k: 'Project Start Date',
+              k: 'Event Start Date',
               v: phase?.startDate || 'N/A',
               pic: '/p1.png',
             },
             {
-              k: 'Project End Date',
+              k: 'Event End Date',
               v: phase?.endDate || 'N/A',
               pic: '/p1.png',
             },
@@ -534,7 +534,7 @@ const ProjPhaseHome = ({
                        {/* {phaseViewFeature === 'projectDetails' && (
                         <DialogFormBody
                         ref={ref}
-                        title={'Create Project'}
+                        title={'Create Event'}
                         // dialogOpen={(=>())}
                         project={phase}
                       />
@@ -711,7 +711,7 @@ const ProjPhaseHome = ({
                       )}
                       {phaseViewFeature === 'projectAccess' && (
                         <ProjectAccessHomeList
-                          title={'Project Access'}
+                          title={'Event Access'}
                           dialogOpen={'false'}
                           data={{ phase: phase }}
                           projectDetails={projectDetails}

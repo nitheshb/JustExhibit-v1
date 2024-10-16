@@ -76,7 +76,7 @@ const UnitBookingSummaryHomePage = ({
   const [selSubMenu1, setSelSubMenu1] = useState('summary')
   const [searchValue, setSearchValue] = useState('')
   const [selProjectIs, setSelProject] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
   const [selLeadsOf, setSelLeadsOf] = useState({
@@ -242,7 +242,7 @@ switch (selProjectIs.value) {
                     value={selProjectIs?.value}
                     // options={aquaticCreatures}
                     options={[
-                      ...[{ label: 'All Projects', value: 'allprojects' }],
+                      ...[{ label: 'All Events', value: 'allprojects' }],
                       ...projectList,
                     ]}
                   />

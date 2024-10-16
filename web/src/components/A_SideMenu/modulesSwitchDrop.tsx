@@ -76,7 +76,7 @@ export default function ModuleSwitchDrop({
                           <div
                             className="group relative flex items-center gap-x-6 rounded-lg p-2 pb-0 text-sm leading-6 hover:bg-[#ffeff2]"
                             onClick={() => {
-                              setStatusFun('1', 'Projects')
+                              setStatusFun('1', 'Events')
                             }}
                           >
                             <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-[#ffeff2] group-hover:bg-[#ffeff2]">
@@ -87,11 +87,11 @@ export default function ModuleSwitchDrop({
                             </div>
                             <div className="flex-auto">
                               <a className="block font-semibold text-gray-900">
-                                Projects
+                                Events
                                 <span className="absolute inset-0" />
                               </a>
                               <p className="mt- pb-3 text-gray-600">
-                                Project Setup, Insights, Access...
+                                Event Setup, Insights, Access...
                               </p>
                             </div>
                           </div>

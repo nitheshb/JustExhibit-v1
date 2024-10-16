@@ -293,7 +293,7 @@ export default function CustomerSideViewCRM({
                 No of Assets: {selCustomerPayload?.my_assets?.length}
               </p>
               <p className="text-xs tracking-tight  font-body my-[2px] ml-2">
-                Projects: {selCustomerPayload?.projects?.length}
+                Events: {selCustomerPayload?.projects?.length}
               </p>
 
               <div></div>

@@ -943,7 +943,7 @@ const TodoListView = ({
                                   </p>
                                   <div className="flex flex-row">
                                     <p className="text-[9px]   leading-none  pr-2 text-green-800  mt-[6px]  py-[4px]  rounded-full   mb-1 mr-2  ">
-                                      {dat?.leadUser?.Project?.toUpperCase()}
+                                      {dat?.leadUser?.Event?.toUpperCase()}
                                     </p>
 
                                     {/* <p className="text-[11px]  leading-none text-red-800  mt-1  py-[4px]  rounded-full  text-2xl  mb-1 mr-2  ">

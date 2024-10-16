@@ -126,7 +126,7 @@ export default function AddLeadTaskComment({
                 {
                   type: 'textHelp',
                   label: 'ProjectDetails',
-                  desc: 'Asked for Project details like broucher e.t.c',
+                  desc: 'Asked for Event details like broucher e.t.c',
                 },
                 {
                   type: 'textHelp',

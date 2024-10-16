@@ -138,7 +138,7 @@ export const LAddLeadTable = () => {
             <TableCell align="left">Name</TableCell>
             <TableCell align="left">Mobile</TableCell>
             <TableCell align="left">Email</TableCell>
-            <TableCell align="left">Project</TableCell>
+            <TableCell align="left">Event</TableCell>
             <TableCell align="left">Source</TableCell>
           </TableRow>
         </TableHead>

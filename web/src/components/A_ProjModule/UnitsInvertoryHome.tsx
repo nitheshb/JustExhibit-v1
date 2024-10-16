@@ -466,8 +466,8 @@ const UnitsInventoryHome = ({ project }) => {
             <div className="relative  p-2.5 pb-6">
               <section className=" top-0 left-0  flex flex-row  border bg-white border-[#dddddd] rounded-full custom-shadow">
                 <DropDownSearchBar
-                  label={'Projects'}
-                  type={'All Projects'}
+                  label={'Events'}
+                  type={'All Events'}
                   id={'id'}
                   setStatusFun={{}}
                   viewUnitStatusA={[]}

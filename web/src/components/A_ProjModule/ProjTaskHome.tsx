@@ -207,7 +207,7 @@ const ProjectsTaskHome = ({
     <div className="flex-1 overflow-auto">
       <div className="p-0 px-1">
     <TodayLeadsActivitySearchView
-    moduleName={"Project"}
+    moduleName={"Event"}
       data={filterTable}
       searchKey={searchKey}
       setSearchKey={setSearchKey}

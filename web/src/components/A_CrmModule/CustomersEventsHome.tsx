@@ -644,7 +644,7 @@ const CustomersEventsHome = () => {
               />
               <section className="absolute top-0 right-0  flex flex-row">
                 <DropDownSearchBar
-                  type={'All Projects'}
+                  type={'All Events'}
                   id={'id'}
                   setStatusFun={{}}
                   viewUnitStatusA={filteredUnits}

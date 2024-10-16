@@ -197,7 +197,7 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
   const [projectList, setprojectList] = useState([])
   const [projectFilList, setFiltProjectListTuned] = useState([])
   const [viewProjs, selProjs] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
   const [empListTuned, setEmployeeListTuned] = useState([])
@@ -211,7 +211,7 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
 
   const [projectListTuned, setProjectListTuned] = useState([])
   const [selProjectEmpIs, setSelProjectEmp] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
   const [EmpRawFilData, setEmpRawFilData] = useState([])
@@ -219,7 +219,7 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
   const [resettingEmpValues, setResettingEmpValues] = React.useState(false)
 
   const [selProjectIs, setSelProject] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
   const [sourceRawFilData, setSourceRawFilData] = useState([])
@@ -341,7 +341,7 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
 
   // const [projectFilList, setFiltProjectListTuned] = useState([])
   // const [viewProjs, selProjs] = useState({
-  //   label: 'All Projects',
+  //   label: 'All Events',
   //   value: 'allprojects',
   // })
 
@@ -1100,7 +1100,7 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
       row.AssignedTo = data?.assignedToObj?.name
       row.Source = data?.Source
       row.Status = data?.Status
-      row.Project = data?.Project
+      row.Event = data?.Event
 
       downRows.push(row)
     })
@@ -1120,7 +1120,7 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
       row.AssignedTo = data?.assignedToObj?.name
       row.Source = data?.Source
       row.Status = data?.Status
-      row.Project = data?.Project
+      row.Event = data?.Event
 
       downRows.push(row)
     })
@@ -1139,7 +1139,7 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
       row.AssignedTo = data?.assignedToObj?.name
       row.Source = data?.Source
       row.Status = data?.Status
-      row.Project = data?.Project
+      row.Event = data?.Event
 
       downRows.push(row)
     })
@@ -1248,7 +1248,7 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
 
                 // { label: 'Source Report', value: 'source_report' },
                 // { label: 'Employee Report', value: 'emp_status_report' },
-                // { label: 'Project Leads Report', value: 'proj_leads_report' },
+                // { label: 'Event Leads Report', value: 'proj_leads_report' },
                 //  { label: 'Employee Leads Aging', value: 'emp_leads_report' },
               ].map((data, i) => {
                 return !(
@@ -1653,7 +1653,7 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
                             value={viewProjs?.value}
                             options={[
                               ...[
-                                { label: 'All Projects', value: 'allprojects' },
+                                { label: 'All Events', value: 'allprojects' },
                               ],
                               ...projectList,
                             ]} placeholder={undefined}                          />
@@ -1727,7 +1727,7 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
                         }}
                         value={selProjectEmpIs?.value}
                         options={[
-                          ...[{ label: 'All Projects', value: 'allprojects' }],
+                          ...[{ label: 'All Events', value: 'allprojects' }],
                           ...projectList,
                         ]}
                       /> */}
@@ -1973,7 +1973,7 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
                             // options={aquaticCreatures}
                             options={[
                               ...[
-                                { label: 'All Projects', value: 'allprojects' },
+                                { label: 'All Events', value: 'allprojects' },
                               ],
                               ...projectList,
                             ]}
@@ -2163,7 +2163,7 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
                             value={viewProjs?.value}
                             options={[
                               ...[
-                                { label: 'All Projects', value: 'allprojects' },
+                                { label: 'All Events', value: 'allprojects' },
                               ],
                               ...projectList,
                             ]} placeholder={undefined}                          />
@@ -2867,7 +2867,7 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
                               options={[
                                 ...[
                                   {
-                                    label: 'All Projects',
+                                    label: 'All Events',
                                     value: 'allprojects',
                                   },
                                 ],
@@ -3582,7 +3582,7 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
                           value={selProjectEmpIs?.value}
                           options={[
                             ...[
-                              { label: 'All Projects', value: 'allprojects' },
+                              { label: 'All Events', value: 'allprojects' },
                             ],
                             ...projectList,
                           ]}
@@ -3880,7 +3880,7 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
                 >
                   <div className="overflow-hidden">
                     <div className=" text-md font-bold leading-none pl-0 mt-4 border-b pb-4 mb-4 ">
-                      {`Project vs Status `}
+                      {`Event vs Status `}
                     </div>
 
                     <section className="flex flex-row justify-between mt-[18px]">
@@ -4047,7 +4047,7 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
                           value={viewProjs?.value}
                           options={[
                             ...[
-                              { label: 'All Projects', value: 'allprojects' },
+                              { label: 'All Events', value: 'allprojects' },
                             ],
                             ...projectList,
                           ]}
@@ -4375,7 +4375,7 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
                         }}
                         value={selProjectEmpIs?.value}
                         options={[
-                          ...[{ label: 'All Projects', value: 'allprojects' }],
+                          ...[{ label: 'All Events', value: 'allprojects' }],
                           ...projectList,
                         ]}
                       /> */}

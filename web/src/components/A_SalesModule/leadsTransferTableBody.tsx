@@ -65,7 +65,7 @@ const LeadsTransferTableBody = ({
   const [projectList, setprojectList] = useState([])
   const [leadsFilA, setLeadsFilA] = useState([])
   const [selProjectIs, setSelProject] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
   const [selVisitDoneBy, setVisitDoneBy] = useState({
@@ -78,7 +78,7 @@ const LeadsTransferTableBody = ({
   })
 
   const [selProjectEmpIs, setSelProjectEmp] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
 
@@ -121,7 +121,7 @@ const LeadsTransferTableBody = ({
     } else {
       // projectFilAarray = projectFilAarray.filter((d) => d.projectId === selProjectIs?.value);
       projectFilAarray = projectFilAarray.filter(
-        (d) => d.Project === selProjectIs?.label
+        (d) => d.Event === selProjectIs?.label
       )
 
       leadsSerialDatafun()
@@ -172,7 +172,7 @@ const LeadsTransferTableBody = ({
           const {
             id,
             Name,
-            Project,
+            Event,
             ProjectId,
             Source,
             Status,
@@ -196,7 +196,7 @@ const LeadsTransferTableBody = ({
             coveredA,
           } = await x
 
-          logData.Project = Project
+          logData.Event = Event
           logData.Name = Name
           logData.id = Luid
           logData.ProjectId = ProjectId
@@ -224,7 +224,7 @@ const LeadsTransferTableBody = ({
           return logData
         })
       )
-      const z = { Project: y?.Project, Time: y.Time }
+      const z = { Event: y?.Event, Time: y.Time }
       setLeadsData(y)
     } catch (error) {
       console.error(error)
@@ -310,15 +310,15 @@ const LeadsTransferTableBody = ({
               align="right"
               setAssigner={setNewProject}
               usersList={[
-                ...[{ label: 'All Projects', value: 'allprojects' }],
+                ...[{ label: 'All Events', value: 'allprojects' }],
                 ...projectList,
               ]}
             />
             <div className="font-md text-xs text-gray-500 mb-[px] tracking-wide mr-4">
-              Project {}
+              Event {}
             </div>
           </section>
- 
+
 
 
           <Tooltip title={`Download ${selectedIds.length} Row`}>
@@ -375,7 +375,7 @@ const LeadsTransferTableBody = ({
 
                     {[
                       { label: 'sNo', id: 'no' },
-                      { label: 'Project', id: 'label' },
+                      { label: 'Event', id: 'label' },
                       { label: 'Lead Ph', id: 'all' },
                       { label: 'Status', id: 'new' },
 
@@ -389,7 +389,7 @@ const LeadsTransferTableBody = ({
                         key={i}
                         scope="col"
                         className={`text-sm font-medium text-gray-900 px-6 py-4 ${
-                          ['Project', 'Lead Name'].includes(d.label)
+                          ['Event', 'Lead Name'].includes(d.label)
                             ? 'text-left'
                             : ''
                         }`}
@@ -428,7 +428,7 @@ const LeadsTransferTableBody = ({
                           {i + 1}
                         </td>
                         <td className="text-sm text-gray-900 font-medium px-6 py-2 whitespace-nowrap text-left">
-                          {data?.Project}
+                          {data?.Event}
                         </td>
                         <td className="text-sm text-gray-900  px-6 py-2 whitespace-nowrap text-left">
                           {data?.Mobile}

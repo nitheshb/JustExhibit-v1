@@ -108,7 +108,7 @@ const ProjectEditPage = ({
               <SiderForm
                 open={isEditProjectOpen}
                 setOpen={handleEditProjectClose}
-                title="Edit Project"
+                title="Edit Event"
                 data={project}
                 widthClass="max-w-4xl"
               />

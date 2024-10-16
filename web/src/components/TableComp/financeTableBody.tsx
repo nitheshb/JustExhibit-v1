@@ -33,7 +33,7 @@ import { ConnectingAirportsOutlined } from '@mui/icons-material'
 //   Name,
 //   Mobile,
 //   Email,
-//   Project,
+//   Event,
 //   Source,
 //   Empmobile,
 //   Note
@@ -43,7 +43,7 @@ import { ConnectingAirportsOutlined } from '@mui/icons-material'
 //     Name,
 //     Mobile,
 //     Email,
-//     Project,
+//     Event,
 //     Source,
 //     Empmobile,
 //     Note,
@@ -118,10 +118,10 @@ const headCells = [
     label: 'Source',
   },
   {
-    id: 'Project',
+    id: 'Event',
     numeric: false,
     disablePadding: false,
-    label: 'Project',
+    label: 'Event',
   },
 
   {
@@ -229,7 +229,7 @@ const EnhancedTableToolbar = (props) => {
         item.Email.toLowerCase().includes(searchString.toLowerCase()) ||
         item.Mobile.toLowerCase().includes(searchString.toLowerCase()) ||
         item.Name.toLowerCase().includes(searchString.toLowerCase()) ||
-        item.Project.toLowerCase().includes(searchString.toLowerCase()) ||
+        item.Event.toLowerCase().includes(searchString.toLowerCase()) ||
         item.Source.toLowerCase().includes(searchString.toLowerCase()) ||
         item.Status.toLowerCase().includes(searchString.toLowerCase())
       ) {
@@ -494,7 +494,7 @@ export default function FinanceTableBody({
             item?.Email.toLowerCase().includes(searchKey.toLowerCase()) ||
             item?.Mobile.toLowerCase().includes(searchKey.toLowerCase()) ||
             item?.Name.toLowerCase().includes(searchKey.toLowerCase()) ||
-            item?.Project.toLowerCase().includes(searchKey.toLowerCase()) ||
+            item?.Event.toLowerCase().includes(searchKey.toLowerCase()) ||
             item?.Source.toLowerCase().includes(searchKey.toLowerCase()) ||
             item?.Status.toLowerCase().includes(searchKey.toLowerCase())
           ) {

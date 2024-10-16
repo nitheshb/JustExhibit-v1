@@ -179,7 +179,7 @@ const SiderForm = ({
                     taskManObj={taskManObj}
                   />
                 )}
-                {(title === 'Create Project' || title === 'Edit Project') && (
+                {(title === 'Create Event' || title === 'Edit Event') && (
                   // <DialogFormBody
                   //   title={title}
                   //   dialogOpen={setOpen}
@@ -346,7 +346,7 @@ const SiderForm = ({
                 {title === 'disp_project_access' && (
                   <>
                     <ProjectAccessSideView
-                      title={'Project Access'}
+                      title={'Event Access'}
                       dialogOpen={'false'}
                       data={{ phase: phaseDetails }}
                       projectDetails={projectDetails}
@@ -428,7 +428,7 @@ const SiderForm = ({
                     wbPayload={wbPayload}
                   />
                 )}
-                {title === 'Project Inventory' && (
+                {title === 'Event Inventory' && (
                   <InventoryViewSideForm
                     title={title}
                     projectDetails={projectDetails}

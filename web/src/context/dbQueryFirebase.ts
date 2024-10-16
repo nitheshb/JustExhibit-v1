@@ -2327,7 +2327,7 @@ export const addLead = async (orgId, data, by, msg) => {
       Mobile,
       countryCode,
       assignedTo,
-      Project,
+      Event,
       assignedToObj,
     } = data
 
@@ -2341,11 +2341,11 @@ export const addLead = async (orgId, data, by, msg) => {
         payload: {},
       },
     ])
-    if (Project) {
+    if (Event) {
       // await sendWhatAppTextSms1(
       //   '7760959579',
       //   `Warm Greetings!
-      // Thanks for your interest in ${Project},
+      // Thanks for your interest in ${Event},
       // It's a pleasure to be a part of your housing journey. Our team will be in touch with you in a brief period. In the meanwhile, this would help you get to know the project a little more.
       // Warm Regards
       // Maa Homes.`
@@ -2355,7 +2355,7 @@ export const addLead = async (orgId, data, by, msg) => {
       const { offPh, name } = assignedToObj
       await sendWhatAppTextSms1(
         offPh,
-        `⚡ A new lead- ${Name} Assigned to you @${Project || ''}. 📱${Mobile}`
+        `⚡ A new lead- ${Name} Assigned to you @${Event || ''}. 📱${Mobile}`
       )
 
       // await sendWhatAppTextSms1(
@@ -2364,7 +2364,7 @@ export const addLead = async (orgId, data, by, msg) => {
 
       // This is ${name} from Maa Homes,
 
-      //   Regarding your interest in ${Project}, I’m pleased to be your point of contact throughout this journey. I would like to understand your requirements & do let me know if you have any doubts about ${Project}.
+      //   Regarding your interest in ${Event}, I’m pleased to be your point of contact throughout this journey. I would like to understand your requirements & do let me know if you have any doubts about ${Event}.
       //   Looking forward to a fruitful relationship.
 
       // Warm Regards
@@ -2408,7 +2408,7 @@ export const addLead = async (orgId, data, by, msg) => {
 export const addCpLead = async (orgId, data, by, msg) => {
   const x = await addDoc(collection(db, `${orgId}_leads_cp`), data)
   await console.log('add Lead value is ', x, x.id, data)
-  const { intype, Name, Mobile, assignedTo, Project, assignedToObj } = data
+  const { intype, Name, Mobile, assignedTo, Event, assignedToObj } = data
   const { data3, errorx } = await supabase.from(`${orgId}_lead_logs`).insert([
     {
       type: 'l_ctd',
@@ -2423,7 +2423,7 @@ export const addCpLead = async (orgId, data, by, msg) => {
     const { offPh } = assignedToObj
     await sendWhatAppTextSms1(
       offPh,
-      `⚡ A new lead- ${Name} Assigned to you @${Project}. 📱${Mobile}`
+      `⚡ A new lead- ${Name} Assigned to you @${Event}. 📱${Mobile}`
     )
   }
   await console.log('what is this supbase', data3, errorx)
@@ -3439,7 +3439,7 @@ export const createProject = async (
       'nithe.nithesh@gmail.com',
       'its virtual Account'
     )
-    enqueueSnackbar('Project added successfully', {
+    enqueueSnackbar('Event added successfully', {
       variant: 'success',
     })
     // resetForm()
@@ -4171,7 +4171,7 @@ export const updateProject = async (
       )
     }
 
-    enqueueSnackbar('Project updated successfully', {
+    enqueueSnackbar('Event updated successfully', {
       variant: 'success',
     })
   } catch (e) {
@@ -5944,7 +5944,7 @@ export const updateProjectCounts = async (
     })
 
     console.log('chek if ther is any erro in supa', data)
-    enqueueSnackbar(`Project Status Updated`, {
+    enqueueSnackbar(`Event Status Updated`, {
       variant: 'success',
     })
   } catch (e) {
@@ -5979,7 +5979,7 @@ export const updateCancelProjectCounts = async (
     })
 
     console.log('chek if ther is any erro in supa', data)
-    enqueueSnackbar(`Project Status Updated`, {
+    enqueueSnackbar(`Event Status Updated`, {
       variant: 'success',
     })
   } catch (e) {
@@ -6201,11 +6201,11 @@ export const deleteProject = async (
   orgId,
   uid,
   by,
-  Project,
+  Event,
   enqueueSnackbar
 ) => {
   await deleteDoc(doc(db, `${orgId}_projects`, uid))
-  const { projectName } = Project
+  const { projectName } = Event
   await addProjectLog(orgId, {
     pId: uid,
     s: 's',
@@ -6214,7 +6214,7 @@ export const deleteProject = async (
     txt: `${projectName} is deleted by ${by}`,
     by,
   })
-  enqueueSnackbar('Project deleted successfully', {
+  enqueueSnackbar('Event deleted successfully', {
     variant: 'success',
   })
 }

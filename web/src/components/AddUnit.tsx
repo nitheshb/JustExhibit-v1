@@ -297,7 +297,7 @@ useEffect(() => {
   }, [])
 
   const aquaticCreatures = [
-    { label: 'Select the Project', value: '' },
+    { label: 'Select the Event', value: '' },
     { label: 'Subha Ecostone', value: 'subhaecostone' },
     { label: 'Esperanza', value: 'esperanza' },
     { label: 'Nakshatra Township', value: 'nakshatratownship' },

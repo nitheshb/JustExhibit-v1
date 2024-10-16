@@ -178,7 +178,7 @@ export default function CrmUnitSideView({
   const {
     id,
     Name,
-    Project,
+    Event,
     ProjectId,
     Source,
     Status,
@@ -233,7 +233,7 @@ export default function CrmUnitSideView({
   useEffect(() => {
     setAssignedTo(customerDetails?.assignedTo)
     setAssignerName(customerDetails?.assignedToObj?.label)
-    setSelProjectIs({ projectName: Project, uid: ProjectId })
+    setSelProjectIs({ projectName: Event, uid: ProjectId })
 
     setLeadStatus(Status)
     console.log('assinger to yo yo', customerDetails)
@@ -336,7 +336,7 @@ export default function CrmUnitSideView({
     // save assigner Details in db
     // projectName
     const x = {
-      Project: value.projectName,
+      Event: value.projectName,
       ProjectId: value.uid,
     }
     setSelProjectIs(value)

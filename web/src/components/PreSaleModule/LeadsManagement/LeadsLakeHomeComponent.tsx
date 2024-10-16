@@ -50,7 +50,7 @@ export default function LeadsLakeHomeComponent({ todaySch, schLoading }) {
   const [userTodayPerfA, setUserTodayPerfA] = useState({})
 
   const [selProjectIs, setSelProject] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
   const [selLeadsOf, setSelLeadsOf] = useState({

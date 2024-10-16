@@ -53,7 +53,7 @@ import CSVDownloader from '../util/csvDownload'
 //   Name,
 //   Mobile,
 //   Email,
-//   Project,
+//   Event,
 //   Source,
 //   Empmobile,
 //   Note
@@ -63,7 +63,7 @@ import CSVDownloader from '../util/csvDownload'
 //     Name,
 //     Mobile,
 //     Email,
-//     Project,
+//     Event,
 //     Source,
 //     Empmobile,
 //     Note,
@@ -132,10 +132,10 @@ const headCells = [
     label: 'Email',
   },
   {
-    id: 'Project',
+    id: 'Event',
     numeric: false,
     disablePadding: false,
-    label: 'Project',
+    label: 'Event',
   },
 
   {
@@ -264,7 +264,7 @@ const EnhancedTableToolbar = (props) => {
         item.Email.toLowerCase().includes(searchString.toLowerCase()) ||
         item.Mobile.toLowerCase().includes(searchString.toLowerCase()) ||
         item.Name.toLowerCase().includes(searchString.toLowerCase()) ||
-        item.Project.toLowerCase().includes(searchString.toLowerCase()) ||
+        item.Event.toLowerCase().includes(searchString.toLowerCase()) ||
         item.Source.toLowerCase().includes(searchString.toLowerCase()) ||
         item.Status.toLowerCase().includes(searchString.toLowerCase())
       ) {
@@ -980,7 +980,7 @@ const EnhancedTableToolbar = (props) => {
           //   id,
           //   {
           //     leadId: id,
-          //     projectName: leadDetailsObj2?.Project || projectDetails?.projectName,
+          //     projectName: leadDetailsObj2?.Event || projectDetails?.projectName,
           //     ProjectId: leadDetailsObj2?.ProjectId || selUnitDetails?.pId,
           //     // ...customerDetailsObj,
           //     Name: customerDetailsObj?.customerName1,
@@ -2281,8 +2281,8 @@ export default function LfileuploadTableTemplate({
           format: (value) => value.toFixed(2),
         },
         {
-          id: 'Project',
-          label: 'Project',
+          id: 'Event',
+          label: 'Event',
           minWidth: 10,
           align: 'left',
           format: (value) => value.toFixed(2),
@@ -2478,7 +2478,7 @@ export default function LfileuploadTableTemplate({
                     item?.Name.toLowerCase().includes(
                       searchKey.toLowerCase()
                     ) ||
-                    item?.Project.toLowerCase().includes(
+                    item?.Event.toLowerCase().includes(
                       searchKey.toLowerCase()
                     ) ||
                     item?.Source.toLowerCase().includes(
@@ -2596,7 +2596,7 @@ export default function LfileuploadTableTemplate({
                   //         source={row.Source.toString()}
                   //       />
                   //     </TableCell>
-                  //     <TableCell align="left">{row.Project}</TableCell>
+                  //     <TableCell align="left">{row.Event}</TableCell>
                   //     <TableCell align="center">
                   //       <HighlighterStyle
                   //         searchKey={searchKey}

@@ -376,7 +376,7 @@ const CrmHomePage = () => {
                 {/* {viewable === 'crmDashboard' && (
                   <CrmDashboardHome
                     project={{
-                      projectName: 'Projects',
+                      projectName: 'Events',
                     }}
                     isEdit={undefined}
                   />
@@ -385,7 +385,7 @@ const CrmHomePage = () => {
                  {viewable === 'crmAnalytics' && (
                   <CrmAnalyticsHome
                     project={{
-                      projectName: 'Projects',
+                      projectName: 'Events',
                     }}
                     isEdit={undefined}
                   />
@@ -404,7 +404,7 @@ const CrmHomePage = () => {
                 {viewable === 'unitsInventory' && (
                   <ProjectsUnitInventory
                     project={{
-                      projectName: 'Projects',
+                      projectName: 'Events',
                     }}
                     isEdit={undefined}
                   />
@@ -418,7 +418,7 @@ const CrmHomePage = () => {
                 {viewable === 'MyCustomers' && (
                   <CustomersEventsHome
                     project={{
-                      projectName: 'Projects',
+                      projectName: 'Events',
                     }}
                     isEdit={undefined}
                   />
@@ -426,7 +426,7 @@ const CrmHomePage = () => {
                 {viewable === 'MyCustomersEvents' && (
                   <CustomersEventsHome
                     project={{
-                      projectName: 'Projects',
+                      projectName: 'Events',
                     }}
                     isEdit={undefined}
                   />
@@ -434,7 +434,7 @@ const CrmHomePage = () => {
                 {viewable === 'MyCustomers-II' && (
                   <CustomersSearchHome2
                     project={{
-                      projectName: 'Projects',
+                      projectName: 'Events',
                     }}
                     isEdit={undefined}
                   />
@@ -442,7 +442,7 @@ const CrmHomePage = () => {
                    {viewable === 'units_inventory' && (
                   <UnitsInventoryHome
                     project={{
-                      projectName: 'Projects',
+                      projectName: 'Events',
                     }}
                     isEdit={undefined}
                   />
@@ -500,7 +500,7 @@ const CrmHomePage = () => {
                     <div className="">
                       <div className="flex items-center justify-between py-2  ">
                         <span className="relative z-10 flex items-center w-auto text-2xl font-bold leading-none pl-0">
-                          Projects
+                          Events
                         </span>
                         <button
                           onClick={() => setIsNewProjectOpen(true)}
@@ -520,7 +520,7 @@ const CrmHomePage = () => {
                               d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                             />
                           </svg>
-                          <span className="ml-2 leading-none">Add Project</span>
+                          <span className="ml-2 leading-none">Add Event</span>
                         </button>
                       </div>
                     </div>
@@ -687,13 +687,13 @@ const CrmHomePage = () => {
                 <SiderForm
                   open={isNewProjectOpen}
                   setOpen={handleNewProjectClose}
-                  title="Create Project"
+                  title="Create Event"
                   data={{}}
                 />
                 <SiderForm
                   open={isEditProjectOpen}
                   setOpen={handleEditProjectClose}
-                  title="Edit Project"
+                  title="Edit Event"
                   data={project}
                 />
               </div>

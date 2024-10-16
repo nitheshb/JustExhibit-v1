@@ -248,7 +248,7 @@ const ShowCustomerDetails = ({
       Mobile: mobileNo,
       Name: name,
       Note: '',
-      Project: project,
+      Event: project,
       Source: source,
       Status: assignedTo === '' ? 'unassigned' : 'new',
       intype: 'Form',

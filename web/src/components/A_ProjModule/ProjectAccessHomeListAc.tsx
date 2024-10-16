@@ -310,7 +310,7 @@ const ProjectAccessHomeList = ({
     <div className="h-full flex flex-col py-6 bg-white shadow-xl ">
       {/* documents page */}
       <div className="mx-4 my-2 py-2 rounded-md border border-[#E5EAF2] flex flex-col justify-between">
-        <div className="ml-3 mt-1 font-bold">Project Documents</div>
+        <div className="ml-3 mt-1 font-bold">Event Documents</div>
         <ul className="">
           <li className="">
             <section className="flex flex-row mt- grid grid-cols-4 ">
@@ -394,7 +394,7 @@ const ProjectAccessHomeList = ({
       <div className="mx-4 my-4 p-4 rounded-md border border-[#E5EAF2] flex flex-row justify-between">
         <section className="flex flex-col">
           <h2 className="text-xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
-            Project Audit
+            Event Audit
           </h2>
 
           <div className="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6">
@@ -411,7 +411,7 @@ const ProjectAccessHomeList = ({
             proceedAction={handleDelete}
             title={'Are you sure you want to delete this project?'}
             subtext={
-              'This Project will be permanently removed. This action cannot be undone.'
+              'This Event will be permanently removed. This action cannot be undone.'
             }
             actionBtnTxt={'Delete project'}
           />
@@ -453,7 +453,7 @@ const ProjectAccessHomeList = ({
             proceedAction={handleDelete}
             title={'Are you sure you want to delete this project?'}
             subtext={
-              'This Project will be permanently removed. This action cannot be undone.'
+              'This Event will be permanently removed. This action cannot be undone.'
             }
             actionBtnTxt={'Delete project'}
           />
@@ -470,7 +470,7 @@ const ProjectAccessHomeList = ({
               className="h-4 w-4 mr-1 ml- mt-[1px] inline text-white"
               aria-hidden="true"
             />{' '}
-            Delete Project
+            Delete Event
           </button>
         </section>
       </div>

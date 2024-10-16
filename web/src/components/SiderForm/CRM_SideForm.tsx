@@ -125,8 +125,8 @@ const CrmSiderForm = ({
               <div
                 className={`relative w-screen ${
                   title === 'Add Lead' ||
-                  title === 'Create Project' ||
-                  title === 'Edit Project' ||
+                  title === 'Create Event' ||
+                  title === 'Edit Event' ||
                   title === 'upload_legal_docs'
                     ? 'max-w-2xl'
                     : widthClass

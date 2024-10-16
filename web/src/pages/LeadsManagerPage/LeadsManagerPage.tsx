@@ -110,7 +110,7 @@ const LeadsManagerPage = (props) => {
               {viewable === 'leadsController' && (
                  <LeadsTransferHome
                  project={{
-                   projectName: 'Projects',
+                   projectName: 'Events',
                  }}
                  isEdit={undefined}
                />
@@ -118,7 +118,7 @@ const LeadsManagerPage = (props) => {
               {viewable === 'units_inventory' && (
                  <UnitsInventoryHome
                  project={{
-                   projectName: 'Projects',
+                   projectName: 'Events',
                  }}
                  isEdit={undefined}
                />
@@ -138,7 +138,7 @@ const LeadsManagerPage = (props) => {
               {viewable === 'unitsInventory' && (
                 <ProjectsUnitInventory
                   project={{
-                    projectName: 'Projects',
+                    projectName: 'Events',
                   }}
                   isEdit={undefined}
                 />

@@ -243,7 +243,7 @@ export const _roles = [
   'Data Analyst',
   'Legal Counsel',
   'UX/UI Designer',
-  'Project Manager',
+  'Event Manager',
   'Account Manager',
   'Registered Nurse',
   'Business Analyst',
@@ -360,7 +360,7 @@ export const _jobTitles = [
   'Financial Analyst',
   'Graphic Designer',
   'Sales Representative',
-  'Project Manager',
+  'Event Manager',
   'Data Scientist',
   'Human Resources Coordinator',
   'Accountant',
@@ -442,7 +442,7 @@ export const _tags = [
 // ----------------------------------------------------------------------
 
 export const _taskNames = [
-  'Complete Project Proposal',
+  'Complete Event Proposal',
   'Conduct Market Research',
   'Design User Interface Mockups',
   'Develop Backend API',
@@ -465,7 +465,7 @@ export const _taskNames = [
   'Create Training Materials',
   'Plan and Execute Marketing Campaign',
   'Develop Mobile Application',
-  'Coordinate Project Meetings',
+  'Coordinate Event Meetings',
 ];
 
 // ----------------------------------------------------------------------

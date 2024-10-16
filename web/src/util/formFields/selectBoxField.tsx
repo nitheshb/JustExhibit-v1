@@ -59,7 +59,7 @@ export const CustomSelect = ({
             maxMenuHeight={150}
             name={name}
             value={defaultValue(options, value)}
-            placeholder={label || 'All Projects'}
+            placeholder={label || 'All Events'}
             onChange={(value) => {
               onChange(value)
             }}

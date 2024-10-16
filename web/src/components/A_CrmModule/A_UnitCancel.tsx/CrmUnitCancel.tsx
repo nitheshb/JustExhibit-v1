@@ -195,7 +195,7 @@ export default function UnitBookingCancelCRM({
   const {
     id,
     Name,
-    Project,
+    Event,
     ProjectId,
     Source,
     status,
@@ -305,7 +305,7 @@ export default function UnitBookingCancelCRM({
   useEffect(() => {
     setAssignedTo(customerDetails?.assignedTo)
     setAssignerName(customerDetails?.assignedToObj?.label)
-    setSelProjectIs({ projectName: Project, uid: ProjectId })
+    setSelProjectIs({ projectName: Event, uid: ProjectId })
 
     setLeadStatus(status)
     console.log('assinger to yo yo', customerDetails, customerDetails?.status)
@@ -479,7 +479,7 @@ export default function UnitBookingCancelCRM({
       enqueueSnackbar
     )
     const msgPayload = {
-      projectName: Project,
+      projectName: Event,
       broucherLink: '',
       locLink: '',
       projContactNo: '',
@@ -511,7 +511,7 @@ export default function UnitBookingCancelCRM({
     // save assigner Details in db
     // projectName
     const x = {
-      Project: value.projectName,
+      Event: value.projectName,
       ProjectId: value.uid,
     }
     setSelProjectIs(value)

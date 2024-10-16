@@ -341,7 +341,7 @@ const AddPaymentDetailsForm = ({
       Mobile: customerInfo?.customerDetailsObj?.email1 || '',
       Name: customerInfo?.customerDetailsObj?.email1,
       Note: '',
-      Project: '',
+      Event: '',
       Source: 'Booking' || '',
       Status: 'unassigned',
       intype: 'DirectBooking',
@@ -464,7 +464,7 @@ const AddPaymentDetailsForm = ({
       id,
       {
         leadId: id,
-        projectName: leadDetailsObj2?.Project || projectDetails?.projectName,
+        projectName: leadDetailsObj2?.Event || projectDetails?.projectName,
         ProjectId: leadDetailsObj2?.ProjectId || selUnitDetails?.pId,
         // ...customerDetailsObj,
         Name: customerDetailsObj?.customerName1,

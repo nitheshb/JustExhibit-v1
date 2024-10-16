@@ -136,7 +136,7 @@ const CrmConstuctionModeHome = ({ leadsTyper }) => {
   const [isSubTopicOpen, setIsSubTopicOpen] = useState(false)
   const [isSubTopic, setIsSubTopic] = useState('')
   const [selProjectIs, setSelProject] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
 
@@ -502,7 +502,7 @@ const CrmConstuctionModeHome = ({ leadsTyper }) => {
                     value={selProjectIs?.value}
                     // options={aquaticCreatures}
                     options={[
-                      ...[{ label: 'All Projects', value: 'allprojects' }],
+                      ...[{ label: 'All Events', value: 'allprojects' }],
                       ...projectList,
                     ]}
                   />
@@ -662,7 +662,7 @@ const CrmConstuctionModeHome = ({ leadsTyper }) => {
                       value={selProjectIs?.value}
                       // options={aquaticCreatures}
                       options={[
-                        ...[{ label: 'All Projects', value: 'allprojects' }],
+                        ...[{ label: 'All Events', value: 'allprojects' }],
                         ...projectList,
                       ]}
                     />

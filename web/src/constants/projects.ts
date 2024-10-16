@@ -263,7 +263,7 @@ export const mortgageType = [
 
 export const projectDetailFlow = [
   {
-    name: 'Project Details',
+    name: 'Event Details',
     value: 'projectDetails',
     img: 'https://www.svgrepo.com/show/530258/medal.svg',
     indx: 0,
@@ -281,7 +281,7 @@ export const projectDetailFlow = [
     indx: 2,
   },
   {
-    name: 'Project Units',
+    name: 'Event Units',
     value: 'Blocks',
     img: 'https://www.svgrepo.com/show/530256/calculator.svg',
     indx: 3,
@@ -1252,7 +1252,7 @@ export const LegalFolders = [
 ]
 export const ProjectFolders = [
   {
-    name: 'Project Approvals',
+    name: 'Event Approvals',
     category: 'projectApprovals',
     size: '2.4 GB',
     type: 'folder',

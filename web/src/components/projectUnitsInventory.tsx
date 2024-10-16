@@ -241,7 +241,7 @@ const ProjectsUnitInventory = ({
       <SiderForm
         open={isOpenSideView}
         setOpen={setIsOpenSideView}
-        title={'Project Inventory'}
+        title={'Event Inventory'}
         projectDetails={projectDetails}
         unitsViewMode={true}
 

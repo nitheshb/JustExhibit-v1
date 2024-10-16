@@ -88,7 +88,7 @@ const ExecutiveHomeViewerPage = ({ leadsTyper, isClicked, setIsClicked }) => {
   const [uuidKey, setUuidKey] = useState(uuidv4())
   const [searchValue, setSearchValue] = useState('')
   const [selProjectIs, setSelProject] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
   const [selLeadsOf, setSelLeadsOf] = useState({
@@ -500,7 +500,7 @@ const ExecutiveHomeViewerPage = ({ leadsTyper, isClicked, setIsClicked }) => {
     console.log('raw max is ==>  ', x.length, x)
     if (selProjectIs?.value != 'allprojects') {
       const z = x
-        .filter((d1) => d1.Project === selProjectIs?.value)
+        .filter((d1) => d1.Event === selProjectIs?.value)
         .filter((item) => {
           if (startDate !== null && endDate != null) {
             return (
@@ -719,7 +719,7 @@ const ExecutiveHomeViewerPage = ({ leadsTyper, isClicked, setIsClicked }) => {
                     value={selProjectIs?.value}
                     // options={aquaticCreatures}
                     options={[
-                      ...[{ label: 'All Projects', value: 'allprojects' }],
+                      ...[{ label: 'All Events', value: 'allprojects' }],
                       ...projectList,
                     ]}
                   />

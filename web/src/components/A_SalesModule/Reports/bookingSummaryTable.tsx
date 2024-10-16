@@ -236,7 +236,7 @@ const ProjectBookingSummaryTable = ({ projects }) => {
     <div className="p-4 m-1 border-[#e7e5eb] bg-white rounded-lg">
       <div className="flex justify-between">
         <div className="text-[#1f2937] font-[600] text-xl mb-2 ml-2">
-          Project Booking Report
+          Event Booking Report
         </div>
 
         {/* <div className="mb-4">
@@ -290,7 +290,7 @@ const ProjectBookingSummaryTable = ({ projects }) => {
             )}
           </tr>
           <tr className="bg-gray-50   text-gray-600 text-sm leading-normal">
-            <th className="py-3 px-6 text-left">Project Name</th>
+            <th className="py-3 px-6 text-left">Event Name</th>
 
             <th className="py-3 px-6 text-right w-[100px]">Total Sold</th>
             <th className="py-3  text-right w-[100px]">Stats</th>

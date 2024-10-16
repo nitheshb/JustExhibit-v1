@@ -92,7 +92,7 @@ const CrmMortgageSummaryTable = ({ projects }) => {
           <div className="flex justify-between mb-4 mt-2">
             <div>
               <p className="font-bold text-black p-1 m-1">
-                Project Mortgage Details
+                Event Mortgage Details
               </p>
             </div>
 
@@ -102,7 +102,7 @@ const CrmMortgageSummaryTable = ({ projects }) => {
               value={selectedOption}
               onChange={handleOptionChange}
             >
-              <option value="All">Project Name</option>
+              <option value="All">Event Name</option>
               {/* <option value="Unit Type">Unit Type</option>
               <option value="Unit Facing">Unit Facing</option>
               <option value="Unit Status">Unit Status</option>
@@ -138,7 +138,7 @@ const CrmMortgageSummaryTable = ({ projects }) => {
                 </tr>
                 <tr className="bg-white text-gray-900  text-sm leading-normal">
                   <th className="py-3 px-3 text-left border border-gray-300">
-                    Project Name
+                    Event Name
                   </th>
                   <th
                     className="py-3 px-3 text-left border border-gray-300"

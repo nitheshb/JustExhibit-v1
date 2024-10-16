@@ -274,7 +274,7 @@ export default function UnitSideViewCRM({
   const {
     id,
     Name,
-    Project,
+    Event,
     ProjectId,
     Source,
     status,
@@ -385,7 +385,7 @@ export default function UnitSideViewCRM({
   useEffect(() => {
     setAssignedTo(customerDetails?.assignedTo)
     setAssignerName(customerDetails?.assignedToObj?.label)
-    setSelProjectIs({ projectName: Project, uid: ProjectId })
+    setSelProjectIs({ projectName: Event, uid: ProjectId })
 
     setLeadStatus(status)
     console.log('assinger to yo yo', customerDetails, customerDetails?.status)
@@ -573,7 +573,7 @@ export default function UnitSideViewCRM({
     })
 
     const msgPayload = {
-      projectName: Project,
+      projectName: Event,
       broucherLink: '',
       locLink: '',
       projContactNo: '',
@@ -605,7 +605,7 @@ export default function UnitSideViewCRM({
     // save assigner Details in db
     // projectName
     const x = {
-      Project: value.projectName,
+      Event: value.projectName,
       ProjectId: value.uid,
     }
     setSelProjectIs(value)

@@ -81,10 +81,10 @@ const headCells = [
     label: 'Source',
   },
   {
-    id: 'Project',
+    id: 'Event',
     numeric: false,
     disablePadding: false,
-    label: 'Project',
+    label: 'Event',
   },
   {
     id: 'Currentstatus',
@@ -189,7 +189,7 @@ const EnhancedTableToolbar = (props) => {
         item.Email.toLowerCase().includes(searchString.toLowerCase()) ||
         item.Mobile.toLowerCase().includes(searchString.toLowerCase()) ||
         item.Name.toLowerCase().includes(searchString.toLowerCase()) ||
-        item.Project.toLowerCase().includes(searchString.toLowerCase()) ||
+        item.Event.toLowerCase().includes(searchString.toLowerCase()) ||
         item.Source.toLowerCase().includes(searchString.toLowerCase()) ||
         item.Status.toLowerCase().includes(searchString.toLowerCase())
       ) {
@@ -345,7 +345,7 @@ export default function TodayLeadsActivitySearchView({
   const [userTodayPerfA, setUserTodayPerfA] = useState({})
 
   const [selProjectIs, setSelProject] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
   const [selLeadsOf, setSelLeadsOf] = useState({
@@ -749,7 +749,7 @@ export default function TodayLeadsActivitySearchView({
                     value={selProjectIs?.value}
                     // options={aquaticCreatures}
                     options={[
-                      ...[{ label: 'All Projects', value: 'allprojects' }],
+                      ...[{ label: 'All Events', value: 'allprojects' }],
                       ...projectList,
                     ]}
                   />
@@ -902,7 +902,7 @@ export default function TodayLeadsActivitySearchView({
                    }
                     </span>{' '}
                    tasks
-  
+
                    </h2> */}
                     </section>
                     <section className="ml-1">
@@ -928,16 +928,16 @@ export default function TodayLeadsActivitySearchView({
           )}
 
 
-          
-
-          
 
 
 
 
 
 
-          
+
+
+
+
 
 
 
@@ -1133,17 +1133,17 @@ export default function TodayLeadsActivitySearchView({
                               <span className="inline-flex mr-4">
                                 <span className="text-sm  font-light  font text-gray-700 ">
                                   {' '}
-                                  {'Project'}:{'  '}
+                                  {'Event'}:{'  '}
                                 </span>
                                 <span className="text-sm ml-1 font-semibold">
                                   {''}
-                                  {leadUser?.Project}
+                                  {leadUser?.Event}
                                 </span>
                               </span>
                               <span className="inline-flex mr-4">
                                 <span className="text-sm  font-light  font text-gray-700 ">
                                   {' '}
-                                  {'Project'}:{'  '}
+                                  {'Event'}:{'  '}
                                 </span>
                                 <span className="text-sm ml-1 font-semibold">
                                   {''}

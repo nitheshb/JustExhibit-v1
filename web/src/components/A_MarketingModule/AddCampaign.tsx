@@ -371,7 +371,7 @@ const AddCampaignForm = ({ mode, dialogOpen, campaignPaylaod }) => {
                             <div className="w-full flex flex-col mb-3 mt-2">
                               <CustomSelect
                                 name="project"
-                                label="Select Project"
+                                label="Select Event"
                                 className="input mt-3"
                                 onChange={(value) => {
                                   console.log('value of project is ', value)

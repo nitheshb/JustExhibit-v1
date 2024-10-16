@@ -711,7 +711,7 @@ const HeadSideBarDetailView2 = ({
                   onClick={() => setViewable('inProgress')}
                 >
                   <span className="flex items-center ml-">
-                    <span className="text-md font-bold pl-1 ">My Projects</span>
+                    <span className="text-md font-bold pl-1 ">My Events</span>
                   </span>
                   <span className="flex ml-auto items-bottom">
                     <span
@@ -748,7 +748,7 @@ const HeadSideBarDetailView2 = ({
                           </g>
                         </svg>
                       </span>
-                      <span className="text-sm pl-1">Ongoing Projects</span>
+                      <span className="text-sm pl-1">Ongoing Events</span>
                     </span>
                     <span className="flex ml-auto items-bottom">
                       <span
@@ -1000,7 +1000,7 @@ const HeadSideBarDetailView2 = ({
                         </g>
                       </svg>
                     </span>
-                    <span className="text-md font-bold pl-2 ">Projects</span>
+                    <span className="text-md font-bold pl-2 ">Events</span>
                   </span>
                   <span className="flex ml-auto items-bottom">
                     <span
@@ -1271,7 +1271,7 @@ const HeadSideBarDetailView2 = ({
                         </span>
 
                         <span className="text-sm pl-[6px] ">
-                          Projects Inventory
+                          Events Inventory
                         </span>
                       </span>
                       <span className="flex ml-auto items-bottom">
@@ -1576,7 +1576,7 @@ const HeadSideBarDetailView2 = ({
                           'flex items-center text-sm py-1  h-9 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out cursor-pointer ' +
                           (pgName === 'home' ? 'bg-gray-300' : '')
                         }
-                        onClick={() => setViewable('Projects Lead Report')}
+                        onClick={() => setViewable('Events Lead Report')}
                       >
                         <span className="flex items-center">
                           <span style={{ color: '#692fc2' }}>

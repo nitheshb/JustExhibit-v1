@@ -33,11 +33,11 @@ const HeadNavBar2 = ({selModule, setSelModule}) => {
 
   return (
     <div>
-      <div className="flex items-center flex-shrink-0 h-14 px-2  pl-0 bg-white border-b ">
+      <div className="flex items-center flex-shrink-0 h-14 px-2 mt-2 pl-0 border rounded-xl shadow mr-2 ">
         <span
           style={{ marginLeft: '10px' }}
           className="relative z-10 flex items-center text-md font-extrabold leading-none text-black select-none pl-0 ml-4"
-        >REDEFINE ERP .</span>
+        >JustMarket .</span>
             <section className="mt-1">
             <ModuleSwitchDrop
               type={selModule}
@@ -47,7 +47,7 @@ const HeadNavBar2 = ({selModule, setSelModule}) => {
               pickedValue={selModule}
             />
           </section>
-          <GlobalSearchBar />
+          {/* <GlobalSearchBar /> */}
         <button className="flex items-center justify-center h-10 px-4 ml-auto "></button>
         <button className="flex items-center justify-center h-10 text-sm font-medium "></button>
         <Box

@@ -566,7 +566,7 @@ ${x?.length > 0 ? `${personalFinalText}` : ''}\n \n
         <section className="mt-4">Templates</section>
         {[
           { label: 'Task Man', value: 'enquiry_journey_status' },
-          { label: 'Project Finance', value: 'CRM_status' },
+          { label: 'Event Finance', value: 'CRM_status' },
           { label: 'Sale Projections', value: 'Legal_status' },
           { label: 'Home', value: 'project_home' },
         ].map((data, i) => {

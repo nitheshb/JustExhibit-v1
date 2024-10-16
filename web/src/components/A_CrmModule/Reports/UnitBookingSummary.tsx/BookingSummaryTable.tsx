@@ -48,7 +48,7 @@ import { computeTotal } from 'src/util/computeCsTotals'
 //   Name,
 //   Mobile,
 //   Email,
-//   Project,
+//   Event,
 //   Source,
 //   Empmobile,
 //   Note
@@ -58,7 +58,7 @@ import { computeTotal } from 'src/util/computeCsTotals'
 //     Name,
 //     Mobile,
 //     Email,
-//     Project,
+//     Event,
 //     Source,
 //     Empmobile,
 //     Note,
@@ -124,11 +124,11 @@ const headCells = [
     label: 'Unit',
   },
   {
-    id: 'Project',
+    id: 'Event',
     numeric: false,
     disablePadding: false,
     align: 'left',
-    label: 'Project',
+    label: 'Event',
   },
   {
     id: 'Clientdetails',
@@ -339,7 +339,7 @@ const EnhancedTableToolbar = (props) => {
       row.AssignedTo = data?.assignedToObj?.name
       row.Source = data?.Source
       row.Status = data?.Status
-      row.Project = data?.Project
+      row.Event = data?.Event
       row.Remarks = remark
 
       downRows.push(row)
@@ -366,7 +366,7 @@ React.useEffect(()=>{
         item.Email.toLowerCase().includes(searchString.toLowerCase()) ||
         item.Mobile.toLowerCase().includes(searchString.toLowerCase()) ||
         item.Name.toLowerCase().includes(searchString.toLowerCase()) ||
-        item.Project.toLowerCase().includes(searchString.toLowerCase()) ||
+        item.Event.toLowerCase().includes(searchString.toLowerCase()) ||
         item.Source.toLowerCase().includes(searchString.toLowerCase()) ||
         item.Status.toLowerCase().includes(searchString.toLowerCase())
       ) {

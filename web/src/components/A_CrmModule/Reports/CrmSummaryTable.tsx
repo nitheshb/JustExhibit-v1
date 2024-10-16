@@ -53,7 +53,7 @@ const CrmInventorySummaryTable = ({ projects }) => {
               value={selectedOption}
               onChange={handleOptionChange}
             >
-              <option value="All">Project Name</option>
+              <option value="All">Event Name</option>
               <option value="Unit Type">Unit Type</option>
               <option value="Unit Facing">Unit Facing</option>
               <option value="Unit Status">Unit Status</option>
@@ -69,12 +69,12 @@ const CrmInventorySummaryTable = ({ projects }) => {
                     className="py-3 px-2 text-center border border-black"
                     colSpan="6"
                   >
-                    Inventory Summary Report By Project
+                    Inventory Summary Report By Event
                   </th>
                 </tr>
                 <tr className="bg-white text-gray-900  text-sm leading-normal">
                   <th className="py-3 px-3 text-left border border-black">
-                    Project Name
+                    Event Name
                   </th>
                   <th
                     className="py-3 px-3 text-left border border-black"

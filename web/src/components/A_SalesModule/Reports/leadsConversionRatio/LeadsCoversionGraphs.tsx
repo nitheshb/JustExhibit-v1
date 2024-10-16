@@ -528,7 +528,7 @@ const LeadsCoversionGraphs = ({
                           value={viewProjs?.value}
                           options={[
                             ...[
-                              { label: 'All Projects', value: 'allprojects' },
+                              { label: 'All Events', value: 'allprojects' },
                             ],
                             ...projectList,
                           ]}

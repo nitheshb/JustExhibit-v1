@@ -44,7 +44,7 @@ const LeadsDisplayTable = ({
   const { orgId } = user
   const [sortedList, setSortedList] = useState([])
   const [selProjectIs, setSelProject] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
 
@@ -105,7 +105,7 @@ const LeadsDisplayTable = ({
               return b.cT - a.cT
             })
         )
-       
+
       }
     }
   }, [leadsRawList, searchKey, selProjectIs])
@@ -190,7 +190,7 @@ const LeadsDisplayTable = ({
                     value={selProjectIs?.value}
                     // options={aquaticCreatures}
                     options={[
-                      ...[{ label: 'All Projects', value: 'allprojects' }],
+                      ...[{ label: 'All Events', value: 'allprojects' }],
                       ...allProjectsA,
                     ]}
                   />

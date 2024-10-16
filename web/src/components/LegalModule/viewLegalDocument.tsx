@@ -163,7 +163,7 @@ export default function LegalDocsViewHome({
                                 <section className="flex flex-col bg-[#F6F7FF] p-3 border border-[#e5e7f8] rounded-md ">
                                   <section className="flex flow-row justify-between mb-1">
                                     <div className="font-md text-xs text-gray-700 tracking-wide">
-                                      Project
+                                      Event
                                     </div>
                                     <div className="font-md text-xs tracking-wide font-semibold text-slate-900 ">
                                       {12000}

@@ -179,7 +179,7 @@ const ProjectAuditHome = ({ title, dialogOpen, data, projectDetails }) => {
               disabled={loading}
             >
               {loading && <Loader />}
-              Project Audit
+              Event Audit
             </button>
             <div className=" flex">
               <div className="flex flex-col">

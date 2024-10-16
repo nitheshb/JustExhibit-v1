@@ -119,7 +119,7 @@ function createData(
   Source,
   Assignedto,
   Status,
-  Project,
+  Event,
   Note
 ) {
   return {
@@ -128,7 +128,7 @@ function createData(
     Name,
     Mobile,
     Email,
-    Project,
+    Event,
     Assignedto,
     Source,
     Status,

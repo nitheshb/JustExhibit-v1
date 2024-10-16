@@ -4,8 +4,8 @@ export const userAccessRoles = [
     uid: 'A42739568414737450Z',
     id: 1,
     access: [
-      { name: 'Manage Project', key: 'manage_project', checked: true },
-      { name: 'View Project', key: 'view_project', checked: true },
+      { name: 'Manage Event', key: 'manage_project', checked: true },
+      { name: 'View Event', key: 'view_project', checked: true },
       { name: 'Update Unit Status', checked: true, key: 'update_unit_status' },
       { key: 'view_leads', name: 'View Leads', checked: true },
       { checked: true, name: 'Update Leads', key: 'update_leads' },
@@ -27,8 +27,8 @@ export const userAccessRoles = [
     uid: 'A65873091712635464Z',
     type: 'CRM Manager',
     access: [
-      { name: 'Manage Project', checked: false, key: 'manage_project' },
-      { name: 'View Project', checked: false, key: 'view_project' },
+      { name: 'Manage Event', checked: false, key: 'manage_project' },
+      { name: 'View Event', checked: false, key: 'view_project' },
       { name: 'Update Unit Status', key: 'update_unit_status', checked: false },
       { name: 'View Leads', key: 'view_leads', checked: false },
       { checked: false, key: 'update_leads', name: 'Update Leads' },
@@ -46,8 +46,8 @@ export const userAccessRoles = [
   {
     uid: 'A17467271233249648Z',
     access: [
-      { key: 'manage_project', name: 'Manage Project', checked: false },
-      { key: 'view_project', checked: false, name: 'View Project' },
+      { key: 'manage_project', name: 'Manage Event', checked: false },
+      { key: 'view_project', checked: false, name: 'View Event' },
       { name: 'Update Unit Status', checked: false, key: 'update_unit_status' },
       { name: 'View Leads', key: 'view_leads', checked: false },
       { key: 'update_leads', name: 'Update Leads', checked: false },
@@ -70,8 +70,8 @@ export const userAccessRoles = [
     type: 'HR Manager',
     uid: 'A53516328944166360Z',
     access: [
-      { name: 'Manage Project', checked: false, key: 'manage_project' },
-      { checked: false, key: 'view_project', name: 'View Project' },
+      { name: 'Manage Event', checked: false, key: 'manage_project' },
+      { checked: false, key: 'view_project', name: 'View Event' },
       { key: 'update_unit_status', checked: false, name: 'Update Unit Status' },
       { checked: false, name: 'View Leads', key: 'view_leads' },
       { checked: false, name: 'Update Leads', key: 'update_leads' },
@@ -93,8 +93,8 @@ export const userAccessRoles = [
     category: 'HR',
     type: 'HR Executive',
     access: [
-      { checked: false, name: 'Manage Project', key: 'manage_project' },
-      { key: 'view_project', name: 'View Project', checked: false },
+      { checked: false, name: 'Manage Event', key: 'manage_project' },
+      { key: 'view_project', name: 'View Event', checked: false },
       { checked: false, name: 'Update Unit Status', key: 'update_unit_status' },
       { key: 'view_leads', name: 'View Leads', checked: false },
       { checked: false, key: 'update_leads', name: 'Update Leads' },
@@ -111,8 +111,8 @@ export const userAccessRoles = [
   },
   {
     access: [
-      { name: 'Manage Project', key: 'manage_project', checked: false },
-      { checked: false, name: 'View Project', key: 'view_project' },
+      { name: 'Manage Event', key: 'manage_project', checked: false },
+      { checked: false, name: 'View Event', key: 'view_project' },
       { checked: false, name: 'Update Unit Status', key: 'update_unit_status' },
       { name: 'View Leads', key: 'view_leads', checked: false },
       { checked: false, name: 'Update Leads', key: 'update_leads' },
@@ -137,8 +137,8 @@ export const userAccessRoles = [
     category: 'LEGAL',
     type: 'Legal Executive',
     access: [
-      { key: 'manage_project', checked: false, name: 'Manage Project' },
-      { name: 'View Project', checked: false, key: 'view_project' },
+      { key: 'manage_project', checked: false, name: 'Manage Event' },
+      { name: 'View Event', checked: false, key: 'view_project' },
       { key: 'update_unit_status', name: 'Update Unit Status', checked: false },
       { name: 'View Leads', key: 'view_leads', checked: false },
       { checked: false, key: 'update_leads', name: 'Update Leads' },
@@ -159,8 +159,8 @@ export const userAccessRoles = [
     type: 'Sales Manager',
     uid: 'A56057873139336480Z',
     access: [
-      { name: 'Manage Project', key: 'manage_project', checked: false },
-      { checked: false, key: 'view_project', name: 'View Project' },
+      { name: 'Manage Event', key: 'manage_project', checked: false },
+      { checked: false, key: 'view_project', name: 'View Event' },
       { key: 'update_unit_status', checked: false, name: 'Update Unit Status' },
       { name: 'View Leads', key: 'view_leads', checked: true },
       { key: 'update_leads', name: 'Update Leads', checked: true },
@@ -177,8 +177,8 @@ export const userAccessRoles = [
   },
   {
     access: [
-      { name: 'Manage Project', key: 'manage_project', checked: false },
-      { checked: false, key: 'view_project', name: 'View Project' },
+      { name: 'Manage Event', key: 'manage_project', checked: false },
+      { checked: false, key: 'view_project', name: 'View Event' },
       { name: 'Update Unit Status', checked: false, key: 'update_unit_status' },
       { checked: true, name: 'View Leads', key: 'view_leads' },
       { checked: false, key: 'update_leads', name: 'Update Leads' },
@@ -199,8 +199,8 @@ export const userAccessRoles = [
   },
   {
     access: [
-      { name: 'Manage Project', key: 'manage_project', checked: false },
-      { checked: false, key: 'view_project', name: 'View Project' },
+      { name: 'Manage Event', key: 'manage_project', checked: false },
+      { checked: false, key: 'view_project', name: 'View Event' },
       { name: 'Update Unit Status', checked: false, key: 'update_unit_status' },
       { checked: true, name: 'View Leads', key: 'view_leads' },
       { checked: false, key: 'update_leads', name: 'Update Leads' },
@@ -223,10 +223,10 @@ export const userAccessRoles = [
     id: 13,
     uid: 'A60052484155844296Z',
     category: 'PROJECT',
-    type: 'Project manager',
+    type: 'Event manager',
     access: [
-      { key: 'manage_project', checked: false, name: 'Manage Project' },
-      { name: 'View Project', checked: false, key: 'view_project' },
+      { key: 'manage_project', checked: false, name: 'Manage Event' },
+      { name: 'View Event', checked: false, key: 'view_project' },
       { key: 'update_unit_status', name: 'Update Unit Status', checked: false },
       { name: 'View Leads', key: 'view_leads', checked: false },
       { checked: false, key: 'update_leads', name: 'Update Leads' },
@@ -245,10 +245,10 @@ export const userAccessRoles = [
     id: 14,
     uid: 'A60052484155844296Z',
     category: 'PROJECT',
-    type: 'Project Executive',
+    type: 'Event Executive',
     access: [
-      { key: 'manage_project', checked: false, name: 'Manage Project' },
-      { name: 'View Project', checked: false, key: 'view_project' },
+      { key: 'manage_project', checked: false, name: 'Manage Event' },
+      { name: 'View Event', checked: false, key: 'view_project' },
       { key: 'update_unit_status', name: 'Update Unit Status', checked: false },
       { name: 'View Leads', key: 'view_leads', checked: false },
       { checked: false, key: 'update_leads', name: 'Update Leads' },
@@ -269,8 +269,8 @@ export const userAccessRoles = [
     category: 'admin_support',
     type: 'admin support manager',
     access: [
-      { key: 'manage_project', checked: false, name: 'Manage Project' },
-      { name: 'View Project', checked: false, key: 'view_project' },
+      { key: 'manage_project', checked: false, name: 'Manage Event' },
+      { name: 'View Event', checked: false, key: 'view_project' },
       { key: 'update_unit_status', name: 'Update Unit Status', checked: false },
       { name: 'View Leads', key: 'view_leads', checked: false },
       { checked: false, key: 'update_leads', name: 'Update Leads' },

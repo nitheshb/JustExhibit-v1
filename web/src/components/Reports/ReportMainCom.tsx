@@ -60,7 +60,7 @@ export default function ReportMainCom() {
   const [projectList, setprojectList] = useState([])
   const [projectFilList, setFiltProjectListTuned] = useState([])
   const [viewProjs, selProjs] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
   const [empListTuned, setEmployeeListTuned] = useState([])
@@ -74,7 +74,7 @@ export default function ReportMainCom() {
 
   const [projectListTuned, setProjectListTuned] = useState([])
   const [selEmpIsProject, setSelProjectEmp] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
   const [EmpRawFilData, setEmpRawFilData] = useState([])
@@ -82,7 +82,7 @@ export default function ReportMainCom() {
   const [resettingEmpValues, setResettingEmpValues] = React.useState(false)
 
   const [selProjectIs, setSelProject] = useState({
-    label: 'All Projects',
+    label: 'All Events',
     value: 'allprojects',
   })
   const [sourceRawFilData, setSourceRawFilData] = useState([])
@@ -495,7 +495,7 @@ export default function ReportMainCom() {
         }}
         value={viewProjs?.value}
         options={[
-          ...[{ label: 'All Projects', value: 'allprojects' }],
+          ...[{ label: 'All Events', value: 'allprojects' }],
           ...projectList,
         ]}
       />
@@ -512,7 +512,7 @@ export default function ReportMainCom() {
         }}
         value={selEmpIsProject?.value}
         options={[
-          ...[{ label: 'All Projects', value: 'allprojects' }],
+          ...[{ label: 'All Events', value: 'allprojects' }],
           ...projectList,
           ,
         ]}
@@ -753,7 +753,7 @@ export default function ReportMainCom() {
           >
             <div style={{ height: '100%', overflow: 'scroll' }}>
               <ReportCard
-                title="Project vs Status"
+                title="Event vs Status"
                 headers={[
                   { label: 'Source', id: 'label' },
                   { label: 'Percentage', id: 'percentage' },
