@@ -11,7 +11,7 @@
 //     timeZone: 'Asia/Kolkata', // Set the time zone to India
 //   }
 
-  
+
 
 //   return d.toLocaleString('en-IN', options)
 // }
@@ -59,8 +59,8 @@ export function prettyDate(d) {
   ]
 
   return (
-    months[date.getUTCMonth()] + '-' +
     date.getUTCDate() + '-' +
+    months[date.getUTCMonth()] + '-' +
     date.getUTCFullYear()
   )
 }

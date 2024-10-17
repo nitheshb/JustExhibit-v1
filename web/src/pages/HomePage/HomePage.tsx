@@ -516,273 +516,18 @@ const HomePage = () => {
                               viewable != 'Virtual Accounts' &&
                               viewable != 'unitsInventory' && (
                                 <>
-                                  <section className="bg-white py-4 px-4 flex flex-row rounded-sm">
-                                    <section className="w-[25%]">
-                                      <span className="text-slate-600 text-lg font-medium">
-                                        Events
-                                      </span>
-                                      <div className="w-[299.02px] h-[0px] border border-stone-300 mt-2"></div>
-                                      <section className="flex flex-row">
-                                        <div className="text-sky-950 text-5xl font-semibold font-['Manrope'] leading-[80px]">
-                                          {/* {projects?.length} */}
-                                          <CountUpComp
-                                            value={projects?.length}
-                                          />
-                                        </div>
-                                        <div className="text-slate-400 text-lg font-medium  leading-[30px] mt-8 ml-2">
-                                          Events
-                                        </div>
-                                      </section>
 
-                                      <section className="flex flex-row pl-1">
-                                        <section className="flex flex-row pl-1">
-                                          <section className="flex flex-col">
-                                            <div className="w-[21px] h-[21px] bg-emerald-500" />
-                                            <div className="w-[21px] h-[38px] bg-violet-500" />
-                                            <div className="w-[21px] h-[70px] bg-cyan-400" />
-                                          </section>
-
-                                          <section className="ml-6">
-                                            <div className="flex flex-row">
-                                              <div className="w-3.5 h-3.5 bg-emerald-500 mt-[9px]" />
-                                              <div className="text-sky-950 text-2xl font-semibold font-['Manrope'] ml-3">
-                                                <CountUpComp
-                                                  value={
-                                                    projects.filter(
-                                                      (log) =>
-                                                        log.status == 'ongoing'
-                                                    ).length
-                                                  }
-                                                />
-                                              </div>
-                                              <div className="text-slate-400  font-medium  text-[12px] ml-[2px] mt-[10px]">
-                                                On Going
-                                              </div>
-                                            </div>
-
-                                            <div className="flex flex-row mt-3">
-                                              <div className="w-3.5 h-3.5 bg-violet-500 mt-[9px]" />
-                                              <div className="text-sky-950 text-2xl font-semibold font-['Manrope'] ml-3">
-                                                {
-                                                  projects.filter(
-                                                    (log) =>
-                                                      log.status == 'completed'
-                                                  ).length
-                                                }
-                                              </div>
-                                              <div className="text-slate-400  font-medium   text-[12px] ml-[2px] mt-[10px]">
-                                                Completed
-                                              </div>
-                                            </div>
-                                            <div className="flex flex-row mt-3">
-                                              <div className="w-3.5 h-3.5 bg-cyan-400 mt-[9px]" />
-                                              <div className="text-sky-950 text-2xl font-semibold font-['Manrope'] ml-3">
-                                                {
-                                                  projects.filter(
-                                                    (log) =>
-                                                      log.status != 'ongoing'
-                                                  ).length
-                                                }
-                                              </div>
-                                              <div className="text-slate-400  font-medium   text-[12px] ml-[2px] mt-[10px]">
-                                                Coming Soon
-                                              </div>
-                                            </div>
-                                          </section>
-                                        </section>
-                                      </section>
-                                    </section>
-                                    {/* Assets */}
-                                    <section className="mx-3 w-[25%]">
-                                      <span className="text-slate-600 text-lg font-medium ">
-                                        Units
-                                      </span>
-                                      <div className="w-[299.02px] h-[0px] border border-stone-300 mt-2"></div>
-                                      <section className="flex flex-row">
-                                        <div className="text-sky-950 text-5xl font-semibold font-['Manrope'] leading-[80px]">
-                                          <CountUpComp
-                                            value={projects.reduce(
-                                              (acc, project) =>
-                                                acc +
-                                                (project?.totalUnitCount || 0),
-                                              0
-                                            )}
-                                          />
-                                        </div>
-                                        <div className="text-slate-400 text-lg font-medium  leading-[30px] mt-8 ml-2">
-                                          Units
-                                        </div>
-                                      </section>
-
-                                      <section className="flex flex-row pl-1">
-                                        <section className="flex flex-col">
-                                          <div className="w-[21px] h-[21px] bg-emerald-500" />
-                                          <div className="w-[21px] h-[38px] bg-violet-500" />
-                                          <div className="w-[21px] h-[70px] bg-cyan-400" />
-                                        </section>
-
-                                        <section className="ml-6">
-                                          <div className="flex flex-row">
-                                            <div className="w-3.5 h-3.5 bg-emerald-500 mt-[9px]" />
-                                            <div className="text-sky-950 text-2xl font-semibold font-['Manrope'] ml-3">
-                                              <CountUpComp
-                                                value={projects.reduce(
-                                                  (acc, project) => {
-                                                    if (
-                                                      project?.projectType
-                                                        ?.name === 'Plots'
-                                                    ) {
-                                                      return (
-                                                        acc +
-                                                        (project.totalUnitCount ||
-                                                          0)
-                                                      )
-                                                    }
-                                                    return acc
-                                                  },
-                                                  0
-                                                )}
-                                              />
-                                            </div>
-                                            <div className="text-slate-400  font-medium  text-[12px] ml-[2px] mt-[10px]">
-                                              Plots
-                                            </div>
-                                          </div>
-
-                                          <div className="flex flex-row mt-3">
-                                            <div className="w-3.5 h-3.5 bg-violet-500 mt-[9px]" />
-                                            <div className="text-sky-950 text-2xl font-semibold font-['Manrope'] ml-3">
-                                              <CountUpComp
-                                                value={projects.reduce(
-                                                  (acc, project) => {
-                                                    if (
-                                                      project?.projectType
-                                                        ?.name === 'Apartment'
-                                                    ) {
-                                                      return (
-                                                        acc +
-                                                        (project.totalUnitCount ||
-                                                          0)
-                                                      )
-                                                    }
-                                                    return acc
-                                                  },
-                                                  0
-                                                )}
-                                              />
-                                            </div>
-                                            <div className="text-slate-400  font-medium   text-[12px] ml-[2px] mt-[10px]">
-                                              Apartments
-                                            </div>
-                                          </div>
-                                          <div className="flex flex-row mt-3">
-                                            <div className="w-3.5 h-3.5 bg-cyan-400 mt-[9px]" />
-                                            <div className="text-sky-950 text-2xl font-semibold font-['Manrope'] ml-3">
-                                              <CountUpComp
-                                                value={projects.reduce(
-                                                  (acc, project) => {
-                                                    if (
-                                                      project?.projectType
-                                                        ?.name === 'Villas'
-                                                    ) {
-                                                      return (
-                                                        acc +
-                                                        (project.totalUnitCount ||
-                                                          0)
-                                                      )
-                                                    }
-                                                    return acc
-                                                  },
-                                                  0
-                                                )}
-                                              />
-                                            </div>
-                                            <div className="text-slate-400  font-medium   text-[12px] ml-[2px] mt-[10px]">
-                                              Villas
-                                            </div>
-                                          </div>
-                                        </section>
-                                      </section>
-                                    </section>
-                                    {/* Assets */}
-
-                                    {/* Assets */}
-                                    <section className="mx-3 w-[25%]">
-                                      <span className="text-slate-600 text-lg font-medium ">
-                                        Portfolio
-                                      </span>
-                                      <div className="w-[299.02px] h-[0px] border border-stone-300 mt-2"></div>
-                                      <section className="flex flex-row">
-                                        <div className="text-sky-950 text-5xl font-semibold font-['Manrope'] leading-[80px]">
-                                          <CountUpComp
-                                            value={projects.reduce(
-                                              (acc, project) =>
-                                                acc +
-                                                (project?.soldUnitCount || 0),
-                                              0
-                                            )}
-                                          />
-                                        </div>
-                                        <div className="text-slate-400 text-lg font-medium  leading-[30px] mt-8 ml-2">
-                                          Customers
-                                        </div>
-                                      </section>
-
-                                      <section className="flex flex-row pl-1">
-                                        <section className="flex flex-col">
-                                          <div className="w-[21px] h-[21px] bg-emerald-500" />
-                                          <div className="w-[21px] h-[38px] bg-violet-500" />
-                                          <div className="w-[21px] h-[70px] bg-cyan-400" />
-                                        </section>
-
-                                        <section className="ml-6">
-                                          <div className="flex flex-row">
-                                            <div className="w-3.5 h-3.5 bg-emerald-500 mt-[9px]" />
-                                            <div className="text-sky-950 text-2xl font-semibold font-['Manrope'] ml-3">
-                                              0
-                                            </div>
-                                            <div className="text-slate-400  font-medium  text-[12px] ml-[2px] mt-[10px]">
-                                              Posession
-                                            </div>
-                                          </div>
-
-                                          <div className="flex flex-row mt-3">
-                                            <div className="w-3.5 h-3.5 bg-violet-500 mt-[9px]" />
-                                            <div className="text-sky-950 text-2xl font-semibold font-['Manrope'] ml-3">
-                                              0
-                                            </div>
-                                            <div className="text-slate-400  font-medium   text-[12px] ml-[2px] mt-[10px]">
-                                              Released
-                                            </div>
-                                          </div>
-                                          <div className="flex flex-row mt-3">
-                                            <div className="w-3.5 h-3.5 bg-cyan-400 mt-[9px]" />
-                                            <div className="text-sky-950 text-2xl font-semibold font-['Manrope'] ml-3">
-                                              <CountUpComp
-                                                value={salesReportsDbData.reduce(
-                                                  (acc, project) =>
-                                                    acc + (project?.Total || 0),
-                                                  0
-                                                )}
-                                              />
-                                            </div>
-                                            <div className="text-slate-400  font-medium   text-[12px] ml-[2px] mt-[10px]">
-                                              Leads
-                                            </div>
-                                          </div>
-                                        </section>
-                                      </section>
-                                    </section>
-                                  </section>
 
                                   <div className="flex flex-row">
-                                    <section className="mx-3 w-[75%]">
+                                    <section className="-3 w-[75%] flex flex-col">
+                                      <div></div>
+                                      <div className=''>
                                       {projects.length > 0 ? (
-                                        <section className="bg-white py-2 rounded-sm">
+                                        <section className="bg-white py-2 rounded-xl shadow border">
                                           <div className="px-4">
                                             <div className="flex items-center justify-between py-2 pb-4  ">
-                                              <span className="relative  flex items-center w-auto text-md font-bold leading-none pl-0 font-Playfair">
-                                                ONGOING PROJECTS
+                                              <span className="relative  flex items-center w-auto text-md font-bold leading-none pl-0 ">
+                                                Upcoming events
                                                 {/* {viewable} */}
                                               </span>
                                               <button
@@ -811,7 +556,7 @@ const HomePage = () => {
                                               </button>
                                             </div>
                                           </div>
-                                          <section className="mx-2 rounded-xl bg-white shadow p-2">
+                                          <section className="">
                                             {projects.map((project) => (
                                               <ProjectsMHomeBody
                                                 key={project.uid}
@@ -834,11 +579,12 @@ const HomePage = () => {
                                         >
                                           <DummyBodyLayout />
                                         </span>
-                                      )}
+                                      )}</div>
                                     </section>
-                                    <section className="mx-3 w-[25%] flex flex-col gap-8 border shadow rounded-xl">
+                                    <section className="mx-3 w-[25%] flex flex-col gap-8 ">
                                       {' '}
-                                      <CalendarHome />{' '}
+                                     <div className='border shadow rounded-xl'>
+                                     <CalendarHome /></div> {' '}
                                     </section>
                                   </div>
                                 </>

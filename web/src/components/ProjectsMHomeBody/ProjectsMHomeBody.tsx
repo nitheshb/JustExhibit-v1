@@ -18,6 +18,7 @@ import CircleProgress from '../Charts_Graphs/CircleProgress'
 import PieChartProject from '../comps/pieChartProject'
 import ProjectStatsCard from '../ProjectStatsCard/ProjectStatsCard'
 import SiderForm from '../SiderForm/SiderForm'
+import { prettyDate } from 'src/util/dateConverter'
 
 const ProjectsMHomeBody = ({
   project,
@@ -171,59 +172,14 @@ const ProjectsMHomeBody = ({
     ],
   }
 
-  // const [unitsView, setUnitsView] = useState(false)
-  // const [areaView, setAreaView] = useState(false)
-  // const [valueView, setValueView] = useState(false)
 
-  // const [selbg, setSelbg] = useState('')
-  // const [seldata, setSeldata] = useState('')
-  // const [selkind, setSelkind] = useState('')
-  // const [selcurrency, setSelcurrency] = useState('')
-
-  // const [areabg, setAreabg] = useState('')
-  // const [areaData, setAreaData] = useState('')
-  // const [areakind, setAreakind] = useState('')
-  // const [areaCurrency, setareaCurrency] = useState('')
-
-  // const [valuebg, setValuebg] = useState('')
-  // const [valuedata, setValuedata] = useState('')
-  // const [valueKind, setValueKind] = useState('')
-  // const [valueCurrency, setValueCurrency] = useState('')
-  // const displayDetailView = (state, bgColor, data, kind, currency) => {
-  //   // console.log('am i clicked')
-  //   console.log('check')
-  //   setUnitsView(!unitsView)
-  //   setSelbg(bgColor)
-  //   setSeldata(data)
-  //   setSelkind(kind)
-  //   setSelcurrency(currency)
-  // }
-  // const areaDetailView = (state, bgColor, data, kind, currency) => {
-  //   // console.log('am i clicked')
-  //   console.log('check')
-  //   setAreaView(state)
-  //   setAreabg(bgColor)
-  //   setAreaData(data)
-  //   setAreakind(kind)
-  //   setareaCurrency(currency)
-  // }
-  // const valueDetailView = (state, bgColor, data, kind, currency) => {
-  //   // console.log('am i clicked')
-  //   console.log('check')
-  //   setValueView(state)
-  //   setValuebg(bgColor)
-  //   setValuedata(data)
-  //   setValueKind(kind)
-  //   setValueCurrency(currency)
-
-  //
   const chartSeries = data.series
   return (
     // <div className="px-4 pb-[0.1px] flex bg-white shadow-md rounded-lg max-w-sm dark:bg-gray-800 dark:border-gray-700 ">
     <>
-      <div onClick={() => setIsNewProjectOpen(true)} className="cursor-pointer">
+      <div onClick={() => setIsNewProjectOpen(true)} className="cursor-pointer mx-2 mb-2 rounded-xl bg-white shadow-full shadow border p-2">
         <div className="flex flex-row mb-[2px] ">
-          <div className="w-2/4 bg-[#E9E9F2]">
+          <div className="w-2/4">
             <div className="">
               <div className="MuiPaper-elevation  MuiPaper-elevation1 MuiCard-root css-1fwf2za-MuiPaper-root-MuiCard-root bg-gradient-to-r from-indigo-400 to-cyan-400 rounded-r-xl">
                 <Box mt={3} mb={1}>
@@ -239,14 +195,7 @@ const ProjectsMHomeBody = ({
                     </Link>
                   </div>
 
-                  {/* <section className="flex flex-row justify-between mt-4">
-                      <span className="text-sm  font-light  font text-gray-700 ">
-                        {projectType?.name}
-                      </span>
-                      <span className="text-sm  font-light  font text-gray-700 ">
-                        {builderName}
-                      </span>
-                    </section> */}
+
                   <section className="flex flex-row justify-between mt-2">
                     <span className="text-sm  font-light  font text-gray-800 ">
                       {projectType?.name}
@@ -264,7 +213,25 @@ const ProjectsMHomeBody = ({
               </div>
             </div>
           </div>
-          <div className="w-3/4 bg-[#E9E9F2] px-1 ">
+          <div className="w-2/4  px-1">
+            <div className="flex flex-col bg-white  my-2  px-2  py-2">
+              <h6 className="font-bodyLato font-semibold text-md my-1">
+              {project?.eventName}
+              </h6>
+
+              <span className='text-[12px]'>{prettyDate(project?.eventStartDate)} - {prettyDate(project?.eventEndDate)} </span>
+              <span className='text-[12px]'>{project?.location}</span>
+              <span className='text-[12px]'>{project?.city}</span>
+
+
+
+
+
+
+
+            </div>
+          </div>
+          <div className="w-3/4 px-1 ">
             {' '}
             <Box>
               <>
@@ -322,7 +289,7 @@ const ProjectsMHomeBody = ({
               </>
             </Box>
           </div>
-          <div className="w-2/4 bg-[#E9E9F2] ">
+          <div className="w-2/4 ">
             <div className="flex flex-col bg-white shadow rounded-md my-2  px-2  py-2">
               <h6 className="font-bodyLato font-semibold text-xs m-1 mb-4">
                 {'Status Pipeline'}
@@ -373,57 +340,7 @@ const ProjectsMHomeBody = ({
               </div>
             </div>
           </div>
-          <div className="w-2/4 bg-[#E9E9F2] px-1">
-            <div className="flex flex-col bg-white shadow rounded-md my-2  px-2  py-2">
-              <h6 className="font-bodyLato font-semibold text-xs m-1 mb-4">
-                {'Transactions'}
-              </h6>
-              <div className="flex flex-row justify-between px-1">
-                {[
-                  { item: 'Total', value: totalValue || 0 },
-                  { item: 'Sale', value: soldValue || 0 },
-                  { item: 'Collected', value: t_collect || 0 },
-                ].map((data, i) => (
-                  <div
-                    className=" w-1/4  mx-1"
-                    style={{ display: 'inline-block', alignSelf: 'flex-end' }}
-                    key={i}
-                  >
-                    <div className="flex flex-col  justify-center mr-1  mb-1 mt[2px]">
-                      <h6 className="font-bodyLato font-semibold text-xs mt-1">
-                        ₹{t(data?.value?.toLocaleString('en-IN'))}
-                      </h6>
-                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                        {t(data.item)}
-                      </h6>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div className="flex flex-row justify-between px-1 mt-3">
-                {[
-                  { item: 'MTD ', value: t_mtd || 0 },
-                  { item: 'Balance', value: t_bal || 0 },
-                  { item: 'Refunds', value: t_refund || 0 },
-                ].map((data, i) => (
-                  <div
-                    key={i}
-                    className=" w-1/4  mx-1"
-                    style={{ display: 'inline-block', alignSelf: 'flex-end' }}
-                  >
-                    <div className="flex flex-col  justify-center mr-1  mb-1 mt[2px]">
-                      <h6 className="font-bodyLato font-semibold text-xs mt-1">
-                        ₹{t(data?.value?.toLocaleString('en-IN'))}
-                      </h6>
-                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                        {t(data.item)}
-                      </h6>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
       <SiderForm

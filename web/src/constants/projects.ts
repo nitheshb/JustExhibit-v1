@@ -147,19 +147,19 @@ export const statesList = [
 
 export const projectPlans = [
   {
-    name: 'Apartment',
+    name: 'Offline',
     img: '/apart1.svg',
   },
   {
-    name: 'Plots',
+    name: 'Online',
     img: '/plot.svg',
   },
   {
-    name: 'WeekendVillas',
+    name: 'Both',
     img: '/weekend.svg',
   },
   {
-    name: 'Villas',
+    name: 'Others',
     img: '/villa.svg',
   },
 ]

@@ -1784,7 +1784,7 @@ export const getPlanDiagramByPhase = async (orgId, data, snapshot, error) => {
 }
 export const getProject = async (orgId, uid: string) => {
   try {
-    const userRef = doc(db, `${orgId}_projects`, uid)
+    const userRef = doc(db, `${orgId}_events`, uid)
     const docSnap = await getDoc(userRef)
     if (docSnap.exists()) {
       return docSnap.data()
@@ -1973,7 +1973,7 @@ export const getMyProjects = async (orgId, data, snapshot, error) => {
   const { projAccessA } = data
   console.log('what is this', projAccessA)
   const getAllProjectsQuery = await query(
-    collection(db, `${orgId}_projects`),
+    collection(db, `${orgId}_events`),
     // where('uid', 'in', projAccessA),
     orderBy('created', 'desc')
   )
@@ -1982,7 +1982,7 @@ export const getMyProjects = async (orgId, data, snapshot, error) => {
 export const getAllProjects = async (orgId, snapshot, error) => {
   console.log('org is ', orgId)
   const getAllProjectsQuery = await query(
-    collection(db, `${orgId}_projects`),
+    collection(db, `${orgId}_events`),
     orderBy('created', 'desc')
   )
   console.log(getAllProjectsQuery, 'dcavlvblasfjv')
@@ -2017,7 +2017,7 @@ export const getAllSources = async (orgId, snapshot, error) => {
 export const getProjectByUid = async (orgId, uid: string, snapshot, error) => {
   try {
     const getAllProjectByIdQuery = await query(
-      collection(db, `${orgId}_projects`),
+      collection(db, `${orgId}_events`),
       where('uid', '==', uid)
     )
     return onSnapshot(getAllProjectByIdQuery, snapshot, error)
@@ -2594,7 +2594,7 @@ export const addPlotUnit = async (orgId, data, by, msg) => {
   // add task to scheduler to Intro call in 3 hrs
 
   addUnitComputedValues(
-    `${orgId}_projects`,
+    `${orgId}_events`,
     pId,
     plot_Sqf || 0,
     super_built_up_area || 0,
@@ -2744,7 +2744,7 @@ export const editPlotUnit = async (
   // add task to scheduler to Intro call in 3 hrs
 
   addUnitComputedValues(
-    `${orgId}_projects`,
+    `${orgId}_events`,
     pId,
     plot_Sqf || 0,
     super_built_up_area || 0,
@@ -3121,7 +3121,7 @@ export const addUnit = async (orgId, data, by, msg) => {
   // add task to scheduler to Intro call in 3 hrs
 
   addUnitComputedValues(
-    `${orgId}_projects`,
+    `${orgId}_events`,
     pId,
     plot_Sqf || 0,
     super_built_up_area || 0,
@@ -3234,7 +3234,7 @@ export const upsertMasterOption = async (orgId, id, data, enqueueSnackbar) => {
 }
 export const updateProjectComputedData = async (orgId, id, data) => {
   try {
-    const washingtonRef = doc(db, `${orgId}_projects`, id)
+    const washingtonRef = doc(db, `${orgId}_events`, id)
     console.log('check add LeadLog', washingtonRef, id)
     await updateDoc(washingtonRef, data)
   } catch (error) {
@@ -3372,78 +3372,21 @@ export const createProject = async (
   resetForm
 ) => {
   try {
-    const uid1 = uuidv4()
     const updated = {
       ...element,
       uid,
       status: 'ongoing',
       created: Timestamp.now().toMillis(),
     }
-    const phasePayload = {
-      created: Timestamp.now().toMillis(),
-      editMode: true,
-      phaseName: 'Phase-1',
-      projectId: uid,
-      uid: uid1,
-      availableCount: 0,
-      projectType: element?.projectType,
-      partATaxObj:
-        updated?.fullCsA.filter((item) => item?.section?.value == 'unitCost') ||
-        [],
-      partCTaxObj:
-        updated?.fullCsA.filter(
-          (item) => item?.section?.value == 'otherCharges'
-        ) || [],
-      additonalChargesObj:
-        updated?.fullCsA.filter(
-          (item) => item?.section?.value == 'additionalCost'
-        ) || [],
-      fullCs: updated?.fullCsA,
-    }
-    const {
-      builderBankDocId,
-      landlordBankDocId,
-      projectName,
-      landlordShare,
-      builderShare,
-    } = element
-    const ref = doc(db, `${orgId}_projects`, uid)
+    const ref = doc(db, `${orgId}_events`, uid)
     await setDoc(ref, updated, { merge: true })
-    const ref1 = doc(db, `${orgId}_phases`, uid1)
-    await setDoc(ref1, phasePayload, { merge: true })
 
-    // add phase-0
-    // created
-    // editMode
-    // phaseName
-    // projectId
-    // uid
-    // phaseArea
-    await updateBankEntry(
-      orgId,
-      builderBankDocId,
-      uid,
-      projectName,
-      builderShare
-    )
-    await updateBankEntry(
-      orgId,
-      landlordBankDocId,
-      uid,
-      projectName,
-      landlordShare
-    )
-    await addVirtualAccount(
-      orgId,
-      { accountName: projectName, accountNo: uid },
-      'nithe.nithesh@gmail.com',
-      'its virtual Account'
-    )
     enqueueSnackbar('Event added successfully', {
       variant: 'success',
     })
     // resetForm()
   } catch (e) {
+    console.log('error is', e, element)
     enqueueSnackbar(e.message, {
       variant: 'error',
     })
@@ -4122,7 +4065,7 @@ export const updateProject = async (
   enqueueSnackbar
 ) => {
   try {
-    await updateDoc(doc(db, `${orgId}_projects`, uid), {
+    await updateDoc(doc(db, `${orgId}_events`, uid), {
       ...project,
       updated: Timestamp.now().toMillis(),
     })
@@ -4671,7 +4614,7 @@ export const captureWalletPayment = async (
       enqueueSnackbar
     )
     // total amount in review increment , project , phase, unit
-    // await updateDoc(doc(db, `${orgId}_projects`, projectId), {
+    // await updateDoc(doc(db, `${orgId}_events`, projectId), {
     //   t_collect: increment(amount),
     // })
     // await updateDoc(doc(db, `${orgId}_units`, unitId), {
@@ -4790,7 +4733,7 @@ export const capturePaymentS = async (
     )
     // total amount in review increment , project , phase, unit
 if(boolAgreegate){
-    await updateDoc(doc(db, `${orgId}_projects`, projectId), {
+    await updateDoc(doc(db, `${orgId}_events`, projectId), {
       t_collect: increment(amount),
     })
     await updateDoc(doc(db, `${orgId}_units`, unitId), {
@@ -5927,7 +5870,7 @@ export const updateProjectCounts = async (
 ) => {
   try {
     const { soldVal, t_collect } = data
-    await updateDoc(doc(db, `${orgId}_projects`, pId), {
+    await updateDoc(doc(db, `${orgId}_events`, pId), {
       bookUnitCount: increment(1),
       availableCount: increment(-1),
       soldUnitCount: increment(1),
@@ -5962,7 +5905,7 @@ export const updateCancelProjectCounts = async (
 ) => {
   try {
     const { soldVal, t_collect } = data
-    await updateDoc(doc(db, `${orgId}_projects`, pId), {
+    await updateDoc(doc(db, `${orgId}_events`, pId), {
       bookUnitCount: increment(-1),
       availableCount: increment(1),
       soldUnitCount: increment(-1),
@@ -6204,7 +6147,7 @@ export const deleteProject = async (
   Event,
   enqueueSnackbar
 ) => {
-  await deleteDoc(doc(db, `${orgId}_projects`, uid))
+  await deleteDoc(doc(db, `${orgId}_events`, uid))
   const { projectName } = Event
   await addProjectLog(orgId, {
     pId: uid,
