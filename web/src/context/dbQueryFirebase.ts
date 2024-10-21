@@ -585,7 +585,7 @@ export const updateTransactionStatus = async (
     ])
     console.log('check it ', status, status === 'received',status === 'Failed', totalAmount, data1)
     if(status === 'Failed'){
-    await updateDoc(doc(db, `${orgId}_units`, Uuid), {
+    await updateDoc(doc(db, `${orgId}_stalls`, Uuid), {
       T_review: increment(-totalAmount),
       T_balance: increment(totalAmount),
       T_elgible_balance: increment(totalAmount),
@@ -596,7 +596,7 @@ export const updateTransactionStatus = async (
     })
   }
     if(status === 'received'){
-      await updateDoc(doc(db, `${orgId}_units`, Uuid), {
+      await updateDoc(doc(db, `${orgId}_stalls`, Uuid), {
         T_review: increment(-totalAmount),
         T_approved: increment(totalAmount),
 
@@ -1204,7 +1204,7 @@ export const steamLeadById = (orgId, snapshot, data, error) => {
 export const streamUnitById = (orgId, snapshot, data, error) => {
   // const itemsQuery = query(doc(db, `${orgId}_leads_log', 'W6sFKhgyihlsKmmqDG0r'))
   const { uid } = data
-  return onSnapshot(doc(db, `${orgId}_units`, uid), snapshot, error)
+  return onSnapshot(doc(db, `${orgId}_stalls`, uid), snapshot, error)
   // return onSnapshot(itemsQuery, snapshot, error)
 }
 // stream
@@ -1390,25 +1390,25 @@ export const getBookedUnitsByProject = (orgId, snapshot, data, error) => {
   const { status } = data
   // console.log('hello ', status, data, data?.projectId)
   let itemsQuery = query(
-    collection(db, `${orgId}_units`),
+    collection(db, `${orgId}_stalls`),
     where('unitStatus', 'in', status)
   )
   // if (data?.projectId) {
   //   itemsQuery = query(
-  //     collection(db, `${orgId}_units`),
+  //     collection(db, `${orgId}_stalls`),
   //     where('unitStatus', 'in', status),
   //     where('pId', '==', data?.projectId)
   //   )
   // } else if (data?.assignedTo) {
   //   console.log('inside value si ', data?.assignedTo)
   //   itemsQuery = query(
-  //     collection(db, `${orgId}_units`),
+  //     collection(db, `${orgId}_stalls`),
   //     where('status', 'in', status),
   //     where('assignedTo', '==', 'bxLExkQcFkfzOD5pXjBtf5uKKS82')
   //   )
   // }
 
-  let q = collection(db, `${orgId}_units`)
+  let q = collection(db, `${orgId}_stalls`)
   const conditions = []
 
   // Append 'status' condition if it's not undefined
@@ -1453,20 +1453,20 @@ export const getLeadsTransfer = (orgId, snapshot, data, error) => {
   )
   // if (data?.projectId) {
   //   itemsQuery = query(
-  //     collection(db, `${orgId}_units`),
+  //     collection(db, `${orgId}_stalls`),
   //     where('status', 'in', status),
   //     where('pId', '==', data?.projectId)
   //   )
   // } else if (data?.assignedTo) {
   //   console.log('inside value si ', data?.assignedTo)
   //   itemsQuery = query(
-  //     collection(db, `${orgId}_units`),
+  //     collection(db, `${orgId}_stalls`),
   //     where('status', 'in', status),
   //     where('assignedTo', '==', 'bxLExkQcFkfzOD5pXjBtf5uKKS82')
   //   )
   // }
 
-  let q = collection(db, `${orgId}_units`)
+  let q = collection(db, `${orgId}_stalls`)
   const conditions = []
 
   // Append 'status' condition if it's not undefined
@@ -1496,10 +1496,10 @@ export const getLeadsTransfer = (orgId, snapshot, data, error) => {
 export const getAllUnitsByProject = (orgId, snapshot, data, error) => {
   const { status } = data
   console.log('hello ', status, data?.projectId)
-  let itemsQuery = query(collection(db, `${orgId}_units`))
+  let itemsQuery = query(collection(db, `${orgId}_stalls`))
   if (data?.projectId) {
     itemsQuery = query(
-      collection(db, `${orgId}_units`),
+      collection(db, `${orgId}_stalls`),
       where('pId', '==', data?.projectId)
     )
   }
@@ -1512,7 +1512,7 @@ export const getUnassignedCRMunits = (orgId, snapshot, data, error) => {
   console.log('hello ', status)
   try {
     const itemsQuery = query(
-      collection(db, `${orgId}_units`),
+      collection(db, `${orgId}_stalls`),
       where('assignedTo', '>', null)
     )
     console.log('hello ', status, itemsQuery)
@@ -1553,7 +1553,7 @@ export const getCrmUnitsByStatus = (orgId, snapshot, data, error) => {
   const { status } = data
 
   const itemsQuery = query(
-    collection(db, `${orgId}_units`),
+    collection(db, `${orgId}_stalls`),
     where('Status', 'in', status)
   )
   console.log('hello ', status, itemsQuery)
@@ -1679,7 +1679,7 @@ export const getCRMdocById1 = async (orgId, uid) => {
   }
 }
 export const getCrmUnitById1 = async (orgId, uid) => {
-  const docRef = doc(db, `${orgId}_units`, uid)
+  const docRef = doc(db, `${orgId}_stalls`, uid)
   const docSnap = await getDoc(docRef)
 
   if (docSnap.exists()) {
@@ -1731,7 +1731,7 @@ export const getUnits = (orgId, snapshot, data, error) => {
   const { status, pId, blockId } = data
 
   const itemsQuery = query(
-    collection(db, `${orgId}_units`),
+    collection(db, `${orgId}_stalls`),
     where('pId', '==', pId),
     // where('blockId', '==', blockId || 1),
     orderBy('unit_no', 'asc')
@@ -1745,7 +1745,7 @@ export const getUnitsAllBlocks = (orgId, snapshot, data, error) => {
   const { status, pId, blockId, selUnitStatus } = data
 
   const itemsQuery = query(
-    collection(db, `${orgId}_units`),
+    collection(db, `${orgId}_stalls`),
     where('pId', '==', pId),
     where('status', 'in', selUnitStatus)
     // orderBy('unit_no', 'asc')
@@ -2476,7 +2476,7 @@ export const addCustomer = async (
   return
 }
 
-export const addPlotUnit = async (orgId, data, by, msg) => {
+export const addStall = async (orgId, data, by, msg) => {
   const {
     pId,
     phaseId,
@@ -2578,7 +2578,7 @@ export const addPlotUnit = async (orgId, data, by, msg) => {
   }
   console.log('yo', yo, statusVal === 'available', data)
 
-  const x = await addDoc(collection(db, `${orgId}_units`), data)
+  const x = await addDoc(collection(db, `${orgId}_stalls`), data)
   const y = await updateProjectComputedData(orgId, pId, yo)
 
   return
@@ -2717,7 +2717,7 @@ export const editPlotUnit = async (
   //   totalPlotArea: increment(area),
   // }
   try {
-    await updateDoc(doc(db, `${orgId}_units`, uid), {
+    await updateDoc(doc(db, `${orgId}_stalls`, uid), {
       ...data,
     })
     enqueueSnackbar('Updated successfully', {
@@ -3045,7 +3045,7 @@ export const editPlotStatusAuditUnit = async (
   enqueueSnackbar
 ) => {
   try {
-    await updateDoc(doc(db, `${orgId}_units`, uid), {
+    await updateDoc(doc(db, `${orgId}_stalls`, uid), {
       ...data,
     })
     enqueueSnackbar(`${msg}`, {
@@ -3107,7 +3107,7 @@ export const addUnit = async (orgId, data, by, msg) => {
   console.log('uplaod unit val', yo)
   return
 
-  const x = await addDoc(collection(db, `${orgId}_units`), data)
+  const x = await addDoc(collection(db, `${orgId}_stalls`), data)
   await console.log('x value is', x, x.id)
   // await addLeadLog(x.id, {
   //   s: 's',
@@ -4535,7 +4535,7 @@ export const unitAuditDbFun = async (
   totalApprovedAmount,
   totalCancelledAmount
 ) => {
-  await updateDoc(doc(db, `${orgId}_units`, unitId), {
+  await updateDoc(doc(db, `${orgId}_stalls`, unitId), {
     T_total: totalUnitCost,
     T_elgible: totalElgible,
     T_elgible_balance:
@@ -4617,7 +4617,7 @@ export const captureWalletPayment = async (
     // await updateDoc(doc(db, `${orgId}_events`, projectId), {
     //   t_collect: increment(amount),
     // })
-    // await updateDoc(doc(db, `${orgId}_units`, unitId), {
+    // await updateDoc(doc(db, `${orgId}_stalls`, unitId), {
     //   T_received: increment(amount),
     //   T_review: increment(amount),
     //   T_balance: increment(-amount),
@@ -4736,7 +4736,7 @@ if(boolAgreegate){
     await updateDoc(doc(db, `${orgId}_events`, projectId), {
       t_collect: increment(amount),
     })
-    await updateDoc(doc(db, `${orgId}_units`, unitId), {
+    await updateDoc(doc(db, `${orgId}_stalls`, unitId), {
       T_received: increment(amount),
       T_review: increment(amount),
       T_balance: increment(-amount),
@@ -4749,7 +4749,7 @@ if(boolAgreegate){
         T_credit_note_units: increment(1),
       })
 
-      await updateDoc(doc(db, `${orgId}_units`, unitId), {
+      await updateDoc(doc(db, `${orgId}_stalls`, unitId), {
         T_credit_note_amount: increment(amount),
         creditNotesFromA: arrayUnion(towardsBankDocId),
       })
@@ -4878,7 +4878,7 @@ export const updateUnitCustomerDetailsTo = async (
   try {
     console.log('data is', unitId, data)
 
-    await updateDoc(doc(db, `${orgId}_units`, unitId), {
+    await updateDoc(doc(db, `${orgId}_stalls`, unitId), {
       ...data,
     })
     enqueueSnackbar('Customer Details added successfully', {
@@ -4904,7 +4904,7 @@ export const updateUnitStatus = async (
 ) => {
   try {
     console.log('data is===>', unitId, data)
-    await updateDoc(doc(db, `${orgId}_units`, unitId), {
+    await updateDoc(doc(db, `${orgId}_stalls`, unitId), {
       fullPs: data?.fullPs,
       status: data?.status,
       T_elgible: data?.T_elgible_new,
@@ -5189,7 +5189,7 @@ export const updateManagerApproval = async (
       T_elgible_balance,
     } = data
 
-    await updateDoc(doc(db, `${orgId}_units`, unitId), {
+    await updateDoc(doc(db, `${orgId}_stalls`, unitId), {
       man_cs_approval: status,
       plotCS: plotCS,
       addChargesCS,
@@ -5238,7 +5238,7 @@ export const addNewUnitDemand = async (
     const { status, addOnCS, fullPs, T_balance, T_Total, T_elgible_balance } =
       data
 
-    await updateDoc(doc(db, `${orgId}_units`, unitId), {
+    await updateDoc(doc(db, `${orgId}_stalls`, unitId), {
       addOnCS: addOnCS,
       fullPs,
       T_balance,
@@ -5302,7 +5302,7 @@ export const updateLegalClarityApproval = async (
   try {
     console.log('data is===>', unitId, data)
     const { status } = data
-    await updateDoc(doc(db, `${orgId}_units`, unitId), {
+    await updateDoc(doc(db, `${orgId}_stalls`, unitId), {
       legal_clarity: status,
     })
     const { data: data4, error: error4 } = await supabase
@@ -5342,7 +5342,7 @@ export const updateATSApproval = async (
   try {
     console.log('data is===>', unitId, data)
     const { status } = data
-    await updateDoc(doc(db, `${orgId}_units`, unitId), {
+    await updateDoc(doc(db, `${orgId}_stalls`, unitId), {
       man_ats_approval: status,
     })
     const { data: data4, error: error4 } = await supabase
@@ -5382,7 +5382,7 @@ export const updateKycApproval = async (
   try {
     console.log('data is===>', unitId, data)
     const { status } = data
-    await updateDoc(doc(db, `${orgId}_units`, unitId), {
+    await updateDoc(doc(db, `${orgId}_stalls`, unitId), {
       kyc_status: status,
     })
     const { data: data4, error: error4 } = await supabase
@@ -5422,7 +5422,7 @@ export const updatePosessionApproval = async (
   try {
     console.log('data is===>', unitId, data)
     const { status } = data
-    await updateDoc(doc(db, `${orgId}_units`, unitId), {
+    await updateDoc(doc(db, `${orgId}_stalls`, unitId), {
       posession_status: status,
     })
     const { data: data4, error: error4 } = await supabase
@@ -5462,7 +5462,7 @@ export const updateSDApproval = async (
   try {
     console.log('data is===>', unitId, data)
     const { status } = data
-    await updateDoc(doc(db, `${orgId}_units`, unitId), {
+    await updateDoc(doc(db, `${orgId}_stalls`, unitId), {
       both_sd_approval: status,
     })
     const { data: data4, error: error4 } = await supabase
@@ -5502,7 +5502,7 @@ export const updateUnitCrmOwner = async (
   try {
     console.log('data is', unitId, assignedTo)
     const { value, offPh } = assignedTo
-    await updateDoc(doc(db, `${orgId}_units`, unitId), {
+    await updateDoc(doc(db, `${orgId}_stalls`, unitId), {
       assignedTo: value,
       assignedToObj: assignedTo,
       AssignedBy: by,
@@ -5568,7 +5568,7 @@ export const updateUnitsCostSheetDetailsTo = async (
   try {
     console.log('data is cost sheet', leadDocId, data)
 
-    await updateDoc(doc(db, `${orgId}_units`, leadDocId), {
+    await updateDoc(doc(db, `${orgId}_stalls`, leadDocId), {
       ...data,
     })
     enqueueSnackbar('Cost Sheet Updated for Customer', {
@@ -5598,7 +5598,7 @@ export const updateUnitAsBooked = async (
   try {
     console.log('data is cost sheet', leadDocId, data, unitId)
 
-    await updateDoc(doc(db, `${orgId}_units`, unitId), {
+    await updateDoc(doc(db, `${orgId}_stalls`, unitId), {
       ...data,
     })
     const { data1, error1 } = await supabase.from(`${orgId}_unit_logs`).insert([
@@ -5647,7 +5647,7 @@ export const updateUnitAsBlocked = async (
   try {
     console.log('data is cost sheet', leadDocId, data, unitId)
 
-    await updateDoc(doc(db, `${orgId}_units`, unitId), {
+    await updateDoc(doc(db, `${orgId}_stalls`, unitId), {
       ...data,
     })
     const { data1, error1 } = await supabase.from(`${orgId}_unit_logs`).insert([

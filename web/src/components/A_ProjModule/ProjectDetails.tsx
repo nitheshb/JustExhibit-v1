@@ -239,6 +239,8 @@ const ProjectDetailsFlowBody = ({ setProject, title, dialogOpen, project }) => {
                 setProject={setProject}
               />
             )}
+           
+
             <ProjPhaseHome
               projectDetails={project}
               source="projectOnboard"

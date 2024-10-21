@@ -49,7 +49,7 @@ export default function LeadsDropHomes({ title, pId, myPhase, myBlock }) {
             </a>
           </div>
         )}
-        {title === 'Import Plot Units' && (
+        {title === 'Import Stalls' && (
           <div className="flex flex-row justify-between mr-8 ">
             <span></span>
             <a
@@ -59,7 +59,7 @@ export default function LeadsDropHomes({ title, pId, myPhase, myBlock }) {
             >
               <span className="text-xs text-blue-500">
                 <DownloadIcon className="h-3 w-3 mr-1 mb-1 inline-block" />
-                Sample Plot Template
+                Sample Stalls
               </span>
             </a>
           </div>

@@ -224,7 +224,7 @@ const SiderForm = ({
                     />
                   )}
 
-                {title === 'Import Plot Units' && (
+                {title === 'Import Stalls' && (
                   <LeadsDropHomes
                     title={title}
                     dialogOpen={setOpen}
@@ -273,7 +273,7 @@ const SiderForm = ({
                     myBlock={myBlock}
                   />
                 )}
-                {title === 'Add Unit' && (
+                {title === 'Add Stall' && (
                   <AddUnit
                     title={title}
                     phaseFeed={phaseFeed}
@@ -284,7 +284,7 @@ const SiderForm = ({
                     blockDetails={blockDetails}
                   />
                 )}
-                {title === 'Edit Unit' && (
+                {title === 'Edit Stall' && (
                   <AddUnit
                     title={title}
                     data={data}

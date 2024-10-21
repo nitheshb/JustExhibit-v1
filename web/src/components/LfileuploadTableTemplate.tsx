@@ -32,7 +32,7 @@ import Highlighter from 'react-highlight-words'
 
 import {
   addLead,
-  addPlotUnit,
+  addStall,
   addUnit,
   capturePaymentS,
   createBookedCustomer,
@@ -321,12 +321,12 @@ const EnhancedTableToolbar = (props) => {
 
     return unsubscribe
   }
-  const insertPlotToDb = async (records) => {
+  const insertStallToDb = async (records) => {
     console.log('check it', records.length)
     const mappedArry = await Promise.all(
       records.map(async (data, index) => {
         // console.log()
-        await addPlotUnit(orgId, data, user?.email, `Unit Created by bulk `)
+        await addStall(orgId, data, user?.email, `Unit Created by bulk `)
         await setUploadedUnitsCount(index + 1)
         //   return await addUnit(orgId, newData, user?.email, 'Unit Created by csv')
 
@@ -1159,13 +1159,9 @@ const EnhancedTableToolbar = (props) => {
     console.log('proj details is', projPayload)
     // const { ConstructOtherChargesObj, additonalChargesObj } = projPayload[0]
 
-    if (title === 'Import Plot Units') {
-      insertPlotToDb(records)
-    } else if (title === 'Import Apartment Units') {
-      insertPlotToDb(records)
-    } else if (title === 'Import Villas') {
-      insertPlotToDb(records)
-    } else if (
+    if (title === 'Import Stalls') {
+      insertStallToDb(records)
+    }  else if (
       [
         'Import Booked Villas',
         'Import Booked Plots',
@@ -1287,6 +1283,7 @@ const EnhancedTableToolbar = (props) => {
       ) : sourceTab != 'all' &&
         [
           'Import Units',
+          'Import Stalls',
           'Import Apartment Units',
           'Import Plot Units',
           'Import Villas',
@@ -1391,9 +1388,9 @@ export default function LfileuploadTableTemplate({
   const [searchKey, setSearchKey] = React.useState('')
 
   React.useEffect(() => {
-    if (title === 'Import Plot Units') {
+    if (title === 'Import Stalls') {
       columns = [
-        { id: 'unit_no', label: 'Plot No', minWidth: 80 },
+        { id: 'unit_no', label: 'Stall No', minWidth: 80 },
         {
           id: 'status',
           label: 'status',
@@ -1403,7 +1400,7 @@ export default function LfileuploadTableTemplate({
         },
         {
           id: 'type',
-          label: 'Plot Type*',
+          label: 'Stall Type*',
           minWidth: 10,
           align: 'left',
           format: (value) => value.toLocaleString('en-US'),
@@ -1415,37 +1412,17 @@ export default function LfileuploadTableTemplate({
           align: 'left',
           format: (value) => value.toLocaleString('en-US'),
         },
-        {
-          id: 'survey_no',
-          label: 'Survey No',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toLocaleString('en-US'),
-        },
-        {
-          id: 'Katha_no',
-          label: 'Katha No',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toLocaleString('en-US'),
-        },
-        {
-          id: 'PID_no',
-          label: 'PID No',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toLocaleString('en-US'),
-        },
+
         {
           id: 'area',
-          label: 'Plot area *(Sq.Ft)',
+          label: 'area *(Sq.Ft)',
           minWidth: 10,
           align: 'left',
           format: (value) => value.toLocaleString('en-US'),
         },
         {
           id: 'area_sqm',
-          label: 'Plot Area*(Sq.m)',
+          label: 'Area*(Sq.m)',
           minWidth: 10,
           align: 'left',
           format: (value) => value.toLocaleString('en-US'),
@@ -1466,70 +1443,7 @@ export default function LfileuploadTableTemplate({
         },
         {
           id: 'size',
-          label: 'Plot Size*',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        // {
-        //   id: 'unit_d',
-        //   label: 'Unit Dimension*(m)',
-        //   minWidth: 10,
-        //   align: 'left',
-        // },
-        {
-          id: 'east_d',
-          label: 'East Dimension*(m)',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'west_d',
-          label: 'West Dimension*(m)',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'north_d',
-          label: 'North Dimension*(m)',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'south_d',
-          label: 'South Dimension*(m)"',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-
-        {
-          id: 'north_sch_by',
-          label: 'North Schedule Dimension*',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'south_sch_by',
-          label: 'South Schedule Dimension*',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'east_sch_by',
-          label: 'East Schedule Dimension*',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'west_sch_by',
-          label: 'West Schedule Dimension*',
+          label: 'Size*',
           minWidth: 10,
           align: 'left',
           format: (value) => value.toFixed(2),
@@ -1541,353 +1455,7 @@ export default function LfileuploadTableTemplate({
           align: 'left',
           format: (value) => value.toFixed(2),
         },
-        {
-          id: 'mortgage_type',
-          label: 'Mortgage Type',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'sharing',
-          label: 'sharing',
-          minWidth: 10,
-          align: 'left',
-        },
-      ]
-    } else if (title === 'Import Apartment Units') {
-      columns = [
-        { id: 'unit_no', label: 'unit_no', minWidth: 80 },
-        { id: 'block_no', label: 'Block', minWidth: 80 },
-        { id: 'tower_no', label: 'Tower', minWidth: 80 },
-        { id: 'floor_no', label: 'Floor', minWidth: 80 },
-        {
-          id: 'status',
-          label: 'status',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toLocaleString('en-US'),
-        },
-        {
-          id: 'release_status',
-          label: 'Release Status',
-          minWidth: 10,
-          align: 'center',
-          format: (value) => value.toLocaleString('en-US'),
-        },
-        {
-          id: 'facing',
-          label: 'facing',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toLocaleString('en-US'),
-        },
-        {
-          id: 'bedrooms_c',
-          label: 'Bedrooms',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'bathrooms_c',
-          label: 'Bathrooms',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'car_parkings_c',
-          label: 'Car Parkings',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'area_sqm',
-          label: 'Area sqm',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'area',
-          label: 'Area sqft',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'uds_sqm',
-          label: 'Uds sqm',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'uds_sqft',
-          label: 'Uds sft',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'cartpet_area_sqft',
-          label: 'Carpet Area',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'sqft_rate',
-          label: 'price',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'plc_per_sqft',
-          label: 'PLC per sqft*',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
 
-        {
-          id: 'east_d',
-          label: 'East Dimension*(m)',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'west_d',
-          label: 'West Dimension*(m)',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'north_d',
-          label: 'North Dimension*(m)',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'south_d',
-          label: 'South Dimension*(m)"',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-
-        {
-          id: 'north_sch_by',
-          label: 'North Schedule Dimension*',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'south_sch_by',
-          label: 'South Schedule Dimension*',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'east_sch_by',
-          label: 'East Schedule Dimension*',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'west_sch_by',
-          label: 'West Schedule Dimension*',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'mortgage_type',
-          label: 'Mortgage Type',
-          minWidth: 10,
-          align: 'center',
-          format: (value) => value.toLocaleString('en-US'),
-        },
-        {
-          id: 'share',
-          label: 'Share',
-          minWidth: 10,
-          align: 'center',
-          format: (value) => value.toLocaleString('en-US'),
-        },
-        {
-          id: 'sharing',
-          label: 'sharing',
-          minWidth: 10,
-          align: 'left',
-        },
-      ]
-    } else if (title === 'Import Villas') {
-      columns = [
-        { id: 'unit_no', label: 'Villa No', minWidth: 80 },
-        {
-          id: 'status',
-          label: 'status',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toLocaleString('en-US'),
-        },
-        {
-          id: 'type',
-          label: 'Plot Type*',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toLocaleString('en-US'),
-        },
-        {
-          id: 'facing',
-          label: 'Facing*',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toLocaleString('en-US'),
-        },
-        {
-          id: 'survey_no',
-          label: 'Survey No',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toLocaleString('en-US'),
-        },
-        {
-          id: 'Katha_no',
-          label: 'Katha No',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toLocaleString('en-US'),
-        },
-        {
-          id: 'PID_no',
-          label: 'PID No',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toLocaleString('en-US'),
-        },
-        {
-          id: 'area',
-          label: 'Plot area *(Sq.Ft)',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toLocaleString('en-US'),
-        },
-        {
-          id: 'area_sqm',
-          label: 'Plot Area*(Sq.m)',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toLocaleString('en-US'),
-        },
-        {
-          id: 'sqft_rate',
-          label: 'Rate/Sqft',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toLocaleString('en-US'),
-        },
-        {
-          id: 'plc_per_sqft',
-          label: 'PLC Per Sqft',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toLocaleString('en-US'),
-        },
-        {
-          id: 'size',
-          label: 'Plot Size*',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        // {
-        //   id: 'unit_d',
-        //   label: 'Unit Dimension*(m)',
-        //   minWidth: 10,
-        //   align: 'left',
-        // },
-        {
-          id: 'east_d',
-          label: 'East Dimension*(m)',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'west_d',
-          label: 'West Dimension*(m)',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'north_d',
-          label: 'North Dimension*(m)',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'south_d',
-          label: 'South Dimension*(m)"',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-
-        {
-          id: 'north_sch_by',
-          label: 'North Schedule Dimension*',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'south_sch_by',
-          label: 'South Schedule Dimension*',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'east_sch_by',
-          label: 'East Schedule Dimension*',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'west_sch_by',
-          label: 'West Schedule Dimension*',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'release_status',
-          label: 'Release Status',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
-        {
-          id: 'mortgage_type',
-          label: 'Mortgage Type',
-          minWidth: 10,
-          align: 'left',
-          format: (value) => value.toFixed(2),
-        },
         {
           id: 'sharing',
           label: 'sharing',

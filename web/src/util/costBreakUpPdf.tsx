@@ -172,13 +172,13 @@ const CostBreakUpPdf = ({
     const costConstructSqftA = selPhaseObj?.fullCs.filter(
       (row) => row.component.value === 'sqft_construct_cost_tax'
     )
-    if (costSqftA.length > 0) {
+    if (costSqftA?.length > 0) {
       console.log('setUpData', costSqftA)
       const x = costSqftA[0]
       setCostPerSqft(x?.charges)
       setGST(x?.gst.value)
     }
-    if (costConstructSqftA.length > 0) {
+    if (costConstructSqftA?.length > 0) {
       console.log('setUpData', costSqftA)
       const x = costConstructSqftA[0]
       setConstructionPerSqft(x?.charges)
@@ -196,13 +196,7 @@ const CostBreakUpPdf = ({
   }, [psPayload, psConstructPayload])
 
   useEffect(() => {
-    const {
-      additonalChargesObj,
-      // ConstructOtherChargesObj,
-      constructOtherChargesObj,
-      ConstructPayScheduleObj,
-      paymentScheduleObj,
-    } = selPhaseObj
+
     const { uid } = selUnitDetails
     const y =
       leadDetailsObj1[`${uid}_cs`]?.newSqftPrice || selUnitDetails?.sqft_rate
@@ -292,7 +286,7 @@ const CostBreakUpPdf = ({
     let constructionCS = []
     // if (csMode === 'plot_cs') {
     if ('plot_cs' === 'plot_cs') {
-      additonalChargesObj?.map((data, inx) => {
+      selPhaseObj?.additonalChargesObj?.map((data, inx) => {
         let total = 0
         let gstTotal = 0
         const isChargedPerSqft = [
@@ -333,7 +327,7 @@ const CostBreakUpPdf = ({
         data.TotalNetSaleValueGsT = total + gstTotal
         return data
       })
-      constructOtherChargesObj?.map((data, inx) => {
+      selPhaseObj?.constructOtherChargesObj?.map((data, inx) => {
         let total = 0
         let gstTotal = 0
         const isChargedPerSqft = [
@@ -364,16 +358,16 @@ const CostBreakUpPdf = ({
         data.TotalNetSaleValueGsT = total + gstTotal
         return data
       })
-      setPartBPayload(additonalChargesObj)
-      setAddiChargesObj(additonalChargesObj)
-      setPartBConstPayload(constructOtherChargesObj)
+      setPartBPayload(selPhaseObj?.additonalChargesObj||[])
+      setAddiChargesObj(selPhaseObj?.additonalChargesObj || [])
+      setPartBConstPayload(selPhaseObj?.constructOtherChargesObj || [])
       // setConstAddiChargesObj(additonalChargesObj)
       // setNewAdditonalConstChargesObj(constructOtherChargesObj)
-      setPSConstAdditonalPayload(constructOtherChargesObj)
-      setPSPayload(paymentScheduleObj)
+      setPSConstAdditonalPayload(selPhaseObj?.constructOtherChargesObj || [])
+      setPSPayload(selPhaseObj?.paymentScheduleObj || [])
       setPartCPayload(selPhaseObj?.partCTaxObj || [])
-      console.log('construct ps obj', ConstructPayScheduleObj)
-      setConstructPSPayload(ConstructPayScheduleObj)
+      console.log('construct ps obj', selPhaseObj?.ConstructPayScheduleObj || [])
+      setConstructPSPayload(selPhaseObj?.ConstructPayScheduleObj || [])
 
       x = [
         {
@@ -470,7 +464,7 @@ const CostBreakUpPdf = ({
           ].filter((dat) => dat?.component?.value != 'unit_cost_charges')
           merged = [...x, ...removeFulCostFieldA]
         } else {
-          merged = [...x, ...additonalChargesObj]
+          merged = [...x, ...selPhaseObj?.additonalChargesObj]
         }
       }
     } catch (error) {

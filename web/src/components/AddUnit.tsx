@@ -18,7 +18,7 @@ import { useRouterStateSetter } from '@redwoodjs/router/dist/router-context'
 
 import {
   addUnit,
-  addPlotUnit,
+  addStall,
   checkIfUnitAlreadyExists,
   getAllProjects,
   steamUsersListByRole,
@@ -138,9 +138,10 @@ useEffect(() => {
           return a.order - b.order;
         }));
 
-        setStatusList(oA.sort((a, b) => {
-          return a.order - b.order;
-        }));
+        // setStatusList(oA.sort((a, b) => {
+        //   return a.order - b.order;
+        // }));
+        setStatusList(statusList);
 
         setMortgageType(pA.sort((a, b) => {
           return a.order - b.order;
@@ -150,6 +151,8 @@ useEffect(() => {
     },
     (error) => setRows([])
   )
+  setStatusList(statusList);
+  setFacingTypeList(facingTypeList);
 
   return unsubscribe
 }, [])
@@ -464,9 +467,9 @@ useEffect(() => {
       blockId: blockDetails?.uid || 1,
       Date: Timestamp.now().toMillis(),
       unit_no: unit_no,
-      survey_no: survey_no,
+      // survey_no: survey_no,
 
-      Katha_no: Katha_no,
+      // Katha_no: Katha_no,
       PID_no: PID_no,
       area: area,
       sqft_rate: sqft_rate,
@@ -476,12 +479,12 @@ useEffect(() => {
       cartpet_area_sqft: cartpet_area_sqft,
       uds_sqft: uds_sqft,
       dimension: dimension,
-      car_parkings_c: car_parkings_c,
+      // car_parkings_c: car_parkings_c,
       block_no: block_no,
       tower_no: tower_no,
       floor_no: floor_no,
-      bathrooms_c: bathrooms_c,
-      bedrooms_c: bedrooms_c,
+      // bathrooms_c: bathrooms_c,
+      // bedrooms_c: bedrooms_c,
       construct_price_sqft: construct_price_sqft,
       min_rate_per_sqft_c: min_rate_per_sqft_c,
       min_rate_per_sqft: min_rate_per_sqft,
@@ -500,28 +503,28 @@ useEffect(() => {
       south_sch_by: south_sch_by,
       status: status,
       release_status: release_status,
-      mortgage_type: mortgage_type,
-      landOwnerName: landOwnerName,
-      investorName: investorName,
+      // mortgage_type: mortgage_type,
+      // landOwnerName: landOwnerName,
+      // investorName: investorName,
       sharingType: sharingType,
       intype: 'Form',
-      unit_type: 'plot',
+      // unit_type: 'plot',
       by: user?.email,
     }
     console.log('user is ', user)
     if (foundLength?.length > 0) {
       console.log('foundLENGTH IS ', foundLength)
-      setFormMessage('Unit Already Exists')
+      setFormMessage('Stall Already Exists')
       setLoading(false)
     } else {
       console.log('foundLENGTH IS empty ', foundLength)
 
       // proceed to copy
-      await addPlotUnit(orgId, plotData1, user?.email, `Unit Created by form `)
+      await addStall(orgId, plotData1, user?.email, `Stall Created by form `)
 
       // msg2
       resetForm()
-      setFormMessage('Unit Added Successfully.')
+      setFormMessage('Stall Added Successfully.')
       setLoading(false)
     }
     return
@@ -555,13 +558,13 @@ useEffect(() => {
     console.log('user is ', user)
     if (foundLength?.length > 0) {
       console.log('foundLENGTH IS ', foundLength)
-      setFormMessage('Unit Already Exists')
+      setFormMessage('Stall Already Exists')
       setLoading(false)
     } else {
       console.log('foundLENGTH IS empty ', foundLength)
 
       // proceed to copy
-      await addUnit(orgId, leadData, user?.email, `Unit Created by form `)
+      await addUnit(orgId, leadData, user?.email, `Stall Created by form `)
 
       // msg2
       resetForm()
@@ -676,13 +679,13 @@ useEffect(() => {
       unitDetails?.uid,
       plotData1,
       user?.email,
-      `Unit Created by form `,
+      `Stall Created by form `,
       enqueueSnackbar
     )
 
     // msg2
     // await resetForm()
-    await setFormMessage('Unit Saved Successfully..!')
+    await setFormMessage('Stall Saved Successfully..!')
     await setLoading(false)
     return
   }
@@ -888,7 +891,7 @@ useEffect(() => {
               // validationSchema={validate_AddUnit}
               onSubmit={(values, { resetForm }) => {
                 console.log('ami submitted', values)
-                if (title === 'Edit Unit') {
+                if (title === 'Edit Stall') {
                   onSubmitEditUnitFun(values, resetForm)
                 } else {
                   onSubmitFun(values, resetForm)
@@ -908,9 +911,9 @@ useEffect(() => {
                             <section className="flex flex-row mx-4 py-4">
                               <span className="ml-2 mt-[1px] ">
                                 <label className="font-semibold text-[#053219]  text-[18px]  mb-1  ">
-                                  {title === 'Add Unit'
-                                    ? 'Add Unit'
-                                    : 'Edit Unit'}
+                                  {title === 'Add Stall'
+                                    ? 'Add Stall'
+                                    : 'Edit Stall'}
 
                                   <abbr title="required"></abbr>
                                 </label>
@@ -926,7 +929,7 @@ useEffect(() => {
                             <div className="border-2  h-3 rounded-xl  mt-[2px] w-1  border-cyan-200"></div>
                             <span className="ml-1 leading-[15px] ">
                               <label className="font-semibold text-[#053219]  text-[13px] leading-[15px] mb-1  ">
-                                Units<abbr title="required"></abbr>
+                                Stall<abbr title="required"></abbr>
                               </label>
                             </span>
                           </section>
@@ -934,17 +937,7 @@ useEffect(() => {
                           <div className="md:flex flex-row md:space-x-4 w-full text-xs  ">
                             <div className=" space-y-2 w-full text-xs mt-2">
                               <TextField
-                                label={`${
-                                  ['Plots'].includes(
-                                    projectDetails?.projectType?.name
-                                  )
-                                    ? 'Plot No*'
-                                    : ['Villas'].includes(
-                                        projectDetails?.projectType?.name
-                                      )
-                                    ? 'Villa No*'
-                                    : 'Apartment No*'
-                                }`}
+                                label="Stall No*"
                                 name="unit_no"
                                 type="text"
                               />
@@ -1210,7 +1203,7 @@ useEffect(() => {
                                     projectDetails?.projectType?.name
                                   )
                                     ? 'Land Area sqft*'
-                                    : 'Unit Area sqft'
+                                    : 'Stall Area sqft'
                                 }`}
                                 name="area"
                                 type="number"
@@ -1441,23 +1434,7 @@ useEffect(() => {
                             </div>
                           </div>
                           <div className="md:flex flex-row md:space-x-4 w-full text-xs mt-2">
-                            <div className="w-full flex flex-col mb-3">
-                              <CustomSelect
-                                name="mortgage_type"
-                                label="Mortgage Type*"
-                                className="input mt-"
-                                onChange={(value) => {
-                                  formik.setFieldValue(
-                                    'mortgage_type',
-                                    value.value
-                                  )
-                                }}
-                                value={formik.values.mortgage_type}
-                                // options={aquaticCreatures}
-                                options={mortgageTypeA}
-                              />
 
-                            </div>
 
 
 
@@ -1570,9 +1547,9 @@ useEffect(() => {
                           mandatory
                         </p>
                         {[
-                          'Unit Added Successfully.',
+                          'Stall Added Successfully.',
                           'Saved Successfully..!',
-                          'Unit Saved Successfully..!',
+                          'Stall Saved Successfully..!',
                         ].includes(formMessage) && (
                           <p className=" flex text-md text-slate-800 text-right my-3">
                             <img
@@ -1583,7 +1560,7 @@ useEffect(() => {
                             <span className="mt-2">{formMessage}</span>
                           </p>
                         )}
-                        {formMessage === 'Unit Already Exists' && (
+                        {formMessage === 'Stall Already Exists' && (
                           <p className=" flex text-md text-pink-800 text-right my-3">
                             <img
                               className="w-[40px] h-[40px] inline mr-2"
@@ -1609,7 +1586,7 @@ useEffect(() => {
                             {loading && <Loader />}
                             <span>
                               {' '}
-                              {title === 'Edit Unit' ? 'Edit Unit' : 'Add Unit'}
+                              {title === 'Edit Stall' ? 'Edit Stall' : 'Add Stall'}
                             </span>
                           </button>
                         </div>

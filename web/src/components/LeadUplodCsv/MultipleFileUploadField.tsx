@@ -284,12 +284,11 @@ export function MultipleFileUploadField({
           // let x =   await getLedsData()
 
           await console.log('Finished: records', serialData, fileRecords)
-        } else if (['Import Plot Units'].includes(title)) {
+        } else if (['Import Stalls'].includes(title)) {
           console.log('import stuff is ', records)
           const clean1 = records.filter((row) => {
             return (
-              (row['Plot No*'] != '' && row['Plot No*'] != undefined) ||
-              (row['Unit No.*'] != '' && row['Unit No.*'] != undefined)
+              (row['Stall No*'] != '' && row['Stall No*'] != undefined)
             )
           })
           // set duplicate & valid records
@@ -297,11 +296,11 @@ export function MultipleFileUploadField({
           const serialData = await Promise.all(
             clean1.map(async (dRow) => {
               const foundLength = await checkIfUnitAlreadyExists(
-                `${orgId}_units`,
+                `${orgId}_stalls`,
                 pId,
                 myPhase?.uid || '',
                 myBlock?.uid || '',
-                dRow['Plot No*'] || dRow['Unit No.*']
+                dRow['Stall No*'] || dRow['Unit No.*']
               )
               // Plot Type*
               const computPlotObj = {
@@ -310,36 +309,22 @@ export function MultipleFileUploadField({
                 phaseId: dRow[''] || 1,
                 blockId: dRow[''] || 1,
                 Date: Timestamp.now().toMillis(),
-                unit_no: dRow['Plot No*'] || dRow['Unit No.*'],
-                survey_no: dRow['Survey No'] || '',
-                BMRDA_STRR_Aproval_status:
-                  dRow['BMRDA/STRR Aproval status'] || '',
-                Katha_no: dRow['Katha No'],
-                PID_no: dRow['PID No'],
-                area: Number(dRow['Land Area sqft*']?.replace(',', '')),
-                area_sqm: dRow['Land Area sqft*'],
+                unit_no: dRow['Stall No*'] || dRow['Unit No.*'],
+
+                area: Number(dRow['Area sqft*']?.replace(',', '')),
                 sqft_rate: dRow['Price per sqft*'],
                 plc_per_sqft: dRow['PLC per sqft*'],
-                dimension: dRow['Dimension'],
+                area_sqm: dRow['Area sqm*'],
+                sqm_rate: dRow['Price per sqm*'],
+                plc_per_sqm: dRow['PLC per sqm*'],
+                dimension: dRow['Dimension'] || '',
                 size: dRow['Type*']?.toLowerCase(),
-                facing: dRow['Facing*'],
-                unit_d: dRow['Dimension'],
-                east_d: dRow['East Dimension*(m)'] || 0,
-                west_d: dRow['West Dimension*(m)'] || 0,
-                north_d: dRow['North Dimension*(m)'] || 0,
-                south_d: dRow['South Dimension*(m)'] || 0,
-                east_west_d: dRow['East-West Dimension*(m)'] || 0,
-                north_south_d: dRow['North-South Dimension*(m)'] || 0,
-                north_sch_by: dRow['North Schedule*'],
-                south_sch_by: dRow['South Schedule*'],
-                east_sch_by: dRow['East Schedule*'],
-                west_sch_by: dRow['West Schedule*'],
+
+       
                 status: dRow['Status*']?.toLowerCase() || 'available',
                 release_status: dRow['Release Status*']?.toLowerCase(),
-                mortgage_type: dRow['Mortgage Type*']?.toLowerCase(),
-                sharing: dRow['Sharing'] || '',
+
                 intype: 'bulk',
-                unit_type: 'plot',
                 by: user?.email,
               }
               return await computPlotObj
@@ -350,192 +335,7 @@ export function MultipleFileUploadField({
           // let x =   await getLedsData()
 
           await console.log('Finished: records', serialData, fileRecords)
-        } else if (['Import Apartment Units'].includes(title)) {
-          console.log('import stuff is ', records)
-          const clean1 = records.filter((row) => {
-            return (
-              (row['Plot No*'] != '' && row['Plot No*'] != undefined) ||
-              (row['Apartment No*'] != '' &&
-                row['Apartment No*'] != undefined) ||
-              (row['Unit No.*'] != '' && row['Unit No.*'] != undefined)
-            )
-          })
-          // set duplicate & valid records
-          // check in db if record exists with matched phone Number & email
-          const serialData = await Promise.all(
-            clean1.map(async (dRow) => {
-              const foundLength = await checkIfUnitAlreadyExists(
-                `${orgId}_units`,
-                pId,
-                myPhase?.uid || '',
-                myBlock?.uid || '',
-                dRow['Unit No.*'] ||
-                  dRow['Flat No.*'] ||
-                  dRow['Plot No*'] ||
-                  dRow['Apartment No*']
-              )
-              // Apartment Type*
-              console.log('my data value is ', dRow)
-              const computPlotObj = {
-                mode: await makeMode(foundLength),
-                pId,
-                phaseId: dRow[''] || 1,
-                blockId: myBlock?.uid || 1,
-                Date: Timestamp.now().toMillis(),
-                unit_no:
-                  dRow['Unit No.*'] ||
-                  dRow['Flat No.*'] ||
-                  dRow['Plot No*'] ||
-                  dRow['Apartment No*'],
-                block_no: dRow['Block'] || '',
-                tower_no: dRow['Tower'] || '',
-                floor_no: dRow['Floor'] || '',
-                size:
-                  dRow['Flat Size'] ||
-                  dRow['Flat Size*'] ||
-                  dRow['Plot Size'] ||
-                  dRow['Plot Size*'] ||
-                  dRow['Type*']?.toLowerCase() ||
-                  '',
-                share: dRow['Share'] || '',
-                facing: dRow['Facing*'] || '',
-                bedrooms_c: dRow['Bedrooms'] || 0,
-                bathrooms_c: dRow['Bathrooms'] || 0,
-                car_parkings_c: dRow['Car Parkings'] || 0,
-                // cartpet_area_uom: dRow['CARPET SFT'] || 0,
-                cartpet_area_sqft: dRow['Carpet Area(sqft)'] || 0,
-                uds_sqm: dRow['UDS(sqm)'] || '',
-                uds_sqft: dRow['UDS(sqft)'] || '',
-                area: Number(dRow['Unit Area(sqft)*']?.replace(',', '')) || 0,
-                area_sqm:
-                  Number(dRow['Unit Area(sqm)*']?.replace(',', '')) || 0,
-                sqft_rate:
-                  dRow['Price per sqft*'] || dRow['Price per sqft'] || 0,
-                plc_per_sqft: dRow['PLC per sqft*'] || 0,
-
-                // super_built_up_area: dRow[''] || 0,
-
-                // construct_price: dRow['Construction price'] || 0,
-
-                east_d: dRow['East Dimension*(m)'],
-                west_d: dRow['West Dimension*(m)'] || 0,
-                north_d: dRow['North Dimension*(m)'] || 0,
-                south_d: dRow['South Dimension*(m)'] || 0,
-                east_west_d: dRow['East-West Dimension*(m)'] || 0,
-                north_south_d: dRow['North-South Dimension*(m)'] || 0,
-                north_sch_by: dRow['North Schedule*'],
-                south_sch_by: dRow['South Schedule*'],
-                east_sch_by: dRow['East Schedule*'],
-                west_sch_by: dRow['West Schedule*'],
-                status: dRow['Status*']?.toLowerCase() || 'available',
-                release_status: dRow['Release Status*']?.toLowerCase() || '',
-                mortgage_type: dRow['Mortgage Type']?.toLowerCase() || '',
-                survey_no: dRow['Survey No'] || '',
-                Katha_no: dRow['Katha No'] || '',
-                PID_no: dRow['PID No'] || '',
-                sharing: dRow['Sharing'] || '',
-                intype: 'bulk',
-                unit_type: 'Apartment',
-                by: user?.email,
-              }
-              return await computPlotObj
-            })
-          )
-
-          await setfileRecords(serialData)
-          // let x =   await getLedsData()
-
-          await console.log('Finished: records', serialData, fileRecords)
-        } else if (['Import Villas'].includes(title)) {
-          console.log('import stuff is ', records)
-          const clean1 = records.filter((row) => {
-            return (
-              (row['Plot No*'] != '' && row['Plot No*'] != undefined) ||
-              (row['Villa No*'] != '' && row['Villa No*'] != undefined) ||
-              (row['Unit No.*'] != '' && row['Unit No.*'] != undefined)
-            )
-          })
-          // set duplicate & valid records
-          // check in db if record exists with matched phone Number & email
-          const serialData = await Promise.all(
-            clean1.map(async (dRow) => {
-              const foundLength = await checkIfUnitAlreadyExists(
-                `${orgId}_units`,
-                pId,
-                myPhase?.uid || '',
-                myBlock?.uid || '',
-                dRow['Unit No.*'] || dRow['Flat No.*'] || dRow['Villa No*']
-              )
-              // Apartment Type*
-              console.log('my data value is ', dRow)
-              const computPlotObj = {
-                mode: await makeMode(foundLength),
-                pId,
-                phaseId: dRow[''] || 1,
-                blockId: myBlock?.uid || 1,
-                Date: Timestamp.now().toMillis(),
-                unit_no:
-                  dRow['Unit No.*'] || dRow['Flat No.*'] || dRow['Villa No*'],
-                size: dRow['Type*']?.toLowerCase() || '',
-                facing: dRow['Facing*'] || '',
-                bedrooms_c: dRow['Bedrooms'] || 0,
-                bathrooms_c: dRow['Bathrooms'] || 0,
-                car_parkings_c: dRow['Car Parkings'] || 0,
-                // cartpet_area_uom: dRow['CARPET SFT'] || 0,
-                area: Number(dRow['Land Area(sqft)*']?.replace(',', '')) || 0,
-                area_sqm:
-                  Number(dRow['Land Area(sqm)*']?.replace(',', '')) || 0,
-                sqft_rate:
-                  dRow['Price per sqft*'] || dRow['Price per sqft'] || 0,
-                plc_per_sqft: dRow['PLC per sqft*'] || 0,
-                construct_area:
-                  Number(dRow['BUA sqft*']?.replace(',', '')) ||
-                  Number(dRow['BUA (sqft)*']?.replace(',', '')) ||
-                  0,
-                construct_price_sqft:
-                  dRow['Construction Price per sqft'] ||
-                  dRow['Construction Price per sqft*'] ||
-                  0,
-                // super_built_up_area: dRow[''] || 0,
-                cartpet_area_sqft: dRow['Carpet Area(sqft)'] || 0,
-
-                // construct_price: dRow['Construction price'] || 0,
-
-                east_d: dRow['East Dimension*(m)'] || 0,
-                west_d: dRow['West Dimension*(m)'] || 0,
-                north_d: dRow['North Dimension*(m)'] || 0,
-                south_d: dRow['South Dimension*(m)'] || 0,
-                east_west_d: dRow['East-West Dimension*(m)'] || 0,
-                north_south_d: dRow['North-South Dimension*(m)'] || 0,
-                north_sch_by: dRow['North Schedule*'],
-                south_sch_by: dRow['South Schedule*'],
-                east_sch_by: dRow['East Schedule*'],
-                west_sch_by: dRow['West Schedule*'],
-                status: dRow['Status*']?.toLowerCase() || 'available',
-                release_status: dRow['Release Status*']?.toLowerCase() || '',
-                mortgage_type: dRow['Mortgage Type']?.toLowerCase() || '',
-                survey_no: dRow['Survey No'] || '',
-                Katha_no: dRow['Katha No'] || '',
-                PID_no: dRow['PID No'] || '',
-                sharing: dRow['Sharing'] || '',
-                intype: 'bulk',
-                unit_type: 'Apartment',
-                by: user?.email,
-              }
-              return await computPlotObj
-            })
-          )
-
-          await setfileRecords(serialData)
-          // let x =   await getLedsData()
-
-          await console.log(
-            'Finished: records',
-            clean1,
-            serialData,
-            fileRecords
-          )
-        } else if (['Import Booked Villas','Import Booked Plots','Import Booked Apartments'].includes(title)) {
+        }  else if (['Import Booked Villas','Import Booked Plots','Import Booked Apartments'].includes(title)) {
           console.log('import stuff is ', records)
           const clean1 = records.filter((row) => {
             return (

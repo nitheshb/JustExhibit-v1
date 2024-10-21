@@ -57,7 +57,7 @@ const ProjPhaseHome = ({
   // phases
   const [phases, setPhases] = useState([])
   const [phasesList, setPhasesList] = useState([])
-  const [phaseViewFeature, setPhaseViewFeature] = useState('Blocks')
+  const [phaseViewFeature, setPhaseViewFeature] = useState('event_stalls')
 
   // blocks
   const [selPhaseIs, setSelPhaseIs] = useState('')
@@ -98,7 +98,7 @@ const ProjPhaseHome = ({
     if (selFlow) {
       selCat(selFlow, '')
     } else {
-      selCat('Blocks', '')
+      selCat('event_stalls', '')
     }
   }, [selFlow])
 
@@ -200,6 +200,39 @@ const ProjPhaseHome = ({
 
   return (
     <div>
+      {phaseViewFeature === 'event_stalls' &&
+
+                          <Floordetails
+                            pId={projectDetails?.uid}
+                            projectDetails={projectDetails}
+                            phaseFeed={phases}
+                            selBlock={{
+                              totalValue: 0,
+                              soldValue: 0,
+                              availValue: 0,
+                              bookValue: 0,
+                              blockValue: 0,
+                              holdValue: 0,
+                              totalArea: 0,
+                              soldArea: 0,
+                              availArea: 0,
+                              bookArea: 0,
+                              blockArea: 0,
+                              holdArea: 0,
+                              totalUnitCount: 0,
+                              soldUnitCount: 0,
+                              availableCount: 0,
+                              bookUnitCount: 0,
+                              blockUnitCount: 0,
+                            }}
+                            source={source}
+                            setShowCostSheetWindow={setShowCostSheetWindow}
+                            setSelUnitDetails={setSelUnitDetails}
+                            setSelMode={setSelMode}
+                            leadDetailsObj={leadDetailsObj1}
+                            setPhaseFun={setPhaseFun}
+                            selPhaseName={selPhaseName}
+                          />}
       {phases
         ?.filter((dd) => dd.uid === selPhaseIs)
         .map((phase) => {
@@ -265,6 +298,7 @@ const ProjPhaseHome = ({
 
           return (
             <>
+
               {showCostSheetWindow && (
                 <CostBreakUpSheet
                   selMode={selMode}
@@ -303,7 +337,7 @@ const ProjPhaseHome = ({
                                   val: 'CostDetails',
                                   subval: 'costSheet',
                                 },
-                                { lab: 'Units', val: 'Blocks' },
+                                { lab: 'Units', val: 'event_stalls' },
 
                                 {
                                   lab: 'Documents',
@@ -540,8 +574,7 @@ const ProjPhaseHome = ({
                       />
                       )} */}
 
-
-                      {phaseViewFeature === 'Blocks' &&
+                      {phaseViewFeature === 'event_stalls' &&
                         (selPhaseObj?.projectType?.name == 'Plots' ? (
                           <Floordetails
                             pId={projectDetails?.uid}
@@ -624,7 +657,38 @@ const ProjPhaseHome = ({
                             {/* )} */}
                           </div>
                         ))}
-
+   <div className="flex justify-center items-center font-semibold mt-3">
+                            <img
+                              className="w-12 h-12 mr-2"
+                              alt=""
+                              src="/l1.png"
+                            ></img>
+                            Blocks are not created yet{' '}
+                            {/* {source === 'projectManagement' && ( */}
+                              <button
+                                onClick={() => {
+                                  setSliderInfo({
+                                    open: true,
+                                    title: 'Add Block',
+                                    sliderData: {
+                                      phase,
+                                      block: {},
+                                    },
+                                    widthClass: 'max-w-2xl',
+                                  })
+                                }}
+                                className={
+                                  'flex ml-2  cursor-pointer items-center h-6 px-3 text-xs font-semibold  rounded-full bg-pink-200 hover:bg-pink-300 hover:text-pink-800 text-pink-800 '
+                                }
+                              >
+                                <PlusIcon
+                                  className="h-3 w-3 mr-1"
+                                  aria-hidden="true"
+                                />
+                                Add block
+                              </button>
+                            {/* )} */}
+                          </div>
                       {phaseViewFeature === 'Plan Diagram' && (
                         <PlanDiagramView
                           title={'Plan Diagram'}

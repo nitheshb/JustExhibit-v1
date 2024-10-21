@@ -349,7 +349,7 @@ console.log('customer info', myBookingPayload)
 
   useEffect(() => {
     console.log('phase details are ', selPhaseObj)
-    const { additonalChargesObj } = selPhaseObj
+    // const { additonalChargesObj } = selPhaseObj
     console.log('unit details', selUnitDetails)
     const { uid } = selUnitDetails
     const y = leadDetailsObj1[`${uid}_cs`]?.newSqftPrice || ''
@@ -386,7 +386,7 @@ console.log('customer info', myBookingPayload)
           merged = [...x, ...removeFulCostFieldA]
           console.log('pending here todo')
         } else {
-          merged = [...x, ...additonalChargesObj]
+          merged = [...x, ...selPhaseObj?.additonalChargesObj || []]
         }
       }
     } catch (error) {
