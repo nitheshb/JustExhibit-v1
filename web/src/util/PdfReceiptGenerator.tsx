@@ -260,7 +260,7 @@ const useStyles = () =>
 export type IInvoice = {
   id: number
   invoiceName: string
-  projectName: string
+  eventName: string
   sent: number
   dueDate: Date
   taxes: number
@@ -362,7 +362,7 @@ const i = 0
 const invoiceDet: IInvoice[] = [
   {
     id: 1,
-    projectName: 'PSP NIRVANA1',
+    eventName: 'PSP NIRVANA1',
     invoiceName: 'COST SHEET',
     sent: 1,
     paymentHeader: 'PAYMENT SCHEDULE',
@@ -521,7 +521,7 @@ const MyDocument = ({
           >
             <Image source="/ps_logo.png" style={{ width: 85, height: 35 }} />
             <Text style={[styles.h4, styles.ml1]}>
-              {projectDetails?.projectName}
+              {projectDetails?.eventName}
             </Text>
             {/* <Text>{myObj} </Text> */}
           </View>
@@ -577,7 +577,7 @@ const MyDocument = ({
 
             <View style={styles.col8}>
             <Text style={{ fontSize: 11, marginBottom: 5 }}>
-            Unit No: {selUnitDetails?.unit_no}
+            Stall No: {selUnitDetails?.unit_no}
             </Text>
 
             </View>
@@ -718,7 +718,7 @@ const MyDocument = ({
             <Text style={[styles.h4, styles.ml1,      styles.mT1,
                 styles.pt5,
                 styles.pr3,]}>
-              {projectDetails?.projectName}
+              {projectDetails?.eventName}
             </Text>
             {/* <Text>{myObj} </Text> */}
           </View>

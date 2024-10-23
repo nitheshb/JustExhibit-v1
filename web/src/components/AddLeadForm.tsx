@@ -81,7 +81,7 @@ const AddLeadForm = ({ title, dialogOpen, customerDetails }) => {
         responderPhone,
         cT,
         source,
-        projectName,
+        eventName,
       } = customerDetails
       const sourceListMatch = await sourceListItems?.filter((sourObj) => {
         return sourObj?.rep.includes(source)
@@ -89,20 +89,20 @@ const AddLeadForm = ({ title, dialogOpen, customerDetails }) => {
       const projectListMatch = await projectList?.filter((projObj) => {
         console.log(
           'my project data is',
-          projectName,
+          eventName,
           'mnd',
           projObj.value.replace(/\s/g, ''),
           'cd',
-          projectName?.replace(/\s/g, '')
+          eventName?.replace(/\s/g, '')
         )
         return (
-          projObj?.value?.replace(/\s/g, '') == projectName?.replace(/\s/g, '')
+          projObj?.value?.replace(/\s/g, '') == eventName?.replace(/\s/g, '')
         )
       })
 
       console.log(
         'my project data is ',
-        projectName,
+        eventName,
         customerDetails,
         projectListMatch
       )
@@ -112,9 +112,9 @@ const AddLeadForm = ({ title, dialogOpen, customerDetails }) => {
       // custObj.countryCode = responderPhone?.slice(-2)
       custObj.Date = cT
       custObj.source = sourceListMatch[0]?.value || ''
-      custObj.project = projectListMatch[0]?.projectName || ''
+      custObj.project = projectListMatch[0]?.eventName || ''
       custObj.projectId = projectListMatch[0]?.uid || ''
-      custObj.value = projectListMatch[0]?.projectName || ''
+      custObj.value = projectListMatch[0]?.eventName || ''
       await setCustomerDetailsTuned(custObj)
       await console.log('my project data is ', customerDetailsTuned, custObj)
     }
@@ -149,8 +149,8 @@ const AddLeadForm = ({ title, dialogOpen, customerDetails }) => {
         )
         setfetchedUsersList(projectsListA)
         projectsListA.map((user) => {
-          user.label = user.projectName
-          user.value = user.projectName
+          user.label = user.eventName
+          user.value = user.eventName
         })
         console.log('fetched users list is', projectsListA)
         setprojectList(projectsListA)
@@ -427,7 +427,7 @@ const AddLeadForm = ({ title, dialogOpen, customerDetails }) => {
                 countryCode: customerDetailsTuned?.countryCode || '+91',
                 email: customerDetailsTuned?.email || '',
                 source: customerDetailsTuned?.source || '',
-                project: customerDetailsTuned?.projectName || '',
+                project: customerDetailsTuned?.eventName || '',
                 projectId: customerDetailsTuned?.projectId || '',
                 assignedTo: customerDetailsTuned?.name || '',
                 budget: '20-30L',

@@ -214,7 +214,7 @@ const SiderForm = ({
                   />
                 )}
                 {(title === 'Import Villas' ||
-                  title === 'Import Apartment Units') && (
+                  title === 'Import Apartment Stalls') && (
                     <LeadsDropHomes
                       title={title}
                       dialogOpen={setOpen}

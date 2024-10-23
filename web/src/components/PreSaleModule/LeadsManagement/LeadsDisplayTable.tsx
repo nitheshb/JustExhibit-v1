@@ -238,7 +238,7 @@ const LeadsDisplayTable = ({
                   sortedList.map((dat, i) => {
                     const {
                       comments,
-                      projectName,
+                      eventName,
                       responderEmail,
                       responderName,
                       responderPhone,
@@ -299,7 +299,7 @@ const LeadsDisplayTable = ({
                         <td className="max-w-[250px] min-w-[250px] w-[250px]">
                           <div className="flex flex-col">
                             <p className="text-[12px] leading-none text-gray-600  mt-2">
-                              {projectName || 'NA'}
+                              {eventName || 'NA'}
                             </p>
                             <p className="text-[11px] leading-none text-gray-600  mt-2">
                               {source || 'NA'}

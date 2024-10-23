@@ -157,7 +157,7 @@ const BookingSummaryReport = () => {
           docSnapshot.data()
         )
         projects.map((user) => {
-          user.label = user?.projectName
+          user.label = user?.eventName
           user.value = user?.uid
         })
         setProjects([...projects])
@@ -175,7 +175,7 @@ const BookingSummaryReport = () => {
           docSnapshot.data()
         )
         projects.map((user) => {
-          user.label = user?.projectName
+          user.label = user?.eventName
           user.value = user?.uid
         })
         setusersList([...projects])
@@ -335,7 +335,7 @@ const BookingSummaryReport = () => {
                           <p
                             className="font-bold text-xl ml-12 "
                             onClick={() =>
-                              showDrillDownFun('Booked Units', projectAValues)
+                              showDrillDownFun('Booked Stalls', projectAValues)
                             }
                           >
                             {

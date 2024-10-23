@@ -32,7 +32,10 @@ const SlimSideMenuBar = (props) => {
           className="flex items-center justify-center flex-shrink-0 w-full py-[9px] mr-4  border-b mt-[4px] pt-[10px]"
           href="#"
         >
-          <img src="https://res.cloudinary.com/dhgck7ebz/image/upload/f_auto,c_limit,w_64,q_auto/Brand/Logo%20Section/Mark/Mark_01"  className='w-10 h-10 ml-4'/>
+          <img
+            src="https://res.cloudinary.com/dhgck7ebz/image/upload/f_auto,c_limit,w_64,q_auto/Brand/Logo%20Section/Mark/Mark_01"
+            className="w-10 h-10 ml-4"
+          />
         </a>
       )}
       <section className="mb-4"></section>
@@ -125,7 +128,7 @@ const SlimSideMenuBar = (props) => {
                       ></path>
                     </svg>
                   </span>
-                  <span className="text-[9px] font-bold  pl-1">Units</span>
+                  <span className="text-[9px] font-bold  pl-1">Stalls</span>
                 </span>
               </span>
             </li>
@@ -425,7 +428,7 @@ const SlimSideMenuBar = (props) => {
                       ></path>
                     </svg>
                   </span>
-                  <span className="text-[9px] font-bold  pl-1">Units</span>
+                  <span className="text-[9px] font-bold  pl-1">Stalls</span>
                 </span>
               </span>
             </li>
@@ -1171,7 +1174,7 @@ const SlimSideMenuBar = (props) => {
                       ></path>
                     </svg>
                   </span>
-                  <span className="text-[9px] font-bold  pl-1">Units</span>
+                  <span className="text-[9px] font-bold  pl-1">Stalls</span>
                 </span>
               </span>
             </li>

@@ -7,11 +7,14 @@ import { MetaTags } from '@redwoodjs/web'
 
 import CrmHome from 'src/components/A_CRMcomp/CrmHome'
 import CrmTaskList from 'src/components/A_CRMcomp/CrmTaskList'
+import CrmAnalyticsHome from 'src/components/A_CrmModule/CrmAnalyticsHome'
+import CrmConstuctionModeHome from 'src/components/A_CrmModule/CrmConstructionHome'
 import CrmDashboardHome from 'src/components/A_CrmModule/CrmDashboard'
 import CrmRegisterModeHome from 'src/components/A_CrmModule/CrmRegisterHome'
 import CrmRepHomePageView1 from 'src/components/A_CrmModule/CrmRepHomePageView1'
 import CustomersEventsHome from 'src/components/A_CrmModule/CustomersEventsHome'
 import CustomersSearchHome2 from 'src/components/A_CrmModule/CustomersSearchHome2'
+import UnitsInventoryHome from 'src/components/A_ProjModule/UnitsInvertoryHome'
 import SlimSideMenuBar from 'src/components/A_SideMenu/slimSideMenu'
 import AllBankDetailsView from 'src/components/All_BankDetailsView'
 import HeadNavBar2 from 'src/components/HeadNavBar/HeadNavBar2'
@@ -22,9 +25,6 @@ import { getAllProjects } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 
 import SiderForm from '../../components/SiderForm/SiderForm'
-import UnitsInventoryHome from 'src/components/A_ProjModule/UnitsInvertoryHome'
-import CrmAnalyticsHome from 'src/components/A_CrmModule/CrmAnalyticsHome'
-import CrmConstuctionModeHome from 'src/components/A_CrmModule/CrmConstructionHome'
 
 const CrmHomePage = () => {
   const { user } = useAuth()
@@ -350,7 +350,6 @@ const CrmHomePage = () => {
 
   return (
     <>
-
       <div className="flex w-screen h-screen  text-gray-700">
         <div className="flex  flex-col flex-grow">
           {/* <HeadNavBar /> */}
@@ -371,21 +370,21 @@ const CrmHomePage = () => {
               viewable={viewable}
             /> */}
             <div className="flex-grow  items-center overflow-y-auto  h-[98%]  px-300  py-300">
-              <HeadNavBar2 selModule={selModule} setSelModule={setSelModule}  />
+              <HeadNavBar2 selModule={selModule} setSelModule={setSelModule} />
               <div className="p-0 px-1">
                 {/* {viewable === 'crmDashboard' && (
                   <CrmDashboardHome
                     project={{
-                      projectName: 'Events',
+                      eventName: 'Events',
                     }}
                     isEdit={undefined}
                   />
                 )} */}
 
-                 {viewable === 'crmAnalytics' && (
+                {viewable === 'crmAnalytics' && (
                   <CrmAnalyticsHome
                     project={{
-                      projectName: 'Events',
+                      eventName: 'Events',
                     }}
                     isEdit={undefined}
                   />
@@ -393,7 +392,7 @@ const CrmHomePage = () => {
                 {viewable === 'crmSpace' && <CrmRepHomePageView1 />}
               </div>
 
-              <div className="px-3">
+              <div className="pr-2">
                 {(viewable === 'CrmTasks' || viewable === 'Home') && (
                   <CrmHome leadsTyper={undefined} />
                 )}
@@ -404,7 +403,7 @@ const CrmHomePage = () => {
                 {viewable === 'unitsInventory' && (
                   <ProjectsUnitInventory
                     project={{
-                      projectName: 'Events',
+                      eventName: 'Events',
                     }}
                     isEdit={undefined}
                   />
@@ -418,7 +417,7 @@ const CrmHomePage = () => {
                 {viewable === 'MyCustomers' && (
                   <CustomersEventsHome
                     project={{
-                      projectName: 'Events',
+                      eventName: 'Events',
                     }}
                     isEdit={undefined}
                   />
@@ -426,7 +425,7 @@ const CrmHomePage = () => {
                 {viewable === 'MyCustomersEvents' && (
                   <CustomersEventsHome
                     project={{
-                      projectName: 'Events',
+                      eventName: 'Events',
                     }}
                     isEdit={undefined}
                   />
@@ -434,15 +433,15 @@ const CrmHomePage = () => {
                 {viewable === 'MyCustomers-II' && (
                   <CustomersSearchHome2
                     project={{
-                      projectName: 'Events',
+                      eventName: 'Events',
                     }}
                     isEdit={undefined}
                   />
                 )}
-                   {viewable === 'units_inventory' && (
+                {viewable === 'units_inventory' && (
                   <UnitsInventoryHome
                     project={{
-                      projectName: 'Events',
+                      eventName: 'Events',
                     }}
                     isEdit={undefined}
                   />
@@ -702,7 +701,6 @@ const CrmHomePage = () => {
           <MetaTags title="ExecutiveHome" description="ExecutiveHome page" />
         </div>
       </div>
-
     </>
   )
 }

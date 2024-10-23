@@ -40,7 +40,7 @@ export const whatsAppTesting = (editorState, receiverDetails, msgPayload) => {
     executivePh,
     executiveEmail,
   } = receiverDetails
-  const { projectName, broucherLink, locLink, projContactNo, scheduleTime } =
+  const { eventName, broucherLink, locLink, projContactNo, scheduleTime } =
     msgPayload
   console.log('sch time is', scheduleTime)
   let setTime
@@ -54,7 +54,7 @@ export const whatsAppTesting = (editorState, receiverDetails, msgPayload) => {
     variableRegex,
     (match, variableName) => {
       if (variableName === 'PROJECT_NAME') {
-        return projectName
+        return eventName
       } else if (variableName === 'CUSTOMER_NAME') {
         return customerName
       } else if (variableName === 'EXECUTIVE_NAME') {
@@ -120,7 +120,7 @@ export const whatsAppTaskManMessages = (editorState, receiverDetails, msgPayload
     executivePh,
     executiveEmail,
   } = receiverDetails
-  const { projectName, broucherLink, locLink, projContactNo, scheduleTime } =
+  const { eventName, broucherLink, locLink, projContactNo, scheduleTime } =
     msgPayload
   console.log('sch time is', scheduleTime)
   let setTime
@@ -134,7 +134,7 @@ export const whatsAppTaskManMessages = (editorState, receiverDetails, msgPayload
     variableRegex,
     (match, variableName) => {
       if (variableName === 'PROJECT_NAME') {
-        return projectName
+        return eventName
       } else if (variableName === 'CUSTOMER_NAME') {
         return customerName
       } else if (variableName === 'EXECUTIVE_NAME') {

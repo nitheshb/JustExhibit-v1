@@ -14,7 +14,7 @@ const CrmUnitHeader = ({ projectDetails }) => {
     <>
       <div className="flex flex-row justify-between ">
         {/* <h1 className="font-playfair text-[19px]  text-gray-700   ">
-          {projectDetails?.projectName?.toUpperCase()}
+          {projectDetails?.eventName?.toUpperCase()}
         </h1> */}
 
         <img className="w-[80px]" src={'/nirvana_logo.png'} alt="" />

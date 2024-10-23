@@ -23,7 +23,7 @@ import ProjPhaseHome from '../ProjPhaseHome/ProjPhaseHome'
 
 import ConstructProjectUnitsDisplay from './Const_ProjectUnitsDisplay'
 const ConstructUnitsHome = ({ project }) => {
-  const { projectName } = project
+  const { eventName } = project
   const { user } = useAuth()
 
   const { orgId } = user
@@ -49,7 +49,7 @@ const ConstructUnitsHome = ({ project }) => {
           docSnapshot.data()
         )
         projects.map((user) => {
-          user.label = user?.projectName
+          user.label = user?.eventName
           user.value = user?.uid
         })
         const allProA = [
@@ -148,7 +148,7 @@ const ConstructUnitsHome = ({ project }) => {
                     type="search"
                     id="search-dropdown"
                     className="block p-2.5 py-1 w-[120px] z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg rounded-l-lg border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
-                    placeholder={`Unit No`}
+                    placeholder={`Stall No`}
                     required
                   />
                   <section className="absolute top-0 right-0  flex flex-row">
@@ -224,8 +224,8 @@ const ConstructUnitsHome = ({ project }) => {
                     title: ['Apartments'].includes(
                       projectDetails?.projectType?.name
                     )
-                      ? 'Import Units'
-                      : 'Import Apartment Units',
+                      ? 'Import Stalls'
+                      : 'Import Apartment Stalls',
                     sliderData: {
                       phase: {},
                       block: {},
@@ -251,7 +251,7 @@ const ConstructUnitsHome = ({ project }) => {
               </div>
               {projects.length > 0 ? (
                 projects.map((project, i) => (
-                  // <span key={i}>{project?.projectName}</span>
+                  // <span key={i}>{project?.eventName}</span>
                   <>
                     <div
                       key={i}
@@ -262,7 +262,7 @@ const ConstructUnitsHome = ({ project }) => {
                         <span>#103459</span>
 
                         <h3 className="text-lg text-slate-700 font-bold  leading-normal mb-1 mt-">
-                          {project?.projectName}
+                          {project?.eventName}
                         </h3>
                         <div className="text-xs mt-0 mb-2 text-slate-400 font-bold uppercase">
                           Nithesh B 31/11/2022

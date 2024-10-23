@@ -170,7 +170,7 @@ export default function CrmUnitSideView({
   const [projectList, setprojectList] = useState([])
 
   const [selProjectIs, setSelProjectIs] = useState({
-    projectName: '',
+    eventName: '',
     uid: '',
   })
 
@@ -233,7 +233,7 @@ export default function CrmUnitSideView({
   useEffect(() => {
     setAssignedTo(customerDetails?.assignedTo)
     setAssignerName(customerDetails?.assignedToObj?.label)
-    setSelProjectIs({ projectName: Event, uid: ProjectId })
+    setSelProjectIs({ eventName: Event, uid: ProjectId })
 
     setLeadStatus(Status)
     console.log('assinger to yo yo', customerDetails)
@@ -306,8 +306,8 @@ export default function CrmUnitSideView({
         )
         setfetchedUsersList(projectsListA)
         projectsListA.map((user) => {
-          user.label = user.projectName
-          user.value = user.projectName
+          user.label = user.eventName
+          user.value = user.eventName
         })
         console.log('fetched proejcts list is', projectsListA)
         setprojectList(projectsListA)
@@ -331,12 +331,12 @@ export default function CrmUnitSideView({
   const setNewProject = (leadDocId, value) => {
     console.log('sel pROJECT DETAILS ', value)
 
-    // setProjectName(value.projectName)
+    // setProjectName(value.eventName)
     // setProjectId(value.uid)
     // save assigner Details in db
-    // projectName
+    // eventName
     const x = {
-      Event: value.projectName,
+      Event: value.eventName,
       ProjectId: value.uid,
     }
     setSelProjectIs(value)
@@ -661,7 +661,7 @@ export default function CrmUnitSideView({
             <div className="flex justify-center items-center w-full space-y-2 flex-col border-gray-200 border-b pb-6">
               <div className="flex justify-between items-center w-full">
                 <p className="font-xs text-xs text-gray-600 tracking-wide uppercase">
-                  Unit No{' '}
+                  Stall No{' '}
                 </p>
                 <p className="text-xs  font-xs dark:text-gray-300 leading-4 text-blue-800">
                   52

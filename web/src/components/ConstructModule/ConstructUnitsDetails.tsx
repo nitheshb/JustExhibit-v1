@@ -31,7 +31,7 @@ export default function ConstructUnitsDetails({
 
   const { status, uid, unit_no, fullPs, builtup_area, facing, pId } =
     viewUnitConstData
-  const { projectName, location, projectType } = projectDetails
+  const { eventName, location, projectType } = projectDetails
 
   const [paymentSchA, setPaymentSchA] = useState([])
   const [selFeature, setFeature] = useState('summary')
@@ -82,7 +82,7 @@ export default function ConstructUnitsDetails({
                                   ,PHASE-I,
                                 </p>
                                 <p className="text-md font-bold tracking-tight uppercase font-body my-[2px]  ml-2">
-                                  {projectName}
+                                  {eventName}
                                 </p>
                               </div>
                               <div className="text-center items-center mr-2 mt-3">

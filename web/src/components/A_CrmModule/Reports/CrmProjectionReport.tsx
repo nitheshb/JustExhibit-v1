@@ -42,7 +42,7 @@ const getNextMonths = (startMonthOffset, monthCount) => {
 const reportData = [
   {
     id: 1,
-    projectName: 'Eco stone',
+    eventName: 'Eco stone',
     soldUnits: 3,
     totalAmount: 1001010,
     monthly: {
@@ -61,7 +61,7 @@ const reportData = [
   },
   {
     id: 2,
-    projectName: 'green gardens',
+    eventName: 'green gardens',
     soldUnits: 5,
     totalAmount: 2002020,
     monthly: {
@@ -261,7 +261,7 @@ const CrmProjectionReport = ({ projects }) => {
               Event Name
             </th>
             <th className="py-3 px-6 text-left border border-black">
-              Sold Units
+              Sold Stalls
             </th>
             <th className="py-3 px-6 text-right border border-black">
               Total Amount
@@ -375,7 +375,7 @@ const CrmProjectionReport = ({ projects }) => {
                 className="border-b border-gray-200 hover:bg-gray-100"
               >
                 <td className="py-3 px-6 text-left whitespace-nowrap border border-black">
-                  {capitalizeFirstLetter(data?.projectName)}
+                  {capitalizeFirstLetter(data?.eventName)}
                 </td>
                 <td className="py-3 px-6 pr-10 text-right border border-black">
                   {data?.soldUnitCount?.toLocaleString('en-IN')}

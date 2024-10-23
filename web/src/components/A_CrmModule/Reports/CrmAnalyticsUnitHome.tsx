@@ -73,7 +73,7 @@ const CrmAnalyticsUnitHome = ({ project }) => {
     area,
     builderName,
     location,
-    projectName,
+    eventName,
     projectType,
     uid = 0,
     s_agreeCount,
@@ -181,7 +181,7 @@ const CrmAnalyticsUnitHome = ({ project }) => {
                   ></path>
                 </svg>
                 <div className=" ml-1 text-white text-[16px] font-bold leading-1">
-                  {projectName}
+                  {eventName}
                 </div>
               </div>
               <div className=" ml-2 text-white text-[9px] leading-[18px]">
@@ -257,7 +257,7 @@ const CrmAnalyticsUnitHome = ({ project }) => {
                           <span className="font-light text-xs ">
                           <CountUpComp
                                             value={data?.value}
-                                          /> Units - {data?.sqft} sqft
+                                          /> Stalls - {data?.sqft} sqft
                           </span>
                         </section>
                       </span>

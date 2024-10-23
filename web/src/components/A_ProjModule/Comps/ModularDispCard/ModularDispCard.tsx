@@ -25,7 +25,7 @@ const ModularProjectMetrics = ({ project }) => {
     area,
     builderName,
     location,
-    projectName,
+    eventName,
     projectType,
     uid = 0,
     s_agreeCount,

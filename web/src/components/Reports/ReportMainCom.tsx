@@ -391,7 +391,7 @@ export default function ReportMainCom() {
         )
         // setprojectList(projectsListA)
         projectsListA.map((user) => {
-          user.label = user.projectName
+          user.label = user.eventName
           user.value = user.uid
         })
         console.log('fetched users list is project', projectsListA)

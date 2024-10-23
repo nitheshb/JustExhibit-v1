@@ -69,7 +69,7 @@ export default function LeadsLakeHomeComponent({ todaySch, schLoading }) {
         })
 
         projectsListA.map((user) => {
-          user.label = user?.projectName
+          user.label = user?.eventName
           user.value = user?.uid
         })
         console.log('fetched projects list is', projectsListA)
@@ -92,7 +92,7 @@ export default function LeadsLakeHomeComponent({ todaySch, schLoading }) {
         })
 
         projectsListA.map((user) => {
-          user.label = user?.projectName
+          user.label = user?.eventName
           user.value = user?.uid
         })
         console.log('fetched projects list is', projectsListA)

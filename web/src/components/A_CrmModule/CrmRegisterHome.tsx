@@ -219,7 +219,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
   const [searchKeyField, setSearchKeyField] = useState('')
   const [filteredDataA, setFilteredDataA] = useState([])
   const [selLeadsOf, setSelLeadsOf] = useState({
-    label: 'My Units',
+    label: 'My Stalls',
     value: 'myunits',
   })
   useEffect(() => {
@@ -281,8 +281,8 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
           docSnapshot.data()
         )
         projectsListA.map((user) => {
-          user.label = user.projectName
-          user.value = user.projectName
+          user.label = user.eventName
+          user.value = user.eventName
         })
         console.log('fetched proejcts list is', projectsListA)
         setprojectList(projectsListA)
@@ -347,7 +347,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
           console.log(',my prject sel is  ===> ', projectList)
           if (y.length > 0) {
             console.log(',my prject sel is ', y)
-            x.projName = y[0].projectName
+            x.projName = y[0].eventName
           }
           return x
         })
@@ -386,7 +386,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
           // console.log(',my prject sel is  ===> ', projectList)
           if (y.length > 0) {
             // console.log(',my prject sel is ', y)
-            x.projName = y[0].projectName
+            x.projName = y[0].eventName
           }
           return x
         })
@@ -580,8 +580,8 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                       // options={aquaticCreatures}
                       options={[
                         ...[
-                          { label: 'Team Units', value: 'teamunits' },
-                          { label: 'My Units', value: 'myunits' },
+                          { label: 'Team Stalls', value: 'teamunits' },
+                          { label: 'My Stalls', value: 'myunits' },
                         ],
                         ...usersList,
                       ]}
@@ -702,7 +702,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                     <input
                       type="text"
                       id="globalSearch"
-                      placeholder="Search Unit No, Customer name, Phone no, Dues..."
+                      placeholder="Search Stall No, Customer name, Phone no, Dues..."
                       onChange={(e) => setSearchKeyField(e.target.value)}
                       autoComplete="off"
                       value={searchKeyField}
@@ -853,7 +853,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         className={`items-center h-6   text-xs font-semibold text-gray-500  rounded-full
                       `}
                                       >
-                                        Unit No
+                                        Stall No
                                       </span>
                                     </section>
                                     <div className="flex flex-col ml-2 item-right">
@@ -1150,7 +1150,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                               className={`items-center h-6   text-xs font-semibold text-gray-500  rounded-full
                       `}
                                             >
-                                              Unit No
+                                              Stall No
                                             </span>
                                           </section>
                                           <div className="flex flex-col w-full  ml-2 item-right  px-2  mr-2 rounded-lg">

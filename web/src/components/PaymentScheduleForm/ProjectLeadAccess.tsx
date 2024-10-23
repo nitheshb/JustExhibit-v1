@@ -74,7 +74,7 @@ const PaymentLeadAccess = ({ title, data, dept, source, }) => {
     console.log('value is', value, data, source)
     const { uid, email: empEmailId, projAccessA } = value
     const { project } = data
-    const { projectName, uid: projiD } = project
+    const { eventName, uid: projiD } = project
 
     //  projId
     // add projectId to users doc
@@ -88,12 +88,12 @@ const PaymentLeadAccess = ({ title, data, dept, source, }) => {
     } else {
       newAccessA = [...(value?.[`${selKeyName}`]  || []), ...[projiD]]
     }
-    // projectName
+    // eventName
    await  updateUserAccessProject(
       orgId,
       uid,
       { [`${selKeyName}`]: newAccessA },
-      projectName,
+      eventName,
       empEmailId,
       email,
       enqueueSnackbar

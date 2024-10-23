@@ -337,7 +337,7 @@ const ProjPhaseHome = ({
                                   val: 'CostDetails',
                                   subval: 'costSheet',
                                 },
-                                { lab: 'Units', val: 'event_stalls' },
+                                { lab: 'Stalls', val: 'event_stalls' },
 
                                 {
                                   lab: 'Documents',

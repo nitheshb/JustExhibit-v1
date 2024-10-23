@@ -193,7 +193,7 @@ export default function Crm_legal_Clarity({
   const [closeTask, setCloseTask] = useState(false)
 
   const [selProjectIs, setSelProjectIs] = useState({
-    projectName: '',
+    eventName: '',
     uid: '',
   })
   // email formik
@@ -330,7 +330,7 @@ export default function Crm_legal_Clarity({
     receiverPhNo: Mobile,
   }
   const msgPayload = {
-    projectName: Event,
+    eventName: Event,
     broucherLink: '',
     locLink: '',
     projContactNo: '',

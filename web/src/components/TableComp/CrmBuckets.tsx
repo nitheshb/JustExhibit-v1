@@ -36,7 +36,7 @@ const CrmBucketList = ({ leadsTyper }) => {
 
   const [value, setValue] = useState('all')
   const tabHeadFieldsA = [
-    { lab: 'All Units', val: 'all' },
+    { lab: 'All Stalls', val: 'all' },
     { lab: 'Just Booked', val: 'booked' },
     { lab: 'Agreement', val: 'agreementing' },
     { lab: 'Demands', val: 'demands' },

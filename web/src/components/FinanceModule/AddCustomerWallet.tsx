@@ -21,7 +21,7 @@ import { paymentMode, statesList, walletMode } from 'src/constants/projects'
 import {
   addPaymentReceivedEntry,
   addPaymentReceivedEntrySup,
-  createBookedCustomer,
+  createBookedCompany,
   createNewCustomerS,
   getProject,
   steamBankDetailsList,
@@ -663,7 +663,7 @@ const AddCustomerWallet = ({
 
                                           </div>
 
-                                     
+
                                         </section>
                                       )}
                                     {formik?.file?.fileUploader}

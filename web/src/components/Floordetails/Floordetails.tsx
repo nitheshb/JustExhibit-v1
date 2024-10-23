@@ -123,7 +123,7 @@ const Floordetails = ({
   const [unitsFeed, setUnitsFeed] = useState([])
   const [actionType, setActionType] = useState('costSheetMode')
   const [reportFeed, setReportFeed] = useState(unitStatsData)
-  const [blocksViewFeature, setBlocksViewFeature] = useState('Units')
+  const [blocksViewFeature, setBlocksViewFeature] = useState('Stalls')
   const [unitShrink, setUnitShrink] = useState(true)
   const [filteredUnits, setFilteredUnits] = useState([])
   const [filStatus, setFilStatus] = useState(['available', 'booked', 'blocked'])
@@ -645,7 +645,7 @@ const Floordetails = ({
                         >
                           <div className="flex flex-row items-center justify-between">
                             <h3 className="m-0 ml-2 text-sm font-semibold  leading-tight tracking-tight text-black border-0 border-gray-200 sm:text-1xl md:text-1xl ">
-                              Units
+                              Stalls
                             </h3>
                           </div>
                           <div className="flex flex-col justify-between px-2">
@@ -742,14 +742,14 @@ const Floordetails = ({
           </div>
         </>
       )}
-      {blocksViewFeature === 'Units' && (
+      {blocksViewFeature === 'Stalls' && (
         <>
           <section className="bg-white py-3">
             {/* <div className="flex justify-between items-center  px-4 bg-white border-b py-2">
               <div className="flex flex-row max-w-full">
                 <p className="text-sm font-semibold text-[#0091ae]">
                   <span className="text-gray-700">
-                    {selBlock?.blockName}-Units
+                    {selBlock?.blockName}-Stalls
                   </span>
                 </p>
               </div>
@@ -1405,10 +1405,10 @@ const Floordetails = ({
 console.log('selected type is', ['Apartments', 'Apartment'].includes(
   projectDetails?.projectType?.name
 )
-  ? 'Import Units'
+  ? 'Import Stalls'
   : ['Plots'].includes(projectDetails?.projectType?.name)
-  ? 'Import Plot Units'
-  : 'Import Apartment Units',       projectDetails?.projectType?.name )
+  ? 'Import Plot Stalls'
+  : 'Import Apartment Stalls',       projectDetails?.projectType?.name )
                     setAddUnitSlider({
                       open: true,
                       title: ['Villas'].includes(

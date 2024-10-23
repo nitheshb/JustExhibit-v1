@@ -127,7 +127,7 @@ export default function CSManagerApprovalBody({
         </div>
         <div className="flex flex-col text-right">
           <div className="flex-row font-bold uppercase text-[#1f2f3e] text-[10px]">
-            Unit No: <span className="text-[#848789] ml-[1px]">{selUnitPayload?.unit_no}</span>
+            Stall No: <span className="text-[#848789] ml-[1px]">{selUnitPayload?.unit_no}</span>
           </div>
           <div className="flex-row font-bold uppercase text-[#1f2f3e] text-[10px]">
             Survey No:<span className="text-[#848789] ml-[1px]">{selUnitPayload?.survey_no || "NA"}</span>

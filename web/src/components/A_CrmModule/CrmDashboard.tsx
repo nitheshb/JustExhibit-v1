@@ -27,7 +27,7 @@ import RadarChart from '../Apex_chart/RadarChart'
 const CrmDashboardHome = ({ project }) => {
   const theme = useTheme()
   const { t } = useTranslation()
-  const { projectName } = project
+  const { eventName } = project
   const { user } = useAuth()
 
   const { orgId } = user
@@ -106,7 +106,7 @@ const CrmDashboardHome = ({ project }) => {
           docSnapshot.data()
         )
         projects.map((user) => {
-          user.label = user?.projectName
+          user.label = user?.eventName
           user.value = user?.uid
         })
         setProjects([...projects])

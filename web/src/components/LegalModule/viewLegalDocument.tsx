@@ -90,7 +90,7 @@ export default function LegalDocsViewHome({
                                   ,PHASE-I,
                                 </p>
                                 <p className="text-md font-bold tracking-tight uppercase font-body my-[2px]  ml-2">
-                                  {'projectName'}
+                                  {'eventName'}
                                 </p>
                               </div>
                               <div className="text-center items-center mr-2 mt-3">

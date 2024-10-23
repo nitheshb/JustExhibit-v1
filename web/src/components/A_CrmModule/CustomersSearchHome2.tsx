@@ -30,7 +30,7 @@ import { error } from 'console'
 import { motion } from 'framer-motion'
 import { PencilIcon } from '@heroicons/react/solid'
 const CustomersSearchHome2 = ({ project }) => {
-  const { projectName } = project
+  const { eventName } = project
   const { user } = useAuth()
   const { enqueueSnackbar } = useSnackbar()
 
@@ -49,44 +49,44 @@ const CustomersSearchHome2 = ({ project }) => {
   const paymentsA = [
     {
       label: 'Demands',
-      projectName: 'Demands',
+      eventName: 'Demands',
       value: 'demands',
     },
     {
       label: 'Review',
-      projectName: 'review',
+      eventName: 'review',
       value: 'review',
     },
     {
       label: 'Received',
-      projectName: 'received',
+      eventName: 'received',
       value: 'received',
     },
     {
       label: 'Rejected',
-      projectName: 'rejected',
+      eventName: 'rejected',
       value: 'rejected',
     },
   ]
   const registerA = [
     {
       label: 'Booking',
-      projectName: 'Booking',
+      eventName: 'Booking',
       value: 'booking',
     },
     {
       label: 'Agreement',
-      projectName: 'Agreement',
+      eventName: 'Agreement',
       value: 'agreement',
     },
     {
       label: 'Registered',
-      projectName: 'registered',
+      eventName: 'registered',
       value: 'registered',
     },
     {
       label: 'Rejected',
-      projectName: 'rejected',
+      eventName: 'rejected',
       value: 'rejected',
     },
   ]
@@ -176,7 +176,7 @@ const CustomersSearchHome2 = ({ project }) => {
                       scope="col"
                       className="px-6 py-3 text-left text-xs font-medium text-gray-500  tracking-wider"
                     >
-                      Units
+                      Stalls
                     </th> <th
                       scope="col"
                       className="px-6 py-3 text-center text-xs font-medium text-gray-500  tracking-wider"
@@ -203,10 +203,10 @@ const CustomersSearchHome2 = ({ project }) => {
                           </div>
                           <div className="ml-4">
                             <div className="text-sm font-medium text-gray-900">
-                              {person?.Name}
+                              {person?.companyName}
                             </div>
                             <div className="text-sm text-gray-500">
-                              {person?.email}
+                              {person?.co_Name1}
                             </div>
                           </div>
                         </div>

@@ -68,7 +68,7 @@ const getNextMonths = (startMonthOffset, monthCount) => {
 const reportData = [
   {
     id: 1,
-    projectName: 'Eco stone',
+    eventName: 'Eco stone',
     soldUnits: 3,
     totalAmount: 1001010,
     monthly: {
@@ -87,7 +87,7 @@ const reportData = [
   },
   {
     id: 2,
-    projectName: 'green gardens',
+    eventName: 'green gardens',
     soldUnits: 5,
     totalAmount: 2002020,
     monthly: {
@@ -418,7 +418,7 @@ const ProjectBookingSummaryTable = ({ projects }) => {
                   className="border-b border-gray-200 hover:bg-gray-100"
                 >
                   <td className="py-3 px-6 text-left whitespace-nowrap bg-white border-b font-medium text-gray-900">
-                    {capitalizeFirstLetter(data?.projectName)}
+                    {capitalizeFirstLetter(data?.eventName)}
 
                   </td>
 

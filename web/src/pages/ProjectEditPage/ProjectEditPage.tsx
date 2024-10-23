@@ -25,7 +25,7 @@ const ProjectEditPage = ({
   const [isEditProjectOpen, setIsEditProjectOpen] = useState(false)
 
   const [project, setProject] = useState({
-    projectName: '',
+    eventName: '',
   })
   const handleAddPhaseOnClose = () => setIsAddPhaseOpen(false)
   const handleEditProjectClose = () => setIsEditProjectOpen(false)
@@ -47,7 +47,7 @@ const ProjectEditPage = ({
       },
       () =>
         setProject({
-          projectName: '',
+          eventName: '',
         })
     )
     return unsubscribe
@@ -73,7 +73,7 @@ const ProjectEditPage = ({
               <HeadNavBar2 selModule={''} setSelModule={''} />
               <div className="mx-1 mt-1">
 
-                {project?.projectName ? (
+                {project?.eventName ? (
                   <>
                     <EachProjectDashboard
                       project={project}

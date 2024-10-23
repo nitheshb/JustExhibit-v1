@@ -86,7 +86,7 @@ const LeadsTransferHome = ({ project }) => {
   ]
 
   const [availType, setAvailType] = useState({
-    projectName: '',
+    eventName: '',
     uid: '',
     value: '',
   })
@@ -94,27 +94,27 @@ const LeadsTransferHome = ({ project }) => {
   const registerA = [
     {
       label: 'Booking',
-      projectName: 'Blocked',
+      eventName: 'Blocked',
       value: 'booking',
     },
     {
       label: 'Booking',
-      projectName: 'Booking',
+      eventName: 'Booking',
       value: 'booking',
     },
     {
       label: 'Agreement',
-      projectName: 'Agreement',
+      eventName: 'Agreement',
       value: 'agreement',
     },
     {
       label: 'Registered',
-      projectName: 'registered',
+      eventName: 'registered',
       value: 'registered',
     },
     {
       label: 'Rejected',
-      projectName: 'Released',
+      eventName: 'Released',
       value: 'rejected',
     },
   ]
@@ -192,7 +192,7 @@ const LeadsTransferHome = ({ project }) => {
           docSnapshot.data()
         )
         projects.map((user) => {
-          user.label = user?.projectName
+          user.label = user?.eventName
           user.value = user?.uid
         })
         setCustomerRawData([...projects])
@@ -514,7 +514,7 @@ const LeadsTransferHome = ({ project }) => {
                 />
               </div>
               <h3 className="mb-1 text-sm font-semibold text-gray-900">
-                No Units Found
+                No Stalls Found
               </h3>
               <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                 <span className="text-blue-600"></span>

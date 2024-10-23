@@ -257,7 +257,7 @@ export default function UnitSideViewCRM({
   const [unitPayload, setUnitPayload] = useState({})
 
   const [selProjectIs, setSelProjectIs] = useState({
-    projectName: '',
+    eventName: '',
     uid: '',
   })
 
@@ -385,7 +385,7 @@ export default function UnitSideViewCRM({
   useEffect(() => {
     setAssignedTo(customerDetails?.assignedTo)
     setAssignerName(customerDetails?.assignedToObj?.label)
-    setSelProjectIs({ projectName: Event, uid: ProjectId })
+    setSelProjectIs({ eventName: Event, uid: ProjectId })
 
     setLeadStatus(status)
     console.log('assinger to yo yo', customerDetails, customerDetails?.status)
@@ -484,8 +484,8 @@ export default function UnitSideViewCRM({
         )
         setfetchedUsersList(projectsListA)
         projectsListA.map((user) => {
-          user.label = user.projectName
-          user.value = user.projectName
+          user.label = user.eventName
+          user.value = user.eventName
         })
         console.log('fetched proejcts list is', projectsListA)
         setprojectList(projectsListA)
@@ -573,7 +573,7 @@ export default function UnitSideViewCRM({
     })
 
     const msgPayload = {
-      projectName: Event,
+      eventName: Event,
       broucherLink: '',
       locLink: '',
       projContactNo: '',
@@ -600,12 +600,12 @@ export default function UnitSideViewCRM({
   const setNewProject = (leadDocId, value) => {
     console.log('sel pROJECT DETAILS ', value)
 
-    // setProjectName(value.projectName)
+    // setProjectName(value.eventName)
     // setProjectId(value.uid)
     // save assigner Details in db
-    // projectName
+    // eventName
     const x = {
-      Event: value.projectName,
+      Event: value.eventName,
       ProjectId: value.uid,
     }
     setSelProjectIs(value)

@@ -98,7 +98,7 @@ export const GlobalSearchBar = (props) => {
         <input
           type="text"
           id="globalSearch"
-          placeholder="Search Unit No, Customer name, Phone no, Dues..."
+          placeholder="Search Stall No, Customer name, Phone no, Dues..."
           onChange={searchKeyField}
           autoComplete="off"
           // value={searchKey}

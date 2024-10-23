@@ -4,11 +4,12 @@ import { useState, useEffect, useRef } from 'react'
 
 import { ExclamationCircleIcon, CheckCircleIcon } from '@heroicons/react/solid'
 import { AttachFile } from '@mui/icons-material'
+import { InputAdornment, TextField as MuiTextField } from '@mui/material'
 import { format } from 'date-fns'
 import { setHours, setMinutes } from 'date-fns'
 import { arrayUnion } from 'firebase/firestore'
 import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage'
-import { Form, Formik,  ErrorMessage, useField } from 'formik'
+import { Form, Formik, ErrorMessage, useField } from 'formik'
 import { useSnackbar } from 'notistack'
 import DatePicker from 'react-datepicker'
 import { v4 as uuidv4 } from 'uuid'
@@ -21,23 +22,31 @@ import { paymentMode, statesList } from 'src/constants/projects'
 import {
   addPaymentReceivedEntry,
   addPaymentReceivedEntrySup,
-  createBookedCustomer,
+  capturePaymentS,
+  createBookedCompany,
   createNewCustomerS,
   getProject,
   steamBankDetailsList,
   steamUsersProjAccessList,
+  streamMasters,
   streamProjectCSMaster,
   updateLeadStatus,
+  updateEventsStallBookCounts,
+  updateStallAsBooked,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import { storage } from 'src/context/firebaseConfig'
 import CustomDatePicker from 'src/util/formFields/CustomDatePicker'
+import { PhoneNoField } from 'src/util/formFields/phNoField'
 import { CustomSelect } from 'src/util/formFields/selectBoxField'
 import { MultiSelectMultiLineField } from 'src/util/formFields/selectBoxMultiLineField'
+import { TextField } from 'src/util/formFields/TextField'
 import { TextField2 } from 'src/util/formFields/TextField2'
+import { TextFieldFlat } from 'src/util/formFields/TextFieldFlatType'
 import PdfReceiptGenerator from 'src/util/PdfReceiptGenerator'
 import RupeeInWords from 'src/util/rupeeWords'
 
+import NoBorderDropDown from '../comps/noBorderDropDown'
 import Loader from '../Loader/Loader'
 import { validate_capturePayment } from '../Schemas'
 
@@ -73,8 +82,11 @@ const CaptureUnitPayment = ({
   const [payingForA, setPayingForA] = useState([])
   const [creditNotersA, setCreditNoters] = useState([])
   const [bankAccounts, setBankAccounts] = useState([])
-
-
+  const [statesListA, setStatesList] = useState([])
+  const [costSheetA, setCostSheetA] = useState([])
+  const [newSqftPrice, setNewSqftPrice] = useState(0)
+  const [partATotal, setPartATotal] = useState(0)
+  const [netTotal, setNetTotal] = useState(0)
 
   // const [formattedValue, setFormattedValue] = useState('');
 
@@ -106,18 +118,68 @@ const CaptureUnitPayment = ({
 
   useEffect(() => {
     console.log('unit details are ', selUnitDetails, newPlotPS)
+
+    const x = [
+      {
+        myId: '1',
+        units: {
+          value: 'fixedcost',
+          label: 'Fixed cost',
+        },
+        component: {
+          value: 'unit_cost_charges',
+          label: 'Unit Cost',
+        },
+        others: 0,
+        charges: 0,
+        TotalSaleValue: 0,
+        gstValue: 0,
+        gst: {
+          label: 12,
+          value: 0,
+        },
+        TotalNetSaleValueGsT: 0,
+      },
+    ]
+    setCostSheetA(x)
   }, [])
 
   useEffect(() => {
     getProjectFun()
   }, [])
   useEffect(() => {
-    let fullPs = []
-    let newConstructPSA= newConstructPS || []
-    if(newPlotPS){
+    // const unsubscribe = streamMasters(
+    //   orgId,
+    //   (querySnapshot) => {
+    //     const bankA = querySnapshot.docs.map((docSnapshot) => {
+    //       const x = docSnapshot.data()
+    //       return x
+    //     })
 
-  fullPs = [...newPlotPS, ...newConstructPSA]
-    }else {
+    //     console.log('fetched users list is', bankA)
+    //     // step 3: filter and set values to each title
+    //     if (bankA?.length > 0) {
+    //       const dA = bankA.filter((item) => item.title == 'State')
+
+    //       setStatesList(
+    //         dA.sort((a, b) => {
+    //           return a.order - b.order
+    //         })
+    //       )
+    //     }
+    //   },
+    //   () => {}
+    // )
+
+    // return unsubscribe
+    setStatesList(statesList)
+  }, [])
+  useEffect(() => {
+    let fullPs = []
+    const newConstructPSA = newConstructPS || []
+    if (newPlotPS) {
+      fullPs = [...newPlotPS, ...newConstructPSA]
+    } else {
       fullPs = selUnitDetails?.fullPs
     }
     setPaymentScheduleA(
@@ -130,6 +192,54 @@ const CaptureUnitPayment = ({
       setPayingForA([newPlotPS[0]])
     }
   }, [newPlotPS])
+
+  const changeOverallCostFun = async (inx, payload, newValue) => {
+    const y = costSheetA
+    let total = 0
+    let gstTotal = 0
+    // const gstTaxForProjA = selPhaseObj?.partATaxObj?.filter(
+    //   (d) => d?.component.value === 'sqft_cost_tax'
+    // )
+    const gstTaxIs = 0.18
+
+    // const plcGstForProjA = selPhaseObj?.partATaxObj?.filter(
+    //   (d) => d?.component.value === 'plc_tax'
+    // )
+    if ('plot_cs' === 'plot_cs') {
+      total = Math.round(
+        selUnitDetails?.area?.toString()?.replace(',', '') * newValue
+      )
+      gstTotal = Math.round(total * gstTaxIs)
+    } else {
+      total = Math.round(
+        Number(selUnitDetails?.super_built_up_area || selUnitDetails?.area) *
+          newValue
+      )
+      gstTotal = Math.round(total * (gstTaxIs / 100))
+    }
+
+    y[inx].charges = newValue
+    y[inx].TotalSaleValue = total
+    y[inx].gst.label = gstTaxIs
+    // y[inx].gst.value = gstTotal
+    y[inx].gstValue = gstTotal
+    y[inx].TotalNetSaleValueGsT = total + gstTotal
+    console.log('gen costSheetA', y)
+    console.log(costSheetA)
+
+    setCostSheetA(y)
+    setTotalFun()
+  }
+  const setTotalFun = async () => {
+    const partATotal = costSheetA.reduce(
+      (partialSum, obj) => partialSum + Number(obj?.TotalNetSaleValueGsT),
+      0
+    )
+
+    setPartATotal(partATotal)
+
+    setNetTotal(partATotal || 0)
+  }
   const getProjectFun = async () => {
     const additionalUserInfo = await getProject(orgId, selUnitDetails?.pId)
     const bankA = await additionalUserInfo?.bankAccounts?.map((user) => {
@@ -213,6 +323,23 @@ const CaptureUnitPayment = ({
       console.log('upload error is ', error)
     }
   }
+  const capturePayment = async (custNo, data, resetForm) => {
+    // enter payment log
+    data.category = 'BookingAdvance'
+    const x = await capturePaymentS(
+      orgId,
+      true,
+      projectDetails?.uid,
+      selUnitDetails?.uid,
+      custNo,
+      leadDetailsObj2,
+      data,
+      user?.email,
+      enqueueSnackbar
+    )
+
+    return x
+  }
   const onSubmitSupabase = async (data, resetForm) => {
     console.log('inside supabase support', data)
     let y = {}
@@ -220,9 +347,123 @@ const CaptureUnitPayment = ({
 
     await handleFileUploadFun(data?.fileUploader, 'panCard1')
     const z = await commentAttachUrl
+    const companyDocId = uuidv4()
 
+    const stallPayload = {
+      companyName: data?.companyName,
+      relation1: data?.relation1,
+      relation2: data?.relation2,
+      co_Name1: data?.co_Name1 || '',
+      co_Name2: data?.co_Name2 || '',
+      countryCode1: data?.countryCode1 || '',
+      countryCode2: data?.countryCode2 || '',
+      phoneNo1: data?.phoneNo1|| '',
+      phoneNo2: data?.phoneNo2|| '',
+      email1: data?.email1|| '',
+      email2: data?.email2|| '',
+      address1: data?.address1|| '',
+      city1: data?.city1|| '',
+      state1: data?.state1|| '',
+      countryName1: data?.countryName1|| '',
+      pincode1: data?.pincode1|| '',
+      charges: costSheetA[0]['charges'],
+      gstValue: costSheetA[0]['gstValue'],
+      TotalNetSaleValueGsT: netTotal,
+      T_total: netTotal,
+      T_paid: data?.amount,
+      T_balance: netTotal - data?.amount,
+      mode: data?.mode,
+      receive_by: user?.email,
+      // date_of_entry: data?.dated,
+      txt_dated: data?.dated,
+      companyDocId: companyDocId,
+      status: 'booked',
+      // status: data?.status || 'review',
+      // payReason: data?.payReason,
+      // totalAmount: data?.amount,
+      // bank_ref: data?.bank_ref_no,
+    }
+    // costSheetA, setCostSheetA
+    console.log('submitting values are ')
     setPayementDetails(data)
 
+    // create customer
+    // capture payment entry
+    // update stall status as book
+    // update project agreegations
+
+    // createBookedCustomer
+    // capturePayment
+    // updateUnitAsBooked
+    // updateProjectCounts
+
+    // 1
+    const x2 = await createBookedCompany(
+      orgId,
+      companyDocId,
+      {
+        companyName: data?.companyName,
+        eventName: leadDetailsObj2?.Event || projectDetails?.eventName,
+        ProjectId: leadDetailsObj2?.ProjectId || selUnitDetails?.pId,
+        // ...customerDetailsObj,
+        relation1: data?.relation1,
+        relation2: data?.relation2,
+        co_Name1: data?.co_Name1 || '',
+      co_Name2: data?.co_Name2 || '',
+      countryCode1: data?.countryCode1 || '',
+      countryCode2: data?.countryCode2 || '',
+      phoneNo1: data?.phoneNo1|| '',
+      phoneNo2: data?.phoneNo2|| '',
+      email1: data?.email1|| '',
+      email2: data?.email2|| '',
+      address1: data?.address1|| '',
+      city1: data?.city1|| '',
+      state1: data?.state1|| '',
+      countryName1: data?.countryName1|| '',
+      pincode1: data?.pincode1|| '',
+        T_total: netTotal,
+        T_paid: data?.amount,
+        T_balance: netTotal - data?.amount,
+        booked_on: data?.dated,
+        //paymentScheduleObj
+      },
+      user?.email,
+      enqueueSnackbar
+    )
+    // 2 capture payment entry
+    const x = await capturePaymentS(
+      orgId,
+      true,
+      projectDetails?.uid,
+      selUnitDetails?.uid,
+      companyDocId,
+      leadDetailsObj2,
+      data,
+      user?.email,
+      enqueueSnackbar
+    )
+
+    // 3 update stall as booked
+    await updateStallAsBooked(
+      orgId,
+      selUnitDetails?.pId,
+      selUnitDetails?.uid,
+      stallPayload,
+      user?.email,
+      enqueueSnackbar,
+      resetForm
+    )
+
+    // 4 update event counts
+    updateEventsStallBookCounts(
+      orgId,
+      selUnitDetails?.pId,
+      { soldVal: netTotal, t_collect: amount },
+      user?.email,
+      enqueueSnackbar
+    )
+
+    return
     await onSubmitFun(y, resetForm)
 
     await confettiRef?.current?.fire()
@@ -341,6 +582,72 @@ const CaptureUnitPayment = ({
     bookedBy: bankData?.bookedBy || email,
     status: 'review',
     fileUploader: '',
+    companyName: '',
+    customerName1: '',
+    customerName2: '',
+    relation1: customerInfo?.relation1 || {
+      label: 'Mr',
+      value: 'mr',
+    },
+    relation2: customerInfo?.relation2 || {
+      label: 'Mr',
+      value: 'mr',
+    },
+
+    co_Name1: '',
+    co_Name2: '',
+
+    phoneNo1: '',
+
+    phoneNo2: '',
+
+    email1: '',
+    email2: '',
+    dob1: datee,
+
+    marital1: {
+      label: 'Single',
+      value: 'Single',
+    },
+
+    address1: '',
+
+    city1: '',
+
+    countryName1: '',
+
+    pincode1: '',
+
+    countryCode1: '',
+
+    countryName2: '',
+
+    pincode2: '',
+
+    countryCode3: '',
+
+    countryCode4: '',
+
+    state1: '',
+    state2: '',
+
+    panNo1: '',
+    panNo2: '',
+    panDocUrl1: '',
+    panDocUrl2: '',
+    aadharNo1: '',
+    aadharNo2: '',
+    aadharUrl1: '',
+    aadharUrl2: '',
+    occupation1: '',
+    occupation2: '',
+    companyName1: '',
+    designation1: '',
+    designation2: '',
+    annualIncome1: '',
+    annualIncome2: '',
+
+    companyName2: '',
   }
 
   // const validateSchema = Yup.object({
@@ -366,6 +673,14 @@ const CaptureUnitPayment = ({
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
   }
+  const customPhoneNoFieldStyles = {
+    border: 'none',
+    borderRadius: '10px',
+    outline: 'none',
+    margin: '0',
+    padding: '0',
+    paddingLeft: '0.5rem',
+  }
   return (
     <div className="">
       <div className="flex items-center justify-center">
@@ -390,6 +705,8 @@ const CaptureUnitPayment = ({
                     initialValues={initialState}
                     validationSchema={validate_capturePayment}
                     onSubmit={(values, { resetForm }) => {
+                      console.log(values)
+
                       setBookingProgress(true)
                       onSubmitSupabase(values, resetForm)
                       console.log(values)
@@ -440,131 +757,216 @@ const CaptureUnitPayment = ({
                                       <section>
                                         <div className="flex flex-wrap mt-3">
                                           <div className="justify-center w-full mx-auto"></div>
+
                                           <section className="border rounded-md w-full lg:w-12/12 mx-3 mb-3">
-                                            <article className="border-b w-full bg-[#F9FAFB] px-3 py-1 rounded-t-md flex flex-row justify-between">
-                                              <span className="text-sm font-semibold text-gray-500 w-2/3">
-                                                Paying For
-                                              </span>
-                                              <span className="text-sm font-semibold text-gray-500 w-1/3 text-right">
-                                                Total
-                                              </span>
-                                              <span className="text-sm font-semibold text-gray-500 w-1/3 text-right">
-                                                Balance
-                                              </span>
-                                              <span className="text-sm font-semibold text-gray-500 w-1/3 text-right">
-                                                Paying Now
-                                              </span>
-                                            </article>
-
                                             {paymentModex != 'credit_note' && (
-                                              <section className="flex flex-col">
-                                                <div className="w-full  px-3 mt-3">
-                                                  <div className=" mb-4 w-full">
-                                                    {payingForA?.map(
-                                                      (paying, i) => {
-                                                        return (
-                                                          <div
-                                                            className="flex flex-row border-b pb-2 justify-between"
-                                                            key={i}
-                                                          >
-                                                            <span className="w-2/3">
-                                                              {
-                                                                paying?.stage
-                                                                  ?.label
+                                              <div className="border-y-1 rounded-t-md  overflow-hidden ">
+                                                <table className="min-w-full divide-y ">
+                                                  <thead>
+                                                    <tr className="h-8 mb-1 border-none w-[100%] bg-[#E8E6FE] text-[#0D027D]  font-[600] ">
+                                                      <th className="min-w-[35%] px-2  text-[12px] text-left text-[#0D027D]  tracking-wide">
+                                                        Stall Particulars (
+                                                        {selUnitDetails?.area?.toLocaleString(
+                                                          'en-IN'
+                                                        ) || 0}{' '}
+                                                        sqft)
+                                                      </th>
+                                                      <th className="w-[15%] px-2 text-[12px] text-right  tracking-wide">
+                                                        Rate/Sqft
+                                                      </th>
+                                                      <th
+                                                        className={`${
+                                                          !true ? 'hidden' : ''
+                                                        } w-[15%] px-2 text-[12px] text-right  tracking-wide `}
+                                                      >
+                                                        Cost
+                                                      </th>
+                                                      <th
+                                                        className={`${
+                                                          !true ? 'hidden' : ''
+                                                        }  w-[15%] px-2 text-[12px] text-right  tracking-wide `}
+                                                      >
+                                                        GST
+                                                      </th>
+                                                      <th className="w-[15%] px-2 text-[12px] text-right  tracking-wide ">
+                                                        Total
+                                                      </th>
+                                                    </tr>
+                                                  </thead>
+                                                  <tbody className="divide-y divide-gray-200 ">
+                                                    {' '}
+                                                    {costSheetA?.map(
+                                                      (d1, inx) => (
+                                                        <tr
+                                                          key={inx}
+                                                          className="py-1 my-2 h-[32px]  py-[24px]"
+                                                        >
+                                                          <th className="w-[40%] px-2 text-[12px] text-left  font-normal  ">
+                                                            {
+                                                              d1?.component
+                                                                ?.label
+                                                            }
+                                                          </th>
+                                                          <td className="w-[15%]  px-2 text-[12px] text-right  ">
+                                                            <TextFieldFlat
+                                                              label=""
+                                                              className="w-[90%] text-[12px] text-right font-semibold border-b  border-[#B76E00]  pr-1 py-[4px] text-[#B76E00]"
+                                                              name="ratePerSqft"
+                                                              onChange={(e) => {
+                                                                // setNewSqftPrice(e.target.value)
+                                                                console.log(
+                                                                  'iam hre'
+                                                                )
+                                                                if (
+                                                                  d1?.component
+                                                                    ?.value ===
+                                                                  'unit_cost_charges'
+                                                                ) {
+                                                                  formik.setFieldValue(
+                                                                    'unit_cost_charges',
+                                                                    e.target
+                                                                      .value
+                                                                  )
+                                                                }
+                                                                if (
+                                                                  d1?.component
+                                                                    ?.value ===
+                                                                  'plc_cost_sqft'
+                                                                ) {
+                                                                  formik.setFieldValue(
+                                                                    'plc_cost_sqft',
+                                                                    e.target
+                                                                      .value
+                                                                  )
+                                                                }
+                                                                setNewSqftPrice(
+                                                                  Number(
+                                                                    e.target
+                                                                      .value
+                                                                  )
+                                                                )
+                                                                changeOverallCostFun(
+                                                                  inx,
+                                                                  d1,
+                                                                  e.target.value
+                                                                )
+                                                              }}
+                                                              // value={formik.values[`unit_cost_charges`]}
+                                                              value={
+                                                                d1?.charges
                                                               }
-                                                            </span>{' '}
-                                                            <span className="w-1/3  text-right">
-                                                              {paying?.value?.toLocaleString('en-IN')}
-                                                            </span>
-                                                            <span className="w-1/3 text-right">
-                                                              {paying?.balance?.toLocaleString('en-IN') || paying?.value?.toLocaleString('en-IN')}
-                                                            </span>
-                                                            <span className="w-1/3 text-right">
-                                                              {paying?.balance?.toLocaleString('en-IN') || 0}
-                                                            </span>
-                                                          </div>
-                                                        )
-                                                      }
+                                                              // value={newSqftPrice}
+                                                              // type="number"
+                                                            />
+                                                            <TextFieldFlat
+                                                              className=" hidden  "
+                                                              label=""
+                                                              name={
+                                                                d1?.component
+                                                                  ?.value
+                                                              }
+                                                              type="number"
+                                                            />
+                                                          </td>
+                                                          <td
+                                                            className={`${
+                                                              !true
+                                                                ? 'hidden'
+                                                                : ''
+                                                            } w-[15%] px-2 text-[12px] text-right text-slate-500  `}
+                                                          >
+                                                            ₹
+                                                            {d1?.TotalSaleValue?.toLocaleString(
+                                                              'en-IN'
+                                                            )}
+                                                          </td>
+                                                          <td
+                                                            className={`${
+                                                              !true
+                                                                ? 'hidden'
+                                                                : ''
+                                                            } w-[15%] px-2 text-[12px] text-right text-slate-500  `}
+                                                          >
+                                                            ₹
+                                                            {d1?.gstValue?.toLocaleString(
+                                                              'en-IN'
+                                                            )}
+                                                          </td>
+                                                          <td className="w-[15%] px-2 text-[12px] text-right text-slate-900  ">
+                                                            ₹
+                                                            {d1?.TotalNetSaleValueGsT?.toLocaleString(
+                                                              'en-IN'
+                                                            )}
+                                                          </td>
+                                                        </tr>
+                                                      )
                                                     )}
-                                                  </div>
-                                                </div>
-                                                {bankAccounts.length > 0 && (
-                            <div className="flex  space-x-2 w-full text-xs">
-                              {bankAccounts.map((data, i) => (
-                                <section
-                                  key={i}
-                                  className="border px-4 py-2 rounded-lg"
-                                >
-                                  <div>{data?.label}</div>
-                                  <div>{data?.accountName}</div>
-                                </section>
-                              ))}
-                            </div>
-                          )}
-                                                <div className="w-full  px-3 mt-3">
-                                                  <div className=" mb-4 w-full">
-                                                    <MultiSelectMultiLineField
-                                                      label="Select Paying For"
-                                                      name="towardsBankDocId"
-                                                      onChange={(payload) => {
-                                                        // console.log(
-                                                        //   'changed value is ',
-                                                        //   payload
-                                                        // )
-                                                        // const {
-                                                        //   value,
-                                                        //   id,
-                                                        //   accountName,
-                                                        // } = payload
-                                                        // formik.setFieldValue(
-                                                        //   'builderName',
-                                                        //   accountName
-                                                        // )
-                                                        // formik.setFieldValue(
-                                                        //   'landlordBankDocId',
-                                                        //   id
-                                                        // )
-                                                        // formik.setFieldValue(
-                                                        //   'towardsBankDocId',
-                                                        //   id
-                                                        // )
-                                                        console.log('changed value is ', payload)
-                                  const { value, id, accountName } = payload
-                                  console.log('selected value is ', payload)
-                                  // formik.setFieldValue('builderName', accountName)
-                                  // formik.setFieldValue('landlordBankDocId', id)
-                                  const x = payingForA
-                                  const exists = payingForA.find(
-                                    (item) => item.id === payload.id
-                                  )
-                                  if (!exists && value != 'addNewOption') {
-                                    x.push(payload)
-                                    setPayingForA(x)
-                                  }
-
-                                  formik.setFieldValue('towardsBankDocId', '')
-                                                      }}
-                                                      value={
-                                                        formik.values
-                                                          .towardsBankDocId
-                                                      }
-                                                      options={paymentScheduleA}
-                                                    />
-                                                  </div>
-                                                </div>
-                                              </section>
+                                                    {/* for construction cost  */}
+                                                    <tr className=" border-[#fab56c]   h-[32px]">
+                                                      <th className="w-[40%] text-[11px] font-semibold text-left text-[#0D027D] pl-2 ">
+                                                        Stall Total (A)
+                                                      </th>
+                                                      <td className="w-[15%] px-2 font-semibold text-[12px] text-right text-gray-600 pr-3"></td>
+                                                      <td
+                                                        className={`${
+                                                          !true ? 'hidden' : ''
+                                                        } w-[15%] px-2 font-semibold  text-[12px] text-right text-gray-500 `}
+                                                      >
+                                                        ₹
+                                                        {costSheetA
+                                                          .reduce(
+                                                            (partialSum, obj) =>
+                                                              partialSum +
+                                                              Number(
+                                                                obj?.TotalSaleValue
+                                                              ),
+                                                            0
+                                                          )
+                                                          ?.toLocaleString(
+                                                            'en-IN'
+                                                          )}
+                                                      </td>
+                                                      <td
+                                                        className={`${
+                                                          !true ? 'hidden' : ''
+                                                        } w-[15%] px-2 font-semibold  text-[12px] text-right text-gray-500 `}
+                                                      >
+                                                        ₹
+                                                        {costSheetA
+                                                          .reduce(
+                                                            (partialSum, obj) =>
+                                                              partialSum +
+                                                              Number(
+                                                                obj?.gstValue
+                                                              ),
+                                                            0
+                                                          )
+                                                          ?.toLocaleString(
+                                                            'en-IN'
+                                                          )}
+                                                      </td>
+                                                      <td className="w-[15%] px-2  font-semibold text-[12px] text-right  text-[#0D027D] ">
+                                                        ₹
+                                                        {partATotal?.toLocaleString(
+                                                          'en-IN'
+                                                        )}
+                                                      </td>
+                                                    </tr>
+                                                  </tbody>
+                                                </table>
+                                              </div>
                                             )}
                                           </section>
                                           <section className="border rounded-md w-full lg:w-12/12 mx-3 mb-3">
                                             <article className="border-b w-full bg-[#F9FAFB] px-3 py-1 rounded-t-md">
                                               <span className="text-sm font-semibold text-gray-500">
-                                                Amount
+                                                Payment Details
                                               </span>
                                             </article>
                                             <div className="w-full lg:w-12/12 px-3">
-                                              < div className="relative w-full mb-3">
+                                              <div className="relative w-full mb-3">
                                                 <TextField2
-                                                  label="Amount"
+                                                  label="Paying"
                                                   name="amount"
                                                   type="number"
                                                   // onChange={(e) => {
@@ -586,14 +988,7 @@ const CaptureUnitPayment = ({
                                               />
                                             </div>
 
-
-                                          </section>
-                                          <section className="border rounded-md w-full lg:w-12/12 mx-3 mb-3">
-                                            <article className="border-b w-full bg-[#F9FAFB] px-3 py-1 rounded-t-md">
-                                              <span className="text-sm font-semibold text-gray-500">
-                                                Paid Through
-                                              </span>
-                                            </article>
+                                            {/* section -2 */}
                                             <div className="w-full px-3 mb-4 mt-8 flex flex-row gap-x-6">
                                               {paymentMode.map((dat, i) => {
                                                 return (
@@ -646,87 +1041,8 @@ const CaptureUnitPayment = ({
                                               })}
                                             </div>
 
-                                            {paymentModex != 'credit_note' && (
-                                              <div className="w-full  px-3 mt-3">
-                                                <div className=" mb-4 w-full">
-                                                  <MultiSelectMultiLineField
-                                                    label="Paid Towards Account"
-                                                    name="towardsBankDocId"
-                                                    onChange={(payload) => {
-                                                      console.log(
-                                                        'changed value is ',
-                                                        payload
-                                                      )
-                                                      const {
-                                                        value,
-                                                        id,
-                                                        accountName,
-                                                      } = payload
-                                                      formik.setFieldValue(
-                                                        'builderName',
-                                                        accountName
-                                                      )
-                                                      formik.setFieldValue(
-                                                        'landlordBankDocId',
-                                                        id
-                                                      )
+                                            {/* section last */}
 
-                                                      formik.setFieldValue(
-                                                        'towardsBankDocId',
-                                                        id
-                                                      )
-                                                    }}
-                                                    value={
-                                                      formik.values
-                                                        .towardsBankDocId
-                                                    }
-                                                    options={bankDetailsA}
-                                                  />
-                                                </div>
-                                              </div>
-                                            )}
-
-                                            {paymentModex === 'credit_note' && (
-                                              <div className="w-full  px-3 mt-3">
-                                                <div className=" mb-4 w-full">
-                                                  <MultiSelectMultiLineField
-                                                    label="Credit Note Issuer"
-                                                    name="creditNoteIssuer"
-                                                    onChange={(payload) => {
-                                                      console.log(
-                                                        'changed value is ',
-                                                        payload
-                                                      )
-                                                      const {
-                                                        value,
-                                                        id,
-                                                        name,
-                                                        uid,
-                                                        accountName,
-                                                      } = payload
-                                                      formik.setFieldValue(
-                                                        'builderName',
-                                                        name
-                                                      )
-                                                      formik.setFieldValue(
-                                                        'landlordBankDocId',
-                                                        uid
-                                                      )
-
-                                                      formik.setFieldValue(
-                                                        'towardsBankDocId',
-                                                        uid
-                                                      )
-                                                    }}
-                                                    value={
-                                                      formik.values
-                                                        .towardsBankDocId
-                                                    }
-                                                    options={creditNotersA}
-                                                  />
-                                                </div>
-                                              </div>
-                                            )}
                                             <section className="flex flex-row">
                                               <div className="w-full lg:w-10/12 px-3">
                                                 <div className="relative w-full mb-5">
@@ -790,6 +1106,632 @@ const CaptureUnitPayment = ({
                                               </div>
                                             </div>
                                           </section>
+                                          <section className="border rounded-md w-full lg:w-12/12 mx-3 mb-3">
+                                            <article className="border-b w-full bg-[#F9FAFB] px-3 py-1 rounded-t-md">
+                                              <span className="text-sm font-semibold text-gray-500">
+                                                Customer Details
+                                              </span>
+                                            </article>
+
+                                            {/* customer details */}
+                                            <section className=" px-4  bg-white   ">
+                                              <section className="flex flex-row  pt-2 mt-1 ">
+                                                <div className="border-2  h-3 rounded-xl  mt-[2px] w-1  border-[#8b5cf6]"></div>
+                                                <span className="ml-1 leading-[15px] ">
+                                                  <label className="font-semibold text-[#053219]  text-[13px] leading-[15px] mb-1  ">
+                                                    Company Details
+                                                    <abbr title="required"></abbr>
+                                                  </label>
+                                                </span>
+                                              </section>
+                                              {/* row 1 */}
+                                              <div className="md:flex flex-row md:space-x-4 w-full text-xs mt-4 ">
+                                                <div className="space-y-2 w-full text-xs mt-">
+                                                  <TextField
+                                                    label="Company Name*"
+                                                    name="companyName"
+                                                    type="text"
+                                                  />
+                                                </div>
+                                              </div>
+                                              {/* row 2 */}
+                                              <div className="md:flex flex-row md:space-x-4 w-full text-xs mt-2 ">
+                                                <div className=" space-y-2 w-full text-xs mt- lg:w-6/12">
+                                                  <div className="relative ">
+                                                    <label className="label font-regular text-[12px] block mb-1 mt- text-gray-700">
+                                                      Contact Person 1{' '}
+                                                    </label>
+                                                    <MuiTextField
+                                                      id="area"
+                                                      className={`w-full bg-grey-lighter text-grey-darker border border-[#cccccc] rounded-md h-10 mt-1 p-0`}
+                                                      size="small"
+                                                      InputProps={{
+                                                        style: {
+                                                          height: '2rem',
+                                                          paddingLeft: '7px',
+                                                        },
+                                                        startAdornment: (
+                                                          <InputAdornment
+                                                            position="start"
+                                                            style={{
+                                                              height: '32px',
+                                                            }}
+                                                          >
+                                                            <NoBorderDropDown
+                                                              name="relation1"
+                                                              label=""
+                                                              className="input  min-w-[85px] h-[32px]"
+                                                              onChange={(
+                                                                value
+                                                              ) => {
+                                                                formik.setFieldValue(
+                                                                  'relation1',
+                                                                  value
+                                                                )
+                                                              }}
+                                                              value={
+                                                                formik?.values
+                                                                  ?.relation1
+                                                                  ?.value
+                                                              }
+                                                              options={[
+                                                                {
+                                                                  label: 'Mr',
+                                                                  value: 'mr',
+                                                                },
+                                                                {
+                                                                  label: 'Mrs',
+                                                                  value: 'mrs',
+                                                                },
+                                                                {
+                                                                  label: 'Miss',
+                                                                  value: 'miss',
+                                                                },
+                                                              ]}
+                                                            />
+                                                          </InputAdornment>
+                                                        ),
+                                                      }}
+                                                      label=""
+                                                      name="co_Name1"
+                                                      type="text"
+                                                      value={
+                                                        formik.values.co_Name1
+                                                      }
+                                                      onChange={
+                                                        formik.handleChange
+                                                      }
+                                                    />
+                                                  </div>
+                                                </div>
+                                                <div className="w-full lg:w-3/12 mb-2 ">
+                                                  <div className="relative w-full">
+                                                    <div className="space-y-1 w-full text-xs">
+                                                      <label
+                                                        htmlFor="countryCode"
+                                                        className="inline-block"
+                                                      >
+                                                        Primary Phone No
+                                                      </label>
+
+                                                      <div className="flex border mb-6 mt-0 border-[#cccccc] rounded-md">
+                                                        <div className="inline-block">
+                                                          <input
+                                                            type="text"
+                                                            id="countryCode1"
+                                                            name="countryCode1"
+                                                            value={
+                                                              formik.values
+                                                                .countryCode1
+                                                            }
+                                                            onChange={(e) =>
+                                                              formik.setFieldValue(
+                                                                'countryCode1',
+                                                                e.target.value
+                                                              )
+                                                            }
+                                                            onBlur={
+                                                              formik.handleBlur
+                                                            }
+                                                            className="w-11 bg-grey-lighter text-grey-darker h-7 px-2 border-none rounded-l-md focus:outline-none"
+                                                            placeholder="+91"
+                                                            style={{
+                                                              margin: '0',
+                                                              padding: '0',
+                                                              paddingLeft:
+                                                                '0.5rem', // Add padding-left
+                                                            }}
+                                                          />
+                                                          {formik.errors
+                                                            .countryCode1 &&
+                                                            formik.touched
+                                                              .countryCode1 && (
+                                                              <div className="text-red-500 text-xs ml-2">
+                                                                {
+                                                                  formik.errors
+                                                                    .countryCode1
+                                                                }
+                                                              </div>
+                                                            )}
+                                                        </div>
+
+                                                        <div className="border-l border-gray-400 mt-1 mb-1"></div>
+
+                                                        <PhoneNoField
+                                                          name="phoneNo1"
+                                                          // type="text"
+                                                          value={
+                                                            formik.values
+                                                              .phoneNo1
+                                                          }
+                                                          customStyles={
+                                                            customPhoneNoFieldStyles
+                                                          }
+                                                          onChange={(value) => {
+                                                            // formik.setFieldValue('mobileNo', value.value)
+                                                            formik.setFieldValue(
+                                                              'phoneNo1',
+                                                              value.value
+                                                            )
+                                                          }}
+                                                          // value={formik.values.mobileNo}
+                                                          options={{}}
+                                                          labelSize="text-[11px]"
+                                                          textSize="text-[12px]"
+                                                          txtPad="px-2"
+                                                          className="text-[10px]"
+                                                        />
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+
+                                                <div className="w-full lg:w-3/12 ">
+                                                  <div className="relative w-full">
+                                                    <TextField
+                                                      label="Email"
+                                                      name="email1"
+                                                      type="text"
+                                                    />
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              {/* row 2 */}
+                                              <div className="md:flex flex-row md:space-x-4 w-full text-xs mt-2 ">
+                                                <div className=" space-y-2 w-full text-xs mt- lg:w-6/12">
+                                                  <div className="relative ">
+                                                    <label className="label font-regular text-[12px] block mb-1 mt- text-gray-700">
+                                                      Contact Person 2{' '}
+                                                    </label>
+                                                    <MuiTextField
+                                                      id="area"
+                                                      className={`w-full bg-grey-lighter text-grey-darker border border-[#cccccc] rounded-md h-10 mt-1 p-0`}
+                                                      size="small"
+                                                      InputProps={{
+                                                        style: {
+                                                          height: '2rem',
+                                                          paddingLeft: '7px',
+                                                        },
+                                                        startAdornment: (
+                                                          <InputAdornment
+                                                            position="start"
+                                                            style={{
+                                                              height: '32px',
+                                                            }}
+                                                          >
+                                                            <NoBorderDropDown
+                                                              name="relation2"
+                                                              label=""
+                                                              className="input  min-w-[85px] h-[32px]"
+                                                              onChange={(
+                                                                value
+                                                              ) => {
+                                                                formik.setFieldValue(
+                                                                  'relation2',
+                                                                  value
+                                                                )
+                                                              }}
+                                                              value={
+                                                                formik?.values
+                                                                  ?.relation2
+                                                                  ?.value
+                                                              }
+                                                              options={[
+                                                                {
+                                                                  label: 'Mr',
+                                                                  value: 'mr',
+                                                                },
+                                                                {
+                                                                  label: 'Mrs',
+                                                                  value: 'mrs',
+                                                                },
+                                                                {
+                                                                  label: 'Miss',
+                                                                  value: 'miss',
+                                                                },
+                                                              ]}
+                                                            />
+                                                          </InputAdornment>
+                                                        ),
+                                                      }}
+                                                      label=""
+                                                      name="co_Name2"
+                                                      type="text"
+                                                      value={
+                                                        formik.values.co_Name2
+                                                      }
+                                                      onChange={
+                                                        formik.handleChange
+                                                      }
+                                                    />
+                                                  </div>
+                                                </div>
+                                                <div className="w-full lg:w-3/12 mb-2 ">
+                                                  <div className="relative w-full">
+                                                    <div className="space-y-1 w-full text-xs">
+                                                      <label
+                                                        htmlFor="countryCode"
+                                                        className="inline-block"
+                                                      >
+                                                        Primary Phone No
+                                                      </label>
+
+                                                      <div className="flex border mb-6 mt-0 border-[#cccccc] rounded-md">
+                                                        <div className="inline-block">
+                                                          <input
+                                                            type="text"
+                                                            id="countryCode2"
+                                                            name="countryCode2"
+                                                            value={
+                                                              formik.values
+                                                                .countryCode2
+                                                            }
+                                                            onChange={(e) =>
+                                                              formik.setFieldValue(
+                                                                'countryCode2',
+                                                                e.target.value
+                                                              )
+                                                            }
+                                                            onBlur={
+                                                              formik.handleBlur
+                                                            }
+                                                            className="w-11 bg-grey-lighter text-grey-darker h-7 px-2 border-none rounded-l-md focus:outline-none"
+                                                            placeholder="+91"
+                                                            style={{
+                                                              margin: '0',
+                                                              padding: '0',
+                                                              paddingLeft:
+                                                                '0.5rem', // Add padding-left
+                                                            }}
+                                                          />
+                                                          {formik.errors
+                                                            .countryCode2 &&
+                                                            formik.touched
+                                                              .countryCode2 && (
+                                                              <div className="text-red-500 text-xs ml-2">
+                                                                {
+                                                                  formik.errors
+                                                                    .countryCode2
+                                                                }
+                                                              </div>
+                                                            )}
+                                                        </div>
+
+                                                        <div className="border-l border-gray-400 mt-1 mb-1"></div>
+
+                                                        <PhoneNoField
+                                                          name="phoneNo1"
+                                                          // type="text"
+                                                          value={
+                                                            formik.values
+                                                              .phoneNo2
+                                                          }
+                                                          customStyles={
+                                                            customPhoneNoFieldStyles
+                                                          }
+                                                          onChange={(value) => {
+                                                            // formik.setFieldValue('mobileNo', value.value)
+                                                            formik.setFieldValue(
+                                                              'phoneNo2',
+                                                              value.value
+                                                            )
+                                                          }}
+                                                          // value={formik.values.mobileNo}
+                                                          options={{}}
+                                                          labelSize="text-[11px]"
+                                                          textSize="text-[12px]"
+                                                          txtPad="px-2"
+                                                          className="text-[10px]"
+                                                        />
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+
+                                                <div className="w-full lg:w-3/12 ">
+                                                  <div className="relative w-full">
+                                                    <TextField
+                                                      label="Email"
+                                                      name="email2"
+                                                      type="text"
+                                                    />
+                                                  </div>
+                                                </div>
+                                              </div>
+                                              {/* row 3 */}
+                                              <div className="flex flex-row justify-between pt-2 mb-2">
+                                                <section className="w-12/12 w-full">
+                                                  <label className="label font-regular text-[12px] block mb-1 mt-1 text-gray-700">
+                                                    PAN No{' '}
+                                                  </label>
+                                                  <MuiTextField
+                                                    id="area"
+                                                    className={`w-full bg-grey-lighter text-grey-darker border border-[#cccccc] rounded-md h-10 mt-1 p-0`}
+                                                    size="small"
+                                                    InputProps={{
+                                                      style: {
+                                                        height: '2rem',
+                                                        paddingLeft: '7px',
+                                                      },
+                                                      endAdornment: (
+                                                        <InputAdornment
+                                                          position="end"
+                                                          style={{
+                                                            height: '32px',
+                                                          }}
+                                                        >
+                                                          <div className="flex flex-row-reverse">
+                                                            <label
+                                                              htmlFor="formFile3"
+                                                              className="form-label cursor-pointer inline-block   font-regular text-xs  rounded-2xl px-1 py-1  "
+                                                            >
+                                                              {`${
+                                                                formik.values
+                                                                  .panDocUrl1 ===
+                                                                  '' ||
+                                                                formik.values
+                                                                  .panDocUrl1 ==
+                                                                  undefined
+                                                                  ? 'Upload'
+                                                                  : 'Download'
+                                                              }`}
+                                                            </label>
+                                                            {formik.values
+                                                              .panDocUrl1 !=
+                                                              '' && (
+                                                              <button
+                                                                onClick={() =>
+                                                                  downloadImage(
+                                                                    formik
+                                                                      .values
+                                                                      .panDocUrl1,
+                                                                    'pancard1.PNG'
+                                                                  )
+                                                                }
+                                                              >
+                                                                {' '}
+                                                                {formik.values
+                                                                  .panDocUrl1 ===
+                                                                  '' ||
+                                                                formik.values
+                                                                  .panDocUrl1 ==
+                                                                  undefined ? (
+                                                                  <PlusIcon className="w-4 h-4 cursor-pointer ml-1 mb-[3px] mr-2 inline-block text-gray-400 border rounded-[16px] " />
+                                                                ) : (
+                                                                  <ArrowCircleDownIcon className="w-4 h-4 cursor-pointer ml-1 mb-[3px] mr-2 inline-block text-gray-400 " />
+                                                                )}
+                                                              </button>
+                                                            )}
+                                                            <input
+                                                              type="file"
+                                                              className="hidden"
+                                                              id="formFile3"
+                                                              onChange={async (
+                                                                e
+                                                              ) => {
+                                                                await handleFileUploadFun(
+                                                                  e.target
+                                                                    .files[0],
+                                                                  'panCard1',
+                                                                  formik
+                                                                )
+                                                              }}
+                                                            />
+                                                          </div>
+                                                        </InputAdornment>
+                                                      ),
+                                                    }}
+                                                    label=""
+                                                    name="panNo1"
+                                                    type="text"
+                                                    value={formik.values.panNo1}
+                                                    onChange={
+                                                      formik.handleChange
+                                                    }
+                                                  />
+                                                </section>
+                                                <section className="w-full ml-4">
+                                                  <label className="label font-regular text-[12px] block mb-1 mt-1 text-gray-700">
+                                                    Aadhar No{' '}
+                                                  </label>
+                                                  <MuiTextField
+                                                    id="area"
+                                                    className={`w-full bg-grey-lighter text-grey-darker border border-[#cccccc] rounded-md h-10 mt-1 p-0`}
+                                                    size="small"
+                                                    InputProps={{
+                                                      style: {
+                                                        height: '2rem',
+                                                        paddingLeft: '7px',
+                                                      },
+                                                      endAdornment: (
+                                                        <InputAdornment
+                                                          position="end"
+                                                          style={{
+                                                            height: '32px',
+                                                          }}
+                                                        >
+                                                          <div className=" flex flex-row-reverse">
+                                                            <label
+                                                              htmlFor="formFile4"
+                                                              className="form-label cursor-pointer inline-block font-regular text-xs  rounded-2xl px-1 py-1"
+                                                            >
+                                                              {`${
+                                                                formik.values
+                                                                  .aadharUrl1 ===
+                                                                  '' ||
+                                                                formik.values
+                                                                  .aadharUrl1 ==
+                                                                  undefined
+                                                                  ? 'Upload'
+                                                                  : 'Download'
+                                                              }`}
+                                                            </label>
+                                                            {formik.values
+                                                              .aadharUrl1 !=
+                                                              '' && (
+                                                              <button
+                                                                onClick={() =>
+                                                                  downloadImage(
+                                                                    formik
+                                                                      .values
+                                                                      .aadharUrl1,
+                                                                    'Aadhar1.PNG'
+                                                                  )
+                                                                }
+                                                              >
+                                                                {' '}
+                                                                {formik.values
+                                                                  .aadharUrl1 ===
+                                                                  '' ||
+                                                                formik.values
+                                                                  .aadharUrl1 ==
+                                                                  undefined ? (
+                                                                  <PlusIcon className="w-4 h-4 cursor-pointer ml-1 mb-[3px] mr-2 inline-block text-gray-400 border rounded-[16px] " />
+                                                                ) : (
+                                                                  <ArrowCircleDownIcon className="w-4 h-4 cursor-pointer ml-1 mb-[3px] mr-2 inline-block text-gray-400 " />
+                                                                )}
+                                                              </button>
+                                                            )}
+                                                            <input
+                                                              type="file"
+                                                              className="hidden"
+                                                              id="formFile4"
+                                                              onChange={(e) => {
+                                                                console.log(
+                                                                  'iwas clicked aadharno 2'
+                                                                )
+                                                                handleFileUploadFun(
+                                                                  e.target
+                                                                    .files[0],
+                                                                  'aadharNo1Url',
+                                                                  formik
+                                                                )
+                                                              }}
+                                                            />
+                                                          </div>
+                                                        </InputAdornment>
+                                                      ),
+                                                    }}
+                                                    label=""
+                                                    name="aadharNo1"
+                                                    type="text"
+                                                    value={
+                                                      formik.values.aadharNo1
+                                                    }
+                                                    onChange={
+                                                      formik.handleChange
+                                                    }
+                                                  />
+                                                </section>
+                                              </div>
+                                            </section>
+                                            {/* section-2 */}
+
+                                            {/* section-3 */}
+                                            <section className="mt-2 px-4  py-2 bg-white ">
+                                              <section className="flex flex-row  mt-1 ">
+                                                <div className="border-2  h-3 rounded-xl  mt-[2px] w-1  border-[#8b5cf6]"></div>
+                                                <span className="ml-1 leading-[15px] ">
+                                                  <label className="font-semibold text-[#053219]  text-[13px] leading-[15px] mb-1  ">
+                                                    Address
+                                                    <abbr title="required"></abbr>
+                                                  </label>
+                                                </span>
+                                              </section>
+                                              {/* row 1 */}
+                                              <div className="w-full lg:w-12/12 ">
+                                                <div className="relative w-full mb-3 mt-2">
+                                                  <TextField
+                                                    label="Address"
+                                                    name="address1"
+                                                    type="text"
+                                                  />
+                                                </div>
+                                              </div>
+                                              <div className="w-full  flex flex-row lg:w-12/12 mt-1">
+                                                <div className="w-full lg:w-12/12 px- ">
+                                                  <div className="relative w-full mb-3 mt-">
+                                                    <TextField
+                                                      label="City"
+                                                      name="city1"
+                                                      type="text"
+                                                    />
+                                                  </div>
+                                                </div>
+                                                <div className="w-full lg:w-12/12 pl-4">
+                                                  <div className="relative w-full mb-3 mt-">
+                                                    <div className="w-full flex flex-col mb-3">
+                                                      <CustomSelect
+                                                        name="state1"
+                                                        label="State"
+                                                        className="input"
+                                                        onChange={(value) => {
+                                                          formik.setFieldValue(
+                                                            'state1',
+                                                            value.value
+                                                          )
+                                                        }}
+                                                        value={
+                                                          formik.values.state1
+                                                        }
+                                                        options={statesListA}
+                                                      />
+                                                      <p
+                                                        className="text-sm text-red-500 hidden mt-3"
+                                                        id="error"
+                                                      >
+                                                        Please fill out this
+                                                        field.
+                                                      </p>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+
+                                              <div className="w-full flex flex-row lg:w-12/12 mt-">
+                                                <div className="w-full lg:w-12/12 px-">
+                                                  {/* Country Name 2 */}
+                                                  <div className="relative w-full mb-3 mt-2">
+                                                    <TextField
+                                                      label="Country Name"
+                                                      name="countryName1"
+                                                      type="text"
+                                                    />
+                                                  </div>
+                                                </div>
+                                                <div className="w-full lg:w-12/12 pl-4">
+                                                  {/* Pincode 2 */}
+                                                  <div className="relative w-full mb-3 mt-2">
+                                                    <TextField
+                                                      label="Pincode"
+                                                      name="pincode1"
+                                                      type="text"
+                                                    />
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            </section>
+                                          </section>
                                         </div>
                                         <div>
                                           <label
@@ -801,16 +1743,7 @@ const CaptureUnitPayment = ({
                                               style={{ fontSize: '18px' }}
                                             />
                                           </label>
-                                          {/* {panCard1 != '' && (
-                        <button
-                          onClick={() =>
-                            downloadImage(panCard1, 'pancard1.PNG')
-                          }
-                        >
-                          {' '}
-                          <ArrowCircleDownIcon className="w-4 h-4 cursor-pointer ml-1 mb-[9px] mr-2 inline-block text-gray-400 " />
-                        </button>
-                      )} */}
+
                                           <input
                                             type="file"
                                             className="hidden"

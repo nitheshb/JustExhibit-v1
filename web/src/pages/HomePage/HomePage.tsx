@@ -516,75 +516,75 @@ const HomePage = () => {
                               viewable != 'Virtual Accounts' &&
                               viewable != 'unitsInventory' && (
                                 <>
-
-
                                   <div className="flex flex-row">
                                     <section className="-3 w-[75%] flex flex-col">
                                       <div></div>
-                                      <div className=''>
-                                      {projects.length > 0 ? (
-                                        <section className="bg-white py-2 rounded-xl shadow border">
-                                          <div className="px-4">
-                                            <div className="flex items-center justify-between py-2 pb-4  ">
-                                              <span className="relative  flex items-center w-auto text-md font-bold leading-none pl-0 ">
-                                                Upcoming events
-                                                {/* {viewable} */}
-                                              </span>
-                                              <button
-                                                onClick={() =>
-                                                  setIsNewProjectOpen(true)
-                                                }
-                                                className="flex items-center justify-center h-8 px-4  bg-gray-200 ml-auto text-sm font-medium rounded hover:bg-gray-300"
-                                              >
-                                                <svg
-                                                  className="w-5 h-5"
-                                                  xmlns="http://www.w3.org/2000/svg"
-                                                  fill="none"
-                                                  viewBox="0 0 24 24"
-                                                  stroke="currentColor"
-                                                >
-                                                  <path
-                                                    strokeLinecap="round"
-                                                    strokeLinejoin="round"
-                                                    strokeWidth="2"
-                                                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                                                  />
-                                                </svg>
-                                                <span className="ml-2 leading-none">
-                                                  Add Event
+                                      <div className="">
+                                        {projects.length > 0 ? (
+                                          <section className="bg-white py-2 rounded-xl shadow border">
+                                            <div className="px-4">
+                                              <div className="flex items-center justify-between py-2 pb-4  ">
+                                                <span className="relative  flex items-center w-auto text-md font-bold leading-none pl-0 ">
+                                                  Upcoming events
+                                                  {/* {viewable} */}
                                                 </span>
-                                              </button>
+                                                <button
+                                                  onClick={() =>
+                                                    setIsNewProjectOpen(true)
+                                                  }
+                                                  className="flex items-center justify-center h-8 px-4  bg-gray-200 ml-auto text-sm font-medium rounded hover:bg-gray-300"
+                                                >
+                                                  <svg
+                                                    className="w-5 h-5"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    fill="none"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
+                                                  >
+                                                    <path
+                                                      strokeLinecap="round"
+                                                      strokeLinejoin="round"
+                                                      strokeWidth="2"
+                                                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                                                    />
+                                                  </svg>
+                                                  <span className="ml-2 leading-none">
+                                                    Add Event
+                                                  </span>
+                                                </button>
+                                              </div>
                                             </div>
-                                          </div>
-                                          <section className="">
-                                            {projects.map((project) => (
-                                              <ProjectsMHomeBody
-                                                key={project.uid}
-                                                project={project}
-                                                setProject={setProject}
-                                                onSliderOpen={() => {
-                                                  setProject(project)
-                                                  setIsEditProjectOpen(true)
-                                                }}
-                                                isEdit={false}
-                                              />
-                                            ))}
+                                            <section className="">
+                                              {projects.map((project) => (
+                                                <ProjectsMHomeBody
+                                                  key={project.uid}
+                                                  project={project}
+                                                  setProject={setProject}
+                                                  onSliderOpen={() => {
+                                                    setProject(project)
+                                                    setIsEditProjectOpen(true)
+                                                  }}
+                                                  isEdit={false}
+                                                />
+                                              ))}
+                                            </section>
                                           </section>
-                                        </section>
-                                      ) : (
-                                        <span
-                                          onClick={() =>
-                                            setIsNewProjectOpen(true)
-                                          }
-                                        >
-                                          <DummyBodyLayout />
-                                        </span>
-                                      )}</div>
+                                        ) : (
+                                          <span
+                                            onClick={() =>
+                                              setIsNewProjectOpen(true)
+                                            }
+                                          >
+                                            <DummyBodyLayout />
+                                          </span>
+                                        )}
+                                      </div>
                                     </section>
                                     <section className="mx-3 w-[25%] flex flex-col gap-8 ">
                                       {' '}
-                                     <div className='border shadow rounded-xl'>
-                                     <CalendarHome /></div> {' '}
+                                      <div className="border shadow rounded-xl">
+                                        <CalendarHome />
+                                      </div>{' '}
                                     </section>
                                   </div>
                                 </>
@@ -788,7 +788,7 @@ const HomePage = () => {
                           {viewable === 'unitsInventory' && (
                             <ProjectsUnitInventory
                               project={{
-                                projectName: 'Events',
+                                eventName: 'Events',
                               }}
                               isEdit={undefined}
                             />

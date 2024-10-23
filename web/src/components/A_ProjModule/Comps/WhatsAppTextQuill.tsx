@@ -45,7 +45,7 @@ const WhatsAppTextQuillForm = ({ wbPayload }) => {
         )
 
         projectsListA.map((user) => {
-          user.label = user.projectName
+          user.label = user.eventName
           user.value = user.uid
         })
         console.log('fetched projects list is', projectsListA)
@@ -84,7 +84,7 @@ const WhatsAppTextQuillForm = ({ wbPayload }) => {
     //   },
     //   () =>
     //     setProject({
-    //       projectName: '',
+    //       eventName: '',
     //     })
     // )
     // return unsubscribe

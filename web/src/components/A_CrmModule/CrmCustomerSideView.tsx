@@ -164,7 +164,7 @@ export default function CustomerSideViewCRM({
 
   const [openCapturePayment, setOpenCapturePayment] = useState(false)
   const [selProjectIs, setSelProjectIs] = useState({
-    projectName: '',
+    eventName: '',
     uid: '',
   })
 
@@ -286,7 +286,7 @@ export default function CustomerSideViewCRM({
             <div className="flex flex-col justify-between">
               <p className="text-md font-bold tracking-tight uppercase font-body my-[2px]  ml-2">
                 {selCustomerPayload?.Name}
-                {selCustomerPayload?.projectName}
+                {selCustomerPayload?.eventName}
               </p>
 
               <p className="text-xs tracking-tight  font-body my-[2px] ml-2">
@@ -469,7 +469,7 @@ export default function CustomerSideViewCRM({
 
             {selFeature === 'summary' && (
               <div className="py-8 px-8 flex flex-col">
-                <span className='text-green-700 text-md font pb-3'>My Units</span>
+                <span className='text-green-700 text-md font pb-3'>My Stalls</span>
                  {unitsOverviewA?.map((d, i) => (
                   <div key={i} className=" cursor-pointer items-left" onClick={() => viewTransaction(d, 'unit_information', 'unit_information')}>
                        <section className="flex-row w-full px-3  py-2 justify-between border border-gray-200 rounded-lg">
@@ -482,7 +482,7 @@ export default function CustomerSideViewCRM({
                                         className={`items-center h-6   text-xs font-semibold text-gray-500  rounded-full
                       `}
                                       >
-                                        Unit No
+                                        Stall No
                                       </span>
                                     </section>
                                     <div className="flex flex-col ml-2 item-right">

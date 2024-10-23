@@ -6,7 +6,12 @@ import { useState, useEffect } from 'react'
 import { Link } from '@redwoodjs/router'
 
 import AssigedToDropComp from 'src/components/assignedToDropComp'
-import { getAllProjects, getBlocksByPhase, getPhasesByProject, getUnits } from 'src/context/dbQueryFirebase'
+import {
+  getAllProjects,
+  getBlocksByPhase,
+  getPhasesByProject,
+  getUnits,
+} from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import 'flowbite'
 
@@ -30,43 +35,43 @@ const UnitsInventoryHome = ({ project }) => {
   const [selUnitDetails, setSelUnitDetails] = useState({})
 
   const [projectDetails, setProjectDetails] = useState()
-    // phases
+  // phases
 
-    const [phasesList, setPhasesList] = useState([])
-    const [phaseViewFeature, setPhaseViewFeature] = useState('Blocks')
+  const [phasesList, setPhasesList] = useState([])
+  const [phaseViewFeature, setPhaseViewFeature] = useState('Blocks')
 
-    // blocks
-    const [blocks, setBlocks] = useState({})
-    const [selPhaseIs, setSelPhaseIs] = useState('')
-    const [selPhaseObj, setSelPhaseObj] = useState({})
+  // blocks
+  const [blocks, setBlocks] = useState({})
+  const [selPhaseIs, setSelPhaseIs] = useState('')
+  const [selPhaseObj, setSelPhaseObj] = useState({})
 
   const [unitsFeedA, setUnitsFeedA] = useState([])
   const [filUnitsFeedA, setFilUnitsFeedA] = useState([])
 
   const [phaseDetails, setPhaseDetails] = useState({
-    projectName: '',
+    eventName: '',
     uid: '',
     value: '',
   })
 
   const [availType, setAvailType] = useState({
-    projectName: '',
+    eventName: '',
     uid: '',
     value: 'any',
   })
 
   const [selUnitType, setUnitType] = useState({
-    projectName: '',
+    eventName: '',
     uid: '',
     value: 'any',
   })
   const [selFacing, setFacing] = useState({
-    projectName: '',
+    eventName: '',
     uid: '',
     value: 'any',
   })
   const [selsize, setSize] = useState({
-    projectName: '',
+    eventName: '',
     uid: '',
     value: 'any',
   })
@@ -77,7 +82,6 @@ const UnitsInventoryHome = ({ project }) => {
   useEffect(() => {
     getUnitsFun()
     getPhases(projectDetails)
-
   }, [projectDetails])
   useEffect(() => {
     if (phases.length > 0) {
@@ -88,24 +92,23 @@ const UnitsInventoryHome = ({ project }) => {
     // setFilUnitsFeedA
 
     filFun()
-  }, [unitsFeedA,availType, selUnitType, selFacing])
+  }, [unitsFeedA, availType, selUnitType, selFacing])
 
-  const filFun = ()=>{
-    console.log('selected one is',unitsFeedA,  availType, selFacing)
+  const filFun = () => {
+    console.log('selected one is', unitsFeedA, availType, selFacing)
     const filData = unitsFeedA?.filter((da) => {
       const statusMatch =
-        (availType.value === 'any')
-          ? true
-          : da?.status == availType.value
+        availType.value === 'any' ? true : da?.status == availType.value
       const typeMatch =
-          (selUnitType.value === 'any')
-            ? true
-            : da?.size?.toLocaleLowerCase() == selUnitType.value?.toLocaleLowerCase()
+        selUnitType.value === 'any'
+          ? true
+          : da?.size?.toLocaleLowerCase() ==
+            selUnitType.value?.toLocaleLowerCase()
       const facingMatch =
-            (selFacing.value === 'any')
-              ? true
-              : da?.facing?.toLocaleLowerCase() == selFacing.value
-          return statusMatch && facingMatch && typeMatch
+        selFacing.value === 'any'
+          ? true
+          : da?.facing?.toLocaleLowerCase() == selFacing.value
+      return statusMatch && facingMatch && typeMatch
     })
     setFilUnitsFeedA(filData)
   }
@@ -180,12 +183,7 @@ const UnitsInventoryHome = ({ project }) => {
           docSnapshot.data()
         )
         setBlocks({ ...blocks, [phaseId]: response })
-        console.log(
-          'myblocks are',
-          blocks,
-         myProjectDetails?.uid,
-          phaseId
-        )
+        console.log('myblocks are', blocks, myProjectDetails?.uid, phaseId)
       },
       (e) => {
         console.log('error at getBlocks', e)
@@ -197,7 +195,7 @@ const UnitsInventoryHome = ({ project }) => {
   const phasesA = [
     {
       label: 'Phase-I',
-      projectName: 'Phase-I',
+      eventName: 'Phase-I',
       value: 'demands',
     },
   ]
@@ -205,199 +203,199 @@ const UnitsInventoryHome = ({ project }) => {
   const paymentsA = [
     {
       label: 'Demands',
-      projectName: 'Demands',
+      eventName: 'Demands',
       value: 'demands',
     },
     {
       label: 'Review',
-      projectName: 'review',
+      eventName: 'review',
       value: 'review',
     },
     {
       label: 'Received',
-      projectName: 'received',
+      eventName: 'received',
       value: 'received',
     },
     {
       label: 'Rejected',
-      projectName: 'rejected',
+      eventName: 'rejected',
       value: 'rejected',
     },
   ]
   const registerA = [
     {
       label: 'Booking',
-      projectName: 'Blocked',
+      eventName: 'Blocked',
       value: 'booking',
     },
     {
       label: 'Booking',
-      projectName: 'Booking',
+      eventName: 'Booking',
       value: 'booking',
     },
     {
       label: 'Agreement',
-      projectName: 'Agreement',
+      eventName: 'Agreement',
       value: 'agreement',
     },
     {
       label: 'Registered',
-      projectName: 'registered',
+      eventName: 'registered',
       value: 'registered',
     },
     {
       label: 'Rejected',
-      projectName: 'Released',
+      eventName: 'Released',
       value: 'rejected',
     },
   ]
   const availStatusA = [
     {
       label: 'All',
-      projectName: 'All',
+      eventName: 'All',
       value: 'any',
     },
     {
       label: 'Available',
-      projectName: 'Available',
+      eventName: 'Available',
       value: 'available',
     },
     {
       label: 'Booked',
-      projectName: 'Booked',
+      eventName: 'Booked',
       value: 'booked',
     },
     {
       label: 'Blocked',
-      projectName: 'Blocked',
+      eventName: 'Blocked',
       value: 'blocked',
     },
   ]
   const FacingA = [
     {
       label: 'East',
-      projectName: 'All',
+      eventName: 'All',
       value: 'any',
     },
     {
       label: 'East',
-      projectName: 'East',
+      eventName: 'East',
       value: 'east',
     },
     {
       label: 'West',
-      projectName: 'West',
+      eventName: 'West',
       value: 'west',
     },
     {
       label: 'South',
-      projectName: 'South',
+      eventName: 'South',
       value: 'south',
     },
     {
       label: 'North',
-      projectName: 'North',
+      eventName: 'North',
       value: 'north',
     },
     {
       label: 'North',
-      projectName: 'South-East',
+      eventName: 'South-East',
       value: 'south-east',
     },
     {
       label: 'North',
-      projectName: 'South-West',
+      eventName: 'South-West',
       value: 'south-west',
     },
     {
       label: 'north-east',
-      projectName: 'North-East',
+      eventName: 'North-East',
       value: 'north-east',
     },
 
     {
       label: 'North',
-      projectName: 'North-West',
+      eventName: 'North-West',
       value: 'north-west',
     },
   ]
   const typeA = [
     {
       label: 'East',
-      projectName: 'All',
+      eventName: 'All',
       value: 'any',
     },
     {
       label: 'East',
-      projectName: '9.14X15.24',
+      eventName: '9.14X15.24',
       value: '9.14X15.24',
     },
     {
       label: 'West',
-      projectName: '12.19X18.29',
+      eventName: '12.19X18.29',
       value: '12.19X18.29',
     },
     {
       label: 'South',
-      projectName: '12.19X16.25',
+      eventName: '12.19X16.25',
       value: '12.19X16.25',
     },
     {
       label: '30X40',
-      projectName: '30X40',
+      eventName: '30X40',
       value: '30X40',
     },
     {
       label: '30X50',
-      projectName: '30X50',
+      eventName: '30X50',
       value: '30X50',
     },
     {
       label: 'North',
-      projectName: '35X45',
+      eventName: '35X45',
       value: 's35X45',
     },
     {
       label: '30X50',
-      projectName: '30X50',
+      eventName: '30X50',
       value: '30X50',
     },
 
     {
       label: '35X45',
-      projectName: '35X45',
+      eventName: '35X45',
       value: '35X45',
     },
     {
       label: '40X40',
-      projectName: '40X40',
+      eventName: '40X40',
       value: '40X40',
     },
     {
       label: '40X60',
-      projectName: '40X60',
+      eventName: '40X60',
       value: '40X60',
     },
     {
       label: 'ODD',
-      projectName: 'ODD',
+      eventName: 'ODD',
       value: 'ODD',
     },
   ]
   const sizeA = [
     {
       label: 'East',
-      projectName: 'All',
+      eventName: 'All',
       value: 'any',
     },
     {
       label: 'East',
-      projectName: '35,397 sqft',
+      eventName: '35,397 sqft',
       value: '35397',
     },
     {
       label: 'West',
-      projectName: '59,895 sqft',
+      eventName: '59,895 sqft',
       value: '59,895 sqft',
     },
   ]
@@ -412,7 +410,7 @@ const UnitsInventoryHome = ({ project }) => {
           docSnapshot.data()
         )
         projects.map((user) => {
-          user.label = user?.projectName
+          user.label = user?.eventName || 'Eventer'
           user.value = user?.uid
         })
         setCustomerRawData([...projects])
@@ -538,7 +536,7 @@ const UnitsInventoryHome = ({ project }) => {
                     type="search"
                     id="search-dropdown"
                     className="block p-2.5 w-full z-2 text-sm text-gray-900 bg-gray-100 "
-                    placeholder={` Search Unit No, Customer name, Phone no, Dues, Review.....`}
+                    placeholder={` Search Stall No, Customer name, Phone no, Dues, Review.....`}
                     required
                   /> */}
                 <button
@@ -579,7 +577,7 @@ const UnitsInventoryHome = ({ project }) => {
               />
             </div>
             <h3 className="mb-1 text-sm font-semibold text-gray-900">
-              No Units Found
+              No Stalls Found
             </h3>
             <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
               <span className="text-blue-600"></span>
@@ -631,7 +629,6 @@ const UnitsInventoryHome = ({ project }) => {
           </div>
         )}
       </div>
-
     </section>
   )
 }

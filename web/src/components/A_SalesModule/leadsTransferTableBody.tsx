@@ -96,7 +96,7 @@ const LeadsTransferTableBody = ({
         )
         // setprojectList(projectsListA)
         projectsListA.map((user) => {
-          user.label = user.projectName
+          user.label = user.eventName
           user.value = user.uid
         })
         console.log('fetched users list is', projectsListA)

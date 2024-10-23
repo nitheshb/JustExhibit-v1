@@ -259,7 +259,7 @@ const ProjectAccessHomeList = ({
           docSnapshot.data()
         )
         projects.map((user) => {
-          user.label = user?.projectName
+          user.label = user?.eventName
           user.value = user?.uid
         })
         setProjects([...projects])
@@ -315,7 +315,7 @@ const ProjectAccessHomeList = ({
           <li className="">
             <section className="flex flex-row mt- grid grid-cols-4 ">
               {ProjectFolders?.map((project, i) => (
-                // <span key={i}>{project?.projectName}</span>
+                // <span key={i}>{project?.eventName}</span>
                 <>
                   {project.type === 'folder' ? (
                     <>
@@ -356,7 +356,7 @@ const ProjectAccessHomeList = ({
           <li className="">
             <section className="flex flex-row mt- grid grid-cols-4 ">
               {ProjectAccessFolder?.map((project, i) => (
-                // <span key={i}>{project?.projectName}</span>
+                // <span key={i}>{project?.eventName}</span>
                 <>
                   {project.type === 'ppt' ? (
                     <>

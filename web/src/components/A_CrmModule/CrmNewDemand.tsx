@@ -22,7 +22,7 @@ import {
   addNewUnitDemand,
   addPaymentReceivedEntry,
   addPaymentReceivedEntrySup,
-  createBookedCustomer,
+  createBookedCompany,
   createNewCustomerS,
   steamBankDetailsList,
   steamUsersProjAccessList,

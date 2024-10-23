@@ -252,7 +252,7 @@ export function MultipleFileUploadField({
         console.log('import stuff is', records)
         // await setfileRecords((existing) => [...existing, ...input.data])
         // set All records
-        if (['Import Units'].includes(title)) {
+        if (['Import Stalls'].includes(title)) {
           console.log('import stuff is ', records)
           const clean1 = records.filter((row) => row['unit_no'] != '')
 
@@ -300,7 +300,7 @@ export function MultipleFileUploadField({
                 pId,
                 myPhase?.uid || '',
                 myBlock?.uid || '',
-                dRow['Stall No*'] || dRow['Unit No.*']
+                dRow['Stall No*'] || dRow['Stall No.*']
               )
               // Plot Type*
               const computPlotObj = {
@@ -309,7 +309,7 @@ export function MultipleFileUploadField({
                 phaseId: dRow[''] || 1,
                 blockId: dRow[''] || 1,
                 Date: Timestamp.now().toMillis(),
-                unit_no: dRow['Stall No*'] || dRow['Unit No.*'],
+                unit_no: dRow['Stall No*'] || dRow['Stall No.*'],
 
                 area: Number(dRow['Area sqft*']?.replace(',', '')),
                 sqft_rate: dRow['Price per sqft*'],
@@ -320,7 +320,7 @@ export function MultipleFileUploadField({
                 dimension: dRow['Dimension'] || '',
                 size: dRow['Type*']?.toLowerCase(),
 
-       
+
                 status: dRow['Status*']?.toLowerCase() || 'available',
                 release_status: dRow['Release Status*']?.toLowerCase(),
 
@@ -341,7 +341,7 @@ export function MultipleFileUploadField({
             return (
               (row['Plot No*'] != '' && row['Plot No*'] != undefined) ||
               (row['Villa No*'] != '' && row['Villa No*'] != undefined) ||
-              (row['Unit No.*'] != '' && row['Unit No.*'] != undefined)
+              (row['Stall No.*'] != '' && row['Stall No.*'] != undefined)
             )
           })
           // set duplicate & valid records
@@ -368,7 +368,7 @@ export function MultipleFileUploadField({
                 pId,
                 myPhase?.uid || '',
                 myBlock?.uid || '',
-                dRow['Unit No.*'] || dRow['Flat No.*'] || dRow['Villa No*']
+                dRow['Stall No.*'] || dRow['Flat No.*'] || dRow['Villa No*']
               )
               // Apartment Type*
               console.log('my data value is ', foundLength, dRow)
@@ -380,7 +380,7 @@ export function MultipleFileUploadField({
 
               const computPlotObj = {
                 unit_no:
-                  dRow['Unit No.*'] || dRow['Flat No.*'] || dRow['Villa No*'],
+                  dRow['Stall No.*'] || dRow['Flat No.*'] || dRow['Villa No*'],
                 mode: newCurrentStatus != 'available' ? 'valid' : 'duplicate',
                 Katha_no: dRow['Katha No'],
                 PID_no: dRow['PID No'],
@@ -667,7 +667,7 @@ export function MultipleFileUploadField({
             return (
               (row['Plot No*'] != '' && row['Plot No*'] != undefined) ||
               (row['Villa No*'] != '' && row['Villa No*'] != undefined) ||
-              (row['Unit No.*'] != '' && row['Unit No.*'] != undefined)
+              (row['Stall No.*'] != '' && row['Stall No.*'] != undefined)
             )
           })
           // set duplicate & valid records
@@ -694,7 +694,7 @@ export function MultipleFileUploadField({
                 pId,
                 myPhase?.uid || '',
                 myBlock?.uid || '',
-                dRow['Unit No.*'] || dRow['Flat No.*'] || dRow['Villa No*']
+                dRow['Stall No.*'] || dRow['Flat No.*'] || dRow['Villa No*']
               )
               // Apartment Type*
               // console.log('my data value is ', foundLength, dRow)
@@ -706,7 +706,7 @@ export function MultipleFileUploadField({
               console.log('my data value is ', foundLength,unitDetails,  dRow)
               const computPlotObj = {
                 unit_no:
-                  dRow['Unit No.*'] || dRow['Flat No.*'] || dRow['Villa No*'],
+                  dRow['Stall No.*'] || dRow['Flat No.*'] || dRow['Villa No*'],
                 mode: foundLength.length > 0 ? 'valid' : 'duplicate',
                 unitUid: unitDetails?.unitUid,
                 pId: pId,
@@ -742,7 +742,7 @@ export function MultipleFileUploadField({
             return (
               (row['Plot No*'] != '' && row['Plot No*'] != undefined) ||
               (row['Villa No*'] != '' && row['Villa No*'] != undefined) ||
-              (row['Unit No.*'] != '' && row['Unit No.*'] != undefined)
+              (row['Stall No.*'] != '' && row['Stall No.*'] != undefined)
             )
           })
           // set duplicate & valid records
@@ -757,7 +757,7 @@ export function MultipleFileUploadField({
                 pId,
                 myPhase?.uid || '',
                 myBlock?.uid || '',
-                dRow['Unit No.*'] || dRow['Flat No.*'] || dRow['Villa No*']
+                dRow['Stall No.*'] || dRow['Flat No.*'] || dRow['Villa No*']
               )
               // Apartment Type*
               // console.log('my data value is ', foundLength, dRow)
@@ -769,7 +769,7 @@ export function MultipleFileUploadField({
               console.log('my data value is ', foundLength,unitDetails,  dRow)
               const computPlotObj = {
                 unit_no:
-                  dRow['Unit No.*'] || dRow['Flat No.*'] || dRow['Villa No*'],
+                  dRow['Stall No.*'] || dRow['Flat No.*'] || dRow['Villa No*'],
                 mode: foundLength.length > 0 ? 'valid' : 'duplicate',
                 unitUid: unitDetails?.unitUid,
                 customerName : unitDetails?.customerDetailsObj?.customerName1,
@@ -820,7 +820,7 @@ export function MultipleFileUploadField({
               //   pId,
               //   myPhase?.uid || '',
               //   myBlock?.uid || '',
-              //   dRow['Unit No.*'] || dRow['Flat No.*'] || dRow['Plot No*']
+              //   dRow['Stall No.*'] || dRow['Flat No.*'] || dRow['Plot No*']
               // )
               // Apartment Type*
               console.log('my data value is ', dRow)
@@ -903,7 +903,7 @@ export function MultipleFileUploadField({
                 console.log('found row is 3', dRow, projectList)
                 const projectFilA = projectList.filter((data) => {
                   console.log('found row is 3.1', data)
-                  return data.projectName == dRow['Event']
+                  return data.eventName == dRow['Event']
                 })
                 if (projectFilA.length >= 1) {
                   console.log('found row is 4', dRow)

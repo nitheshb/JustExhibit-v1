@@ -43,7 +43,7 @@ const getDateForWeek = (weekNumber) => {
 const reportData = [
   {
     id: 1,
-    projectName: 'Eco stone',
+    eventName: 'Eco stone',
     soldUnits: 3,
     totalAmount: 1001010,
     monthly: {
@@ -62,7 +62,7 @@ const reportData = [
   },
   {
     id: 2,
-    projectName: 'green gardens',
+    eventName: 'green gardens',
     soldUnits: 5,
     totalAmount: 2002020,
     monthly: {
@@ -146,7 +146,7 @@ const EmpCollectionSummary = ({ projects, crmEmployeesA }) => {
             console.log(
               'Value refreshed',
               updatedMonth,
-              projectData?.projectName,
+              projectData?.eventName,
               '=>',
               updatedMonth.receive?.length
             )
@@ -243,7 +243,7 @@ const EmpCollectionSummary = ({ projects, crmEmployeesA }) => {
             <th className="py-3 px-3 text-left border border-black">
               CRM Executive
             </th>
-            <th className="py-3 px-6 text-left border border-black">Units</th>
+            <th className="py-3 px-6 text-left border border-black">Stalls</th>
             <th className="py-3 px-6 text-right border border-black">
               Total Amount
             </th>

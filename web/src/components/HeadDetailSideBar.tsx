@@ -1105,17 +1105,17 @@ console.log(viewable)
                   </span>
                   <ul className="px-1 pt-2">
                     {' '}
-                    {['Units', 'Queries'].map((data, inx) => (
+                    {['Stalls', 'Queries'].map((data, inx) => (
                       <li className="relative" key={inx}>
                         <span
                           className={
                             'flex items-center text-sm py-1  h-9 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-blue-50 transition duration-300 ease-in-out cursor-pointer ' +
-                            (viewable === 'Units'
+                            (viewable === 'Stalls'
                               ? 'text-blue-600 text-md font-semibold '
                               : '')
                           }
                           onClick={() =>
-                            data === 'Units'
+                            data === 'Stalls'
                               ? setViewable('ConstructUnits')
                               : data === 'Queries'
                               ? setViewable('ConstructQueries')

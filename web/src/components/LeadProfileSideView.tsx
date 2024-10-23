@@ -322,7 +322,7 @@ export default function LeadProfileSideView({
   const [closeTask, setCloseTask] = useState(false)
 
   const [selProjectIs, setSelProjectIs] = useState({
-    projectName: '',
+    eventName: '',
     uid: '',
   })
   // email formik
@@ -491,7 +491,7 @@ export default function LeadProfileSideView({
   useEffect(() => {
     setAssignedTo(customerDetails?.assignedTo)
     setAssignerName(customerDetails?.assignedToObj?.label)
-    // setSelProjectIs({ projectName: Event, uid: ProjectId })
+    // setSelProjectIs({ eventName: Event, uid: ProjectId })
     setStatusTimeLineA(
       [...statusTimeLineA, ...(customerDetails?.coveredA?.a || [])] || ['new']
     )
@@ -566,7 +566,7 @@ export default function LeadProfileSideView({
     receiverPhNo: Mobile,
   }
   const msgPayload = {
-    projectName: Event,
+    eventName: Event,
     broucherLink: '',
     locLink: '',
     projContactNo: '',
@@ -597,8 +597,8 @@ export default function LeadProfileSideView({
         )
         setfetchedUsersList(projectsListA)
         projectsListA.map((user) => {
-          user.label = user.projectName
-          user.value = user.projectName
+          user.label = user.eventName
+          user.value = user.eventName
         })
         setprojectList(projectsListA)
       },
@@ -668,12 +668,12 @@ export default function LeadProfileSideView({
     }
   }
   const setNewProject = (leadDocId, value) => {
-    // setProjectName(value.projectName)
+    // setProjectName(value.eventName)
     // setProjectId(value.uid)
     // save assigner Details in db
-    // projectName
+    // eventName
     const x = {
-      Event: value.projectName,
+      Event: value.eventName,
       ProjectId: value.uid,
     }
     setSelProjectIs(value)
@@ -1637,7 +1637,7 @@ export default function LeadProfileSideView({
                     {/* {Event} */}
                     {/* projectList */}
                     <AssigedToDropComp
-                      assignerName={selProjectIs?.projectName || Event}
+                      assignerName={selProjectIs?.eventName || Event}
                       id={id}
                       align="right"
                       setAssigner={setNewProject}
@@ -2003,7 +2003,7 @@ export default function LeadProfileSideView({
                         //   mobileNo: customerDetailsTuned?.phone || '',
                         //   email: customerDetailsTuned?.email || '',
                         //   source: customerDetailsTuned?.source || '',
-                        //   project: customerDetailsTuned?.projectName || '',
+                        //   project: customerDetailsTuned?.eventName || '',
                         //   projectId: customerDetailsTuned?.projectId || '',
                         //   assignedTo: customerDetailsTuned?.name || '',
                         //   budget: '20-30L',

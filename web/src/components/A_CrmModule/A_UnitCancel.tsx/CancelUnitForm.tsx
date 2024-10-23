@@ -19,7 +19,7 @@ import {
   updateCancelProjectCounts,
   updateTransactionStatus,
   updateUnitAsBlocked,
-  updateUnitAsBooked,
+  updateStallAsBooked,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import { supabase } from 'src/context/supabase'
@@ -105,7 +105,7 @@ const CancelUnitForm = ({ selUnitDetails, bookCompSteps, bookCurentStep }) => {
       unitUpdate[`T_balance`] = 0
       unitUpdate[`oldStatus`] = selUnitDetails?.status
 
-      await updateUnitAsBooked(
+      await updateStallAsBooked(
         orgId,
         selUnitDetails?.pId,
         selUnitDetails?.uid,

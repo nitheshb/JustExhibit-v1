@@ -51,7 +51,7 @@ const valueFeedData = [
 ]
 
 const MyLeadsReportHome = ({ project, onSliderOpen = () => {}, isEdit }) => {
-  const { area, builderName, location, projectName, projectType } = project
+  const { area, builderName, location, eventName, projectType } = project
   const d = new window.Date()
   const torrowDate = new Date(
     +new Date().setHours(0, 0, 0, 0) + 86400000
@@ -260,7 +260,7 @@ const MyLeadsReportHome = ({ project, onSliderOpen = () => {}, isEdit }) => {
         )
         // setprojectList(projectsListA)
         projectsListA.map((user) => {
-          user.label = user.projectName
+          user.label = user.eventName
           user.value = user.uid
         })
         console.log('fetched users list is', projectsListA)
@@ -479,7 +479,7 @@ const MyLeadsReportHome = ({ project, onSliderOpen = () => {}, isEdit }) => {
               > */}
               <img className="w-16 h-16" alt="" src="/apart.svg"></img>
               <span className="relative z-10 flex items-center w-auto text-4xl font-bold leading-none pl-0 mt-[18px]">
-                {projectName}
+                {eventName}
               </span>
               {/* </Link> */}
             </div>

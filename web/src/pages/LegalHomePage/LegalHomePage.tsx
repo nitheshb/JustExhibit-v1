@@ -81,7 +81,7 @@ const LegalHomePage = () => {
               {viewable === 'legalDocuments' && (
                 <LegalDocsHome
                   project={{
-                    projectName: 'Events',
+                    eventName: 'Events',
                   }}
                   isEdit={undefined}
                 />
@@ -104,7 +104,7 @@ const LegalHomePage = () => {
               {viewable === 'unitsInventory' && (
                 <ProjectsUnitInventory
                   project={{
-                    projectName: 'Events',
+                    eventName: 'Events',
                   }}
                   isEdit={undefined}
                 />
@@ -116,7 +116,7 @@ const LegalHomePage = () => {
                     area: 1000,
                     builderName: 'hello',
                     location: 'local',
-                    projectName: 'Team Leads Report',
+                    eventName: 'Team Leads Report',
                     projectType: 'aprtment',
                   }}
                   isEdit={false}
@@ -128,7 +128,7 @@ const LegalHomePage = () => {
                     area: 1000,
                     builderName: 'hello',
                     location: 'local',
-                    projectName: 'My Leads Report',
+                    eventName: 'My Leads Report',
                     projectType: 'aprtment',
                   }}
                   isEdit={false}
@@ -140,7 +140,7 @@ const LegalHomePage = () => {
                     area: 1000,
                     builderName: 'hello',
                     location: 'local',
-                    projectName: 'Attendance',
+                    eventName: 'Attendance',
                     projectType: 'aprtment',
                   }}
                   isEdit={false}
@@ -152,7 +152,7 @@ const LegalHomePage = () => {
                     area: 1000,
                     builderName: 'hello',
                     location: 'local',
-                    projectName: 'Pay',
+                    eventName: 'Pay',
                     projectType: 'aprtment',
                   }}
                   isEdit={false}
@@ -164,7 +164,7 @@ const LegalHomePage = () => {
                     area: 1000,
                     builderName: 'hello',
                     location: 'local',
-                    projectName: 'Pay',
+                    eventName: 'Pay',
                     projectType: 'aprtment',
                   }}
                   isEdit={false}

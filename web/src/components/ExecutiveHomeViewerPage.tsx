@@ -197,8 +197,8 @@ const ExecutiveHomeViewerPage = ({ leadsTyper, isClicked, setIsClicked }) => {
         )
 
         projectsListA.map((user) => {
-          user.label = user.projectName
-          user.value = user.projectName
+          user.label = user.eventName
+          user.value = user.eventName
         })
         if (user?.role?.includes(USER_ROLES.ADMIN)) {
           setprojectList(projectsListA)

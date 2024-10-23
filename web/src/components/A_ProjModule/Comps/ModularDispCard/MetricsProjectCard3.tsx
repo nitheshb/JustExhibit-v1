@@ -25,7 +25,7 @@ const ProjectMetrics3 = ({ project }) => {
     area,
     builderName,
     location,
-    projectName,
+    eventName,
     projectType,
     uid = 0,
     s_agreeCount,

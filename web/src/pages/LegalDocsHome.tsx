@@ -27,7 +27,7 @@ import 'flowbite'
 
 import { PlusIcon } from '@heroicons/react/outline'
 const LegalDocsHome = ({ project }) => {
-  const { projectName } = project
+  const { eventName } = project
   const { user } = useAuth()
 
   const { orgId } = user
@@ -89,7 +89,7 @@ const LegalDocsHome = ({ project }) => {
           docSnapshot.data()
         )
         projects.map((user) => {
-          user.label = user?.projectName
+          user.label = user?.eventName
           user.value = user?.uid
         })
         setProjects([...projects])
@@ -304,7 +304,7 @@ const LegalDocsHome = ({ project }) => {
                 <li className="py-2">
                   <section className="flex flex-row mt-5 grid grid-cols-5 ">
                     {LegalFolders?.map((project, i) => (
-                      // <span key={i}>{project?.projectName}</span>
+                      // <span key={i}>{project?.eventName}</span>
                       <>
                         {project.type === 'folder' ? (
                           <>
@@ -356,7 +356,7 @@ const LegalDocsHome = ({ project }) => {
                 <li className="py-2">
                   <section className="flex flex-row mt-5 grid grid-cols-5 ">
                     {LegalFolders?.map((project, i) => (
-                      // <span key={i}>{project?.projectName}</span>
+                      // <span key={i}>{project?.eventName}</span>
                       <>
                         {project.type !== 'folder' ? (
                           <>
@@ -414,8 +414,8 @@ const LegalDocsHome = ({ project }) => {
                   title: ['Apartments'].includes(
                     projectDetails?.projectType?.name
                   )
-                    ? 'Import Units'
-                    : 'Import Apartment Units',
+                    ? 'Import Stalls'
+                    : 'Import Apartment Stalls',
                   sliderData: {
                     phase: {},
                     block: {},
@@ -445,7 +445,7 @@ const LegalDocsHome = ({ project }) => {
               <li className="py-2"> */}
             {/* <section className="flex flex-col"> */}
             {/* {projects?.map((project, i) => (
-                    // <span key={i}>{project?.projectName}</span>
+                    // <span key={i}>{project?.eventName}</span>
                     <>
                       <div
                         key={i}

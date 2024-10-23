@@ -194,10 +194,10 @@ export default function UnitFullSummary({
   const [attach, setAttach] = useState(false)
   const [loader, setLoader] = useState(false)
   const [projectList, setprojectList] = useState([])
-  const [financeMode, setFinanceMode] = useState('schedule')
+  const [financeMode, setFinanceMode] = useState('transactions')
 
   const [selProjectIs, setSelProjectIs] = useState({
-    projectName: '',
+    eventName: '',
     uid: '',
   })
 
@@ -297,7 +297,7 @@ export default function UnitFullSummary({
   useEffect(() => {
     setAssignedTo(customerDetails?.assignedTo)
     setAssignerName(customerDetails?.assignedToObj?.label)
-    setSelProjectIs({ projectName: Event, uid: ProjectId })
+    setSelProjectIs({ eventName: Event, uid: ProjectId })
 
     setLeadStatus(Status)
     console.log('assinger to yo yo', customerDetails)
@@ -374,8 +374,8 @@ export default function UnitFullSummary({
         )
         setfetchedUsersList(projectsListA)
         projectsListA.map((user) => {
-          user.label = user.projectName
-          user.value = user.projectName
+          user.label = user.eventName
+          user.value = user.eventName
         })
         console.log('fetched proejcts list is', projectsListA)
         setprojectList(projectsListA)
@@ -387,6 +387,28 @@ export default function UnitFullSummary({
   }
   useEffect(() => {
     // Subscribe to real-time changes in the `${orgId}_accounts` table
+
+    const unsubscribe = getFinanceForUnit(
+      orgId,
+      async (querySnapshot) => {
+        const transactionsListRaw = querySnapshot.docs.map((docSnapshot) => {
+          const x = docSnapshot.data()
+          x.id = docSnapshot.id
+          return x
+        })
+        // setBoardData
+        console.log('my Array data is ', transactionsListRaw)
+
+        await setUnitTransactionsA(transactionsListRaw)
+        await console.log('my Array data is set it')
+      },
+      {
+        unitId: selCustomerPayload?.id,
+      },
+      () => setUnitTransactionsA([])
+    )
+    return unsubscribe
+
     const subscription = supabase
       .from(`${orgId}_accounts`)
       .on('*', (payload) => {
@@ -432,45 +454,9 @@ export default function UnitFullSummary({
     }
   }, [])
   useEffect(() => {
-    getAllTransactionsUnit()
   }, [])
 
-  const getAllTransactionsUnit = async () => {
-    const { access, uid } = user
 
-    const steamLeadLogs = await streamGetAllUnitTransactions(
-      orgId,
-      'snap',
-      {
-        unit_id: selCustomerPayload?.id,
-      },
-      (error) => []
-    )
-    await setUnitTransactionsA(steamLeadLogs)
-    return
-
-    console.log('transactions id is ', selCustomerPayload?.uid)
-    const unsubscribe = getFinanceForUnit(
-      orgId,
-      async (querySnapshot) => {
-        const transactionsListRaw = querySnapshot.docs.map((docSnapshot) => {
-          const x = docSnapshot.data()
-          x.id = docSnapshot.id
-          return x
-        })
-        // setBoardData
-        console.log('my Array data is ', transactionsListRaw)
-
-        await setUnitTransactionsA(transactionsListRaw)
-        await console.log('my Array data is set it')
-      },
-      {
-        unitId: selCustomerPayload?.id,
-      },
-      () => setUnitTransactionsA([])
-    )
-    return unsubscribe
-  }
   useEffect(() => {
     setLeadStatus(Status?.toLowerCase())
   }, [customerDetails])
@@ -485,12 +471,12 @@ export default function UnitFullSummary({
   const setNewProject = (leadDocId, value) => {
     console.log('sel pROJECT DETAILS ', value)
 
-    // setProjectName(value.projectName)
+    // setProjectName(value.eventName)
     // setProjectId(value.uid)
     // save assigner Details in db
-    // projectName
+    // eventName
     const x = {
-      Event: value.projectName,
+      Event: value.eventName,
       ProjectId: value.uid,
     }
     setSelProjectIs(value)
@@ -1119,7 +1105,7 @@ export default function UnitFullSummary({
               {/* <section className="flex flex-col bg-[#F6F7FF] p-3 border border-[#e5e7f8] rounded-md mb-2">
                 <section className="flex flow-row justify-between mb-1">
                   <div className="font-md text-xs text-gray-700 tracking-wide">
-                    Unit No
+                    Stall No
                   </div>
                   <div className="font-md text-xs tracking-wide font-semibold text-slate-900 ">
                     {selCustomerPayload?.unit_no}
@@ -1159,7 +1145,7 @@ export default function UnitFullSummary({
 
 
   <div className="flex items-center mb-2">
-    <div className="border-l-4 border-[#57C0D0] pl-2 text-sm font-semibold text-gray-700">Units
+    <div className="border-l-4 border-[#57C0D0] pl-2 text-sm font-semibold text-gray-700">Stalls
     </div>
   </div>
 
@@ -1167,7 +1153,7 @@ export default function UnitFullSummary({
     <div className="text-start">
       <div className="text-base font-semibold text-slate-900">{selCustomerPayload?.unit_no}
       </div>
-      <div className="text-xs text-gray-500">Unit No</div>
+      <div className="text-xs text-gray-500">Stall No</div>
     </div>
     <div className="text-start">
       <div className="text-base font-semibold text-slate-900">{selCustomerPayload?.area?.toLocaleString('en-IN')}
@@ -1779,78 +1765,8 @@ export default function UnitFullSummary({
         </>
       )}
 
-      {selFeature === 'loan_info' && <LoanApplyFlowHome />}
-      {selFeature === 'agreement_info' && (
-        <section className="bg-white w-full md:px-10 md:mb-20">
-          <div className="max-w-3xl mx-auto py-4 text-sm text-gray-700">
-            <div className="flex p-4 items-center justify-between">
-              <div className="flex flex-row">
-                <h2 className="font-medium flex-grow">Unit Document</h2>
-                <span
-                  className=" ml-2 text-blue-500 hover:underline"
-                  onClick={() => {
-                    setSliderInfo({
-                      open: true,
-                      title: 'legal_doc_upload',
-                      sliderData: {},
-                      widthClass: 'max-w-xl',
-                    })
-                  }}
-                >
-                  Add Doc
-                </span>
-              </div>
-              <p className="mr4">Date Created</p>
-              {/* <Icon name="folder" size="3xl" color="gray" /> */}
-            </div>
-          </div>
-          {[
-            { id: 1234, name: 'EC', time: '22-Nov-2022' },
-            {
-              id: 1235,
-              name: 'Agreement',
-              time: '24-Nov-2022',
-            },
-            {
-              id: 1236,
-              name: 'Register Doc',
-              time: '2-Dec-2022',
-            },
-          ].length === 0 ? (
-            <div className="w-full text-center py-5">No documents</div>
-          ) : (
-            ''
-          )}
-          {[
-            { id: 1234, name: 'EC', time: '22-Nov-2022' },
-            {
-              id: 1235,
-              name: 'Agreement',
-              time: '24-Nov-2022',
-            },
-            {
-              id: 1236,
-              name: 'Register Doc',
-              time: '2-Dec-2022',
-            },
-          ]?.map((doc, i) => (
-            <section
-              key={i}
-              onClick={() => {
-                // show sidebar and display the worddoc
-                setSliderInfo({
-                  open: true,
-                  title: 'viewDocx',
-                  sliderData: {},
-                  widthClass: 'max-w-xl',
-                })
-              }}
-            >
-              <DocRow id={doc?.id} fileName={doc?.name} date={doc?.time} />
-            </section>
-          ))}
-        </section>
-      )}
+
+
 
       {selFeature === 'legal_info' && <></>}
       {selFeature === 'cancel_booking' && <>
@@ -1881,10 +1797,6 @@ export default function UnitFullSummary({
                     { lab: 'Applicant details', val: 'applicant_info' },
                     { lab: 'Unit details', val: 'unit_information' },
                     { lab: 'Cost & Payments', val: 'finance_info' },
-                    { lab: 'Loan details', val: 'loan_info' },
-                    { lab: 'Agreement  details', val: 'agreement_info' },
-                    { lab: 'Brokerage  details', val: 'brokerage_info' },
-                    // { lab: 'Docs', val: 'docs_info' },
                     { lab: 'Tasks', val: 'tasks' },
                     { lab: 'Timeline', val: 'timeline' },
                     { lab: 'Cancel Booking', val: 'cancel_booking' },

@@ -80,7 +80,7 @@ const CrmInventorySummaryTable = ({ projects }) => {
                     className="py-3 px-3 text-left border border-black"
                     colSpan="1"
                   >
-                    Total Units
+                    Total Stalls
                   </th>
                   <th
                     className="py-3 px-3 text-center border border-black"
@@ -123,7 +123,7 @@ const CrmInventorySummaryTable = ({ projects }) => {
                         ])
                       }}
                     >
-                      {item.projectName}
+                      {item.eventName}
                     </td>
                     <td
                       className="py-3 px-6 text-right border border-black text-blue-800 cursor-pointer font-semibold"

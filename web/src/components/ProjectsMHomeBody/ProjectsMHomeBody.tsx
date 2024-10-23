@@ -53,7 +53,7 @@ const ProjectsMHomeBody = ({
     area,
     builderName,
     location,
-    projectName,
+    eventName,
     projectType,
     uid = 0,
     s_agreeCount,
@@ -190,7 +190,7 @@ const ProjectsMHomeBody = ({
                     >
                       <img className="w-10 h-10" alt="" src="/apart.svg"></img>
                       <span className="relative  flex items-center w-auto text-md font-bold leading-none pl-0 mt-[8px]">
-                        {projectName}
+                        {eventName}
                       </span>
                     </Link>
                   </div>
@@ -237,7 +237,7 @@ const ProjectsMHomeBody = ({
               <>
                 <div className="flex flex-col bg-white shadow rounded-md my-2  px-2  py-2">
                   <h6 className="font-bodyLato font-semibold text-xs m-1 mb-4">
-                    {'Units'}
+                    {'Stalls'}
                   </h6>
                   <div className="flex flex-row h-[101px]">
                     {[

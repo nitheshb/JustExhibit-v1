@@ -6,24 +6,22 @@ import { arrayUnion, Timestamp } from 'firebase/firestore'
 import { useSnackbar } from 'notistack'
 import * as Yup from 'yup'
 
-
 import {
   addAccountslogS,
   addCustomer,
   addLead,
   addModuleScheduler,
   capturePaymentS,
-  createBookedCustomer,
+  createBookedCompany,
   createNewCustomerS,
   insertPSS,
   steamBankDetailsList,
   updateLeadStatus,
-  updateProjectCounts,
+  updateEventsStallBookCounts,
   updateProjectionsAgreegationsOnBooking,
-  updateUnitAsBooked,
+  updateStallAsBooked,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-
 
 import CaptureUnitPayment from './CapturePayment'
 
@@ -64,10 +62,10 @@ const AddPaymentDetailsForm = ({
 
   const bankData = {}
   const confettiRef = useRef(null)
-  let T_elgible = 0
-  let stepsComp = 0
-  let T_transaction = 0
-  let T_review = 0
+  const T_elgible = 0
+  const stepsComp = 0
+  const T_transaction = 0
+  const T_review = 0
   let T_balance = 0
   let T_elgible_balance = 0
   const handleClick = () => {
@@ -105,8 +103,6 @@ const AddPaymentDetailsForm = ({
   const createNewCustoreSupa = async (data) => {
     // enter customer details too
     const { Status } = leadDetailsObj2
-
-
 
     //
     const { customerDetailsObj, secondaryCustomerDetailsObj } = customerInfo
@@ -255,45 +251,11 @@ const AddPaymentDetailsForm = ({
     // )
     const T_total = bookingPayloadFinal?.T_total
 
-    const categorizedNewPlotPS = newPlotPS?.map((item) => ({
-      ...item,
-      category: 'plotPS',
-    }))
-    const categorizedNewConstructPS =
-      newConstructPS?.map((item) => ({
-        ...item,
-        category: 'constructPS',
-      })) || []
-    const fullPs1 = [...categorizedNewPlotPS, ...categorizedNewConstructPS]
-    const fullPs = fullPs1?.map((d) => {
-      const x = d
-      x.schDate = d.schDate || Timestamp.now().toMillis()
-      x.oldDate = d.schDate || Timestamp.now().toMillis()
-
-      return x
-    })
-    console.log('mysetup is', leadDetailsObj2, data, fullPs, fullPs1)
-
-    const { amount } = data
-    const { projectName } = projectDetails
-    fullPs?.map((dataObj) => {
-      if (dataObj?.elgible) {
-        T_elgible = dataObj?.value + T_elgible
-        stepsComp = stepsComp + 1
-        T_transaction = T_transaction + (amount || undefined)
-        T_review = T_review + (amount || undefined)
-      }
-    })
     T_balance = T_total - T_review
     T_elgible_balance = T_elgible - T_review
     console.log('newPlotPS', newPlotPS, newConstructPS, fullPs, T_elgible)
 
     const customerfbA = await createNewCustoreSupa(data, resetForm)
-
-    fullPs?.map((dataObj, i) => {
-      dataObj.order = i
-      updatePS(dataObj, resetForm)
-    })
 
     // customerfbA
     let custNo
@@ -459,12 +421,12 @@ const AddPaymentDetailsForm = ({
     // add phaseNo , projName to selUnitDetails
     // 2)Create('')
 
-    const x2 = await createBookedCustomer(
+    const x2 = await createBookedCompany(
       orgId,
       id,
       {
         leadId: id,
-        projectName: leadDetailsObj2?.Event || projectDetails?.projectName,
+        eventName: leadDetailsObj2?.Event || projectDetails?.eventName,
         ProjectId: leadDetailsObj2?.ProjectId || selUnitDetails?.pId,
         // ...customerDetailsObj,
         Name: customerDetailsObj?.customerName1,
@@ -571,10 +533,10 @@ const AddPaymentDetailsForm = ({
     unitUpdate[`T_balance`] = T_balance
     unitUpdate[`T_elgible_balance`] = T_elgible_balance
 
-    const uploadPayload = {...myBookingPayload, ...unitUpdate}
+    const uploadPayload = { ...myBookingPayload, ...unitUpdate }
 
     console.log('unit space is ', uid)
-    await updateUnitAsBooked(
+    await updateStallAsBooked(
       orgId,
       leadDetailsObj2?.ProjectId || selUnitDetails?.pId,
       uid,
@@ -592,7 +554,7 @@ const AddPaymentDetailsForm = ({
     await setBookCurentStep(['customer_email_send', 'notify_to_manager'])
     // 4)update lead status to book
     // updateLeadStatus(leadDocId, newStatus)
-    updateProjectCounts(
+    updateEventsStallBookCounts(
       orgId,
       selUnitDetails?.pId,
       { soldVal: T_elgible, t_collect: amount },
@@ -668,8 +630,13 @@ const AddPaymentDetailsForm = ({
               </div>
 
               <div className="flex flex-col">
-                <div>Total: {bookingPayloadFinal?.T_total?.toLocaleString('en-IN')}</div>
-                <div>Balance: {bookingPayloadFinal?.T_balance?.toLocaleString('en-IN')}</div>
+                <div>
+                  Total: {bookingPayloadFinal?.T_total?.toLocaleString('en-IN')}
+                </div>
+                <div>
+                  Balance:{' '}
+                  {bookingPayloadFinal?.T_balance?.toLocaleString('en-IN')}
+                </div>
               </div>
             </div>
 

@@ -146,7 +146,7 @@ export default function TransactionUpdateSideView({
   const [projectList, setprojectList] = useState([])
 
   const [selProjectIs, setSelProjectIs] = useState({
-    projectName: '',
+    eventName: '',
     uid: '',
   })
 

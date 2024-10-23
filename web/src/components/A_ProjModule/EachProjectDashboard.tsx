@@ -35,7 +35,7 @@ const EachProjectDashboard = ({ project, onSliderOpen = () => {}, isEdit }) => {
     area,
     builderName,
     location,
-    projectName,
+    eventName,
     projectType,
     uid = 0,
     s_agreeCount,
@@ -73,7 +73,7 @@ const EachProjectDashboard = ({ project, onSliderOpen = () => {}, isEdit }) => {
                       <div className="grow shrink basis-0 flex-col justify-start items-start inline-flex">
                         <div className="self-stretch justify-start items-start gap-[5px] inline-flex">
                           <div className="text-white text-sm font-bold  leading-[27px]">
-                            {projectName}
+                            {eventName}
                           </div>
                         </div>
                         <div className="self-stretch justify-start items-start gap-[5px] inline-flex">
@@ -96,7 +96,7 @@ const EachProjectDashboard = ({ project, onSliderOpen = () => {}, isEdit }) => {
                   <section>
                     <div className="flex flex-col bg-white shadow rounded-md my-1 mx-1  px-2  py-2">
                       <h6 className="font-bodyLato font-semibold text-xs m-1 mb-4">
-                        {'Units'}
+                        {'Stalls'}
                       </h6>
                       <div className="flex flex-row h-[101px]">
                         {[

@@ -20,13 +20,13 @@ const initialRows: TableRow[] = [
 const TableEdit  = ({data}) => {
   const [rows, setRows] = useState<TableRow[]>(initialRows);
   useEffect(() => {
-  
-  
+
+
     console.log(data)
-      
-    
+
+
   }, [])
-  
+
 
   const addRow = () => {
     const newRow: TableRow = {
@@ -49,13 +49,13 @@ const TableEdit  = ({data}) => {
     const updatedRows = [...rows];
     const rowToEdit = updatedRows[index];
 
-    
+
     if (rowToEdit.chargesFor.trim() === '' || rowToEdit.units.trim() === '' || rowToEdit.charges === 0 || rowToEdit.gst === 0 || rowToEdit.description.trim() === '') {
       console.log("Validation failed. Please fill in all fields.");
-      return; 
+      return;
     }
 
-    
+
     console.log("Editing row at index:", index);
     setRows(updatedRows);
   };
@@ -66,7 +66,7 @@ const TableEdit  = ({data}) => {
         <thead>
           <tr>
             <th className="border-t border-r border-b border-gray-300 px-4 py-2  text-gray-400 text-left text-sm">Charges For*</th>
-            <th className="border border-gray-300 px-4 py-2  text-gray-400 text-left text-sm">Units*</th>
+            <th className="border border-gray-300 px-4 py-2  text-gray-400 text-left text-sm">Stalls*</th>
             <th className="border border-gray-300 px-4 py-2  text-gray-400 text-left text-sm">Charges*</th>
             <th className="border border-gray-300 px-4 py-2  text-gray-400 text-left text-sm">GST*</th>
             <th className="border border-gray-300 px-4 py-2  text-gray-400 text-left text-sm">Description*</th>
@@ -147,7 +147,7 @@ const TableEdit  = ({data}) => {
             </tr>
           ))}
 
-         
+
           <tr>
             <td className="border-t  border-b border-gray-300 px-4 py-2" colSpan={6}>
               <div onClick={addRow} className="w-full  text-gray-800 rounded cursor-pointer">

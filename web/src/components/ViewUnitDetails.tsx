@@ -82,8 +82,8 @@ const ViewUnitDetails = ({
         )
         setfetchedUsersList(projectsListA)
         projectsListA.map((user) => {
-          user.label = user.projectName
-          user.value = user.projectName
+          user.label = user.eventName
+          user.value = user.eventName
         })
         console.log('fetched users list is', projectsListA)
         setprojectList(projectsListA)
@@ -302,7 +302,7 @@ const ViewUnitDetails = ({
                   className={`items-center h-6   text-xs font-semibold text-gray-500  rounded-full
                       `}
                 >
-                  Unit No
+                  Stall No
                 </span>
             </div>
             <div className="flex flex-col ml-2 item-right">
@@ -313,7 +313,7 @@ const ViewUnitDetails = ({
                   {data?.unitDetail?.status?.toUpperCase()}
                 </span>
               <div className="font text-[12px] text-gray-500 tracking-wide overflow-ellipsis overflow-hidden ">
-                {projectDetails?.projectName}
+                {projectDetails?.eventName}
               </div>
             </div>
             </section>
@@ -382,7 +382,7 @@ const ViewUnitDetails = ({
                       <section className="flex flex-col bg-[#F6F7FF] p-3 border border-[#e5e7f8] rounded-md">
                         <section className="flex flow-row justify-between mb-1">
                           <div className="font-md text-xs text-gray-700 tracking-wide">
-                            Unit No
+                            Stall No
                           </div>
                           <div className="font-md text-xs tracking-wide font-semibold text-slate-900 ">
                             {data?.unitDetail?.unit_no}

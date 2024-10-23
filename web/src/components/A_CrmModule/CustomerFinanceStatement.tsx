@@ -34,7 +34,7 @@ const CrmUnitPsHome = ({
           role="tablist"
         >
           {[
-            { lab: 'Payment Schedule', val: 'schedule' },
+
             {
               lab: 'Transactions',
               val: 'transactions',
@@ -67,7 +67,7 @@ const CrmUnitPsHome = ({
               className="flex flex-row  items-center align-middle text-blue-500 text-xs cursor-pointer hover:underline"
               onClickCapture={async () => {
                 await setShowHeader(true)
-                await setFinanceMode('schedule')
+                await setFinanceMode('transactions')
                 const x = await pdfPaymentScheduleComp.current.save()
                 await console.log('what is wait ', x)
                 await setShowHeader(true)
@@ -142,35 +142,7 @@ const CrmUnitPsHome = ({
           </div>
         </section>
       </div>
-      {financeMode === 'schedule' && (
-        <>
-          <PDFExport paperSize="A4" margin="1cm" ref={pdfPaymentScheduleComp}>
-            {/* 1 } customer details */}
-            {/* Unit details */}
-            {showHeader && (
-              <>
-                <CrmUnitHeader projectDetails={selCustomerPayload} />
-                <CrmUnitCustomerDetailsView1
-                  Name={selCustomerPayload?.customerName1}
-                  Mobile={selCustomerPayload?.phoneNo1}
-                  netTotal={12345}
-                  selCustomerPayload={selCustomerPayload}
-                  assets={assets}
-                />
-              </>
-            )}
-            <CrmPaymentSummary
-              selCustomerPayload={selCustomerPayload}
-              assets={assets}
-            />
-            <CrmUnitPaymentSchedule
-              selCustomerPayload={selCustomerPayload}
-              assets={assets}
-              totalIs={totalIs}
-            />
-          </PDFExport>
-        </>
-      )}
+  
       {financeMode === 'transactions' && (
         <>
           <PDFExport paperSize="A4" margin="1cm" ref={pdfTransactionComp}>

@@ -47,7 +47,7 @@ function CompactCard({ param, setExpanded }) {
       <div className="detail">
         {/* <Png /> */}
         <span className="flex flex-col text-center mt-4 text-xl">
-          72 <span className="text-xs">Available Units</span>
+          72 <span className="text-xs">Available Stalls</span>
         </span>
         <span></span>
         <span></span>

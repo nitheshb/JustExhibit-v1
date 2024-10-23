@@ -124,7 +124,7 @@ console.log('units feed is ', y);
         )
         // setprojectList(projectsListA)
         projectsListA.map((user) => {
-          user.label = user.projectName
+          user.label = user.eventName
           user.value = user.uid
         })
         console.log('fetched users list is', projectsListA)
@@ -250,7 +250,7 @@ console.log('units feed is ', y);
         {/* <Dialog.Title className=" font-semibold text-xl mr-auto ml-3  font-Playfair tracking-wider">
           {subtitle || title} ({leadsFilA.length || 0})
         </Dialog.Title> */}
-         {leadsLogsPayload?.projectName || title} Units-({unitsFeed.length})
+         {leadsLogsPayload?.eventName || title} Stalls-({unitsFeed.length})
         <section className="flex flex-row">
           <section className="flex flex-col border ml-2 py-1  px-4 text-xs  rounded-full">
             <AssigedToDropComp
@@ -293,7 +293,7 @@ console.log('units feed is ', y);
                     className="py-3 px-6 text-center border border-black"
                     colSpan="9"
                   >
-                    Inventory List of {leadsLogsPayload?.projectName}
+                    Inventory List of {leadsLogsPayload?.eventName}
                   </th>
                   <th
                     className="py-3 px-6 text-center border border-black  bg-white"
@@ -322,7 +322,7 @@ console.log('units feed is ', y);
                 </tr>
                 <tr className="bg-blue-100 text-gray-900  text-sm leading-normal">
                   <th className="py-3 px-6 text-left border border-black">
-                    Unit No.
+                    Stall No.
                   </th>
                   <th className="py-3 px-6 text-left border border-black">
                     Unit Type

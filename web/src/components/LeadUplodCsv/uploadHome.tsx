@@ -17,9 +17,9 @@ export default function LeadsDropHomes({ title, pId, myPhase, myBlock }) {
     <div className="h-full flex flex-col py-6 bg-white shadow-xl overflow-y-scroll">
       <div className="px-4 sm:px-6  z-10 flex flex-row justify-between">
         <Dialog.Title className=" font-semibold text-xl mr-auto ml-3 text-[#053219] w-sreen ">
-          {['Import Apartment Units','Import Plot Units' ].includes(title)? 'Import Units' : title}
+          {['Import Apartment Stalls','Import Plot Stalls' ].includes(title)? 'Import Stalls' : title}
         </Dialog.Title>
-        {title === 'Import Apartment Units' && (
+        {title === 'Import Apartment Stalls' && (
           <div className="flex flex-row justify-between mr-8 ">
             <span></span>
             <a

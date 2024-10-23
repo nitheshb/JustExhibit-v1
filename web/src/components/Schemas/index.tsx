@@ -2,6 +2,7 @@ import * as Yup from 'yup'
 
 export const validate_capturePayment = Yup.object({
   // payto: Yup.string().required('Paid to is required'),
+  companyName: Yup.string().required('Company name required'),
   payReason: Yup.string().required('Payment reason required'),
   bank_ref_no: Yup.string()
     .required('Ref number is required'),
@@ -11,7 +12,7 @@ export const validate_capturePayment = Yup.object({
     .positive('Amount must be a positive number')
     .integer('Amount must be an integer'),
   // dated: Yup.date().required('Date is required'),
-  towardsBankDocId:Yup.string().required('Paid Towards Account is required ')
+  // towardsBankDocId:Yup.string().required('Paid Towards Account is required ')
 })
 
 export const validate_AddUnit = Yup.object({

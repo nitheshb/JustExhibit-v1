@@ -110,7 +110,7 @@ const LeadsManagerPage = (props) => {
               {viewable === 'leadsController' && (
                  <LeadsTransferHome
                  project={{
-                   projectName: 'Events',
+                   eventName: 'Events',
                  }}
                  isEdit={undefined}
                />
@@ -118,7 +118,7 @@ const LeadsManagerPage = (props) => {
               {viewable === 'units_inventory' && (
                  <UnitsInventoryHome
                  project={{
-                   projectName: 'Events',
+                   eventName: 'Events',
                  }}
                  isEdit={undefined}
                />
@@ -138,7 +138,7 @@ const LeadsManagerPage = (props) => {
               {viewable === 'unitsInventory' && (
                 <ProjectsUnitInventory
                   project={{
-                    projectName: 'Events',
+                    eventName: 'Events',
                   }}
                   isEdit={undefined}
                 />
@@ -153,7 +153,7 @@ const LeadsManagerPage = (props) => {
                       area: 1000,
                       builderName: 'hello',
                       location: 'local',
-                      projectName: 'Team Leads Report',
+                      eventName: 'Team Leads Report',
                       projectType: 'aprtment',
                     }}
                     isEdit={false}
@@ -166,7 +166,7 @@ const LeadsManagerPage = (props) => {
                     area: 1000,
                     builderName: 'hello',
                     location: 'local',
-                    projectName: 'My Leads Report',
+                    eventName: 'My Leads Report',
                     projectType: 'aprtment',
                   }}
                   isEdit={false}
@@ -178,7 +178,7 @@ const LeadsManagerPage = (props) => {
                     area: 1000,
                     builderName: 'hello',
                     location: 'local',
-                    projectName: 'Attendance',
+                    eventName: 'Attendance',
                     projectType: 'aprtment',
                   }}
                   isEdit={false}
@@ -190,7 +190,7 @@ const LeadsManagerPage = (props) => {
                     area: 1000,
                     builderName: 'hello',
                     location: 'local',
-                    projectName: 'Pay',
+                    eventName: 'Pay',
                     projectType: 'aprtment',
                   }}
                   isEdit={false}
@@ -202,7 +202,7 @@ const LeadsManagerPage = (props) => {
                     area: 1000,
                     builderName: 'hello',
                     location: 'local',
-                    projectName: 'Pay',
+                    eventName: 'Pay',
                     projectType: 'aprtment',
                   }}
                   isEdit={false}

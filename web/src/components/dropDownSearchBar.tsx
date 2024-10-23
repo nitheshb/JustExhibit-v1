@@ -21,7 +21,7 @@ export default function DropDownSearchBar({
             <span className="text-left">{label}</span>
             <div className="flex flex-row">
               <span className=" text-[12px] tracking-wide text-[#0091ae] max-w-[150px] min-w-[150px] text-ellipsis text-left whitespace-nowrap ">
-                {selProjectIs?.projectName ||
+                {selProjectIs?.eventName ||
                   selProjectIs?.phaseName ||
                   type?.toLocaleUpperCase()}
               </span>
@@ -70,7 +70,7 @@ export default function DropDownSearchBar({
                             aria-hidden="true"
                           />
                         )}
-                        {viewData?.projectName || viewData?.name}
+                        {viewData?.eventName || viewData?.name}
                       </button>
                     )}
                   </Menu.Item>

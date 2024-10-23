@@ -68,8 +68,8 @@ const PaymentScheduleSheet = ({
         )
         setfetchedUsersList(projectsListA)
         projectsListA.map((user) => {
-          user.label = user.projectName
-          user.value = user.projectName
+          user.label = user.eventName
+          user.value = user.eventName
         })
         console.log('fetched users list is', projectsListA)
         setprojectList(projectsListA)

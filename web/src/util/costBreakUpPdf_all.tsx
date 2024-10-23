@@ -493,7 +493,7 @@ const CostBreakUpPdfAll = ({
                   {/* upper part */}
                   <div className="flex flex-row justify-between pt-4">
                     <h1 className="font-playfair text-[19px]  text-gray-700">
-                      {projectDetails?.projectName?.toUpperCase()}
+                      {projectDetails?.eventName?.toUpperCase()}
                     </h1>
                     <div>
                       <img

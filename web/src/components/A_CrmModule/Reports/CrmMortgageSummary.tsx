@@ -58,16 +58,16 @@ const CrmMortgageSummaryTable = ({ projects }) => {
 
       usersListA.map((user) => {
        const x =  projects.filter((data) => data.uid === user.pId)
-        user.projectName = x[0]['projectName']
+        user.eventName = x[0]['eventName']
 
       })
 
       setFetchMortUnitsList(usersListA.sort((a, b) => {
          // First, compare project names (case-insensitive)
-  const projectNameComparison = a.projectName.localeCompare(b.projectName, undefined, { sensitivity: 'base' });
+  const projectNameComparison = a.eventName.localeCompare(b.eventName, undefined, { sensitivity: 'base' });
 
   if (projectNameComparison !== 0) {
-    // If project names are different, sort by projectName
+    // If project names are different, sort by eventName
     return projectNameComparison;
   }
 
@@ -203,7 +203,7 @@ const CrmMortgageSummaryTable = ({ projects }) => {
 
                       }}
                     >
-                      {item.projectName}
+                      {item.eventName}
                     </td>
                     <td
                       className="py-3 px-6 text-right border border-gray-300 text-blue-800 cursor-pointer font-semibold"

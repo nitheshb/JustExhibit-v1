@@ -73,7 +73,7 @@ const CrmAnalyticsHome = ({ project }) => {
           docSnapshot.data()
         )
         projects.map((user) => {
-          user.label = user?.projectName
+          user.label = user?.eventName
           user.value = user?.uid
         })
         setProjects([...projects])

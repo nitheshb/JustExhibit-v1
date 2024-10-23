@@ -95,7 +95,7 @@ const AdministrationTeamPage = (props) => {
                       area: 1000,
                       builderName: 'hello',
                       location: 'local',
-                      projectName: 'Team Leads Report',
+                      eventName: 'Team Leads Report',
                       projectType: 'aprtment',
                     }}
                     isEdit={false}

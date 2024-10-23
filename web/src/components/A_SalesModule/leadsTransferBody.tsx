@@ -559,7 +559,7 @@ const LeadsTransferBody = ({
         )
         // setprojectList(projectsListA)
         projectsListA.map((user) => {
-          user.label = user.projectName
+          user.label = user.eventName
           user.value = user.uid
         })
         console.log('fetched users list is', projectsListA)
@@ -2688,7 +2688,7 @@ if(x.coveredA.any((elementA) => coveredStatus.contains(elementA))){
                           updateProjectNameInlogs()
                         }}
                       >
-                        Update projectName
+                        Update eventName
                       </div>
 
                       <div

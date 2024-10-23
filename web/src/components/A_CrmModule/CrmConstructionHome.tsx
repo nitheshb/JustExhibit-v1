@@ -213,7 +213,7 @@ const CrmConstuctionModeHome = ({ leadsTyper }) => {
   const [startDate, endDate] = dateRange
   const [usersList, setusersList] = useState([])
   const [selLeadsOf, setSelLeadsOf] = useState({
-    label: 'My Units',
+    label: 'My Stalls',
     value: 'myunits',
   })
   useEffect(() => {
@@ -273,8 +273,8 @@ const CrmConstuctionModeHome = ({ leadsTyper }) => {
           docSnapshot.data()
         )
         projectsListA.map((user) => {
-          user.label = user.projectName
-          user.value = user.projectName
+          user.label = user.eventName
+          user.value = user.eventName
         })
         projectsListA.filter((data)=> {
           console.log('fetched proejcts list is kk',data.label, data?.projectType?.name , data?.projectType?.name == 'Plots')
@@ -348,7 +348,7 @@ const CrmConstuctionModeHome = ({ leadsTyper }) => {
           console.log(',my prject sel is  ===> ', projectList)
           if (y.length > 0) {
             console.log(',my prject sel is ', y)
-            x.projName = y[0].projectName
+            x.projName = y[0].eventName
           }
           return x
         })
@@ -387,7 +387,7 @@ const CrmConstuctionModeHome = ({ leadsTyper }) => {
           console.log(',my prject sel is  ===> ', projectList)
           if (y.length > 0) {
             console.log(',my prject sel is ', y)
-            x.projName = y[0].projectName
+            x.projName = y[0].eventName
           }
           return x
         })
@@ -523,8 +523,8 @@ const CrmConstuctionModeHome = ({ leadsTyper }) => {
                       // options={aquaticCreatures}
                       options={[
                         ...[
-                          { label: 'Team Units', value: 'teamunits' },
-                          { label: 'My Units', value: 'myunits' },
+                          { label: 'Team Stalls', value: 'teamunits' },
+                          { label: 'My Stalls', value: 'myunits' },
                         ],
                         ...usersList,
                       ]}
@@ -642,7 +642,7 @@ const CrmConstuctionModeHome = ({ leadsTyper }) => {
                     <input
                       type="text"
                       id="globalSearch"
-                      placeholder="Search Unit No, Customer name, Phone no, Dues..."
+                      placeholder="Search Stall No, Customer name, Phone no, Dues..."
                       // onChange={searchKeyField}
                       autoComplete="off"
                       // value={searchKey}
@@ -793,7 +793,7 @@ const CrmConstuctionModeHome = ({ leadsTyper }) => {
                                         className={`items-center h-6   text-xs font-semibold text-gray-500  rounded-full
                       `}
                                       >
-                                        Unit No
+                                        Stall No
                                       </span>
                                     </section>
                                     <div className="flex flex-col ml-2 item-right">
@@ -1090,7 +1090,7 @@ const CrmConstuctionModeHome = ({ leadsTyper }) => {
                                               className={`items-center h-6   text-xs font-semibold text-gray-500  rounded-full
                       `}
                                             >
-                                              Unit No
+                                              Stall No
                                             </span>
                                           </section>
                                           <div className="flex flex-col w-full  ml-2 item-right bg-[#f0f8ff]  px-2  mr-2 rounded-lg">

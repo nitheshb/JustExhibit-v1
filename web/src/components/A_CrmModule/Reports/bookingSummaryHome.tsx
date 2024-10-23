@@ -279,7 +279,7 @@ export default function UserListView() {
           console.log(',my prject sel is  ===> ', projectList)
           if (y.length > 0) {
             console.log(',my prject sel is ', y)
-            x.projName = y[0].projectName
+            x.projName = y[0].eventName
           }
           return x
         })
@@ -322,8 +322,8 @@ export default function UserListView() {
           docSnapshot.data()
         )
         projectsListA.map((user) => {
-          user.label = user.projectName
-          user.value = user.projectName
+          user.label = user.eventName
+          user.value = user.eventName
         })
         console.log('fetched proejcts list is', projectsListA)
         let z = [{'label': 'All Events', value: 'allprojects'}, ...projectsListA]
@@ -501,7 +501,7 @@ export default function UserListView() {
                   <input
                     type="text"
                     id="globalSearch"
-                    placeholder="Search Unit No, Customer name, Phone no, Dues..."
+                    placeholder="Search Stall No, Customer name, Phone no, Dues..."
                     // onChange={searchKeyField}
                     autoComplete="off"
                     // value={searchKey}

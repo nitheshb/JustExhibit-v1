@@ -25,7 +25,7 @@ const UnitDocumentsBody = () => {
               >
                 <img className="w-16 h-16" alt="" src="/apart.svg"></img>
                 <span className="relative z-10 flex items-center w-auto text-3xl font-bold leading-none pl-0 mt-[18px]">
-                  {projectName}
+                  {eventName}
                 </span>
               </Link>
             </div>
@@ -92,7 +92,7 @@ const UnitDocumentsBody = () => {
               </span>
             </span>
           </div>
-         
+
         </div>
       </section>
     </div>

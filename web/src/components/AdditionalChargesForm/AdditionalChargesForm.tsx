@@ -211,7 +211,7 @@ const AdditionalChargesForm = ({ title, data, source, blocksViewFeature }) => {
       // ),
     },
     {
-      title: 'Units*',
+      title: 'Stalls*',
       field: 'units',
       headerStyle: {
         padding: '0.25rem',
@@ -442,7 +442,7 @@ const AdditionalChargesForm = ({ title, data, source, blocksViewFeature }) => {
       // ),
     },
     {
-      title: 'Units*',
+      title: 'Stalls*',
       field: 'units',
       headerStyle: {
         padding: '0.25rem',
@@ -550,7 +550,7 @@ const AdditionalChargesForm = ({ title, data, source, blocksViewFeature }) => {
       errorList.push("Try Again, You didn't enter the Charges For field")
     }
     if (!formData.units) {
-      errorList.push("Try Again, You didn't enter the Units field")
+      errorList.push("Try Again, You didn't enter the Stalls field")
     }
     if (!formData.charges) {
       errorList.push("Try Again, You didn't enter the Charges field")

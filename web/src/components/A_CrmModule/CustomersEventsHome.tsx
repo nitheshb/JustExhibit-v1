@@ -35,44 +35,44 @@ const StyledTableHead = styled(TableHead)(({ theme }) => ({
 const paymentsA = [
   {
     label: 'Demands',
-    projectName: 'Demands',
+    eventName: 'Demands',
     value: 'demands',
   },
   {
     label: 'Review',
-    projectName: 'review',
+    eventName: 'review',
     value: 'review',
   },
   {
     label: 'Received',
-    projectName: 'received',
+    eventName: 'received',
     value: 'received',
   },
   {
     label: 'Rejected',
-    projectName: 'rejected',
+    eventName: 'rejected',
     value: 'rejected',
   },
 ]
 const registerA = [
   {
     label: 'Booking',
-    projectName: 'Booking',
+    eventName: 'Booking',
     value: 'booking',
   },
   {
     label: 'Agreement',
-    projectName: 'Agreement',
+    eventName: 'Agreement',
     value: 'agreement',
   },
   {
     label: 'Registered',
-    projectName: 'registered',
+    eventName: 'registered',
     value: 'registered',
   },
   {
     label: 'Rejected',
-    projectName: 'rejected',
+    eventName: 'rejected',
     value: 'rejected',
   },
 ]
@@ -473,7 +473,7 @@ const CustomersEventsHome = () => {
           docSnapshot.data()
         )
         projects?.map((user) => {
-          user.label = user?.projectName
+          user.label = user?.eventName
           user.value = user?.uid
         })
         setProjects([...projects])
@@ -639,7 +639,7 @@ const CustomersEventsHome = () => {
                 type="search"
                 id="search-dropdown"
                 className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg rounded-l-lg border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
-                placeholder={` Search Unit No, Customer name, Phone no, Dues, Review...`}
+                placeholder={` Search Stall No, Customer name, Phone no, Dues, Review...`}
                 required
               />
               <section className="absolute top-0 right-0  flex flex-row">

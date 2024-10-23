@@ -508,7 +508,7 @@ const FinanceTransactionsHome = ({ leadsTyper }) => {
                       <input
                         type="text"
                         id="globalSearch"
-                        placeholder="Search Unit No, Customer name, Phone no, Dues..."
+                        placeholder="Search Stall No, Customer name, Phone no, Dues..."
                         // onChange={searchKeyField}
                         autoComplete="off"
                         // value={searchKey}

@@ -134,7 +134,7 @@ const CreditNoteSummaryHomePage = ({
           console.log(',my prject sel is  ===> ', projectList)
           if (y.length > 0) {
             console.log(',my prject sel is ', y)
-            x.projName = y[0].projectName
+            x.projName = y[0].eventName
           }
           return x
         })
@@ -172,8 +172,8 @@ switch (selProjectIs?.value) {
           docSnapshot.data()
         )
         projectsListA.map((user) => {
-          user.label = user.projectName
-          user.value = user.projectName
+          user.label = user.eventName
+          user.value = user.eventName
         })
         console.log('fetched proejcts list is', projectsListA)
         let z = [ ...projectsListA]
@@ -193,8 +193,8 @@ switch (selProjectIs?.value) {
 //         )
 
 //         projectsListA.map((user) => {
-//           user.label = user.projectName
-//           user.value = user.projectName
+//           user.label = user.eventName
+//           user.value = user.eventName
 //         })
 //         if (user?.role?.includes(USER_ROLES.ADMIN)) {
 //           setprojectList(projectsListA)

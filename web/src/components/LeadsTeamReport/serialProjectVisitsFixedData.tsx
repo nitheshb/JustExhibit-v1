@@ -131,7 +131,7 @@ export function serialProjecVisitFixedData(projectListA, fullData) {
 
       x.visitfixed = fullData?.filter(
         (datObj) =>
-          datObj?.projectName == souceObj?.label && datObj?.to == 'visitfixed'
+          datObj?.eventName == souceObj?.label && datObj?.to == 'visitfixed'
       )
       x.visitdone = fullData?.filter(
         (datObj) =>

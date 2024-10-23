@@ -44,7 +44,7 @@ const ProjectsUnitInventory = ({
     area,
     builderName,
     location,
-    projectName,
+    eventName,
     projectType,
     uid = 0,
   } = project
@@ -86,7 +86,7 @@ const ProjectsUnitInventory = ({
               >
                 <img className="w-16 h-16" alt="" src="/apart.svg"></img>
                 <span className="relative z-10 flex items-center w-auto text-3xl font-bold leading-none pl-0 mt-[18px]">
-                  {projectName}
+                  {eventName}
                 </span>
               </Link>
             </div>
@@ -95,7 +95,7 @@ const ProjectsUnitInventory = ({
           <section className="grid justify-center md:grid-cols-3 lg:grid-cols-4 gap-5 lg:gap-7 my-10 ">
             {projects.length > 0 ? (
               projects.map((project, i) => (
-                // <span key={i}>{project?.projectName}</span>
+                // <span key={i}>{project?.eventName}</span>
                 <>
                   <div
                     key={i}
@@ -122,7 +122,7 @@ const ProjectsUnitInventory = ({
                         </div>
                         <div className="w-full text-center mt-[-10px]">
                           <h3 className="text-2xl text-slate-700 font-bold leading-normal mb-1 mt-">
-                            {project?.projectName}
+                            {project?.eventName}
                           </h3>
                           <div className="text-xs mt-0 mb-2 text-slate-400 font-bold uppercase">
                             <i className="fas fa-map-marker-alt mr-2 text-slate-400 opacity-75"></i>
@@ -145,7 +145,7 @@ const ProjectsUnitInventory = ({
                               2,454
                             </span>
                             <span className="text-sm text-slate-400">
-                              Available Units
+                              Available Stalls
                             </span>
                           </div>
 

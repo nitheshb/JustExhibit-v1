@@ -35,12 +35,12 @@ import {
   addStall,
   addUnit,
   capturePaymentS,
-  createBookedCustomer,
+  createBookedCompany,
   getLedsData1,
   getProjById1,
   getProject,
   getProjectByUid,
-  updateUnitAsBooked,
+  updateStallAsBooked,
   upSertMortgageUnit,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
@@ -315,7 +315,7 @@ const EnhancedTableToolbar = (props) => {
       },
       () =>
         setProject({
-          projectName: '',
+          eventName: '',
         })
     )
 
@@ -980,7 +980,7 @@ const EnhancedTableToolbar = (props) => {
           //   id,
           //   {
           //     leadId: id,
-          //     projectName: leadDetailsObj2?.Event || projectDetails?.projectName,
+          //     eventName: leadDetailsObj2?.Event || projectDetails?.eventName,
           //     ProjectId: leadDetailsObj2?.ProjectId || selUnitDetails?.pId,
           //     // ...customerDetailsObj,
           //     Name: customerDetailsObj?.customerName1,
@@ -1013,7 +1013,7 @@ const EnhancedTableToolbar = (props) => {
           //   enqueueSnackbar
           // )
 
-          await updateUnitAsBooked(
+          await updateStallAsBooked(
             orgId,
             pId,
             data['unitUid'],
@@ -1282,10 +1282,10 @@ const EnhancedTableToolbar = (props) => {
         </Tooltip>
       ) : sourceTab != 'all' &&
         [
-          'Import Units',
           'Import Stalls',
-          'Import Apartment Units',
-          'Import Plot Units',
+          'Import Stalls',
+          'Import Apartment Stalls',
+          'Import Plot Stalls',
           'Import Villas',
           'Import Booked Villas',
           'Upload Mortgage',
@@ -1463,7 +1463,7 @@ export default function LfileuploadTableTemplate({
           align: 'left',
         },
       ]
-    } else if (title === 'Import Units') {
+    } else if (title === 'Import Stalls') {
       columns = [
         { id: 'unit_no', label: 'unit_no', minWidth: 80 },
         { id: 'floor', label: 'floor', minWidth: 100 },
