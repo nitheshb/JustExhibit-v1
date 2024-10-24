@@ -49,6 +49,7 @@ import RupeeInWords from 'src/util/rupeeWords'
 import NoBorderDropDown from '../comps/noBorderDropDown'
 import Loader from '../Loader/Loader'
 import { validate_capturePayment } from '../Schemas'
+import PdfInvoiceGenerator from 'src/util/PdfInvoiceGenerator'
 
 const CaptureUnitPayment = ({
   title,
@@ -741,6 +742,22 @@ const CaptureUnitPayment = ({
                                           </div>
                                         </section>
                                         <section className="flex flex-row justify-between">
+
+                                        <div className="inline-block mt-4 ml-4">
+                                      <PdfInvoiceGenerator
+                                        user={user}
+                                        selUnitDetails={selUnitDetails}
+                                        myObj={newPlotCostSheetA}
+                                        newPlotPS={newPlotPS}
+
+                                        netTotal={netTotal}
+                                        setNetTotal={setNetTotal}
+                                        partATotal={partATotal}
+                                        partBTotal={0}
+                                        setPartATotal={setPartATotal}
+                                        projectDetails={{}}
+                                      />
+                                    </div>
                                           <div className="flex flex-col mr-2 mt-2">
                                             {/* <h6 className="text-blueGray-400 text-sm mt- ml-6 mb- font-weight-[700]  font-uppercase">
                                               Payment
