@@ -86,7 +86,7 @@ const CostBreakUpSheet = ({
   const [projectList, setprojectList] = useState([])
   const [initialValuesA, setInitialValuesA] = useState({})
   const [newSqftPrice, setNewSqftPrice] = useState(0)
-  const [onStep, setOnStep] = useState('costsheet')
+  const [onStep, setOnStep] = useState('booksheet')
   const [stepIndx, setStepIndx] = useState(1)
   const [soldPrice, setSoldPrice] = useState(0)
   const [csMode, setCsMode] = useState('plot_cs')
@@ -177,7 +177,7 @@ console.log('customer info', myBookingPayload)
           color: ' bg-violet-500',
         },
       ])
-      setOnStep('costsheet')
+      setOnStep('booksheet')
     }
     //  else if (actionMode === 'unitBlockMode') {
     //   setStatusListA([
@@ -267,42 +267,7 @@ console.log('customer info', myBookingPayload)
       setOnStep('customerDetails')
     } else if (actionMode === 'unitBookingMode') {
       setStatusListA([
-        {
-          label: 'Customer Info',
-          value: 'customerDetails',
-          logo: 'FireIcon',
-          color: ' bg-violet-500',
-          text: 'Applicant details, contacts, etc',
-        },
-        {
-          label: 'Additonal Info',
-          value: 'additonalInfo',
-          logo: 'FireIcon',
-          color: ' bg-violet-500',
-          text: 'Source, Buy Purpose...',
-        },
-        {
-          label: 'Cost Sheet',
-          value: 'costsheet',
-          logo: 'RefreshIcon',
-          color: ' bg-violet-500',
-          text: 'Rate pre sqft, gst, discount..',
-        },
-
-        {
-          label: 'Payment Schedule',
-          value: 'payment_schedule',
-          logo: 'FireIcon',
-          color: ' bg-violet-500',
-          text: 'Dates, start, end ...',
-        },
-        {
-          label: 'Booking Summary',
-          value: 'booking_summary',
-          logo: 'FireIcon',
-          color: ' bg-violet-500',
-          text: 'Overview, review, approve...',
-        },
+     
         {
           label: 'Confirm Booking',
           value: 'booksheet',
@@ -332,7 +297,7 @@ console.log('customer info', myBookingPayload)
           headerID: 'section4',
         },
       ])
-      setOnStep('customerDetails')
+      setOnStep('booksheet')
     }
   }, [actionMode])
 
@@ -592,222 +557,11 @@ console.log('customer info', myBookingPayload)
                   </div>
                 )}
                 <div className="w-full">
-                  {['costsheet', 'allsheets', 'payment_schedule'].includes(
-                    onStep
-                  ) && (
-                    <div className="">
-                      <div className="flex flex-col mx-0 bg-[#F8FAFC] ">
-                        <div className="">
-                          <Formik
-                            enableReinitialize={true}
-                            initialValues={initialState}
-                            validationSchema={validate}
-                            onSubmit={(values, { resetForm }) => {
-                              console.log('i was clicked', values)
-                              onSubmit(values, resetForm)
-                            }}
-                          >
-                            {(formik) => (
-                              <Form ref={ref} className="">
-                                <section
-                                  className="bg-[#fff] rounded-md border m-2"
-                                  style={{
-                                    boxShadow: '0 1px 12px #f2f2f2',
-                                  }}
-                                >
-                                  {/* {csMode === 'both' && (
-                                    <CostBreakUpPdfAll
-                                      projectDetails={projectDetails}
-                                      csMode={csMode}
-                                      setCostSheet={setCostSheet}
-                                      costSheet={costSheet}
-                                      // costSheetA={costSheetA}
-                                      pdfExportComponent={
-                                        pdfExportComponentConstruct
-                                      }
-                                      selPhaseObj={selPhaseObj}
-                                      leadDetailsObj1={leadDetailsObj1}
-                                      selUnitDetails={selUnitDetails}
-                                      setNewConstructCsObj={
-                                        setNewConstructCsObj
-                                      }
-                                      newConstructCsObj={newConstructCsObj}
-                                      newConstructCostSheetA={
-                                        newConstructCostSheetA
-                                      }
-                                      setCostSheetA={setNewConstructCostSheetA}
-                                      costSheetA={newConstructCostSheetA}
-                                      setNewPS={setNewConstructPS}
-                                      setNewConstructPS={setNewConstructPS}
-                                      newConstructPS={newConstructPS}
-                                    />
-                                  )} */}
-                                  {csMode === 'both' && (
-                                    <CostBreakUpPdf
-                                      formik={formik}
-                                      projectDetails={projectDetails}
-                                      csMode={csMode}
-                                      setCostSheet={setCostSheet}
-                                      costSheet={costSheet}
-                                      myBookingPayload={myBookingPayload}
-                                      setMyBookingPayload={setMyBookingPayload}
-                                      // costSheetA={costSheetA}
-                                      pdfExportComponent={pdfExportComponent}
-                                      selPhaseObj={selPhaseObj}
-                                      leadDetailsObj1={leadDetailsObj1}
-                                      selUnitDetails={selUnitDetails}
-                                      setNewPlotCsObj={setNewPlotCsObj}
-                                      newPlotCsObj={newPlotCsObj}
-                                      costSheetA={newPlotCostSheetA}
-                                      constructCostSheetA={newConstCostSheetA}
-                                      setConstructCostSheetA={
-                                        setNewConstCostSheetA
-                                      }
-                                      newAdditonalConstChargesObj={
-                                        newAdditonalConstChargesObj
-                                      }
-                                      setAddiChargesObj={
-                                        setNewAdditonalChargesObj
-                                      }
-                                      setNewAdditonalConstChargesObj={
-                                        setNewAdditonalConstChargesObj
-                                      }
-                                      setCostSheetA={setNewPlotCostSheetA}
-                                      setNewPS={setNewPlotPS}
-                                      setNewConstructPS={setNewConstructPS}
-                                      newPlotPS={newPlotPS}
-                                      showGstCol={showGstCol}
-                                      netTotal={netTotal}
-                                      setNetTotal={setNetTotal}
-                                      partATotal={partATotal}
-                                      partBTotal={partBTotal}
-                                      partCTotal={partCTotal}
-                                      partDTotal={partDTotal}
-                                      setPartATotal={setPartATotal}
-                                      setPartBTotal={setPartBTotal}
-                                      setPartCTotal={setPartCTotal}
-                                      setPartDTotal={setPartDTotal}
-                                      showOnly={onStep}
-                                    />
-                                  )}
-                                </section>
 
-                                <div className="flex mt-2 z-10 flex flex-row justify-between mt-2 pr-6 bg-white shadow-lg absolute bottom-0  w-full">
-                                <div className="inline-block mt-4 ml-4">
-                                      <PdfInvoiceGenerator
-                                        user={user}
-                                        selUnitDetails={myBookingPayload}
-                                        myObj={newPlotCostSheetA}
-                                        newPlotPS={newPlotPS}
-                                        myAdditionalCharges={
-                                          newAdditonalChargesObj
-                                        }
-                                        netTotal={netTotal}
-                                        setNetTotal={setNetTotal}
-                                        partATotal={partATotal}
-                                        partBTotal={partBTotal}
-                                        setPartATotal={setPartATotal}
-                                        setPartBTotal={setPartBTotal}
-                                        projectDetails={projectDetails}
-                                        leadDetailsObj1={leadDetailsObj1}
-                                      />
-                                    </div>
-                                  <div className="mt-2 text-right md:space-x-3 md:block flex flex-row-reverse justify-between mb-3">
 
-                                    <section>
-                                    <button
-                                      className="mb-2 md:mb-0  hover:scale-110 focus:outline-none              hover:bg-[#5671fc]
-                                    bg-gradient-to-r from-violet-500 to-indigo-500
-                                  text-black
-                                  border duration-200 ease-in-out
-                                  transition
-                                   px-5 py-1 pb-[5px] text-sm shadow-sm font-medium tracking-wider text-white rounded-md hover:shadow-lg hover:bg-green-500
-px-5 py-2 text-sm shadow-sm font-medium  tracking-wider text-white  rounded-sm hover:shadow-lg
-                                   "
-                                      type="submit"
-                                      disabled={loading}
-                                      // onClick={() => submitFormFun(formik)}
-                                    >
-                                      {/* {loading && <Loader />} */}
-                                      Save
-                                    </button>
-                                    {[
-                                      'unitBookingMode',
-                                      'unitBlockMode',
-                                    ].includes(actionMode) && (
-                                      <button
-                                        className="mb-2 mr-2 md:mb-0  hover:scale-110 focus:outline-none              hover:bg-[#5671fc]
-                                  bg-gradient-to-r from-violet-500 to-indigo-500
-                                  text-black
 
-                                  border duration-200 ease-in-out
-                                  transition
-                                   px-5 py-1 pb-[5px] text-sm shadow-sm font-medium tracking-wider text-white rounded-md hover:shadow-lg hover:bg-green-500
-px-5 py-2 text-sm shadow-sm font-medium  tracking-wider text-white  rounded-sm hover:shadow-lg
-                                   "
-                                        type="submit"
-                                        disabled={loading}
-                                        // onClick={() => submitFormFun(formik)}
-                                      >
-                                        {/* {loading && <Loader />} */}
-                                        <span>Save & Next</span>
-                                      </button>
-                                    )}
-                                    </section>
-                                  </div>
-                                </div>
-                              </Form>
-                            )}
-                          </Formik>
-                        </div>
-                      </div>
-                    </div>
-                  )}
 
-                  {/* PaymentScheduleSheet */}
-                  {/* {['payment_sch', 'allsheets'].includes(onStep) && (
-                <PaymentScheduleSheet
-                  title="Booking Form"
-                  leadDetailsObj2={leadDetailsObj1}
-                  selUnitDetails={selUnitDetails}
-                  phase={selPhaseObj}
-                  soldPrice={soldPrice}
-                />
-              )} */}
-                  {['customerDetails', 'allsheets'].includes(onStep) && (
-                    <>
-                      <AddApplicantDetails
-                        currentMode={actionMode}
-                        myBookingPayload={myBookingPayload}
-                        setMyBookingPayload={setMyBookingPayload}
-                        leadPayload={leadPayload}
-                        setLeadPayload={setLeadPayload}
-                        setCustomerInfo={setCustomerInfo}
-                        customerInfo={customerInfo}
-                        setOnStep={setOnStep}
-                        source="Booking"
-                        stepIndx={stepIndx}
-                        StatusListA={StatusListA}
-                        selUnitDetails={selUnitDetails}
-                        title="Booking Form"
-                      />
-                    </>
-                  )}
-                  {['additonalInfo'].includes(onStep) && (
-                    <AdditonalBookingDetails
-                      currentMode={actionMode}
-                      selUnitDetails={selUnitDetails}
-                      additionalInfo={additionalInfo}
-                      setAdditonalInfo={setAdditonalInfo}
-                      leadDetailsObj2={leadPayload}
-                      customerInfo={customerInfo}
-                      setCustomerInfo={setCustomerInfo}
-                      setOnStep={setOnStep}
-                      source="Booking"
-                      stepIndx={stepIndx}
-                      StatusListA={StatusListA}
-                    />
-                  )}
+
                   {['booksheet', 'allsheets'].includes(onStep) && (
                     <AddPaymentDetailsForm
                       title={'undefined'}
@@ -833,53 +587,7 @@ px-5 py-2 text-sm shadow-sm font-medium  tracking-wider text-white  rounded-sm h
                     />
                   )}
 
-                  {['booking_summary'].includes(onStep) && (
-                    <BookingSummaryView
-                      projectDetails={projectDetails}
-                      csMode={csMode}
-                      myBookingPayload={myBookingPayload}
-                      setMyBookingPayload={setMyBookingPayload}
-                      // costSheetA={costSheetA}
-                      pdfExportComponent={pdfExportComponent}
-                      customerInfo={customerInfo}
-                      costSheet={costSheet}
-                      selPhaseObj={selPhaseObj}
-                      leadDetailsObj1={leadDetailsObj1}
-                      selUnitDetails={selUnitDetails}
-                      setNewPlotCsObj={setNewPlotCsObj}
-                      newPlotCsObj={newPlotCsObj}
-                      costSheetA={newPlotCostSheetA}
-                      constructCostSheetA={newConstCostSheetA}
-                      newAdditonalChargesObj={newAdditonalChargesObj}
-                      newAdditonalConstChargesObj={newAdditonalConstChargesObj}
-                      setNewAdditonalConstChargesObj={
-                        setNewAdditonalConstChargesObj
-                      }
-                      setAddiChargesObj={setNewAdditonalChargesObj}
-                      setCostSheetA={setNewPlotCostSheetA}
-                      setNewPS={setNewPlotPS}
-                      newPlotPS={newPlotPS}
-                      newConstructPS={newConstructPS}
-                      showGstCol={showGstCol}
-                      netTotal={netTotal}
-                      setNetTotal={setNetTotal}
-                      partATotal={partATotal}
-                      partBTotal={partBTotal}
-                      partCTotal={partCTotal}
-                      partDTotal={partDTotal}
-                      setPartATotal={setPartATotal}
-                      setPartBTotal={setPartBTotal}
-                      setPartCTotal={setPartCTotal}
-                      setPartDTotal={setPartDTotal}
-                      showOnly={onStep}
-                      section1Ref={section1Ref}
-                      section2Ref={section2Ref}
-                      section3Ref={section3Ref}
-                      section4Ref={section4Ref}
-                      stepIndx={stepIndx}
-                      StatusListA={StatusListA}
-                    />
-                  )}
+
 
                   {['blocksheet'].includes(onStep) && (
                     <BlockingUnitForm

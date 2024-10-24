@@ -274,23 +274,12 @@ export const projectDetailFlow = [
     img: 'https://www.svgrepo.com/show/530256/calculator.svg',
     indx: 1,
   },
-  {
-    name: 'Cost Setup',
-    value: 'CostDetails',
-    img: 'https://www.svgrepo.com/show/530260/map.svg',
-    indx: 2,
-  },
-  {
-    name: 'Payment Schedule',
-    value: 'Payment Schedule',
-    img: 'https://www.svgrepo.com/show/530140/calendar.svg',
-    indx: 3,
-  },
+
   {
     name: 'Access & Others',
     value: 'projectAccess',
     img: 'https://www.svgrepo.com/show/530263/distributed.svg',
-    indx: 4,
+    indx: 2,
   },
 ]
 
