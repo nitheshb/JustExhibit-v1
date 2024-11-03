@@ -102,7 +102,7 @@ const LeadsManagerPage = (props) => {
 
             {viewable === 'userProfile' && <ProfileSummary />}
 
-            <div>
+            <div className='bg-[#fff]'>
               <AdminPage/>
             </div>
 
