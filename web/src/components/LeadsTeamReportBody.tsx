@@ -67,6 +67,9 @@ import { serialMyData } from './LeadsTeamReport/SourceLeads'
 import ReportSideWindow from './SiderForm/ReportSideView'
 import SiderForm from './SiderForm/SiderForm'
 import CustomDatePicker from 'src/util/formFields/CustomDatePicker'
+//import { CountChart } from './A_SalesModule/Reports/CountChart';
+import CountChart from './A_SalesModule/Reports/CountChart';
+
 
 //import SalesSummaryReport from './A_SalesModule/Reports/salesSummaryReport'
 //import ProfileSummary from './A_SalesModule/Reports/profileSummary'
@@ -1238,7 +1241,10 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
                 { label: 'Source Performance', value: 'source_perf' },
                 { label: 'Site Visits', value: 'site_visits' },
                 { label: 'Employee Performance', value: 'emp_tasks' },
+                { label: 'Count Chart', value: 'Count_chart' },
+
                 { label: 'Home', value: 'sale_report_home' },
+                
                 { label: 'Marketing', value: 'marketing_Dashboard' },
 
                 { label: 'Top Bar', value: 'bar_tasks' },
@@ -2707,6 +2713,8 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
             </>
           )}
           {selCat === 'booking_perf' && <BookingSummaryReport />}
+          {selCat === 'Count_chart' && <CountChart />}
+
           {selCat === 'source_perf' && (
             <section>
               <section className="flex flex-row flex-wrap gap-2">

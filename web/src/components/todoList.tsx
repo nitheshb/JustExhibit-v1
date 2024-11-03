@@ -37,6 +37,7 @@ import uniqueId from 'src/util/generatedId'
 import LLeadsTableBody from '../LLeadsTableBody/LLeadsTableBody'
 
 import SiderForm from './SiderForm/SiderForm'
+import FinanceChart from './FinanceChart'
 
 const torrowDate = new Date(
   +new Date().setHours(0, 0, 0, 0) + 86400000
@@ -867,7 +868,7 @@ const TodoListView = ({
                   />
                 </div>
                 <h3 className="mb-1 text-sm font-semibold text-gray-900">
-                  No Tasks Found
+                  No Tasks Found box2
                 </h3>
                 <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                   <span className="text-blue-600"> Add New Task</span>
@@ -1706,6 +1707,13 @@ const TodoListView = ({
               )}
           </div>
         </div>
+
+
+        <div className='mt-4'>
+        <FinanceChart/>
+
+        </div>
+
         {/* <script src="./index.js"></script>
         <style>.checkbox:checked + .check-icon {
   display: flex;

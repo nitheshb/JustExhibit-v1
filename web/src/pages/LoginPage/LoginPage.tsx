@@ -262,7 +262,7 @@ const LoginPage = () => {
 </main>
 </div>
 </div>
-      <div className="flex justify-between min-h-screen font-sans">
+      {/* <div className="flex justify-between min-h-screen font-sans">
         <div
           className="relative hidden w-3/5 text-orange-500 bg-red-200 bg-center bg-cover lg:block"
           style={{
@@ -273,7 +273,7 @@ const LoginPage = () => {
           <div className="absolute flex justify-center w-full bottom-20">
             <div className="max-w-md text-center">
               <span className="text-3xl font-bold leading-loose text-white">
-                Control Bussiness
+                Control box
               </span>
               <p className="font-light leading-7 text-gray-400">
                 Redefine Erp is the most comprehensive field service & asset
@@ -281,10 +281,10 @@ const LoginPage = () => {
               </p>
               <div className="flex items-center justify-center pt-8 space-x-6">
                 <button className="rounded-full focus:ring focus:ring-orange-500 focus:outline-none">
-                  {/* <CircleLeftIcon /> */}
+                 
                 </button>
                 <button className="rounded-full focus:ring focus:ring-orange-500 focus:outline-none">
-                  {/* <CircleRightIcon /> */}
+                 
                 </button>
               </div>
             </div>
@@ -292,20 +292,13 @@ const LoginPage = () => {
         </div>
         <div className="flex-1 max-w-2xl mx-auto">
           <div className="flex flex-col px-8 pt-10 lg:px-14 xl:px-24">
-            {/* <LogoIcon className="self-center w-32 md:self-end" /> */}
 
             <div className="pt-36 pb-6">
               <h1 className="text-[28px] font-bold leading-loose tracking-wide whitespace-nowrap text-center">
                 {passwordResetMode ? 'Password Reset' : 'Account Login'}
               </h1>
 
-              {/* <div className="flex items-center justify-between pt-6">
-                <hr className="w-full border-gray-400" />
-                <span className="px-4 font-light tracking-wider text-gray-500">
-                  or
-                </span>
-                <hr className="w-full border-gray-400" />
-              </div> */}
+     
 
               <Form onSubmit={onSubmit} className="mt-10">
                 {loginError && (
@@ -405,7 +398,7 @@ const LoginPage = () => {
                 </Submit>
                 <div className="my-[4%] md:hidden lg:hidden">
                   <h1 className="text-center text-blue-900 font-semibold text-[1.5rem] ">
-                    Control Bussiness
+                    Control 
                   </h1>
                   <p className="text-center  text-gray-500 font-semibold text-sm ">
                     Redefine Erp is the most comprehensive field service & asset
@@ -413,22 +406,11 @@ const LoginPage = () => {
                   </p>
                 </div>
               </Form>
-              {/*
-              <div className="pt-4 ">
-                <div className="font-light text-center text-gray-500 ">
-                  <span className=" font-sm">Not registered yet?</span>
-                  <a
-                    href="#"
-                    className="font-normal text-sm text-stone-900 hover:text-stone-900 ml-2"
-                  >
-                    Create an Account
-                  </a>
-                </div>
-              </div> */}
+
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   )
 }
