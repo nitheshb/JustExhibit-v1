@@ -80,7 +80,7 @@ const HeadSideBarDetailView2 = ({
             </svg>
             <span className="ml-" style={{ marginLeft: '-11px' }}>
               {' '}
-              Redefine Erp.
+              ExpoKit Erp.
             </span>
           </span>
           <ul className=" pt-4">

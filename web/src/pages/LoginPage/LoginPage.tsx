@@ -237,7 +237,7 @@ const LoginPage = () => {
                     Control Bussiness
                   </h1>
                   <p className="text-center  text-gray-500 font-semibold text-sm ">
-                    Redefine Erp is the most comprehensive field service & asset
+                    ExpoKit Erp is the most comprehensive field service & asset
                     managament platform with combining flexibility.
                   </p>
                 </div>
@@ -276,7 +276,7 @@ const LoginPage = () => {
                 Control Bussiness
               </span>
               <p className="font-light leading-7 text-gray-400">
-                Redefine Erp is the most comprehensive field service & asset
+                ExpoKit Erp is the most comprehensive field service & asset
                 managament platform with combining flexibility.
               </p>
               <div className="flex items-center justify-center pt-8 space-x-6">
@@ -408,7 +408,7 @@ const LoginPage = () => {
                     Control Bussiness
                   </h1>
                   <p className="text-center  text-gray-500 font-semibold text-sm ">
-                    Redefine Erp is the most comprehensive field service & asset
+                    ExpoKit Erp is the most comprehensive field service & asset
                     managament platform with combining flexibility.
                   </p>
                 </div>

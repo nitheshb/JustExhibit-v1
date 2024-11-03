@@ -38,7 +38,7 @@ const Profile = () => {
               </div>
 
               <p className=" mb-4 font-medium text-gary-600 ">
-                Redefine user since sept 2021
+                ExpoKit user since sept 2021
               </p>
             </div>
             {/* div for making change the details  */}
