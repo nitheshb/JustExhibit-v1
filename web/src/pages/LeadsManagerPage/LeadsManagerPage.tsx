@@ -101,10 +101,10 @@ const LeadsManagerPage = (props) => {
         
 
             {viewable === 'userProfile' && <ProfileSummary />}
-
+{/* 
             <div className='bg-[#fff]'>
               <AdminPage/>
-            </div>
+            </div> */}
 
               {viewable === 'inProgress' && (
                 <ExecutiveHomeViewerPage
@@ -150,6 +150,10 @@ const LeadsManagerPage = (props) => {
               {viewable === 'UpcomingTeam' && (
                 <TodayLeadsHomePage taskType={viewable} />
               )}
+
+       
+
+
               {viewable === 'unitsInventory' && (
                 <ProjectsUnitInventory
                   project={{

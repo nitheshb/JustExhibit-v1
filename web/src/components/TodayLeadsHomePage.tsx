@@ -4,6 +4,7 @@ import { Fragment, useState } from 'react'
 import { MetaTags } from '@redwoodjs/web'
 
 import TodayLeadsActivityListHomeView from './TodayLeadsAcivityListHome'
+import AdminPage from './AdminPage'
 // import CardItem from '../../components/leadsCard'
 // import BoardData from '../../components/board-data.json'
 
@@ -20,6 +21,9 @@ const TodayLeadsHomePage = ({ taskType }) => {
   }
   return (
     <>
+       <div className='bg-[#fff]'>
+        <AdminPage/>
+       </div>
       <div className="flex  flex-row  text-gray-700">
         <div className="flex-1 overflow-auto">
           <div className="px-1">
