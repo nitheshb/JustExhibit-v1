@@ -503,16 +503,7 @@ const UnitsInventoryHome = ({ project }) => {
                   selProjectIs={selUnitType}
                   dropDownItemsA={typeA}
                 />
-                <DropDownSearchBar
-                  label={'Facing'}
-                  type={'All Facings'}
-                  id={'id'}
-                  setStatusFun={{}}
-                  viewUnitStatusA={[]}
-                  pickCustomViewer={selFacingFun}
-                  selProjectIs={selFacing}
-                  dropDownItemsA={FacingA}
-                />
+              
                 <DropDownSearchBar
                   label={'Size'}
                   type={'All Status'}

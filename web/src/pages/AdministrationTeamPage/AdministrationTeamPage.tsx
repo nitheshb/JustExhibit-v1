@@ -22,6 +22,7 @@ import ReportMain from '../../components/Reports/ReportMainCom'
 import UnitsInventoryHome from 'src/components/A_ProjModule/UnitsInvertoryHome'
 import AdminSupportHome from 'src/components/A_AdminSupportModule/AdminSupportHome'
 import AdminSummaryReport from 'src/components/A_AdminSupportModule/AdminSummaryReport'
+import ProfileSummary from 'src/components/A_SalesModule/Reports/profileSummary'
 
 const AdministrationTeamPage = (props) => {
   const { user } = useAuth()
@@ -81,7 +82,8 @@ const AdministrationTeamPage = (props) => {
             </div>
 
             <div className="flex-grow  items-center overflow-y-auto  overflow-auto no-scrollbar px-300  py-300">
-              <HeadNavBar2 selModule={selModule} setSelModule={setSelModule} />
+            <HeadNavBar2 selModule={selModule} setSelModule={setSelModule}  setViewable={setViewable} />
+            {viewable === 'userProfile' && <ProfileSummary />}
 
               {viewable === 'Today1' && (
                 <AdminSupportHome leadsTyper={undefined} />

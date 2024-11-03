@@ -21,6 +21,7 @@ import HeadNavBar from '../../components/HeadNavBar/HeadNavBar'
 import ReportMain from '../../components/Reports/ReportMainCom'
 import UnitsInventoryHome from 'src/components/A_ProjModule/UnitsInvertoryHome'
 import LeadsTransferHome from 'src/components/A_SalesModule/leadsTransfer'
+import ProfileSummary from 'src/components/A_SalesModule/Reports/profileSummary'
 
 const LeadsManagerPage = (props) => {
   const { user } = useAuth()
@@ -89,7 +90,8 @@ const LeadsManagerPage = (props) => {
             </div>
 
             <div className="flex-grow  items-center overflow-y-auto  overflow-auto no-scrollbar px-300  py-300">
-              <HeadNavBar2 selModule={selModule} setSelModule={setSelModule} />
+            <HeadNavBar2 selModule={selModule} setSelModule={setSelModule}  setViewable={setViewable} />
+            {viewable === 'userProfile' && <ProfileSummary />}
 
               {viewable === 'inProgress' && (
                 <ExecutiveHomeViewerPage

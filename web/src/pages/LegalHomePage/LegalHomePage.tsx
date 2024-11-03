@@ -18,6 +18,7 @@ import { useAuth } from 'src/context/firebase-auth-context'
 import HeadNavBar from '../../components/HeadNavBar/HeadNavBar'
 import LegalDocsHome from '../LegalDocsHome'
 import LegalHome from 'src/components/A_LegalModule/LegalHome'
+import ProfileSummary from 'src/components/A_SalesModule/Reports/profileSummary'
 
 const LegalHomePage = () => {
   const { user } = useAuth()
@@ -73,10 +74,8 @@ const LegalHomePage = () => {
             </div>
 
             <div className="flex-grow  items-center overflow-y-auto  px-300  py-300">
-              <HeadNavBar2
-                selModule={selModule}
-                setSelModule={setSelModule}
-              />
+            <HeadNavBar2 selModule={selModule} setSelModule={setSelModule}  setViewable={setViewable} />
+            {viewable === 'userProfile' && <ProfileSummary />}
 
               {viewable === 'legalDocuments' && (
                 <LegalDocsHome

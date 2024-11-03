@@ -1476,191 +1476,7 @@ const CaptureUnitPayment = ({
                                                 </div>
                                               </div>
                                               {/* row 3 */}
-                                              <div className="flex flex-row justify-between pt-2 mb-2">
-                                                <section className="w-12/12 w-full">
-                                                  <label className="label font-regular text-[12px] block mb-1 mt-1 text-gray-700">
-                                                    PAN No{' '}
-                                                  </label>
-                                                  <MuiTextField
-                                                    id="area"
-                                                    className={`w-full bg-grey-lighter text-grey-darker border border-[#cccccc] rounded-md h-10 mt-1 p-0`}
-                                                    size="small"
-                                                    InputProps={{
-                                                      style: {
-                                                        height: '2rem',
-                                                        paddingLeft: '7px',
-                                                      },
-                                                      endAdornment: (
-                                                        <InputAdornment
-                                                          position="end"
-                                                          style={{
-                                                            height: '32px',
-                                                          }}
-                                                        >
-                                                          <div className="flex flex-row-reverse">
-                                                            <label
-                                                              htmlFor="formFile3"
-                                                              className="form-label cursor-pointer inline-block   font-regular text-xs  rounded-2xl px-1 py-1  "
-                                                            >
-                                                              {`${
-                                                                formik.values
-                                                                  .panDocUrl1 ===
-                                                                  '' ||
-                                                                formik.values
-                                                                  .panDocUrl1 ==
-                                                                  undefined
-                                                                  ? 'Upload'
-                                                                  : 'Download'
-                                                              }`}
-                                                            </label>
-                                                            {formik.values
-                                                              .panDocUrl1 !=
-                                                              '' && (
-                                                              <button
-                                                                onClick={() =>
-                                                                  downloadImage(
-                                                                    formik
-                                                                      .values
-                                                                      .panDocUrl1,
-                                                                    'pancard1.PNG'
-                                                                  )
-                                                                }
-                                                              >
-                                                                {' '}
-                                                                {formik.values
-                                                                  .panDocUrl1 ===
-                                                                  '' ||
-                                                                formik.values
-                                                                  .panDocUrl1 ==
-                                                                  undefined ? (
-                                                                  <PlusIcon className="w-4 h-4 cursor-pointer ml-1 mb-[3px] mr-2 inline-block text-gray-400 border rounded-[16px] " />
-                                                                ) : (
-                                                                  <ArrowCircleDownIcon className="w-4 h-4 cursor-pointer ml-1 mb-[3px] mr-2 inline-block text-gray-400 " />
-                                                                )}
-                                                              </button>
-                                                            )}
-                                                            <input
-                                                              type="file"
-                                                              className="hidden"
-                                                              id="formFile3"
-                                                              onChange={async (
-                                                                e
-                                                              ) => {
-                                                                await handleFileUploadFun(
-                                                                  e.target
-                                                                    .files[0],
-                                                                  'panCard1',
-                                                                  formik
-                                                                )
-                                                              }}
-                                                            />
-                                                          </div>
-                                                        </InputAdornment>
-                                                      ),
-                                                    }}
-                                                    label=""
-                                                    name="panNo1"
-                                                    type="text"
-                                                    value={formik.values.panNo1}
-                                                    onChange={
-                                                      formik.handleChange
-                                                    }
-                                                  />
-                                                </section>
-                                                <section className="w-full ml-4">
-                                                  <label className="label font-regular text-[12px] block mb-1 mt-1 text-gray-700">
-                                                    Aadhar No{' '}
-                                                  </label>
-                                                  <MuiTextField
-                                                    id="area"
-                                                    className={`w-full bg-grey-lighter text-grey-darker border border-[#cccccc] rounded-md h-10 mt-1 p-0`}
-                                                    size="small"
-                                                    InputProps={{
-                                                      style: {
-                                                        height: '2rem',
-                                                        paddingLeft: '7px',
-                                                      },
-                                                      endAdornment: (
-                                                        <InputAdornment
-                                                          position="end"
-                                                          style={{
-                                                            height: '32px',
-                                                          }}
-                                                        >
-                                                          <div className=" flex flex-row-reverse">
-                                                            <label
-                                                              htmlFor="formFile4"
-                                                              className="form-label cursor-pointer inline-block font-regular text-xs  rounded-2xl px-1 py-1"
-                                                            >
-                                                              {`${
-                                                                formik.values
-                                                                  .aadharUrl1 ===
-                                                                  '' ||
-                                                                formik.values
-                                                                  .aadharUrl1 ==
-                                                                  undefined
-                                                                  ? 'Upload'
-                                                                  : 'Download'
-                                                              }`}
-                                                            </label>
-                                                            {formik.values
-                                                              .aadharUrl1 !=
-                                                              '' && (
-                                                              <button
-                                                                onClick={() =>
-                                                                  downloadImage(
-                                                                    formik
-                                                                      .values
-                                                                      .aadharUrl1,
-                                                                    'Aadhar1.PNG'
-                                                                  )
-                                                                }
-                                                              >
-                                                                {' '}
-                                                                {formik.values
-                                                                  .aadharUrl1 ===
-                                                                  '' ||
-                                                                formik.values
-                                                                  .aadharUrl1 ==
-                                                                  undefined ? (
-                                                                  <PlusIcon className="w-4 h-4 cursor-pointer ml-1 mb-[3px] mr-2 inline-block text-gray-400 border rounded-[16px] " />
-                                                                ) : (
-                                                                  <ArrowCircleDownIcon className="w-4 h-4 cursor-pointer ml-1 mb-[3px] mr-2 inline-block text-gray-400 " />
-                                                                )}
-                                                              </button>
-                                                            )}
-                                                            <input
-                                                              type="file"
-                                                              className="hidden"
-                                                              id="formFile4"
-                                                              onChange={(e) => {
-                                                                console.log(
-                                                                  'iwas clicked aadharno 2'
-                                                                )
-                                                                handleFileUploadFun(
-                                                                  e.target
-                                                                    .files[0],
-                                                                  'aadharNo1Url',
-                                                                  formik
-                                                                )
-                                                              }}
-                                                            />
-                                                          </div>
-                                                        </InputAdornment>
-                                                      ),
-                                                    }}
-                                                    label=""
-                                                    name="aadharNo1"
-                                                    type="text"
-                                                    value={
-                                                      formik.values.aadharNo1
-                                                    }
-                                                    onChange={
-                                                      formik.handleChange
-                                                    }
-                                                  />
-                                                </section>
-                                              </div>
+
                                             </section>
                                             {/* section-2 */}
 
@@ -1723,22 +1539,9 @@ const CaptureUnitPayment = ({
                                                     </div>
                                                   </div>
                                                 </div>
-                                              </div>
-
-                                              <div className="w-full flex flex-row lg:w-12/12 mt-">
-                                                <div className="w-full lg:w-12/12 px-">
-                                                  {/* Country Name 2 */}
-                                                  <div className="relative w-full mb-3 mt-2">
-                                                    <TextField
-                                                      label="Country Name"
-                                                      name="countryName1"
-                                                      type="text"
-                                                    />
-                                                  </div>
-                                                </div>
                                                 <div className="w-full lg:w-12/12 pl-4">
                                                   {/* Pincode 2 */}
-                                                  <div className="relative w-full mb-3 mt-2">
+                                                  <div className="relative w-full mb-3">
                                                     <TextField
                                                       label="Pincode"
                                                       name="pincode1"
@@ -1747,6 +1550,8 @@ const CaptureUnitPayment = ({
                                                   </div>
                                                 </div>
                                               </div>
+
+                                       
                                             </section>
                                           </section>
                                         </div>

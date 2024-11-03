@@ -3747,6 +3747,25 @@ export const updateUserRole = async (
     by,
   })
 }
+export const updateUserAvatar = async (
+
+  orgId,
+  uid,
+  email,
+ avatarUrl,
+  by
+) => {
+  await updateDoc(doc(db, 'users', uid), {
+avatarUrl: avatarUrl
+  })
+  return await addUserLog(orgId, {
+    s: 's',
+    type: 'updateAvatar',
+    subtype: 'updateAvatar',
+    txt: `${email} is updated with avatar`,
+    by,
+  })
+}
 export const updateUserAccessProject = async (
   orgId,
   uid,

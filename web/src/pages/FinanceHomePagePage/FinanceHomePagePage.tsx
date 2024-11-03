@@ -25,6 +25,7 @@ import HeadNavBar from '../../components/HeadNavBar/HeadNavBar'
 import HeadSideBar from '../../components/HeadSideBar/HeadSideBar'
 import ProjectsMHomeBody from '../../components/ProjectsMHomeBody/ProjectsMHomeBody'
 import SiderForm from '../../components/SiderForm/SiderForm'
+import ProfileSummary from 'src/components/A_SalesModule/Reports/profileSummary'
 
 const FinanceHomePagePage = () => {
   const { user } = useAuth()
@@ -369,7 +370,8 @@ const FinanceHomePagePage = () => {
                 selModule={selModule}
                 setSelModule={setSelModule}
               />   */}
-              <HeadNavBar2 selModule={selModule} setSelModule={setSelModule} />
+              <HeadNavBar2 selModule={selModule} setSelModule={setSelModule}  setViewable={setViewable} />
+              {viewable === 'userProfile' && <ProfileSummary />}
               {(viewable === 'Today1' || viewable === 'Home') && (
                 <FinanceHome leadsTyper={undefined} />
               )}
