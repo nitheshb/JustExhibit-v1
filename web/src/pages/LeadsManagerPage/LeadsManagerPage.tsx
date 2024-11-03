@@ -22,6 +22,8 @@ import ReportMain from '../../components/Reports/ReportMainCom'
 import UnitsInventoryHome from 'src/components/A_ProjModule/UnitsInvertoryHome'
 import LeadsTransferHome from 'src/components/A_SalesModule/leadsTransfer'
 import ProfileSummary from 'src/components/A_SalesModule/Reports/profileSummary'
+import FinanceChart from 'src/components/FinanceChart'
+import AdminPage from 'src/components/AdminPage'
 
 const LeadsManagerPage = (props) => {
   const { user } = useAuth()
@@ -91,7 +93,18 @@ const LeadsManagerPage = (props) => {
 
             <div className="flex-grow  items-center overflow-y-auto  overflow-auto no-scrollbar px-300  py-300">
             <HeadNavBar2 selModule={selModule} setSelModule={setSelModule}  setViewable={setViewable} />
+
+            {/* <div className='mb-4'>
+              <FinanceChart/>
+            </div> */}
+
+        
+
             {viewable === 'userProfile' && <ProfileSummary />}
+
+            <div>
+              <AdminPage/>
+            </div>
 
               {viewable === 'inProgress' && (
                 <ExecutiveHomeViewerPage
@@ -162,6 +175,7 @@ const LeadsManagerPage = (props) => {
                   />
                 </>
               )}
+
               {viewable === 'My Lead Report' && (
                 <MyLeadsReportHome
                   project={{
@@ -211,6 +225,7 @@ const LeadsManagerPage = (props) => {
                 />
               )}
             </div>
+
             {/* <div className="flex-grow mx-4  my-2 items-center overflow-y-auto  h-screen  px-300  py-300"> */}
             {/* {viewable === 'Today' && <ExecutiveHomeViewerPage />} *SS/}
             {/* {viewable === 'Today1' && <TodayLeadsHomePage />} */}
@@ -234,6 +249,8 @@ const LeadsManagerPage = (props) => {
           </div>
         </div>
       </div>
+
+ 
     </>
   )
 }

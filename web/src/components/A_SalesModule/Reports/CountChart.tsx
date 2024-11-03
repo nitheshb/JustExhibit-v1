@@ -32,8 +32,8 @@ const data = [
 
 const CountChart = () => {
   return (
-    <div className="flex gap-4 flex-col lg:flex-row">
-      <div className="w-full lg:w-1/3 h-[450px]">
+    <div className="">
+      <div className="">
         <div className="bg-white rounded-xl p-4">
           {/* TITLE */}
           <div className="flex justify-between items-center">
