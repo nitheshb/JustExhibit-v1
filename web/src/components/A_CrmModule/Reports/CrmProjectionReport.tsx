@@ -186,7 +186,7 @@ const CrmProjectionReport = ({ projects }) => {
       <div className="flex justify-between">
         <div>
           <h2 className="mb-4 text-lg font-semibold text-black leading-light">
-            CRM Projection Report
+            Stalls Projection Report
           </h2>
         </div>
 

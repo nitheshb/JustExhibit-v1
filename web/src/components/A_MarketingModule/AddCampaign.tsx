@@ -207,10 +207,10 @@ const AddCampaignForm = ({ mode, dialogOpen, campaignPaylaod }) => {
     //   .max(10, 'to long'),
 
     // deptVal: Yup.string()
-    //   // .oneOf(['Admin', 'CRM'], 'Required Dept')
+    //   // .oneOf(['Admin', 'Stalls'], 'Required Dept')
     //   .required('Req Dept'),
     // myRole: Yup.string()
-    //   //  .oneOf(['Admin', 'CRM'], 'DEPT IS REQ')
+    //   //  .oneOf(['Admin', 'Stalls'], 'DEPT IS REQ')
     //   .required('Required Role'),
   })
   return (

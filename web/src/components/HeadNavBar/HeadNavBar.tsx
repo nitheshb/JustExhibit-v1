@@ -116,7 +116,7 @@ const HeadNavBar = (props) => {
     // const searchingData = useSelector((state: RootStateOrAny) => state?.searchData)
     // console.log(searchingData, "sdvfdbvlkjzsbvlkjsb")
     const makeFilterFun = (id, viewModule) => {
-      // 'Sales', 'CRM', 'Legal', 'Finance', 'HR'
+      // 'Registration', 'Stalls', 'Legal', 'Finance', 'HR'
       setSelModule(viewModule)
       console.log('i was clicked', id, viewModule)
     }
@@ -244,13 +244,13 @@ const HeadNavBar = (props) => {
                                     className="text-lg underline mr-2"
                                     id="testing"
                                   >
-                                    Sales{' '}
+                                    Registration{' '}
                                   </Link>
                                   <Link
                                     to={routes.crmModule()}
                                     className="text-lg underline mr-2"
                                   >
-                                    CRM {'   '}
+                                    Stalls {'   '}
                                   </Link>
                                   {/* )} */}
                                   {/* {item.finance && ( */}

@@ -1,5 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 
+import UnitsInventoryHome from 'src/components/A_ProjModule/UnitsInvertoryHome'
+import LeadsTransferHome from 'src/components/A_SalesModule/leadsTransfer'
+import ProfileSummary from 'src/components/A_SalesModule/Reports/profileSummary'
 import SlimSideMenuBar from 'src/components/A_SideMenu/slimSideMenu'
 import ExecutiveHomeViewerPage from 'src/components/ExecutiveHomeViewerPage'
 import HeadSideBarDetailView from 'src/components/HeadDetailSideBar'
@@ -19,9 +22,6 @@ import { useAuth } from 'src/context/firebase-auth-context'
 
 import HeadNavBar from '../../components/HeadNavBar/HeadNavBar'
 import ReportMain from '../../components/Reports/ReportMainCom'
-import UnitsInventoryHome from 'src/components/A_ProjModule/UnitsInvertoryHome'
-import LeadsTransferHome from 'src/components/A_SalesModule/leadsTransfer'
-import ProfileSummary from 'src/components/A_SalesModule/Reports/profileSummary'
 
 const LeadsManagerPage = (props) => {
   const { user } = useAuth()
@@ -33,7 +33,7 @@ const LeadsManagerPage = (props) => {
     props.type === 'inProgress' ? 'inProgress' : 'Today1'
   )
   const [isClicked, setIsClicked] = useState(false)
-  const [selModule, setSelModule] = useState('Sales')
+  const [selModule, setSelModule] = useState('Registration')
 
   //
 
@@ -55,7 +55,6 @@ const LeadsManagerPage = (props) => {
       }
     }
   }, [user])
-
 
   return (
     <>
@@ -90,8 +89,12 @@ const LeadsManagerPage = (props) => {
             </div>
 
             <div className="flex-grow  items-center overflow-y-auto  overflow-auto no-scrollbar px-300  py-300">
-            <HeadNavBar2 selModule={selModule} setSelModule={setSelModule}  setViewable={setViewable} />
-            {viewable === 'userProfile' && <ProfileSummary />}
+              <HeadNavBar2
+                selModule={selModule}
+                setSelModule={setSelModule}
+                setViewable={setViewable}
+              />
+              {viewable === 'userProfile' && <ProfileSummary />}
 
               {viewable === 'inProgress' && (
                 <ExecutiveHomeViewerPage
@@ -110,20 +113,20 @@ const LeadsManagerPage = (props) => {
                 <LeadsLakeHomePage taskType={viewable} />
               )}
               {viewable === 'leadsController' && (
-                 <LeadsTransferHome
-                 project={{
-                   eventName: 'Events',
-                 }}
-                 isEdit={undefined}
-               />
+                <LeadsTransferHome
+                  project={{
+                    eventName: 'Events',
+                  }}
+                  isEdit={undefined}
+                />
               )}
               {viewable === 'units_inventory' && (
-                 <UnitsInventoryHome
-                 project={{
-                   eventName: 'Events',
-                 }}
-                 isEdit={undefined}
-               />
+                <UnitsInventoryHome
+                  project={{
+                    eventName: 'Events',
+                  }}
+                  isEdit={undefined}
+                />
               )}
               {viewable === 'Today1' && (
                 <TodayLeadsHomePage taskType={viewable} />

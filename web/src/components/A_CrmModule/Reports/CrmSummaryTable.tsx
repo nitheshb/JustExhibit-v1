@@ -45,7 +45,7 @@ const CrmInventorySummaryTable = ({ projects }) => {
           <div className="flex justify-between mb-4 mt-2">
             <div>
               <p className="font-bold text-black p-1 m-1">
-                CRM Inventory Report
+                Stalls Inventory Report
               </p>
             </div>
             <select

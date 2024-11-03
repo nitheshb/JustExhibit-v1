@@ -166,9 +166,9 @@ function EnhancedTableHead(props) {
     }  else if(['avgsft', 'sv_sft', 'bmrda_strr'].includes(headCell)){
       return viewUnitStatusA.includes('Avg sqft Cost') ? '' : 'none'
     } else if(['crm_executive'].includes(headCell)){
-      return viewUnitStatusA.includes('CRM Executive') ? '' : 'none'
+      return viewUnitStatusA.includes('Stalls Executive') ? '' : 'none'
     }else if(['sale_executive'].includes(headCell)){
-      return viewUnitStatusA.includes('Sales Executive') ? '' : 'none'
+      return viewUnitStatusA.includes('Registration Executive') ? '' : 'none'
     }else if(['Notes'].includes(headCell)){
       return viewUnitStatusA.includes('Remarks') ? '' : 'none'
     }

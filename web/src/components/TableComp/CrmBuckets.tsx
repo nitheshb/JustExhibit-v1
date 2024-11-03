@@ -160,7 +160,7 @@ const CrmBucketList = ({ leadsTyper }) => {
             <div className="flex items-center justify-between py-2  ">
               <div>
                 <h2 className="text-xl font-semibold text-gray-900 leading-light py-2 ">
-                  CRM Task Buckets
+                  Stalls Task Buckets
                 </h2>
               </div>
               <div className="flex ">

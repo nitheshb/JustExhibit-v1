@@ -1228,7 +1228,7 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
               > */}
 
                 <span className="relative  flex items-center w-auto text-xl font-bold leading-none pl-0 mt-[18px]">
-                  Sales Reports
+                  Registration Reports
                 </span>
                 {/* </Link> */}
               </div>

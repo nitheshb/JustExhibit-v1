@@ -121,7 +121,7 @@ const ProjectMetrics2 = ({ project }) => {
         <section className="flex flex-col mt-[34px] mb-[14px]">
           <div className="flex flex-row justify-between">
             <h6 className="font-bodyLato font-semibold text-xs m-1 mb-2">
-              {'CRM Pipeline'}
+              {'Stalls Pipeline'}
             </h6>
             <h6 className="font-bodyLato  text-xs m-1 mb-2">0</h6>
           </div>

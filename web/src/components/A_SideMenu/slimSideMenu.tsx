@@ -33,7 +33,7 @@ const SlimSideMenuBar = (props) => {
           href="#"
         >
           <img
-            src="https://res.cloudinary.com/dhgck7ebz/image/upload/f_auto,c_limit,w_64,q_auto/Brand/Logo%20Section/Mark/Mark_01"
+            src="https://yt3.googleusercontent.com/f0Ffx-wDWloHZSxH2ksegEkJ-r3gQgDxMxwiyyYyYj7V-TCXwHicF4dcJcwnZ2MDQDQU7zW9=s160-c-k-c0x00ffffff-no-rj"
             className="w-10 h-10 ml-4"
           />
         </a>
@@ -170,7 +170,7 @@ const SlimSideMenuBar = (props) => {
                       ></path>
                     </svg>
                   </span>
-                  <span className="text-[9px] font-bold  pl-1">CRM</span>
+                  <span className="text-[9px] font-bold  pl-1">Stalls</span>
                 </span>
               </span>
             </li>
@@ -211,7 +211,6 @@ const SlimSideMenuBar = (props) => {
                 </span>
               </span>
             </li>
-        
 
             <li className="relative mt-1">
               <span
@@ -1871,7 +1870,7 @@ const SlimSideMenuBar = (props) => {
         </>
       )}
 
-      <Link
+      {/* <Link
         className={
           'flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 mt-auto rounded hover:bg-gray-300 ' +
           (pgName === 'erpAccount' ? 'bg-gray-300' : '')
@@ -1892,7 +1891,7 @@ const SlimSideMenuBar = (props) => {
             d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
           />
         </svg>
-      </Link>
+      </Link> */}
     </div>
   )
 }

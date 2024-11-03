@@ -756,7 +756,7 @@ export default function LeadProfileSideView({
         )
       } else if (newStatus === 'booked') {
         setLeadStatus('booked')
-        await setTakTitle('Share the Details with CRM team')
+        await setTakTitle('Share the Details with Stalls team')
         // await fAddSchedule()
       } else {
         setTakTitle(' ')

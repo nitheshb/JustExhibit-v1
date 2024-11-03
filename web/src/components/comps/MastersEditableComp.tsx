@@ -1497,7 +1497,7 @@ if (title === 'Villa Type Category') {
                 <div className="inline">
                   <div className="">
                     <label className="font-bold text-[#053219]  text-md mb-1  ">
-                      CRM Module<abbr title="required"></abbr>
+                      Stalls Module<abbr title="required"></abbr>
                     </label>
                   </div>
 

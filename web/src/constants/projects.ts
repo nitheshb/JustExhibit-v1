@@ -1346,7 +1346,7 @@ export const ProjectFolders = [
 export const ProjectAccessFolder = [
   {
     img: '/pptIcon.png',
-    name: 'Sales Access',
+    name: 'Registration Access',
     category: 'salesAccess',
     size: '2.2 MB',
     type: 'ppt',
@@ -1387,7 +1387,7 @@ export const ProjectAccessFolder = [
   },
   {
     img: '/pptIcon.png',
-    name: 'CRM Access',
+    name: 'Stalls Access',
     category: 'crmAccess',
     size: '1.4 GB',
     type: 'ppt',

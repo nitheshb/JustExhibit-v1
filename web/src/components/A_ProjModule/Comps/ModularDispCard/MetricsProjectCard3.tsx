@@ -53,7 +53,7 @@ const ProjectMetrics3 = ({ project }) => {
             <div className="flex flex-col  w-[50%] ml-1">
               {[
                 { item: 'Offline Leads', value: 0 },
-                { item: 'CRM Tickets', value: 0 },
+                { item: 'Stalls Tickets', value: 0 },
               ].map((data, i) => (
                 <div
                   className=" mt-1 mb-2 "
@@ -128,7 +128,7 @@ const ProjectMetrics3 = ({ project }) => {
             </div>
             <div className="flex flex-col  w-[33%] ml-1 mx">
               {[
-                { item: 'Sales', value: 0 },
+                { item: 'Registration', value: 0 },
                 { item: 'Accounts', value: 0 },
               ].map((data, i) => (
                 <div
@@ -148,7 +148,7 @@ const ProjectMetrics3 = ({ project }) => {
               ))}
             </div>
             <div className="flex flex-col  w-[33%] ml-1">
-              {[{ item: 'CRM', value: 0 }].map((data, i) => (
+              {[{ item: 'Stalls', value: 0 }].map((data, i) => (
                 <div
                   className=" mb-2"
                   style={{ display: 'inline-block', alignSelf: 'flex-start' }}

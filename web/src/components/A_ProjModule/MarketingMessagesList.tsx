@@ -64,7 +64,7 @@ const MarkeingMessagesList = ({ title, pId, data }) => {
         <section className="mt-4">Templates</section>
         {[
           { label: 'Enquiry Journey Status', value: 'enquiry_journey_status' },
-          { label: 'CRM', value: 'CRM_status' },
+          { label: 'Stalls', value: 'CRM_status' },
           { label: 'Legal', value: 'Legal_status' },
           { label: 'Finance', value: 'Finance_status' },
           { label: 'HR', value: 'hr_status' },
@@ -116,10 +116,10 @@ const MarkeingMessagesList = ({ title, pId, data }) => {
                       Tags List
                     </th>
                     {/* <th className="text-center p-[10px] text-xs text-green-800">
-               Sales Executive
+               Registration Executive
              </th>
              <th className="text-center p-[10px] text-xs text-green-800">
-               Sales Manager
+               Registration Manager
              </th> */}
                   </tr>
                 </thead>
@@ -185,7 +185,7 @@ const MarkeingMessagesList = ({ title, pId, data }) => {
           <section className="m-4 inline-block">
             <div className="bg-[#FFEDEA] p-4 rounded-xl shadow-md shadow-neutral-200 ">
               <h2 className="text-sm font-semibold pb-2 border-b border-grey">
-                {'Sales Executive Notifications'}
+                {'Registration Executive Notifications'}
               </h2>
               <table className="w-full whitespace-nowrap">
                 <thead>
@@ -199,10 +199,10 @@ const MarkeingMessagesList = ({ title, pId, data }) => {
                       Customer
                     </th>
                     <th className="text-center p-[10px] text-xs text-green-800">
-                      Sales Executive
+                      Registration Executive
                     </th>
                     <th className="text-center p-[10px] text-xs text-green-800">
-                      Sales Manager
+                      Registration Manager
                     </th>
                   </tr>
                 </thead>
@@ -348,15 +348,15 @@ const MarkeingMessagesList = ({ title, pId, data }) => {
 
               <div className=" justify-between mb-4">
                 {[
-                  { btnTxt: 'On Payment Request', target: 'Sales Customer' },
-                  { btnTxt: 'On Payment Receival', target: 'Sales Customer' },
+                  { btnTxt: 'On Payment Request', target: 'Registration Customer' },
+                  { btnTxt: 'On Payment Receival', target: 'Registration Customer' },
                   {
                     btnTxt: 'On Payament Accepted',
-                    target: 'Sales Customer',
+                    target: 'Registration Customer',
                   },
                   {
                     btnTxt: 'On CostSheet Approval',
-                    target: 'Sales Customer',
+                    target: 'Registration Customer',
                   },
                 ].map((data, i) => (
                   <section key={i}>
@@ -400,19 +400,19 @@ const MarkeingMessagesList = ({ title, pId, data }) => {
 
                   <div className=" justify-between mb-4">
                     {[
-                      { btnTxt: 'On Payment', target: 'CRM Customer' },
-                      { btnTxt: 'On Customer Assign', target: 'CRM Customer' },
+                      { btnTxt: 'On Payment', target: 'Stalls Customer' },
+                      { btnTxt: 'On Customer Assign', target: 'Stalls Customer' },
                       {
                         btnTxt: 'On Construction Update',
-                        target: 'CRM Customer',
+                        target: 'Stalls Customer',
                       },
-                      { btnTxt: 'On Payment Approval', target: 'CRM Customer' },
-                      { btnTxt: 'On Payment Rejected', target: 'CRM Customer' },
-                      { btnTxt: 'On Payment', target: 'CRM Customer' },
-                      { btnTxt: 'On Payment', target: 'CRM Customer' },
-                      { btnTxt: 'On Deletion', target: 'CRM Customer' },
-                      { btnTxt: 'On Booking', target: 'CRM Customer' },
-                      { btnTxt: 'On Payment Request', target: 'CRM Customer' },
+                      { btnTxt: 'On Payment Approval', target: 'Stalls Customer' },
+                      { btnTxt: 'On Payment Rejected', target: 'Stalls Customer' },
+                      { btnTxt: 'On Payment', target: 'Stalls Customer' },
+                      { btnTxt: 'On Payment', target: 'Stalls Customer' },
+                      { btnTxt: 'On Deletion', target: 'Stalls Customer' },
+                      { btnTxt: 'On Booking', target: 'Stalls Customer' },
+                      { btnTxt: 'On Payment Request', target: 'Stalls Customer' },
                     ].map((data, i) => (
                       <section key={i}>
                         <div className="flex flex-row justify-between">
@@ -448,35 +448,35 @@ const MarkeingMessagesList = ({ title, pId, data }) => {
               <section className="m-4 inline-block">
                 <div className="bg-[#FFEDEA] p-4 rounded-xl shadow-md shadow-neutral-200 w-96">
                   <h2 className="text-sm font-semibold pb-2 border-b border-grey">
-                    {'CRM Executive Notifications'}
+                    {'Stalls Executive Notifications'}
                   </h2>
 
                   <div className=" justify-between mb-4">
                     {[
-                      { btnTxt: 'On Payment', target: 'CRM Executive' },
-                      { btnTxt: 'On Customer Assign', target: 'CRM Executive' },
+                      { btnTxt: 'On Payment', target: 'Stalls Executive' },
+                      { btnTxt: 'On Customer Assign', target: 'Stalls Executive' },
                       {
                         btnTxt: 'On Construction Update',
-                        target: 'CRM Executive',
+                        target: 'Stalls Executive',
                       },
                       {
                         btnTxt: 'On Payment Approval',
-                        target: 'CRM Executive',
+                        target: 'Stalls Executive',
                       },
                       {
                         btnTxt: 'On Payment Rejected',
-                        target: 'CRM Executive',
+                        target: 'Stalls Executive',
                       },
-                      { btnTxt: 'On Booking', target: 'CRM Customer' },
-                      { btnTxt: 'On Payment Request', target: 'CRM Executive' },
+                      { btnTxt: 'On Booking', target: 'Stalls Customer' },
+                      { btnTxt: 'On Payment Request', target: 'Stalls Executive' },
                       {
                         btnTxt: 'On Payment Receival',
-                        target: 'CRM Executive',
+                        target: 'Stalls Executive',
                       },
-                      { btnTxt: 'On Payment Accepted', target: 'CRM Customer' },
+                      { btnTxt: 'On Payment Accepted', target: 'Stalls Customer' },
                       {
                         btnTxt: 'On CostSheet Approval',
-                        target: 'CRM Executive',
+                        target: 'Stalls Executive',
                       },
                     ].map((data, i) => (
                       <section key={i}>
@@ -512,24 +512,24 @@ const MarkeingMessagesList = ({ title, pId, data }) => {
               <section className="m-4 inline-block">
                 <div className="bg-[#FFEDEA] p-4 rounded-xl shadow-md shadow-neutral-200 w-96">
                   <h2 className="text-sm font-semibold pb-2 border-b border-grey">
-                    {'CRM Manager Notifications'}
+                    {'Stalls Manager Notifications'}
                   </h2>
 
                   <div className=" justify-between mb-4">
                     {[
-                      { btnTxt: 'On Payment', target: 'CRM Manager' },
-                      { btnTxt: 'On Customer Assign', target: 'CRM Manager' },
+                      { btnTxt: 'On Payment', target: 'Stalls Manager' },
+                      { btnTxt: 'On Customer Assign', target: 'Stalls Manager' },
                       {
                         btnTxt: 'On Construction Update',
-                        target: 'CRM Manager',
+                        target: 'Stalls Manager',
                       },
-                      { btnTxt: 'On Payment Approval', target: 'CRM Manager' },
-                      { btnTxt: 'On Payment Rejected', target: 'CRM Manager' },
-                      { btnTxt: 'On Payment', target: 'CRM Manager' },
-                      { btnTxt: 'On Booking', target: 'CRM Manager' },
-                      { btnTxt: 'On Payment Receival', target: 'CRM Manager' },
-                      { btnTxt: 'On Payment Accepted', target: 'CRM Manager' },
-                      { btnTxt: 'On Payment Request', target: 'CRM Manager' },
+                      { btnTxt: 'On Payment Approval', target: 'Stalls Manager' },
+                      { btnTxt: 'On Payment Rejected', target: 'Stalls Manager' },
+                      { btnTxt: 'On Payment', target: 'Stalls Manager' },
+                      { btnTxt: 'On Booking', target: 'Stalls Manager' },
+                      { btnTxt: 'On Payment Receival', target: 'Stalls Manager' },
+                      { btnTxt: 'On Payment Accepted', target: 'Stalls Manager' },
+                      { btnTxt: 'On Payment Request', target: 'Stalls Manager' },
                     ].map((data, i) => (
                       <section key={i}>
                         <div className="flex flex-row justify-between">
@@ -580,7 +580,7 @@ const MarkeingMessagesList = ({ title, pId, data }) => {
                         target: 'Finance Customer',
                       },
                       {
-                        btnTxt: 'On Sales Agent Assign',
+                        btnTxt: 'On Registration Agent Assign',
                         target: 'Finance Customer',
                       },
                       {
@@ -657,7 +657,7 @@ const MarkeingMessagesList = ({ title, pId, data }) => {
                         target: 'Finance Executive',
                       },
                       {
-                        btnTxt: 'On Sales Agent Assign',
+                        btnTxt: 'On Registration Agent Assign',
                         target: 'Finance Executive',
                       },
                       {
@@ -734,7 +734,7 @@ const MarkeingMessagesList = ({ title, pId, data }) => {
                         target: 'Finance Manager',
                       },
                       {
-                        btnTxt: 'On Sales Agent Assign',
+                        btnTxt: 'On Registration Agent Assign',
                         target: 'Finance Manager',
                       },
                       {
@@ -802,29 +802,29 @@ const MarkeingMessagesList = ({ title, pId, data }) => {
               <section className="m-4 inline-block">
                 <div className="bg-[#FFEDEA] p-4 rounded-xl shadow-md shadow-neutral-200 w-96">
                   <h2 className="text-sm font-semibold pb-2 border-b border-grey">
-                    {'Sales Templates'}
+                    {'Registration Templates'}
                   </h2>
 
                   <div className=" justify-between mb-4">
                     {[
-                      { btnTxt: 'On Payment', target: 'Sales Executive' },
+                      { btnTxt: 'On Payment', target: 'Registration Executive' },
                       { btnTxt: 'On testing', target: 'Executive' },
-                      { btnTxt: 'On Lead Assign', target: 'Sales Executive' },
+                      { btnTxt: 'On Lead Assign', target: 'Registration Executive' },
                       { btnTxt: 'On Creation', target: 'Customer' },
-                      { btnTxt: 'On Creation', target: 'Sales Executive' },
+                      { btnTxt: 'On Creation', target: 'Registration Executive' },
                       { btnTxt: 'On Creation', target: 'Manager' },
                       { btnTxt: 'On Creation', target: 'Administrator' },
                       { btnTxt: 'On Assignment', target: 'Customer' },
-                      { btnTxt: 'On Assignment', target: 'Sales Executive' },
+                      { btnTxt: 'On Assignment', target: 'Registration Executive' },
                       { btnTxt: 'On Assignment', target: 'Manager' },
                       { btnTxt: 'On Assignment', target: 'Administrator' },
                       { btnTxt: 'On Transfer', target: 'Customer' },
-                      { btnTxt: 'On Transfer', target: 'Sales Executive' },
+                      { btnTxt: 'On Transfer', target: 'Registration Executive' },
                       { btnTxt: 'On Transfer', target: 'Manager' },
                       { btnTxt: 'On Transfer', target: 'Administrator' },
                       { btnTxt: 'On De-assignment', target: 'Customer' },
 
-                      { btnTxt: 'On De-assignment', target: 'Sales Executive' },
+                      { btnTxt: 'On De-assignment', target: 'Registration Executive' },
 
                       { btnTxt: 'On De-assignment', target: 'Manager' },
 
@@ -832,14 +832,14 @@ const MarkeingMessagesList = ({ title, pId, data }) => {
                       { btnTxt: 'On Next Follow Up', target: 'Customer' },
                       {
                         btnTxt: 'On Next Follow Up',
-                        target: 'Sales Executive',
+                        target: 'Registration Executive',
                       },
                       { btnTxt: 'On Next Follow Up', target: 'Manager' },
                       { btnTxt: 'On Next Follow Up', target: 'Administrator' },
                       { btnTxt: 'On Delete Follow Up', target: 'Customer' },
                       {
                         btnTxt: 'On Delete Follow Up',
-                        target: 'Sales Executive',
+                        target: 'Registration Executive',
                       },
                       { btnTxt: 'On Delete Follow Up', target: 'Manager' },
                       {
@@ -847,30 +847,30 @@ const MarkeingMessagesList = ({ title, pId, data }) => {
                         target: 'Administrator',
                       },
                       { btnTxt: 'On Cancel', target: 'Customer' },
-                      { btnTxt: 'On Cancel', target: 'Sales Executive' },
+                      { btnTxt: 'On Cancel', target: 'Registration Executive' },
                       { btnTxt: 'On Cancel', target: 'Manager' },
                       { btnTxt: 'On Cancel', target: 'Administrator' },
                       { btnTxt: 'On Complete', target: 'Customer' },
-                      { btnTxt: 'On Complete', target: 'Sales Executive' },
+                      { btnTxt: 'On Complete', target: 'Registration Executive' },
                       { btnTxt: 'On Complete', target: 'Manager' },
                       { btnTxt: 'On Complete', target: 'Administrator' },
                       { btnTxt: 'On Creation', target: 'Customer' },
-                      { btnTxt: 'On Creation', target: 'Sales Executive' },
+                      { btnTxt: 'On Creation', target: 'Registration Executive' },
                       { btnTxt: 'On Creation', target: 'Manager' },
                       { btnTxt: 'On Creation', target: 'Administrator' },
                       { btnTxt: 'On Update', target: 'Customer' },
-                      { btnTxt: 'On Update', target: 'Sales Executive' },
+                      { btnTxt: 'On Update', target: 'Registration Executive' },
                       { btnTxt: 'On Update', target: 'Manager' },
                       { btnTxt: 'On Update', target: 'Administrator' },
                       { btnTxt: 'On Transfer Charge', target: 'Customer' },
                       {
                         btnTxt: 'On Transfer Charge',
-                        target: 'Sales Executive',
+                        target: 'Registration Executive',
                       },
                       { btnTxt: 'On Transfer Charge', target: 'Manager' },
                       { btnTxt: 'On Transfer Charge', target: 'Administrator' },
                       { btnTxt: 'On Block', target: 'Customer' },
-                      { btnTxt: 'On Block', target: 'Sales Executive' },
+                      { btnTxt: 'On Block', target: 'Registration Executive' },
                       { btnTxt: 'On Block', target: 'Manager' },
                       { btnTxt: 'On Block', target: 'Administrator' },
                     ].map((data, i) => (
@@ -905,58 +905,58 @@ const MarkeingMessagesList = ({ title, pId, data }) => {
           <section className="m-4 inline-block">
             <div className="bg-[#FFEDEA] p-4 rounded-xl shadow-md shadow-neutral-200 w-96">
               <h2 className="text-sm font-semibold pb-2 border-b border-grey">
-                {'CRM Templates'}
+                {'Stalls Templates'}
               </h2>
 
               <div className=" justify-between mb-4">
                 {[
-                  { btnTxt: 'On Booking', target: 'CRM Customer' },
-                  { btnTxt: 'On Payment Request', target: 'CRM Customer' },
+                  { btnTxt: 'On Booking', target: 'Stalls Customer' },
+                  { btnTxt: 'On Payment Request', target: 'Stalls Customer' },
                   ,
-                  { btnTxt: 'On Payment Receival', target: 'CRM Customer' },
+                  { btnTxt: 'On Payment Receival', target: 'Stalls Customer' },
                   { btnTxt: 'On Payment Receival', target: 'Customer' },
                   { btnTxt: 'On Creation', target: 'Customer' },
-                  { btnTxt: 'On Creation', target: 'Sales Executive' },
+                  { btnTxt: 'On Creation', target: 'Registration Executive' },
                   { btnTxt: 'On Creation', target: 'Manager' },
                   { btnTxt: 'On Creation', target: 'Administrator' },
                   { btnTxt: 'On Update', target: 'Customer' },
-                  { btnTxt: 'On Update', target: 'Sales Executive' },
+                  { btnTxt: 'On Update', target: 'Registration Executive' },
                   { btnTxt: 'On Update', target: 'Manager' },
                   { btnTxt: 'On Update', target: 'Administrator' },
                   { btnTxt: 'On Delete Info', target: 'Customer' },
-                  { btnTxt: 'On Delete Info', target: 'Sales Executive' },
+                  { btnTxt: 'On Delete Info', target: 'Registration Executive' },
                   { btnTxt: 'On Delete Info', target: 'Manager' },
                   { btnTxt: 'On Delete Info', target: 'Administrator' },
                   { btnTxt: 'On Status Change', target: 'Customer' },
-                  { btnTxt: 'On Status Change', target: 'Sales Executive' },
+                  { btnTxt: 'On Status Change', target: 'Registration Executive' },
                   { btnTxt: 'On Status Change', target: 'Manager' },
                   { btnTxt: 'On Status Change', target: 'Administrator' },
                   { btnTxt: 'On Re-assignment', target: 'Customer' },
-                  { btnTxt: 'On Re-assignment', target: 'Sales Executive' },
+                  { btnTxt: 'On Re-assignment', target: 'Registration Executive' },
                   { btnTxt: 'On Re-assignment', target: 'Manager' },
                   { btnTxt: 'On Re-assignment', target: 'Administrator' },
                   { btnTxt: 'On First Follow Up', target: 'Customer' },
-                  { btnTxt: 'On First Follow Up', target: 'Sales Executive' },
+                  { btnTxt: 'On First Follow Up', target: 'Registration Executive' },
                   { btnTxt: 'On First Follow Up', target: 'Manager' },
                   { btnTxt: 'On First Follow Up', target: 'Administrator' },
 
                   { btnTxt: 'On Dead Status', target: 'Customer' },
 
-                  { btnTxt: 'On Dead Status', target: 'Sales Executive' },
+                  { btnTxt: 'On Dead Status', target: 'Registration Executive' },
 
                   { btnTxt: 'On Dead Status', target: 'Manager' },
 
                   { btnTxt: 'On Dead Status', target: 'Administrative' },
                   { btnTxt: 'Bring To Live', target: 'Customer' },
-                  { btnTxt: 'Bring To Live', target: 'Sales Executive' },
+                  { btnTxt: 'Bring To Live', target: 'Registration Executive' },
                   { btnTxt: 'Bring To Live', target: 'Manager' },
                   { btnTxt: 'Bring To Live', target: 'Administrator' },
                   { btnTxt: 'On Delete Booking', target: 'Customer' },
-                  { btnTxt: 'On Delete Booking', target: 'Sales Executive' },
+                  { btnTxt: 'On Delete Booking', target: 'Registration Executive' },
                   { btnTxt: 'On Delete Booking', target: 'Manager' },
                   { btnTxt: 'On Delete Booking', target: 'Administrator' },
                   { btnTxt: 'On Cancel Booking', target: 'Customer' },
-                  { btnTxt: 'On Cancel Booking', target: 'Sales Executive' },
+                  { btnTxt: 'On Cancel Booking', target: 'Registration Executive' },
                   { btnTxt: 'On Cancel Booking', target: 'Manager' },
                   { btnTxt: 'On Cancel Booking', target: 'Administrator' },
                   {
@@ -965,7 +965,7 @@ const MarkeingMessagesList = ({ title, pId, data }) => {
                   },
                   {
                     btnTxt: 'On Initialize Approve Reject',
-                    target: 'Sales Executive',
+                    target: 'Registration Executive',
                   },
                   { btnTxt: 'On Initialize Approve Reject', target: 'Manager' },
                   {
@@ -1007,50 +1007,50 @@ const MarkeingMessagesList = ({ title, pId, data }) => {
 
               <div className=" justify-between mb-4">
                 {[
-                  { btnTxt: 'On Payment', target: 'Sales Executive' },
+                  { btnTxt: 'On Payment', target: 'Registration Executive' },
                   { btnTxt: 'On Payment', target: 'Customer' },
                   { btnTxt: 'On Payment', target: 'Manager' },
-                  { btnTxt: 'On Payment', target: 'Sales Executive' },
+                  { btnTxt: 'On Payment', target: 'Registration Executive' },
                   { btnTxt: 'On Payment', target: 'Administrator' },
                   { btnTxt: 'On Delete', target: 'Customer' },
-                  { btnTxt: 'On Delete', target: 'Sales Executive' },
+                  { btnTxt: 'On Delete', target: 'Registration Executive' },
                   { btnTxt: 'On Delete', target: 'Manager' },
                   { btnTxt: 'On Delete', target: 'Administrator' },
                   { btnTxt: 'On Refund Pay', target: 'Customer' },
-                  { btnTxt: 'On Refund Pay', target: 'Sales Executive' },
+                  { btnTxt: 'On Refund Pay', target: 'Registration Executive' },
                   { btnTxt: 'On Refund Pay', target: 'Manager' },
                   { btnTxt: 'On Refund Pay', target: 'Administrator' },
                   { btnTxt: 'On Booking', target: 'Customer' },
-                  { btnTxt: 'On Booking', target: 'Sales Executive' },
+                  { btnTxt: 'On Booking', target: 'Registration Executive' },
                   { btnTxt: 'On Booking', target: 'Manager' },
                   { btnTxt: 'On Booking', target: 'Administrator' },
                   { btnTxt: 'On Prepone', target: 'Customer' },
-                  { btnTxt: 'On Prepone', target: 'Sales Executive' },
+                  { btnTxt: 'On Prepone', target: 'Registration Executive' },
                   { btnTxt: 'On Prepone', target: 'Manager' },
                   { btnTxt: 'On Prepone', target: 'Administrator' },
                   { btnTxt: 'On Postpone', target: 'Customer' },
-                  { btnTxt: 'On Postpone', target: 'Sales Executive' },
+                  { btnTxt: 'On Postpone', target: 'Registration Executive' },
                   { btnTxt: 'On Postpone', target: 'Manager' },
                   { btnTxt: 'On Postpone', target: 'Administrator' },
                   { btnTxt: 'On Payment', target: 'Customer' },
-                  { btnTxt: 'On Payment', target: 'Sales Executive' },
+                  { btnTxt: 'On Payment', target: 'Registration Executive' },
                   { btnTxt: 'On Payment', target: 'Manager' },
                   { btnTxt: 'On Payment', target: 'Administrator' },
 
                   { btnTxt: 'On Delete Payment', target: 'Customer' },
-                  { btnTxt: 'On Delete Payment', target: 'Sales Executive' },
+                  { btnTxt: 'On Delete Payment', target: 'Registration Executive' },
                   { btnTxt: 'On Delete Payment', target: 'Manager' },
                   { btnTxt: 'On Delete Payment', target: 'Administrator' },
                   { btnTxt: 'On Refund Pay', target: 'Customer' },
-                  { btnTxt: 'On Refund Pay', target: 'Sales Executive' },
+                  { btnTxt: 'On Refund Pay', target: 'Registration Executive' },
                   { btnTxt: 'On Refund Pay', target: 'Manager' },
                   { btnTxt: 'On Refund Pay', target: 'Administrator' },
                   { btnTxt: 'On Refund Delete', target: 'Customer' },
-                  { btnTxt: 'On Refund Delete', target: 'Sales Executive' },
+                  { btnTxt: 'On Refund Delete', target: 'Registration Executive' },
                   { btnTxt: 'On Refund Delete', target: 'Manager' },
                   { btnTxt: 'On Refund Delete', target: 'Administrator' },
                   { btnTxt: 'On Refund Pay', target: 'Customer' },
-                  { btnTxt: 'On Refund Pay', target: 'Sales Executive' },
+                  { btnTxt: 'On Refund Pay', target: 'Registration Executive' },
                   { btnTxt: 'On Refund Pay', target: 'Manager' },
                   { btnTxt: 'On Refund Pay', target: 'Administrator' },
                 ].map((data, i) => (

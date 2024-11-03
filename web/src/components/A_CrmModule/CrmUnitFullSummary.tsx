@@ -494,7 +494,7 @@ export default function UnitFullSummary({
     if (newStatus === 'visitfixed') {
       await setTakTitle('Schedule a cab ')
     } else if (newStatus === 'booked') {
-      await setTakTitle('Share the Details with CRM team')
+      await setTakTitle('Share the Details with Stalls team')
       await fAddSchedule()
     } else {
       setTakTitle(' ')

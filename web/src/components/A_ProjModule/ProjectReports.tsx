@@ -652,7 +652,7 @@ ${x?.length > 0 ? `${personalFinalText}` : ''}\n \n
 
 
 
-              {[{value: 'hr', label: 'HR'},{value: 'admin_support', label: 'Admin Team'},{value: 'marketing', label: 'Marketing'},{value: 'crm', label: 'CRM'},{value: 'legal', label: 'Legal'},{value: 'finance', label: 'Finance'}].map((dataV, indexx)=> {
+              {[{value: 'hr', label: 'HR'},{value: 'admin_support', label: 'Admin Team'},{value: 'marketing', label: 'Marketing'},{value: 'crm', label: 'Stalls'},{value: 'legal', label: 'Legal'},{value: 'finance', label: 'Finance'}].map((dataV, indexx)=> {
                 return <section  key={indexx}><section
                 className="flex flex-row justify-between"
                 onClick={() => expandFun(dataV.value)}
@@ -716,7 +716,7 @@ ${x?.length > 0 ? `${personalFinalText}` : ''}\n \n
                 onClick={() => expandFun('sales')}
               >
                 {' '}
-                <div className="text-[10px] ml-2 ">Sales</div>{' '}
+                <div className="text-[10px] ml-2 ">Registration</div>{' '}
                 {expandedModulesA.includes('sales') ? (
                   <ChevronUpIcon className="w-4 h-4 mr-1 mt-[7px] cursor-pointer inline" />
                 ) : (

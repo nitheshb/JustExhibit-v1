@@ -15,6 +15,7 @@ import MarkeingMessagesList from 'src/components/A_ProjModule/MarketingMessagesL
 import ProjectMastersSetupHome from 'src/components/A_ProjModule/ProjectMastersSetup'
 import ProjectReportsBody from 'src/components/A_ProjModule/ProjectReports'
 import ProjectsTaskHome from 'src/components/A_ProjModule/ProjTaskHome'
+import ProfileSummary from 'src/components/A_SalesModule/Reports/profileSummary'
 import SlimSideMenuBar from 'src/components/A_SideMenu/slimSideMenu'
 import AllBankDetailsView from 'src/components/All_BankDetailsView'
 import CalendarHome from 'src/components/comps/calendarHome'
@@ -35,7 +36,6 @@ import HeadNavBar from '../../components/HeadNavBar/HeadNavBar'
 import HeadSideBar from '../../components/HeadSideBar/HeadSideBar'
 import ProjectsMHomeBody from '../../components/ProjectsMHomeBody/ProjectsMHomeBody'
 import SiderForm from '../../components/SiderForm/SiderForm'
-import ProfileSummary from 'src/components/A_SalesModule/Reports/profileSummary'
 
 const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -397,12 +397,16 @@ const HomePage = () => {
             />
 
             <div className="flex-grow   items-center overflow-y-auto no-scrollbar  h-[98%]  px-300  pt-300">
-            <HeadNavBar2 selModule={selModule} setSelModule={setSelModule}  setViewable={setViewable} />
+              <HeadNavBar2
+                selModule={selModule}
+                setSelModule={setSelModule}
+                setViewable={setViewable}
+              />
               {viewable === 'userProfile' && <ProfileSummary />}
 
               {viewable === 'Setup' && (
                 <>
-                  {/*Sales Executive Notifications border */}
+                  {/*Registration Executive Notifications border */}
                   <div className="mt-1 mx-1">
                     <section className="w-full py-4  leading-7 text-gray-900 bg-white  rounded-md">
                       <div className="box-border px-4 mx-auto border-solid sm:px-6 md:px-6 lg:px-8 max-w-full ">
@@ -418,7 +422,7 @@ const HomePage = () => {
               )}
               {viewable === 'Marketing' && (
                 <>
-                  {/*Sales Executive Notifications border */}
+                  {/*Registration Executive Notifications border */}
                   <div className="mt-1 mx-1">
                     <section className="w-full py-4  leading-7 text-gray-900 bg-white  rounded-md">
                       <div className="box-border px-4 mx-auto border-solid sm:px-6 md:px-6 lg:px-8 max-w-full ">

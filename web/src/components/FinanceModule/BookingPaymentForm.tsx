@@ -356,7 +356,7 @@ const AddPaymentDetailsForm = ({
       by: user?.email,
       type: 'schedule',
       pri: 'priority 1',
-      notes: 'Assign a CRM Executive to new customer Raju',
+      notes: 'Assign a Stalls Executive to new customer Raju',
       sts: 'pending',
       schTime: Timestamp.now().toMillis() + 10800000, // 3 hrs
       ct: Timestamp.now().toMillis(),

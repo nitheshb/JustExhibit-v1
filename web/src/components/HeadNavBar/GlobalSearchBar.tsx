@@ -135,13 +135,13 @@ export const GlobalSearchBar = (props) => {
                               className="text-xs underline mr-3 text-indigo-700"
                               id="testing"
                             >
-                              Sales
+                              Registration
                             </Link>
                             <Link
                               to={routes.crmModule()}
                               className="text-xs underline mr-3 text-indigo-700"
                             >
-                              CRM
+                              Stalls
                             </Link>
                             {/* )} */}
                             {/* {item.finance && ( */}

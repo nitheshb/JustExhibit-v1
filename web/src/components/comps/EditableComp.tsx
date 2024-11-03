@@ -1239,7 +1239,7 @@ const [paymentScheduleA, setPaymentSchedule] = useState([]);
             </div>
 
             <div>
-              <h2 className="text-black font-semibold mb-2">CRM Module</h2>
+              <h2 className="text-black font-semibold mb-2">Stalls Module</h2>
               <ul>
                 {crmItems.map((item) => (
                   <SidebarItem key={item} item={item} />
