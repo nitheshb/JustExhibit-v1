@@ -255,10 +255,10 @@ console.log('rolws are ', filRoles)
     //   .min(10, 'to short')
     //   .max(10, 'to long'),
     deptVal: Yup.string()
-      // .oneOf(['Admin', 'CRM'], 'Required Dept')
+      // .oneOf(['Admin', 'Stalls'], 'Required Dept')
       .required('Req Dept'),
     myRole: Yup.string()
-      //  .oneOf(['Admin', 'CRM'], 'DEPT IS REQ')
+      //  .oneOf(['Admin', 'Stalls'], 'DEPT IS REQ')
       .required('Required Role'),
   })
   return (
@@ -440,16 +440,16 @@ console.log('rolws are ', filRoles)
 
 
 
-                  
+
                   </div>
 
-                  
 
-                  
 
-                  
 
-                    
+
+
+
+
                 </div>
 
                 <p className="text-xs text-red-500 text-right my-3">

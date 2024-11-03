@@ -297,8 +297,8 @@ export default function DropCompUnitStatus({
                   {[
                     'Phone No',
                     'Cost Split',
-                    'CRM Executive',
-                    'Sales Executive',
+                    'Stalls Executive',
+                    'Registration Executive',
                     'Remarks',
                   ].map((viewData, i) => (
                     <Menu.Item key={i}>

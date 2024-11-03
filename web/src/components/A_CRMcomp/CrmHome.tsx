@@ -197,7 +197,7 @@ const CrmHome = ({ setisImportLeadsOpen, selUserProfileF, taskType }) => {
       <div className="flex-1  overflow-auto">
         <div className='p-0 px-0'>
           <TodayLeadsActivitySearchView
-            moduleName={"CRM"}
+            moduleName={"Stalls"}
             data={filterTable}
             searchKey={searchKey}
             setSearchKey={setSearchKey}

@@ -227,7 +227,7 @@ console.log(viewable)
                   onClick={() => setViewable('inProgress')}
                 >
                   <span className="flex items-center ml-">
-                    <span className="text-md font-bold pl-1 ">My CRM</span>
+                    <span className="text-md font-bold pl-1 ">My Stalls</span>
                   </span>
                   <span className="flex ml-auto items-bottom">
                     <span
@@ -263,7 +263,7 @@ console.log(viewable)
                           </g>
                         </svg>
                       </span>
-                      <span className="text-sm pl-1">CRM Space</span>
+                      <span className="text-sm pl-1">Stalls Space</span>
                     </span>
                     <span className="flex ml-auto items-bottom">
                       <span

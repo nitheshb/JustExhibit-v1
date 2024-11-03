@@ -417,7 +417,7 @@ const CrmAnalyticsUnitHome = ({ project }) => {
                 ></path>
               </svg>
               <div className=" ml-1 text-white text-[16px] font-bold leading-1">
-                Sales
+                Registration
               </div>
             </div>
             <div className=" ml-2 text-white text-[9px] leading-[18px]">

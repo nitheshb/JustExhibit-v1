@@ -80,7 +80,7 @@ const HeadSideBarDetailView2 = ({
             </svg>
             <span className="ml-" style={{ marginLeft: '-11px' }}>
               {' '}
-              Redefine Erp.
+              ExpoKit Erp.
             </span>
           </span>
           <ul className=" pt-4">
@@ -337,7 +337,7 @@ const HeadSideBarDetailView2 = ({
                   onClick={() => setViewable('inProgress')}
                 >
                   <span className="flex items-center ml-">
-                    <span className="text-md font-bold pl-1 ">My CRM</span>
+                    <span className="text-md font-bold pl-1 ">My Stalls</span>
                   </span>
                   <span className="flex ml-auto items-bottom">
                     <span
@@ -410,7 +410,7 @@ const HeadSideBarDetailView2 = ({
                           </g>
                         </svg>
                       </span>
-                      <span className="text-sm pl-1">CRM Space</span>
+                      <span className="text-sm pl-1">Stalls Space</span>
                     </span>
                     <span className="flex ml-auto items-bottom">
                       <span
@@ -447,7 +447,7 @@ const HeadSideBarDetailView2 = ({
                           </g>
                         </svg>
                       </span>
-                      <span className="text-sm pl-1">CRM Space-I</span>
+                      <span className="text-sm pl-1">Stalls Space-I</span>
                     </span>
                     <span className="flex ml-auto items-bottom">
                       <span
@@ -484,7 +484,7 @@ const HeadSideBarDetailView2 = ({
                           </g>
                         </svg>
                       </span>
-                      <span className="text-sm pl-1">CRM Space-II</span>
+                      <span className="text-sm pl-1">Stalls Space-II</span>
                     </span>
                     <span className="flex ml-auto items-bottom">
                       <span

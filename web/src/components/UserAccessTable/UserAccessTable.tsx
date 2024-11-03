@@ -157,7 +157,7 @@ const UserAccessTable = ({showCompletedTasks}) => {
           isCategoryMatched={category === 'crm'}
           onClick={() => setCategory('crm')}
         >
-          CRM
+          Stalls
         </StyledButton>
         <StyledButton
           variant="outlined"

@@ -241,7 +241,7 @@ const EmpCollectionSummary = ({ projects, crmEmployeesA }) => {
           </tr>
           <tr className="bg-blue-200 text-gray-600 text-sm leading-normal">
             <th className="py-3 px-3 text-left border border-black">
-              CRM Executive
+              Stalls Executive
             </th>
             <th className="py-3 px-6 text-left border border-black">Stalls</th>
             <th className="py-3 px-6 text-right border border-black">

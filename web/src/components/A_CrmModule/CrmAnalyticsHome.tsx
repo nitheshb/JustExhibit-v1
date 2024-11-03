@@ -99,7 +99,7 @@ const CrmAnalyticsHome = ({ project }) => {
         {[
           { label: 'Booking Summary', value: 'booking_summary' },
           { label: 'Collections', value: 'collection_performance' },
-          { label: 'CRM Inventory Report', value: 'crm_table' },
+          { label: 'Stalls Inventory Report', value: 'crm_table' },
           {
             label: 'Collection Projection Report',
             value: 'crm_projection_report',

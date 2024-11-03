@@ -622,7 +622,7 @@ export default function UnitBookingCancelCRM({
     if (newStatus === 'visitfixed') {
       await setTakTitle('Schedule a cab ')
     } else if (newStatus === 'booked') {
-      await setTakTitle('Share the Details with CRM team')
+      await setTakTitle('Share the Details with Stalls team')
       await fAddSchedule()
     } else {
       setTakTitle(' ')
@@ -975,7 +975,7 @@ export default function UnitBookingCancelCRM({
                 <section className="flex flex-row  h-[28px] mt-6">
                   <section className="flex flow-row justify-between mb-1 mr-2 py-[0px] px-[10px] bg-gradient-to-r from-violet-200 to-pink-200 text-black rounded-3xl items-center align-middle text-xs cursor-pointer hover:underline">
                     <div className="font-md text-xs text-gray-700 tracking-wide mr-1">
-                      CRM Owner
+                      Stalls Owner
                     </div>
                     <div className="font-md text-xs tracking-wide font-semibold text-slate-900 ">
                       {!user?.role?.includes(USER_ROLES.CP_AGENT) && (

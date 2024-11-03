@@ -66,7 +66,7 @@ export default function ModuleSwitchDrop({
             }  absolute w-[594px]   origin-top-left bg-white rounded-[6px] shadow-[0px_20px_35px_-10px_#2f32643b]`}
             style={{ zIndex: '12' }}
           >
-            <div className="px-3 py-6 " >
+            <div className="px-3 py-6 ">
               <>
                 <div className="flex flex-row">
                   <div className="flex flex-col">
@@ -104,7 +104,7 @@ export default function ModuleSwitchDrop({
                           <div
                             className="group relative flex items-center gap-x-6 rounded-lg p-2 pb-0 text-sm leading-6 hover:bg-[#eff1ff]"
                             onClick={() => {
-                              setStatusFun('1', 'CRM')
+                              setStatusFun('1', 'Stalls')
                             }}
                           >
                             <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-[#eff1ff]  group-hover:bg-[#eff1ff]">
@@ -115,7 +115,7 @@ export default function ModuleSwitchDrop({
                             </div>
                             <div className="flex-auto">
                               <a className="block font-semibold text-gray-900">
-                                Stall Booking
+                                Stalls Management
                                 <span className="absolute inset-0" />
                               </a>
                               <p className="mt- pb-3  text-gray-600">
@@ -133,7 +133,7 @@ export default function ModuleSwitchDrop({
                           <div
                             className="group relative flex items-center gap-x-6 rounded-lg p-2 pb-0 text-sm leading-6 hover:bg-[#e8faec]"
                             onClick={() => {
-                              setStatusFun('1', 'Sales')
+                              setStatusFun('1', 'Registration')
                             }}
                           >
                             <div className="flex h-11 w-11 flex-none items-center justify-center rounded-lg bg-[#e8faec] group-hover:bg-[#e8faec]">
@@ -144,11 +144,11 @@ export default function ModuleSwitchDrop({
                             </div>
                             <div className="flex-auto">
                               <a className="block font-semibold text-gray-900">
-                                Participants
+                                Registrations
                                 <span className="absolute inset-0" />
                               </a>
                               <p className="mt- pb-3 text-gray-600">
-                                Registrations, Participants,Archieve
+                                Walk-Ins, Participants,Archieve
                               </p>
                             </div>
                           </div>

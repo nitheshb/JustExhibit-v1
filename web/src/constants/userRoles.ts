@@ -27,7 +27,7 @@ export const DEPARTMENT_LIST = [
   { label: 'Select the Department', value: '' },
   { label: 'Super User', value: 'admin' },
   { label: 'Admin Team', value: 'admin_support' },
-  { label: 'CRM', value: 'crm' },
+  { label: 'Stalls', value: 'crm' },
   { label: 'Construction', val: 'construction' },
   { label: 'Finance', value: 'finance' },
   { label: 'Helper', value: 'helper' },
@@ -36,14 +36,14 @@ export const DEPARTMENT_LIST = [
   { label: 'Event', value: 'project' },
   { label: 'Marketing', value: 'marketing' },
   { label: 'Support', value: 'support' },
-  { label: 'Sales', value: 'sales' },
+  { label: 'Registration', value: 'sales' },
 ]
 
 export const ROLES_LIST = [
   { label: 'Select the role', value: '' },
-  { label: 'Sales manager', value: USER_ROLES.SALES_MANAGER, dept: 'sales' },
+  { label: 'Registration manager', value: USER_ROLES.SALES_MANAGER, dept: 'sales' },
   {
-    label: 'Sales executive',
+    label: 'Registration executive',
     value: USER_ROLES.SALES_EXECUTIVE,
     dept: 'sales',
   },
@@ -68,8 +68,8 @@ export const ROLES_LIST = [
     value: USER_ROLES.LEGAL_EXECUTIVE,
     dept: 'legal',
   },
-  { label: 'CRM manager', value: USER_ROLES.CRM_MANAGER, dept: 'crm' },
-  { label: 'CRM executive', value: USER_ROLES.CRM_EXECUTIVE, dept: 'crm' },
+  { label: 'Stalls manager', value: USER_ROLES.CRM_MANAGER, dept: 'crm' },
+  { label: 'Stalls executive', value: USER_ROLES.CRM_EXECUTIVE, dept: 'crm' },
   {
     label: 'Finance manager',
     value: USER_ROLES.FINANCE_MANAGER,

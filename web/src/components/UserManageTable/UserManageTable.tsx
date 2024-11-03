@@ -80,7 +80,7 @@ const UserManageTable = ({ editEmployeeFun, showCompletedTasks }) => {
               { label: 'Marketing', val: 'marketing' },
               { label: 'Event', val: 'project' },
               { label: 'Legal', val: 'legal' },
-              { label: 'Sales', val: 'sales' },
+              { label: 'Registration', val: 'sales' },
               { label: 'Hr', val: 'hr' },
               { label: 'Finance', val: 'finance' },
               { label: 'Construction', val: 'construction' },

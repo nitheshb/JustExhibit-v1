@@ -542,7 +542,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
           >
             <div className="flex items-center flex-row flex-wrap justify-between py-1 pb-5  px-3 py-3 bg-gray-50 rounded-t-md ">
               <h2 className="text-md font-semibold text-black leading-light font-Playfair">
-                CRM
+                Stalls
               </h2>
 
               <div className="flex">

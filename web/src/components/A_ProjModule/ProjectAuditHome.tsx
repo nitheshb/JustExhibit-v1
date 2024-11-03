@@ -251,7 +251,7 @@ const ProjectAuditHome = ({ title, dialogOpen, data, projectDetails }) => {
                     </svg>
                   </span>
 
-                  <span className="pt-[5px]"> CRM Counts</span>
+                  <span className="pt-[5px]"> Stalls Counts</span>
                 </button>
                 <button className="templateItem" tabIndex="0" type="button">
                   <span className="pr-1">
@@ -279,7 +279,7 @@ const ProjectAuditHome = ({ title, dialogOpen, data, projectDetails }) => {
                     </svg>
                   </span>
 
-                  <span className="pt-[5px]">Sales Counts</span>
+                  <span className="pt-[5px]">Registration Counts</span>
                 </button>
               </div>
             </div>

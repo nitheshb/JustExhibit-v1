@@ -213,7 +213,7 @@ const TodayLeadsActivityListHomeView = ({
   )
   return (
     <TodayLeadsActivitySearchView
-      moduleName= {'Sales'}
+      moduleName= {'Registration'}
       data={filterTable}
       searchKey={searchKey}
       setSearchKey={setSearchKey}

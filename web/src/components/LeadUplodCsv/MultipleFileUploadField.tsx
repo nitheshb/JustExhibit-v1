@@ -392,8 +392,8 @@ export function MultipleFileUploadField({
                 //filter and send valid values
                 // booked_on: dRow['Booking Date']?.getTime(),
                 booked_on: new Date(dRow['Booking Date'])?.getTime(),
-                by: dRow['Sales Manager Name'],
-                crm_executive: dRow['CRM Executive'],
+                by: dRow['Registration Manager Name'],
+                crm_executive: dRow['Stalls Executive'],
                 // ATS Date	ATB Date	SD Date
                 ats_date: new Date(dRow['ATS Date'])?.getTime(),
                 atb_date: new Date(dRow['ATB Date'])?.getTime(),

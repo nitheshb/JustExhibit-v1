@@ -186,7 +186,7 @@ const ProjectAccessSideView = ({
           )}
           {subView === 'crmAccess' && (
             <PaymentLeadAccess
-              title={'CRM Access'}
+              title={'Stalls Access'}
               data={{ phase: data, project: projectDetails }}
               dept="crm"
               source={source}

@@ -541,7 +541,7 @@ const CrmDashboardHome = ({ project }) => {
                 </Typography>
                 <Typography variant="h4">714K</Typography>
                 <Typography variant="subtitle2" sx={{ opacity: 0.64 }}>
-                  Weekly Sales
+                  Weekly Registration
                 </Typography>
               </Stack>
             </Grid>

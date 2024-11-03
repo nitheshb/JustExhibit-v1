@@ -19,7 +19,7 @@ const HeadNavBarAccounts = ({selModule, setSelModule}) => {
   const { user, logout } = useAuth()
   const dispatch = useDispatch()
   const makeFilterFun = (id, viewModule) => {
-    // 'Sales', 'CRM', 'Legal', 'Finance', 'HR'
+    // 'Registration', 'Stalls', 'Legal', 'Finance', 'HR'
     setSelModule(viewModule)
     console.log('i was clicked', id, viewModule)
   }

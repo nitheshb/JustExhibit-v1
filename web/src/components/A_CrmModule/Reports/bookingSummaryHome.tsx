@@ -196,7 +196,7 @@ const TABLE_HEAD = [
   { id: 'sv_C', label: 'SV/sft', width: 120 },
   { id: 'received', label: 'Received', width: 120, align: 'right' },
   { id: 'balance', label: 'Balance', width: 120, align: 'right' },
-  { id: 'crm_exect', label: 'CRM Executive', width: 120 },
+  { id: 'crm_exect', label: 'Stalls Executive', width: 120 },
   { id: '', width: 88 },
 ]
 

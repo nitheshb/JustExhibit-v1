@@ -441,7 +441,7 @@ const CostBreakUpPdfConstruct = ({
                   </div>
                   <div>
                     <h1 className="text-bodyLato text-left text-gray-800 font-semibold text-[12px] mb-2">
-                      Plot Sales Value Information (A)
+                      Plot Registration Value Information (A)
                     </h1>
                     <table className="w-[100%]">
                       <thead>

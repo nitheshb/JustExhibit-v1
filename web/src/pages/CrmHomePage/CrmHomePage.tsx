@@ -15,6 +15,7 @@ import CrmRepHomePageView1 from 'src/components/A_CrmModule/CrmRepHomePageView1'
 import CustomersEventsHome from 'src/components/A_CrmModule/CustomersEventsHome'
 import CustomersSearchHome2 from 'src/components/A_CrmModule/CustomersSearchHome2'
 import UnitsInventoryHome from 'src/components/A_ProjModule/UnitsInvertoryHome'
+import ProfileSummary from 'src/components/A_SalesModule/Reports/profileSummary'
 import SlimSideMenuBar from 'src/components/A_SideMenu/slimSideMenu'
 import AllBankDetailsView from 'src/components/All_BankDetailsView'
 import HeadNavBar2 from 'src/components/HeadNavBar/HeadNavBar2'
@@ -25,7 +26,6 @@ import { getAllProjects } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 
 import SiderForm from '../../components/SiderForm/SiderForm'
-import ProfileSummary from 'src/components/A_SalesModule/Reports/profileSummary'
 
 const CrmHomePage = () => {
   const { user } = useAuth()
@@ -38,7 +38,7 @@ const CrmHomePage = () => {
   const handleEditProjectClose = () => setIsEditProjectOpen(false)
   const [projects, setProjects] = useState([])
   const [viewable, setViewable] = useState('Home')
-  const [selModule, setSelModule] = useState('CRM')
+  const [selModule, setSelModule] = useState('Stalls')
 
   const getProjects = async () => {
     const unsubscribe = getAllProjects(
@@ -371,8 +371,12 @@ const CrmHomePage = () => {
               viewable={viewable}
             /> */}
             <div className="flex-grow  items-center overflow-y-auto  h-[98%]  px-300  py-300">
-            <HeadNavBar2 selModule={selModule} setSelModule={setSelModule}  setViewable={setViewable} />
-            {viewable === 'userProfile' && <ProfileSummary />}
+              <HeadNavBar2
+                selModule={selModule}
+                setSelModule={setSelModule}
+                setViewable={setViewable}
+              />
+              {viewable === 'userProfile' && <ProfileSummary />}
               <div className="p-0 px-1">
                 {/* {viewable === 'crmDashboard' && (
                   <CrmDashboardHome
