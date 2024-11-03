@@ -25,6 +25,7 @@ import { getAllProjects } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 
 import SiderForm from '../../components/SiderForm/SiderForm'
+import ProfileSummary from 'src/components/A_SalesModule/Reports/profileSummary'
 
 const CrmHomePage = () => {
   const { user } = useAuth()
@@ -370,7 +371,8 @@ const CrmHomePage = () => {
               viewable={viewable}
             /> */}
             <div className="flex-grow  items-center overflow-y-auto  h-[98%]  px-300  py-300">
-              <HeadNavBar2 selModule={selModule} setSelModule={setSelModule} />
+            <HeadNavBar2 selModule={selModule} setSelModule={setSelModule}  setViewable={setViewable} />
+            {viewable === 'userProfile' && <ProfileSummary />}
               <div className="p-0 px-1">
                 {/* {viewable === 'crmDashboard' && (
                   <CrmDashboardHome

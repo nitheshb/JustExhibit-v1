@@ -17,6 +17,7 @@ import { USER_ROLES } from 'src/constants/userRoles'
 import { useAuth } from 'src/context/firebase-auth-context'
 
 import HeadNavBar from '../../components/HeadNavBar/HeadNavBar'
+import ProfileSummary from 'src/components/A_SalesModule/Reports/profileSummary'
 
 const ConstructModulePage = () => {
   const { user } = useAuth()
@@ -73,10 +74,8 @@ const ConstructModulePage = () => {
             </div>
 
             <div className="flex-grow  items-center overflow-y-auto  px-300  py-300">
-            <HeadNavBar2
-              selModule ={selModule}
-              setSelModule={setSelModule}
-            />
+            <HeadNavBar2 selModule={selModule} setSelModule={setSelModule}  setViewable={setViewable} />
+              {viewable === 'userProfile' && <ProfileSummary />}
 
               {viewable === 'ConstructUnits' && (
                 <ConstructUnitsHome

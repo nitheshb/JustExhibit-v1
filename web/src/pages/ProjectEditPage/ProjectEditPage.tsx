@@ -14,6 +14,7 @@ import ProjectsMHomeBody from '../../components/ProjectsMHomeBody/ProjectsMHomeB
 import ProjPhaseHome from '../../components/ProjPhaseHome/ProjPhaseHome'
 import SiderForm from '../../components/SiderForm/SiderForm'
 import EachProjectDashboard from 'src/components/A_ProjModule/EachProjectDashboard'
+import ProfileSummary from 'src/components/A_SalesModule/Reports/profileSummary'
 
 const ProjectEditPage = ({
   selModule,
@@ -70,7 +71,8 @@ const ProjectEditPage = ({
               viewable={viewable}
             />
             <div className="flex-grow   items-center overflow-y-auto no-scrollbar  h-[98%]  px-300  pt-300">
-              <HeadNavBar2 selModule={''} setSelModule={''} />
+            <HeadNavBar2 selModule={selModule} setSelModule={setSelModule}  setViewable={setViewable} />
+            {viewable === 'userProfile' && <ProfileSummary />}
               <div className="mx-1 mt-1">
 
                 {project?.eventName ? (
