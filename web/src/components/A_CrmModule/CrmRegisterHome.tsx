@@ -12,6 +12,8 @@ import {
 import {
   AdjustmentsIcon,
   ChartPieIcon,
+  PlusIcon,
+  ShoppingCartIcon,
   SearchIcon,
   OfficeBuildingIcon,
   NewspaperIcon,
@@ -606,11 +608,8 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                 >
                   {[
                     { lab: 'Booked', val: 'booked' },
-                    { lab: 'Allotment', val: 'agreement_pipeline' },
-                    { lab: 'Agreement', val: 'agreement' },
-                    { lab: 'Construction', val: 'construction' },
-                    { lab: 'Registered', val: 'registered' },
-                    { lab: 'Possession', val: 'possession' },
+                    { lab: 'Un-Paid', val: 'unpaid' },
+                    { lab: 'Paid', val: 'paid' },
                     { lab: 'Unassigned', val: 'unAssigned_crm' },
                     { lab: 'Queries', val: 'queries' },
                   ].map((d, b) => {
@@ -954,6 +953,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                       {(
                                         (finData?.T_review || 0) +
                                         (finData?.T_approved || 0)
+                                        (finData?.T_paid || 0)
                                       )?.toLocaleString('en-IN')}
                                     </div>
                                   </section>
@@ -1155,20 +1155,30 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                           </section>
                                           <div className="flex flex-col w-full  ml-2 item-right  px-2  mr-2 rounded-lg">
                                             <span
-                                              className={`items-center h-1 mt-[6px] mb-2  text-xs font-semibold text-green-600
+                                              className={`items-center h-1 mt-[2px] mb-2  text-xs font-semibold text-green-600
                       `}
                                             >
-                                              {customerDetailsObj?.customerName1 ||
+                                              {finData?.companyName ||
                                                 'NA'}
                                             </span>
-                                            <div className="font text-[12px] text-gray-500 tracking-wide overflow-ellipsis overflow-hidden ">
-                                              {projName}
-                                            </div>
+                                            <span
+                                              className={`items-center h-1 mt-[6px] mb-2  text-xs
+                      `}
+                                            >
+                                              {finData?.co_Name1 ||
+                                                'NA'}
+                                            </span>
+                                            <span
+                                              className={`items-center h-1 mt-[6px] mb-2  text-xs
+                      `}
+                                            >
+                                              {finData?.phoneNo1 ||
+                                                'NA'}
+                                            </span>
+
                                             <section className="flex flex-row justify-between">
                                               <span className="  text-[10px] h-[20px]  text-[#005E36] font-bodyLato font-[600] mt-[2px] border border-[#ECFDF5]  py-[2px] rounded-xl mr-1 ">
-                                                {finData?.customerDetailsObj?.phoneNo1?.toLocaleString(
-                                                  'en-IN'
-                                                )}{' '}
+                                                {projName}{' '}
                                               </span>
 
                                               <span className="  text-[10px] h-[20px] text-[#005E36] font-bodyLato font-[600] mt-[2px] border border-[#ECFDF5] px-[6px] py-[2px] rounded-xl mr-1 ">
@@ -1357,7 +1367,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                   <section className="font-bodyLato font-semibold text-xs m-1 w-[61%] ">
                                     <section className="flex flex-col  w-full mt-">
                                     <p className="flex flex-row justify-between text-zinc-500 text-[11px] font-normal font-['Lato'] tracking-wide">
-                                        Unit Cost: ₹
+                                        Total Cost: ₹
                                         <div>
                                           {(
                                             finData?.T_total || finData?.T_Total
@@ -1371,7 +1381,8 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                           {' '}
                                           {(
                                             (finData?.T_review || 0) +
-                                            (finData?.T_approved || 0)
+                                            (finData?.T_approved || 0) +
+                                            (finData?.T_paid || 0)
                                           ).toLocaleString('en-IN') || 0}
                                         </div>
                                       </div>
@@ -1415,7 +1426,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                   >
                                     <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
                                       <div className="flex flex-none items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
-                                        <ChartPieIcon
+                                        <ShoppingCartIcon
                                           className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
                                             finData?.man_cs_approval ===
                                             'approved'
@@ -1426,7 +1437,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         />
                                       </div>
                                       <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                        Manager
+                                        AddOns
                                       </h6>
                                     </div>
                                   </div>

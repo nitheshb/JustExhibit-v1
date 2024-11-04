@@ -45,6 +45,7 @@ import Crm_ATS_Draft from '../A_CrmModule/A_Crm_sideFormBodies.tsx/cs_ats_draft'
 import Crm_Sd_approval from '../A_CrmModule/A_Crm_sideFormBodies.tsx/cs_sd_approval'
 import Crm_ATS_approval from '../A_CrmModule/A_Crm_sideFormBodies.tsx/cs_ats_approval'
 import Crm_Unit_Posession from '../A_CrmModule/A_Crm_sideFormBodies.tsx/cs_posession'
+import EcommerceHome from '../A_CrmModule/A_eCommerce/cs_eCommerceHome'
 
 const CrmSiderForm = ({
   BlockFeed,
@@ -162,7 +163,7 @@ const CrmSiderForm = ({
                   <BookingPaymentFlow title={title} dialogOpen={setOpen} selUnitPayload={selUnitPayload} />
                 )}
                   {title === 'crm_cs_approval' && (
-                  <CsMangerApprovalFlow title={title} dialogOpen={setOpen} selUnitPayload={selUnitPayload} />
+                  <EcommerceHome title={title} dialogOpen={setOpen} selUnitPayload={selUnitPayload} />
                 )}
                   {title === 'crm_show_cs' && (
                   <CsMangerApprovalFlow title={title} dialogOpen={setOpen} selUnitPayload={selUnitPayload} />

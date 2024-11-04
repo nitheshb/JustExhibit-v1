@@ -1413,7 +1413,7 @@ export const getBookedUnitsByProject = (orgId, snapshot, data, error) => {
 
   // Append 'status' condition if it's not undefined
   if (status !== undefined && !(status.includes('unassigned'))) {
-    conditions.push(where('unitStatus', 'in', status))
+    conditions.push(where('status', 'in', status))
   }
 
   if (status !== undefined && (status.includes('unassigned'))) {
@@ -1427,12 +1427,13 @@ export const getBookedUnitsByProject = (orgId, snapshot, data, error) => {
   }
 
   // Append 'assignedTo' condition if it's not undefined
-  if (data?.assignedTo !== undefined) {
-    conditions.push(where('assignedTo', '==', data?.assignedTo))
-  }
+  // if (data?.assignedTo !== undefined) {
+  //   conditions.push(where('assignedTo', '==', data?.assignedTo))
+  // }
 
   // If all conditions are defined, append them to the query
   if (conditions.length > 0) {
+    console.log('value is ', data)
     q = query(q, ...conditions)
 
   }

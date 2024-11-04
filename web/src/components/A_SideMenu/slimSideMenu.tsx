@@ -170,7 +170,7 @@ const SlimSideMenuBar = (props) => {
                       ></path>
                     </svg>
                   </span>
-                  <span className="text-[9px] font-bold  pl-1">Stalls</span>
+                  <span className="text-[9px] font-bold  pl-1">Bookings</span>
                 </span>
               </span>
             </li>
