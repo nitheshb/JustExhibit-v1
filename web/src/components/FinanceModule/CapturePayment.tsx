@@ -686,19 +686,11 @@ const CaptureUnitPayment = ({
     <div className="">
       <div className="flex items-center justify-center">
         <div id="bg-img" className="flex  w-full flex-col" style={bgImgStyle}>
-          {StatusListA?.length > 0 && (
-            <section className="text-white text-right w-full  pr-5">
-              {' '}
-              {stepIndx} of {StatusListA?.length} steps
-            </section>
-          )}
-          <div className="relative mx-4 max-h-[65%]  rounded-xl  px-2 pb-14 border ">
-            {/* <div className="space-y-4 text-white">
-              <h3 className="font-bold text-2xl">Confirm Booking</h3>
 
-            </div> */}
+          <div className="relative mx-4 max-h-[65%]  rounded-xl  px-2 pb-14">
 
-            <div className="grid gap-8 grid-cols-1">
+
+            <div className="grid gap-8 grid-cols-1 mt-2">
               <div className="flex flex-col ">
                 <div className="mt-0">
                   <Formik
@@ -722,14 +714,15 @@ const CaptureUnitPayment = ({
                             <div className="w-full mx-auto ">
                               <div className="relative flex flex-col min-w-0 break-words w-full mb-6  rounded-lg bg-white ">
                                 <div className=" flex flex-row px-0 py-2  overflow-y-scroll overflow-auto no-scrollbar">
-                                  <section className=" p- rounded-md ">
-                                    <article className="mt-3">
+                                  <section className=" p- rounded-md  ">
+                                    <article className="">
+
                                       <div className="flex flex-row justify-between">
                                         <section className="flex flex-row">
-                                          <span className="text-[38px] mt-[-16px]">
+                                          <span className="text-[38px] mt-[2px]">
                                             🎊
                                           </span>
-                                          <div className="inline">
+                                          <div className="inline ml-3">
                                             <div className="mt-[4px]">
                                               <label className="text-[22px] font-semibold text-[#053219]  text-sm  mb-1  ">
                                                 {title === 'capturePayment'
@@ -738,12 +731,26 @@ const CaptureUnitPayment = ({
                                                 <abbr title="required"></abbr>
                                               </label>
                                             </div>
-                                            {/* <div className="border-t-4 rounded-xs w-100 border-[#8B5CF6]"></div> */}
+                                            <div className="w-100 opacity-50 text-blue-950  text-[12px] font-normal ">
+                  Stall will be blocked.
+                </div>
+                                            <div className="border-t-4 mt-1 rounded-xl w-100 border-[#8B5CF6]"></div>
                                           </div>
                                         </section>
-                                        <section className="flex flex-row justify-between">
 
-                                        <div className="inline-block mt-4 ml-4">
+
+                                        <section className="flex flex-col ">
+
+
+                                          <div className="flex flex-col mr-2 mt-2">
+                                            {/* <h6 className="text-blueGray-400 text-sm mt- ml-6 mb- font-weight-[700]  font-uppercase">
+                                              Payment
+                                            </h6> */}
+                                            <span className="text-right text-[13px] font-normal">
+                                              {format(new Date(), 'dd-MMMM-yy')}
+                                            </span>
+                                          </div>
+                                          <div className="inline-block mt- ml-4">
                                       <PdfInvoiceGenerator
                                         user={user}
                                         selUnitDetails={selUnitDetails}
@@ -758,18 +765,11 @@ const CaptureUnitPayment = ({
                                         projectDetails={{}}
                                       />
                                     </div>
-                                          <div className="flex flex-col mr-2 mt-2">
-                                            {/* <h6 className="text-blueGray-400 text-sm mt- ml-6 mb- font-weight-[700]  font-uppercase">
-                                              Payment
-                                            </h6> */}
-                                            <span className="text-center text-[13px] font-normal">
-                                              {format(new Date(), 'dd-MMMM-yy')}
-                                            </span>
-                                          </div>
                                         </section>
                                       </div>
-                                      <hr className="mt-1 border-b-1 border-blueGray-300" />
+                                      {/* <hr className="mt-1 border-b-1 border-blueGray-300" /> */}
                                     </article>
+                                    <div className=" border rounded-xl mt-4">
                                     {!bookingProgress && (
                                       <section>
                                         <div className="flex flex-wrap mt-3">
@@ -782,14 +782,14 @@ const CaptureUnitPayment = ({
                                                   <thead>
                                                     <tr className="h-8 mb-1 border-none w-[100%] bg-[#E8E6FE] text-[#0D027D]  font-[600] ">
                                                       <th className="min-w-[35%] px-2  text-[12px] text-left text-[#0D027D]  tracking-wide">
-                                                        Stall Particulars (
+                                                        Stall Charges (
                                                         {selUnitDetails?.area?.toLocaleString(
                                                           'en-IN'
                                                         ) || 0}{' '}
-                                                        sqft)
+                                                        sqm)
                                                       </th>
                                                       <th className="w-[15%] px-2 text-[12px] text-right  tracking-wide">
-                                                        Rate/Sqft
+                                                        Rate/Sqm
                                                       </th>
                                                       <th
                                                         className={`${
@@ -1551,7 +1551,7 @@ const CaptureUnitPayment = ({
                                                 </div>
                                               </div>
 
-                                       
+
                                             </section>
                                           </section>
                                         </div>
@@ -1786,7 +1786,7 @@ const CaptureUnitPayment = ({
                                 </div>
                               </div> */}
                                     {!bookingProgress && (
-                                      <div className="text-center space-x-4 mt-6">
+                                      <div className="text-center space-x-4 my-6">
                                         <button
                                           className="bg-[#8B5CF6] translate-y-1 text-[#fff] sm:text-lg text-xs font-bold py-2.5 px-6  rounded-full inline-flex items-center"
                                           type="submit"
@@ -1814,7 +1814,7 @@ const CaptureUnitPayment = ({
                                         </button>
                                       </div>
                                     )}
-
+</div>
                                     <Confetti ref={confettiRef} />
                                   </section>
                                 </div>

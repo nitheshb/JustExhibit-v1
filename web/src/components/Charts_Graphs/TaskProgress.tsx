@@ -14,32 +14,46 @@ const TaskProgress = ({ userTodayPerfA }) => {
 
   return (
     <section className="bg-white rounded  flex flex-col p-4 w-100 ">
-      <h5>{t('Task Progress')}</h5>
-
-      <Box mt={2}>
-        <div className="flex flex-row align-middle justify-between">
-          <h6 className="font-bodyLato font-semibold text-sm">{t('New')}</h6>
-          <span className="font-bodyLato text-[12px] text-[#94A4C4]">
-            {userTodayPerfA?.new_comp || 0}/{userTodayPerfA?.new}
-          </span>
-        </div>
+      <h5>{t('Stall Bookings')}</h5>
 
 
-      </Box>
       <Box mt={3}>
         <div className="flex flex-row align-middle justify-between">
           <h6 className="font-bodyLato font-semibold text-sm">
-            {t('Followup')}
+            {t('Total')}
           </h6>
           <span className="font-bodyLato text-[12px] text-[#94A4C4]">
-            {userTodayPerfA?.followup_comp || 0}/{userTodayPerfA?.followup}
+            110
           </span>
         </div>
         <LinearProgress
           variant="determinate"
           color="info"
           value={
-            userTodayPerfA?.followup_comp || 0 / userTodayPerfA?.followup || 0
+            100
+          }
+          style={{
+            backgroundColor: '#E5EAF2',
+            borderRadius: '3px',
+            height: '4px',
+          }}
+        />
+      </Box>
+
+      <Box mt={3}>
+        <div className="flex flex-row align-middle justify-between">
+          <h6 className="font-bodyLato font-semibold text-sm">
+            {t('Available')}
+          </h6>
+          <span className="font-bodyLato text-[12px] text-[#94A4C4]">
+            20
+          </span>
+        </div>
+        <LinearProgress
+          variant="determinate"
+          color="info"
+          value={
+            20
           }
           style={{
             backgroundColor: '#E5EAF2',
@@ -56,17 +70,15 @@ const TaskProgress = ({ userTodayPerfA }) => {
       </FlexBox> */}
         <div className="flex flex-row align-middle justify-between">
           <h6 className="font-bodyLato font-semibold text-sm">
-            {t('Visits Fixed')}
+            {t('Blocked')}
           </h6>
           <span className="font-bodyLato text-[12px] text-[#94A4C4]">
-            {userTodayPerfA?.visitfixed_comp || 0}/{userTodayPerfA?.visitfixed}
+            60
           </span>
         </div>
         <LinearProgress
           value={
-            userTodayPerfA?.visitfixed_comp ||
-            0 / userTodayPerfA?.visitfixed ||
-            0
+           60
           }
           color="warning"
           variant="determinate"
@@ -82,19 +94,16 @@ const TaskProgress = ({ userTodayPerfA }) => {
       <Box mt={3}>
         <div className="flex flex-row align-middle justify-between">
           <h6 className="font-bodyLato font-semibold text-sm">
-            {t('Negotiation')}
+            {t('Booked')}
           </h6>
           <span className="font-bodyLato text-[12px] text-[#94A4C4]">
-            {userTodayPerfA?.negotiation_comp || 0}/
-            {userTodayPerfA?.negotiation}
+           30
           </span>
         </div>
         <LinearProgress
           variant="determinate"
           value={
-            userTodayPerfA?.negotiation_comp ||
-            0 / userTodayPerfA?.negotiation ||
-            0
+           30
           }
           color="success"
           style={{

@@ -548,7 +548,7 @@ const MyDocument = ({
                       styles.pr4,
                     ]}
                   >
-                    <Text style={styles.subtitle2}>Rate/Sqft</Text>
+                    <Text style={styles.subtitle2}>Rate/Sqm</Text>
                   </View>
 
                   <View
@@ -636,7 +636,7 @@ const MyDocument = ({
 
 
 
-              
+
             <View  style={[styles.totalRow, styles.mT0]}>
               <View style={styles.tableCell_1}></View>
 
@@ -664,8 +664,8 @@ const MyDocument = ({
 
 
             </View>
-            
-{/* 
+
+{/*
             <View
               style={[styles.tableRow, { marginTop: '2px', paddingTop: '4px' }]}
             >
@@ -713,7 +713,7 @@ const MyDocument = ({
                 <Text>{fCurrency(partATotal)}</Text>
               </View>
             </View> */}
-           
+
           </View>
           {/* Part-1-end */}
           {/* part -2 */}
@@ -755,7 +755,7 @@ const MyDocument = ({
                       styles.pr4,
                     ]}
                   >
-                    <Text style={styles.subtitle2}>Rate/Sqft</Text>
+                    <Text style={styles.subtitle2}>Rate/Sqm</Text>
                   </View>
 
                   <View
@@ -901,7 +901,7 @@ const MyDocument = ({
                       styles.pr4,
                     ]}
                   >
-                    <Text style={styles.subtitle2}>Rate/Sqft</Text>
+                    <Text style={styles.subtitle2}>Rate/Sqm</Text>
                   </View>
 
                   <View
@@ -1038,7 +1038,7 @@ const MyDocument = ({
                       styles.pr4,
                     ]}
                   >
-                    <Text style={styles.subtitle2}>Rate/Sqft</Text>
+                    <Text style={styles.subtitle2}>Rate/Sqm</Text>
                   </View>
 
                   <View
@@ -1181,7 +1181,7 @@ const MyDocument = ({
                       styles.pr4,
                     ]}
                   >
-                    <Text style={styles.subtitle2}>Rate/Sqft</Text>
+                    <Text style={styles.subtitle2}>Rate/Sqm</Text>
                   </View>
 
                   <View

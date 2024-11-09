@@ -132,15 +132,15 @@ const SlimSideMenuBar = (props) => {
                 </span>
               </span>
             </li>
-            <li className="relative mt-1 ">
+            <li className="relative mt-1 pt-1">
               <span
                 className={
-                  'flex items-center text-sm py-1   overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
-                  (viewable === 'crmSpace-I'
+                  'flex items-center text-sm py-1  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
+                  (viewable === 'stallEnquiries'
                     ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
                     : '')
                 }
-                onClick={() => setViewable('crmSpace-I')}
+                onClick={() => setViewable('stallEnquiries')}
                 style={{
                   display: 'block',
                   marginLeft: 'auto',
@@ -148,7 +148,7 @@ const SlimSideMenuBar = (props) => {
                 }}
               >
                 <span className="flex items-center flex-col pt-[8px]">
-                  <span style={{ color: '#eb8909' }}>
+                  <span style={{ color: '#692fc2' }}>
                     <svg
                       width="24"
                       height="24"
@@ -168,6 +168,44 @@ const SlimSideMenuBar = (props) => {
                         d="M17.5 6h-3a.5.5 0 00-.5.5v3a.5.5 0 00.5.5h3a.5.5 0 00.5-.5v-3a.5.5 0 00-.5-.5zm-3-1A1.5 1.5 0 0013 6.5v3a1.5 1.5 0 001.5 1.5h3A1.5 1.5 0 0019 9.5v-3A1.5 1.5 0 0017.5 5h-3zm-8 9h3a.5.5 0 01.5.5v3a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5zm-1.5.5A1.5 1.5 0 016.5 13h3a1.5 1.5 0 011.5 1.5v3A1.5 1.5 0 019.5 19h-3A1.5 1.5 0 015 17.5v-3zm9.5-.5h3a.5.5 0 01.5.5v3a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5zm-1.5.5a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5v3a1.5 1.5 0 01-1.5 1.5h-3a1.5 1.5 0 01-1.5-1.5v-3zM6.5 6h3a.5.5 0 01.5.5v3a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5zM5 6.5A1.5 1.5 0 016.5 5h3A1.5 1.5 0 0111 6.5v3A1.5 1.5 0 019.5 11h-3A1.5 1.5 0 015 9.5v-3z"
                         fill="currentColor"
                       ></path>
+                    </svg>
+                  </span>
+                  <span className="text-[9px] font-bold  pl-1">
+                    Enquiries
+                  </span>
+                </span>
+              </span>
+            </li>
+            <li className="relative mt-1 ">
+              <span
+                className={
+                  'flex items-center text-sm py-1   overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
+                  (viewable === 'crmSpace-I'
+                    ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
+                    : '')
+                }
+                onClick={() => setViewable('crmSpace-I')}
+                style={{
+                  display: 'block',
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                }}
+              >
+                <span className="flex items-center flex-col pt-[8px]">
+                  <span style={{ color: '#058527' }}>
+                  <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-6"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+                      />
                     </svg>
                   </span>
                   <span className="text-[9px] font-bold  pl-1">Bookings</span>
@@ -204,7 +242,7 @@ const SlimSideMenuBar = (props) => {
 
                     <UserGroupIcon className="h-5 w-5 " aria-hidden="true" />
                   </span>
-                  <span className="text-[9px] font-bold  pl-1">Customers</span>
+                  <span className="text-[9px] font-bold  pl-1">Exhibitors</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -254,6 +292,50 @@ const SlimSideMenuBar = (props) => {
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
+                </span>
+              </span>
+            </li>
+            <li className="relative mt-1 pt-1">
+              <span
+                className={
+                  'flex items-center text-sm py-1  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
+                  (viewable === 'eventsDisplay'
+                    ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
+                    : '')
+                }
+                onClick={() => setViewable('eventsDisplay')}
+                style={{
+                  display: 'block',
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                }}
+              >
+                <span className="flex items-center flex-col pt-[8px]">
+                  <span style={{ color: '#692fc2' }}>
+                    <svg
+                      width="24"
+                      height="24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        opacity="0.1"
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M13 6.5A1.5 1.5 0 0114.5 5h3A1.5 1.5 0 0119 6.5v3a1.5 1.5 0 01-1.5 1.5h-3A1.5 1.5 0 0113 9.5v-3zM6.5 13A1.5 1.5 0 005 14.5v3A1.5 1.5 0 006.5 19h3a1.5 1.5 0 001.5-1.5v-3A1.5 1.5 0 009.5 13h-3zm8 0a1.5 1.5 0 00-1.5 1.5v3a1.5 1.5 0 001.5 1.5h3a1.5 1.5 0 001.5-1.5v-3a1.5 1.5 0 00-1.5-1.5h-3zm-8-8A1.5 1.5 0 005 6.5v3A1.5 1.5 0 006.5 11h3A1.5 1.5 0 0011 9.5v-3A1.5 1.5 0 009.5 5h-3z"
+                        fill="currentColor"
+                      ></path>
+                      <path
+                        fillRule="evenodd"
+                        clipRule="evenodd"
+                        d="M17.5 6h-3a.5.5 0 00-.5.5v3a.5.5 0 00.5.5h3a.5.5 0 00.5-.5v-3a.5.5 0 00-.5-.5zm-3-1A1.5 1.5 0 0013 6.5v3a1.5 1.5 0 001.5 1.5h3A1.5 1.5 0 0019 9.5v-3A1.5 1.5 0 0017.5 5h-3zm-8 9h3a.5.5 0 01.5.5v3a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5zm-1.5.5A1.5 1.5 0 016.5 13h3a1.5 1.5 0 011.5 1.5v3A1.5 1.5 0 019.5 19h-3A1.5 1.5 0 015 17.5v-3zm9.5-.5h3a.5.5 0 01.5.5v3a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5zm-1.5.5a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5v3a1.5 1.5 0 01-1.5 1.5h-3a1.5 1.5 0 01-1.5-1.5v-3zM6.5 6h3a.5.5 0 01.5.5v3a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5zM5 6.5A1.5 1.5 0 016.5 5h3A1.5 1.5 0 0111 6.5v3A1.5 1.5 0 019.5 11h-3A1.5 1.5 0 015 9.5v-3z"
+                        fill="currentColor"
+                      ></path>
+                    </svg>
+                  </span>
+                  <span className="text-[9px] font-bold  pl-1">
+                    Events
+                  </span>
                 </span>
               </span>
             </li>

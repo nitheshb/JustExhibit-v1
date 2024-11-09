@@ -592,7 +592,7 @@ const CostBreakUpEditor = ({
                                   Particulars
                                 </th>
                                 <th className="w-[15%] px-2 text-[10px] text-right  tracking-wide ">
-                                  Rate/Sqft
+                                  Rate/Sqm
                                 </th>
                                 <th
                                   className={`${
@@ -723,7 +723,7 @@ const CostBreakUpEditor = ({
                                   Additonal Charges
                                 </th>
                                 <th className="w-[15%] px-2 text-[10px] text-right  tracking-wide ">
-                                  Rate/Sqft
+                                  Rate/Sqm
                                 </th>
                                 <th
                                   className={`${
@@ -882,7 +882,7 @@ const CostBreakUpEditor = ({
                                   Construction Particulars
                                 </th>
                                 <th className="w-[15%] px-2 text-[10px] text-right  tracking-wide ">
-                                  Rate/Sqft
+                                  Rate/Sqm
                                 </th>
                                 <th
                                   className={`${
@@ -1030,7 +1030,7 @@ const CostBreakUpEditor = ({
                                   Construction Additional Charges
                                 </th>
                                 <th className="w-[15%] px-2 text-[10px] text-right  tracking-wide ">
-                                  Rate/Sqft
+                                  Rate/Sqm
                                 </th>
                                 <th
                                   className={`${

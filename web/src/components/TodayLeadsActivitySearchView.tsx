@@ -870,19 +870,35 @@ export default function TodayLeadsActivitySearchView({
                 <div className="flex flex-wrap p-2">
                   <div className="w-8/12 flex-col">
                     <div className="flex gap-4 justify-between flex-wrap">
-                      <UserCard type="student" />
-                      <UserCard type="teacher" />
-                      <UserCard type="parent" />
-                      <UserCard type="staff" />
+                      <UserCard type="Active Events" count="09"/>
+                      <UserCard type="Stalls" count="110" />
+                      <UserCard type="Exhibitors" count="100" />
+                      <UserCard type="Expected Visitors" count="10,000" />
                     </div>
 
-                    <div className="w-2/3  h-[450px]">
+               <div className='flex flex-row justify-between mt-3'>
+
+          <div className="w-[700px] border shadow rounded-xl"> <TaskProgress />
+          </div>
+          <div className="w-[410px]">
             <CountChart />
+            </div>
+
+            {/* <div className="mt-1 w-[400px] border shadow rounded-xl">
+                        <RecentActivity
+                          title={'My Activity'}
+                          userTodayPerfA={userTodayPerfA}
+                        />
+                      </div> */}
+                </div>
+                 <div className="w-2/3  h-[450px]">
+
           </div>
                        {/* ATTENDANCE CHART */}
           <div className=" w-2/3 h-[450px]">
             <AttendanceChart />
           </div>
+
                   </div>
                   <div className="w-4/12 flex flex-col">
                     <section className="bg-white rounded-xl shadow border  flex flex-col p-4 ml-1 mb-1 w-100 ">

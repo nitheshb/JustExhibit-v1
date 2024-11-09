@@ -284,23 +284,16 @@ export const projectDetailFlow = [
 ]
 
 export const sourceListItems = [
-  {
-    label: 'Adventures',
-    value: 'adventures',
-    rep: ['adventures', 'Adventures'],
-  },
-  {
-    label: 'Aurum Analytica',
-    value: 'aurumanalytica',
-    rep: ['aurumanalytica'],
-  },
-  { label: 'CP Skagen', value: 'cpskagen', rep: ['cpskagen'] },
-  { label: 'Direct Contact', value: 'directcontact', rep: ['directcontact'] },
-  {
-    label: 'Events',
-    value: 'events',
-    rep: ['Event', 'Events', 'event', 'events', 'expo', 'Expo'],
-  },
+  // {
+  //   label: 'Adventures',
+  //   value: 'adventures',
+  //   rep: ['adventures', 'Adventures'],
+  // },
+  // {
+  //   label: 'Aurum Analytica',
+  //   value: 'aurumanalytica',
+  //   rep: ['aurumanalytica'],
+  // },
   {
     label: 'Facebook Ad',
     value: 'facebookad',
@@ -318,24 +311,32 @@ export const sourceListItems = [
     value: 'instagramad',
     rep: ['instagramad', 'Instagram', 'instagram', 'ig'],
   },
+  { label: 'Stall Reference', value: 'stallreference', rep: ['stallreference'] },
+  { label: 'Direct Contact', value: 'directcontact', rep: ['directcontact'] },
+  {
+    label: 'Events',
+    value: 'events',
+    rep: ['Event', 'Events', 'event', 'events', 'expo', 'Expo'],
+  },
+
   {
     label: 'Landing Page',
     value: 'landingpage',
     rep: ['landingpage'],
   },
   { label: 'Live Chat', value: 'Live Chat', rep: ['Live Chat', 'Livechat'] },
-  {
-    label: 'Magic Bricks',
-    value: 'magicbricks',
-    rep: [
-      'magicbricks',
-      'magic bricks',
-      'magic bricks',
-      'MagicBricks',
-      'Magic Bricks',
-    ],
-  },
-  { label: 'MCube', value: 'mcube', rep: ['mcube', 'Mcube'] },
+  // {
+  //   label: 'Magic Bricks',
+  //   value: 'magicbricks',
+  //   rep: [
+  //     'magicbricks',
+  //     'magic bricks',
+  //     'magic bricks',
+  //     'MagicBricks',
+  //     'Magic Bricks',
+  //   ],
+  // },
+  // { label: 'MCube', value: 'mcube', rep: ['mcube', 'Mcube'] },
   { label: 'MyGate', value: 'mygate', rep: ['MyGate', 'Mygate'] },
   {
     label: 'News Paper',
@@ -344,15 +345,15 @@ export const sourceListItems = [
   },
   { label: 'REPP', value: 'repp', rep: ['REPP', 'repp'] },
   { label: 'Referral', value: 'referral', rep: ['referral', 'Referral'] },
-  {
-    label: 'Roofandfloor',
-    value: 'roofandfloor',
-    rep: ['RoofandFloor', 'roofandfloor', 'Roofandfloor'],
-  },
+  // {
+  //   label: 'Roofandfloor',
+  //   value: 'roofandfloor',
+  //   rep: ['RoofandFloor', 'roofandfloor', 'Roofandfloor'],
+  // },
   { label: 'SMS', value: 'sms', rep: ['sms', 'Sms', 'SMS'] },
   { label: 'Walk-In', value: 'walkin', rep: ['walkin', 'Walk-In'] },
   { label: 'Website', value: 'website', rep: ['website'] },
-  { label: '99acres', value: '99acres', rep: ['99acres', '99Acres'] },
+  // { label: '99acres', value: '99acres', rep: ['99acres', '99Acres'] },
   { label: 'others', value: 'others', rep: [] },
 ]
 export const sourceList = [
@@ -363,6 +364,36 @@ export const sourceList = [
 export const leadBinReasonList = [
   { label: 'Duplicate', value: 'DUPLICATE_ENTRY' },
   { label: 'Invalid Data', value: 'INVALID_DATA' },
+]
+export const visitorsCategory = [
+  {
+    label: 'Kids under 4',
+    value: 'kidsunder4',
+  },
+  {
+    label: 'Kids under 10',
+    value: 'kidsunder10',
+  },
+  {
+    label: 'Kids under 14',
+    value: 'kidsunder14',
+  },
+  {
+    label: 'Childcare Specialists',
+    value: 'childcarespecialist',
+  },
+  {
+    label: 'Parents & Grandparents',
+    value: 'parents',
+  },
+  {
+    label: 'Kids’ Products Stores',
+    value: 'productstores',
+  },
+  {
+    label: 'Others',
+    value: 'others',
+  },
 ]
 export const developmentTypes = [
   {

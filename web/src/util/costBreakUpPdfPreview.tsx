@@ -456,7 +456,7 @@ const CostBreakUpPdfPreview = ({
                                 Particulars
                               </th>
                               <th className="w-[15%] px-2 text-[8px] text-right  tracking-wide ">
-                                Rate/Sqft
+                                Rate/Sqm
                               </th>
                               <th
                                 className={`${

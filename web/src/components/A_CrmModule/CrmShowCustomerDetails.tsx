@@ -22,7 +22,7 @@ import { Label, InputField, TextAreaField, FieldError } from '@redwoodjs/forms'
 import { useRouterStateSetter } from '@redwoodjs/router/dist/router-context'
 
 import {
-  addLead,
+  addStallLeads,
   updateLeadCustomerDetailsTo,
   checkIfLeadAlreadyExists,
   getAllProjects,
@@ -274,7 +274,7 @@ const ShowCustomerDetails = ({
       console.log('foundLENGTH IS empty ', foundLength)
 
       // proceed to copy
-      await addLead(
+      await addStallLeads(
         orgId,
         leadData,
         user?.email,

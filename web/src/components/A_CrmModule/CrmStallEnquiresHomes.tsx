@@ -34,6 +34,8 @@ import {
   getBookedUnitsByProject,
   getAllProjects,
   getUnassignedCRMunits,
+  getLeadsByAdminStatus,
+  getStallLeadsByAdminStatus,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import { computeTotal } from 'src/util/computeCsTotals'
@@ -48,6 +50,7 @@ import {
 import DoughnutChartWithRoundedSegments from '../A_SalesModule/Reports/charts/piechartRounded'
 import CrmSiderForm from '../SiderForm/CRM_SideForm'
 import SiderForm from '../SiderForm/SiderForm'
+import LStallSalesBody from '../1_StallModule/LLStallSalesBody'
 
 const agreementItems = [
   {
@@ -131,13 +134,17 @@ const modifyItems = [
     status: 'pending',
   },
 ]
-const CrmRegisterModeHome = ({ leadsTyper }) => {
+const CrmStallEnquiriesHome = ({ leadsTyper }) => {
   const d = new window.Date()
   const { t } = useTranslation()
   const { user } = useAuth()
   const { orgId, access, projAccessA } = user
   const [isUnitDetailsOpen, setisUnitDetailsOpen] = useState(false)
   const [isSubTopicOpen, setIsSubTopicOpen] = useState(false)
+  const [isOpenAddLead, setIsOpenAddLead] = useState(false)
+  const [isOpenBlukLead, setIsOpenBulkLead] = useState(false)
+
+
   const [isSubTopic, setIsSubTopic] = useState('')
   const [selProjectIs, setSelProject] = useState({
     label: 'All Events',
@@ -230,6 +237,9 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
     label: 'My Stalls',
     value: 'myunits',
   })
+  const [searchValue, setSearchValue] = useState('')
+  const [fetchLeadsLoader, setFetchLeadsLoader] = useState(true)
+
   useEffect(() => {
     // console.log(' crm units data is ', crmCustomersDBData)
   }, [crmCustomersDBData])
@@ -252,12 +262,13 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
   }
 
   useEffect(() => {
-    getLeadsDataFun(projectList, ['booked', 'Booked'])
-    getLeadsDataFun(projectList, ['agreement_pipeline'])
-    getLeadsDataFun(projectList, ['agreement', 'ATS'])
-    getLeadsDataFun(projectList, ['registered', 'Registered'])
-    getLeadsDataFun(projectList, ['possession'])
-    getLeadsDataFun(projectList, ['unassigned'])
+    // getLeadsDataFun(projectList, ['booked', 'Booked'])
+    // getLeadsDataFun(projectList, ['agreement_pipeline'])
+    // getLeadsDataFun(projectList, ['agreement', 'ATS'])
+    // getLeadsDataFun(projectList, ['registered', 'Registered'])
+    // getLeadsDataFun(projectList, ['possession'])
+    // getLeadsDataFun(projectList, ['unassigned'])
+    getAdminAllLeads()
   }, [projectList, selLeadsOf])
 
   useEffect(() => {
@@ -267,12 +278,14 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
   const filter_Leads_Projects_Users_Fun = () => {
     // setFetchLeadsLoader(true)
     // const x = leadsFetchedRawData
-    getLeadsDataFun(projectList, ['booked', 'Booked'])
-    getLeadsDataFun(projectList, ['agreement_pipeline'])
-    getLeadsDataFun(projectList, ['agreement', 'ATS'])
-    getLeadsDataFun(projectList, ['registered', 'Registered'])
-    getLeadsDataFun(projectList, ['possession', 'Possession'])
-    getLeadsDataFun(projectList, ['unassigned'])
+    // getLeadsDataFun(projectList, ['booked', 'Booked'])
+    // getLeadsDataFun(projectList, ['agreement_pipeline'])
+    // getLeadsDataFun(projectList, ['agreement', 'ATS'])
+    // getLeadsDataFun(projectList, ['registered', 'Registered'])
+    // getLeadsDataFun(projectList, ['possession', 'Possession'])
+    // getLeadsDataFun(projectList, ['unassigned'])
+
+    getAdminAllLeads()
     // console.log(
     //   'my Array data is ',
     //   queryResult,
@@ -283,9 +296,12 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
 
   useEffect(() => {
     if(selCategory === 'paid'){
-      setFilteredDataA()
+      // setFilteredDataA()
+      getAdminAllLeads()
     }
     getLeadsDataFun(projectList, ['booked', 'Booked'])
+    getAdminAllLeads()
+
   }, [selCategory])
 
   const getProjectsListFun = () => {
@@ -387,6 +403,66 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
       () => setCrmCustomerDBData([])
     )
     return unsubscribe
+  }
+
+  const getAdminAllLeads = async () => {
+    const { orgId } = user
+
+      const unsubscribe = getStallLeadsByAdminStatus(
+        orgId,
+        async (querySnapshot) => {
+          const usersListA = querySnapshot.docs.map((docSnapshot) => {
+            const x = docSnapshot.data()
+            x.id = docSnapshot.id
+            return x
+          })
+          // usersListA.map((data) => {
+          //   const y = data
+          //   delete y.Note
+          //   delete y.AssignedTo
+          //   delete y.AssignTo
+          //   delete y.AssignedBy
+          //   delete y['Country Code']
+          //   delete y.assignT
+          //   delete y.CT
+          //   delete y.visitDoneNotes
+          //   delete y.VisitDoneNotes
+          //   delete y.VisitDoneReason
+          //   delete y.EmpId
+          //   delete y.CountryCode
+          //   delete y.from
+          //   delete y['Followup date']
+          //   delete y.mode
+          //   delete y.notInterestedNotes
+          //   delete y.notInterestedReason
+          //   y.coveredA = { a: data.coveredA }
+          //   addLeadSupabase(data)
+          // })
+          console.log('my valus are ', usersListA )
+          await setFilteredDataA(usersListA)
+          await serealizeData(usersListA)
+        },
+        {
+          status:
+          [
+            'new',
+            'followup',
+            'unassigned',
+            'visitfixed',
+            '',
+            // 'visitdone',
+            // 'visitcancel',
+            'negotiation',
+            'booked'
+            // 'reassign',
+            // 'RNR',
+          ],
+          projAccessA: projAccessA,
+        },
+        (error) => setFilteredDataA([])
+      )
+      return unsubscribe
+
   }
   const getLeadsDataFun = async (projectList, statusFil) => {
     // console.log('login role detials', user)
@@ -581,8 +657,8 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
             "
           >
             <div className="flex items-center flex-row flex-wrap justify-between py-1 pb-5  px-3 py-3 bg-gray-50 rounded-t-md ">
-              <h2 className="text-md font-semibold text-black leading-light font-Playfair">
-                Stalls
+              <h2 className="text-md font-semibold text-black leading-light ">
+                Stall Enquiries
               </h2>
 
               <div className="flex">
@@ -628,6 +704,51 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                     />
                   </div>
                 )}
+
+<button
+                    onClick={() => setIsOpenAddLead(true)}
+                    className={`flex items-center ml-5 pl-2 pr-4  max-h-[30px] mt-[2px] text-sm font-medium text-white bg-gray-800 rounded-[4px] hover:bg-gray-700  `}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4"
+                      fill="none"
+                      viewBox="0 0 22 22"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                      />
+                    </svg>
+
+                    <span className="ml-1">Add Lead</span>
+                  </button>
+
+                    <button
+                      onClick={() => setIsOpenBulkLead(true)}
+                      className={`flex items-center ml-5 pl-2 pr-4 py-1 max-h-[30px] mt-[2px]  text-sm font-medium text-white bg-gray-800 rounded-[4px] hover:bg-gray-700  `}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 22 22"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                        />
+                      </svg>
+
+                      <span className="ml-1">Import Lead</span>
+                    </button>
+
               </div>
             </div>
             <div className="items-center justify-between  my-1 bg-white rounded-lg  ">
@@ -645,11 +766,11 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                   role="tablist"
                 >
                   {[
-                    { lab: 'Booked', val: 'booked' },
-                    { lab: 'Un-Paid', val: 'unpaid' },
-                    { lab: 'Paid', val: 'paid' },
-                    { lab: 'Unassigned', val: 'unAssigned_crm' },
-                    { lab: 'Queries', val: 'queries' },
+                    { lab: 'New', val: 'booked' },
+                    { lab: 'Active', val: 'unpaid' },
+                    { lab: 'Followup', val: 'paid' },
+                    { lab: 'Not Interested', val: 'unAssigned_crm' },
+                    { lab: 'Booked', val: 'queries' },
                   ].map((d, b) => {
                     return (
                       <li
@@ -1121,644 +1242,19 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                       </li>
                     </ul>
                   )}
-                  {['booked','unpaid','paid', 'agreement_pipeline', 'agreement', 'registered','construction', 'possession', 'unAssigned_crm', 'queries'].includes(selCategory) &&
-                    !horizontalMode &&
-                    filteredDataA.map((finData, c) => {
-                      const {
-                        uid,
-                        assets,
-                        customerDetailsObj,
-                        customerName1,
-                        phoneNo1,
-                        unit_no,
-                        T_balance,
-                        T_elgible_balance,
-                        T_elgible,
-                        T_review,
-                        T_captured,
-                        pId,
-                        projName,
-                      } = finData
-                      // console.log('fin data is ', finData)
-                      return (
-                        <section key={c} className="border border-b-0 ">
-                          <section className="flex flex-row bg-gradient-to-r from-[#Fff] to-[#fff]">
-                            <div className="w-[387px]">
-                              <div className="flex flex-row   ">
-                                <div
-                                  className="flex flex-col bg-gradient-to-r text-black  py-1 rounded-sm w-[437px] "
-                                  // className="flex flex-col bg-gradient-to-r from-[#d8daff] to-[#9ae8fd] text-black p-1 rounded-sm w-[220px] h-[96px]"
-                                  onClick={() =>
-                                    viewTransaction(
-                                      finData,
-                                      'unit_information',
-                                      'unit_information'
-                                    )
-                                  }
-                                >
-                                  <section className="font-rubikF flex flex-row w-[100%] justify-between">
-                                    <section className="flex flex-col ml-2 mt-[3px] w-[100%]">
-                                      <section className="flex flex-row justify-between">
-                                        {/* <section className="flex flex-col">
-                                          <section className="flex flex-row justify-between">
-                                            <span className=" text-[14px] text-black font-[500] ml-[2px]">
-                                              Unit-{unit_no}
-                                              {finData?.unit_type ===
-                                                'apartment' && (
-                                                <span className=" text-[10px] text-black font-[500] ml-[2px]">
-                                                  Block-{finData?.blockId}
-                                                </span>
-                                              )}
-                                              <span className=" text-[10px] text-black font-[500] ml-[2px]">
-                                                Phase-{finData?.phaseId}{' '}
 
-                                              </span>
-                                            </span>
-                                          </section>
-                                          <span className=" text-[12px] text-[#036046] font-[400] ml-[2px]">
-                                            {projName}
-                                          </span>
-                                        </section> */}
-                                        <div className="flex flex-row w-full">
-                                          <section className="bg-violet-100  items-center rounded-2xl shadow-xs flex flex-col px-2 py-1 min-w-[100px]">
-                                            <div className="font-semibold text-[#053219]  text-[22px]  mb-[1] tracking-wide">
-                                              {unit_no}
-                                            </div>
-                                            <span
-                                              className={`items-center h-6   text-xs font-semibold text-gray-500  rounded-full
-                      `}
-                                            >
-                                              Stall No
-                                            </span>
-                                          </section>
-                                          <div className="flex flex-col w-full  ml-2 item-right  px-2  mr-2 rounded-lg">
-                                            <span
-                                              className={`items-center h-1 mt-[2px] mb-2  text-xs font-semibold text-green-600
-                      `}
-                                            >
-                                              {finData?.companyName ||
-                                                'NA'}
-                                            </span>
-                                            <span
-                                              className={`items-center h-1 mt-[6px] mb-2  text-xs
-                      `}
-                                            >
-                                              {finData?.co_Name1 ||
-                                                'NA'}
-                                            </span>
-                                            <span
-                                              className={`items-center h-1 mt-[6px] mb-2  text-xs
-                      `}
-                                            >
-                                              {finData?.phoneNo1 ||
-                                                'NA'}
-                                            </span>
+                  <LStallSalesBody
+        fetchLeadsLoader={fetchLeadsLoader}
+        selStatus={'all'}
+        rowsParent={[]}
+        selUserProfileF={selUserProfileF}
+        newArray={[]}
+        leadsFetchedData={filteredDataA}
+        mySelRows={filteredDataA}
+        searchVal={searchValue}
+                  />
 
-                                            <section className="flex flex-row justify-between">
-                                              <span className="  text-[10px] h-[20px]  text-[#005E36] font-bodyLato font-[600] mt-[2px] border border-[#ECFDF5]  py-[2px] rounded-xl mr-1 ">
-                                                {projName}{' '}
-                                              </span>
-
-                                              <span className="  text-[10px] h-[20px] text-[#005E36] font-bodyLato font-[600] mt-[2px] border border-[#ECFDF5] px-[6px] py-[2px] rounded-xl mr-1 ">
-                                                Booked:{' '}
-                                                {prettyDate(
-                                                  finData?.booked_on ||
-                                                    finData?.ct ||
-                                                    0
-                                                )}
-                                              </span>
-                                            </section>
-                                          </div>
-                                        </div>
-                                      </section>
-                                      {/* <span className=" text-[10px] h-[20px]  text-[#823d00] font-bodyLato font-[600] mt-[2px] bg-[#ffeccf] px-[6px] py-[2px] rounded-xl  mr-1">
-                                          {finData?.unit_type}
-
-                                        </span> */}
-                                      {/* <section className="flex flex-row mt-  ">
-
-                                        <section>
-                                          <span className="  text-[10px] h-[20px]  text-[#823d00] font-bodyLato font-[600] mt-[2px] bg-[#ffeccf] px-[6px] py-[2px] rounded-xl mr-1 ">
-
-                                            {finData?.area?.toLocaleString(
-                                              'en-IN'
-                                            )}{' '}
-                                            sqft
-                                          </span>
-
-                                          <span className="  text-[10px] h-[20px] text-[#823d00] font-bodyLato font-[600] mt-[2px] bg-[#ffeccf] px-[6px] py-[2px] rounded-xl mr-1 ">
-                                            {finData?.facing}
-                                          </span>
-                                          <span className=" text-[10px] h-[20px] text-[#823d00] font-bodyLato font-[600] mt-[2px] bg-[#ffeccf] px-[6px] py-[2px] rounded-xl mr-1 ">
-
-                                            ₹{' '}
-                                            {finData?.sqft_rate?.toLocaleString(
-                                              'en-IN'
-                                            )}
-                                            /sqft
-                                          </span>
-                                        </section>
-                                        <span className=" truncate text-[10px] h-[18px] text-[#823d00] font-bodyLato font-[600] mt-[5px] bg-[#ffeccf] px-[6px] py-[2px] rounded-xl mr-1 ">
-                                          {finData?.assignedToObj?.name ||
-                                            'Not Assigned'}
-                                        </span>
-
-                                      </section> */}
-                                    </section>
-                                  </section>
-                                </div>
-                              </div>
-                            </div>
-
-                            {/* check it  */}
-                            <div>
-                              <div className="flex flex-col  border rounded-lg my-1  px-2  pb-4 min-w-[340px] justify-between mr-1">
-                                <div className="flex flex-row justify-between mx- mb-1">
-                                  <section className="font-bodyLato font-semibold text-xs m-1 w-full">
-                                    <div className="mb-[2px] text-zinc-500 text-sm font-medium font-['Lato'] tracking-wide">
-                                      Stage Cost
-                                    </div>
-                                    <div className="text-zinc-800 text-[12px]  font-['Lato'] tracking-wide">
-                                      ₹
-                                      {finData?.T_elgible?.toLocaleString(
-                                        'en-IN'
-                                      )}
-                                    </div>
-                                  </section>
-                                  {/* section-2 */}
-                                  <section className="font-bodyLato font-semibold text-xs m-1 w-full">
-                                    <div className="mb-[2px] text-zinc-500 text-sm font-medium font-['Lato'] tracking-wide">
-                                      Paid
-                                      <span
-                                        title={`₹ ${(
-                                          finData?.T_review || 0
-                                        )?.toLocaleString(
-                                          'en-IN'
-                                        )} is in accounts review`}
-                                        className="ml-2 "
-                                      >
-                                        <InformationCircleIcon className="h-4 w-4 inline text-zinc-400" />
-                                      </span>
-                                    </div>
-                                    <div className="text-zinc-800 text-[12px] font-bold font-['Lato'] tracking-wide">
-                                      ₹
-                                      {(
-                                        (finData?.T_review || 0) +
-                                        (finData?.T_approved || 0)
-                                      )?.toLocaleString('en-IN')}
-                                    </div>
-                                  </section>
-                                  {/* section- 3 */}
-                                  <section className="font-bodyLato font-semibold text-xs m-1 w-full">
-                                    <div className="mb-[2px] text-zinc-500 text-sm font-medium font-['Lato'] tracking-wide">
-                                      Balance
-                                    </div>
-                                    <div className="text-zinc-800 text-[12px] font-bold font-['Lato'] tracking-wide">
-                                      ₹
-                                      {finData?.T_elgible_balance?.toLocaleString(
-                                        'en-IN'
-                                      )}
-                                    </div>
-                                  </section>
-                                </div>
-                                <div className="flex flex-row mx-1 pt-">
-                                  {[{ item: 'Paid', value: 7 }].map(
-                                    (data, i) => (
-                                      <div
-                                        className=" w-3/4  "
-                                        style={{
-                                          display: 'inline-block',
-                                          alignSelf: 'flex-end',
-                                        }}
-                                        key={i}
-                                      >
-                                        <div className="">
-                                          <LinearProgress
-                                            sx={{
-                                              backgroundColor: 'white',
-                                              '& .MuiLinearProgress-bar': {
-                                                backgroundColor: '#e3bdff',
-                                              },
-                                            }}
-                                            variant="determinate"
-                                            value={100}
-                                            style={{
-                                              backgroundColor: '#E5EAF2',
-                                              borderRadius: '3px',
-                                              borderTopRightRadius: '0px',
-                                              borderBottomRightRadius: '0px',
-                                              height: `${data.value}px`,
-                                              width: `100%`,
-                                            }}
-                                          />
-                                        </div>
-                                      </div>
-                                    )
-                                  )}
-                                  {[{ item: 'Due', value: 7 }].map(
-                                    (data, i) => (
-                                      <div
-                                        className=" w-2/4  "
-                                        style={{
-                                          display: 'inline-block',
-                                          alignSelf: 'flex-end',
-                                        }}
-                                        key={i}
-                                      >
-                                        <div className="">
-                                          <LinearProgress
-                                            sx={{
-                                              backgroundColor: 'white',
-                                              '& .MuiLinearProgress-bar': {
-                                                backgroundColor: '#E5E7EB',
-                                              },
-                                            }}
-                                            variant="determinate"
-                                            value={100}
-                                            style={{
-                                              backgroundColor: '#E5E7EB',
-                                              borderRadius: '3px',
-                                              borderTopLeftRadius: '0px',
-                                              borderBottomLeftRadius: '0px',
-                                              height: `${data.value}px`,
-                                              width: `100%`,
-                                            }}
-                                          />
-                                        </div>
-                                      </div>
-                                    )
-                                  )}
-                                </div>
-                              </div>
-                            </div>
-
-                            {/* other one */}
-                            <div>
-                              <div className="flex flex-col border rounded-xl my-1  px-2  py-2 pb-4 min-w-[140px] h-[75px] w-[240px] justify-between mx-">
-                                <div className="flex flex-row justify-between mx- mb-2">
-                                  <DoughnutChartWithRoundedSegments
-                                    progress={
-                                      (finData?.T_paid / finData?.T_total) *
-                                      100
-                                    }
-                                  />
-                                  <section className="font-bodyLato font-semibold text-xs m-1 w-[61%] ">
-                                    <section className="flex flex-col  w-full mt-">
-                                    <p className="flex flex-row justify-between text-zinc-500 text-[11px] font-normal font-['Lato'] tracking-wide">
-                                        Total Cost: ₹
-                                        <div>
-                                          {(
-                                            finData?.T_total || finData?.T_Total
-                                          )?.toLocaleString('en-IN')}
-                                        </div>
-                                      </p>
-
-                                      <div className="text-zinc-500 flex flex-row justify-between text-[11px] font-normal font-['Lato'] tracking-wide">
-                                        Paid: ₹
-                                        <div>
-                                          {' '}
-                                          {(
-                                            (finData?.T_review || 0) +
-                                            (finData?.T_approved || 0) +
-                                            (finData?.T_paid || 0)
-                                          ).toLocaleString('en-IN') || 0}
-                                        </div>
-                                      </div>
-
-                                      <div className="text-zinc-800 flex flex-row justify-between text-[11px] font-normal font-['Lato'] tracking-wide">
-                                        Balance:₹
-                                        <div className="text-zinc-900 text-[11px] font-bold  tracking-wide">
-                                          {finData?.T_balance?.toLocaleString(
-                                            'en-IN'
-                                          )}
-                                        </div>
-                                      </div>
-                                    </section>
-                                  </section>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="w-2/4  ">
-                              <div className="flex flex-col   rounded-md  py-1 ">
-                                <div className="flex flex-row  px-1">
-                                  {/* section 2 */}
-                                 {['booked', 'selCategory'].includes(selCategory) &&
-                                 <section>
-                                 <div
-                                    className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
-                                      finData?.man_cs_approval == 'approved'
-                                        ? 'bg-[#CCC5F7]'
-                                        : finData?.man_cs_approval == 'rejected'
-                                        ? 'bg-[#ffdbdb]'
-                                        : 'bg-[#F1F5F9] '
-                                    }  p-3 rounded-md mx-1`}
-                                    style={{
-                                      display: 'inline-block',
-                                      alignSelf: 'flex-end',
-                                    }}
-                                    onClick={() => {
-                                      setSelUnitDetails(finData)
-                                      setIsSubTopicOpen(true)
-                                      setIsSubTopic('crm_cs_approval')
-                                    }}
-                                  >
-                                    <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
-                                      <div className="flex flex-none items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
-                                        <ShoppingCartIcon
-                                          className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
-                                            finData?.man_cs_approval ===
-                                            'approved'
-                                              ? 'text-green-900'
-                                              : 'text-gray-600 '
-                                          }`}
-                                          aria-hidden="true"
-                                        />
-                                      </div>
-                                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                        AddOns
-                                      </h6>
-                                    </div>
-                                  </div>
-                                  {/* section 3*/}
-                                  <div
-                                    className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
-                                      finData?.kyc_status == 'approved'
-                                        ? 'bg-[#CCC5F7]'
-                                        : finData?.kyc_status == 'rejected'
-                                        ? 'bg-[#ffdbdb]'
-                                        : 'bg-[#F1F5F9] '
-                                    }  p-3 rounded-md mx-1`}
-                                    style={{
-                                      display: 'inline-block',
-                                      alignSelf: 'flex-end',
-                                    }}
-                                    onClick={() => {
-                                      setSelUnitDetails(finData)
-                                      setIsSubTopicOpen(true)
-                                      setIsSubTopic('crm_KYC')
-                                    }}
-                                  >
-                                    <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
-                                      <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                        <NewspaperIcon
-                                          className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
-                                            finData?.kyc_status == 'approved'
-                                              ? 'bg-[#CCC5F7]'
-                                              : finData?.kyc_status ==
-                                                'rejected'
-                                              ? 'bg-[#ffdbdb]'
-                                              : 'bg-[#F1F5F9] '
-                                          }`}
-                                          aria-hidden="true"
-                                        />
-                                      </div>
-                                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                        KYC
-                                      </h6>
-                                    </div>
-                                  </div>
-                                  </section>}
-                                   {[ 'agreement_pipeline'].includes(selCategory) &&
-                                 <section>
-                                 <div
-                                    className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
-                                      finData?.man_ats_approval == 'approved'
-                                        ? 'bg-[#CCC5F7]'
-                                        : finData?.man_ats_approval == 'rejected'
-                                        ? 'bg-[#ffdbdb]'
-                                        : 'bg-[#F1F5F9] '
-                                    }  p-3 rounded-md mx-1`}
-                                    style={{
-                                      display: 'inline-block',
-                                      alignSelf: 'flex-end',
-                                    }}
-                                    onClick={() => {
-                                      setSelUnitDetails(finData)
-                                      setIsSubTopicOpen(true)
-                                      setIsSubTopic('crm_ATS_Draft')
-                                    }}
-                                  >
-                                    <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
-                                      <div className="flex flex-none items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
-                                      <ChartPieIcon
-                                          className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
-                                            finData?.man_ats_approval ==
-                                            'approved'
-                                              ? 'bg-[#CCC5F7]'
-                                              : finData?.man_ats_approval ==
-                                                'rejected'
-                                              ? 'bg-[#ffdbdb]'
-                                              : 'bg-[#F1F5F9] '
-                                          }`}
-                                          aria-hidden="true"
-                                        />
-                                      </div>
-                                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                      ATS Draft
-                                      </h6>
-                                    </div>
-                                  </div>
-                                  {/* section 3*/}
-                                  <div
-                                    className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
-                                      finData?.kyc_status == 'approved'
-                                        ? 'bg-[#CCC5F7]'
-                                        : finData?.kyc_status == 'rejected'
-                                        ? 'bg-[#ffdbdb]'
-                                        : 'bg-[#F1F5F9] '
-                                    }  p-3 rounded-md mx-1`}
-                                    style={{
-                                      display: 'inline-block',
-                                      alignSelf: 'flex-end',
-                                    }}
-                                    onClick={() => {
-                                      setSelUnitDetails(finData)
-                                      setIsSubTopicOpen(true)
-                                      setIsSubTopic('crm_KYC')
-                                    }}
-                                  >
-                                    <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
-                                      <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                        <NewspaperIcon
-                                          className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
-                                            finData?.kyc_status == 'approved'
-                                              ? 'bg-[#CCC5F7]'
-                                              : finData?.kyc_status ==
-                                                'rejected'
-                                              ? 'bg-[#ffdbdb]'
-                                              : 'bg-[#F1F5F9] '
-                                          }`}
-                                          aria-hidden="true"
-                                        />
-                                      </div>
-                                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                        KYC
-                                      </h6>
-                                    </div>
-                                  </div>
-                                  </section>}
-                                   {['agreement'].includes(selCategory) &&
-                                 <section>
-                                 <div
-                                    className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
-                                      finData?.both_sd_approval == 'approved'
-                                        ? 'bg-[#CCC5F7]'
-                                        : finData?.both_sd_approval == 'rejected'
-                                        ? 'bg-[#ffdbdb]'
-                                        : 'bg-[#F1F5F9] '
-                                    }  p-3 rounded-md mx-1`}
-                                    style={{
-                                      display: 'inline-block',
-                                      alignSelf: 'flex-end',
-                                    }}
-                                    onClick={() => {
-                                      setSelUnitDetails(finData)
-                                      setIsSubTopicOpen(true)
-                                      setIsSubTopic('crm_SD_Approval')
-                                    }}
-                                  >
-                                    <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
-                                      <div className="flex flex-none items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
-                                        <ChartPieIcon
-                                          className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
-                                            finData?.both_sd_approval ===
-                                            'approved'
-                                              ? 'text-green-900'
-                                              : 'text-gray-600 '
-                                          }`}
-                                          aria-hidden="true"
-                                        />
-                                      </div>
-                                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                        SD Approval
-                                      </h6>
-                                    </div>
-                                  </div>
-                                  {/* section 3*/}
-                                  <div
-                                    className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
-                                      finData?.kyc_status == 'approved'
-                                        ? 'bg-[#CCC5F7]'
-                                        : finData?.kyc_status == 'rejected'
-                                        ? 'bg-[#ffdbdb]'
-                                        : 'bg-[#F1F5F9] '
-                                    }  p-3 rounded-md mx-1`}
-                                    style={{
-                                      display: 'inline-block',
-                                      alignSelf: 'flex-end',
-                                    }}
-                                    onClick={() => {
-                                      setSelUnitDetails(finData)
-                                      setIsSubTopicOpen(true)
-                                      setIsSubTopic('crm_KYC')
-                                    }}
-                                  >
-                                    <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
-                                      <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                        <NewspaperIcon
-                                          className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
-                                            finData?.kyc_status == 'approved'
-                                              ? 'bg-[#CCC5F7]'
-                                              : finData?.kyc_status ==
-                                                'rejected'
-                                              ? 'bg-[#ffdbdb]'
-                                              : 'bg-[#F1F5F9] '
-                                          }`}
-                                          aria-hidden="true"
-                                        />
-                                      </div>
-                                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                        Loan
-                                      </h6>
-                                    </div>
-                                  </div>
-                                  </section>}
-                                  {[ 'registered', 'possession'].includes(selCategory) &&
-                                 <section>
-                                 <div
-                                    className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
-                                      finData?.both_sd_approval == 'approved'
-                                        ? 'bg-[#CCC5F7]'
-                                        : finData?.both_sd_approval == 'rejected'
-                                        ? 'bg-[#ffdbdb]'
-                                        : 'bg-[#F1F5F9] '
-                                    }  p-3 rounded-md mx-1`}
-                                    style={{
-                                      display: 'inline-block',
-                                      alignSelf: 'flex-end',
-                                    }}
-                                    onClick={() => {
-                                      setSelUnitDetails(finData)
-                                      setIsSubTopicOpen(true)
-                                      setIsSubTopic('crm_posession')
-                                    }}
-                                  >
-                                    <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
-                                      <div className="flex flex-none items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
-                                        <ChartPieIcon
-                                          className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
-                                            finData?.both_sd_approval ===
-                                            'approved'
-                                              ? 'text-green-900'
-                                              : 'text-gray-600 '
-                                          }`}
-                                          aria-hidden="true"
-                                        />
-                                      </div>
-                                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                      Posession
-                                      </h6>
-                                    </div>
-                                  </div>
-                                  {/* section 3*/}
-                                  <div
-                                    className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
-                                      finData?.kyc_status == 'approved'
-                                        ? 'bg-[#CCC5F7]'
-                                        : finData?.kyc_status == 'rejected'
-                                        ? 'bg-[#ffdbdb]'
-                                        : 'bg-[#F1F5F9] '
-                                    }  p-3 rounded-md mx-1`}
-                                    style={{
-                                      display: 'inline-block',
-                                      alignSelf: 'flex-end',
-                                    }}
-                                    onClick={() => {
-                                      setSelUnitDetails(finData)
-                                      setIsSubTopicOpen(true)
-                                      setIsSubTopic('crm_KYC')
-                                    }}
-                                  >
-                                    <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
-                                      <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                        <NewspaperIcon
-                                          className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
-                                            finData?.kyc_status == 'approved'
-                                              ? 'bg-[#CCC5F7]'
-                                              : finData?.kyc_status ==
-                                                'rejected'
-                                              ? 'bg-[#ffdbdb]'
-                                              : 'bg-[#F1F5F9] '
-                                          }`}
-                                          aria-hidden="true"
-                                        />
-                                      </div>
-                                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                        Loan
-                                      </h6>
-                                    </div>
-                                  </div>
-                                  </section>}
-                                  {/* section 4*/}
-                                </div>
-                              </div>
-                            </div>
-
-
-                          </section>
-                        </section>
-                      )
-                    })}
+              
 
 
 
@@ -2051,6 +1547,18 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
         selSubMenu={selSubMenu}
         selSubMenu2={selSubMenu1}
       />
+      <SiderForm
+        open={isOpenAddLead}
+        setOpen={setIsOpenAddLead}
+        title={'Add Stall Lead'}
+        widthClass="max-w-4xl"
+      />
+       <SiderForm
+        open={isOpenBlukLead}
+        setOpen={setIsOpenBulkLead}
+        title={'Import Stall Lead'}
+        widthClass="max-w-4xl"
+      />
       <CrmSiderForm
         open={isSubTopicOpen}
         setOpen={setIsSubTopicOpen}
@@ -2067,4 +1575,4 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
   )
 }
 
-export default CrmRegisterModeHome
+export default CrmStallEnquiriesHome

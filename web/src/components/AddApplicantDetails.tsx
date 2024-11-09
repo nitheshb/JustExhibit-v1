@@ -20,7 +20,7 @@ import * as Yup from 'yup'
 
 import { statesList } from 'src/constants/projects'
 import {
-  addLead,
+  addStallLeads,
   updateLeadCustomerDetailsTo,
   checkIfLeadAlreadyExists,
   getAllProjects,
@@ -410,7 +410,7 @@ const handleIncomeChange = (e: React.ChangeEvent<HTMLInputElement>, field: keyof
       console.log('foundLENGTH IS empty ', foundLength)
 
       // proceed to copy
-      const createResp = await addLead(
+      const createResp = await addStallLeads(
         orgId,
         leadData,
         user?.email,

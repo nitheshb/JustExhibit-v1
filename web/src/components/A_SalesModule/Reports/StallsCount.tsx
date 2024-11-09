@@ -30,7 +30,7 @@ const data = [
   },
 ];
 
-const CountChart = () => {
+const StallsCount = () => {
   return (
     <div className="">
       <div className="">
@@ -81,4 +81,4 @@ const CountChart = () => {
   );
 };
 
-export default CountChart;
+export default StallsCount;

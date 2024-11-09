@@ -843,7 +843,7 @@ const CostBreakUpPdf = ({
                                       sqft)
                                     </th>
                                     <th className="w-[15%] px-2 text-[12px] text-right  tracking-wide">
-                                      Rate/Sqft
+                                      Rate/Sqm
                                     </th>
                                     <th
                                       className={`${
@@ -1020,7 +1020,7 @@ const CostBreakUpPdf = ({
                                       Additinal Charges
                                     </th>
                                     <th className="w-[15%] px-2 text-[12px] text-left font-bold text-right  tracking-wide ">
-                                      Rate/Sqft
+                                      Rate/Sqm
                                     </th>
                                     <th
                                       className={`${
@@ -1138,7 +1138,7 @@ const CostBreakUpPdf = ({
                                           sqft)
                                         </th>
                                         <th className="w-[15%] px-2 text-[12px] text-right  tracking-wide">
-                                          Rate/Sqft
+                                          Rate/Sqm
                                         </th>
                                         <th
                                           className={`${
@@ -1316,7 +1316,7 @@ const CostBreakUpPdf = ({
                                           Construction Additonal Charges
                                         </th>
                                         <th className="w-[15%] px-2 text-[12px] text-left font-bold text-right  tracking-wide ">
-                                          Rate/Sqft
+                                          Rate/Sqm
                                         </th>
                                         <th
                                           className={`${
@@ -1454,7 +1454,7 @@ const CostBreakUpPdf = ({
                                     Particulars
                                   </th>
                                   <th className="w-[15%] px-2 text-[10px] text-left font-bold text-right  tracking-wide uppercase ">
-                                    Rate/Sqft
+                                    Rate/Sqm
                                   </th>
                                   <th
                                     className={`${
@@ -1624,7 +1624,7 @@ const CostBreakUpPdf = ({
                             </section>
                           </div>
 
-                       
+
                         </section>
                       )}
                       {showOnly === 'payment_schedule' && (

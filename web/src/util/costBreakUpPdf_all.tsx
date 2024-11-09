@@ -528,7 +528,7 @@ const CostBreakUpPdfAll = ({
                             Particulars
                           </th>
                           <th className="w-[15%] text-[10px] text-right text-[#8993a4] font-bodyLato tracking-wide">
-                            Plot Rate/Sqft
+                            Plot Rate/Sqm
                           </th>
                           <th className="w-[15%] text-[10px] text-right text-[#8993a4] font-bodyLato tracking-wide">
                             Sale Value

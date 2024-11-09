@@ -1139,55 +1139,69 @@ return
               <section className="flex flex-row justify-between bg-[#D9d8ff] px-3 py-1 border border-[#e5e7f8] rounded-md ">
                 <section>
                   <section className="flex flex-row">
-                    <img
-                      src="https://static.ambitionbox.com/static/benefits/WFH.svg"
-                      alt=""
-                      className="w-10 h-10"
-                    />
-                    <p className="text-md font-bold text-[23px] tracking-tight uppercase font-body  ml-2 mt-2">
-                      {selCustomerPayload?.unit_no}
-                      {/* <span className="ml-2 font-normal text-green-800 text-xs px-2 py-[2px] bg-green-300 rounded-xl">
-                        Phase:{selCustomerPayload?.phaseId}{' '}
-                        <span className="text-[23px] mb-2">.</span>
-                        <span className="ml1">{selProjectIs?.value}</span>
-                      </span> */}
+
+                           <section className="bg-violet-100  items-center rounded-2xl shadow-xs flex flex-col px-2 py-1 min-w-[100px]">
+                                            <div className="font-semibold text-[#053219]  text-[22px]  mb-[1] tracking-wide">
+                                            {selCustomerPayload?.unit_no}
+                                            </div>
+                                            <span
+                                              className={`items-center h-6   text-xs font-semibold text-gray-500  rounded-full
+                      `}
+                                            >
+                                              Stall No
+                                            </span>
+                                          </section>
+
+
+                                          <div className="flex flex-col w-full  ml-2 item-right  px-2  mr-2 rounded-lg">
+                                            <span
+                                              className={`items-center h-1 mt-[2px] mb-2  text-xs font-semibold text-green-600
+                      `}
+                                            >
+                                              {selCustomerPayload?.companyName ||
+                                                'NA'}
+                                            </span>
+                                            <span
+                                              className={`items-center h-1 mt-[6px] mb-2  text-xs
+                      `}
+                                            >
+                                              {selCustomerPayload?.co_Name1 ||
+                                                'NA'}
+                                            </span>
+                                            <span
+                                              className={`items-center h-1 mt-[6px] mb-2  text-xs
+                      `}
+                                            >
+                                              {selCustomerPayload?.phoneNo1 ||
+                                                'NA'}
+                                            </span>
+
+                                            <section className="flex flex-row justify-between">
+                                              <span className="  text-[10px] h-[20px]  text-[#005E36] font-bodyLato font-[600] mt-[2px] border border-[#ECFDF5]  py-[2px] rounded-xl mr-1 ">
+                                                {/* {projName}{' '} */}
+                                              </span>
+
+                                              <span className="  text-[10px] h-[20px] text-[#005E36] font-bodyLato font-[600] mt-[2px] border border-[#ECFDF5] px-[6px] py-[2px] rounded-xl mr-1 ">
+                                                Booked:{' '}
+                                                {prettyDate(
+                                                  selCustomerPayload?.booked_on ||
+                                                  selCustomerPayload?.ct ||
+                                                    0
+                                                )}
+                                              </span>
+                                            </section>
+                                          </div>
+                    {/* <p className="text-md font-bold text-[23px] tracking-tight uppercase font-body  ml-2 mt-2">
+
+
 
                       <span className=" ml-2 text-[12px] h-[20px] text-[#823d00] font-bodyLato font-[600] mt-[2px] bg-[#ffeccf] px-[6px] py-[2px] rounded-xl mr-1 ">
                         Booked: {prettyDate(selCustomerPayload?.booked_on || 0)}
                       </span>
-                    </p>
+                    </p> */}
                   </section>
 
-                  <p className="text-xs tracking-tight uppercase font-body mt-[2px] ml-2 font-bold flex flex-row">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      aria-hidden="true"
-                      role="img"
-                      className="component-iconify MuiBox-root css-bla85z iconify iconify--solar mt-[2px] mr-[2px]"
-                      width="1em"
-                      height="1em"
-                      viewBox="0 0 24 24"
-                    >
-                      <g fill="currentColor">
-                        <circle cx="9.001" cy="6" r="4"></circle>
-                        <ellipse cx="9.001" cy="17.001" rx="7" ry="4"></ellipse>
-                        <path d="M21 17c0 1.657-2.036 3-4.521 3c.732-.8 1.236-1.805 1.236-2.998c0-1.195-.505-2.2-1.239-3.001C18.962 14 21 15.344 21 17ZM18 6a3 3 0 0 1-4.029 2.82A5.688 5.688 0 0 0 14.714 6c0-1.025-.27-1.987-.742-2.819A3 3 0 0 1 18 6.001Z"></path>
-                      </g>
-                    </svg>
-                    {selCustomerPayload?.customerDetailsObj?.customerName1} &{' '}
-                    {
-                      selCustomerPayload?.secondaryCustomerDetailsObj
-                        ?.customerName2
-                    }
-                  </p>
-                  <p className="text-xs tracking-tight  font-body my-[2px] ml-2">
-                    <span className="">
-                      {selCustomerPayload?.customerDetailsObj?.phoneNo1}
-                    </span>
-                    <span className="ml-2">
-                      {selCustomerPayload?.customerDetailsObj?.email1}
-                    </span>
-                  </p>
+
                 </section>
                 <section className="flex flex-row  h-[28px] mt-6">
                   <section className="flex flow-row justify-between mb-1 mr-2 py-[0px] px-[10px] bg-gradient-to-r from-[#E7E7E7] to-[#E7E7E7] text-black rounded-3xl items-center align-middle text-xs cursor-pointer hover:underline">

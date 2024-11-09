@@ -22,11 +22,13 @@ import {
   leadBinReasonList,
   sourceList,
   sourceListItems,
+  visitorsCategory
 } from 'src/constants/projects'
 import { USER_ROLES } from 'src/constants/userRoles'
 import {
   addCpLead,
   addStallLeads,
+  addVisitorRegistrations,
   checkIfLeadAlreadyExists,
   getAllProjects,
   steamUsersListByRole,
@@ -47,7 +49,7 @@ import AssigedToDropComp from './assignedToDropComp'
 import Loader from './Loader/Loader'
 import CustomDatePicker from 'src/util/formFields/CustomDatePicker'
 
-const AddLeadForm = ({ title, dialogOpen, customerDetails }) => {
+const AddVisitorsForm = ({ title, dialogOpen, customerDetails }) => {
   const d = new window.Date()
   const { user } = useAuth()
   const { enqueueSnackbar } = useSnackbar()
@@ -140,6 +142,8 @@ const AddLeadForm = ({ title, dialogOpen, customerDetails }) => {
 
     return unsubscribe
   }, [])
+
+
   useEffect(() => {
     const unsubscribe = getAllProjects(
       orgId,
@@ -164,10 +168,22 @@ const AddLeadForm = ({ title, dialogOpen, customerDetails }) => {
 
   const budgetList = [
     { label: 'Select Customer Budget', value: '' },
-    { label: '1 - 2 Lacs', value: '5-10L' },
     { label: '5 - 10 Lacs', value: '5-10L' },
-
-
+    { label: '10 - 20 Lacs', value: '10-20L' },
+    { label: '20 - 30 Lacs', value: '20-30L' },
+    { label: '30 - 40 Lacs', value: '30-40L' },
+    { label: '40 - 50 Lacs', value: '40-50L' },
+    { label: '50 - 60 Lacs', value: '50-60L' },
+    { label: '60 - 70 Lacs', value: '60-70L' },
+    { label: '70 - 80 Lacs', value: '70-80L' },
+    { label: '80 - 90 Lacs', value: '80-90L' },
+    { label: '90 - 100 Lacs', value: '90-100L' },
+    { label: '1.0 Cr - 1.1 Cr', value: '1-1.1C' },
+    { label: '1.1 Cr - 1.2 Cr', value: '1.1-1.2C' },
+    { label: '1.2 Cr - 1.3 Cr', value: '1.2-1.3C' },
+    { label: '1.3 Cr - 1.4 Cr', value: '1.3-1.4C' },
+    { label: '1.4 Cr - 1.5 Cr', value: '1.4-1.5C' },
+    { label: '1.5 + Cr', value: '1.5+' },
   ]
 
   const plans = [
@@ -232,17 +248,23 @@ const AddLeadForm = ({ title, dialogOpen, customerDetails }) => {
       source,
       project,
       projectId,
-      comment
     } = data
 
 
 
-console.log('submitted values are',data)
+
 
     const foundLength = await checkIfLeadAlreadyExists(
-      `${orgId}_stall_leads`,
+      `${orgId}_visitors`,
        mobileNo
     )
+
+
+
+
+
+
+
 
     const leadData = {
       Date: startDate.getTime(),
@@ -250,7 +272,7 @@ console.log('submitted values are',data)
       Mobile: mobileNo,
       countryCode: countryCode,
       Name: name,
-      Note: data?.comment || '',
+      Note: data?.comment,
       Event: project,
       ProjectId: projectId,
       Source: source,
@@ -289,7 +311,7 @@ console.log('submitted values are',data)
         )
       } else {
 
-        await addStallLeads(
+        await addVisitorRegistrations(
           orgId,
           leadData,
           user?.email,
@@ -361,7 +383,7 @@ console.log('submitted values are',data)
     <div className="h-full flex flex-col py-6 bg-white shadow-xl overflow-y-scroll">
       <div className="px-4 sm:px-6  z-10 flex items-center justify-between">
         <Dialog.Title className=" font-semibold text-xl mr-auto  text-[#053219]">
-          {title}
+          Add Visitor
         </Dialog.Title>
         {title == 'Edit to Push Lead' && (
           <Dialog.Title className=" font-semibold text-[14px]  text-[#053219]">
@@ -403,7 +425,7 @@ console.log('submitted values are',data)
                 deptVal: '',
                 myRole: '',
               }}
-              // validationSchema={validate}
+              validationSchema={validate}
               onSubmit={(values, { resetForm }) => {
                 console.log('ami submitted', values)
                 console.log('ami submitted 1', values.assignedTo === '')
@@ -417,7 +439,7 @@ console.log('submitted values are',data)
                       <div className="inline">
                         <div className="">
                           <label className="font-semibold text-[#053219]  text-sm  mb-1  ">
-                            Client Details<abbr title="required"></abbr>
+                            Visitor Details<abbr title="required"></abbr>
                           </label>
                         </div>
 
@@ -427,7 +449,7 @@ console.log('submitted values are',data)
                     <div className="md:flex flex-row md:space-x-4 w-full text-xs mt-2">
                       <div className="mb-3 space-y-2 w-full text-xs">
                         <TextField
-                          label="Customer Name"
+                          label="Visitor Name"
                           name="name"
                           type="text"
                         />
@@ -521,7 +543,7 @@ Mobile No
                       <div className="mb-3 space-y-2 w-full text-xs">
                         <span className="inline w-full">
                           <label className="label  font-regular mb-1 text-xs block">
-                            Enquiry Date
+                            Visit Date
                           </label>
 
 
@@ -639,7 +661,7 @@ Mobile No
                           <div className="w-full flex flex-col mb-3 mt-2">
                             <CustomSelect
                               name="source"
-                              label="Lead Source*"
+                              label="Visit Source*"
                               className="input mt-3"
                               onChange={(value) => {
                                 formik.setFieldValue('source', value.value)
@@ -670,7 +692,7 @@ Mobile No
                             <div className="w-full flex flex-col mb-3">
                               <CustomSelect
                                 name="assignedTo"
-                                label="Assign To"
+                                label="Visitor Category"
                                 className="input mt-"
                                 onChange={(value) => {
                                   console.log('value is ', value, user)
@@ -681,7 +703,7 @@ Mobile No
                                   formik.setFieldValue('assignedToObj', value)
                                 }}
                                 value={formik.values.assignedTo}
-                                options={usersList}
+                                options={visitorsCategory}
                               />
 
                               <p
@@ -705,7 +727,7 @@ Mobile No
                         <div className="">
                           <div className=" flex flex-col  mt-4  px-1 py-1 ">
                             <label className="font- text-[#053219]  text-sm mb-2">
-                              Type<abbr title="required"></abbr>
+                              Interested In<abbr title="required"></abbr>
                             </label>
                             <RadioGroup value={selected} onChange={typeSel}>
                               <div className="grid grid-cols-4 gap-4">
@@ -797,10 +819,28 @@ Mobile No
                             </RadioGroup>
                           </div>
                           <div className="md:flex md:flex-row md:space-x-4 w-full text-xs mt-3 mx-2">
-                          <div className="mb-3 space-y-2 w-full text-xs mt-3 pr-3">
+                            <div className="w-full flex flex-col mb-3 pr-2">
+                              <CustomSelect
+                                name="budget"
+                                label="Budget"
+                                className="input mt-3"
+                                onChange={(value) => {
+                                  formik.setFieldValue('budget', value.value)
+                                }}
+                                value={formik.values.budget}
+                                options={budgetList}
+                              />
+                              <p
+                                className="text-sm text-red-500 hidden mt-3"
+                                id="error"
+                              >
+                                Please fill out this field.
+                              </p>
+                            </div>
+                          </div>
+                          <div className="mb-3  w-full text-xs pl-2">
                         <TextField label="Comments" name="comment" type="text" />
                       </div>
-                          </div>
                         </div>
                         <div className="mb-8">
                           <p className="text-xs text-red-400 text-right my-3">
@@ -1101,7 +1141,7 @@ source={row.Source.toString()}
                                    disabled={loading}
                                  >
                                    {loading && <Loader />}
-                                   Add Lead
+                                   Add Visitor
                                  </button>
                                  <button
                                    className="mb-2 md:mb-0 bg-green-700 px-5 py-2 text-sm shadow-sm font-medium mr-10 tracking-wider text-white  rounded-sm hover:shadow-lg hover:bg-green-500"
@@ -1110,7 +1150,7 @@ source={row.Source.toString()}
                                    disabled={loading}
                                  >
                                    {loading && <Loader />}
-                                   Add Lead & Close
+                                   Add Visitor & Close
                                  </button>
                               </div>
 
@@ -1134,4 +1174,4 @@ source={row.Source.toString()}
   )
 }
 
-export default AddLeadForm
+export default AddVisitorsForm

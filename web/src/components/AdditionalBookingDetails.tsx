@@ -22,7 +22,7 @@ import { useRouterStateSetter } from '@redwoodjs/router/dist/router-context'
 
 import { sourceList } from 'src/constants/projects'
 import {
-  addLead,
+  addStallLeads,
   updateLeadCustomerDetailsTo,
   checkIfLeadAlreadyExists,
   getAllProjects,
@@ -231,7 +231,7 @@ const AdditonalBookingDetails = ({
       sourceOfPay,
       purpose,
       referralName,
-      
+
     }
 
 

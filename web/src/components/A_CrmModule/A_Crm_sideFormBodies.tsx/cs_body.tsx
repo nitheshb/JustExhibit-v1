@@ -468,7 +468,7 @@ const CSBody = ({
                                 Particulars
                               </th>
                               <th className="w-[15%] px-2 text-[10px] text-right  tracking-wide">
-                                Rate/Sqft
+                                Rate/Sqm
                               </th>
                               <th
                                 className={`${

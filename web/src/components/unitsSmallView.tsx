@@ -62,12 +62,7 @@ const UnitsSmallViewCard = ({ kind, feedData, bg,  setSelUnitDetails,
           {kind?.unit_no}
 
         </h3>
-        <span className="flex flex-row items-center justify-between mr-2">
-          <span className="text-[10px] font-">
-            {kind?.facing || ''}
-
-          </span>
-        </span>
+     
         {/* <DropCompUnitStatus
             type={'unitMode'}
             id={'id'}
@@ -77,7 +72,7 @@ const UnitsSmallViewCard = ({ kind, feedData, bg,  setSelUnitDetails,
       <div className="flex flex-row justify-between px-2">
         <span className="flex flex-row items-center justify-between mr-2">
           <span className="text-[10px] font-">
-            {kind?.super_built_up_area || kind?.area || 0} sqft
+            {kind?.super_built_up_area || kind?.area || 0} sqm
 
           </span>
         </span>
