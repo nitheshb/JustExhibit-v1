@@ -27,15 +27,24 @@ const TaskProgress = ({ userTodayPerfA }) => {
           </span>
         </div>
         <LinearProgress
+            sx={{
+              backgroundColor: 'white',
+              '& .MuiLinearProgress-bar': {
+                backgroundColor: '#e06349',
+              },
+            }}
           variant="determinate"
-          color="info"
+          // color="info"
           value={
             100
           }
           style={{
             backgroundColor: '#E5EAF2',
-            borderRadius: '3px',
-            height: '4px',
+            borderRadius: '6px',
+            borderTopRightRadius: '6px',
+            borderBottomRightRadius: '6px',
+            height: `10px`,
+            width: `100%`,
           }}
         />
       </Box>
@@ -50,15 +59,24 @@ const TaskProgress = ({ userTodayPerfA }) => {
           </span>
         </div>
         <LinearProgress
+            sx={{
+              backgroundColor: 'white',
+              '& .MuiLinearProgress-bar': {
+                backgroundColor: '#f0c1b7'
+              },
+            }}
           variant="determinate"
-          color="info"
+          // color="info"
           value={
-            20
+            60
           }
           style={{
             backgroundColor: '#E5EAF2',
-            borderRadius: '3px',
-            height: '4px',
+            borderRadius: '6px',
+            borderTopRightRadius: '6px',
+            borderBottomRightRadius: '6px',
+            height: `10px`,
+            width: `100%`,
           }}
         />
       </Box>
@@ -77,16 +95,24 @@ const TaskProgress = ({ userTodayPerfA }) => {
           </span>
         </div>
         <LinearProgress
-          value={
-           60
-          }
-          color="warning"
+            sx={{
+              backgroundColor: 'white',
+              '& .MuiLinearProgress-bar': {
+                backgroundColor: '#f0c1b7',
+              },
+            }}
           variant="determinate"
+          // color="info"
+          value={
+            60
+          }
           style={{
             backgroundColor: '#E5EAF2',
-            borderRadius: '3px',
-            height: '4px',
-            color: '#FFE91F',
+            borderRadius: '6px',
+            borderTopRightRadius: '6px',
+            borderBottomRightRadius: '6px',
+            height: `10px`,
+            width: `100%`,
           }}
         />
       </Box>
@@ -101,16 +127,24 @@ const TaskProgress = ({ userTodayPerfA }) => {
           </span>
         </div>
         <LinearProgress
+            sx={{
+              backgroundColor: 'white',
+              '& .MuiLinearProgress-bar': {
+                backgroundColor: '#f0c1b7',
+              },
+            }}
           variant="determinate"
+          // color="info"
           value={
-           30
+            60
           }
-          color="success"
           style={{
-            borderRadius: '3px',
-            height: '4px',
-            color: '#FD396D',
             backgroundColor: '#E5EAF2',
+            borderRadius: '6px',
+            borderTopRightRadius: '6px',
+            borderBottomRightRadius: '6px',
+            height: `10px`,
+            width: `100%`,
           }}
         />
       </Box>

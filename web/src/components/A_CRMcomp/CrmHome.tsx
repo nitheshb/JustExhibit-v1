@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-
+import { Search, Bell, Plus, Filter, ArrowRight } from 'lucide-react';
 import { CleaningServicesRounded } from '@mui/icons-material'
 import { TabList } from '@mui/lab'
 import { Box, Card, Grid, styled } from '@mui/material'
@@ -195,8 +195,8 @@ const CrmHome = ({ setisImportLeadsOpen, selUserProfileF, taskType }) => {
   return (
     <div className="flex  flex-row mt-1  text-gray-700">
       <div className="flex-1  overflow-auto">
-        <div className='p-0 px-0'>
-          <TodayLeadsActivitySearchView
+        <div className='p-6 bg-[#F9FAFB] rounded-xl'>
+          {/* <TodayLeadsActivitySearchView
             moduleName={"Stalls"}
             data={filterTable}
             searchKey={searchKey}
@@ -208,7 +208,101 @@ const CrmHome = ({ setisImportLeadsOpen, selUserProfileF, taskType }) => {
             rowsParent={leadsFetchedData}
             selUserProfileF={selUserProfileF}
             taskType={taskType}
+          /> */}
+
+<div className="mb-8">
+          <div className="flex items-center justify-between mb-">
+            <h1 className="text-2xl font-semibold">Dashboard</h1>
+            <div className="flex items-center gap-2">
+              {/* <button className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200 hover:bg-gray-50">
+                <Filter size={16} />
+                Filters
+              </button> */}
+              <button className="px-4 py-2 bg-black text-white rounded-lg">
+                Add Widget
+              </button>
+            </div>
+          </div>
+          <p className="text-gray-500 text-xs">Track your sales and performance of your strategy</p>
+        </div>
+
+        <div className="grid grid-cols-3 gap-6 mb-8">
+          <StatCard
+            title="Product overview"
+            value="$43,630"
+            subtext="vs last month"
+            change="+5.3%"
+            changeType="positive"
           />
+          <StatCard
+            title="Active sales"
+            value="$27,064"
+            subtext="vs last month"
+            change="+2.4%"
+            changeType="positive"
+          />
+          <StatCard
+            title="Product Revenue"
+            value="$16,568"
+            subtext="vs last month"
+            change="+3.2%"
+            changeType="positive"
+          />
+        </div>
+
+        <div className="grid grid-cols-3 gap-6">
+          <div className="col-span-2 ">
+            <section className='rounded-xl bg-white p-6 mb-8'>
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-gray-600 text-sm flex items-center gap-1">
+                Analytics
+                <span className="w-4 h-4 rounded-full bg-gray-100 flex items-center justify-center text-xs">?</span>
+              </h3>
+              <div className="flex items-center gap-4">
+                <select className="px-4 py-2 rounded-lg border border-gray-200">
+                  <option>This year</option>
+                </select>
+                <button className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200">
+                  <Filter size={16} />
+                  Filters
+                </button>
+              </div>
+            </div>
+            <VisitsCard />
+
+            </section>
+              <section className='rounded-xl bg-white p-6'>
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-gray-600 text-sm flex items-center gap-1">
+                Analytics
+                <span className="w-4 h-4 rounded-full bg-gray-100 flex items-center justify-center text-xs">?</span>
+              </h3>
+              <div className="flex items-center gap-4">
+                <select className="px-4 py-2 rounded-lg border border-gray-200">
+                  <option>This year</option>
+                </select>
+                <button className="flex items-center gap-2 px-4 py-2 rounded-lg border border-gray-200">
+                  <Filter size={16} />
+                  Filters
+                </button>
+              </div>
+            </div>
+            <AnalyticsChart />
+            </section>
+          </div>
+
+          <div className="space-y-6">
+            <StatCard
+              title="Sales Performance"
+              value="17.9%"
+              subtext="Since yesterday"
+              change="+4.3%"
+              changeType="positive"
+            />
+            <VisitsCard />
+            <TopProducts />
+          </div>
+        </div>
         </div>
       </div>
     </div>
@@ -216,3 +310,255 @@ const CrmHome = ({ setisImportLeadsOpen, selUserProfileF, taskType }) => {
 }
 
 export default CrmHome
+
+
+
+interface StatCardProps {
+  title: string;
+  value: string;
+  subtext: string;
+  change: string;
+  changeType: 'positive' | 'negative';
+  chart?: React.ReactNode;
+}
+
+export function StatCard({ title, value, subtext, change, changeType, chart }: StatCardProps) {
+  return (
+    <div className="bg-white rounded-xl p-6 flex flex-col">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="text-gray-600 text-sm flex items-center gap-1">
+          {title}
+          <span className="w-4 h-4 rounded-full bg-gray-100 flex items-center justify-center text-xs">?</span>
+        </h3>
+      </div>
+
+      <div className="flex items-end justify-between">
+        <div>
+          <h2 className="text-2xl font-semibold mb-1">{value}</h2>
+          <p className="text-sm text-gray-500 flex items-center gap-2">
+            {subtext}
+            <span className={`${
+              changeType === 'positive' ? 'text-green-500' : 'text-red-500'
+            }`}>
+              {change}
+            </span>
+          </p>
+        </div>
+        {chart}
+      </div>
+
+      <button className="mt-4 text-sm text-gray-600 flex items-center gap-1 hover:text-gray-800">
+        See Details
+        <ArrowRight size={16} />
+      </button>
+    </div>
+  );
+}
+export  function AnalyticsChart() {
+  // Simplified chart implementation
+  return (
+    <div className="w-full h-64 mt-4">
+      <div className="relative h-full">
+        {/* Chart background */}
+        <div className="absolute inset-0 bg-gradient-to-b from-orange-50/50 to-transparent rounded-lg" />
+
+        {/* Chart line */}
+        <div className="absolute inset-0 flex items-end">
+          <div className="w-full h-1/2 bg-orange-500/20 rounded-lg relative overflow-hidden">
+            <div className="absolute bottom-0 left-0 w-full h-[2px] bg-orange-500" />
+
+            {/* Data points */}
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div
+                key={i}
+                className="absolute bottom-0 w-2 h-2 bg-orange-500 rounded-full"
+                style={{
+                  left: `${(i * 100) / 7}%`,
+                  bottom: `${Math.random() * 100}%`
+                }}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+
+const days = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
+const hours = Array.from({ length: 24 }, (_, i) => i);
+
+// Generate sample data
+const generateHeatmapData = () => {
+  return days.map(() =>
+    hours.map(() => Math.floor(Math.random() * 5))
+  );
+};
+
+export  function VisitsCard() {
+  const data = generateHeatmapData();
+
+  return (
+    <div className="bg-white rounded-xl p-6">
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center gap-2">
+          <h3 className="text-gray-600 text-sm flex items-center gap-1">
+            Total visits by hourly
+            <span className="w-4 h-4 rounded-full bg-gray-100 flex items-center justify-center text-xs">?</span>
+          </h3>
+        </div>
+        <button className="text-sm text-orange-500 flex items-center gap-1 hover:text-orange-600">
+          See Details
+          <ArrowRight size={16} />
+        </button>
+      </div>
+
+      <div className="flex items-center gap-2 mb-4">
+        <div className="text-2xl font-semibold">288,822</div>
+        <span className="text-green-500 text-sm">+3.5%</span>
+      </div>
+
+      <div className="relative overflow-x-auto">
+        <div className="flex text-xs text-gray-400 mb-2">
+          {days.map((day) => (
+            <div key={day} className="flex-1 text-center">{day}</div>
+          ))}
+        </div>
+
+        <div className="relative">
+          {data.map((row, rowIndex) => (
+            <div key={rowIndex} className="flex mb-1">
+              {row.map((value, colIndex) => (
+                <div
+                  key={colIndex}
+                  className={`flex-1 aspect-square m-0.5 rounded ${
+                    value === 0
+                      ? 'bg-gray-50'
+                      : value === 1
+                      ? 'bg-orange-100'
+                      : value === 2
+                      ? 'bg-orange-200'
+                      : value === 3
+                      ? 'bg-orange-300'
+                      : 'bg-orange-400'
+                  }`}
+                />
+              ))}
+            </div>
+          ))}
+
+          {/* Highlight overlay */}
+          <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-[calc(100%/7-2px)] h-full bg-orange-500/10 rounded border border-orange-500" />
+        </div>
+
+        <div className="mt-2 flex justify-between text-xs text-gray-400">
+          <span>12:00 AM</span>
+          <span>12:00 PM</span>
+          <span>11:59 PM</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+
+
+const products = [
+  {
+    id: 'SKF533',
+    name: 'Bird Shorts',
+    category: 'Summer Knits',
+    sales: 197,
+    revenue: '$1,890',
+    stock: 120,
+    status: 'In stock'
+  },
+  {
+    id: 'SKF534',
+    name: 'T-Shirts, Max',
+    category: 'Summer Knits',
+    sales: 540,
+    revenue: '$2,889',
+    stock: 100,
+    status: 'Out of stock'
+  }
+];
+
+export  function TopProducts() {
+  return (
+    <div className="bg-white rounded-xl p-6">
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center gap-2">
+          <h3 className="text-gray-600 text-sm flex items-center gap-1">
+            Top Products
+            <span className="w-4 h-4 rounded-full bg-gray-100 flex items-center justify-center text-xs">?</span>
+          </h3>
+        </div>
+        <button className="text-sm text-orange-500 flex items-center gap-1 hover:text-orange-600">
+          See Details
+          <ArrowRight size={16} />
+        </button>
+      </div>
+
+      <div className="overflow-x-auto">
+        <table className="w-full">
+          <thead>
+            <tr className="text-xs text-gray-500 border-b border-gray-100">
+              <th className="text-left font-normal pb-3">Product</th>
+              <th className="text-left font-normal pb-3">Sales</th>
+              <th className="text-left font-normal pb-3">Revenue</th>
+              <th className="text-left font-normal pb-3">Stock</th>
+              <th className="text-left font-normal pb-3">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {products.map((product, idx) => (
+              <tr key={idx} className="text-sm border-b border-gray-50 last:border-0">
+                <td className="py-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center">
+                      <span className="text-xs text-orange-500">🛍️</span>
+                    </div>
+                    <div>
+                      <p className="font-medium">{product.name}</p>
+                      <p className="text-xs text-gray-500">{product.category}</p>
+                    </div>
+                  </div>
+                </td>
+                <td className="py-3">
+                  <div className="flex flex-col">
+                    <span>{product.sales}</span>
+                    <span className="text-xs text-gray-500">pcs</span>
+                  </div>
+                </td>
+                <td className="py-3">
+                  <div className="flex flex-col">
+                    <span>{product.revenue}</span>
+                    <span className="text-xs text-gray-500">USD</span>
+                  </div>
+                </td>
+                <td className="py-3">
+                  <div className="flex flex-col">
+                    <span>{product.stock}</span>
+                    <span className="text-xs text-gray-500">pcs</span>
+                  </div>
+                </td>
+                <td className="py-3">
+                  <span className={`px-2 py-1 rounded-full text-xs ${
+                    product.status === 'In stock'
+                      ? 'bg-green-50 text-green-600'
+                      : 'bg-red-50 text-red-600'
+                  }`}>
+                    {product.status}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}

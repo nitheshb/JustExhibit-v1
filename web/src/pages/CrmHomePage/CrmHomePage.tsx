@@ -403,7 +403,7 @@ const CrmHomePage = () => {
               </div>
 
               <div className="pr-2">
-                {(viewable === 'CrmTasks' || viewable === 'Home') && (
+                {(viewable === 'CrmHome' || viewable === 'Home') && (
                   <CrmHome leadsTyper={undefined} />
                 )}
                 {/* {viewable === 'CrmTeamTasks' && (

@@ -880,7 +880,7 @@ export default function TodayLeadsActivitySearchView({
 
           <div className="w-[700px] border shadow rounded-xl"> <TaskProgress />
           </div>
-          <div className="w-[410px]">
+          <div className="w-[410px] border shadow rounded-xl">
             <CountChart />
             </div>
 

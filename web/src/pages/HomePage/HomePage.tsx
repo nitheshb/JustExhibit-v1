@@ -36,6 +36,7 @@ import HeadNavBar from '../../components/HeadNavBar/HeadNavBar'
 import HeadSideBar from '../../components/HeadSideBar/HeadSideBar'
 import ProjectsMHomeBody from '../../components/ProjectsMHomeBody/ProjectsMHomeBody'
 import SiderForm from '../../components/SiderForm/SiderForm'
+import { ProjectCard } from 'src/components/A_ProjModule/ProjectCardNew'
 
 const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -562,10 +563,10 @@ const HomePage = () => {
                                                 </button>
                                               </div>
                                             </div>
-                                            <section className="">
+
+                                            <section className="grid gap-6">
                                               {projects.map((project) => (
-                                                <ProjectsMHomeBody
-                                                  key={project.uid}
+                                                  <ProjectCard key={project.uid}
                                                   project={project}
                                                   setProject={setProject}
                                                   onSliderOpen={() => {
@@ -573,9 +574,42 @@ const HomePage = () => {
                                                     setIsEditProjectOpen(true)
                                                   }}
                                                   isEdit={false}
+                                                  name="Esperanza"
+
+                                                  type="Plots"
+                                                  price="₹2,100/sqft"
+                                                  stats={{
+                                                    total: 3,
+                                                    available: 1,
+                                                    sold: 2,
+                                                    blocked: 0
+                                                  }}
+                                                  pipeline={{
+                                                    registration: 0,
+                                                    booking: 1,
+                                                    construction: 0,
+                                                    possession: 0
+                                                  }}
+                                                  transactions={{
+                                                    total: "₹0",
+                                                    sale: "₹0",
+                                                    balance: "₹2,000",
+                                                    refunds: "₹0"
+                                                  }}
                                                 />
+                                                // <ProjectsMHomeBody
+                                                //   key={project.uid}
+                                                //   project={project}
+                                                //   setProject={setProject}
+                                                //   onSliderOpen={() => {
+                                                //     setProject(project)
+                                                //     setIsEditProjectOpen(true)
+                                                //   }}
+                                                //   isEdit={false}
+                                                // />
                                               ))}
                                             </section>
+                                      
                                           </section>
                                         ) : (
                                           <span
