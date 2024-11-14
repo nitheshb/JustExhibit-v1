@@ -3,6 +3,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { useEffect, useState } from 'react'
+import { Facebook, Instagram, Twitter, Search, Settings, Bell, Plus, Download, ExternalLink } from 'lucide-react';
 
 import { PlusCircleIcon, TrashIcon } from '@heroicons/react/outline'
 import PencilIcon from '@heroicons/react/solid/PencilIcon'
@@ -60,42 +61,54 @@ const MarkeingMessagesList = ({ title, pId, data }) => {
 
   return (
     <>
-      <div className="flex overflow-x-auto ml-2  border-b pb-2">
-        <section className="mt-4">Templates</section>
-        {[
+       <div className="flex justify-between items-center mb-6">
+          <div>
+            <h1 className="text-2xl font-semibold mb-2">Masters Setup</h1>
+            <p className="text-gray-600">This area is usually used to setting up values for the dropdowns and other resuable options</p>
+          </div>
+          <div className="flex space-x-3">
+            <button className="flex items-center px-4 py-2 border rounded-lg hover:bg-gray-50">
+              <Download className="w-4 h-4 mr-2" />
+              Export
+            </button>
+            <button className="flex items-center px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-800">
+              <Plus className="w-4 h-4 mr-2" />
+              Create Integration
+            </button>
+          </div>
+        </div>
+
+             {/* Tabs */}
+             <div className="flex items-center space-x-1 mb-6 border-b">
+          {[
           { label: 'Enquiry Journey Status', value: 'enquiry_journey_status' },
           { label: 'Stalls', value: 'CRM_status' },
           { label: 'Legal', value: 'Legal_status' },
           { label: 'Finance', value: 'Finance_status' },
           { label: 'HR', value: 'hr_status' },
           { label: 'Sources', value: 'source' },
-        ].map((data, i) => {
-          return (
-            <section
+        ].map((data, i) => (
+            <button
               key={i}
-              className="flex  mt-[18px]"
-              onClick={() => {
-                console.log('am i clicked', data.value)
-                setSelCat(data.value)
-              }}
+              onClick={() =>     setSelCat(data.value)}
+              className={`px-4 py-2 ${
+                selCat === data.value
+                  ? 'border-b-2 border-black text-black'
+                  : 'text-gray-500 hover:text-black'
+              }`}
             >
-              <button>
-                <span
-                  className={`flex ml-2 items-center h-6 px-3 text-xs  ${
-                    selCat === data.value
-                      ? 'font-normal text-green-800 bg-[#FFEDEA]'
-                      : 'font-normal text-black-100 bg-[#f0f8ff]'
-                  }  rounded-full`}
-                >
-                  {/* <PencilIcon className="h-3 w-3 mr-1" aria-hidden="true" /> */}
-                  <img alt="" src="/temp2.png" className="h-3 w-3 mr-1" />
-                  {data?.label}
-                </span>
-              </button>
-            </section>
-          )
-        })}
-      </div>
+              {data.value === 'Masters' && (
+                <span className="inline-block w-2 h-2 bg-green-500 rounded-full mr-2"></span>
+              )}
+              <section className="flex flex-row">
+               <img alt="" src="/temp2.png" className="h-4 w-4 mr-1 mt-[5px]" />
+
+              {data.label}
+              </section>
+            </button>
+          ))}
+        </div>
+    
       {selCat === 'source' && (
         <div className="w-full   flex-row">
           <section className="m-4 inline-block">

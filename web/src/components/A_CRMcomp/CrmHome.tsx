@@ -229,21 +229,21 @@ const CrmHome = ({ setisImportLeadsOpen, selUserProfileF, taskType }) => {
         <div className="grid grid-cols-3 gap-6 mb-8">
           <StatCard
             title="Product overview"
-            value="$43,630"
+            value="₹43,630"
             subtext="vs last month"
             change="+5.3%"
             changeType="positive"
           />
           <StatCard
             title="Active sales"
-            value="$27,064"
+            value="₹27,064"
             subtext="vs last month"
             change="+2.4%"
             changeType="positive"
           />
           <StatCard
             title="Product Revenue"
-            value="$16,568"
+            value="₹16,568"
             subtext="vs last month"
             change="+3.2%"
             changeType="positive"

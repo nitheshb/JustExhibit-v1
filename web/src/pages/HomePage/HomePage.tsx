@@ -37,6 +37,7 @@ import HeadSideBar from '../../components/HeadSideBar/HeadSideBar'
 import ProjectsMHomeBody from '../../components/ProjectsMHomeBody/ProjectsMHomeBody'
 import SiderForm from '../../components/SiderForm/SiderForm'
 import { ProjectCard } from 'src/components/A_ProjModule/ProjectCardNew'
+import ProjectIntegrationsHome from 'src/components/A_ProjModule/ProjIntegrations'
 
 const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -410,7 +411,7 @@ const HomePage = () => {
                   {/*Registration Executive Notifications border */}
                   <div className="mt-1 mx-1">
                     <section className="w-full py-4  leading-7 text-gray-900 bg-white  rounded-md">
-                      <div className="box-border px-4 mx-auto border-solid sm:px-6 md:px-6 lg:px-8 max-w-full ">
+                      <div className="box-border px-4 mx-auto border-solid sm:px-6 md:px-6 lg:px-8 max-w-7xl mx-auto px-6 py-8 ">
                         <div className="flex flex-col  leading-7  text-gray-900 border-0 border-gray-200 ">
                           <ProjectMastersSetupHome
                             title={'WhatsApp Message Templates'}
@@ -425,8 +426,8 @@ const HomePage = () => {
                 <>
                   {/*Registration Executive Notifications border */}
                   <div className="mt-1 mx-1">
-                    <section className="w-full py-4  leading-7 text-gray-900 bg-white  rounded-md">
-                      <div className="box-border px-4 mx-auto border-solid sm:px-6 md:px-6 lg:px-8 max-w-full ">
+                    <section className="w-full py-4  leading-7 text-gray-900 bg-white  rounded-md border pr-2">
+                      <div className="box-border px-4 mx-auto border-solid sm:px-6 md:px-6 lg:px-8 max-w-7xl mx-auto px-6 py-8 ">
                         <div className="flex flex-col  leading-7  text-gray-900 border-0 border-gray-200 ">
                           <MarkeingMessagesList
                             title={'WhatsApp Message Templates'}
@@ -501,8 +502,16 @@ const HomePage = () => {
               {(viewable === 'Home' || viewable === 'MyProjectTasks') && (
                 <ProjectsTaskHome leadsTyper={undefined} />
               )}
+               {(viewable === 'Integrations' || viewable === 'MyProjectTasks') && (
+                // <ProjectsTaskHome leadsTyper={undefined} />
+                <ProjectIntegrationsHome />
+
+              )}
               {viewable != 'inProgress' &&
                 viewable != 'Home' &&
+                viewable != 'Integrations' &&
+
+
                 viewable != 'MyProjectTasks' &&
                 viewable != 'Events Lead Report' &&
                 viewable != 'Campaign Budget Report' &&
@@ -541,7 +550,7 @@ const HomePage = () => {
                                                   onClick={() =>
                                                     setIsNewProjectOpen(true)
                                                   }
-                                                  className="flex items-center justify-center h-8 px-4  bg-gray-200 ml-auto text-sm font-medium rounded hover:bg-gray-300"
+                                                  className="flex items-center justify-center h-8 px-4  bg-gray-200 ml-auto text-sm font-medium rounded-2xl hover:bg-gray-300"
                                                 >
                                                   <svg
                                                     className="w-5 h-5"
@@ -609,7 +618,7 @@ const HomePage = () => {
                                                 // />
                                               ))}
                                             </section>
-                                      
+
                                           </section>
                                         ) : (
                                           <span
