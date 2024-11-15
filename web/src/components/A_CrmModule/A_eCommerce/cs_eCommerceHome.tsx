@@ -44,6 +44,7 @@ import chair3 from '../../../../public/chair3.png'
 import chair4 from '../../../../public/chair4.png'
 import table from '../../../../public/table.png'
 import tv from '../../../../public/tv.png'
+import { Cart } from './cart'
 
 
 
@@ -56,13 +57,13 @@ const productData = [
     image: chair1
   },
 
-  // {
-  //   id: 2,
-  //   name: "POANG",
-  //   description: "Armchair, birch",
-  //   price: 12990,
-  //   image: chair
-  // },
+  {
+    id: 2,
+    name: "POANG",
+    description: "Armchair, birch",
+    price: 12990,
+    image: chair
+  },
   {
     id: 3,
     name: "BILLY",
@@ -77,14 +78,55 @@ const productData = [
     price: 24990,
     image: tv
   },
-  // {
-  //   id: 5,
-  //   name: "KALLAX",
-  //   description: "Shelf unit, white",
-  //   price: 7990,
-  //   image: chair4
-  // },
-
+  {
+    id: 5,
+    name: "KALLAX",
+    description: "Shelf unit, white",
+    price: 7990,
+    image: chair4
+  },
+  {
+    id: 6,
+    name: "KALLAX",
+    description: "Shelf unit, white",
+    price: 7990,
+    image: chair4
+  },
+  {
+    id: 7,
+    name: "KALLAX",
+    description: "Shelf unit, white",
+    price: 7990,
+    image: chair4
+  },
+  {
+    id: 8,
+    name: "KALLAX",
+    description: "Shelf unit, white",
+    price: 7990,
+    image: chair4
+  },
+  {
+    id: 9,
+    name: "KALLAX",
+    description: "Shelf unit, white",
+    price: 7990,
+    image: chair4
+  },
+  {
+    id: 10,
+    name: "KALLAX",
+    description: "Shelf unit, white",
+    price: 7990,
+    image: chair4
+  },
+  {
+    id: 11,
+    name: "KALLAX",
+    description: "Shelf unit, white",
+    price: 7990,
+    image: chair4
+  },
 
 ];
 
@@ -101,6 +143,38 @@ export default function EcommerceHome({ type, setStatusFun , selUnitPayload}) {
   if (!user?.role?.includes(USER_ROLES.ADMIN)) {
     return null
   }
+
+  const [cart, setCart] = useState([]);
+
+  const addToCart = (product) => {
+    console.log('ami hre')
+    setCart(prevCart => {
+      const existingItem = prevCart.find(item => item.id === product.id);
+      if (existingItem) {
+        return prevCart.map(item =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      }
+      return [...prevCart, { ...product, quantity: 1 }];
+    });
+  };
+
+  const updateQuantity = (productId: number, delta: number) => {
+    setCart(prevCart => {
+      return prevCart.reduce((acc, item) => {
+        if (item.id === productId) {
+          const newQuantity = item.quantity + delta;
+          if (newQuantity <= 0) return acc;
+          return [...acc, { ...item, quantity: newQuantity }];
+        }
+        return [...acc, item];
+      }, [] );
+    });
+  };
+
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   return (
     <section className="bg-white w-full md:px-10 md:mb-20 pb-[250px] overflow-auto no-scrollbar  h-[100%] overflow-y-scroll">
       <div className="max-w-3xl mx-auto py-4 text-sm text-gray-700">
@@ -109,7 +183,7 @@ export default function EcommerceHome({ type, setStatusFun , selUnitPayload}) {
           <div className="p-2 bg-gradient-to-r from-violet-50 to-pink-50 rounded-md flex flex-row justify-between">
             <h2 className="font-medium flex-grow">Ecommerce</h2>
             <p className="text-md text-[10px] flex-grow text-right">
-              Waiting for {' '}
+              Waiting for {' '} {cart.length} || {total}
             </p>
           </div>
         </div>
@@ -123,31 +197,33 @@ export default function EcommerceHome({ type, setStatusFun , selUnitPayload}) {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 bg-white">
         {productData.map((product) => (
           <div key={product.id} className="flex flex-col bg-white hover:shadow-lg transition-shadow duration-200 rounded-lg">
-            
+
             <div className="relative aspect-square bg-gray-50">
-              <img 
-                src={product.image} 
+              <img
+                src={product.image}
                 alt={product.name}
                 className="w-full h-full object-contain"
               />
-    
+
             </div>
-            
-            
+
+
             <div className="space-y-2 p-4">
               <h2 className="text-lg font-semibold text-gray-900 line-clamp-1">{product.name}</h2>
               <p className="text-sm text-gray-600 line-clamp-2">{product.description}</p>
-              
-              
+
+
               <div className="flex items-baseline space-x-1 pt-1">
                 <span className="text-sm font-medium text-gray-900">Rs.</span>
                 <span className="text-xl font-bold text-gray-900">{product.price.toLocaleString()}</span>
               </div>
-              
-      
-              
-              
-              <button className="w-full rounded-lg bg-blue-600 text-white px-4 py-2.5 text-sm font-medium hover:bg-blue-700 transition-colors mt-4">
+
+
+
+
+              <button className="w-full rounded-lg bg-blue-600 text-white px-4 py-2.5 text-sm font-medium hover:bg-blue-700 transition-colors mt-4"
+                 onClick={() => addToCart(product)}
+              >
                 Add to cart
               </button>
             </div>
@@ -160,13 +236,19 @@ export default function EcommerceHome({ type, setStatusFun , selUnitPayload}) {
 
 
 
-   
+<section className='max-w-7xl'>
 
+    <Cart
+        cart={cart}
+        onUpdateQuantity={updateQuantity}
+        total={total}
+      />
+      </section>
 
-        
 
 
       </div>
+
     </section>
   )
 }

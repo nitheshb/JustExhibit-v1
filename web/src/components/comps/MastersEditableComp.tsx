@@ -1458,21 +1458,11 @@ if (title === 'Villa Type Category') {
   }
   return (
     <>
-      <div className=" m-2 p-4 bg-white rounded-xl">
-        <div className="mb-4 ">
-          <div className="inline">
-            <div className="">
-              <label className="font-semibold text-[#053219]  text-sm  mb-1  ">
-                Data Masters<abbr title="required"></abbr>
-              </label>
-            </div>
+      <div className="  bg-white rounded-xl">
 
-            <div className="border-t-4 rounded-xl w-16 mt-1 border-[#57C0D0]"></div>
-          </div>
-        </div>
 
         <div className="flex h-screen">
-          <div className="w-64 text-gray-900 bg-white p-4 overflow-auto">
+          <div className="w-64 text-gray-900 bg-[#f0f0f0] p-4 overflow-auto">
             <div className="mb-6">
               <div className="mb-4 ">
                 <div className="inline">
@@ -1532,9 +1522,9 @@ if (title === 'Villa Type Category') {
                     <table className="w-full text-left">
                       <thead>
                         <tr className="border-b border-[#e5e7eb]">
-                          <th className="py-3 px-4 text-lg font-bold text-[#334155]">
+                          {/* <th className="py-3 px-4 text-lg font-bold text-[#334155]">
                             Title
-                          </th>
+                          </th> */}
                           <th className="py-3 px-4 text-lg font-bold text-[#334155]">
                             Options
                           </th>

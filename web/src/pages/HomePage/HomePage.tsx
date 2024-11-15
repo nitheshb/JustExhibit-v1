@@ -409,14 +409,12 @@ const HomePage = () => {
               {viewable === 'Setup' && (
                 <>
                   {/*Registration Executive Notifications border */}
-                  <div className="mt-1 mx-1">
-                    <section className="w-full py-4  leading-7 text-gray-900 bg-white  rounded-md">
+                  <div className="min-h-screen border  mr-2 rounded-xl">
+                    <section className="w-full  leading-7 text-gray-900 bg-white  rounded-md">
                       <div className="box-border px-4 mx-auto border-solid sm:px-6 md:px-6 lg:px-8 max-w-7xl mx-auto px-6 py-8 ">
-                        <div className="flex flex-col  leading-7  text-gray-900 border-0 border-gray-200 ">
-                          <ProjectMastersSetupHome
+                      <ProjectMastersSetupHome
                             title={'WhatsApp Message Templates'}
                           />
-                        </div>
                       </div>
                     </section>
                   </div>

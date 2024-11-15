@@ -40,7 +40,7 @@ const ProjectIntegrationsHome = ({
   ];
 
   return (
-    <div className="min-h-screen bg-gray-100 mt-2 mr-2 rounded-xl">
+    <div className="min-h-screen border mt-2 mr-2 rounded-xl">
       {/* Navigation Bar */}
 
 

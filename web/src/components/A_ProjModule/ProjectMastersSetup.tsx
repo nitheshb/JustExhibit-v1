@@ -64,14 +64,14 @@ const ProjectMastersSetupHome = ({ title, pId, data }) => {
 
   return (
     <>
-        <div className="min-h-screen bg-gray-100  mr-2 rounded-xl">
+        <div className="min-h-screen  rounded-xl">
       {/* Navigation Bar */}
 
 
 
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-6 py-8">
+      <main className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center mb-6">
           <div>
             <h1 className="text-2xl font-semibold mb-2">Masters Setup</h1>
