@@ -4,6 +4,7 @@ import { Fragment, useState } from 'react'
 import { MetaTags } from '@redwoodjs/web'
 
 import TodayLeadsActivityListHomeView from './TodayLeadsAcivityListHome'
+import AdminPage from './AdminPage'
 // import CardItem from '../../components/leadsCard'
 // import BoardData from '../../components/board-data.json'
 
@@ -20,9 +21,10 @@ const TodayLeadsHomePage = ({ taskType }) => {
   }
   return (
     <>
+
       <div className="flex  flex-row  text-gray-700">
         <div className="flex-1 overflow-auto">
-          <div className="px-1">
+          <div className="pr-2">
             {/* <div className="flex items-center justify-between py-2 ">
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 leading-light">
@@ -42,6 +44,10 @@ const TodayLeadsHomePage = ({ taskType }) => {
                 taskType={taskType}
               />
             )}
+  <div className='bg-[#fff] rounded-2xl'>
+  <AdminPage/>
+</div>
+
           </div>
         </div>
       </div>

@@ -22,6 +22,8 @@ import { useAuth } from 'src/context/firebase-auth-context'
 
 import HeadNavBar from '../../components/HeadNavBar/HeadNavBar'
 import ReportMain from '../../components/Reports/ReportMainCom'
+import FinanceChart from 'src/components/FinanceChart'
+import AdminPage from 'src/components/AdminPage'
 
 const LeadsManagerPage = (props) => {
   const { user } = useAuth()
@@ -94,7 +96,18 @@ const LeadsManagerPage = (props) => {
                 setSelModule={setSelModule}
                 setViewable={setViewable}
               />
+
+            {/* <div className='mb-4'>
+              <FinanceChart/>
+            </div> */}
+
+
+
               {viewable === 'userProfile' && <ProfileSummary />}
+{/*
+            <div className='bg-[#fff]'>
+              <AdminPage/>
+            </div> */}
 
               {viewable === 'inProgress' && (
                 <ExecutiveHomeViewerPage
@@ -140,6 +153,10 @@ const LeadsManagerPage = (props) => {
               {viewable === 'UpcomingTeam' && (
                 <TodayLeadsHomePage taskType={viewable} />
               )}
+
+
+
+
               {viewable === 'unitsInventory' && (
                 <ProjectsUnitInventory
                   project={{
@@ -165,6 +182,7 @@ const LeadsManagerPage = (props) => {
                   />
                 </>
               )}
+
               {viewable === 'My Lead Report' && (
                 <MyLeadsReportHome
                   project={{
@@ -214,6 +232,7 @@ const LeadsManagerPage = (props) => {
                 />
               )}
             </div>
+
             {/* <div className="flex-grow mx-4  my-2 items-center overflow-y-auto  h-screen  px-300  py-300"> */}
             {/* {viewable === 'Today' && <ExecutiveHomeViewerPage />} *SS/}
             {/* {viewable === 'Today1' && <TodayLeadsHomePage />} */}
@@ -237,6 +256,8 @@ const LeadsManagerPage = (props) => {
           </div>
         </div>
       </div>
+
+
     </>
   )
 }

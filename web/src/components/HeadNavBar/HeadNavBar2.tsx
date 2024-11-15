@@ -45,12 +45,12 @@ const HeadNavBar2 = ({ selModule, setSelModule, setViewable }) => {
     <div>
       <div className="flex items-center flex-shrink-0 h-14 px-2 mt-2 pl-0 border  bg-white rounded-xl shadow mr-2 ">
         <span
-          style={{ marginLeft: '10px' }}
+          style={{  }}
           className="relative z-10 flex items-center text-md font-extrabold leading-none text-black select-none pl-0 ml-4"
         >
           EventKit .
         </span>
-        <section className="mt-1">
+        <section className="mt-[0px]">
           <ModuleSwitchDrop
             type={selModule}
             id={'Status'}

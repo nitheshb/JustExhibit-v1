@@ -37,6 +37,8 @@ import uniqueId from 'src/util/generatedId'
 import LLeadsTableBody from '../LLeadsTableBody/LLeadsTableBody'
 
 import SiderForm from './SiderForm/SiderForm'
+import FinanceChart from './FinanceChart'
+import AdminPage from './AdminPage'
 
 const torrowDate = new Date(
   +new Date().setHours(0, 0, 0, 0) + 86400000
@@ -443,6 +445,14 @@ const TodoListView = ({
 
   return (
     <>
+
+
+     
+
+
+
+
+
       <Box pb={4} className="font-sanF">
         <div className=" w-full font-sanF">
           <div className="bg-white py-4 md:py-7 px-4 md:px-4 xl:px-6 rounded">
@@ -593,6 +603,11 @@ const TodoListView = ({
           </span>
         )} */}
             </div>
+
+
+ 
+
+
             <div
               className={`${
                 showSettings ? 'hidden' : ''
@@ -850,6 +865,10 @@ const TodoListView = ({
                 </div>
               </div>
             )}
+
+
+
+
             {((isClicked === 'dept_tasks' && taskListA.length === 0) ||
               (isClicked === 'personal_tasks' && personalData_D.length === 0) ||
               (isClicked === 'business_tasks' &&
@@ -867,13 +886,15 @@ const TodoListView = ({
                   />
                 </div>
                 <h3 className="mb-1 text-sm font-semibold text-gray-900">
-                  No Tasks Found
+                  No Tasks Found box2
                 </h3>
                 <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                   <span className="text-blue-600"> Add New Task</span>
                 </time>
               </div>
             )}
+
+
             {isClicked === 'dept_tasks' && (
               <div className="overflow-x-auto mt-2">
                 <table className="w-full whitespace-nowrap">
@@ -1706,6 +1727,10 @@ const TodoListView = ({
               )}
           </div>
         </div>
+
+
+
+
         {/* <script src="./index.js"></script>
         <style>.checkbox:checked + .check-icon {
   display: flex;

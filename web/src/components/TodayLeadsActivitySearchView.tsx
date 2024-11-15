@@ -54,6 +54,10 @@ import LogSkelton from './shimmerLoaders/logSkelton'
 import SiderForm from './SiderForm/SiderForm'
 import TodoListView from './todoList'
 import { H1 } from './Typography'
+import UserCard from './UserCard'
+import EventCalendar from './EventCalendar'
+import AttendanceChart from './AttendanceChart'
+import CountChart from './A_SalesModule/Reports/CountChart'
 
 const headCells = [
   {
@@ -680,10 +684,9 @@ export default function TodayLeadsActivitySearchView({
     setisImportLeadsOpen(true)
     setSelUserProfile(data)
   }
-  const selTaskManObjF =(data)=>{
+  const selTaskManObjF = (data) => {
     setisViewTaskMan(true)
     setSelTaskMan(data)
-
   }
   const handleSortDrop = (e) => {
     setSortType(e.target.value)
@@ -861,11 +864,84 @@ export default function TodayLeadsActivitySearchView({
           }
           {/* searchKey, setSearchKey */}
 
-
-
           {!schLoading && !leadByViewLayout && todaySch && (
             <>
-              <div className=" ">
+              <div className="bg-[#fff] rounded-2xl">
+                <div className="flex flex-wrap p-2">
+                  <div className="w-8/12 flex-col">
+                    <div className="flex gap-4 justify-between flex-wrap">
+                      <UserCard type="Active Events" count="09"/>
+                      <UserCard type="Stalls" count="110" />
+                      <UserCard type="Exhibitors" count="100" />
+                      <UserCard type="Expected Visitors" count="10,000" />
+                    </div>
+
+               <div className='flex flex-row justify-between mt-3'>
+
+          <div className="w-[700px] border shadow rounded-xl"> <TaskProgress />
+          </div>
+          <div className="w-[410px] border shadow rounded-xl">
+            <CountChart />
+            </div>
+
+            {/* <div className="mt-1 w-[400px] border shadow rounded-xl">
+                        <RecentActivity
+                          title={'My Activity'}
+                          userTodayPerfA={userTodayPerfA}
+                        />
+                      </div> */}
+                </div>
+                 <div className="w-2/3  h-[450px]">
+
+          </div>
+                       {/* ATTENDANCE CHART */}
+          <div className=" w-2/3 h-[450px]">
+            <AttendanceChart />
+          </div>
+
+                  </div>
+                  <div className="w-4/12 flex flex-col">
+                    <section className="bg-white rounded-xl shadow border  flex flex-col p-4 ml-1 mb-1 w-100 ">
+                      <h5 className="text-sm">{greet}...!🖐</h5>
+                      <h2 className="text-md font-semibold text-black leading-light font-Playfair pb-1">
+                        {user?.displayName?.toLocaleUpperCase()}
+                      </h2>
+
+                      {/* <h2 className="text-sm text-gray-700 ">
+                    You've got {'  '}
+                   <span className="inline-flex text-md leading-5 font-semibold rounded-full  text-green-800">
+
+                    {
+                    schFetCleanData?.filter(
+                      (d) =>
+                        searchKey.includes(d['sts']) ||
+                        searchKey.includes('upcoming')
+                    ).length
+                   }
+                    </span>{' '}
+                   tasks
+
+                   </h2> */}
+                    </section>
+                    <section className="ml-1">
+                    <EventCalendar />
+                      <TaskProgress userTodayPerfA={userTodayPerfA} />
+                      <div className="mt-1">
+                        <RecentActivity
+                          title={'My Activity'}
+                          userTodayPerfA={userTodayPerfA}
+                        />
+                      </div>
+
+                      <div className="mt-1">
+                        <RecentActivity
+                          title={'Team Activity'}
+                          userTodayPerfA={userTodayPerfA}
+                        />
+                      </div>
+                    </section>
+                  </div>
+                </div>
                 <div className="flex flex-wrap">
                   <div className="w-10/12">
                     <TodoListView
@@ -882,7 +958,7 @@ export default function TodayLeadsActivitySearchView({
                       setSearchKey={setSearchKey}
                     />
                   </div>
-                    <div className="w-2/12 flex flex-col">
+                  <div className="w-2/12 flex flex-col">
                     <section className="bg-white rounded  flex flex-col p-4 ml-1 mb-1 w-100 ">
                       <h5 className="text-sm">{greet}...!🖐</h5>
                       <h2 className="text-md font-semibold text-black leading-light font-Playfair pb-1">
@@ -927,32 +1003,9 @@ export default function TodayLeadsActivitySearchView({
             </>
           )}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           {leadByViewLayout && todaySch && (
             <div className=" w-full">
               <div className="bg-white py-4 md:py-7 px-4 md:px-4 xl:px-6 rounded">
-
                 <div className="sm:flex items-center justify-between">
                   <div className="flex items-center">
                     <a
@@ -1039,7 +1092,7 @@ export default function TodayLeadsActivitySearchView({
                       />
                     </div>
                     <h3 className="mb-1 text-sm font-semibold text-gray-900">
-                      No Tasks Found
+                      No Tasks Found box3
                     </h3>
                     <time className="block mb-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500">
                       <span className="text-blue-600"> Add New Task</span>

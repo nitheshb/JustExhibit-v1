@@ -27,7 +27,7 @@ import {
 } from 'src/constants/projects'
 import {
   addCampaign,
-  addLead,
+  addStallLeads,
   addTaskBusiness,
   checkIfCampaignAlreadyExists,
   checkIfLeadAlreadyExists,

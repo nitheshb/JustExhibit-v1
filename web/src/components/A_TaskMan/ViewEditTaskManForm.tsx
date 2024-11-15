@@ -44,7 +44,7 @@ import {
   AddCommentTaskManData,
   CompleteTaskManData,
   ReOpenTaskManData,
-  addLead,
+  addStallLeads,
   addTaskBusiness,
   checkIfLeadAlreadyExists,
   editTaskManData,

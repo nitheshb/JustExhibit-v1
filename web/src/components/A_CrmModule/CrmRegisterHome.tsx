@@ -12,6 +12,8 @@ import {
 import {
   AdjustmentsIcon,
   ChartPieIcon,
+  PlusIcon,
+  ShoppingCartIcon,
   SearchIcon,
   OfficeBuildingIcon,
   NewspaperIcon,
@@ -196,6 +198,10 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
   )
   const [tableData, setTableDataA] = useState([])
   const [bookingReviewA, setBookingReviewA] = useState([])
+  const [paidA, setPaidA] = useState([])
+  const [unPaidA, setunPaidA] = useState([])
+
+
   const [agreePipeA, setAgreePipeA] = useState([])
   const [sdPipeA, setSdPipeA] = useState([])
   const [registeredA, setRegisteredA] = useState([])
@@ -204,6 +210,8 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
   const [unqueriesA, setQueriesA] = useState([])
 
   const [bookingReviewCo, setBookingReviewCo] = useState([])
+  const [paidCo, setPaidCo] = useState(0)
+  const [unPaidCo, setUnPaidCo] = useState(0)
   const [agreePipeCo, setAgreePipeCo] = useState([])
   const [sdPipeCo, setSdPipeCo] = useState([])
   const [registeredCo, setRegisteredCo] = useState([])
@@ -272,6 +280,13 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
     //   bookingReviewA
     // )
   }
+
+  useEffect(() => {
+    if(selCategory === 'paid'){
+      setFilteredDataA()
+    }
+    getLeadsDataFun(projectList, ['booked', 'Booked'])
+  }, [selCategory])
 
   const getProjectsListFun = () => {
     const unsubscribe = getAllProjects(
@@ -417,8 +432,27 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
 
           await setQueryResult(usersListA)
           await setFilteredDataA(usersListA)
+          await setPaidA(usersListA?.filter((d) =>  d.T_balance<=0))
+          await setunPaidA(usersListA?.filter((d) =>  d.T_balance>0))
+
+           await setPaidCo(usersListA?.filter((d) =>  d.T_balance<=0).length)
+          await setUnPaidCo(usersListA?.filter((d) =>  d.T_balance>0).length)
           await setSearchKeyField('')
-        } else if (statusFil.includes('agreement_pipeline')) {
+
+        }
+        else if(statusFil.includes('paid')){
+          await setFilteredDataA(usersListA)
+
+        }
+        else if (statusFil.includes('unpaid')) {
+          await setAgreePipeA(usersListA)
+          await setAgreePipeCo(usersListA.length)
+        }
+        else if (statusFil.includes('paid')) {
+          await setAgreePipeA(usersListA)
+          await setAgreePipeCo(usersListA.length)
+        }
+        else if (statusFil.includes('agreement_pipeline')) {
           await setAgreePipeA(usersListA)
           await setAgreePipeCo(usersListA.length)
         } else if (statusFil.includes('agreement')) {
@@ -480,6 +514,12 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
     console.log('iam in searchKey', searchKey, !searchKey)
     if(selCategory === 'booked'){
       searchLogic(searchKey, queryResult)
+    }
+    if(selCategory === 'unPaid'){
+      searchLogic(searchKey, unPaidA)
+    }
+    if(selCategory === 'paid'){
+      searchLogic(searchKey, paidA)
     }
     else if (selCategory === 'agreement_pipeline') {
       searchLogic(searchKey, agreePipeA)
@@ -606,11 +646,8 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                 >
                   {[
                     { lab: 'Booked', val: 'booked' },
-                    { lab: 'Allotment', val: 'agreement_pipeline' },
-                    { lab: 'Agreement', val: 'agreement' },
-                    { lab: 'Construction', val: 'construction' },
-                    { lab: 'Registered', val: 'registered' },
-                    { lab: 'Possession', val: 'possession' },
+                    { lab: 'Un-Paid', val: 'unpaid' },
+                    { lab: 'Paid', val: 'paid' },
                     { lab: 'Unassigned', val: 'unAssigned_crm' },
                     { lab: 'Queries', val: 'queries' },
                   ].map((d, b) => {
@@ -635,10 +672,10 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                             {d.val === 'booked' && (
                               <span>{bookingReviewCo}</span>
                             )}
-                            {d.val === 'agreement_pipeline' && (
-                              <span>{agreePipeCo}</span>
+                            {d.val === 'paid' && (
+                              <span>{paidCo}</span>
                             )}
-                            {d.val === 'agreement' && <span>{sdPipeCo}</span>}
+                            {d.val === 'unpaid' && <span>{unPaidCo}</span>}
                             {d.val === 'registered' && (
                               <span>{registeredCo}</span>
                             )}
@@ -954,6 +991,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                       {(
                                         (finData?.T_review || 0) +
                                         (finData?.T_approved || 0)
+                                        (finData?.T_paid || 0)
                                       )?.toLocaleString('en-IN')}
                                     </div>
                                   </section>
@@ -1083,7 +1121,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                       </li>
                     </ul>
                   )}
-                  {['booked', 'agreement_pipeline', 'agreement', 'registered','construction', 'possession', 'unAssigned_crm', 'queries'].includes(selCategory) &&
+                  {['booked','unpaid','paid', 'agreement_pipeline', 'agreement', 'registered','construction', 'possession', 'unAssigned_crm', 'queries'].includes(selCategory) &&
                     !horizontalMode &&
                     filteredDataA.map((finData, c) => {
                       const {
@@ -1155,20 +1193,30 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                           </section>
                                           <div className="flex flex-col w-full  ml-2 item-right  px-2  mr-2 rounded-lg">
                                             <span
-                                              className={`items-center h-1 mt-[6px] mb-2  text-xs font-semibold text-green-600
+                                              className={`items-center h-1 mt-[2px] mb-2  text-xs font-semibold text-green-600
                       `}
                                             >
-                                              {customerDetailsObj?.customerName1 ||
+                                              {finData?.companyName ||
                                                 'NA'}
                                             </span>
-                                            <div className="font text-[12px] text-gray-500 tracking-wide overflow-ellipsis overflow-hidden ">
-                                              {projName}
-                                            </div>
+                                            <span
+                                              className={`items-center h-1 mt-[6px] mb-2  text-xs
+                      `}
+                                            >
+                                              {finData?.co_Name1 ||
+                                                'NA'}
+                                            </span>
+                                            <span
+                                              className={`items-center h-1 mt-[6px] mb-2  text-xs
+                      `}
+                                            >
+                                              {finData?.phoneNo1 ||
+                                                'NA'}
+                                            </span>
+
                                             <section className="flex flex-row justify-between">
                                               <span className="  text-[10px] h-[20px]  text-[#005E36] font-bodyLato font-[600] mt-[2px] border border-[#ECFDF5]  py-[2px] rounded-xl mr-1 ">
-                                                {finData?.customerDetailsObj?.phoneNo1?.toLocaleString(
-                                                  'en-IN'
-                                                )}{' '}
+                                                {projName}{' '}
                                               </span>
 
                                               <span className="  text-[10px] h-[20px] text-[#005E36] font-bodyLato font-[600] mt-[2px] border border-[#ECFDF5] px-[6px] py-[2px] rounded-xl mr-1 ">
@@ -1350,14 +1398,14 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                 <div className="flex flex-row justify-between mx- mb-2">
                                   <DoughnutChartWithRoundedSegments
                                     progress={
-                                      (finData?.T_approved / finData?.T_total) *
+                                      (finData?.T_paid / finData?.T_total) *
                                       100
                                     }
                                   />
                                   <section className="font-bodyLato font-semibold text-xs m-1 w-[61%] ">
                                     <section className="flex flex-col  w-full mt-">
                                     <p className="flex flex-row justify-between text-zinc-500 text-[11px] font-normal font-['Lato'] tracking-wide">
-                                        Unit Cost: ₹
+                                        Total Cost: ₹
                                         <div>
                                           {(
                                             finData?.T_total || finData?.T_Total
@@ -1371,7 +1419,8 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                           {' '}
                                           {(
                                             (finData?.T_review || 0) +
-                                            (finData?.T_approved || 0)
+                                            (finData?.T_approved || 0) +
+                                            (finData?.T_paid || 0)
                                           ).toLocaleString('en-IN') || 0}
                                         </div>
                                       </div>
@@ -1415,7 +1464,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                   >
                                     <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
                                       <div className="flex flex-none items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
-                                        <ChartPieIcon
+                                        <ShoppingCartIcon
                                           className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
                                             finData?.man_cs_approval ===
                                             'approved'
@@ -1426,7 +1475,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         />
                                       </div>
                                       <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                        Manager
+                                        AddOns
                                       </h6>
                                     </div>
                                   </div>

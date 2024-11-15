@@ -9,7 +9,7 @@ import { useSnackbar } from 'notistack'
 import * as Yup from 'yup'
 
 import {
-  addLead,
+  addStallLeads,
   checkIfLeadAlreadyExists,
   getAllProjects,
   steamUsersListByRole,

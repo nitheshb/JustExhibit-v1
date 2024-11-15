@@ -9,7 +9,7 @@ import * as Yup from 'yup'
 import {
   addAccountslogS,
   addCustomer,
-  addLead,
+  addStallLeads,
   addModuleScheduler,
   capturePaymentS,
   createBookedCompany,
@@ -318,7 +318,7 @@ const AddPaymentDetailsForm = ({
       console.log('foundLENGTH IS empty ', foundLength)
 
       // proceed to copy
-      const createResp = await addLead(
+      const createResp = await addStallLeads(
         orgId,
         leadData,
         user?.email,
@@ -608,10 +608,8 @@ const AddPaymentDetailsForm = ({
       className="overflow-y-scroll no-scrollbar"
       style={{ height: `calc(100vh - 120px)` }}
     >
-      <div className=" w-full  flex flex-row justify-between mb-0 p-4 pb-0 bg-white-100 rounded-t-md">
-        {/* <Dialog.Title className=" font-semibold text-xl mr-auto ml-3 text-[#053219]">
-          {title}
-        </Dialog.Title> */}
+      {/* <div className=" w-full  flex flex-row justify-between mb-0 p-4 pb-0 bg-white-100 rounded-t-md">
+
         <section className="flex flex-row">
           <div className="w-[53.80px] h-[58px] bg-zinc-100 rounded-[5px] mr-2"></div>
           <div className="w-full flex flex-col">
@@ -640,12 +638,10 @@ const AddPaymentDetailsForm = ({
               </div>
             </div>
 
-            {/* <div className="w-[455.80px] opacity-50 text-white  text-[12px] font-normal ">
-                                            Details of applicant is mandatory
-                                          </div> */}
+
           </div>
         </section>
-      </div>
+      </div> */}
 
       <div className="grid gap- grid-cols-1">
         <div className="flex flex-col rounded-lg bg-white">

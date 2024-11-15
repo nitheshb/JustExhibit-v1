@@ -883,7 +883,7 @@ const BookingSummaryView = ({
                                         : 'Plot'}{' '} Particulars
                                         </th>
                                         <th className="w-[15%] px-2 text-[12px] text-right   tracking-wide">
-                                          Rate/Sqft
+                                          Rate/Sqm
                                         </th>
                                         <th
                                           className={`${
@@ -1001,7 +1001,7 @@ const BookingSummaryView = ({
                                           Additional Charges
                                         </th>
                                         <th className="w-[15%] px-2 text-[12px] text-left font-bold text-right  tracking-wide ">
-                                          Rate/Sqft
+                                          Rate/Sqm
                                         </th>
                                         <th
                                           className={`${
@@ -1118,7 +1118,7 @@ const BookingSummaryView = ({
                                           Construction
                                         </th>
                                         <th className="w-[15%] px-2 text-[12px] text-left font-bold text-right  tracking-wide ">
-                                          Rate/Sqft
+                                          Rate/Sqm
                                         </th>
                                         <th
                                           className={`${
@@ -1235,7 +1235,7 @@ const BookingSummaryView = ({
                                           Additional Charges -II
                                         </th>
                                         <th className="w-[15%] px-2 text-[12px] text-left font-bold text-right  tracking-wide ">
-                                          Rate/Sqft
+                                          Rate/Sqm
                                         </th>
                                         <th
                                           className={`${

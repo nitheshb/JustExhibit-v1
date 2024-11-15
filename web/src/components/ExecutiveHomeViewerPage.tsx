@@ -139,6 +139,10 @@ const ExecutiveHomeViewerPage = ({ leadsTyper, isClicked, setIsClicked }) => {
     }
   }, [selLeadsOf])
 
+useEffect(() => {
+  getAdminAllLeads()
+}, [])
+
   useEffect(() => {
     const unsubscribe = steamUsersListByRole(
       orgId,
@@ -259,27 +263,26 @@ const ExecutiveHomeViewerPage = ({ leadsTyper, isClicked, setIsClicked }) => {
           //   addLeadSupabase(data)
           // })
           console.log('my valus are ', usersListA )
+        console.log('user list is ', usersListA)
+
           await setLeadsFetchedRawData(usersListA)
           await serealizeData(usersListA)
         },
         {
           status:
-            leadsTyper === 'inProgress'
-              ? [
-                  'new',
-                  'followup',
-                  'unassigned',
-                  'visitfixed',
-                  '',
-                  // 'visitdone',
-                  // 'visitcancel',
-                  'negotiation',
-                  // 'reassign',
-                  // 'RNR',
-                ]
-              : leadsTyper === 'booked'
-              ? ['booked']
-              : archieveFields,
+          [
+            'new',
+            'followup',
+            'unassigned',
+            'visitfixed',
+            '',
+            // 'visitdone',
+            // 'visitcancel',
+            'negotiation',
+            'booked'
+            // 'reassign',
+            // 'RNR',
+          ],
           projAccessA: projAccessA,
         },
         (error) => setLeadsFetchedData([])
@@ -288,7 +291,7 @@ const ExecutiveHomeViewerPage = ({ leadsTyper, isClicked, setIsClicked }) => {
     }
   }
   const getMyTeamLeads = async () => {
-    const unsubscribe = await getLeadsByStatus(
+    const unsubscribe = await getLeadsByAdminStatus(
       orgId,
       async (querySnapshot) => {
         const usersListA = querySnapshot.docs.map((docSnapshot) => {
@@ -299,13 +302,14 @@ const ExecutiveHomeViewerPage = ({ leadsTyper, isClicked, setIsClicked }) => {
         // setBoardData
         // await setLeadsFetchedRawData(usersListA)
         // await serealizeData(usersListA)
+        console.log('user list is ', usersListA)
         await getUnassignedLeads(usersListA)
         // filter_Leads_Projects_Users_Fun()
         // await setLeadsFetchedData(usersListA)
       },
       {
         status:
-          leadsTyper === 'inProgress'
+        'inProgress' === 'inProgress'
             ? [
                 'new',
                 'followup',
@@ -702,7 +706,7 @@ const ExecutiveHomeViewerPage = ({ leadsTyper, isClicked, setIsClicked }) => {
           >
             <div className="flex items-center flex-row flex-wrap justify-between py-1 pb-5  px-3 py-3 bg-gray-50 rounded-t-md ">
               <h2 className="text-md font-semibold text-black leading-light font-Playfair">
-                Leads Management
+                Visitors Management
               </h2>
 
               <div className="flex">
@@ -850,7 +854,7 @@ const ExecutiveHomeViewerPage = ({ leadsTyper, isClicked, setIsClicked }) => {
                       />
                     </svg>
 
-                    <span className="ml-1">Add lead</span>
+                    <span className="ml-1">Add Visitor</span>
                   </button>
                   {!user?.role?.includes(USER_ROLES.CP_AGENT) && (
                     <button
@@ -872,7 +876,7 @@ const ExecutiveHomeViewerPage = ({ leadsTyper, isClicked, setIsClicked }) => {
                         />
                       </svg>
 
-                      <span className="ml-1">Import Lead</span>
+                      <span className="ml-1">Import Visitors</span>
                     </button>
                   )}
                   {/* {isImportLeads && (

@@ -31,7 +31,7 @@ import PropTypes from 'prop-types'
 import Highlighter from 'react-highlight-words'
 
 import {
-  addLead,
+  addStallLeads,
   addStall,
   addUnit,
   capturePaymentS,
@@ -285,7 +285,7 @@ const EnhancedTableToolbar = (props) => {
         // newData['Status'] = 'unassigned'
         console.log('am inside addLeadstoDB', newData)
 
-        await addLead(orgId, newData, user?.email, 'Lead Created by csv')
+        await addStallLeads(orgId, newData, user?.email, 'Lead Created by csv')
         setUploadedLeadsCount(index + 1)
         return
         console.log('am inside addLeadstoDB')
@@ -1429,7 +1429,7 @@ export default function LfileuploadTableTemplate({
         },
         {
           id: 'sqft_rate',
-          label: 'Rate/Sqft',
+          label: 'Rate/Sqm',
           minWidth: 10,
           align: 'left',
           format: (value) => value.toLocaleString('en-US'),

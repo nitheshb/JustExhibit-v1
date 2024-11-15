@@ -105,7 +105,7 @@ const CrmUnitCostSheetView = ({ selCustomerPayload, assets, totalIs }) => {
       <div className="mt-2  ">
         <section className="mr- flex flex-row  ">
           <div className="w-full">
-            <div className="border border-[#e5e7f8] bg-[#F0F1FF]  rounded-md mt-[4px]">
+            <div className="border border-[#e5e7f8] bg-[#F0F1FF]  rounded-md mt-[4px] py-3">
               <div className="flex flex-row  px-3">
                 <img
                   src="https://static.ambitionbox.com/static/benefits/WFH.svg"
@@ -115,7 +115,7 @@ const CrmUnitCostSheetView = ({ selCustomerPayload, assets, totalIs }) => {
                   Cost Sheet
                 </h1>
               </div>
-              <div className="grid  grid-row-2  gap-x-2  px-3 ">
+              <div className="grid  grid-row-2  gap-x-2  px-3 py-2">
                 <div className="border-[0.05px]  border-gray-300 rounded-md p-[4px]">
                   {/* <h1 className=" mt-2 mb-1 text-bodyLato text-left text-gray-800 font-semibold text-[12px] mb-1">
                     Part (A)
@@ -124,10 +124,10 @@ const CrmUnitCostSheetView = ({ selCustomerPayload, assets, totalIs }) => {
                     <thead>
                       <tr className=" h-8 border-b-[0.2px] border-gray-300 w-[100%]">
                         <th className="min-w-[35%] text-[10px] text-left text-[#04050b] bg-[#D9D8FF]  tracking-wide  px-2">
-                          Charges{ selCustomerPayload?.area}
+                          Charges ({ selCustomerPayload?.area?.toLocaleString('en-IN')} sqm)
                         </th>
                         <th className="w-[15%] text-[10px] text-right text-[#04050b] bg-[#D9D8FF] tracking-wide">
-                          Rate/Sqft
+                          Rate/Sqm
                         </th>
                         <th className="w-[15%] text-[10px] text-right text-[#04050b] bg-[#D9D8FF] tracking-wide ">
                           Sale Value
@@ -155,7 +155,7 @@ const CrmUnitCostSheetView = ({ selCustomerPayload, assets, totalIs }) => {
                             ₹{selCustomerPayload?.charges?.toLocaleString('en-IN')}
                           </td>
                           <td className="w-[15%] text-[12px] text-right text-gray-700 bg-[#F0f1ff] ">
-                            ₹{selCustomerPayload?.TotalSaleValue?.toLocaleString('en-IN')}
+                            ₹{((selCustomerPayload?.TotalNetSaleValueGsT || 0)-(selCustomerPayload?.gstValue || 0))?.toLocaleString('en-IN')}
                           </td>
                           <td className="w-[15%] text-[12px] text-right text-gray-700 px-2 bg-[#F0f1ff]">
                             ₹{selCustomerPayload?.gstValue?.toLocaleString('en-IN')}
@@ -166,13 +166,13 @@ const CrmUnitCostSheetView = ({ selCustomerPayload, assets, totalIs }) => {
                           </td>
                         </tr>
                       ))}
-                      <tr className="border-b-[0.05px] border-gray-300 h-[32px]">
+                      <tr className="  h-[32px]">
                         <th className="w-[40%] text-[10px] text-left text-gray-800 "></th>
                         <td className="w-[15%] font-bold text-[10px] text-right text-gray-800  "></td>
                         <td className="w-[15%] font-bold  text-[10px] text-right text-gray-800   "></td>
-                        <td className="w-[15%] font-bold  text-[10px] text-right text-gray-800 pr-2  ">
+                        <td className="w-[15%] font-bold  text-[14px] text-right text-gray-800 pr-2  ">
                           {' '}
-                          Plot Cost:
+                          Stall Cost:
                         </td>
                         <td className="w-[15%] font-bold  text-[12px] text-right text-gray-800  px-2">
                           ₹{selCustomerPayload?.T_total?.toLocaleString('en-IN')}
@@ -184,19 +184,7 @@ const CrmUnitCostSheetView = ({ selCustomerPayload, assets, totalIs }) => {
                 </div>
               </div>
 
-              <section className="flex flex-row-reverse justify-between w-full mt- rounded px-3">
-                <div className="flex flex-row mt-2 text-bodyLato text-left text-gray-800  text-[14px] mb-2 ">
-                  Total unit sale value:
-                  <section className="flex flex-row mt-1">
 
-
-
-                    <section className="px-2 d-md font-bold text-[14px] text-[#000000e6] leading-none mr-1">
-                      ₹{unitTotal?.toLocaleString('en-IN')}
-                    </section>
-                  </section>
-                </div>
-              </section>
             </div>
           </div>
         </section>

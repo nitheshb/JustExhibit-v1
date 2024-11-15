@@ -11,7 +11,7 @@ import * as Yup from 'yup'
 
 import Loader from 'src/components/Loader/Loader'
 import {
-  addLead,
+  addStallLeads,
   checkIfLeadAlreadyExists,
   getAllProjects,
   steamUsersListByRole,

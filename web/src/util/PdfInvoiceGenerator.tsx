@@ -490,7 +490,9 @@ const MyDocument = ({
             <Text style={styles.body2}>{fDate(invoiceDet[i].dueDate)}</Text>
           </View>
         </View> */}
-        <View style={[styles.topBoderRadius, styles.bg1]}>
+        <View style={[styles.topBoderRadius, styles.bg1, {  paddingBottom: '16px' }] }>
+        {/* <View style={[styles.topBoderRadius, styles.bg1, { borderBottomLeftRadius: 10, borderBottomRightRadius: 10, marginBottom: 20 }]}> */}
+
           <View style={[styles.ml4, styles.pt2, styles.mT1]}>
             <Text
               style={[
@@ -533,7 +535,7 @@ const MyDocument = ({
                     <Text style={styles.subtitle2}>
                       {projectDetails?.projectType?.name === 'Apartment'
                         ? 'Flat'
-                        : 'Plot'}{' '}
+                        : 'Stall'}{' '}
                       Particulars
                     </Text>
                   </View>
@@ -546,7 +548,7 @@ const MyDocument = ({
                       styles.pr4,
                     ]}
                   >
-                    <Text style={styles.subtitle2}>Rate/Sqft</Text>
+                    <Text style={styles.subtitle2}>Rate/Sqm</Text>
                   </View>
 
                   <View
@@ -561,9 +563,20 @@ const MyDocument = ({
                   </View>
 
                   <View
+                        style={[
+                          styles.tableCell_20,
+                          styles.alignRight,
+                          styles.p12,
+                          styles.pr4,
+                        ]}
+                  >
+                    <Text style={styles.subtitle2}>GST</Text>
+                  </View>
+
+                  <View
                     style={[styles.tableCell_20, styles.alignRight, styles.p12]}
                   >
-                    <Text style={styles.subtitle2}>Total Inc GST</Text>
+                    <Text style={styles.subtitle2}>Total</Text>
                   </View>
                 </View>
               </View>
@@ -620,7 +633,39 @@ const MyDocument = ({
 
                 {/* part 2 */}
               </View>
+
+
+
+
+            <View  style={[styles.totalRow, styles.mT0]}>
+              <View style={styles.tableCell_1}></View>
+
+              <View style={[styles.tableCell_35, styles.p10]}></View>
+
+              <View style={[styles.tableCell_20, styles.alignRight]}></View>
+
+              <View
+                style={[styles.tableCell_20, styles.alignRight, styles.pr4]}
+              >
+                <Text style={[styles.subtitle2, styles.pt2]}>{projectDetails?.projectType?.name === 'Apartment'
+                        ? 'Flat'
+                        : 'Stall'} Cost</Text>
+              </View>
+
+              <View
+                style={[styles.tableCell_3, styles.alignRight]}
+              >
+                <Text>{fCurrency(partATotal)}</Text>
+              </View>
             </View>
+
+
+
+
+
+            </View>
+
+{/*
             <View
               style={[styles.tableRow, { marginTop: '2px', paddingTop: '4px' }]}
             >
@@ -643,10 +688,36 @@ const MyDocument = ({
               >
                 <Text>{fCurrency(partATotal)}</Text>
               </View>
-            </View>
+            </View> */}
+
+
+
+            {/* <View  style={[styles.totalRow, styles.mT0]}>
+              <View style={styles.tableCell_1}></View>
+
+              <View style={[styles.tableCell_35, styles.p10]}></View>
+
+              <View style={[styles.tableCell_20, styles.alignRight]}></View>
+
+              <View
+                style={[styles.tableCell_20, styles.alignRight, styles.pr4]}
+              >
+                <Text style={[styles.subtitle2, styles.pt2]}>{projectDetails?.projectType?.name === 'Apartment'
+                        ? 'Flat'
+                        : 'Stall'} Cost</Text>
+              </View>
+
+              <View
+                style={[styles.tableCell_3, styles.alignRight]}
+              >
+                <Text>{fCurrency(partATotal)}</Text>
+              </View>
+            </View> */}
+
           </View>
+          {/* Part-1-end */}
           {/* part -2 */}
-          <View style={[styles.fitter, { marginTop: '10px' }]}>
+          {/* <View style={[styles.fitter, { marginTop: '10px' }]}>
             <View style={[{ border: '1 solid #e5e7eb ', borderRadius: 8 }]}>
               <View
                 style={[
@@ -684,7 +755,7 @@ const MyDocument = ({
                       styles.pr4,
                     ]}
                   >
-                    <Text style={styles.subtitle2}>Rate/Sqft</Text>
+                    <Text style={styles.subtitle2}>Rate/Sqm</Text>
                   </View>
 
                   <View
@@ -788,7 +859,7 @@ const MyDocument = ({
 
 
             </View>
-          </View>
+          </View> */}
           {/* part-3 */}
           {projectDetails?.projectType?.name === 'Villas' &&
           <View style={[styles.fitter]}>
@@ -830,7 +901,7 @@ const MyDocument = ({
                       styles.pr4,
                     ]}
                   >
-                    <Text style={styles.subtitle2}>Rate/Sqft</Text>
+                    <Text style={styles.subtitle2}>Rate/Sqm</Text>
                   </View>
 
                   <View
@@ -967,7 +1038,7 @@ const MyDocument = ({
                       styles.pr4,
                     ]}
                   >
-                    <Text style={styles.subtitle2}>Rate/Sqft</Text>
+                    <Text style={styles.subtitle2}>Rate/Sqm</Text>
                   </View>
 
                   <View
@@ -1110,7 +1181,7 @@ const MyDocument = ({
                       styles.pr4,
                     ]}
                   >
-                    <Text style={styles.subtitle2}>Rate/Sqft</Text>
+                    <Text style={styles.subtitle2}>Rate/Sqm</Text>
                   </View>
 
                   <View
@@ -1310,7 +1381,7 @@ const MyDocument = ({
 
              {/*Payment Schedule  */}
 
-             <View style={[styles.ml4, styles.pt2, styles.mT1]}>
+             {/* <View style={[styles.ml4, styles.pt2, styles.mT1]}>
             <Text
               style={[
                 styles.subtitle1,
@@ -1320,10 +1391,10 @@ const MyDocument = ({
                 styles.ml2,
               ]}
             >
-              Payment Schedule
+              Payment Schedule change
             </Text>
-          </View>
-          <View style={[styles.fitter]}>
+          </View> */}
+          {/* <View style={[styles.fitter]}>
               <View
                 style={[
                   { border: '1 solid #e5e7eb ', borderRadius: 8 },
@@ -1509,7 +1580,7 @@ const MyDocument = ({
                   </View>
                 </View>
               </View> }
-              </View>
+              </View> */}
         </View>
 
         {/* <View style={[styles.gridContainer, styles.footer]} fixed>

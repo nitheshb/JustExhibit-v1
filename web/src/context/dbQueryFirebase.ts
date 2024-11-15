@@ -1228,7 +1228,18 @@ export const getLeadsByUnassigned = (orgId, snapshot, error) => {
 export const getLeadsByAdminStatus = (orgId, snapshot, data, error) => {
   const { status, projAccessA } = data
   const itemsQuery = query(
-    collection(db, `${orgId}_leads`),
+    collection(db, `${orgId}_visitors`),
+    // where('Status', 'in', status)
+    //  orderBy('Date')
+  )
+  console.log('hello by Status', onSnapshot(itemsQuery, snapshot, error))
+  return onSnapshot(itemsQuery, snapshot, error)
+}
+
+export const getStallLeadsByAdminStatus = (orgId, snapshot, data, error) => {
+  const { status, projAccessA } = data
+  const itemsQuery = query(
+    collection(db, `${orgId}_stall_leads`),
     where('Status', 'in', status)
     //  orderBy('Date')
   )
@@ -1413,7 +1424,7 @@ export const getBookedUnitsByProject = (orgId, snapshot, data, error) => {
 
   // Append 'status' condition if it's not undefined
   if (status !== undefined && !(status.includes('unassigned'))) {
-    conditions.push(where('unitStatus', 'in', status))
+    conditions.push(where('status', 'in', status))
   }
 
   if (status !== undefined && (status.includes('unassigned'))) {
@@ -1427,12 +1438,13 @@ export const getBookedUnitsByProject = (orgId, snapshot, data, error) => {
   }
 
   // Append 'assignedTo' condition if it's not undefined
-  if (data?.assignedTo !== undefined) {
-    conditions.push(where('assignedTo', '==', data?.assignedTo))
-  }
+  // if (data?.assignedTo !== undefined) {
+  //   conditions.push(where('assignedTo', '==', data?.assignedTo))
+  // }
 
   // If all conditions are defined, append them to the query
   if (conditions.length > 0) {
+    console.log('value is ', data)
     q = query(q, ...conditions)
 
   }
@@ -2316,10 +2328,10 @@ export const addCampaign = async (orgId, data, by, msg) => {
     console.log('error in uploading file with data', data, error)
   }
 }
-export const addLead = async (orgId, data, by, msg) => {
+export const addStallLeads = async (orgId, data, by, msg) => {
   try {
     delete data['']
-    const x = await addDoc(collection(db, `${orgId}_leads`), data)
+    const x = await addDoc(collection(db, `${orgId}_stall_leads`), data)
     await console.log('add Lead value is ', x, x.id, data)
     const {
       intype,
@@ -2331,7 +2343,95 @@ export const addLead = async (orgId, data, by, msg) => {
       assignedToObj,
     } = data
 
-    const { data3, errorx } = await supabase.from(`${orgId}_lead_logs`).insert([
+    const { data3, errorx } = await supabase.from(`${orgId}_stall_lead_logs`).insert([
+      {
+        type: 'l_ctd',
+        subtype: intype,
+        T: Timestamp.now().toMillis(),
+        Luid: x?.id || '',
+        by,
+        payload: {},
+      },
+    ])
+    if (Event) {
+      // await sendWhatAppTextSms1(
+      //   '7760959579',
+      //   `Warm Greetings!
+      // Thanks for your interest in ${Event},
+      // It's a pleasure to be a part of your housing journey. Our team will be in touch with you in a brief period. In the meanwhile, this would help you get to know the project a little more.
+      // Warm Regards
+      // Maa Homes.`
+      // )
+    }
+    if (assignedTo) {
+      const { offPh, name } = assignedToObj
+      await sendWhatAppTextSms1(
+        offPh,
+        `⚡ A new lead- ${Name} Assigned to you @${Event || ''}. 📱${Mobile}`
+      )
+
+      // await sendWhatAppTextSms1(
+      //   '7760959579',
+      //   `Greetings from MAA Homes, I am ${name}
+
+      // This is ${name} from Maa Homes,
+
+      //   Regarding your interest in ${Event}, I’m pleased to be your point of contact throughout this journey. I would like to understand your requirements & do let me know if you have any doubts about ${Event}.
+      //   Looking forward to a fruitful relationship.
+
+      // Warm Regards
+      // ${name}
+      // Maa Homes`
+      // )
+    }
+    await console.log('what is this supbase', data3, errorx)
+    // await addLeadLog(orgId, x.id, {
+    //   s: 's',
+    //   type: 'status',
+    //   subtype: 'added',
+    //   T: Timestamp.now().toMillis(),
+    //   txt: msg,
+    //   by,
+    // })
+
+    // add task to scheduler to Intro call in 3 hrs
+
+    const data1 = {
+      by: by,
+      type: 'schedule',
+      pri: 'priority 1',
+      notes: 'Get into Introduction Call with customer',
+      sts: 'pending',
+      schTime: Timestamp.now().toMillis() + 10800000, // 3 hrs
+      ct: Timestamp.now().toMillis(),
+    }
+
+    const x1 = []
+
+    x1.push('pending')
+
+    await addLeadScheduler(orgId, x.id, data1, x1, data.assignedTo)
+    return x
+  } catch (error) {
+    console.log('error in uploading file with data', data, error)
+  }
+}
+export const addVisitorRegistrations = async (orgId, data, by, msg) => {
+  try {
+    delete data['']
+    const x = await addDoc(collection(db, `${orgId}_visitors`), data)
+    await console.log('add Lead value is ', x, x.id, data)
+    const {
+      intype,
+      Name,
+      Mobile,
+      countryCode,
+      assignedTo,
+      Event,
+      assignedToObj,
+    } = data
+
+    const { data3, errorx } = await supabase.from(`${orgId}_stall_visitors_logs`).insert([
       {
         type: 'l_ctd',
         subtype: intype,

@@ -20,7 +20,7 @@ import { Label, InputField, TextAreaField, FieldError } from '@redwoodjs/forms'
 import { useRouterStateSetter } from '@redwoodjs/router/dist/router-context'
 
 import {
-  addLead,
+  addStallLeads,
   addTaskBusiness,
   checkIfLeadAlreadyExists,
   getAllProjects,
@@ -302,7 +302,7 @@ const AddTaskForm = ({ title, dialogOpen }) => {
       console.log('foundLENGTH IS empty ', foundLength)
       console.log('add lead obj is ', leadData)
       // proceed to copy
-      await addLead(
+      await addStallLeads(
         orgId,
         leadData,
         user?.email,

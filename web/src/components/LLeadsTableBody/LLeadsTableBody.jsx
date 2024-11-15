@@ -124,18 +124,18 @@ const headCells = [
     disablePadding: true,
     label: 'Created On',
   },
-  {
-    id: 'AssignedOn',
-    numeric: false,
-    disablePadding: true,
-    label: 'Assigned On',
-  },
+  // {
+  //   id: 'AssignedOn',
+  //   numeric: false,
+  //   disablePadding: true,
+  //   label: 'Visited On',
+  // },
 
   {
     id: 'Clientdetails',
     numeric: false,
     disablePadding: false,
-    label: 'Client Details',
+    label: 'Visitor Details',
   },
   {
     id: 'Event',
@@ -166,7 +166,7 @@ const headCells = [
     id: 'leadUpT',
     numeric: false,
     disablePadding: true,
-    label: 'Last Activity',
+    label: 'Registerd By',
   },
   {
     id: 'schTime',
@@ -205,7 +205,7 @@ function EnhancedTableHead(props) {
         case 'Assigned':
           return viewUnitStatusA.includes('Assigned To') ? '' : 'none'
         case 'leadUpT':
-          return viewUnitStatusA.includes('Last Activity') ? '' : 'none'
+          return viewUnitStatusA.includes('Registerd By') ? '' : 'none'
         case 'schTime':
           return viewUnitStatusA.includes('Next Sch') ? '' : 'none'
         default:
@@ -737,7 +737,7 @@ export default function LLeadsTableBody({
   const [selBlock, setSelBlock] = React.useState({})
   const [viewUnitStatusA, setViewUnitStatusA] = React.useState([
     'Phone No',
-    'Last Activity',
+    'Registerd By',
 
     // 'Blocked',
     // 'Booked',
@@ -877,7 +877,7 @@ export default function LLeadsTableBody({
 
                           </section>
                         </TableCell>
-
+{/*
 
                         <TableCell
                           component="th"
@@ -893,7 +893,7 @@ export default function LLeadsTableBody({
                             </span>
 
                           </section>
-                        </TableCell>
+                        </TableCell> */}
 
 
 
@@ -952,6 +952,13 @@ export default function LLeadsTableBody({
                                             )}
                                           />
                                         </span>
+                                        <span className="font-bodyLato">
+                                          <HighlighterStyle
+                                            searchKey={searchKey}
+                                            source={row?.assignedToObj?.label}
+                                          />
+                                        </span>
+
 
 
 
@@ -1007,8 +1014,15 @@ export default function LLeadsTableBody({
                                 </span>
 
 
+
                               </div>
                             )}
+                            {   <span className="font-bodyLato">
+                                  <HighlighterStyle
+                                    searchKey={searchKey}
+                                    source={row?.assignedToObj?.label}
+                                  />
+                                </span>}
                           </section>
                         </TableCell>
 
@@ -1046,11 +1060,11 @@ export default function LLeadsTableBody({
                           <span className="px-2 uppercase inline-flex text-[10px] leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                             <HighlighterStyle
                               searchKey={searchKey}
-                              source={row.Status.toString()}
+                              source={row?.assignedToObj?.label.toString()}
                             />
                           </span>
                         </TableCell>
-                        {viewUnitStatusA.includes('Last Activity') && (
+                        {viewUnitStatusA.includes('Registerd By') && (
                           <TableCell
                             component="th"
                             id={labelId}
@@ -1061,39 +1075,12 @@ export default function LLeadsTableBody({
                               {/* <span className="font-bodyLato">
                           {prettyDate(row?.stsUpT || row.Date).toLocaleString()}
                         </span> */}
-                              <span className="px- py-[1px]  min-w-[100px] inline-flex text-xs leading-5 tracking-wide  rounded-full  text-green-800">
-                                {Math.abs(
-                                  getDifferenceInMinutes(
-                                    (row?.leadUpT || row?.stsUpT),
-                                    ''
-                                  )
-                                ) > 60
-                                  ? Math.abs(
-                                    getDifferenceInMinutes(
-                                      (row?.leadUpT || row?.stsUpT),
-                                      ''
-                                    )
-                                  ) > 1440
-                                    ? `${Math.abs(getDifferenceInDays(
-                                      (row?.leadUpT || row?.stsUpT),
-                                      ''
-                                    ))} Days `
-                                    : `${Math.abs(getDifferenceInHours(
-                                      (row?.leadUpT || row?.stsUpT),
-                                      ''
-                                    ))} Hours `
-                                  : `${Math.abs(getDifferenceInMinutes(
-                                    (row?.leadUpT || row?.stsUpT),
-                                    ''
-                                  )) || 0} Min`}{' '}
-                                  {/* in above line I have added 0 to take Nan value */}
-                                {getDifferenceInMinutes(
-                                  (row?.leadUpT || row?.stsUpT),
-                                  ''
-                                ) < 0
-                                  ? 'ago'
-                                  : 'Left'}
-                              </span>
+                        <span className="px-2 uppercase inline-flex text-[10px] leading-5 font-semibold rounded-full  text-green-800">
+                            <HighlighterStyle
+                              searchKey={searchKey}
+                              source={row?.by}
+                            />
+                          </span>
                             </>
                           </TableCell>)}
                         {viewUnitStatusA.includes('Next Sch') && <TableCell
@@ -1146,7 +1133,7 @@ export default function LLeadsTableBody({
                           style={{ maxWidth: '100px', maxHeight: '100px', textOverflow: 'ellipsis' }}
                         >
                           {' '}
-                          <span className="font-bodyLato" style={{ maxWidth: '100px', maxHeight: '100px', textOverflow: 'ellipsis' }}>{row.Remarks}</span>
+                          <span className="font-bodyLato" style={{ maxWidth: '100px', maxHeight: '100px', textOverflow: 'ellipsis' }}>{row.Note}</span>
                         </TableCell>
                       </TableRow>
                     )

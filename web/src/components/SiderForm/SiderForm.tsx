@@ -46,6 +46,7 @@ import PaymentScheduleForm from '../PaymentScheduleForm/PaymentScheduleForm'
 import TransactionUpdateSideView from '../transactionUpdateSideView'
 import ViewUnitDetails from '../ViewUnitDetails'
 import AddCustomerWallet from '../FinanceModule/AddCustomerWallet'
+import AddVisitorsForm from '../AddVisitorForm'
 
 const SiderForm = ({
   mode,
@@ -397,7 +398,19 @@ const SiderForm = ({
                   />
                 )}
                 {title === 'Add Lead' && (
+                  <AddVisitorsForm title={title} dialogOpen={setOpen} />
+                )}
+                 {title === 'Add Stall Lead' && (
                   <AddLeadForm title={title} dialogOpen={setOpen} />
+                )}
+                  {title === 'Import Stall Lead' && (
+                  <LeadsDropHomes
+                    title={title}
+                    dialogOpen={setOpen}
+                    pId={pId}
+                    myPhase={undefined}
+                    myBlock={undefined}
+                  />
                 )}
                 {title === 'New Transaction' && (
                   <CaptureUnitPayment title={title} dialogOpen={setOpen} />

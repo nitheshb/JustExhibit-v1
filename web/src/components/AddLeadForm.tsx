@@ -26,7 +26,7 @@ import {
 import { USER_ROLES } from 'src/constants/userRoles'
 import {
   addCpLead,
-  addLead,
+  addStallLeads,
   checkIfLeadAlreadyExists,
   getAllProjects,
   steamUsersListByRole,
@@ -164,39 +164,27 @@ const AddLeadForm = ({ title, dialogOpen, customerDetails }) => {
 
   const budgetList = [
     { label: 'Select Customer Budget', value: '' },
+    { label: '1 - 2 Lacs', value: '5-10L' },
     { label: '5 - 10 Lacs', value: '5-10L' },
-    { label: '10 - 20 Lacs', value: '10-20L' },
-    { label: '20 - 30 Lacs', value: '20-30L' },
-    { label: '30 - 40 Lacs', value: '30-40L' },
-    { label: '40 - 50 Lacs', value: '40-50L' },
-    { label: '50 - 60 Lacs', value: '50-60L' },
-    { label: '60 - 70 Lacs', value: '60-70L' },
-    { label: '70 - 80 Lacs', value: '70-80L' },
-    { label: '80 - 90 Lacs', value: '80-90L' },
-    { label: '90 - 100 Lacs', value: '90-100L' },
-    { label: '1.0 Cr - 1.1 Cr', value: '1-1.1C' },
-    { label: '1.1 Cr - 1.2 Cr', value: '1.1-1.2C' },
-    { label: '1.2 Cr - 1.3 Cr', value: '1.2-1.3C' },
-    { label: '1.3 Cr - 1.4 Cr', value: '1.3-1.4C' },
-    { label: '1.4 Cr - 1.5 Cr', value: '1.4-1.5C' },
-    { label: '1.5 + Cr', value: '1.5+' },
+
+
   ]
 
   const plans = [
     {
-      name: 'Apartment',
+      name: 'Fashion and Accessories',
       img: '/apart1.svg',
     },
     {
-      name: 'Plots',
+      name: 'Kids',
       img: '/plot.svg',
     },
     {
-      name: 'WeekendVillas',
+      name: 'Art and Craft Supplies',
       img: '/weekend.svg',
     },
     {
-      name: 'Villas',
+      name: 'Technology and Gadgets',
       img: '/villa.svg',
     },
   ]
@@ -232,21 +220,7 @@ const AddLeadForm = ({ title, dialogOpen, customerDetails }) => {
 
     //console.log(data)
     setLoading(true)
-    if (user?.role?.includes(USER_ROLES.CP_AGENT)) {
-      const { uid, email, displayName, department, role, orgId, phone } = user
-      data.assignedTo = uid
-      data.assignedToObj = {
-        department: department || [],
-        email: email || '',
-        label: displayName || '',
-        name: displayName || '',
-        namespace: orgId,
-        roles: role || [],
-        uid: uid || '',
-        value: uid || '',
-        offPh: phone || '',
-      }
-    }
+
 
     const {
       email,
@@ -258,23 +232,17 @@ const AddLeadForm = ({ title, dialogOpen, customerDetails }) => {
       source,
       project,
       projectId,
+      comment
     } = data
 
 
 
-
+console.log('submitted values are',data)
 
     const foundLength = await checkIfLeadAlreadyExists(
-      `${orgId}_leads`,
+      `${orgId}_stall_leads`,
        mobileNo
     )
-
-
-
-
-
-
-
 
     const leadData = {
       Date: startDate.getTime(),
@@ -282,7 +250,7 @@ const AddLeadForm = ({ title, dialogOpen, customerDetails }) => {
       Mobile: mobileNo,
       countryCode: countryCode,
       Name: name,
-      Note: '',
+      Note: data?.comment || '',
       Event: project,
       ProjectId: projectId,
       Source: source,
@@ -321,7 +289,7 @@ const AddLeadForm = ({ title, dialogOpen, customerDetails }) => {
         )
       } else {
 
-        await addLead(
+        await addStallLeads(
           orgId,
           leadData,
           user?.email,
@@ -430,11 +398,12 @@ const AddLeadForm = ({ title, dialogOpen, customerDetails }) => {
                 project: customerDetailsTuned?.eventName || '',
                 projectId: customerDetailsTuned?.projectId || '',
                 assignedTo: customerDetailsTuned?.name || '',
+                comment: customerDetailsTuned?.Note || '',
                 budget: '20-30L',
                 deptVal: '',
                 myRole: '',
               }}
-              validationSchema={validate}
+              // validationSchema={validate}
               onSubmit={(values, { resetForm }) => {
                 console.log('ami submitted', values)
                 console.log('ami submitted 1', values.assignedTo === '')
@@ -828,24 +797,9 @@ Mobile No
                             </RadioGroup>
                           </div>
                           <div className="md:flex md:flex-row md:space-x-4 w-full text-xs mt-3 mx-2">
-                            <div className="w-full flex flex-col mb-3">
-                              <CustomSelect
-                                name="budget"
-                                label="Budget"
-                                className="input mt-3"
-                                onChange={(value) => {
-                                  formik.setFieldValue('budget', value.value)
-                                }}
-                                value={formik.values.budget}
-                                options={budgetList}
-                              />
-                              <p
-                                className="text-sm text-red-500 hidden mt-3"
-                                id="error"
-                              >
-                                Please fill out this field.
-                              </p>
-                            </div>
+                          <div className="mb-3 space-y-2 w-full text-xs mt-3 pr-3">
+                        <TextField label="Comments" name="comment" type="text" />
+                      </div>
                           </div>
                         </div>
                         <div className="mb-8">

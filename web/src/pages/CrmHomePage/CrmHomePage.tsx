@@ -26,11 +26,15 @@ import { getAllProjects } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 
 import SiderForm from '../../components/SiderForm/SiderForm'
+import ExecutiveHomeViewerPage from 'src/components/ExecutiveHomeViewerPage'
+import CrmStallEnquiriesHome from 'src/components/A_CrmModule/CrmStallEnquiresHomes'
 
 const CrmHomePage = () => {
   const { user } = useAuth()
 
   const { orgId } = user
+  const [isClicked, setIsClicked] = useState(false)
+
   const [isNewProjectOpen, setIsNewProjectOpen] = useState(false)
   const [isEditProjectOpen, setIsEditProjectOpen] = useState(false)
   const [project, setProject] = useState({})
@@ -399,13 +403,24 @@ const CrmHomePage = () => {
               </div>
 
               <div className="pr-2">
-                {(viewable === 'CrmTasks' || viewable === 'Home') && (
+                {(viewable === 'CrmHome' || viewable === 'Home') && (
                   <CrmHome leadsTyper={undefined} />
                 )}
                 {/* {viewable === 'CrmTeamTasks' && (
                   <CrmHome leadsTyper={undefined} />
                 )} */}
+                {viewable === 'stallEnquiries' && (
+                              <CrmStallEnquiriesHome />
+                                )}
 
+                {viewable === 'eventsDisplay' && (
+                                  <ProjectsUnitInventory
+                                    project={{
+                                      eventName: 'eventsDisplay',
+                                    }}
+                                    isEdit={undefined}
+                                  />
+                                )}
                 {viewable === 'unitsInventory' && (
                   <ProjectsUnitInventory
                     project={{

@@ -14,37 +14,69 @@ const TaskProgress = ({ userTodayPerfA }) => {
 
   return (
     <section className="bg-white rounded  flex flex-col p-4 w-100 ">
-      <h5>{t('Task Progress')}</h5>
-
-      <Box mt={2}>
-        <div className="flex flex-row align-middle justify-between">
-          <h6 className="font-bodyLato font-semibold text-sm">{t('New')}</h6>
-          <span className="font-bodyLato text-[12px] text-[#94A4C4]">
-            {userTodayPerfA?.new_comp || 0}/{userTodayPerfA?.new}
-          </span>
-        </div>
+      <h5>{t('Stall Bookings')}</h5>
 
 
-      </Box>
       <Box mt={3}>
         <div className="flex flex-row align-middle justify-between">
           <h6 className="font-bodyLato font-semibold text-sm">
-            {t('Followup')}
+            {t('Total')}
           </h6>
           <span className="font-bodyLato text-[12px] text-[#94A4C4]">
-            {userTodayPerfA?.followup_comp || 0}/{userTodayPerfA?.followup}
+            110
           </span>
         </div>
         <LinearProgress
+            sx={{
+              backgroundColor: 'white',
+              '& .MuiLinearProgress-bar': {
+                backgroundColor: '#e06349',
+              },
+            }}
           variant="determinate"
-          color="info"
+          // color="info"
           value={
-            userTodayPerfA?.followup_comp || 0 / userTodayPerfA?.followup || 0
+            100
           }
           style={{
             backgroundColor: '#E5EAF2',
-            borderRadius: '3px',
-            height: '4px',
+            borderRadius: '6px',
+            borderTopRightRadius: '6px',
+            borderBottomRightRadius: '6px',
+            height: `10px`,
+            width: `100%`,
+          }}
+        />
+      </Box>
+
+      <Box mt={3}>
+        <div className="flex flex-row align-middle justify-between">
+          <h6 className="font-bodyLato font-semibold text-sm">
+            {t('Available')}
+          </h6>
+          <span className="font-bodyLato text-[12px] text-[#94A4C4]">
+            20
+          </span>
+        </div>
+        <LinearProgress
+            sx={{
+              backgroundColor: 'white',
+              '& .MuiLinearProgress-bar': {
+                backgroundColor: '#f0c1b7'
+              },
+            }}
+          variant="determinate"
+          // color="info"
+          value={
+            60
+          }
+          style={{
+            backgroundColor: '#E5EAF2',
+            borderRadius: '6px',
+            borderTopRightRadius: '6px',
+            borderBottomRightRadius: '6px',
+            height: `10px`,
+            width: `100%`,
           }}
         />
       </Box>
@@ -56,25 +88,31 @@ const TaskProgress = ({ userTodayPerfA }) => {
       </FlexBox> */}
         <div className="flex flex-row align-middle justify-between">
           <h6 className="font-bodyLato font-semibold text-sm">
-            {t('Visits Fixed')}
+            {t('Blocked')}
           </h6>
           <span className="font-bodyLato text-[12px] text-[#94A4C4]">
-            {userTodayPerfA?.visitfixed_comp || 0}/{userTodayPerfA?.visitfixed}
+            60
           </span>
         </div>
         <LinearProgress
-          value={
-            userTodayPerfA?.visitfixed_comp ||
-            0 / userTodayPerfA?.visitfixed ||
-            0
-          }
-          color="warning"
+            sx={{
+              backgroundColor: 'white',
+              '& .MuiLinearProgress-bar': {
+                backgroundColor: '#f0c1b7',
+              },
+            }}
           variant="determinate"
+          // color="info"
+          value={
+            60
+          }
           style={{
             backgroundColor: '#E5EAF2',
-            borderRadius: '3px',
-            height: '4px',
-            color: '#FFE91F',
+            borderRadius: '6px',
+            borderTopRightRadius: '6px',
+            borderBottomRightRadius: '6px',
+            height: `10px`,
+            width: `100%`,
           }}
         />
       </Box>
@@ -82,26 +120,31 @@ const TaskProgress = ({ userTodayPerfA }) => {
       <Box mt={3}>
         <div className="flex flex-row align-middle justify-between">
           <h6 className="font-bodyLato font-semibold text-sm">
-            {t('Negotiation')}
+            {t('Booked')}
           </h6>
           <span className="font-bodyLato text-[12px] text-[#94A4C4]">
-            {userTodayPerfA?.negotiation_comp || 0}/
-            {userTodayPerfA?.negotiation}
+           30
           </span>
         </div>
         <LinearProgress
+            sx={{
+              backgroundColor: 'white',
+              '& .MuiLinearProgress-bar': {
+                backgroundColor: '#f0c1b7',
+              },
+            }}
           variant="determinate"
+          // color="info"
           value={
-            userTodayPerfA?.negotiation_comp ||
-            0 / userTodayPerfA?.negotiation ||
-            0
+            60
           }
-          color="success"
           style={{
-            borderRadius: '3px',
-            height: '4px',
-            color: '#FD396D',
             backgroundColor: '#E5EAF2',
+            borderRadius: '6px',
+            borderTopRightRadius: '6px',
+            borderBottomRightRadius: '6px',
+            height: `10px`,
+            width: `100%`,
           }}
         />
       </Box>
