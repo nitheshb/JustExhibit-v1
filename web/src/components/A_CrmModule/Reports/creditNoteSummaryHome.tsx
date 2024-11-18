@@ -283,7 +283,7 @@ switch (selProjectIs?.value) {
         setOpen={setisImportLeadsOpen}
         title={'unitDetails_crm_view'}
         customerDetails={selUserProfile}
-        widthClass="max-w-7xl"
+        widthClass="max-w-4xl"
         transactionData={selUserProfile}
         unitsViewMode={false}
         selCustomerPayload={selUserProfile}

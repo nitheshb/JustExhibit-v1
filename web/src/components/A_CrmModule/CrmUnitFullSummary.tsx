@@ -741,11 +741,11 @@ export default function UnitFullSummary({
   }
   return (
     <div
-      className={`bg-[#d9d8ff]  h-screen    ${openUserProfile ? 'hidden' : ''} `}
+      className={`bg-[#F9F7F5]  h-screen    ${openUserProfile ? 'hidden' : ''} `}
     >
 <section className="flex flex-row">
     <div className='w-full'>
-      <div className="rounded-t bg-[#F1F5F9] mb-0 px-3">
+      <div className="rounded-t bg-[#F9F7F5] mb-0 ">
         <>
 
           {selFeature === 'attachments' && (
@@ -799,21 +799,21 @@ export default function UnitFullSummary({
                     <form onSubmit={docUploadHandler}>
                       <input
                         className="form-control
-    block
-    w-full
-    px-3
-    py-1.5
-    text-base
-    font-normal
-    text-gray-700
-    bg-white bg-clip-padding
-    border border-solid border-gray-300
-    rounded
-    transition
-    ease-in-out
-    m-0
-    focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                        type="file"
+                          block
+                          w-full
+                          px-3
+                          py-1.5
+                          text-base
+                          font-normal
+                          text-gray-700
+                          bg-white bg-clip-padding
+                          border border-solid border-gray-300
+                          rounded
+                          transition
+                          ease-in-out
+                          m-0
+                          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                              type="file"
                         id="formFile"
                       />
                       <div className="flex flex-row mt-3">
@@ -1100,7 +1100,7 @@ export default function UnitFullSummary({
       {selFeature === 'unit_information' && (
         <>
           <div className="flex flex-col  my-10 rounded-lg bg-white border border-gray-100 px-4 m-4 mt-4">
-            <div className="py-3 grid grid-cols-4 gap-4 mb-4">
+            <div className="py-3 grid grid-cols-3 gap-4 mb-4">
 
               {/* <section className="flex flex-col bg-[#F6F7FF] p-3 border border-[#e5e7f8] rounded-md mb-2">
                 <section className="flex flow-row justify-between mb-1">
@@ -1245,38 +1245,38 @@ export default function UnitFullSummary({
 
 
 
+
+
 <section className="flex flex-col  bg-[#F6F7FF] p-3 border border-[#e5e7f8] rounded-md ">
 
 
-  <div className="flex items-center mb-2">
-    <div className="border-l-4 border-[#57C0D0] pl-2 text-sm font-semibold text-gray-700">Additonal Details
+<div className="flex items-center mb-2">
+  <div className="border-l-4 border-[#57C0D0] pl-2 text-sm font-semibold text-gray-700">Status
+  </div>
+</div>
+
+<section className="grid grid-cols-2 ">
+  <div className="text-start">
+    <div className="text-base font-semibold text-slate-900"> {selCustomerPayload?.status}</div>
+    <div className="text-xs text-gray-500"> Status</div>
+  </div>
+  <div className="text-start">
+    <div className="text-base font-semibold text-slate-900">{selCustomerPayload?.release_status?.toLocaleString('en-IN')}
+    </div>
+    <div className="text-xs text-gray-500">Release Status</div>
+  </div>
+  <div className="text-start">
+    <div className="text-base font-semibold text-slate-900">{selCustomerPayload?.mortgage_type}
+    </div>
+    <div className="text-xs text-gray-500">Mortgage Type
     </div>
   </div>
+  {/* <div className="text-start">
+    <div className="text-base font-semibold text-slate-900"></div>
+    <div className="text-xs text-gray-500">North</div>
+  </div> */}
 
-  <section className="grid grid-cols-2 ">
-    <div className="text-start">
-      <div className="text-base font-semibold text-slate-900">{selCustomerPayload?.rate_per_sqft?.toLocaleString('en-IN')}
-      </div>
-      <div className="text-xs text-gray-500">Cost</div>
-    </div>
-    <div className="text-start">
-      <div className="text-base font-semibold text-slate-900">{selCustomerPayload?.builtup_area?.toLocaleString('en-IN')}
-      </div>
-      <div className="text-xs text-gray-500">PLC</div>
-    </div>
-    <div className="text-start">
-      <div className="text-base font-semibold text-slate-900">{selCustomerPayload?.facing}
-      </div>
-      <div className="text-xs text-gray-500">Total</div>
-    </div>
-    <div className="text-start">
-      <div className="text-base font-semibold text-slate-900">{selCustomerPayload?.kathaId}
-
-      </div>
-      <div className="text-xs text-gray-500">KathaId</div>
-    </div>
-
-  </section>
+</section>
 </section>
 
 
@@ -1423,97 +1423,6 @@ export default function UnitFullSummary({
             <div className="py-3 grid grid-cols-4 gap-4 mb-4">
 
 
-            {(customerDetails?.projectType?.name === 'Villas' || customerDetails?.projectType?.name === 'Apartment') && (
-
-
-<section className="flex flex-col  bg-[#F6F7FF] p-3 border border-[#e5e7f8] rounded-md ">
-
-
-  <div className="flex items-center mb-2">
-    <div className="border-l-4 border-[#57C0D0] pl-2 text-sm font-semibold text-gray-700">Details
-    </div>
-  </div>
-
-  <section className="grid grid-cols-2 ">
-    <div className="text-start">
-      <div className="text-base font-semibold text-slate-900">{selCustomerPayload?.Bedrooms_D}
-
-      </div>
-      <div className="text-xs text-gray-500">BedRooms
-      </div>
-    </div>
-    <div className="text-start">
-      <div className="text-base font-semibold text-slate-900">{selCustomerPayload?.BathRooms_D?.toLocaleString('en-IN')}
-
-      </div>
-      <div className="text-xs text-gray-500">Bathrooms</div>
-    </div>
-    <div className="text-start">
-      <div className="text-base font-semibold text-slate-900">{selCustomerPayload?.Car_Parking_D}
-
-      </div>
-      <div className="text-xs text-gray-500">Car Parking
-      </div>
-    </div>
-    <div className="text-start">
-      <div className="text-base font-semibold text-slate-900">{selCustomerPayload?.Carpet_Area_D?.toLocaleString('en-IN')}
-
-
-      </div>
-      <div className="text-xs text-gray-500">Carpet Area Sqft
-      </div>
-    </div>
-
-  </section>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-            // <section className="flex flex-col bg-[#F6F7FF] p-3 border  border-[#e5e7f8] rounded-md mb-2">
-            //     <section className="flex flow-row justify-between mb-1">
-            //       <div className="font-md text-xs text-gray-700 tracking-wide">
-            //       BedRooms
-            //       </div>
-            //       <div className="font-md text-xs tracking-wide font-semibold text-slate-900 ">
-            //         {selCustomerPayload?.Bedrooms_D}
-            //       </div>
-            //     </section>
-            //     <section className="flex flow-row justify-between mb-1">
-            //       <div className="font-md text-xs text-gray-500  tracking-wide">
-            //       Bathrooms
-            //       </div>
-            //       <div className="font-md text-xs tracking-wide font-semibold text-slate-900 ">
-            //         {selCustomerPayload?.BathRooms_D?.toLocaleString('en-IN')}
-            //       </div>
-            //     </section>
-            //     <section className="flex flow-row justify-between mb-1">
-            //       <div className="font-md text-xs text-gray-500  tracking-wide">
-            //       Car Parking
-            //       </div>
-            //       <div className="font-md text-xs tracking-wide font-semibold text-slate-900 ">
-            //         {selCustomerPayload?.Car_Parking_D}
-            //       </div>
-            //     </section>
-            //     <section className="flex flow-row justify-between mb-1">
-            //       <div className="font-md text-xs text-gray-500  tracking-wide">
-            //       Carpet Area Sqft
-            //       </div>
-            //       <div className="font-md text-xs tracking-wide font-semibold text-slate-900 ">
-            //         {selCustomerPayload?.Carpet_Area_D?.toLocaleString('en-IN')}
-            //       </div>
-            //     </section>
-            //   </section>
-                )}
 
 
 
@@ -1558,37 +1467,7 @@ export default function UnitFullSummary({
 
 
 
-              <section className="flex flex-col  bg-[#F6F7FF] p-3 border border-[#e5e7f8] rounded-md ">
 
-
-  <div className="flex items-center mb-2">
-    <div className="border-l-4 border-[#57C0D0] pl-2 text-sm font-semibold text-gray-700">Status
-    </div>
-  </div>
-
-  <section className="grid grid-cols-2 ">
-    <div className="text-start">
-      <div className="text-base font-semibold text-slate-900"> {selCustomerPayload?.status}</div>
-      <div className="text-xs text-gray-500"> Status</div>
-    </div>
-    <div className="text-start">
-      <div className="text-base font-semibold text-slate-900">{selCustomerPayload?.release_status?.toLocaleString('en-IN')}
-      </div>
-      <div className="text-xs text-gray-500">Release Status</div>
-    </div>
-    <div className="text-start">
-      <div className="text-base font-semibold text-slate-900">{selCustomerPayload?.mortgage_type}
-      </div>
-      <div className="text-xs text-gray-500">Mortgage Type
-      </div>
-    </div>
-    {/* <div className="text-start">
-      <div className="text-base font-semibold text-slate-900"></div>
-      <div className="text-xs text-gray-500">North</div>
-    </div> */}
-
-  </section>
-</section>
 
 
 
@@ -1629,8 +1508,8 @@ export default function UnitFullSummary({
             <ol className="items-center sm:flex">
     {[{'event': 'Booked', 'key': 'booked_on'},
     {'event': 'Allotment', 'key': 'agreement_pipeline'},
-    {'event': 'Agreement', 'key': 'agreement_on'},
-    {'event': 'Registered', 'key': 'registered_on'},
+    // {'event': 'Agreement', 'key': 'agreement_on'},
+    // {'event': 'Registered', 'key': 'registered_on'},
     {'event': 'Possession', 'key': 'possession_on'}].map((d, i)=> <li key={i} className="relative mb-6 sm:mb-0 ">
         <div className="flex items-center">
             <div className="z-10 flex items-center justify-center w-6 h-6 bg-[#E5E7EB] rounded-full ring-0 ring-[#DDD6FE] sm:ring-8  shrink-0">
@@ -1794,8 +1673,9 @@ export default function UnitFullSummary({
                   {[
 
                      { lab: 'Summary', val: 'summary' },
-                    { lab: 'Applicant details', val: 'applicant_info' },
                     { lab: 'Unit details', val: 'unit_information' },
+
+                    { lab: 'Customer details', val: 'applicant_info' },
                     { lab: 'Cost & Payments', val: 'finance_info' },
                     { lab: 'Tasks', val: 'tasks' },
                     { lab: 'Timeline', val: 'timeline' },

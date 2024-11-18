@@ -152,25 +152,25 @@ export function ProjectCard({
           <div className="grid grid-cols-4 divide-x divide-gray-100">
             <div className="p-4 text-center">
               <div className="text-lg font-semibold text-gray-900">
-                {stats.total}
+                {project?.totalUnitCount || 0 }
               </div>
               <div className="text-xs text-gray-500">Total</div>
             </div>
             <div className="p-4 text-center">
               <div className="text-lg font-semibold text-emerald-600">
-                {stats.available}
+                {project?.availableCount || 0}
               </div>
               <div className="text-xs text-gray-500">Available</div>
             </div>
             <div className="p-4 text-center">
               <div className="text-lg font-semibold text-blue-600">
-                {stats.sold}
+                {project?.soldUnitCount || 0 }
               </div>
               <div className="text-xs text-gray-500">Sold</div>
             </div>
             <div className="p-4 text-center">
               <div className="text-lg font-semibold text-gray-400">
-                {stats.blocked}
+                {project?.blockedUnitCount || 0 }
               </div>
               <div className="text-xs text-gray-500">Blocked</div>
             </div>

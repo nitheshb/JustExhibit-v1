@@ -4,6 +4,8 @@ import { LinearProgress } from '@mui/material'
 
 import { useAuth } from 'src/context/firebase-auth-context'
 import { computeTotal } from 'src/util/computeCsTotals'
+import DoughnutChartWithRoundedSegments from '../A_SalesModule/Reports/charts/piechartRounded'
+import RoundedProgressBar from './Reports/RoundedProgressBar'
 
 const CrmUnitPaymentGraph = ({ selCustomerPayload }) => {
   const { user } = useAuth()
@@ -73,68 +75,12 @@ const CrmUnitPaymentGraph = ({ selCustomerPayload }) => {
             </h6>
           </div>
           <div className="flex flex-row mx-1 pt-">
-            {[{ item: 'Paid', value: 6 }].map((data, i) => (
-              <div
-                className=" w-3/4  "
-                style={{
-                  display: 'inline-block',
-                  alignSelf: 'flex-end',
-                }}
-                key={i}
-              >
-                <div className="">
-                  <LinearProgress
-                    sx={{
-                      backgroundColor: 'white',
-                      '& .MuiLinearProgress-bar': {
-                        backgroundColor: '#ffab00',
-                      },
-                    }}
-                    variant="determinate"
-                    value={100}
-                    style={{
-                      backgroundColor: '#E5EAF2',
-                      borderRadius: '3px',
-                      borderTopRightRadius: '0px',
-                      borderBottomRightRadius: '0px',
-                      height: `${data.value}px`,
-                      width: `100%`,
-                    }}
-                  />
-                </div>
-              </div>
-            ))}
-            {[{ item: 'Due', value: 6 }].map((data, i) => (
-              <div
-                className=" w-2/4  "
-                style={{
-                  display: 'inline-block',
-                  alignSelf: 'flex-end',
-                }}
-                key={i}
-              >
-                <div className="">
-                  <LinearProgress
-                    sx={{
-                      backgroundColor: 'white',
-                      '& .MuiLinearProgress-bar': {
-                        backgroundColor: '#ffab003d',
-                      },
-                    }}
-                    variant="determinate"
-                    value={100}
-                    style={{
-                      backgroundColor: '#ffab003d',
-                      borderRadius: '3px',
-                      borderTopLeftRadius: '0px',
-                      borderBottomLeftRadius: '0px',
-                      height: `${data.value}px`,
-                      width: `100%`,
-                    }}
-                  />
-                </div>
-              </div>
-            ))}
+          <RoundedProgressBar
+                                    progress={
+                                      (selCustomerPayload?.T_paid / selCustomerPayload?.T_total) *
+                                      100
+                                    }
+                                  />
           </div>
           <div className="flex flex-row justify-between mx-">
           <h6 className="font-bodyLato font-semibold text-xs m-1">

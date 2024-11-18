@@ -228,24 +228,24 @@ const CrmHome = ({ setisImportLeadsOpen, selUserProfileF, taskType }) => {
 
         <div className="grid grid-cols-3 gap-6 mb-8">
           <StatCard
-            title="Product overview"
-            value="₹43,630"
-            subtext="vs last month"
-            change="+5.3%"
+            title="Stalls"
+            value="100"
+            subtext="2 Halls"
+            change=""
             changeType="positive"
           />
           <StatCard
-            title="Active sales"
+            title="Sales"
             value="₹27,064"
             subtext="vs last month"
             change="+2.4%"
             changeType="positive"
           />
           <StatCard
-            title="Product Revenue"
-            value="₹16,568"
-            subtext="vs last month"
-            change="+3.2%"
+            title="Enquiries"
+            value="600"
+            subtext="Conversion"
+            change="20%"
             changeType="positive"
           />
         </div>
@@ -255,8 +255,8 @@ const CrmHome = ({ setisImportLeadsOpen, selUserProfileF, taskType }) => {
             <section className='rounded-xl bg-white p-6 mb-8'>
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-gray-600 text-sm flex items-center gap-1">
-                Analytics
-                <span className="w-4 h-4 rounded-full bg-gray-100 flex items-center justify-center text-xs">?</span>
+                Meetings
+                {/* <span className="w-4 h-4 rounded-full bg-gray-100 flex items-center justify-center text-xs">?</span> */}
               </h3>
               <div className="flex items-center gap-4">
                 <select className="px-4 py-2 rounded-lg border border-gray-200">
@@ -274,8 +274,8 @@ const CrmHome = ({ setisImportLeadsOpen, selUserProfileF, taskType }) => {
               <section className='rounded-xl bg-white p-6'>
             <div className="flex items-center justify-between mb-6">
               <h3 className="text-gray-600 text-sm flex items-center gap-1">
-                Analytics
-                <span className="w-4 h-4 rounded-full bg-gray-100 flex items-center justify-center text-xs">?</span>
+                Stall Bookings
+                {/* <span className="w-4 h-4 rounded-full bg-gray-100 flex items-center justify-center text-xs">?</span> */}
               </h3>
               <div className="flex items-center gap-4">
                 <select className="px-4 py-2 rounded-lg border border-gray-200">
@@ -328,7 +328,7 @@ export function StatCard({ title, value, subtext, change, changeType, chart }: S
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-gray-600 text-sm flex items-center gap-1">
           {title}
-          <span className="w-4 h-4 rounded-full bg-gray-100 flex items-center justify-center text-xs">?</span>
+          {/* <span className="w-4 h-4 rounded-full bg-gray-100 flex items-center justify-center text-xs">?</span> */}
         </h3>
       </div>
 
@@ -387,8 +387,10 @@ export  function AnalyticsChart() {
 
 
 
-const days = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
-const hours = Array.from({ length: 24 }, (_, i) => i);
+const days = ['Hall-1', 'Hall-2' ];
+const hours = Array.from({ length: 25 }, (_, i) => i);
+const hours1 = Array.from({ length: 100 }, (_, i) => i);
+
 
 // Generate sample data
 const generateHeatmapData = () => {
@@ -413,6 +415,25 @@ export  function VisitsCard() {
           See Details
           <ArrowRight size={16} />
         </button>
+      </div>
+
+      <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-12 lg:grid-cols-12 xl:grid-cols-12 gap-1">
+        {hours1.map((value, index) => (
+          <div
+            key={index}
+            className={`aspect-square rounded transition-colors ${
+              value === 0
+                ? 'bg-gray-50'
+                : value === 1
+                ? 'bg-orange-100'
+                : value === 2
+                ? 'bg-orange-200'
+                : value === 3
+                ? 'bg-orange-300'
+                : 'bg-orange-400'
+            }`}
+          />
+        ))}
       </div>
 
       <div className="flex items-center gap-2 mb-4">
@@ -454,7 +475,7 @@ export  function VisitsCard() {
         </div>
 
         <div className="mt-2 flex justify-between text-xs text-gray-400">
-          <span>12:00 AM</span>
+          <span>1-30</span>
           <span>12:00 PM</span>
           <span>11:59 PM</span>
         </div>
@@ -492,8 +513,8 @@ export  function TopProducts() {
       <div className="flex items-center justify-between mb-6">
         <div className="flex items-center gap-2">
           <h3 className="text-gray-600 text-sm flex items-center gap-1">
-            Top Products
-            <span className="w-4 h-4 rounded-full bg-gray-100 flex items-center justify-center text-xs">?</span>
+            Bookings
+            {/* <span className="w-4 h-4 rounded-full bg-gray-100 flex items-center justify-center text-xs">?</span> */}
           </h3>
         </div>
         <button className="text-sm text-orange-500 flex items-center gap-1 hover:text-orange-600">
@@ -506,10 +527,10 @@ export  function TopProducts() {
         <table className="w-full">
           <thead>
             <tr className="text-xs text-gray-500 border-b border-gray-100">
-              <th className="text-left font-normal pb-3">Product</th>
-              <th className="text-left font-normal pb-3">Sales</th>
-              <th className="text-left font-normal pb-3">Revenue</th>
-              <th className="text-left font-normal pb-3">Stock</th>
+              <th className="text-left font-normal pb-3">Company name</th>
+              <th className="text-left font-normal pb-3">Stall No</th>
+              <th className="text-left font-normal pb-3">Cost</th>
+              <th className="text-left font-normal pb-3">Balance</th>
               <th className="text-left font-normal pb-3">Status</th>
             </tr>
           </thead>

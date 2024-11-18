@@ -8,7 +8,7 @@ import { useAuth } from 'src/context/firebase-auth-context'
 import { supabase } from 'src/context/supabase'
 import { activeLogNameHelper } from 'src/util/activityLogHelper'
 import { computeTotal } from 'src/util/computeCsTotals'
-import { timeConv } from 'src/util/dateConverter'
+import { prettyDate, timeConv } from 'src/util/dateConverter'
 import PdfUnitSummaryFile from 'src/util/PDF_Files/pdfUnitSummaryFile'
 
 import CrmUnitCostSheetView from './CrmCostSheetView'
@@ -185,30 +185,9 @@ const CrmUnitSummary = ({
         {/* Finance History */}
         {/* Payment Summay */}
         {/* Unit Position Summary */}
-        <div className="flex flex-row">
-          <div className="w-full">
-            {/* customer details */}
-            <div className="flex flex-row justify-between text-end items-end mr-2"></div>
-
-            {/* 1 } customer details */}
-            {/* Unit details */}
-
-            {/* Payment Summay */}
-
-            {/* Unit Position Summary */}
-            {/* payment schedule */}
-            <div>
-              <CrmUnitCostSheetView
-                selCustomerPayload={selUnitPayload}
-                assets={assets}
-                totalIs={totalIs}
-              />
-            </div>
-            <div></div>
-          </div>
-
-          <div className="rounded w-[300px] ml-2 py-3 flex flex-col">
-            <div className="flex flex-col bg-[#f0f1ff] rounded-lg p-3 ">
+        <div className="flex flex-col">
+        <div className="rounded w-[300px] py-3 w-full grid grid-cols-2 gap-2">
+            <div className="flex flex-col bg-white rounded-lg border p-3 ">
               <div className="flex flex-row ">
                 <img
                   src="https://static.ambitionbox.com/static/benefits/WFH.svg"
@@ -226,16 +205,82 @@ const CrmUnitSummary = ({
                 />
               </div>
             </div>
-            <div className="flex flex-col bg-[#f0f1ff] rounded-lg p-3 mt-2 ">
+            <div className="flex flex-col bg-white border rounded-lg p-3  w-full ">
               <div className="flex flex-row ">
                 <img
                   src="https://static.ambitionbox.com/static/benefits/WFH.svg"
                   alt=""
                 />
                 <h1 className="text-bodyLato text-left text-[#1E223C] font-semibold text-[14px] mb-2 mt-3 ml-1">
-                  Activity
+                  Recent Transactions
                 </h1>
               </div>
+
+              <div className="bg-white rounded-xl p-6">
+
+
+      <div className="overflow-x-auto">
+        <table className="w-full">
+          <thead>
+            <tr className="text-xs text-gray-500 border-b border-gray-100">
+            <th className="text-left font-normal pb-3">Amount</th>
+              <th className="text-left font-normal pb-3">Date</th>
+
+              {/* <th className="text-left font-normal pb-3">Cost</th>
+              <th className="text-left font-normal pb-3">Balance</th> */}
+              <th className="text-left font-normal pb-3">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {unitTransactionsA.map((d1, idx) => (
+              <tr key={idx} className="text-sm border-b border-gray-50 last:border-0">
+                <td className="py-3">
+                  <div className="flex items-center gap-3">
+                    {/* <div className="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center">
+                      <span className="text-xs text-orange-500">🛍️</span>
+                    </div> */}
+                    <div>
+                    <span className='text-[13px] font-semibold'>                        ₹{d1?.totalAmount?.toLocaleString('en-IN') || d1?.amount?.toLocaleString('en-IN')}
+</span>
+                      <p className="text-xs text-gray-500">{d1?.category}</p>
+                    </div>
+                  </div>
+                </td>
+                <td className="py-3">
+                  <div className="flex flex-col">
+                  <p className="font-medium">{prettyDate(d1?.txt_dated ||d1?.dated).toLocaleString() }</p>
+
+                    {/* <span className="text-xs text-gray-500">{d1?.mode}</span> */}
+                  </div>
+                </td>
+                {/* <td className="py-3">
+                  <div className="flex flex-col">
+                    <span>{product?.revenue}</span>
+                    <span className="text-xs text-gray-500">USD</span>
+                  </div>
+                </td>
+                <td className="py-3">
+                  <div className="flex flex-col">
+                    <span>{product?.stock}</span>
+                    <span className="text-xs text-gray-500">pcs</span>
+                  </div>
+                </td> */}
+                <td className="py-3">
+                  <span className={`px-2 py-1 rounded-full text-xs ${
+                    d1?.status === 'In stock'
+                      ? 'bg-green-50 text-green-600'
+                      : 'bg-red-50 text-green-600'
+                  }`}>
+                    {d1?.mode}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
 
               <div className="relative col-span-12 pl-6 space-y-2 sm:col-span-9 mt-3">
                 {unitFetchedActivityData?.length == 0 && (
@@ -289,6 +334,28 @@ const CrmUnitSummary = ({
               </div>
             </div>
           </div>
+          <div className="w-full">
+            {/* customer details */}
+            <div className="flex flex-row justify-between text-end items-end mr-2"></div>
+
+            {/* 1 } customer details */}
+            {/* Unit details */}
+
+            {/* Payment Summay */}
+
+            {/* Unit Position Summary */}
+            {/* payment schedule */}
+            <div>
+              <CrmUnitCostSheetView
+                selCustomerPayload={selUnitPayload}
+                assets={assets}
+                totalIs={totalIs}
+              />
+            </div>
+            <div></div>
+          </div>
+
+
         </div>
       </div>
     </PDFExport>

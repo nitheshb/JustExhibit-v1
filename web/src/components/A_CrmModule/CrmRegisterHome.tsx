@@ -48,6 +48,7 @@ import {
 import DoughnutChartWithRoundedSegments from '../A_SalesModule/Reports/charts/piechartRounded'
 import CrmSiderForm from '../SiderForm/CRM_SideForm'
 import SiderForm from '../SiderForm/SiderForm'
+import RoundedProgressBar from './Reports/RoundedProgressBar'
 
 const agreementItems = [
   {
@@ -574,7 +575,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
   }
   return (
     <>
-      <div className=" font-rubikF mt-2 bg-white rounded-t-lg ">
+      <div className=" font-rubikF mt-2 bg-white rounded-t-lg  max-w-7xl mx-auto ">
         <div className="">
           <div
             className="
@@ -1218,7 +1219,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                               <span className="  text-[10px] h-[20px]  text-[#005E36] font-bodyLato font-[600] mt-[2px] border border-[#ECFDF5]  py-[2px] rounded-xl mr-1 ">
                                                 {projName}{' '}
                                               </span>
-
+{/*
                                               <span className="  text-[10px] h-[20px] text-[#005E36] font-bodyLato font-[600] mt-[2px] border border-[#ECFDF5] px-[6px] py-[2px] rounded-xl mr-1 ">
                                                 Booked:{' '}
                                                 {prettyDate(
@@ -1226,7 +1227,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                                     finData?.ct ||
                                                     0
                                                 )}
-                                              </span>
+                                              </span> */}
                                             </section>
                                           </div>
                                         </div>
@@ -1276,13 +1277,13 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                 <div className="flex flex-row justify-between mx- mb-1">
                                   <section className="font-bodyLato font-semibold text-xs m-1 w-full">
                                     <div className="mb-[2px] text-zinc-500 text-sm font-medium font-['Lato'] tracking-wide">
-                                      Stage Cost
+                                      Total Cost
                                     </div>
                                     <div className="text-zinc-800 text-[12px]  font-['Lato'] tracking-wide">
                                       ₹
-                                      {finData?.T_elgible?.toLocaleString(
-                                        'en-IN'
-                                      )}
+                                      {(
+                                            finData?.T_total || finData?.T_Total
+                                          )?.toLocaleString('en-IN')}
                                     </div>
                                   </section>
                                   {/* section-2 */}
@@ -1303,9 +1304,10 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                     <div className="text-zinc-800 text-[12px] font-bold font-['Lato'] tracking-wide">
                                       ₹
                                       {(
-                                        (finData?.T_review || 0) +
-                                        (finData?.T_approved || 0)
-                                      )?.toLocaleString('en-IN')}
+                                            (finData?.T_review || 0) +
+                                            (finData?.T_approved || 0) +
+                                            (finData?.T_paid || 0)
+                                          ).toLocaleString('en-IN') || 0}
                                     </div>
                                   </section>
                                   {/* section- 3 */}
@@ -1315,79 +1317,21 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                     </div>
                                     <div className="text-zinc-800 text-[12px] font-bold font-['Lato'] tracking-wide">
                                       ₹
-                                      {finData?.T_elgible_balance?.toLocaleString(
-                                        'en-IN'
-                                      )}
+                                      {finData?.T_balance?.toLocaleString(
+                                            'en-IN'
+                                          )}
                                     </div>
                                   </section>
                                 </div>
                                 <div className="flex flex-row mx-1 pt-">
-                                  {[{ item: 'Paid', value: 7 }].map(
-                                    (data, i) => (
-                                      <div
-                                        className=" w-3/4  "
-                                        style={{
-                                          display: 'inline-block',
-                                          alignSelf: 'flex-end',
-                                        }}
-                                        key={i}
-                                      >
-                                        <div className="">
-                                          <LinearProgress
-                                            sx={{
-                                              backgroundColor: 'white',
-                                              '& .MuiLinearProgress-bar': {
-                                                backgroundColor: '#e3bdff',
-                                              },
-                                            }}
-                                            variant="determinate"
-                                            value={100}
-                                            style={{
-                                              backgroundColor: '#E5EAF2',
-                                              borderRadius: '3px',
-                                              borderTopRightRadius: '0px',
-                                              borderBottomRightRadius: '0px',
-                                              height: `${data.value}px`,
-                                              width: `100%`,
-                                            }}
-                                          />
-                                        </div>
-                                      </div>
-                                    )
-                                  )}
-                                  {[{ item: 'Due', value: 7 }].map(
-                                    (data, i) => (
-                                      <div
-                                        className=" w-2/4  "
-                                        style={{
-                                          display: 'inline-block',
-                                          alignSelf: 'flex-end',
-                                        }}
-                                        key={i}
-                                      >
-                                        <div className="">
-                                          <LinearProgress
-                                            sx={{
-                                              backgroundColor: 'white',
-                                              '& .MuiLinearProgress-bar': {
-                                                backgroundColor: '#E5E7EB',
-                                              },
-                                            }}
-                                            variant="determinate"
-                                            value={100}
-                                            style={{
-                                              backgroundColor: '#E5E7EB',
-                                              borderRadius: '3px',
-                                              borderTopLeftRadius: '0px',
-                                              borderBottomLeftRadius: '0px',
-                                              height: `${data.value}px`,
-                                              width: `100%`,
-                                            }}
-                                          />
-                                        </div>
-                                      </div>
-                                    )
-                                  )}
+                                <RoundedProgressBar progress={
+                                      ((finData?.T_review || 0) +
+                                      (finData?.T_approved || 0) +
+                                      (finData?.T_paid || 0)/ (
+                                        finData?.T_total || finData?.T_Total
+                                      )) *
+                                      100
+                                    }/>
                                 </div>
                               </div>
                             </div>
@@ -1442,7 +1386,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                               <div className="flex flex-col   rounded-md  py-1 ">
                                 <div className="flex flex-row  px-1">
                                   {/* section 2 */}
-                                 {['booked', 'selCategory'].includes(selCategory) &&
+                                 {['booked','unpaid','paid', 'selCategory'].includes(selCategory) &&
                                  <section>
                                  <div
                                     className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
@@ -1514,6 +1458,44 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                       </div>
                                       <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
                                         KYC
+                                      </h6>
+                                    </div>
+                                  </div>
+                                   {/* section 4*/}
+                                   <div
+                                    className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
+                                      finData?.kyc_status == 'approved'
+                                        ? 'bg-[#CCC5F7]'
+                                        : finData?.kyc_status == 'rejected'
+                                        ? 'bg-[#ffdbdb]'
+                                        : 'bg-[#F1F5F9] '
+                                    }  p-3 rounded-md mx-1`}
+                                    style={{
+                                      display: 'inline-block',
+                                      alignSelf: 'flex-end',
+                                    }}
+                                    onClick={() => {
+                                      setSelUnitDetails(finData)
+                                      setIsSubTopicOpen(true)
+                                      setIsSubTopic('crm_KYC')
+                                    }}
+                                  >
+                                    <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
+                                      <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                        <NewspaperIcon
+                                          className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
+                                            finData?.kyc_status == 'approved'
+                                              ? 'bg-[#CCC5F7]'
+                                              : finData?.kyc_status ==
+                                                'rejected'
+                                              ? 'bg-[#ffdbdb]'
+                                              : 'bg-[#F1F5F9] '
+                                          }`}
+                                          aria-hidden="true"
+                                        />
+                                      </div>
+                                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
+                                        Payment
                                       </h6>
                                     </div>
                                   </div>
@@ -2044,7 +2026,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
         title={'unitDetails_crm_view'}
         customerDetails={selUnitDetails}
         setSelUnitDetails={setSelUnitDetails}
-        widthClass="max-w-7xl"
+        widthClass="max-w-4xl"
         transactionData={transactionData}
         unitsViewMode={false}
         selCustomerPayload={selUnitDetails}

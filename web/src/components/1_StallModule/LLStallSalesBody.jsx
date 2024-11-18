@@ -18,6 +18,7 @@ import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
 import PropTypes from 'prop-types'
 import DatePicker from 'react-datepicker'
+import { Search, Bell, Plus, Filter, ArrowRight } from 'lucide-react';
 
 import { useAuth } from 'src/context/firebase-auth-context'
 import {
@@ -786,6 +787,164 @@ export default function LStallSalesBody({
         leadsFetchedData={leadsFetchedData}
         searchVal={searchVal}
       />
+
+{/* <div className="bg-white rounded-xl p-6">
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center gap-2">
+          <h3 className="text-gray-600 text-sm flex items-center gap-1">
+            Bookings
+          </h3>
+        </div>
+        <button className="text-sm text-orange-500 flex items-center gap-1 hover:text-orange-600">
+          See Details
+          <ArrowRight size={16} />
+        </button>
+      </div>
+
+      <div className="overflow-x-auto text-interF">
+        <table className="w-full">
+          <thead>
+            <tr className="text-xs text-gray-900 border-b border-gray-100 uppercase">
+            <th className="text-left font-normal pb-3 uppercase">S.No</th>
+              <th className="text-left font-normal pb-3 uppercase">Client details</th>
+              <th className="text-left font-normal pb-3 uppercase">Status</th>
+
+              <th className="text-left font-normal pb-3 uppercase">Created On</th>
+              <th className="text-left font-normal pb-3 uppercase">Assigned On</th>
+              <th className="text-left font-normal pb-3 uppercase">Event Name</th>
+              <th className="text-left font-normal pb-3 uppercase">Source</th>
+              <th className="text-left font-normal pb-3 uppercase">Last Activity</th>
+              <th className="text-left font-normal pb-3 uppercase">Comments</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            {
+              leadsFetchedData
+                  ?.filter((item) => {
+                    if (searchKey == '' || !searchKey) {
+                      return item
+                    }
+                    else if (
+                      item.Email.toLowerCase().includes(
+                        searchKey.toLowerCase()
+                      ) ||
+                      item.Mobile.toLowerCase().includes(
+                        searchKey.toLowerCase()
+                      ) ||
+                      item.Name.toLowerCase().includes(searchKey.toLowerCase()) ||
+                      item.Source.toLowerCase().includes(
+                        searchKey.toLowerCase()
+                      )
+                    ) {
+                      return item
+                    }
+                  })
+                  .sort(getComparator(order, orderBy))
+                  .map((row, idx) => (
+              <tr key={idx} className="text-sm border-b border-gray-200 last:border-0">
+              <td className="py-3">
+                  <div className="flex flex-col">
+                    <span>    {idx+1}</span>
+                  </div>
+                </td>
+                <td className="py-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-orange-50 rounded-lg flex items-center justify-center">
+                      <span className="text-xs text-orange-500">🛍️</span>
+                    </div>
+                    <div>
+                      <p className="font-medium">  <HighlighterStyle
+                                          searchKey={searchKey}
+                                          source={row?.Name?.toString()}
+                                        /></p>
+                      <p className="text-xs text-gray-500"> <HighlighterStyle
+                                          searchKey={searchKey}
+                                          source={row?.Email?.toString()}
+                                        /></p>
+                    </div>
+                  </div>
+                </td>
+                <td className="py-3">
+                  <span className={`px-2 py-1 rounded-full text-xs ${
+                    row?.status === 'In stock'
+                      ? 'bg-green-50 text-green-600'
+                      : 'bg-green-50 text-green-600'
+                  }`}>
+                     {row?.Status?.toString() || 'NA'}
+                  </span>
+                </td>
+                <td className="py-3">
+                  <div className="flex flex-col">
+                    <span>    {prettyDate(row.Date).toLocaleString()}</span>
+                  </div>
+                </td>
+                <td className="py-3">
+                  <div className="flex flex-col">
+                    <span>    {row.assignT != undefined
+                          ? prettyDate(row.assignT)
+                          : prettyDate(row.Date)}</span>
+                  </div>
+                </td>
+                <td className="py-3">
+                  <div className="flex flex-col">
+                    <span>{row?.Event}</span>
+                  </div>
+                </td>
+                <td className="py-3">
+                  <div className="flex flex-col camelCase">
+                    <span>{row?.Source?.toString()  || 'NA'}</span>
+                    <Rating name="size-small half-rating-read" defaultValue={2.5} size="small" precision={0.5} readOnly />
+
+                  </div>
+                </td>
+                <td className="py-3">
+                  <div className="flex flex-col">
+                    <span>  {Math.abs(
+                                  getDifferenceInMinutes(
+                                    (row?.leadUpT || row?.stsUpT),
+                                    ''
+                                  )
+                                ) > 60
+                                  ? Math.abs(
+                                    getDifferenceInMinutes(
+                                      (row?.leadUpT || row?.stsUpT),
+                                      ''
+                                    )
+                                  ) > 1440
+                                    ? `${Math.abs(getDifferenceInDays(
+                                      (row?.leadUpT || row?.stsUpT),
+                                      ''
+                                    ))} Days `
+                                    : `${Math.abs(getDifferenceInHours(
+                                      (row?.leadUpT || row?.stsUpT),
+                                      ''
+                                    ))} Hours `
+                                  : `${Math.abs(getDifferenceInMinutes(
+                                    (row?.leadUpT || row?.stsUpT),
+                                    ''
+                                  )) || 0} Min`}{' '}
+                                {getDifferenceInMinutes(
+                                  (row?.leadUpT || row?.stsUpT),
+                                  ''
+                                ) < 0
+                                  ? 'ago'
+                                  : 'Left'}</span>
+
+                  </div>
+                </td>
+                <td className="py-3">
+                  <div className="flex flex-col">
+                    <span>{row?.Remarks || row?.Note}</span>
+
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div> */}
       <section
         style={{ borderTop: '1px solid #efefef', background: '#fefafb' }}
       >

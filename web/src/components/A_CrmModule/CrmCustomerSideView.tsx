@@ -706,7 +706,7 @@ export default function CustomerSideViewCRM({
               title={'unitDetails_crm_view'}
               customerDetails={selUnitDetails}
               setSelUnitDetails={setSelUnitDetails}
-              widthClass="max-w-7xl"
+              widthClass="max-w-4xl"
               transactionData={transactionData}
               unitsViewMode={false}
               selCustomerPayload={selUnitDetails}
