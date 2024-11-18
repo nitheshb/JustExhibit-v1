@@ -30,7 +30,7 @@ const TaskProgress = ({ userTodayPerfA }) => {
             sx={{
               backgroundColor: 'white',
               '& .MuiLinearProgress-bar': {
-                backgroundColor: '#e06349',
+                backgroundColor: '#0EA5E9',
               },
             }}
           variant="determinate"
@@ -62,7 +62,7 @@ const TaskProgress = ({ userTodayPerfA }) => {
             sx={{
               backgroundColor: 'white',
               '& .MuiLinearProgress-bar': {
-                backgroundColor: '#f0c1b7'
+                backgroundColor: '#C3EBFA'
               },
             }}
           variant="determinate"
@@ -98,7 +98,7 @@ const TaskProgress = ({ userTodayPerfA }) => {
             sx={{
               backgroundColor: 'white',
               '& .MuiLinearProgress-bar': {
-                backgroundColor: '#f0c1b7',
+                backgroundColor: '#C3EBFA',
               },
             }}
           variant="determinate"
@@ -130,7 +130,7 @@ const TaskProgress = ({ userTodayPerfA }) => {
             sx={{
               backgroundColor: 'white',
               '& .MuiLinearProgress-bar': {
-                backgroundColor: '#f0c1b7',
+                backgroundColor: '#C3EBFA',
               },
             }}
           variant="determinate"

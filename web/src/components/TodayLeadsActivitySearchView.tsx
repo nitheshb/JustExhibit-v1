@@ -7,7 +7,7 @@
 import * as React from 'react'
 import { Fragment, useState, useEffect } from 'react'
 
-import { ConnectingAirportsOutlined } from '@mui/icons-material'
+import { BarChart, ConnectingAirportsOutlined } from '@mui/icons-material'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EventNoteTwoToneIcon from '@mui/icons-material/EventNoteTwoTone'
 import FileDownloadIcon from '@mui/icons-material/FileDownload'
@@ -58,6 +58,10 @@ import UserCard from './UserCard'
 import EventCalendar from './EventCalendar'
 import AttendanceChart from './AttendanceChart'
 import CountChart from './A_SalesModule/Reports/CountChart'
+import { StatisticsDonutChart } from './Charts_Graphs/DonutChart'
+import { StatisticsBarChart } from './Charts_Graphs/BarChart'
+import CustomBarChart from './Charts_Graphs/BarsChart'
+import SalesLineChart from './Charts_Graphs/BarsChart'
 
 const headCells = [
   {
@@ -868,7 +872,7 @@ export default function TodayLeadsActivitySearchView({
             <>
               <div className="bg-[#fff] rounded-2xl">
                 <div className=" flex flex-row p-2">
-                  <div className="w-8/12 flex-col">
+                  <div className="w-10/12 flex-col">
                     <div className="flex gap-4 justify-between flex-wrap">
                       <UserCard type="Active Events" count="09"/>
                       <UserCard type="Stalls" count="110" />
@@ -884,17 +888,68 @@ export default function TodayLeadsActivitySearchView({
 
 
           <div className=" border shadow rounded-xl">
-            <CountChart />
+          <StatisticsBarChart />
+            </div>
+            <div className=" border shadow rounded-xl">
+            <SalesLineChart />
             </div>
             <div className=" border shadow rounded-xl">
             <CountChart />
             </div>
-            <div className=" border shadow rounded-xl">
-            <CountChart />
+            <div className=" border shadow rounded-xl  ">
+            <StatisticsDonutChart />
             </div>
               <div className=" border shadow rounded-xl  ">
             <AttendanceChart />
           </div>
+          <div className="flex-1 border shadow rounded-xl h-[400px] w-full p-4">
+  <section className="flex flex-row flex-wrap gap-2 h-full w-full">
+    <section className="border-[#e7e5eb] bg-white rounded-lg p-4 h-full w-full overflow-auto">
+      <div className="text-[#1f2937] font-[600] text-xl mb-2 ml-2">
+        Location
+      </div>
+      <table className="w-full text-sm text-left rtl:text-right text-gray-500">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+          <tr>
+            <th scope="col" className="px-6 py-3">Product name</th>
+            <th scope="col" className="px-6 py-3 w-[200px]">Color</th>
+            <th scope="col" className="px-6 py-3">Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="bg-white border-b">
+            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+            Hyderabad(With in State)
+            </th>
+            <td className="px-6 py-4 flex justify-end">
+              <div className="w-full mt-2 h-[6px] rounded-md bg-[#6366F1]"></div>
+            </td>
+            <td className="px-6 py-4">2000</td>
+          </tr>
+          <tr className="bg-white border-b">
+            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+            Out of State
+            </th>
+            <td className="px-6 py-4 flex justify-end">
+              <div className="w-[50%] mt-2 h-[6px] rounded-md bg-[#6366F1]"></div>
+            </td>
+            <td className="px-6 py-4">1999</td>
+          </tr>
+          <tr className="bg-white">
+            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+              Out Of India
+            </th>
+            <td className="px-6 py-4 flex justify-end">
+              <div className="w-[25%] mt-2 h-[6px] rounded-md bg-[#6366F1]"></div>
+            </td>
+            <td className="px-6 py-4">99</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </section>
+</div>
+
 
             {/* <div className="mt-1 w-[400px] border shadow rounded-xl">
                         <RecentActivity
@@ -910,7 +965,7 @@ export default function TodayLeadsActivitySearchView({
 
 
                   </div>
-                  <div className="w-3/12 flex flex-col">
+                  <div className="w-2/12 flex flex-col">
                     <section className="bg-white rounded-xl shadow border  flex flex-col p-4 ml-1 mb-1 w-100 ">
                       <h5 className="text-sm">{greet}...!🖐</h5>
                       <h2 className="text-md font-semibold text-black leading-light font-Playfair pb-1">
