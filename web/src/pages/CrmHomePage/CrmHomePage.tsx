@@ -28,6 +28,8 @@ import { useAuth } from 'src/context/firebase-auth-context'
 import SiderForm from '../../components/SiderForm/SiderForm'
 import ExecutiveHomeViewerPage from 'src/components/ExecutiveHomeViewerPage'
 import CrmStallEnquiriesHome from 'src/components/A_CrmModule/CrmStallEnquiresHomes'
+import LeadsLakeHomePage from 'src/components/PreSaleModule/LeadsManagement/LeadsLakeHomePage'
+import LeadsTransferHome from 'src/components/A_SalesModule/leadsTransfer'
 
 const CrmHomePage = () => {
   const { user } = useAuth()
@@ -413,6 +415,10 @@ const CrmHomePage = () => {
                               <CrmStallEnquiriesHome />
                                 )}
 
+                {viewable === 'leadslake' && (
+                                <LeadsLakeHomePage taskType={viewable} />
+                              )}
+
                 {viewable === 'eventsDisplay' && (
                                   <ProjectsUnitInventory
                                     project={{
@@ -421,6 +427,15 @@ const CrmHomePage = () => {
                                     isEdit={undefined}
                                   />
                                 )}
+
+{viewable === 'leadsController' && (
+                <LeadsTransferHome
+                  project={{
+                    eventName: 'Events',
+                  }}
+                  isEdit={undefined}
+                />
+              )}
                 {viewable === 'unitsInventory' && (
                   <ProjectsUnitInventory
                     project={{

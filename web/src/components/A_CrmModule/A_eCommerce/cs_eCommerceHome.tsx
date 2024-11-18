@@ -21,6 +21,7 @@ import {
   DocumentTextIcon,
   ArrowDownIcon,
   ArrowUpIcon,
+  PhoneIcon,
 } from '@heroicons/react/solid'
 
 import { Link, routes } from '@redwoodjs/router'
@@ -181,10 +182,64 @@ export default function EcommerceHome({ type, setStatusFun , selUnitPayload}) {
 
         <div className="mt-1">
           <div className="p-2 bg-gradient-to-r from-violet-50 to-pink-50 rounded-md flex flex-row justify-between">
-            <h2 className="font-medium flex-grow">Ecommerce</h2>
-            <p className="text-md text-[10px] flex-grow text-right">
+          <section>
+                  <section className="flex flex-row">
+
+                           <section className="bg-[#EC1066]  items-center rounded-2xl shadow-xs flex flex-col px-2 py-4 min-w-[100px]">
+                                            <div className="font-semibold text-white  text-[22px]  mb-[1] tracking-wide">
+                                            {selUnitPayload?.unit_no}
+                                            </div>
+                                            <span
+                                              className={`items-center h-6   text-xs font-semibold text-white  rounded-full
+                      `}
+                                            >
+                                              Stall No
+                                            </span>
+                                          </section>
+
+
+                                          <div className="flex flex-col w-full  ml-2 item-right  px-2  mr-2 rounded-lg">
+                                            <span
+                                              className={`items-center  mt-[2px] mb-1  text-xl uppercase font-semibold text-black
+                      `}
+                                            >
+                                              {selUnitPayload?.companyName ||
+                                                'NA'}
+                                            </span>
+                                            <span
+                                              className={`items-center   mb-1  text-xs
+                      `}
+                                            >
+                                              {selUnitPayload?.co_Name1 ||
+                                                'NA'}
+                                            </span>
+                                            <span
+                                              className={`items-center  mb-1  text-xs flex flex-row
+                      `}
+                                            >
+                                              {/* {selUnitPayload?.phoneNo1 ||
+                                                'NA'} */}
+
+<PhoneIcon className="h-4 w-4 mt-1 mr-1" aria-hidden="true" />{' '}
+         <span className='mt-[2px]'>   {selUnitPayload?.phoneNo1?.toString()?.replace(
+              /(\d{3})(\d{3})(\d{4})/,
+              '$1-$2-$3'
+            )}</span>
+                                            </span>
+
+
+
+                                          </div>
+
+                  </section>
+
+
+                </section>
+
+            <h2 className="font-medium flex-grow text-right mr-2">Ecommerce</h2>
+            {/* <p className="text-md text-[10px] flex-grow text-right">
               Waiting for {' '} {cart.length} || {total}
-            </p>
+            </p> */}
           </div>
         </div>
       </div>

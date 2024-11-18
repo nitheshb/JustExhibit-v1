@@ -122,17 +122,8 @@ const LeadsManagerPage = (props) => {
               {viewable === 'archieveLeads' && (
                 <ExecutiveHomeViewerPage leadsTyper={'archieveLeads'} />
               )}
-              {viewable === 'leadslake' && (
-                <LeadsLakeHomePage taskType={viewable} />
-              )}
-              {viewable === 'leadsController' && (
-                <LeadsTransferHome
-                  project={{
-                    eventName: 'Events',
-                  }}
-                  isEdit={undefined}
-                />
-              )}
+
+          
               {viewable === 'units_inventory' && (
                 <UnitsInventoryHome
                   project={{
