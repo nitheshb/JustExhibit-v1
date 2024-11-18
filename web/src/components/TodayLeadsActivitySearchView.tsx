@@ -7,7 +7,7 @@
 import * as React from 'react'
 import { Fragment, useState, useEffect } from 'react'
 
-import { ConnectingAirportsOutlined } from '@mui/icons-material'
+import { BarChart, ConnectingAirportsOutlined } from '@mui/icons-material'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EventNoteTwoToneIcon from '@mui/icons-material/EventNoteTwoTone'
 import FileDownloadIcon from '@mui/icons-material/FileDownload'
@@ -58,6 +58,10 @@ import UserCard from './UserCard'
 import EventCalendar from './EventCalendar'
 import AttendanceChart from './AttendanceChart'
 import CountChart from './A_SalesModule/Reports/CountChart'
+import { StatisticsDonutChart } from './Charts_Graphs/DonutChart'
+import { StatisticsBarChart } from './Charts_Graphs/BarChart'
+import CustomBarChart from './Charts_Graphs/BarsChart'
+import SalesLineChart from './Charts_Graphs/BarsChart'
 
 const headCells = [
   {
@@ -876,21 +880,176 @@ export default function TodayLeadsActivitySearchView({
                       <UserCard type="Expected Visitors" count="10,000" />
                     </div>
 
-               <div className='flex flex-row justify-between mt-3'>
+               {/* <div className='flex flex-row justify-between mt-3'>
 
-          <div className="w-[700px] border shadow rounded-xl"> <TaskProgress />
+          <div className="w-[400px] border shadow rounded-xl"> <TaskProgress />
           </div>
-          <div className="w-[410px] border shadow rounded-xl">
+          <div className="w-[400px] border shadow rounded-xl">
             <CountChart />
             </div>
 
-            {/* <div className="mt-1 w-[400px] border shadow rounded-xl">
-                        <RecentActivity
-                          title={'My Activity'}
-                          userTodayPerfA={userTodayPerfA}
-                        />
-                      </div> */}
-                </div>
+
+
+        
+                </div> */}
+
+
+
+
+
+
+                <div className="flex flex-row justify-between mt-3 gap-4">
+  <div className="flex-1 border shadow rounded-xl h-[400px]">
+  {/* <TaskProgress /> */}
+  <AttendanceChart />
+
+  </div>
+  <div className="flex-1 border shadow rounded-xl h-[400px]">
+
+  <CountChart />
+  </div>
+</div>
+
+
+
+
+<div className="flex flex-row justify-between mt-3 gap-4">
+  <div className="flex-1 border shadow rounded-xl h-[400px]">
+  <StatisticsBarChart />
+  </div>
+  <div className="flex-1 border shadow rounded-xl h-[400px]">
+
+  <StatisticsDonutChart />
+  </div>
+</div>
+
+
+<div className="flex flex-row justify-between mt-3 gap-4">
+  <div className="flex-1 border shadow rounded-xl h-[400px]">
+    {/* <CustomBarChart/> */}
+    <SalesLineChart/>
+  </div>
+
+
+{/* <div className="flex-1 border shadow rounded-xl h-[400px] p-4">
+  <section className="flex flex-row flex-wrap gap-2 h-full">
+    <section className="w-[55%] border-[#e7e5eb] bg-white rounded-lg p-4 h-full overflow-auto">
+      <div className="text-[#1f2937] font-[600] text-xl mb-2 ml-2">
+        Location
+      </div>
+      <table className="w-full text-sm text-left rtl:text-right text-gray-500">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+          <tr>
+            <th scope="col" className="px-6 py-3">Product name</th>
+            <th scope="col" className="px-6 py-3 w-[200px]">Color</th>
+            <th scope="col" className="px-6 py-3">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="bg-white border-b">
+            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+              Apple MacBook Pro 17
+            </th>
+            <td className="px-6 py-4 flex justify-end">
+              <div className="w-full mt-2 h-[6px] rounded-md bg-[#6366F1]"></div>
+            </td>
+            <td className="px-6 py-4">$2999</td>
+          </tr>
+          <tr className="bg-white border-b">
+            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+              Microsoft Surface Pro
+            </th>
+            <td className="px-6 py-4 flex justify-end">
+              <div className="w-[50%] mt-2 h-[6px] rounded-md bg-[#6366F1]"></div>
+            </td>
+            <td className="px-6 py-4">$1999</td>
+          </tr>
+          <tr className="bg-white">
+            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+              Magic Mouse 2
+            </th>
+            <td className="px-6 py-4 flex justify-end">
+              <div className="w-[25%] mt-2 h-[6px] rounded-md bg-[#6366F1]"></div>
+            </td>
+            <td className="px-6 py-4">$99</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </section>
+</div> */}
+
+
+<div className="flex-1 border shadow rounded-xl h-[400px] w-full p-4">
+  <section className="flex flex-row flex-wrap gap-2 h-full w-full">
+    <section className="border-[#e7e5eb] bg-white rounded-lg p-4 h-full w-full overflow-auto">
+      <div className="text-[#1f2937] font-[600] text-xl mb-2 ml-2">
+        Location
+      </div>
+      <table className="w-full text-sm text-left rtl:text-right text-gray-500">
+        <thead className="text-xs text-gray-700 uppercase bg-gray-50">
+          <tr>
+            <th scope="col" className="px-6 py-3">Product name</th>
+            <th scope="col" className="px-6 py-3 w-[200px]">Color</th>
+            <th scope="col" className="px-6 py-3">Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="bg-white border-b">
+            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+            hyderabad
+            </th>
+            <td className="px-6 py-4 flex justify-end">
+              <div className="w-full mt-2 h-[6px] rounded-md bg-[#6366F1]"></div>
+            </td>
+            <td className="px-6 py-4">2000</td>
+          </tr>
+          <tr className="bg-white border-b">
+            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+            bangalore 
+            </th>
+            <td className="px-6 py-4 flex justify-end">
+              <div className="w-[50%] mt-2 h-[6px] rounded-md bg-[#6366F1]"></div>
+            </td>
+            <td className="px-6 py-4">1999</td>
+          </tr>
+          <tr className="bg-white">
+            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+              Out Of india
+            </th>
+            <td className="px-6 py-4 flex justify-end">
+              <div className="w-[25%] mt-2 h-[6px] rounded-md bg-[#6366F1]"></div>
+            </td>
+            <td className="px-6 py-4">99</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </section>
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                  <div className="w-2/3  h-[450px]">
 
           </div>
