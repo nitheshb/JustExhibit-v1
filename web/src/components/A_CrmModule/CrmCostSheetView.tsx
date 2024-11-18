@@ -105,7 +105,7 @@ const CrmUnitCostSheetView = ({ selCustomerPayload, assets, totalIs }) => {
       <div className="mt-2  ">
         <section className="mr- flex flex-row  ">
           <div className="w-full">
-            <div className="border border-[#e5e7f8] bg-[#F0F1FF]  rounded-md mt-[4px] py-3">
+            <div className="border  bg-white  rounded-xl  py-3">
               <div className="flex flex-row  px-3">
                 <img
                   src="https://static.ambitionbox.com/static/benefits/WFH.svg"

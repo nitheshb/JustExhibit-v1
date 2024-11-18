@@ -867,22 +867,34 @@ export default function TodayLeadsActivitySearchView({
           {!schLoading && !leadByViewLayout && todaySch && (
             <>
               <div className="bg-[#fff] rounded-2xl">
-                <div className="flex flex-wrap p-2">
+                <div className=" flex flex-row p-2">
                   <div className="w-8/12 flex-col">
                     <div className="flex gap-4 justify-between flex-wrap">
                       <UserCard type="Active Events" count="09"/>
                       <UserCard type="Stalls" count="110" />
                       <UserCard type="Exhibitors" count="100" />
                       <UserCard type="Expected Visitors" count="10,000" />
+                      <UserCard type="Expected Visitors" count="10,000" />
                     </div>
 
-               <div className='flex flex-row justify-between mt-3'>
+               <div className='grid grid-cols-3 sm:grid-cols-2 gap-2 mt-3'>
 
-          <div className="w-[700px] border shadow rounded-xl"> <TaskProgress />
-          </div>
-          <div className="w-[410px] border shadow rounded-xl">
+          {/* <div className="w-[700px] border shadow rounded-xl"> <TaskProgress />
+          </div> */}
+
+
+          <div className=" border shadow rounded-xl">
             <CountChart />
             </div>
+            <div className=" border shadow rounded-xl">
+            <CountChart />
+            </div>
+            <div className=" border shadow rounded-xl">
+            <CountChart />
+            </div>
+              <div className=" border shadow rounded-xl  ">
+            <AttendanceChart />
+          </div>
 
             {/* <div className="mt-1 w-[400px] border shadow rounded-xl">
                         <RecentActivity
@@ -891,16 +903,14 @@ export default function TodayLeadsActivitySearchView({
                         />
                       </div> */}
                 </div>
-                 <div className="w-2/3  h-[450px]">
+                 {/* <div className="w-2/3  h-[450px]">
 
-          </div>
+          </div> */}
                        {/* ATTENDANCE CHART */}
-          <div className=" w-2/3 h-[450px]">
-            <AttendanceChart />
-          </div>
+
 
                   </div>
-                  <div className="w-4/12 flex flex-col">
+                  <div className="w-3/12 flex flex-col">
                     <section className="bg-white rounded-xl shadow border  flex flex-col p-4 ml-1 mb-1 w-100 ">
                       <h5 className="text-sm">{greet}...!🖐</h5>
                       <h2 className="text-md font-semibold text-black leading-light font-Playfair pb-1">

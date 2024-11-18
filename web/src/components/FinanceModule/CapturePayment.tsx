@@ -342,6 +342,23 @@ const CaptureUnitPayment = ({
     return x
   }
   const onSubmitSupabase = async (data, resetForm) => {
+
+    if(title==='capturePayment'){
+
+
+      capturePaymentS(
+        orgId,
+        true,
+        projectDetails?.uid,
+        selUnitDetails?.uid,
+         selUnitDetails?.companyDocId,
+        leadDetailsObj2,
+        data,
+        user?.email,
+        enqueueSnackbar
+      )
+      // capturePayment(data)
+    }else{
     console.log('inside supabase support', data)
     let y = {}
     y = data
@@ -463,7 +480,7 @@ const CaptureUnitPayment = ({
       user?.email,
       enqueueSnackbar
     )
-
+    }
     return
     await onSubmitFun(y, resetForm)
 
@@ -769,14 +786,15 @@ const CaptureUnitPayment = ({
                                       </div>
                                       {/* <hr className="mt-1 border-b-1 border-blueGray-300" /> */}
                                     </article>
+
                                     <div className=" border rounded-xl mt-4">
-                                    {!bookingProgress && (
+                                    {!bookingProgress  && (
                                       <section>
                                         <div className="flex flex-wrap mt-3">
                                           <div className="justify-center w-full mx-auto"></div>
 
                                           <section className="border rounded-md w-full lg:w-12/12 mx-3 mb-3">
-                                            {paymentModex != 'credit_note' && (
+                                            {title!=='capturePayment' && (
                                               <div className="border-y-1 rounded-t-md  overflow-hidden ">
                                                 <table className="min-w-full divide-y ">
                                                   <thead>
@@ -1123,7 +1141,7 @@ const CaptureUnitPayment = ({
                                               </div>
                                             </div>
                                           </section>
-                                          <section className="border rounded-md w-full lg:w-12/12 mx-3 mb-3">
+                                          {title!=='capturePayment' && <section className="border rounded-md w-full lg:w-12/12 mx-3 mb-3">
                                             <article className="border-b w-full bg-[#F9FAFB] px-3 py-1 rounded-t-md">
                                               <span className="text-sm font-semibold text-gray-500">
                                                 Customer Details
@@ -1553,7 +1571,7 @@ const CaptureUnitPayment = ({
 
 
                                             </section>
-                                          </section>
+                                          </section>}
                                         </div>
                                         <div>
                                           <label

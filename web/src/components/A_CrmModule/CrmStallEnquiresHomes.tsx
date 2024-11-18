@@ -1254,7 +1254,7 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
         searchVal={searchValue}
                   />
 
-              
+
 
 
 
@@ -1537,10 +1537,11 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
       <SiderForm
         open={isUnitDetailsOpen}
         setOpen={setisUnitDetailsOpen}
-        title={'unitDetails_crm_view'}
+        title={'User Profile'}
+
         customerDetails={selUnitDetails}
         setSelUnitDetails={setSelUnitDetails}
-        widthClass="max-w-7xl"
+        widthClass="max-w-4xl"
         transactionData={transactionData}
         unitsViewMode={false}
         selCustomerPayload={selUnitDetails}

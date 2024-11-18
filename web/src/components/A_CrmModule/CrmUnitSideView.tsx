@@ -6,7 +6,7 @@ import { Fragment, useEffect, useState } from 'react'
 
 import { Menu } from '@headlessui/react'
 import { Listbox, Transition } from '@headlessui/react'
-import { AdjustmentsIcon, ArrowRightIcon } from '@heroicons/react/outline'
+import { AdjustmentsIcon, ArrowRightIcon, PhoneIcon } from '@heroicons/react/outline'
 import CalendarIcon from '@heroicons/react/outline/CalendarIcon'
 import {
   BadgeCheckIcon,
@@ -1113,9 +1113,9 @@ return
   }
   return (
     <div
-      className={`bg-white   h-screen    ${openUserProfile ? 'hidden' : ''} `}
+      className={`bg-[#F9F7F5]   h-screen    ${openUserProfile ? 'hidden' : ''} `}
     >
-      <div className=" pb-[2px] px-3 mt-0 rounded-xs border-b bg-[#D9d8ff]">
+      <div className=" pb-[2px] px-3 mt-0 rounded-xs border-b bg-[#F9F7F5]">
         <div className="-mx-3 flex  sm:-mx-4 px-3">
           <div className="w-full   ">
             {/* <div className="">
@@ -1136,16 +1136,16 @@ return
               </div> */}
 
             <div className="flex flex-col justify-between">
-              <section className="flex flex-row justify-between bg-[#D9d8ff] px-3 py-1 border border-[#e5e7f8] rounded-md ">
+              <section className="flex flex-row justify-between px-3 py-1   rounded-md ">
                 <section>
                   <section className="flex flex-row">
 
                            <section className="bg-violet-100  items-center rounded-2xl shadow-xs flex flex-col px-2 py-1 min-w-[100px]">
-                                            <div className="font-semibold text-[#053219]  text-[22px]  mb-[1] tracking-wide">
+                                            <div className="font-semibold text-[#1e1e1e]  text-[22px]  mb-[1] tracking-wide">
                                             {selCustomerPayload?.unit_no}
                                             </div>
                                             <span
-                                              className={`items-center h-6   text-xs font-semibold text-gray-500  rounded-full
+                                              className={`items-center h-6   text-xs font-semibold text-[#1e1e1e]  rounded-full
                       `}
                                             >
                                               Stall No
@@ -1155,30 +1155,37 @@ return
 
                                           <div className="flex flex-col w-full  ml-2 item-right  px-2  mr-2 rounded-lg">
                                             <span
-                                              className={`items-center h-1 mt-[2px] mb-2  text-xs font-semibold text-green-600
+                                              className={`items-center  mt-[2px] mb-1  text-xl uppercase font-semibold text-black
                       `}
                                             >
                                               {selCustomerPayload?.companyName ||
                                                 'NA'}
                                             </span>
                                             <span
-                                              className={`items-center h-1 mt-[6px] mb-2  text-xs
+                                              className={`items-center   mb-1  text-xs
                       `}
                                             >
                                               {selCustomerPayload?.co_Name1 ||
                                                 'NA'}
                                             </span>
                                             <span
-                                              className={`items-center h-1 mt-[6px] mb-2  text-xs
+                                              className={`items-center  mb-1  text-xs flex flex-row
                       `}
                                             >
-                                              {selCustomerPayload?.phoneNo1 ||
-                                                'NA'}
+                                              {/* {selCustomerPayload?.phoneNo1 ||
+                                                'NA'} */}
+
+<PhoneIcon className="h-4 w-4 mt-1 mr-1" aria-hidden="true" />{' '}
+         <span className='mt-[2px]'>   {selCustomerPayload?.phoneNo1?.toString()?.replace(
+              /(\d{3})(\d{3})(\d{4})/,
+              '$1-$2-$3'
+            )}</span>
                                             </span>
 
-                                            <section className="flex flex-row justify-between">
+            {/* {projName}{' '} */}
+                                            {/* <section className="flex flex-row justify-between">
                                               <span className="  text-[10px] h-[20px]  text-[#005E36] font-bodyLato font-[600] mt-[2px] border border-[#ECFDF5]  py-[2px] rounded-xl mr-1 ">
-                                                {/* {projName}{' '} */}
+
                                               </span>
 
                                               <span className="  text-[10px] h-[20px] text-[#005E36] font-bodyLato font-[600] mt-[2px] border border-[#ECFDF5] px-[6px] py-[2px] rounded-xl mr-1 ">
@@ -1189,7 +1196,7 @@ return
                                                     0
                                                 )}
                                               </span>
-                                            </section>
+                                            </section> */}
                                           </div>
                     {/* <p className="text-md font-bold text-[23px] tracking-tight uppercase font-body  ml-2 mt-2">
 
