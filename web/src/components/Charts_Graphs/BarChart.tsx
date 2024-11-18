@@ -21,7 +21,9 @@ const CustomBar = (props: any) => {
 export const StatisticsBarChart = () => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-sm h-[300px]">
-      <h2 className="text-lg font-semibold mb-4">Visit Source</h2>
+      <h2 className="text-lg font-semibold mb-4">Interested In
+
+      </h2>
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={data}
