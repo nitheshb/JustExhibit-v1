@@ -900,11 +900,10 @@ export default function TodayLeadsActivitySearchView({
             <AttendanceChart />
           </div>
 
-<<<<<<<<< Temporary merge branch 1
 
 
         
-                </div> */}
+                </div> 
 
 
 

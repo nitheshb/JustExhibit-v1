@@ -33,6 +33,8 @@ import TotalsalesDashboard from './TotalsalesDashboard';
 import SalesDashboardtwo from './SalesDashboardtwo';
 import SalesDashboardthree from './SalesDashboardthree';
 import UnitsSoldDashboardone from './UnitsSoldDashboardone';
+import TicketConfirmation from './TicketConfirmation';
+import UpcomingEvents from './UpcomingEvents';
 // import TopCollections from './TopCollections';
 // import ProjectCollections from './ProjectCollections';
 // import ProjectInventoryDashboard from './ProjectInventory';
@@ -437,6 +439,22 @@ const CustomTooltip = ({ active, payload }) => {
   </div>
 
 
+  <div className="col-span-full bg-white rounded-lg shadow-lg p-6">
+  <TicketConfirmation/>
+  </div>
+
+
+
+
+
+  <div className="col-span-full bg-white rounded-lg shadow-lg p-6">
+  <UpcomingEvents/>
+  </div>
+
+
+
+
+
 
 
   
@@ -483,4 +501,8 @@ const CustomTooltip = ({ active, payload }) => {
 };
 
 export default AnalyticsDashboard;
+
+
+
+
 
