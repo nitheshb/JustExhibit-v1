@@ -566,21 +566,21 @@ const MastersEditableTable = ({ phase, partAData, fullCs, source, type }) => {
 
   //Step-0
   const projectItems = [
-    'Planning Authority',
-    'State',
-    'Charges For',
-    'Category',
-    'Cost Type',
+    // 'Planning Authority',
     'Tax Rate',
+    'State',
+    // 'Charges For',
+    // 'Category',
+    'Cost Type',
     'Payment Stage',
     'Type',
     'Facing',
-    'Type/BedRooms',
-    'Bathrooms',
-    'Car Parking',
+    // 'Type/BedRooms',
+    // 'Bathrooms',
+    // 'Car Parking',
     'Status',
     'Mortgage Type',
-    'Villa Type Category',
+    // 'Villa Type Category',
   ]
 
   const crmItems = ['Lead Source', 'Booking By']
@@ -944,30 +944,30 @@ if (title === 'Villa Type Category') {
       // data: [] ,
       desccription: 'Applicable GST tax rates list on cost values',
     },
-    {
-      title: 'Planning Authority',
-      data: approvalAuthorityA,
-      desccription: 'NA',
-    },
+    // {
+    //   title: 'Planning Authority',
+    //   data: approvalAuthorityA,
+    //   desccription: 'NA',
+    // },
     { title: 'State', data: statesListA, desccription: 'NA' },
     {
       title: 'Charges For',
       data: costSheetAdditionalChargesA,
       desccription: 'NA',
     },
-    { title: 'Category', data: csSectionsA, desccription: 'NA' },
+    // { title: 'Category', data: csSectionsA, desccription: 'NA' },
     { title: 'Cost Type', data: unitsCancellationA, desccription: 'NA' },
     { title: 'Payment Stage', data: paymentScheduleA, desccription: 'NA' },
     { title: 'Type', data: unitTypeListA, desccription: 'NA' },
     { title: 'Facing', data: facingTypeListA, desccription: 'NA' },
-    { title: 'Type/BedRooms', data: bedRoomsListA, desccription: 'NA' },
-    { title: 'Bathrooms', data: bathTypeListA, desccription: 'NA' },
-    { title: 'Car Parking', data: carParkingListA, desccription: 'NA' },
+    // { title: 'Type/BedRooms', data: bedRoomsListA, desccription: 'NA' },
+    // { title: 'Bathrooms', data: bathTypeListA, desccription: 'NA' },
+    // { title: 'Car Parking', data: carParkingListA, desccription: 'NA' },
     { title: 'Status', data: statusListA, desccription: 'NA' },
     { title: 'Mortgage Type', data: mortgageTypeA, desccription: 'NA' },
     { title: 'Lead Source', data: sourceListItemsA, desccription: 'NA' },
-    { title: 'Villa Type Category', data: VillaCsSectionsA, desccription: 'NA' },
-    { title: 'Booking By', data: [] },
+    // { title: 'Villa Type Category', data: VillaCsSectionsA, desccription: 'NA' },
+    // { title: 'Booking By', data: [] },
   ]
 
 
