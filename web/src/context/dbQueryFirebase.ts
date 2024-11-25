@@ -2622,7 +2622,7 @@ export const addStall = async (orgId, data, by, msg) => {
     s_regisCount: ['registered_pipeline'].includes(statusVal)
       ? increment(1)
       : increment(0),
-    availableCount: statusVal === 'available' ? increment(1) : increment(0),
+    availableCount: ['available'].includes(statusVal) ? increment(1) : increment(0),
     custBlockCount:
       statusVal === 'customer_blocked' ? increment(1) : increment(0),
     mangBlockCount:
