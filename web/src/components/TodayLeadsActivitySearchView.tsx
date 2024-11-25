@@ -872,7 +872,7 @@ export default function TodayLeadsActivitySearchView({
             <>
               <div className="bg-[#fff] rounded-2xl">
                 <div className=" flex flex-row p-2">
-                  <div className="w-8/12 flex-col">
+                  <div className="w-10/12 flex-col">
                     <div className="flex gap-4 justify-between flex-wrap">
                       <UserCard type="Active Events" count="09"/>
                       <UserCard type="Stalls" count="110" />
@@ -881,12 +881,17 @@ export default function TodayLeadsActivitySearchView({
                       <UserCard type="Expected Visitors" count="10,000" />
                     </div>
 
-               {/* <div className='flex flex-row justify-between mt-3'>
+               <div className='grid grid-cols-3 sm:grid-cols-2 gap-2 mt-3'>
 
-          <div className="w-[700px] border shadow rounded-xl"> <TaskProgress />
-          </div>
-          <div className="w-[410px] border shadow rounded-xl">
-            <CountChart />
+          {/* <div className="w-[700px] border shadow rounded-xl"> <TaskProgress />
+          </div> */}
+
+
+          <div className=" border shadow rounded-xl">
+          <StatisticsBarChart />
+            </div>
+            <div className=" border shadow rounded-xl">
+            <SalesLineChart />
             </div>
             <div className=" border shadow rounded-xl">
             <CountChart />
@@ -895,6 +900,7 @@ export default function TodayLeadsActivitySearchView({
             <AttendanceChart />
           </div>
 
+<<<<<<<<< Temporary merge branch 1
 
 
         
@@ -1004,7 +1010,7 @@ export default function TodayLeadsActivitySearchView({
         <tbody>
           <tr className="bg-white border-b">
             <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-            hyderabad
+            Hyderabad(With in State)
             </th>
             <td className="px-6 py-4 flex justify-end">
               <div className="w-full mt-2 h-[6px] rounded-md bg-[#6366F1]"></div>
@@ -1013,7 +1019,7 @@ export default function TodayLeadsActivitySearchView({
           </tr>
           <tr className="bg-white border-b">
             <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-            bangalore 
+            Out of State
             </th>
             <td className="px-6 py-4 flex justify-end">
               <div className="w-[50%] mt-2 h-[6px] rounded-md bg-[#6366F1]"></div>
@@ -1022,7 +1028,7 @@ export default function TodayLeadsActivitySearchView({
           </tr>
           <tr className="bg-white">
             <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-              Out Of india
+              Out Of India
             </th>
             <td className="px-6 py-4 flex justify-end">
               <div className="w-[25%] mt-2 h-[6px] rounded-md bg-[#6366F1]"></div>
@@ -1058,13 +1064,23 @@ export default function TodayLeadsActivitySearchView({
 
 
                  <div className="w-2/3  h-[450px]">
+=========
+            {/* <div className="mt-1 w-[400px] border shadow rounded-xl">
+                        <RecentActivity
+                          title={'My Activity'}
+                          userTodayPerfA={userTodayPerfA}
+                        />
+                      </div> */}
+                </div>
+                 {/* <div className="w-2/3  h-[450px]">
+>>>>>>>>> Temporary merge branch 2
 
           </div> */}
                        {/* ATTENDANCE CHART */}
 
 
                   </div>
-                  <div className="w-3/12 flex flex-col">
+                  <div className="w-2/12 flex flex-col">
                     <section className="bg-white rounded-xl shadow border  flex flex-col p-4 ml-1 mb-1 w-100 ">
                       <h5 className="text-sm">{greet}...!🖐</h5>
                       <h2 className="text-md font-semibold text-black leading-light font-Playfair pb-1">

@@ -2,11 +2,11 @@ import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 const data = [
-  { name: 'Fashion and Accessories', value: 502, percentage: '47%' },
-  { name: 'Kids', value: 248, percentage: '47%' },
-  { name: 'Art and Craft Supplies', value: 178, percentage: '45%' },
-  { name: 'Instagram Ad', value: 149, percentage: '47%' },
-  { name: 'Technology and Gadgets', value: 121, percentage: '47%' }
+  { name: 'Fashion ', value: 502, percentage: '47%' },
+  { name: 'Accessories', value: 248, percentage: '47%' },
+  { name: 'Art Supplies', value: 178, percentage: '45%' },
+  { name: 'Digital', value: 149, percentage: '47%' },
+  { name: 'Technology', value: 121, percentage: '47%' }
 ];
 
 const CustomBar = (props: any) => {
