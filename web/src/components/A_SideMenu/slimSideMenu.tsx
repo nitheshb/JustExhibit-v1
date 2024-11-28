@@ -1147,7 +1147,7 @@ const SlimSideMenuBar = (props) => {
                     </svg>
                   </span>
                   <span className="text-[9px] font-bold  pl-1">
-                    In Progress
+                    Visitors
                   </span>
                 </span>
               </span>

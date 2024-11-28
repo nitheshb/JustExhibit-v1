@@ -60,7 +60,7 @@ const LLeadsTableView = ({
     const tabHeadFieldsA1 =
       leadsTyper === 'inProgress'
         ? [
-            { lab: 'In Progress', val: 'all' },
+            { lab: 'Visitors', val: 'all' },
             { lab: 'New', val: 'new' },
             { lab: 'Follow Up', val: 'followup' },
             { lab: 'Visit Fixed', val: 'visitfixed' },
