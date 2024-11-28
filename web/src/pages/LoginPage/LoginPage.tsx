@@ -20,6 +20,9 @@ interface UserInfo {
   password: string
 }
 
+
+
+
 const LoginPage = () => {
   const [loginError, setloginError] = useState(false)
   const [passwordResetMode, setPasswordResetMode] = useState(false)
@@ -110,10 +113,36 @@ const LoginPage = () => {
 
   return (
     <>
-    <div className="flex  min-h-[100vh]">
-    <image className="emotion-zz58hy e161fen30"></image>
+    <div className="flex  min-h-[100vh]"
+
+style={{
+  backgroundImage: 'url("https://lcl.host/images/pattern1.png")',
+  backgroundSize: 'auto',      
+  backgroundPosition: 'top left',  
+  backgroundRepeat: 'repeat',  
+  backgroundColor: 'rgba(27, 2, 57, 0.5)'   
+}}
+
+    >
+
+
+
+
+<div
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      backgroundColor: 'rgba(27, 2, 57, 0.8)',
+      zIndex: 1, 
+    }}
+  />
+  
+    <image className=" e161fen30"></image>
 <div className="emotion-uean91 e161fen35">
-<header className="emotion-8jn83t e161fen32"><a tabIndex={0} target="_blank" rel="noopener noreferrer" href="https://kinsta.com/" className="e5zp1z80 emotion-i8pe6o e1f7pdm61"><img alt="Kinsta" src="https://cdn.kinsta.com/logos/kinsta-logo-white.svg" className="emotion-jpzpaj e1lpxb6t0" /></a></header>
+{/* <header className="emotion-8jn83t e161fen32"><a tabIndex={0} target="_blank" rel="noopener noreferrer" href="https://kinsta.com/" className="e5zp1z80 emotion-i8pe6o e1f7pdm61"><img alt="Kinsta" src="https://cdn.kinsta.com/logos/kinsta-logo-white.svg" className="emotion-jpzpaj e1lpxb6t0" /></a></header> */}
 <main className="emotion-1k05rl2 e161fen34">
   <article className="e5zp1z89 emotion-1d5i1du e7vdawy10">
     <div  className="e7vdawy9 emotion-asiae7 e1e832xl0 flex-col">

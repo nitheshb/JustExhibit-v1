@@ -17,6 +17,7 @@ import {
   Typography,
   useTheme,
 } from '@mui/material'
+import { QrCode, Scan } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 import { Link } from '@redwoodjs/router'
@@ -32,6 +33,8 @@ import 'flowbite'
 
 import '../../styles/myStyles.css'
 // import Chart from 'react-apexcharts'
+import QRGenerator from '../0_EventKit/QrGenerator'
+import QRScanner from '../0_EventKit/QrScanner'
 import ApexChart from '../Apex_chart/ApexChart'
 import Conversion_rates from '../Apex_chart/Conversion_rates'
 import PieChart from '../Apex_chart/PieChart'
@@ -45,12 +48,12 @@ import CrmCollectionReport from './Reports/collectionReport'
 import CreditNoteSummaryHomePage from './Reports/creditNoteSummaryHome'
 import CrmSummaryReport from './Reports/Crm_SummaryReport'
 import CrmAnalyticsUnitHome from './Reports/CrmAnalyticsUnitHome'
+import CrmMortgageSummaryTable from './Reports/CrmMortgageSummary'
 import CrmProjectionReport from './Reports/CrmProjectionReport'
 import CrmInventorySummaryTable from './Reports/CrmSummaryTable'
 import ReportBars from './Reports/ReportBars'
 import TransactionCard from './Reports/TransactionCard'
 import UnitStatusCardReport from './Reports/UnitStatusCardReport'
-import CrmMortgageSummaryTable from './Reports/CrmMortgageSummary'
 
 const CrmAnalyticsHome = ({ project }) => {
   const theme = useTheme()
@@ -61,6 +64,7 @@ const CrmAnalyticsHome = ({ project }) => {
   const { orgId } = user
   const [projects, setProjects] = useState([])
   const [selCat, setSelCat] = useState('booking_summary')
+  const [activeTab, setActiveTab] = useState<'generate' | 'scan'>('generate')
 
   useEffect(() => {
     getProjects()
@@ -108,6 +112,7 @@ const CrmAnalyticsHome = ({ project }) => {
           { label: 'Event Summary', value: 'proj_summary' },
           { label: 'Mortgage Details', value: 'mortgage_details' },
           { label: 'Credit Note', value: 'creditnote_summary' },
+          { label: 'Qr code scanner', value: 'qrCodeScanner' },
           // { label: 'Collections', value: 'collections-summary' },
           // { label: 'Home', value: 'crm_summary' },
           // { label: 'Source Report', value: 'source_report' },
@@ -286,6 +291,55 @@ const CrmAnalyticsHome = ({ project }) => {
           <CreditNoteSummaryHomePage />
 
           {projects.length === 0 && <DummyBodyLayout />}
+        </div>
+      )}
+
+      {selCat === 'qrCodeScanner' && (
+        <div className="">
+          {/* <AdvancedDataTableTest /> */}
+          <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-blue-50 py-12 px-4">
+            <div className="max-w-7xl mx-auto">
+              <div className="text-center mb-12">
+                <h1 className="text-4xl font-bold text-gray-900 mb-4">
+                  QR Code Generator & Scanner
+                </h1>
+                <p className="text-lg text-gray-600">
+                  Generate QR codes from form data or scan existing codes
+                </p>
+              </div>
+
+              <div className="flex justify-center mb-8">
+                <div className="inline-flex rounded-lg border border-gray-200 bg-white p-1">
+                  <button
+                    onClick={() => setActiveTab('generate')}
+                    className={`inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium ${
+                      activeTab === 'generate'
+                        ? 'bg-indigo-600 text-white'
+                        : 'text-gray-500 hover:text-gray-700'
+                    }`}
+                  >
+                    <QrCode className="w-4 h-4" />
+                    Generate
+                  </button>
+                  <button
+                    onClick={() => setActiveTab('scan')}
+                    className={`inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium ${
+                      activeTab === 'scan'
+                        ? 'bg-indigo-600 text-white'
+                        : 'text-gray-500 hover:text-gray-700'
+                    }`}
+                  >
+                    <Scan className="w-4 h-4" />
+                    Scan
+                  </button>
+                </div>
+              </div>
+
+              <div className="flex justify-center">
+                {activeTab === 'generate' ? <QRGenerator /> : <QRScanner />}
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </div>

@@ -44,6 +44,7 @@ import SiderForm from '../SiderForm/SiderForm'
 import SourceAddTemplate from './SourceAddTemplate'
 
 import ProjectSummaryReport from './ProjectSummaryReport'
+import AnalyticsDashboard from './AnalyticsDashboard'
 
 
 const ProjectReportsBody = ({ title, pId, data }) => {
@@ -569,6 +570,7 @@ ${x?.length > 0 ? `${personalFinalText}` : ''}\n \n
           { label: 'Event Finance', value: 'CRM_status' },
           { label: 'Sale Projections', value: 'Legal_status' },
           { label: 'Home', value: 'project_home' },
+          { label: 'Graph', value: 'graph_home' },
         ].map((data, i) => {
           return (
             <section
@@ -1034,6 +1036,12 @@ ${x?.length > 0 ? `${personalFinalText}` : ''}\n \n
 
 {selCat === 'project_home' && (
             <ProjectSummaryReport/>
+          )}
+
+
+
+{selCat === 'graph_home' && (
+            <AnalyticsDashboard/>
           )}
 
 
