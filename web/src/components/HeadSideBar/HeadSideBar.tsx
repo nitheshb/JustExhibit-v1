@@ -1,8 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { UserGroupIcon } from '@heroicons/react/outline'
-
 import { Link, routes } from '@redwoodjs/router'
-
 import { USER_ROLES } from 'src/constants/userRoles'
 import { useAuth } from 'src/context/firebase-auth-context'
 

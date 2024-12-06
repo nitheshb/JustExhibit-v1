@@ -1,13 +1,5 @@
 import { useState } from 'react'
-
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faPlus } from '@fortawesome/free-solid-svg-icons'
-
-import axios from 'axios'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
-
-import { createAttach } from 'src/context/dbQueryFirebase'
-import { useAuth } from 'src/context/firebase-auth-context'
 import { storage } from 'src/context/firebaseConfig'
 import { v4 as uuidv4 } from 'uuid'
 

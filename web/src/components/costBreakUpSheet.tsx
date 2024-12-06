@@ -5,61 +5,23 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState, useEffect, createRef, useRef } from 'react'
-
-// import './ScrollHighlightNabbar.css'
-import { Dialog } from '@headlessui/react'
-import { RadioGroup } from '@headlessui/react'
 import {
-  ChevronRightIcon,
-  ClockIcon,
-  DocumentIcon,
   CheckCircleIcon,
   MinusCircleIcon,
 } from '@heroicons/react/solid'
-import { Checkbox, LinearProgress } from '@mui/material'
-import { Timestamp } from 'firebase/firestore'
-import { Form, Formik, Field } from 'formik'
-import jsPDF from 'jspdf'
+import { LinearProgress } from '@mui/material'
 import { useSnackbar } from 'notistack'
 import PropTypes from 'prop-types'
-import { renderToString } from 'react-dom/server'
-import NumberFormat from 'react-number-format'
-import Select from 'react-select'
 import * as Yup from 'yup'
-
-import { Label, InputField, TextAreaField, FieldError } from '@redwoodjs/forms'
-import { useRouterStateSetter } from '@redwoodjs/router/dist/router-context'
-
-import { apartUnitChargesMock } from 'src/constants/projects'
 import {
-  getAllProjects,
-  steamUsersListByRole,
   updateLeadCostSheetDetailsTo,
   updateUnitsCostSheetDetailsTo,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-import {
-  sendWhatAppMediaSms,
-  sendWhatAppTextSms,
-} from 'src/util/axiosWhatAppApi'
-import CostBreakUpPdf from 'src/util/costBreakUpPdf'
-import CostBreakUpPdfAll from 'src/util/costBreakUpPdf_all'
-import CostBreakUpPdfConstruct from 'src/util/costBreakUpPdf_construct'
-import { prettyDate, timeConv } from 'src/util/dateConverter'
-import { PhoneNoField } from 'src/util/formFields/phNoField'
-import { CustomSelect } from 'src/util/formFields/selectBoxField'
-import { TextField } from 'src/util/formFields/TextField'
-import { TextField2 } from 'src/util/formFields/TextField2'
-import { TextFieldFlat } from 'src/util/formFields/TextFieldFlatType'
-import PdfInvoiceGenerator from 'src/util/PdfInvoiceGenerator'
+import { prettyDate } from 'src/util/dateConverter'
 
-import BookingSummaryView from './A_CrmModule/A_Crm_sideFormBodies.tsx/bookingSummaryView'
-import AddApplicantDetails from './AddApplicantDetails'
-import AdditonalBookingDetails from './AdditionalBookingDetails'
 import BlockingUnitForm from './BlockingUnitForm'
 import AddPaymentDetailsForm from './FinanceModule/BookingPaymentForm'
-import Loader from './Loader/Loader'
-import PaymentScheduleSheet from './paymentScheduleSheet'
 import SiderForm from './SiderForm/SiderForm'
 import UnitTransactionForm from './UnitBillTransactionForm'
 

@@ -1,11 +1,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState, useEffect, useRef } from 'react'
-
 import { arrayUnion, Timestamp } from 'firebase/firestore'
 import { useSnackbar } from 'notistack'
 import * as Yup from 'yup'
-
 import {
   addAccountslogS,
   addCustomer,

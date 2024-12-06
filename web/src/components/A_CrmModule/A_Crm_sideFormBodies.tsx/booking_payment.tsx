@@ -2,33 +2,18 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
-import { Menu, Transition } from '@headlessui/react'
 import {
-  ChartPieIcon,
-  OfficeBuildingIcon,
   PlusIcon,
-  NewspaperIcon,
-  UserGroupIcon,
-  ScaleIcon,
-  PuzzleIcon,
 } from '@heroicons/react/outline'
 import {
-  ChevronDownIcon,
-  FireIcon,
-  CurrencyRupeeIcon,
-  DotsVerticalIcon,
-  CheckIcon,
-  DocumentTextIcon,
   ArrowDownIcon,
   ArrowUpIcon,
 } from '@heroicons/react/solid'
 import { useSnackbar } from 'notistack'
 
-import { Link, routes } from '@redwoodjs/router'
 
-import BankSelectionSwitchDrop from 'src/components/A_LoanModule/BankSelectionDroopDown'
 import CaptureUnitPayment from 'src/components/FinanceModule/CapturePayment'
 import DocRow from 'src/components/LegalModule/Docu_row'
 import { USER_ROLES } from 'src/constants/userRoles'
@@ -38,7 +23,6 @@ import {
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import { supabase } from 'src/context/supabase'
-import { prettyDateTime } from 'src/util/dateConverter'
 
 import CrmPaymentSummary from '../CrmPaymentSummary'
 import CrmUnitPaymentGraph from '../CrmUnitPaymentGraph'

@@ -1,31 +1,21 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-// import { useState } from 'react'
-// import ProjectStatsCard from '../ProjectStatsCard/ProjectStatsCard'
-// import PhaseDetailsCard from '../PhaseDetailsCard/PhaseDetailsCard'
-import { useState, useEffect } from 'react'
 
+import { useState, useEffect } from 'react'
 import AppsIcon from '@mui/icons-material/Apps'
 import SortIcon from '@mui/icons-material/Sort'
-import { Card, Grid } from '@mui/material'
+import { Card } from '@mui/material'
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid'
-
-import { Link } from '@redwoodjs/router'
-
-import FileCardAnim from 'src/components/A_LegalModule/fileCard'
+import { DataGrid, GridColDef } from '@mui/x-data-grid'
 import DropDownSearchBar from 'src/components/dropDownSearchBar'
-import DropCompUnitStatus from 'src/components/dropDownUnitStatus'
-import DummyBodyLayout from 'src/components/DummyBodyLayout/DummyBodyLayout'
 import SiderForm from 'src/components/SiderForm/SiderForm'
 import { LegalFolders } from 'src/constants/projects'
 import { getAllProjects } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import 'flowbite'
 
-import { PlusIcon } from '@heroicons/react/outline'
 const LegalDocsHome = ({ project }) => {
   const { eventName } = project
   const { user } = useAuth()

@@ -1,20 +1,12 @@
-// import { AuthProvider } from '@redwoodjs/auth'
-// import { initializeApp } from 'firebase/app'
-// import * as firebaseAuth from '@firebase/auth'
-// import { getAuth } from 'firebase/auth'
 import { LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns'
 import { SnackbarProvider } from 'notistack'
 import { Provider as ReduxProvider } from 'react-redux'
-
 import { FatalErrorBoundary, RedwoodProvider } from '@redwoodjs/web'
-
-// import { RedwoodApolloProvider } from '@redwoodjs/web/apollo'
 import AuthProvider from 'src/context/firebase-auth-context'
 import FatalErrorPage from 'src/pages/FatalErrorPage'
 import Routes from 'src/Routes'
 import store from 'src/state/store'
-
 import './index.css'
 
 // const firebaseConfig = {

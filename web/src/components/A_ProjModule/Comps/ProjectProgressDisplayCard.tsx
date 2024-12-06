@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
-
 import './Card.css'
-
 import 'react-circular-progressbar/dist/styles.css'
 import { UilTimes } from '@iconscout/react-unicons'
 import { motion, AnimateSharedLayout } from 'framer-motion'
 import Chart from 'react-apexcharts'
 import { CircularProgressbar } from 'react-circular-progressbar'
 
-// parent Card
+
 
 const ProjectProgressDisplayCard = (props) => {
   const [expanded, setExpanded] = useState(false)

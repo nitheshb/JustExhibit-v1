@@ -1,13 +1,10 @@
-import { useState, useEffect, createRef, useRef } from 'react'
-
+import { useState, useEffect, createRef } from 'react'
 import { PDFExport } from '@progress/kendo-react-pdf'
 import { Timestamp } from 'firebase/firestore'
-import { Form, Formik } from 'formik'
+import { Formik } from 'formik'
 import * as Yup from 'yup'
-
 import CrmUnitHeader from 'src/components/A_CrmModule/CrmUnitHeader'
 import { useAuth } from 'src/context/firebase-auth-context'
-
 import { computeTotal } from './computeCsTotals'
 import { TextFieldFlat } from './formFields/TextFieldFlatType'
 

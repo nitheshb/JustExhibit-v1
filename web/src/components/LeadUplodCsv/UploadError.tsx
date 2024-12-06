@@ -8,6 +8,7 @@ import React from 'react'
 import { FileError } from 'react-dropzone'
 import { FileHeader } from './FileHeader'
 
+
 export interface UploadErrorProps {
   file: File
   onDelete: (file: File) => void

@@ -3,20 +3,9 @@
 // import { useState } from 'react'
 // import PhaseDetailsCard from '../PhaseDetailsCard/PhaseDetailsCard'
 import { useState } from 'react'
-
-import { PencilIcon, EyeIcon } from '@heroicons/react/outline'
-import { UilUsdSquare, UilMoneyWithdrawal } from '@iconscout/react-unicons'
 import { Box, LinearProgress, useTheme } from '@mui/material'
-import Chart from 'react-apexcharts'
 import { useTranslation } from 'react-i18next'
-
-import { Link, routes } from '@redwoodjs/router'
-
-import Card2 from '../A_ProjModule/Comps/Card2'
-import ProjectProgressDisplayCard from '../A_ProjModule/Comps/ProjectProgressDisplayCard'
-import CircleProgress from '../Charts_Graphs/CircleProgress'
-import PieChartProject from '../comps/pieChartProject'
-import ProjectStatsCard from '../ProjectStatsCard/ProjectStatsCard'
+import { Link } from '@redwoodjs/router'
 import SiderForm from '../SiderForm/SiderForm'
 import { prettyDate } from 'src/util/dateConverter'
 

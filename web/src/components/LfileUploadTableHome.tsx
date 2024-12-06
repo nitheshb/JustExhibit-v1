@@ -1,14 +1,7 @@
 import { useEffect, useState } from 'react'
-
-import { ControlPoint } from '@mui/icons-material'
-import { TabContext, TabList } from '@mui/lab'
-import { Box, Button, Card, Grid, styled, Tab } from '@mui/material'
-// import AddEmployeeModal from 'components/dataTable/dataTableV1/AddEmployeeModal'
-// import useTitle from './../hooks/useTitle'
-import { useTranslation } from 'react-i18next' // styled components
-
+import { Box, Card, Grid } from '@mui/material'
+import { useTranslation } from 'react-i18next' 
 import uniqueId from '../util/generatedId'
-
 import LfileuploadTableTemplate from './LfileuploadTableTemplate'
 
 const tableData2 = [

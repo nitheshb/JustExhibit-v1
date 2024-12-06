@@ -1,21 +1,13 @@
-import { useState, useEffect, createRef, useRef } from 'react'
-
-import { InformationCircleIcon } from '@heroicons/react/outline'
-import { Checkbox } from '@mui/material'
+import { useState, useEffect, createRef } from 'react'
 import { PDFExport } from '@progress/kendo-react-pdf'
 import { Timestamp } from 'firebase/firestore'
-import { Field, Form, Formik } from 'formik'
+import { Formik } from 'formik'
 import { useSnackbar } from 'notistack'
 import * as Yup from 'yup'
-
-import CrmUnitHeader from 'src/components/A_CrmModule/CrmUnitHeader'
 import { updateLeadCostSheetDetailsTo } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-
 import 'src/styles/myStyles.css'
-import { computeTotal } from 'src/util/computeCsTotals'
 import CostBreakUpPdfPreview from 'src/util/costBreakUpPdfPreview'
-import { TextFieldFlat } from 'src/util/formFields/TextFieldFlatType'
 import { prettyDate } from 'src/util/dateConverter'
 
 const BookingSummaryView = ({

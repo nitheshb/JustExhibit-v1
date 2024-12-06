@@ -1,6 +1,5 @@
 import { Dialog } from '@headlessui/react'
 import { useSnackbar } from 'notistack'
-
 import WhatsAppTextQuillForm from './Comps/WhatsAppTextQuill'
 
 const NotificationsSetupForm = ({ title, projectDetails, wbPayload }) => {

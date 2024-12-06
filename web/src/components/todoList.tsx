@@ -2,18 +2,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useEffect, useState } from 'react'
-
 import { Switch } from '@headlessui/react'
 import { SearchIcon } from '@heroicons/react/outline'
-import { ArrowNarrowRightIcon, PlusIcon } from '@heroicons/react/solid'
+import { PlusIcon } from '@heroicons/react/solid'
 import { PaperClipIcon, UsersIcon } from '@heroicons/react/solid'
-import { TabList } from '@mui/lab'
-import { Box, Card, Grid, styled } from '@mui/material'
+import { Box } from '@mui/material'
 import { Checkbox } from '@mui/material'
 import { startOfDay } from 'date-fns'
-import { Field, Form, Formik } from 'formik'
-import { useTranslation } from 'react-i18next' // styled components
-
+import { useTranslation } from 'react-i18next' 
 import {
   streamGetAllTaskManTasks,
   streamGetAllParticipantTasks,
@@ -22,23 +18,17 @@ import { useAuth } from 'src/context/firebase-auth-context'
 import { supabase } from 'src/context/supabase'
 import CSVDownloader from 'src/util/csvDownload'
 import {
-  formatToPhone,
   getDifferenceInDays,
   getDifferenceInHours,
   getDifferenceInMinutes,
   prettyDateTime,
 } from 'src/util/dateConverter'
 import {
-  SlimDateSelectBox,
   SlimSelectBox,
 } from 'src/util/formFields/slimSelectBoxField'
-import uniqueId from 'src/util/generatedId'
 
-import LLeadsTableBody from '../LLeadsTableBody/LLeadsTableBody'
 
 import SiderForm from './SiderForm/SiderForm'
-import FinanceChart from './FinanceChart'
-import AdminPage from './AdminPage'
 
 const torrowDate = new Date(
   +new Date().setHours(0, 0, 0, 0) + 86400000

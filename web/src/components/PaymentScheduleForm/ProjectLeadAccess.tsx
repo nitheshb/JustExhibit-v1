@@ -1,26 +1,10 @@
 import React, { useEffect, useState } from 'react'
-
-import { Dialog } from '@headlessui/react'
 import { Alert, AlertTitle } from '@mui/lab'
 import Checkbox from '@mui/material/Checkbox'
-import { format, parse, isDate } from 'date-fns'
 import { useSnackbar } from 'notistack'
-import DatePicker from 'react-datepicker'
-import Select from 'react-select'
-
-// import { Edit, DeleteOutline } from '@material-ui/icons'
-import { MaterialCRUDTable } from 'src/components/MaterialCRUDTable'
-import { paymentScheduleA } from 'src/constants/projects'
 import {
-  getPaymentSchedule,
-  createPaymentSheduleComp,
-  updatePayment,
-  deletePayment,
-  updatePaymentScheduleCharges,
-  steamUsersListByRole,
   updateUserAccessProject,
   steamUsersList,
-  updateProjectDepartmentPermissions,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 

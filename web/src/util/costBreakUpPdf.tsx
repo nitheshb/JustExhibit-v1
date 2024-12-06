@@ -1,22 +1,13 @@
-import { useState, useEffect, createRef, useRef } from 'react'
-
-import { InformationCircleIcon } from '@heroicons/react/outline'
-import { Checkbox } from '@mui/material'
+import { useState, useEffect, createRef } from 'react'
 import { PDFExport } from '@progress/kendo-react-pdf'
 import { setHours, setMinutes } from 'date-fns'
 import { Timestamp } from 'firebase/firestore'
-import { Field, Form, Formik } from 'formik'
-import { use } from 'i18next'
 import { useSnackbar } from 'notistack'
 import DatePicker from 'react-datepicker'
 import * as Yup from 'yup'
-
-import CrmUnitHeader from 'src/components/A_CrmModule/CrmUnitHeader'
 import { updateLeadCostSheetDetailsTo } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-
 import { computeTotal } from './computeCsTotals'
-import CostBreakUpPdfPreview from './costBreakUpPdfPreview'
 import { TextFieldFlat } from './formFields/TextFieldFlatType'
 
 import '../styles/myStyles.css'

@@ -1,10 +1,6 @@
-import { useState, useEffect, useRef } from 'react'
-
-import { LinearProgress } from '@mui/material'
-
+import { useState, useEffect } from 'react'
 import { useAuth } from 'src/context/firebase-auth-context'
 import { computeTotal } from 'src/util/computeCsTotals'
-import DoughnutChartWithRoundedSegments from '../A_SalesModule/Reports/charts/piechartRounded'
 import RoundedProgressBar from './Reports/RoundedProgressBar'
 
 const CrmUnitPaymentGraph = ({ selCustomerPayload }) => {

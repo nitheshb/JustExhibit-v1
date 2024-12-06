@@ -2,19 +2,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState, useEffect } from 'react'
-
-import { Dialog } from '@headlessui/react'
-import { RadioGroup } from '@headlessui/react'
-import Divider from '@mui/material/Divider'
 import { Timestamp } from 'firebase/firestore'
 import { Form, Formik } from 'formik'
 import { useSnackbar } from 'notistack'
-import NumberFormat from 'react-number-format'
-import Select from 'react-select'
-import * as Yup from 'yup'
-
-import { Label, InputField, TextAreaField, FieldError } from '@redwoodjs/forms'
-import { useRouterStateSetter } from '@redwoodjs/router/dist/router-context'
 
 import {
   addUnit,
@@ -26,19 +16,10 @@ import {
   streamMasters,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-import {
-  sendWhatAppMediaSms,
-  sendWhatAppTextSms,
-} from 'src/util/axiosWhatAppApi'
-import { PhoneNoField } from 'src/util/formFields/phNoField'
 import { CustomSelect } from 'src/util/formFields/selectBoxField'
 import { TextField } from 'src/util/formFields/TextField'
-
 import Loader from './Loader/Loader'
-import { validate_AddUnit } from './Schemas'
-
-
-import { bathTypeList, bedRoomsList, carParkingList, facingTypeList, mortgageType, plotTypeList,  releaseStausList, statusList, unitTypeList } from 'src/constants/projects'
+import { facingTypeList, plotTypeList,  releaseStausList, statusList, unitTypeList } from 'src/constants/projects'
 
 
 

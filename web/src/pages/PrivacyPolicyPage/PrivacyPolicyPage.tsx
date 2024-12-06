@@ -1,6 +1,5 @@
 import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
-
 import HeadNavBar from 'src/components/HeadNavBar/HeadNavBar'
 
 const PrivacyPolicyPage = () => {

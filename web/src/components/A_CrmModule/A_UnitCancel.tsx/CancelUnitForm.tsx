@@ -2,27 +2,19 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState, useEffect } from 'react'
-
 import { ExclamationCircleIcon, CheckCircleIcon } from '@heroicons/react/solid'
 import { Timestamp } from 'firebase/firestore'
 import { ErrorMessage, Form, Formik } from 'formik'
 import { useSnackbar } from 'notistack'
 import * as Yup from 'yup'
-
 import Loader from 'src/components/Loader/Loader'
 import {
-  addStallLeads,
-  checkIfLeadAlreadyExists,
-  getAllProjects,
-  steamUsersListByRole,
   streamGetAllUnitTransactions,
   updateCancelProjectCounts,
   updateTransactionStatus,
-  updateUnitAsBlocked,
   updateStallAsBooked,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-import { supabase } from 'src/context/supabase'
 
 const CancelUnitForm = ({ selUnitDetails, bookCompSteps, bookCurentStep }) => {
   const { user } = useAuth()

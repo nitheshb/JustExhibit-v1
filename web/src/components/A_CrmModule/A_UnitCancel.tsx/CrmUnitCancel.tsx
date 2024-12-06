@@ -3,14 +3,12 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useEffect, useState } from 'react'
-
 import { XIcon } from '@heroicons/react/solid'
 import { setHours, setMinutes } from 'date-fns'
 import { Timestamp } from 'firebase/firestore'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
 import { useSnackbar } from 'notistack'
 import { v4 as uuidv4 } from 'uuid'
-
 import { USER_ROLES } from 'src/constants/userRoles'
 import {
   addLeadScheduler,
@@ -34,16 +32,8 @@ import {
 import { useAuth } from 'src/context/firebase-auth-context'
 import { storage } from 'src/context/firebaseConfig'
 import { prettyDate, prettyDateTime } from 'src/util/dateConverter'
-
 import 'react-datepicker/dist/react-datepicker.css'
-
 import { getWhatsAppTemplates } from 'src/util/TuneWhatsappMsg'
-
-// import AssigedToDropComp from '../assignedToDropComp'
-// import SiderForm from '../SiderForm/SiderForm'
-
-// import UnitFullSummary from './CrmUnitFullSummary'
-
 import { supabase } from 'src/context/supabase'
 import AssigedToDropComp from 'src/components/assignedToDropComp'
 import SiderForm from 'src/components/SiderForm/SiderForm'

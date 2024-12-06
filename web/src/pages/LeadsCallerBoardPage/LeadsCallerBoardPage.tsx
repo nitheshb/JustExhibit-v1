@@ -1,7 +1,5 @@
-import { Fragment, useState } from 'react'
-
+import { useState } from 'react'
 import { Link, routes } from '@redwoodjs/router'
-
 import LLeadsTableView from 'src/components/LLeadsTableView/LLeadsTableView'
 import SiderForm from 'src/components/SiderForm/SiderForm'
 

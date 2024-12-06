@@ -1,50 +1,31 @@
-import { constants } from 'os'
 
 import { useState, useEffect } from 'react'
-
-// import { Prompt } from 'react-router-dom'
-import { Dialog } from '@headlessui/react'
-import { Add, Remove } from '@mui/icons-material'
-import { InputAdornment, TextField as MuiTextField } from '@mui/material'
 import { setHours, setMinutes } from 'date-fns'
 import { Form, Formik, useFormikContext } from 'formik'
 import { useSnackbar } from 'notistack'
 import DatePicker from 'react-datepicker'
 import { v4 as uuidv4 } from 'uuid'
 import * as Yup from 'yup'
-
-
-
-import { AreaConverter } from 'src/components/AreaConverter'
 import Loader from 'src/components/Loader/Loader'
 import {
-  ChooseOptions,
-  chooseAuthorityApproval,
   developmentTypes,
   projectPlans,
-  statesList,
-  chooseReraApproval,
-  approvalAuthority,
 } from 'src/constants/projects'
 import {
   createProject,
   getProject,
   steamBankDetailsList,
   streamMasters,
-  streamProjectCSMaster,
   updateProject,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-import { sqftConverter } from 'src/util/areaConverter'
 import { CustomRadioGroup } from 'src/util/formFields/CustomRadioGroup'
 import { CustomSelect } from 'src/util/formFields/selectBoxField'
-import { MultiSelectMultiLineField } from 'src/util/formFields/selectBoxMultiLineField'
 import { TextAreaField } from 'src/util/formFields/TextAreaField'
 import { TextField } from 'src/util/formFields/TextField'
 
-import AddBankDetailsForm from '../addBankDetailsForm'
-import { formatIndianNumber } from 'src/util/formatIndianNumberTextBox'
 import CustomDatePicker from 'src/util/formFields/CustomDatePicker'
+import ProjectLogoUploader from '../A_ProjModule/projectLogoUploader'
 
 
 
@@ -336,9 +317,15 @@ const DialogFormBody = ({
                   // bindSubmitForm(formik.submitForm);
                   return (
                     <Form>
-                      <div className="form m-4 mt-0 ">
-                        <div className="flex flex-col mt-0  bg-white pt-4 ">
-                          <div className="mb-4 mt-4">
+
+     
+
+
+                      <div className="p-4 ">
+
+
+
+                      <div className="mb-4  mt-4">
                             <div className="inline">
                               <div className="">
                                 <label className="font-semibold text-[#053219]  text-sm  mb-1  ">
@@ -349,14 +336,31 @@ const DialogFormBody = ({
                               <div className="border-t-4 rounded-xl w-16 mt-1 border-[#57C0D0]"></div>
                             </div>
                           </div>
+
+                        <div className='grid grid-cols-4 gap-2 w-full'>
+
+
+
+                        <div className='col-span-1 mt-1'>
+                            <ProjectLogoUploader projectId={project?.uid} eventLogoURL={project?.eventLogoURL}/>
+                            </div>
+
+
+                            <div className='col-span-3 items-start'>
+
+
+                            <div className="flex flex-col mt-0  bg-white  ">
+
                           <p className="text-sm text-gray-800 ">
                             Event Name*
                           </p>
                           <TextField label="" name="eventName" type="text" />
-                          <section className="md:flex md:flex-row md:space-x-4 w-full text-xs mt-2">
+
+                          
+                          <div className="flex space-x-4 w-full text-xs mt-2">
 
 
-                          <div className="mt-2 ">
+                          <div className=" flex-1">
 
 
                                   <label className="label font-regular block mb-1">
@@ -365,7 +369,7 @@ const DialogFormBody = ({
                                   <CustomDatePicker
                                     id="eventStartDate"
                                     name="eventStartDate"
-                                    className="pl- px-1 h-8 rounded-md min-w-[200px] inline text-[#0091ae] flex bg-grey-lighter text-grey-darker border border-[#cccccc] px-2"
+                                    className="pl- px-1 h-8 rounded-md min-w-[289px] inline text-[#0091ae] flex bg-grey-lighter text-grey-darker border border-[#cccccc] px-2"
                                     selected={eventStartDate}
                                     onChange={(date) => {
                                       formik.setFieldValue(
@@ -385,19 +389,14 @@ const DialogFormBody = ({
                                     dateFormat="MMM dd, yyyy"
                                   />
                                 </div>
-
-
-
-                              <div className="mt-2 ">
-
-
+                              <div className="flex-1 ">
                                 <label className="label font-regular block mb-1">
                                   End Date*
                                 </label>
                                 <DatePicker
                                   id="eventEndDate"
                                   name="eventEndDate"
-                                  className="pl- px-1 h-8 rounded-md min-w-[200px] inline text-[#0091ae] flex bg-grey-lighter text-grey-darker border border-[#cccccc] px-2"
+                                  className="pl- px-1 h-8 rounded-md min-w-[289px] inline text-[#0091ae] flex bg-grey-lighter text-grey-darker border border-[#cccccc] px-2"
                                   selected={endDate}
                                   onChange={(date) => {
                                     console.log(
@@ -425,16 +424,30 @@ const DialogFormBody = ({
                                   dateFormat="MMM dd, yyyy"
                                 />
                               </div>
-                              <div className="mt-2 w-full">
+
+                          </div>
+
+
+                          <div className="mt-2 w-full">
                                 <TextField
                                   label="Website Url"
                                   name="webUrl"
                                   type="text"
                                 />
                               </div>
-                          </section>
 
                         </div>
+
+
+                            </div>
+
+
+
+    
+                        </div>
+
+
+      
 
 
                         <div className="flex flex-col mt-2 rounded-lg pt-4 ">
@@ -495,6 +508,9 @@ const DialogFormBody = ({
                           </div>
                         </div>
                       </div>
+
+
+
                       <div className="z-10 flex flex-row justify-between mt-4 pb-2 pr-6 bg-white shadow-lg absolute bottom-0  w-full">
                         <div></div>
                         <div className="mt-5 text-right md:space-x-3 md:block flex flex-col-reverse mb-6">

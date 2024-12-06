@@ -1,5 +1,4 @@
 import React from 'react'
-
 import Lottie from 'react-lottie-player'
 
 import loaderData from '../NotFoundPage/loader.json'

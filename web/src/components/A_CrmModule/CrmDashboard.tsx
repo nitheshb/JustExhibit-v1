@@ -5,20 +5,12 @@
 // import ProjectStatsCard from '../ProjectStatsCard/ProjectStatsCard'
 // import PhaseDetailsCard from '../PhaseDetailsCard/PhaseDetailsCard'
 import { useState, useEffect } from 'react'
-
 import { Card, CardHeader, Container, Grid, Stack, Typography, useTheme } from '@mui/material'
 import { useTranslation } from 'react-i18next'
-
-import { Link } from '@redwoodjs/router'
-
-import SiderForm from 'src/components/SiderForm/SiderForm'
 import { getAllProjects } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-
 import 'flowbite'
-
 import '../../styles/myStyles.css'
-// import Chart from 'react-apexcharts'
 import ApexChart from '../Apex_chart/ApexChart'
 import PieChart from '../Apex_chart/PieChart'
 import Conversion_rates from '../Apex_chart/Conversion_rates'

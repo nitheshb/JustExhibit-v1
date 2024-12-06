@@ -1,6 +1,5 @@
 import { Menu, Transition } from '@headlessui/react'
-import { Fragment, useEffect, useState } from 'react'
-import { ChevronDownIcon } from '@heroicons/react/solid'
+import { Fragment } from 'react'
 
 export default function SortComp({ selFilterVal, setSelFilterVal }) {
   return (

@@ -1,53 +1,32 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 
-import { Fragment, useState, useEffect } from 'react'
-
-import DatePicker from 'react-datepicker'
+import { useState, useEffect } from 'react'
 import {
-  PhoneIcon,
   PuzzleIcon,
-  ShieldExclamationIcon,
 } from '@heroicons/react/outline'
 import {
-  AdjustmentsIcon,
   ChartPieIcon,
-  PlusIcon,
-  ShoppingCartIcon,
   SearchIcon,
-  OfficeBuildingIcon,
   NewspaperIcon,
-  UserGroupIcon,
-  ScaleIcon,
-  InformationCircleIcon,
 } from '@heroicons/react/solid'
-import CalendarMonthTwoToneIcon from '@mui/icons-material/CalendarMonthTwoTone'
 import {} from '@heroicons/react/solid'
-import { Box, LinearProgress, useTheme } from '@mui/material'
+import { Box, LinearProgress } from '@mui/material'
 import { startOfDay } from 'date-fns'
 import { useTranslation } from 'react-i18next'
-
 import { MetaTags } from '@redwoodjs/web'
-
 import {
-  getCRMCustomerByProject,
   getBookedUnitsByProject,
   getAllProjects,
   getUnassignedCRMunits,
-  getLeadsByAdminStatus,
   getStallLeadsByAdminStatus,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import { computeTotal } from 'src/util/computeCsTotals'
 import CSVDownloader from 'src/util/csvDownload'
-import { prettyDate, prettyDateTime, timeConv } from 'src/util/dateConverter'
 import {
-  SlimDateSelectBox,
-  SlimSelectBox,
   VerySlimSelectBox,
 } from 'src/util/formFields/slimSelectBoxField'
-
-import DoughnutChartWithRoundedSegments from '../A_SalesModule/Reports/charts/piechartRounded'
 import CrmSiderForm from '../SiderForm/CRM_SideForm'
 import SiderForm from '../SiderForm/SiderForm'
 import LStallSalesBody from '../1_StallModule/LLStallSalesBody'

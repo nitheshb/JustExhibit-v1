@@ -1,31 +1,20 @@
-// import { useState } from 'react'
-// import ProjectStatsCard from '../ProjectStatsCard/ProjectStatsCard'
-// import PhaseDetailsCard from '../PhaseDetailsCard/PhaseDetailsCard'
 import { useEffect, useState } from 'react'
-
-import { CalendarIcon, EyeIcon } from '@heroicons/react/outline'
 import {
   ChevronDoubleLeftIcon,
   ChevronDoubleRightIcon,
 } from '@heroicons/react/solid'
-import { yearPickerClasses } from '@mui/lab'
 import { startOfWeek, startOfDay, startOfMonth, subMonths } from 'date-fns'
-import { Line } from 'react-chartjs-2'
-import DatePicker from 'react-datepicker'
-import { Chart } from 'react-google-charts'
 import {
   BarChart,
   Bar,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
   Legend,
 } from 'recharts'
 
-import { Link, routes } from '@redwoodjs/router'
 
-import { sourceList, sourceListItems } from 'src/constants/projects'
+import { sourceListItems } from 'src/constants/projects'
 import { USER_ROLES } from 'src/constants/userRoles'
 import {
   getAllProjects,
@@ -33,15 +22,11 @@ import {
   getTodayTodoLeadsDataByUser,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-import ProjectStatsCard from './ProjectStatsCard/ProjectStatsCard'
 
-import CSVDownloader from 'src/util/csvDownload'
-import { SlimSelectBox } from 'src/util/formFields/slimSelectBoxField'
 
 import { serialMyData } from './LeadsTeamReport/SourceLeads'
 import { serialEmployeeLeadData } from './LeadsTeamReport/serialEmployeeLeadData'
 
-import { prettyDate } from 'src/util/dateConverter'
 
 const valueFeedData = [
   { k: 'Due', v: 300, pic: '' },

@@ -1,22 +1,16 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useState, useEffect, useRef } from 'react'
-
 import { ExclamationCircleIcon, CheckCircleIcon } from '@heroicons/react/solid'
 import { AttachFile } from '@mui/icons-material'
 import { InputAdornment, TextField as MuiTextField } from '@mui/material'
 import { format } from 'date-fns'
 import { setHours, setMinutes } from 'date-fns'
-import { arrayUnion } from 'firebase/firestore'
 import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage'
-import { Form, Formik, ErrorMessage, useField } from 'formik'
+import { Form, Formik } from 'formik'
 import { useSnackbar } from 'notistack'
-import DatePicker from 'react-datepicker'
 import { v4 as uuidv4 } from 'uuid'
-import * as Yup from 'yup'
-
 import { useParams } from '@redwoodjs/router'
-
 import Confetti from 'src/components/shared/confetti'
 import { paymentMode, statesList } from 'src/constants/projects'
 import {
@@ -26,11 +20,7 @@ import {
   createBookedCompany,
   createNewCustomerS,
   getProject,
-  steamBankDetailsList,
   steamUsersProjAccessList,
-  streamMasters,
-  streamProjectCSMaster,
-  updateLeadStatus,
   updateEventsStallBookCounts,
   updateStallAsBooked,
 } from 'src/context/dbQueryFirebase'
@@ -39,7 +29,6 @@ import { storage } from 'src/context/firebaseConfig'
 import CustomDatePicker from 'src/util/formFields/CustomDatePicker'
 import { PhoneNoField } from 'src/util/formFields/phNoField'
 import { CustomSelect } from 'src/util/formFields/selectBoxField'
-import { MultiSelectMultiLineField } from 'src/util/formFields/selectBoxMultiLineField'
 import { TextField } from 'src/util/formFields/TextField'
 import { TextField2 } from 'src/util/formFields/TextField2'
 import { TextFieldFlat } from 'src/util/formFields/TextFieldFlatType'

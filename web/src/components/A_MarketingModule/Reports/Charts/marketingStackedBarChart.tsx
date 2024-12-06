@@ -1,19 +1,15 @@
-import React, { PureComponent, useEffect, useState } from 'react'
-
+import React, { useEffect, useState } from 'react'
 import {
   BarChart,
   Bar,
-  Cell,
   XAxis,
   YAxis,
   CartesianGrid,
   Rectangle,
   Tooltip,
-  Legend,
   LabelList,
   ResponsiveContainer,
 } from 'recharts'
-
 import { steamLeadsVsSources } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import { getLastFourMonths } from 'src/util/getLast6Months'

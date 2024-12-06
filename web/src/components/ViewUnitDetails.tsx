@@ -2,12 +2,10 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState, useEffect } from 'react'
-
 import { Dialog } from '@headlessui/react'
 import { Timestamp } from 'firebase/firestore'
 import { Formik } from 'formik'
 import * as Yup from 'yup'
-
 import {
   addUnit,
   checkIfUnitAlreadyExists,
@@ -15,8 +13,6 @@ import {
   steamUsersListByRole,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-import ButtonDropDown from 'src/util/formFields/buttonDropdown'
-
 import CostBreakUpSheet from './costBreakUpSheet'
 import UnitDocumentsBody from './unitDetailsCategory/unitDocuments'
 import UnitFinanceBody from './unitDetailsCategory/unitFinance'

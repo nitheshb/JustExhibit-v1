@@ -1,13 +1,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { Fragment } from 'react'
-
 import {
   CheckCircleIcon,
   ShieldExclamationIcon,
 } from '@heroicons/react/outline'
-
-
 import { useAuth } from 'src/context/firebase-auth-context'
 
 const CrmSubMenuBar1 = ({

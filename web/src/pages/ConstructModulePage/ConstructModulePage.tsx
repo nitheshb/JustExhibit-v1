@@ -1,22 +1,9 @@
 import { useState, useEffect } from 'react'
 import SlimSideMenuBar from 'src/components/A_SideMenu/slimSideMenu'
-
 import ConstructUnitsHome from 'src/components/ConstructModule/ConstructUnitsHome'
-import ExecutiveHomeViewerPage from 'src/components/ExecutiveHomeViewerPage'
-import HeadSideBarDetailView from 'src/components/HeadDetailSideBar'
 import HeadNavBar2 from 'src/components/HeadNavBar/HeadNavBar2'
-import HeadSideBar from 'src/components/HeadSideBar/HeadSideBar'
-import LeadsManagementHome from 'src/components/LeadsManagement'
-import LeadsTeamReportBody from 'src/components/LeadsTeamReportBody'
-import MyAttedanceHomeBody from 'src/components/myAttedanceHomeBody'
-import MyLeadsReportHome from 'src/components/myLeadsReportHome'
-import MyPayHomeBody from 'src/components/myPayHomeBody'
-import ProjectsUnitInventory from 'src/components/projectUnitsInventory'
-import TodayLeadsHomePage from 'src/components/TodayLeadsHomePage'
 import { USER_ROLES } from 'src/constants/userRoles'
 import { useAuth } from 'src/context/firebase-auth-context'
-
-import HeadNavBar from '../../components/HeadNavBar/HeadNavBar'
 import ProfileSummary from 'src/components/A_SalesModule/Reports/profileSummary'
 
 const ConstructModulePage = () => {

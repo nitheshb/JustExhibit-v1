@@ -1,10 +1,6 @@
-import { useState, useEffect, useRef } from 'react'
-
+import { useState, useRef } from 'react'
 import { PDFExport } from '@progress/kendo-react-pdf'
-
 import { useAuth } from 'src/context/firebase-auth-context'
-
-import CrmUnitPaymentSchedule from './CrmPaymentSchedule'
 import CrmPaymentSummary from './CrmPaymentSummary'
 import CrmUnitCustomerDetailsView1 from './CrmUnitCustomerDetailsView1'
 import CrmUnitFinanceHistory from './CrmUnitFinanceHistory'

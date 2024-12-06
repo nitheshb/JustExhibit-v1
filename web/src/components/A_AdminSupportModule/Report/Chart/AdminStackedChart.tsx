@@ -1,6 +1,5 @@
 import React from 'react'
 
-import { Divider } from '@mui/material'
 import {
   AreaChart,
   Area,

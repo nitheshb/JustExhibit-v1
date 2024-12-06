@@ -1,30 +1,16 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 // import { Link, routes } from '@redwoodjs/router'
-import { Fragment, useState, useEffect } from 'react'
-
-import { CalendarIcon, EyeIcon } from '@heroicons/react/outline'
+import { useState, useEffect } from 'react'
 import CalendarMonthTwoToneIcon from '@mui/icons-material/CalendarMonthTwoTone'
-import { useFormik } from 'formik'
-import { RootStateOrAny, useDispatch, useSelector } from 'react-redux'
-// import { XIcon } from '@heroicons/react/outline'
-
-
-// import { XIcon } from '@heroicons/react/outline'
-
+import { RootStateOrAny, useSelector } from 'react-redux'
 import { useSnackbar } from 'notistack'
-import { DragDropContext, Droppable } from 'react-beautiful-dnd'
-import DatePicker from 'react-datepicker'
 import { v4 as uuidv4 } from 'uuid'
-
 import { MetaTags } from '@redwoodjs/web'
-
 import LLeadsTableView from 'src/components/LLeadsTableView/LLeadsTableView'
 import { USER_ROLES } from 'src/constants/userRoles'
 import {
   addLeadSupabase,
-  deleteLeadSupabase,
-  getAllProjects,
   getCpLeadsByAdminStatus,
   getLeadsByAdminStatus,
   getLeadsByStatus,
@@ -32,20 +18,10 @@ import {
   getLeadsByUnassigned,
   getMyProjects,
   steamUsersListByRole,
-  updateLeadStatus,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-import { prettyDate } from 'src/util/dateConverter'
-import { CustomSelect } from 'src/util/formFields/selectBoxField'
-import { SlimSelectBox, VerySlimSelectBox } from 'src/util/formFields/slimSelectBoxField'
-
-import CardItem from './leadsCard'
+import { VerySlimSelectBox } from 'src/util/formFields/slimSelectBoxField'
 import SiderForm from './SiderForm/SiderForm'
-
-// import CustomerProfileSideView from './customerProfileSideView'
-// import CardItem from '../../components/leadsCard'
-// import BoardData from '../../components/board-data.json'
-import { Search } from '@material-ui/icons/Search';
 import CustomDatePicker from 'src/util/formFields/CustomDatePicker'
 
 // function createGuidId() {

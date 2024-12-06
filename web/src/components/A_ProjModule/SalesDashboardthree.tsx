@@ -10,7 +10,7 @@ import {
 } from 'recharts';
 
 const SalesDashboardthree = () => {
-  // Sample data for the bar chart
+
   const salesData = [
     { step: 'Step 1', value: 31800 },
     { step: 'Step 1', value: 29500 },
