@@ -1,10 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useState, useEffect } from 'react'
-
-import { getUnits } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-
 import AdditionalChargesForm from './AdditionalChargesForm/AdditionalChargesForm'
 
 const CostSheetSetup = ({ phase, source }) => {

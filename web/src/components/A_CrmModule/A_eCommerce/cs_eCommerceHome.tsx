@@ -1,37 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { Fragment, useEffect, useState } from 'react'
-
-import { Menu, Transition } from '@headlessui/react'
+import { useState } from 'react'
 import {
-  ChartPieIcon,
-  OfficeBuildingIcon,
-  NewspaperIcon,
-  UserGroupIcon,
-  ScaleIcon,
-  PuzzleIcon,
-} from '@heroicons/react/outline'
-import {
-  ChevronDownIcon,
-  FireIcon,
-  CurrencyRupeeIcon,
-  DotsVerticalIcon,
-  CheckIcon,
-  DocumentTextIcon,
-  ArrowDownIcon,
-  ArrowUpIcon,
   PhoneIcon,
 } from '@heroicons/react/solid'
 
-import { Link, routes } from '@redwoodjs/router'
 
-import BankSelectionSwitchDrop from 'src/components/A_LoanModule/BankSelectionDroopDown'
-import DocRow from 'src/components/LegalModule/Docu_row'
 import { USER_ROLES } from 'src/constants/userRoles'
 import { useAuth } from 'src/context/firebase-auth-context'
-import CostBreakUpSheet from 'src/components/costBreakUpSheet'
-import CSManagerApprovalBody from '../A_Crm_sideFormBodies.tsx/cs_manager_approval_body'
 
 // import BankSelectionSwitchDrop from './BankSelectionDroopDown'
 
@@ -40,8 +17,6 @@ import CSManagerApprovalBody from '../A_Crm_sideFormBodies.tsx/cs_manager_approv
 
 import chair from '../../../../public/chair.png'
 import chair1 from '../../../../public/chair1.png'
-import chair2 from '../../../../public/chair2.png'
-import chair3 from '../../../../public/chair3.png'
 import chair4 from '../../../../public/chair4.png'
 import table from '../../../../public/table.png'
 import tv from '../../../../public/tv.png'

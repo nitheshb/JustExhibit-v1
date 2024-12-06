@@ -1,16 +1,11 @@
-import { useState, useContext, useEffect } from 'react'
-
+import { useState, useEffect } from 'react'
 import {
   DocumentTextIcon,
   TrashIcon,
   DownloadIcon,
-  CloudUploadIcon,
-  UploadIcon,
   EyeIcon,
 } from '@heroicons/react/outline'
-import { doc, deleteDoc } from 'firebase/firestore'
-
-import { prettyDate, prettyDateTime } from 'src/util/dateConverter'
+import { prettyDate } from 'src/util/dateConverter'
 
 const ProjectDocRow = ({ id, fileName,url,  date, amount, status, key }) => {
   const [showModel, setShoModel] = useState(false)

@@ -1,10 +1,5 @@
-// import { useState } from 'react'
-// import ProjectStatsCard from '../ProjectStatsCard/ProjectStatsCard'
-// import PhaseDetailsCard from '../PhaseDetailsCard/PhaseDetailsCard'
-
-import { CalendarIcon, EyeIcon, DownloadIcon } from '@heroicons/react/outline'
+import { EyeIcon, DownloadIcon } from '@heroicons/react/outline'
 import { Link, routes } from '@redwoodjs/router'
-import ProjectStatsCard from './ProjectStatsCard/ProjectStatsCard'
 
 const projectFeedData = [
   { k: 'Total', v: 125, pic: '' },

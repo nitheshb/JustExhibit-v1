@@ -1,16 +1,11 @@
 import { useEffect, useState } from 'react'
-
-import { Dialog } from '@headlessui/react'
 import { useSnackbar } from 'notistack'
-// import Quill from 'quill'
-
 import ReactQuill from 'react-quill'
 import 'react-quill/dist/quill.snow.css'
 
 import {
   addNotificationSupabase,
   getAllProjects,
-  getProjectByUid,
   getWbNotifyTemplate,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'

@@ -1,19 +1,14 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { Fragment, useState, useEffect } from 'react'
-
 import { XIcon } from '@heroicons/react/outline'
 import { DragDropContext, Droppable } from 'react-beautiful-dnd'
-
 import { MetaTags } from '@redwoodjs/web'
-
 import LLeadsTableView from 'src/components/LLeadsTableView/LLeadsTableView'
-
 import HeadNavBar from '../../components/HeadNavBar/HeadNavBar'
 import HeadSideBar from '../../components/HeadSideBar/HeadSideBar'
 import CardItem from '../../components/leadsCard'
 import SiderForm from '../../components/SiderForm/SiderForm'
 
-// import BoardData from '../../components/board-data.json'
 const BoardData = [
   {
     name: 'New',

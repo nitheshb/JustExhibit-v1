@@ -2,12 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { Fragment, useEffect, useState } from 'react'
-
-import { Menu } from '@headlessui/react'
-import { Listbox, Transition } from '@headlessui/react'
-import { ArrowRightIcon } from '@heroicons/react/outline'
-import CalendarIcon from '@heroicons/react/outline/CalendarIcon'
+import { useEffect, useState } from 'react'
 import { DownloadIcon } from '@heroicons/react/solid'
 import ClockIcon from '@heroicons/react/solid/ClockIcon'
 import { setHours, setMinutes } from 'date-fns'
@@ -17,14 +12,10 @@ import { v4 as uuidv4 } from 'uuid'
 
 import {
   addLeadScheduler,
-  addSchedulerLog,
   deleteSchLog,
   steamLeadActivityLog,
-  steamLeadPhoneLog,
   steamLeadScheduleLog,
   steamUsersListByRole,
-  updateLeadAssigTo,
-  updateLeadStatus,
   updateSchLog,
   addLeadNotes,
   steamLeadNotes,
@@ -33,28 +24,19 @@ import {
   getAllProjects,
   updateLeadProject,
   getFinanceForUnit,
-  streamGetAllTransactions,
-  streamGetAllUnitTransactions,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import { storage } from 'src/context/firebaseConfig'
 import {
-  getDifferenceInHours,
-  getDifferenceInMinutes,
   prettyDate,
-  prettyDateTime,
   timeConv,
 } from 'src/util/dateConverter'
 import { CustomSelect } from 'src/util/formFields/selectBoxField'
 
-import DocRow from '../LegalModule/Docu_row'
 
-import SortComp from './sortComp'
 
 import 'react-datepicker/dist/react-datepicker.css'
 
-import Loader from './Loader/Loader'
-import AddBookingForm from './bookingForm'
 
 import { useSnackbar } from 'notistack'
 
@@ -63,15 +45,10 @@ import SiderForm from '../SiderForm/SiderForm'
 import CrmUnitSummary from './A_CrmUnitSummary'
 import CrmUnitPsHome from './CustomerFinanceStatement'
 
-import AssigedToDropComp from '../assignedToDropComp'
 
-import { USER_ROLES } from 'src/constants/userRoles'
 
-import CrmPaymentSummary from './CrmPaymentSummary'
 
 import AddApplicantDetails from '../AddApplicantDetails'
-import BankSelectionSwitchDrop from '../A_LoanModule/BankSelectionDroopDown'
-import LoanApplyFlowHome from '../A_LoanModule/LoanApplyFlowHome'
 
 import { supabase } from 'src/context/supabase'
 

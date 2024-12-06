@@ -1,50 +1,11 @@
 import { useState, useEffect } from 'react'
-
-import { Dialog } from '@headlessui/react'
-import { Add, Remove } from '@mui/icons-material'
-import {
-  InputAdornment,
-  TextField as MuiTextField,
-  Tooltip,
-} from '@mui/material'
-import { Form, Formik } from 'formik'
 import { useSnackbar } from 'notistack'
-import * as Yup from 'yup'
-
-import { AreaConverter } from 'src/components/AreaConverter'
-import AssigedToDropComp from 'src/components/assignedToDropComp'
-import Loader from 'src/components/Loader/Loader'
 import LogSkelton from 'src/components/shimmerLoaders/logSkelton'
 import {
-  developmentTypes,
-  projectPlans,
-  statesList,
-} from 'src/constants/projects'
-import {
-  createProject,
-  getAllProjects,
-  getLeadbyId1,
-  steamBankDetailsList,
-  steamUsersListByRole,
-  streamBookedLeads,
-  sourceBookedLeads,
   streamSalesActitvityLogReportData,
-  updateLeadsLogWithProject,
-  updateProject,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-import SkeletonLoaderPage from 'src/pages/SkeletonLoader/skeletonLoaderPage'
-import CSVDownloader from 'src/util/csvDownload'
-import { prettyDate, prettyDateTime } from 'src/util/dateConverter'
-import { CustomRadioGroup } from 'src/util/formFields/CustomRadioGroup'
-import { CustomSelect } from 'src/util/formFields/selectBoxField'
-import { MultiSelectMultiLineField } from 'src/util/formFields/selectBoxMultiLineField'
-import {
-  SlimDateSelectBox,
-  SlimSelectBox,
-} from 'src/util/formFields/slimSelectBoxField'
-import { TextAreaField } from 'src/util/formFields/TextAreaField'
-import { TextField } from 'src/util/formFields/TextField'
+import { prettyDateTime } from 'src/util/dateConverter'
 
 const SalesCompletedTasksBody = ({
   title,

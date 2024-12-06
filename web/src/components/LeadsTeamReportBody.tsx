@@ -1,12 +1,8 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-// import { useState } from 'react'
-// import ProjectStatsCard from '../ProjectStatsCard/ProjectStatsCard'
-// import PhaseDetailsCard from '../PhaseDetailsCard/PhaseDetailsCard'
 
 import { useEffect, useState } from 'react'
-
 import { Timestamp } from '@firebase/firestore'
 import { CalendarIcon, EyeIcon } from '@heroicons/react/outline'
 import {
@@ -58,7 +54,6 @@ import ProfileSummary from './A_SalesModule/Reports/profileSummary'
 import SalesSummaryReport from './A_SalesModule/Reports/salesSummaryReport'
 import SiteVisitM from './A_SalesModule/Reports/SiteVisitM'
 import TableEdit from './A_SalesModule/Reports/TableEdit'
-// import TabTask from './A_SalesModule/Reports/TabTask'
 import { serialEmployeeLeadData } from './LeadsTeamReport/serialEmployeeLeadData'
 import { serialEmployeeTaskLeadData } from './LeadsTeamReport/serialEmployeeTaskLeadData'
 import { serialProjectLeadData } from './LeadsTeamReport/serialProjectLeadData'
@@ -67,13 +62,8 @@ import { serialMyData } from './LeadsTeamReport/SourceLeads'
 import ReportSideWindow from './SiderForm/ReportSideView'
 import SiderForm from './SiderForm/SiderForm'
 import CustomDatePicker from 'src/util/formFields/CustomDatePicker'
-//import { CountChart } from './A_SalesModule/Reports/CountChart';
 import CountChart from './A_SalesModule/Reports/CountChart';
 
-
-//import SalesSummaryReport from './A_SalesModule/Reports/salesSummaryReport'
-//import ProfileSummary from './A_SalesModule/Reports/profileSummary'
-//import StepperTask from './A_SalesModule/Reports/StepperTask'
 
 const valueFeedData = [
   { k: 'Total', v: 300, pic: '' },

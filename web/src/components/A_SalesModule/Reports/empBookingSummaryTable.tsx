@@ -1,22 +1,14 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react'
-
-import { X, Add, Remove } from '@mui/icons-material'
-import { endOfMonth } from 'date-fns/esm'
-
+import { Remove } from '@mui/icons-material'
 import TableSkeleton from 'src/components/A_CrmModule/Reports/_mock/comps/table/table-skeleton'
 import ReportSideWindow from 'src/components/SiderForm/ReportSideView'
 import {
-  getAllProjectMonthlyBookingsSum,
   getEmpBookingsSum,
-  getEmpCompletedTasks,
   gretProjectionSum,
-  streamSalesActitvityReport,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-import SkeletonLoaderPage from 'src/pages/SkeletonLoader/skeletonLoaderPage'
-
 import BookingsMonthlyStackedChart from './charts/bookingsMonthlyStackedChart'
 
 const capitalizeFirstLetter = (str) => {

@@ -2,9 +2,8 @@ import { TabList } from '@mui/lab'
 import { Box, Card, Grid, styled } from '@mui/material'
 import LLeadsTableBody from '../LLeadsTableBody/LLeadsTableBody'
 import { useEffect, useState } from 'react'
-import { useTranslation } from 'react-i18next' // styled components
+import { useTranslation } from 'react-i18next' 
 import uniqueId from '../../util/generatedId'
-
 import FinanceTableBody from './financeTableBody'
 
 const tableData2 = [

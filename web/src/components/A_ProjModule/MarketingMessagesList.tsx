@@ -2,25 +2,13 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import { useEffect, useState } from 'react'
-import { Facebook, Instagram, Twitter, Search, Settings, Bell, Plus, Download, ExternalLink } from 'lucide-react';
-
-import { PlusCircleIcon, TrashIcon } from '@heroicons/react/outline'
+import { useState } from 'react'
+import { Plus, Download } from 'lucide-react';
 import PencilIcon from '@heroicons/react/solid/PencilIcon'
-import SendTwoToneIcon from '@mui/icons-material/SendTwoTone'
 import { useSnackbar } from 'notistack'
-
 import { sourceListItems } from 'src/constants/projects'
-import {
-  deleteBankAccount,
-  steamBankDetailsList,
-  steamVirtualAccountsList,
-} from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-import { sendWhatAppTextSms1 } from 'src/util/axiosWhatAppApi'
-
 import SiderForm from '../SiderForm/SiderForm'
-
 import SourceAddTemplate from './SourceAddTemplate'
 
 const MarkeingMessagesList = ({ title, pId, data }) => {

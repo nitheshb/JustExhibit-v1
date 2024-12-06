@@ -1,10 +1,5 @@
-import { useState, useEffect, useRef } from 'react'
-
-// import CountUp, { useCountUp } from 'react-countup'
-import { CountUp } from '@eeacms/countup'
-
+import { useState, useEffect } from 'react'
 import { useAuth } from 'src/context/firebase-auth-context'
-import { computeTotal } from 'src/util/computeCsTotals'
 
 const CrmUnitCostSheetView = ({ selCustomerPayload, assets, totalIs }) => {
   const { user } = useAuth()

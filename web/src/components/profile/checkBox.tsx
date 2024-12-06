@@ -1,7 +1,5 @@
 import React, { useState } from 'react'
-
 import { Switch } from '@headlessui/react'
-
 const CheckBox = () => {
   const [enabled, setEnabled] = useState(false)
   return (

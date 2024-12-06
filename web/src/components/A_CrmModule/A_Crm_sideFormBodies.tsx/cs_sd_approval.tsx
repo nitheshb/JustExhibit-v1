@@ -2,11 +2,9 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useEffect } from 'react'
-
 import { useSnackbar } from 'notistack'
-
 import { USER_ROLES } from 'src/constants/userRoles'
-import { updateManagerApproval, updateSDApproval } from 'src/context/dbQueryFirebase'
+import { updateSDApproval } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 
 // import BankSelectionSwitchDrop from './BankSelectionDroopDown'

@@ -2,7 +2,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 
 import { Fragment, useState, useEffect } from 'react'
-
 import DatePicker from 'react-datepicker'
 import {
   PhoneIcon,

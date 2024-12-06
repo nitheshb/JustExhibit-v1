@@ -2,11 +2,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState, useEffect, createRef } from 'react'
-
 import { Form, Formik } from 'formik'
 import { useSnackbar } from 'notistack'
 import * as Yup from 'yup'
-
 import {
   updateLeadCustomerDetailsTo,
   getAllProjects,

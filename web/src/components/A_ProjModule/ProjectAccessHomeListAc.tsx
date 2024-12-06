@@ -1,15 +1,10 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useState, useEffect } from 'react'
-
-import { Dialog } from '@headlessui/react'
 import { TrashIcon } from '@heroicons/react/solid'
-import { Card, Grid } from '@mui/material'
-import { Form, Formik } from 'formik'
+import { Card } from '@mui/material'
 import { useSnackbar } from 'notistack'
 import * as Yup from 'yup'
-
-import Loader from 'src/components/Loader/Loader'
 import { ProjectAccessFolder, ProjectFolders } from 'src/constants/projects'
 import {
   deleteProject,
@@ -21,15 +16,10 @@ import {
 } from 'src/context/dbQueryFirebase'
 import { getAllProjects } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-import { TextAreaField } from 'src/util/formFields/TextAreaField'
 
 import WarningModel from '../comps/warnPopUp'
-import CostSheetSetup from '../costSheetSetup'
-import PaymentLeadAccess from '../PaymentScheduleForm/ProjectLeadAccess'
-import PaymentScheduleSetup from '../paymentScheduleSetup'
 import SiderForm from '../SiderForm/SiderForm'
 
-import LegalHomeList from './LegalHomeList'
 
 const ProjectAccessHomeList = ({
   title,

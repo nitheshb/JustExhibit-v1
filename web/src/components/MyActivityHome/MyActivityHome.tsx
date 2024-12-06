@@ -1,17 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-import { EyeIcon, PencilIcon, PlusCircleIcon } from '@heroicons/react/outline'
-
-import { ClockIcon } from '@heroicons/react/solid'
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
 import {
-
   steamUsersActivityLog,
   steamUsersActivityOfUser,
 } from 'src/context/dbQueryFirebase'
-
 import LeadsTeamReportBody from '../LeadsTeamReportBody'
 import { useAuth } from 'src/context/firebase-auth-context'
 

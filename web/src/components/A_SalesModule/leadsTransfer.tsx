@@ -2,16 +2,11 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState, useEffect } from 'react'
-
-import { startOfWeek, startOfDay, startOfMonth, subMonths } from 'date-fns'
-import DatePicker from 'react-datepicker'
-
+import { startOfDay } from 'date-fns'
 import { Link } from '@redwoodjs/router'
-
 import { USER_ROLES } from 'src/constants/userRoles'
 import {
   getAllProjects,
-  getLeadsByDate,
   getLeadsByStatusUser,
   steamUsersListByDeptWithInactive,
   steamUsersListByRole,
@@ -22,11 +17,7 @@ import { useAuth } from 'src/context/firebase-auth-context'
 import 'flowbite'
 import { VerySlimSelectBox } from 'src/util/formFields/slimSelectBoxField'
 
-import DropDownSearchBar from '../dropDownSearchBar'
-import LLeadsTableView from '../LLeadsTableView/LLeadsTableView'
-import ProjPhaseHome from '../ProjPhaseHome/ProjPhaseHome'
 
-import { Button, Checkbox } from '@mui/material'
 
 import LeadsTransferBody from './leadsTransferBody'
 

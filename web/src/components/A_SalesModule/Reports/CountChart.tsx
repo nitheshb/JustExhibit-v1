@@ -1,11 +1,7 @@
 import React from "react"
-
-
 import maleFemale from '../../../../public/maleFemale.png'
 import moreDark from '../../../../public/moreDark.png'
 
-
-//import Image from "./path-to-your-image-component"; // Use your image import approach
 import {
   RadialBarChart,
   RadialBar,

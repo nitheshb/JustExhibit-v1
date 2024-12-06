@@ -1,12 +1,4 @@
 import React from 'react'
-
-import {
-  ChevronDownIcon,
-  PlusIcon,
-  DotsVerticalIcon,
-  ChatAlt2Icon,
-  PaperClipIcon,
-} from '@heroicons/react/outline'
 import { PhoneIcon, MailIcon, UserIcon } from '@heroicons/react/outline'
 import { Draggable } from 'react-beautiful-dnd'
 

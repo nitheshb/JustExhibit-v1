@@ -5,39 +5,19 @@ import { useState, useEffect } from 'react'
 
 import {
   PuzzleIcon,
-  ArrowsExpandIcon,
-  PencilIcon,
   CalendarIcon,
-  ArrowDownIcon,
   EyeIcon,
   PlusIcon,
 } from '@heroicons/react/outline'
-import { CheckCircleIcon } from '@heroicons/react/solid'
-import { DriveEtaSharp } from '@mui/icons-material'
 import { useSnackbar } from 'notistack'
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  PieChart,
-  Pie,
-} from 'recharts'
 
-import { Link, routes } from '@redwoodjs/router'
 
-import FloorStatsCard from 'src/components/FloorStatsCard/FloorStatsCard'
 import UnitsStatsCard from 'src/components/UnitsStatsCard/UnitsStatsCard'
 import { uniTypes } from 'src/constants/projects'
 import { getUnits, updateBlock_AddFloor } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 
-import AssigedToDropComp from '../assignedToDropComp'
 import PieChartProject from '../comps/pieChartProject'
-import DropCompUnitStatus from '../dropDownUnitStatus'
 import SiderForm from '../SiderForm/SiderForm'
 import UnitsSmallViewCard from '../unitsSmallView'
 

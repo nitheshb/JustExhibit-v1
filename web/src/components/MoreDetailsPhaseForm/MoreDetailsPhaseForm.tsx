@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { Dialog } from '@headlessui/react'
 import { Form, Formik } from 'formik'
 import * as Yup from 'yup'
 import { useSnackbar } from 'notistack'

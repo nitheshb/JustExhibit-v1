@@ -2,22 +2,13 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState, useEffect } from 'react'
-
 import { Dialog } from '@headlessui/react'
 import { RadioGroup } from '@headlessui/react'
 import { DeviceMobileIcon, MailIcon, TrashIcon } from '@heroicons/react/outline'
 import { setHours, setMinutes } from 'date-fns'
-import { Timestamp } from 'firebase/firestore'
 import { Form, Formik } from 'formik'
 import { useSnackbar } from 'notistack'
-import DatePicker from 'react-datepicker'
-import NumberFormat from 'react-number-format'
-import Select from 'react-select'
 import * as Yup from 'yup'
-
-import { Label, InputField, TextAreaField, FieldError } from '@redwoodjs/forms'
-import { useRouterStateSetter } from '@redwoodjs/router/dist/router-context'
-
 import {
   leadBinReasonList,
   sourceList,

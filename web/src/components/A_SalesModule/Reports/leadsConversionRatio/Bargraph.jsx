@@ -1,11 +1,6 @@
 import {
   BarChart,
   Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  Legend,
-  CartesianGrid,
 } from 'recharts'
 
 const Bargraph = () => {

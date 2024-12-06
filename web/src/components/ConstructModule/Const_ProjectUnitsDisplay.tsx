@@ -1,18 +1,6 @@
 import React, { useEffect, useState } from 'react'
-
-import { Dialog } from '@headlessui/react'
-import { Button, Card, CardContent, Grid } from '@material-ui/core'
-import csv from 'csvtojson'
-import { Form, Formik } from 'formik'
-import { parse } from 'papaparse'
-import * as Yup from 'yup'
-
 import { getUnits } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-import { CustomSelect } from 'src/util/formFields/selectBoxField'
-import { TextField2 } from 'src/util/formFields/TextField2'
-
-import UnitsSmallViewCard from '../unitsSmallView'
 import UnitsStatsCard from '../UnitsStatsCard/UnitsStatsCard'
 import ConstructUnitCardSmall from '../A_ConstructModule/ConstructUnitCardSmall'
 

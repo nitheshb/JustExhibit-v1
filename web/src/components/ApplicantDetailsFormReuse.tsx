@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react'
-
 import { ArrowCircleDownIcon, PlusIcon } from '@heroicons/react/solid'
 import { InputAdornment, TextField as MuiTextField } from '@mui/material'
 import { setHours, setMinutes } from 'date-fns'
-import { Timestamp } from 'firebase/firestore'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
-import { Formik, Form, Field, ErrorMessage } from 'formik'
+import { Formik, Form } from 'formik'
 import { v4 as uuidv4 } from 'uuid'
 import * as Yup from 'yup'
-
 import { streamMasters, updateUnitCustomerDetailsTo } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import { storage } from 'src/context/firebaseConfig'
@@ -17,14 +14,8 @@ import CustomDatePicker from 'src/util/formFields/CustomDatePicker'
 import { PhoneNoField } from 'src/util/formFields/phNoField'
 import { CustomSelect } from 'src/util/formFields/selectBoxField'
 import { TextField } from 'src/util/formFields/TextField'
-
 import NoBorderDropDown from './comps/noBorderDropDown'
-import { useFileUpload } from './useFileUpload'
 import { useSnackbar } from 'notistack'
-
-// import { Alert, AlertDescription } from '@/components/ui/alert'
-// import { Button } from '@/components/ui/button'
-// import { Input } from '@/components/ui/input'
 
 const EmailSchema = Yup.object().shape({
   email: Yup.string().email('Invalid email').required('Email is required'),

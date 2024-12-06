@@ -1,9 +1,6 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useEffect, useState } from 'react'
-
-import Bargraph from '../leadsConversionRatio/Bargraph'
-import LineGraph from '../leadsConversionRatio/LineGraph'
 import PieChartComp from '../leadsConversionRatio/PieChart'
 
 const SiteVisitM = ({ leadLogsRawData, showDrillDownFun }) => {

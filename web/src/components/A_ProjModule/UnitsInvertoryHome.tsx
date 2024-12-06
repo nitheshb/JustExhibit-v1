@@ -2,10 +2,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState, useEffect } from 'react'
-
 import { Link } from '@redwoodjs/router'
-
-import AssigedToDropComp from 'src/components/assignedToDropComp'
 import {
   getAllProjects,
   getBlocksByPhase,
@@ -14,9 +11,7 @@ import {
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import 'flowbite'
-
 import DropDownSearchBar from '../dropDownSearchBar'
-import ProjPhaseHome from '../ProjPhaseHome/ProjPhaseHome'
 import 'src/styles/myStyles.css'
 import FloordetailsSearch from '../Floordetails/FloordetailsInSearch'
 const UnitsInventoryHome = ({ project }) => {

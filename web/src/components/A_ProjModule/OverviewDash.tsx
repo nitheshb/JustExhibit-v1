@@ -1,12 +1,10 @@
 import React from 'react';
-import { Globe, ChevronRight } from 'lucide-react';
+import { Globe } from 'lucide-react';
 import { Facebook, Pinterest, Twitter } from '@mui/icons-material';
 import { ConversionChart } from './ConversionChart';
-import { SalesChart } from './SalesChart';
-import { VisitorsChart } from './VisitorsChart';
 import DashboardStats from './DashboardStats';
 
-// Dummy data
+
 const socialReferrals = [
   { icon: <Facebook className="w-4 h-4 text-blue-600" />, name: "Facebook", percentage: "8%", visitors: "10 visitors" },
   { icon: <Twitter className="w-4 h-4 text-blue-400" />, name: "Twitter", percentage: "0%", visitors: "0 visitors" },

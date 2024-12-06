@@ -1,41 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { Fragment, useEffect, useState, useRef } from 'react'
-
-import { Menu, Transition } from '@headlessui/react'
-import {
-  ChartPieIcon,
-  OfficeBuildingIcon,
-  NewspaperIcon,
-  UserGroupIcon,
-  ScaleIcon,
-  PuzzleIcon,
-} from '@heroicons/react/outline'
-import {
-  ChevronDownIcon,
-  FireIcon,
-  CurrencyRupeeIcon,
-  DotsVerticalIcon,
-  CheckIcon,
-  DocumentTextIcon,
-  ArrowDownIcon,
-  ArrowUpIcon,
-} from '@heroicons/react/solid'
-
-import { Link, routes } from '@redwoodjs/router'
-
-import BankSelectionSwitchDrop from 'src/components/A_LoanModule/BankSelectionDroopDown'
-import DocRow from 'src/components/LegalModule/Docu_row'
+import { useEffect, useState, useRef } from 'react'
 import { USER_ROLES } from 'src/constants/userRoles'
 import { getPhasesByProject } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import CostBreakUpEditor from 'src/util/costBreakUpEditor'
-
-import CSBody from './cs_body'
 import { prettyDate } from 'src/util/dateConverter'
 
-// import BankSelectionSwitchDrop from './BankSelectionDroopDown'
+
 
 export default function CSManagerApprovalBody({
   type,

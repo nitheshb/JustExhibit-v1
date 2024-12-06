@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Facebook, Instagram, Twitter, Search, Settings, Bell, Plus, Download, ExternalLink } from 'lucide-react';
 
-
 const ProjectIntegrationsHome = ({
   setisImportLeadsOpen,
   selUserProfileF,

@@ -2,20 +2,11 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 // import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
-
-import { Fragment, useState, useEffect } from 'react'
-import LLeadsTableView from 'src/components/LLeadsTableView/LLeadsTableView'
-
-// import { XIcon } from '@heroicons/react/outline'
-import { DragDropContext, Droppable } from 'react-beautiful-dnd'
-
+import { useState, useEffect } from 'react'
 import { useAuth } from 'src/context/firebase-auth-context'
 import { USER_ROLES } from 'src/constants/userRoles'
 import { getCrmUnitsByStatus } from 'src/context/dbQueryFirebase'
-import { CustomSelect } from 'src/util/formFields/selectBoxField'
 import SiderForm from '../SiderForm/SiderForm'
-
-import FinanceTableView from './financeTableView'
 
 const CrmBucketList = ({ leadsTyper }) => {
   const { user } = useAuth()

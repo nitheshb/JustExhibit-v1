@@ -3,17 +3,12 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { useEffect, useState } from 'react'
-
 import { PlusCircleIcon, TrashIcon } from '@heroicons/react/outline'
 import { DownloadIcon, EyeIcon } from '@heroicons/react/outline'
 import AppsIcon from '@mui/icons-material/Apps'
 import SortIcon from '@mui/icons-material/Sort'
-import { Card, Grid } from '@mui/material'
 import ToggleButton from '@mui/material/ToggleButton'
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup'
-import { documentId } from 'firebase/firestore'
-
-import BlockStatsCards from 'src/components/BlockStatsCards/BlockStatsCards'
 import { deleteAsset, getPlanDiagramByPhase } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 

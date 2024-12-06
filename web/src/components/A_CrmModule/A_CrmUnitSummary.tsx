@@ -1,23 +1,12 @@
 import { useState, useEffect, useRef } from 'react'
-
 import { ClockIcon } from '@heroicons/react/outline'
 import { PDFExport } from '@progress/kendo-react-pdf'
-
 import { steamUnitActivityLog } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import { supabase } from 'src/context/supabase'
-import { activeLogNameHelper } from 'src/util/activityLogHelper'
 import { computeTotal } from 'src/util/computeCsTotals'
 import { prettyDate, timeConv } from 'src/util/dateConverter'
-import PdfUnitSummaryFile from 'src/util/PDF_Files/pdfUnitSummaryFile'
-
 import CrmUnitCostSheetView from './CrmCostSheetView'
-import CrmUnitPaymentSchedule from './CrmPaymentSchedule'
-import CrmPaymentSummary from './CrmPaymentSummary'
-import CrmUnitCustomerDetailsView1 from './CrmUnitCustomerDetailsView1'
-import CrmUnitDetailsView1 from './CrmUnitDetailsView1'
-import CrmUnitFinanceHistory from './CrmUnitFinanceHistory'
-import CrmUnitHeader from './CrmUnitHeader'
 import CrmUnitPaymentGraph from './CrmUnitPaymentGraph'
 
 const CrmUnitSummary = ({

@@ -2,14 +2,11 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useEffect } from 'react'
-
 import { useSnackbar } from 'notistack'
-
 import { USER_ROLES } from 'src/constants/userRoles'
-import { updateManagerApproval, updatePosessionApproval } from 'src/context/dbQueryFirebase'
+import { updatePosessionApproval } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 
-// import BankSelectionSwitchDrop from './BankSelectionDroopDown'
 
 export default function Crm_Unit_Posession({
   type,

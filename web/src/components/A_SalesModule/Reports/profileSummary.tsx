@@ -3,13 +3,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react'
 import { useState } from 'react'
-
-import { Users } from 'lucide-react'
-
 import { useAuth } from 'src/context/firebase-auth-context'
 import { fistLetterCapital } from 'src/util/firstLetterCapital'
-
-import Chat from './chatSummary'
 import UserAvatarUpload from 'src/components/comps/userAvatarUpload'
 
 

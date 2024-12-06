@@ -6,27 +6,13 @@
 // import ProjectStatsCard from '../ProjectStatsCard/ProjectStatsCard'
 // import PhaseDetailsCard from '../PhaseDetailsCard/PhaseDetailsCard'
 import { useState, useEffect } from 'react'
-
-import { Link } from '@redwoodjs/router'
-
-import DropCompUnitStatus from 'src/components/dropDownUnitStatus'
-import DummyBodyLayout from 'src/components/DummyBodyLayout/DummyBodyLayout'
 import SiderForm from 'src/components/SiderForm/SiderForm'
 import {
-  addCustomer,
-  getAllProjects,
   getCRMCustomer,
-  streamGetCustomersS,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import 'flowbite'
-import DropDownSearchBar from 'src/components/dropDownSearchBar'
-
-import { PlusIcon, TrashIcon } from '@heroicons/react/outline'
 import { useSnackbar } from 'notistack'
-
-import { error } from 'console'
-
 import { motion } from 'framer-motion'
 import { PencilIcon } from '@heroicons/react/solid'
 const CustomersSearchHome2 = ({ project }) => {

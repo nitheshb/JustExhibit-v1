@@ -4911,6 +4911,29 @@ export const addAccountslogS = async (
   }
 }
 
+
+
+
+export const updateEventLogo = async (
+
+  orgId,
+  uid,
+ avatarUrl,
+  by
+) => {
+  await updateDoc(doc(db, `${orgId}_projects`, uid), {
+    eventLogoURL: avatarUrl
+  })
+}
+
+
+
+
+
+
+
+
+
 export const updateLeadCustomerDetailsTo = async (
   orgId,
   leadDocId,

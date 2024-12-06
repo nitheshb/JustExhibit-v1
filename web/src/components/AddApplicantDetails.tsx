@@ -2,23 +2,13 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { useState, useEffect } from 'react'
-
-
 import * as React from 'react';
-
-
-import { ArrowCircleDownIcon, PlusIcon, LinkIcon } from '@heroicons/react/solid'
-import { InputAdornment, TextField as MuiTextField } from '@mui/material'
-import { setHours, setMinutes } from 'date-fns'
 import { Timestamp } from 'firebase/firestore'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
-import { Form, Formik } from 'formik'
 import { useSnackbar } from 'notistack'
-import DatePicker from 'react-datepicker'
 import { v4 as uuidv4 } from 'uuid'
 import * as Yup from 'yup'
 
-import { statesList } from 'src/constants/projects'
 import {
   addStallLeads,
   updateLeadCustomerDetailsTo,
@@ -30,15 +20,8 @@ import {
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import { storage } from 'src/context/firebaseConfig'
-import { PhoneNoField } from 'src/util/formFields/phNoField'
-import { PhoneNoField2 } from 'src/util/formFields/phNoField2'
-import { CustomSelect } from 'src/util/formFields/selectBoxField'
-import { TextField } from 'src/util/formFields/TextField'
 
-import NoBorderDropDown from './comps/noBorderDropDown'
 import { useFileUpload } from './useFileUpload'
-import { formatIndianNumber } from 'src/util/formatIndianNumberTextBox'
-import CustomDatePicker from 'src/util/formFields/CustomDatePicker';
 import CloneableEmailForm from './ApplicantDetailsFormReuse';
 
 const AddApplicantDetails = ({

@@ -13,9 +13,9 @@ const SalesDashboardtwo = () => {
   const totalSoldData = [
     { 
       name: 'Month', 
-      phase1: 20,  // darkest blue
-      phase2: 7,   // medium blue
-      phase3: 3    // lightest blue
+      phase1: 20, 
+      phase2: 7,   
+      phase3: 3   
     }
   ];
 

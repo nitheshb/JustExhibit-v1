@@ -5,25 +5,15 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import * as React from 'react'
-import { Fragment, useState, useEffect } from 'react'
-
-import { BarChart, ConnectingAirportsOutlined } from '@mui/icons-material'
+import { useState, useEffect } from 'react'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EventNoteTwoToneIcon from '@mui/icons-material/EventNoteTwoTone'
-import FileDownloadIcon from '@mui/icons-material/FileDownload'
 import Box from '@mui/material/Box'
 import Checkbox from '@mui/material/Checkbox'
-import FormControlLabel from '@mui/material/FormControlLabel'
 import IconButton from '@mui/material/IconButton'
-import Paper from '@mui/material/Paper'
 import { alpha } from '@mui/material/styles'
-import Switch from '@mui/material/Switch'
-import Table from '@mui/material/Table'
-import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
-import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
-import TablePagination from '@mui/material/TablePagination'
 import TableRow from '@mui/material/TableRow'
 import TableSortLabel from '@mui/material/TableSortLabel'
 import Toolbar from '@mui/material/Toolbar'
@@ -32,7 +22,6 @@ import Typography from '@mui/material/Typography'
 import { visuallyHidden } from '@mui/utils'
 import PropTypes from 'prop-types'
 import Highlighter from 'react-highlight-words'
-
 import {
   getAllProjects,
   steamUsersListByRole,
@@ -45,22 +34,17 @@ import {
   getDifferenceInHours,
   getDifferenceInMinutes,
 } from 'src/util/dateConverter'
-import { SlimSelectBox } from 'src/util/formFields/slimSelectBoxField'
-
 import RecentActivity from './Charts_Graphs/RecentActivity'
 import TaskProgress from './Charts_Graphs/TaskProgress'
-import Loader from './Loader/Loader'
 import LogSkelton from './shimmerLoaders/logSkelton'
 import SiderForm from './SiderForm/SiderForm'
 import TodoListView from './todoList'
-import { H1 } from './Typography'
 import UserCard from './UserCard'
 import EventCalendar from './EventCalendar'
 import AttendanceChart from './AttendanceChart'
 import CountChart from './A_SalesModule/Reports/CountChart'
 import { StatisticsDonutChart } from './Charts_Graphs/DonutChart'
 import { StatisticsBarChart } from './Charts_Graphs/BarChart'
-import CustomBarChart from './Charts_Graphs/BarsChart'
 import SalesLineChart from './Charts_Graphs/BarsChart'
 
 const headCells = [

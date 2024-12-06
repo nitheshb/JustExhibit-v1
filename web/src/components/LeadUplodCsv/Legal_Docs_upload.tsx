@@ -1,15 +1,11 @@
-import React, { useEffect, useState } from 'react'
-
-import { Dialog } from '@headlessui/react'
-import { Button, Card, CardContent, Grid } from '@material-ui/core'
+import React, { useState } from 'react'
+import { Grid } from '@material-ui/core'
 import csv from 'csvtojson'
 import { Form, Formik } from 'formik'
 import { parse } from 'papaparse'
 import * as Yup from 'yup'
-
 import { CustomSelect } from 'src/util/formFields/selectBoxField'
 import { TextField2 } from 'src/util/formFields/TextField2'
-
 import { MultipleFileUploadField } from './MultipleFileUploadField'
 
 export default function LegalDocsUplaodHome({
