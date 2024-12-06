@@ -166,7 +166,7 @@ const headCells = [
     id: 'leadUpT',
     numeric: false,
     disablePadding: true,
-    label: 'Registerd By',
+    label: 'Registered By',
   },
   {
     id: 'schTime',

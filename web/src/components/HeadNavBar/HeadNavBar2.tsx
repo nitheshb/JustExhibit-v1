@@ -46,7 +46,7 @@ const HeadNavBar2 = ({ selModule, setSelModule, setViewable }) => {
       <div className="flex items-center flex-shrink-0 h-14 px-2 mt-2 pl-0 border  bg-white rounded-xl shadow mr-2 ">
         <span
           style={{  }}
-          className="relative z-10 flex items-center text-md font-extrabold leading-none text-black select-none pl-0 ml-4"
+          className="relative z-10 flex items-center text-md font-extrabold ml-4 leading-none text-black select-none pl-0 ml-4"
         >
           EventKit .
         </span>

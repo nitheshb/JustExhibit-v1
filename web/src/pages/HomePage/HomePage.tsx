@@ -540,7 +540,7 @@ const HomePage = () => {
                                           <section className="bg-white py-2 rounded-xl shadow border">
                                             <div className="px-4">
                                               <div className="flex items-center justify-between py-2 pb-4  ">
-                                                <span className="relative  flex items-center w-auto text-md font-bold leading-none pl-0 ">
+                                                <span className="relative  flex items-center w-auto text-md font-bold leading-none pl-0 font-bebas ">
                                                   Upcoming events
                                                   {/* {viewable} */}
                                                 </span>

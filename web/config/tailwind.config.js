@@ -10,6 +10,7 @@ module.exports = {
         nunF: ['Nunito Sans', 'sans-serif'],
         sanF: ['Public Sans', 'sans-serif'],
         interF: ['Inter', 'sans-serif'],
+        bebas: ['Bebas Neue', 'sans-serif'],
       },
     },
   },

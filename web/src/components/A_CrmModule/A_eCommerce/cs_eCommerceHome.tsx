@@ -35,16 +35,6 @@ import CSManagerApprovalBody from '../A_Crm_sideFormBodies.tsx/cs_manager_approv
 
 // import BankSelectionSwitchDrop from './BankSelectionDroopDown'
 
-
-
-
-import chair from '../../../../public/chair.png'
-import chair1 from '../../../../public/chair1.png'
-import chair2 from '../../../../public/chair2.png'
-import chair3 from '../../../../public/chair3.png'
-import chair4 from '../../../../public/chair4.png'
-import table from '../../../../public/table.png'
-import tv from '../../../../public/tv.png'
 import { Cart } from './cart'
 
 
@@ -55,7 +45,7 @@ const productData = [
     name: "Chair",
     description: "Black chairs, outdoor",
     price: 5990,
-    image: chair1
+    image: '/chair1.png'
   },
 
   {
@@ -63,70 +53,70 @@ const productData = [
     name: "POANG",
     description: "Armchair, birch",
     price: 12990,
-    image: chair
+    image: '/chair.png'
   },
   {
     id: 3,
     name: "BILLY",
     description: "Bookcase, white/oak",
     price: 8990,
-    image: table
+    image: '/table.png'
   },
   {
     id: 4,
     name: "MALM",
     description: "Bed frame black-brown",
     price: 24990,
-    image: tv
+    image: '/tv.png'
   },
   {
     id: 5,
     name: "KALLAX",
     description: "Shelf unit, white",
     price: 7990,
-    image: chair4
+    image: '/chair4'
   },
   {
     id: 6,
     name: "KALLAX",
     description: "Shelf unit, white",
     price: 7990,
-    image: chair4
+    image: '/chair4'
   },
   {
     id: 7,
     name: "KALLAX",
     description: "Shelf unit, white",
     price: 7990,
-    image: chair4
+    image: '/chair4'
   },
   {
     id: 8,
     name: "KALLAX",
     description: "Shelf unit, white",
     price: 7990,
-    image: chair4
+    image: '/chair4'
   },
   {
     id: 9,
     name: "KALLAX",
     description: "Shelf unit, white",
     price: 7990,
-    image: chair4
+    image: '/chair4'
   },
   {
     id: 10,
     name: "KALLAX",
     description: "Shelf unit, white",
     price: 7990,
-    image: chair4
+    image: '/chair4'
   },
   {
     id: 11,
     name: "KALLAX",
     description: "Shelf unit, white",
     price: 7990,
-    image: chair4
+    image: '/chair4'
   },
 
 ];
