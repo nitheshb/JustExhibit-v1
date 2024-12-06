@@ -706,7 +706,7 @@ export default function LLeadsTableBody({
     //     selected.slice(selectedIndex + 1)
     //   )
     // }
-    selUserProfileF('User Profile', row)
+    selUserProfileF('Visitor Profile', row)
     setSelected(newSelected)
   }
 

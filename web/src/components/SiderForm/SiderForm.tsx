@@ -39,6 +39,7 @@ import TransactionUpdateSideView from '../transactionUpdateSideView'
 import ViewUnitDetails from '../ViewUnitDetails'
 import AddCustomerWallet from '../FinanceModule/AddCustomerWallet'
 import AddVisitorsForm from '../AddVisitorForm'
+import VisitorProfileSideView from '../VisitorProfileSideView'
 
 const SiderForm = ({
   mode,
@@ -419,6 +420,15 @@ const SiderForm = ({
                 )}
                 {title === 'User Profile' && (
                   <LeadProfileSideView
+                    openUserProfile={false}
+                    customerDetails={customerDetails}
+                    unitViewerrr={unitViewerrr}
+                    unitsViewMode={unitsViewMode}
+                    setUnitsViewMode={setUnitsViewMode}
+                  />
+                )}
+                 {title === 'Visitor Profile' && (
+                  <VisitorProfileSideView
                     openUserProfile={false}
                     customerDetails={customerDetails}
                     unitViewerrr={unitViewerrr}
