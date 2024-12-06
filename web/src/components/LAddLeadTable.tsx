@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import Table from '@material-ui/core/Table'
 import TableBody from '@material-ui/core/TableBody'
@@ -9,7 +8,6 @@ import TableRow from '@material-ui/core/TableRow'
 import Input from '@material-ui/core/Input'
 import Paper from '@material-ui/core/Paper'
 import IconButton from '@material-ui/core/IconButton'
-// Icons
 import EditIcon from '@material-ui/icons/EditOutlined'
 import DoneIcon from '@material-ui/icons/DoneAllTwoTone'
 import RevertIcon from '@material-ui/icons/NotInterestedOutlined'

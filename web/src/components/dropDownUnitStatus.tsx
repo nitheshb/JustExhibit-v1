@@ -1,5 +1,4 @@
 import { Fragment } from 'react'
-
 import { Menu, Transition } from '@headlessui/react'
 import {
   ChevronDownIcon,
@@ -8,7 +7,6 @@ import {
   DotsVerticalIcon,
   CheckIcon,
   DocumentTextIcon,
-  EyeIcon,
 } from '@heroicons/react/solid'
 
 import { uniTypes } from 'src/constants/projects'

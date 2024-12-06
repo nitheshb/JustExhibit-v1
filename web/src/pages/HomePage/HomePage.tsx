@@ -1,16 +1,9 @@
 import { useState, useEffect } from 'react'
 
 // import { ResponsiveBar } from '@nivo/bar'
-import { EyeIcon, PencilIcon } from '@heroicons/react/outline'
-import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
-import CountUp from 'react-countup'
-import NumberFormat from 'react-number-format'
-
+import { PencilIcon } from '@heroicons/react/outline'
 import { usePageLoadingContext } from '@redwoodjs/router'
-import { Link, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
-
 import MarkeingMessagesList from 'src/components/A_ProjModule/MarketingMessagesList'
 import ProjectMastersSetupHome from 'src/components/A_ProjModule/ProjectMastersSetup'
 import ProjectReportsBody from 'src/components/A_ProjModule/ProjectReports'
@@ -19,10 +12,6 @@ import ProfileSummary from 'src/components/A_SalesModule/Reports/profileSummary'
 import SlimSideMenuBar from 'src/components/A_SideMenu/slimSideMenu'
 import AllBankDetailsView from 'src/components/All_BankDetailsView'
 import CalendarHome from 'src/components/comps/calendarHome'
-import { CountUpComp } from 'src/components/comps/countUpComp'
-import { IndianCurrencyCounter } from 'src/components/comps/countUpRupeeComp'
-import HeadSideBarDetailView from 'src/components/HeadDetailSideBar'
-import HeadSideBarDetailView2 from 'src/components/HeadDetailSideBar2'
 import HeadNavBar2 from 'src/components/HeadNavBar/HeadNavBar2'
 import ProjectsUnitInventory from 'src/components/projectUnitsInventory'
 import {
@@ -30,14 +19,13 @@ import {
   getSalesReportsData,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-
 import DummyBodyLayout from '../../components/DummyBodyLayout/DummyBodyLayout'
-import HeadNavBar from '../../components/HeadNavBar/HeadNavBar'
-import HeadSideBar from '../../components/HeadSideBar/HeadSideBar'
-import ProjectsMHomeBody from '../../components/ProjectsMHomeBody/ProjectsMHomeBody'
 import SiderForm from '../../components/SiderForm/SiderForm'
 import { ProjectCard } from 'src/components/A_ProjModule/ProjectCardNew'
 import ProjectIntegrationsHome from 'src/components/A_ProjModule/ProjIntegrations'
+import { Calendar, MapPin } from 'lucide-react'
+import ProjectCards from 'src/components/A_ProjModule/ProjectCards'
+import EventCard from 'src/components/A_ProjModule/EventCard'
 
 const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -382,6 +370,48 @@ const HomePage = () => {
     setIsOpen(!isOpen)
   }
 
+
+
+
+
+
+  const events = [
+    {
+      id: 1,
+      title: 'Handpicked Jewellery Designs from Goldsmith',
+      date: 'December 4, 2024',
+      location: 'HSR layout, Bangalore',
+      price: '11,111',
+      imageUrl: 'https://images.unsplash.com/photo-1601121141461-9d6647bca1ed',
+      category: 'JEWELLERY',
+    },
+    {
+      id: 2,
+      title: 'Healthy Delicious Food',
+      date: 'December 4, 2024',
+      location: 'Outer Ring Road, Bangalore',
+      price: '11,111',
+      imageUrl: 'https://images.unsplash.com/photo-1547573854-74d2a71d0826',
+      category: 'FOOD',
+    },
+    {
+      id: 3,
+      title: 'Trendy Designer Wear with an Extensive Collection of Clothing Options',
+      date: 'December 4, 2024',
+      location: 'Vijayanagar, Bangalore',
+      price: '11,111',
+      imageUrl: 'https://images.unsplash.com/photo-1445205170230-053b83016050',
+      category: 'FASHION',
+    },
+  ];
+  
+
+
+
+
+  const [activeFilter, setActiveFilter] = React.useState('All');
+  const filters = ['All', 'Upcoming', 'Completed', 'Ongoing'];
+
   return (
     <>
       {loading && <div>Loading...</div>}
@@ -571,6 +601,8 @@ const HomePage = () => {
                                               </div>
                                             </div>
 
+
+{/* main content */}
                                             <section className="grid gap-6">
                                               {projects.map((project) => (
                                                   <ProjectCard key={project.uid}
@@ -617,7 +649,69 @@ const HomePage = () => {
                                               ))}
                                             </section>
 
+
+                                            {/* copy of upper section */}
+                                            <section className="grid gap-6">
+                                              {projects.map((project) => (
+                                                  <ProjectCards key={project.uid}
+                                                  project={project}
+                                                  setProject={setProject}
+                                                  onSliderOpen={() => {
+                                                    setProject(project)
+                                                    setIsEditProjectOpen(true)
+                                                  }}
+                                                  isEdit={false}
+                                                  name="Esperanza"
+
+                                                  type="Plots"
+                                                  price="₹2,100/sqft"
+                                                  stats={{
+                                                    total: 3,
+                                                    available: 1,
+                                                    sold: 2,
+                                                    blocked: 0
+                                                  }}
+                                                  pipeline={{
+                                                    registration: 0,
+                                                    booking: 1,
+                                                    construction: 0,
+                                                    possession: 0
+                                                  }}
+                                                  transactions={{
+                                                    total: "₹0",
+                                                    sale: "₹0",
+                                                    balance: "₹2,000",
+                                                    refunds: "₹0"
+                                                  }}
+                                                />
+                                                // <ProjectsMHomeBody
+                                                //   key={project.uid}
+                                                //   project={project}
+                                                //   setProject={setProject}
+                                                //   onSliderOpen={() => {
+                                                //     setProject(project)
+                                                //     setIsEditProjectOpen(true)
+                                                //   }}
+                                                //   isEdit={false}
+                                                // />
+                                              ))}
+                                            </section>
+
                                           </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                         ) : (
                                           <span
                                             onClick={() =>
@@ -628,6 +722,91 @@ const HomePage = () => {
                                           </span>
                                         )}
                                       </div>
+
+
+
+
+{/* card to change */}
+{/* 
+                                      <div className="min-h-screen bg-[#FFFFFF] p-6 sm:p-8">
+      <div className="max-w-7xl mx-auto">
+   
+        <div className="mb-8 flex flex-col justify-center items-center">
+          <h1 className="text-2xl font-normal  text-[#2BC2F6] mb-6">All Events</h1>
+          <div className="flex gap-3">
+            {filters.map((filter) => (
+              <button
+                key={filter}
+                onClick={() => setActiveFilter(filter)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  activeFilter === filter
+                    ? 'bg-red-500 text-white'
+                    : 'bg-white text-gray-600 hover:bg-gray-50 border border-gray-200'
+                }`}
+              >
+                {filter}
+              </button>
+            ))}
+          </div>
+        </div>
+
+ 
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {events.map((event) => (
+            <div
+              key={event.id}
+              className="flex flex-col bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-shadow h-auto"
+            >
+        
+              <div className="relative">
+                <img
+                  src={event.imageUrl}
+                  alt={event.title}
+                  className="w-full h-48 object-cover"
+                />
+                <span className="absolute top-4 right-4 bg-[#31C0F0] text-white px-3 py-2 rounded-[10px] text-sm font-medium">
+                  {event.category}
+                </span>
+              </div>
+
+
+              <div className="flex-1 p-4 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-lg font-bold text-[#484848] mb-3">
+                    {event.title}
+                  </h3>
+                  <div className="space-y-2">
+                    <div className="flex items-center font-semibold text-[#484848]">
+                      <Calendar className="w-4 h-4 mr-2" />
+                      <span className="text-sm">{event.date}</span>
+                    </div>
+                    <div className="flex items-center font-semibold text-gray-600">
+                      <MapPin className="w-4 h-4 mr-2 text-[#484848]"  />
+                      <span className="text-sm">{event.location}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+         
+              <div className="p-4 border-t border-gray-200">
+                <div className="flex items-baseline bg-[#F5FCFE] justify-between">
+                  <div className="flex items-baseline ml-3">
+                    <span className="text-[#000000]">₹</span>
+                    <span className="text-[#000000] font-bold text-[16px] ml-1">{event.price}</span>
+                    <span className="text-[#000000] font-semibold uppercase text-[16px] ml-1">onwards</span>
+                  </div>
+                  <button className="text-[#000000] px-4 py-2 uppercase rounded text-[16px] font-semibold  transition-colors border-l-[3px] border-[#31C0F0] h-full flex items-center">
+                   BOOK NOW
+                  </button>
+
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div> */}
                                     </section>
                                     <section className="mx-3 w-[25%] flex flex-col gap-8 ">
                                       {' '}
@@ -639,6 +818,15 @@ const HomePage = () => {
                                 </>
                               )}
                           </div>
+
+
+
+
+
+
+
+
+                          
 
                           {viewable === 'Events Lead Report' && (
                             <>

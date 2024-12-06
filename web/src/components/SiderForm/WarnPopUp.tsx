@@ -1,21 +1,11 @@
 import { Fragment } from 'react'
-
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 import { useDispatch } from 'react-redux'
-
 import {
   searchValue as searchedVal,
   searchData as searchResponse,
 } from 'src/state/actions/search'
-
-import ProjectInventorySummaryReport from '../A_CrmModule/Reports/InventorySummary.tsx/ProjectInventorySummaryReport'
-import BookedLeadsSideViewBody from '../A_SalesModule/Reports/BookedLeadsSideViewBody'
-import EmpBookingSideBody from '../A_SalesModule/Reports/EmpBookingsSideBody'
-import SalesCompletedTasksBody from '../A_SalesModule/Reports/SalesCompletedTasksBody'
-import SideVisitLeadsBody from '../A_SalesModule/Reports/SideVisitsLeadsBody'
-import SourceBookedLeadsSideViewBody from '../A_SalesModule/Reports/SourceBookedLeadsSideViewBody'
-import AddTaskForm from '../A_TaskMan/AddTaskForm'
 
 const WarnPopUpNew = ({
   open,

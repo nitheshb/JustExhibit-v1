@@ -1,7 +1,6 @@
 import React from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-// Sample data for the attendance chart
 const data = [
   { name: "Mon", 'Hall-1': 60, 'Hall-2': 40 },
   { name: "Tue", 'Hall-1': 70, 'Hall-2': 60 },

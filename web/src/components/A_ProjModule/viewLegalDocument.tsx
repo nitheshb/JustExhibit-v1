@@ -1,20 +1,9 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import React, { useEffect, useState } from 'react'
-
-import { Dialog } from '@headlessui/react'
-import { Button, Card, CardContent, Grid } from '@material-ui/core'
-import csv from 'csvtojson'
+import React, { useState } from 'react'
 import { Form, Formik } from 'formik'
-import { parse } from 'papaparse'
 import * as Yup from 'yup'
-
-import { CustomSelect } from 'src/util/formFields/selectBoxField'
-import { TextField2 } from 'src/util/formFields/TextField2'
-
-import { MultipleFileUploadField } from '../LeadUplodCsv/MultipleFileUploadField'
 import SiderForm from '../SiderForm/SiderForm'
-
 import ProjectDocRow from './Docu_row'
 
 export default function ProjectsDocsListView({

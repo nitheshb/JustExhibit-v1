@@ -1,24 +1,5 @@
 import { Dialog } from '@headlessui/react'
-import { useState, useEffect } from 'react'
-import { Form, Formik } from 'formik'
-import * as Yup from 'yup'
 import { useSnackbar } from 'notistack'
-import { InputAdornment, TextField as MuiTextField } from '@mui/material'
-import { Add, Remove } from '@mui/icons-material'
-import Loader from 'src/components/Loader/Loader'
-import { TextField } from 'src/util/formFields/TextField'
-import { TextAreaField } from 'src/util/formFields/TextAreaField'
-import { CustomRadioGroup } from 'src/util/formFields/CustomRadioGroup'
-import { CustomSelect } from 'src/util/formFields/selectBoxField'
-import { MultiSelectMultiLineField } from 'src/util/formFields/selectBoxMultiLineField'
-import {
-  developmentTypes,
-  projectPlans,
-  statesList,
-} from 'src/constants/projects'
-import { AreaConverter } from 'src/components/AreaConverter'
-
-import AddBankDetailsForm from '../addBankDetailsForm'
 import ProjPhaseHome from '../ProjPhaseHome/ProjPhaseHome'
 
 const InventoryViewSideForm = ({ title, projectDetails }) => {

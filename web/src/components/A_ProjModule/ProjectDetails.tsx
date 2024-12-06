@@ -5,41 +5,18 @@ import { useState, useEffect, useRef } from 'react'
 
 import { Dialog } from '@headlessui/react'
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/outline'
-import { Add, Remove } from '@mui/icons-material'
-import { InputAdornment, TextField as MuiTextField } from '@mui/material'
-import { setHours, setMinutes } from 'date-fns'
-import { Form, Formik } from 'formik'
 import { useSnackbar } from 'notistack'
-import DatePicker from 'react-datepicker'
-import * as Yup from 'yup'
-
-import { AreaConverter } from 'src/components/AreaConverter'
 import Loader from 'src/components/Loader/Loader'
 import {
-  ChooseOptions,
-  developmentTypes,
-  projectPlans,
-  statesList,
-  approvalAuthority,
   projectDetailFlow,
 } from 'src/constants/projects'
 import {
-  createProject,
   steamBankDetailsList,
-  updateProject,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-import { CustomRadioGroup } from 'src/util/formFields/CustomRadioGroup'
-import { CustomSelect } from 'src/util/formFields/selectBoxField'
-import { MultiSelectMultiLineField } from 'src/util/formFields/selectBoxMultiLineField'
-import { TextAreaField } from 'src/util/formFields/TextAreaField'
-import { TextField } from 'src/util/formFields/TextField'
-
-import AddBankDetailsForm from '../addBankDetailsForm'
 import DialogFormBody from '../DialogFormBody/DialogFormBody'
 import ProjPhaseHome from '../ProjPhaseHome/ProjPhaseHome'
 
-import CRMHomeList from './CRMHomeList'
 
 const ProjectDetailsFlowBody = ({ setProject, title, dialogOpen, project }) => {
   const formikRef = useRef()

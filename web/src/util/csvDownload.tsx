@@ -1,9 +1,7 @@
 import DownloadTwoToneIcon from '@mui/icons-material/DownloadTwoTone'
-import FileDownloadIcon from '@mui/icons-material/FileDownload'
 import IconButton from '@mui/material/IconButton'
 import Tooltip from '@mui/material/Tooltip'
 import { useCSVDownloader } from 'react-papaparse'
-
 import { prettyDate, prettyDateTime } from './dateConverter'
 
 export default function CSVDownloader({

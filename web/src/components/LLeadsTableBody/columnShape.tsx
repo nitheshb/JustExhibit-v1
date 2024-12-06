@@ -2,7 +2,7 @@ import { Edit } from '@mui/icons-material'
 import { IconButton } from '@mui/material'
 import UkoAvatar from '../../components/GenUkoAvatar'
 import { useState } from 'react'
-// import AddEmployeeModal from './AddEmployeeModal'
+
 const columnShape = [
   {
     Header: 'Avatar',

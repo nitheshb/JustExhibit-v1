@@ -3,10 +3,8 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { useEffect, useState } from 'react'
-
 import { PlusCircleIcon, TrashIcon } from '@heroicons/react/outline'
 import { useSnackbar } from 'notistack'
-
 import {
   deleteBankAccount,
   steamBankDetailsList,

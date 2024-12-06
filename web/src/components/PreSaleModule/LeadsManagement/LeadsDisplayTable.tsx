@@ -2,16 +2,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useEffect, useState } from 'react'
-
-import { ArrowNarrowRightIcon } from '@heroicons/react/solid'
-import { TabList } from '@mui/lab'
-import { Box, Card, Grid, styled } from '@mui/material'
+import { Box } from '@mui/material'
 import Tooltip from '@mui/material/Tooltip'
-import { useTranslation } from 'react-i18next' // styled components
-
 import { useAuth } from 'src/context/firebase-auth-context'
 import {
-  formatToPhone,
   getDifferenceInDays,
   getDifferenceInHours,
   getDifferenceInMinutes,
@@ -21,7 +15,6 @@ import {
   SlimDateSelectBox,
   SlimSelectBox,
 } from 'src/util/formFields/slimSelectBoxField'
-import uniqueId from 'src/util/generatedId'
 
 import CSVDownloader from '../../../util/csvDownload'
 // import LLeadsTableBody from '../LLeadsTableBody/LLeadsTableBody'

@@ -18,7 +18,7 @@ const data = {
 const TotalsalesDashboard = () => {
   return (
     <div className="w-full max-w-6xl mx-auto p-6 space-y-6">
-      {/* Total Sales Card */}
+
       <div className="w-full bg-white rounded-lg shadow-sm p-6">
         <div className="flex items-center justify-between pb-2">
           <h2 className="text-lg font-bold">TOTAL SALES</h2>
@@ -50,7 +50,7 @@ const TotalsalesDashboard = () => {
             </ResponsiveContainer>
           </div>
           
-          {/* Time Labels */}
+    
           <div className="flex justify-between mt-2 text-sm text-gray-500">
             <span>Month 1</span>
             <span>Month 2</span>
@@ -60,9 +60,9 @@ const TotalsalesDashboard = () => {
         </div>
       </div>
 
-      {/* Bottom Cards Grid */}
+  
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* Sales Breakdown Card */}
+    
         <div className="bg-white rounded-lg shadow-sm p-6">
           <div className="flex items-center justify-between pb-2">
             <h2 className="text-lg font-bold">SALES BREAKDOWN</h2>
@@ -84,7 +84,7 @@ const TotalsalesDashboard = () => {
           </div>
         </div>
 
-        {/* First Sales by Channel Card */}
+      
         <div className="bg-white rounded-lg shadow-sm p-6">
           <div className="flex items-center justify-between pb-2">
             <h2 className="text-lg font-bold">SALES BY CHANNEL</h2>
@@ -106,7 +106,7 @@ const TotalsalesDashboard = () => {
           </div>
         </div>
 
-        {/* Second Sales by Channel Card */}
+    
         <div className="bg-white rounded-lg shadow-sm p-6">
           <div className="flex items-center justify-between pb-2">
             <h2 className="text-lg font-bold">SALES BY CHANNEL</h2>

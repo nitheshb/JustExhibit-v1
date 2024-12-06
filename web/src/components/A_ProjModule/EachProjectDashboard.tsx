@@ -1,11 +1,8 @@
 // import { useState } from 'react'
 // import PhaseDetailsCard from '../PhaseDetailsCard/PhaseDetailsCard'
-
-import { Box, LinearProgress } from '@mui/material'
+import { LinearProgress } from '@mui/material'
 import { useTranslation } from 'react-i18next'
-
 import { Link, routes } from '@redwoodjs/router'
-
 import ProjectMetrics2 from './Comps/ModularDispCard/MetricsProjectCard2'
 import ProjectMetrics3 from './Comps/ModularDispCard/MetricsProjectCard3'
 import ModularProjectMetrics from './Comps/ModularDispCard/ModularDispCard'

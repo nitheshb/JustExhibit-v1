@@ -1,21 +1,12 @@
 import React, { useState } from 'react'
-
-import Paper from '@material-ui/core/Paper'
-import TableCell from '@material-ui/core/TableCell'
-import TableHead from '@material-ui/core/TableHead'
-import TableRow from '@material-ui/core/TableRow'
-
 import '../../../styles/myStyles.css'
-import { GoTrue } from '@redwoodjs/auth/dist/authClients/goTrue'
-
 import PieChartComponent from './charts/salePieChart'
-import BubbleChartComponent from './charts/salesBubbleChart'
 import StackedLeadsChart from './charts/salesStackedChart'
 
 const data = [
-  { label: 'Desktop', value: 20, color: '#ff6347' }, // Red
-  { label: 'Mobile', value: 30, color: '#4682b4' }, // Blue
-  { label: 'Others', value: 40, color: '#32cd32' }, // Green
+  { label: 'Desktop', value: 20, color: '#ff6347' }, 
+  { label: 'Mobile', value: 30, color: '#4682b4' }, 
+  { label: 'Others', value: 40, color: '#32cd32' }, 
 ]
 
 const data1 = ['Inprogress']

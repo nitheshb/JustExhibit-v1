@@ -1,25 +1,5 @@
 import React, { useState } from 'react'
-
-import Paper from '@material-ui/core/Paper'
-import TableCell from '@material-ui/core/TableCell'
-import TableHead from '@material-ui/core/TableHead'
-import TableRow from '@material-ui/core/TableRow'
-
-//import '../../../styles/myStyles.css'
-import { GoTrue } from '@redwoodjs/auth/dist/authClients/goTrue'
-
-
-
-//import HrPieChart from './Report/Chart/HrPieChart'
-//import HrBubbleChart from './Report/Chart/HrBubbleChart'
-
-//import HrStackedChart from './Report/Chart/HrStackedChart'
-
-
-
-
 import FinancePieChart from './Report/Chart/FinancePieChart'
-import FinanceBubbleChart from './Report/Chart/FinanceBubbleChart'
 import FinanceStackedChart from './Report/Chart/FinanceStackedChart'
 
 

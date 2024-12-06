@@ -1,23 +1,11 @@
 import { useEffect, useState } from 'react'
-
-import { startOfWeek, startOfDay, startOfMonth, subMonths } from 'date-fns'
+import { startOfWeek, startOfDay } from 'date-fns'
 import { Responsive, WidthProvider } from 'react-grid-layout'
-
-import { sourceList, sourceListItems } from '../../constants/projects'
+import { sourceListItems } from '../../constants/projects'
 import {
   getAllProjects,
-  getEmployeesListDept,
-  getEmployeesTaskProgressDept,
-  getLeadbyId1,
   getLeadsByDate,
-  getTodayTodoLeadsData,
-  getTodayTodoLeadsDataByUser,
-  steamAllLeadsActivity,
-  steamLeadScheduleLog,
   steamUsersListByRole,
-  updateLeadLastUpdateTime,
-  updateLeadsLogWithProject,
-  updateTodayTasksTotal,
 } from '../../context/dbQueryFirebase'
 import { useAuth } from '../../context/firebase-auth-context'
 import {
@@ -25,7 +13,6 @@ import {
   SlimDateSelectBox,
 } from '../../util/formFields/slimSelectBoxField'
 import { serialEmployeeLeadData } from '../LeadsTeamReport/serialEmployeeLeadData'
-import { serialEmployeeTaskLeadData } from '../LeadsTeamReport/serialEmployeeTaskLeadData'
 import { serialProjectLeadData } from '../LeadsTeamReport/serialProjectLeadData'
 import { serialProjecVisitFixedData } from '../LeadsTeamReport/serialProjectVisitsFixedData'
 import { serialMyData } from '../LeadsTeamReport/SourceLeads'

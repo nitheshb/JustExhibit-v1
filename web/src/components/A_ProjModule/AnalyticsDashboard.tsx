@@ -14,11 +14,7 @@ import { ChevronDown, TrendingUp } from 'lucide-react';
 import { scaleLinear } from 'd3-scale';
 import UnitsSoldChart from './UnitsSoldChart';
 import { TopProducts } from './TopProducts';
-
-
-
 import CollectionsDashboard from './CollectionsDashboard';
-
 import CRMInventoryReport from './CRMInventoryReport';
 import TaskTable from './TaskTable';
 import ExpenseBreakdown from './ExpenseBreakdown';
@@ -35,26 +31,8 @@ import SalesDashboardthree from './SalesDashboardthree';
 import UnitsSoldDashboardone from './UnitsSoldDashboardone';
 import TicketConfirmation from './TicketConfirmation';
 import UpcomingEvents from './UpcomingEvents';
-// import TopCollections from './TopCollections';
-// import ProjectCollections from './ProjectCollections';
-// import ProjectInventoryDashboard from './ProjectInventory';
-// import ExpenseBreakdown from './ExpenseBreakdown';
-// import TaskTable from './TaskTable';
-// import ExpenseChart from './ExpenseChart';
-// import ExpenseLineChart from './ExpenseLineChart';
-// import { TopProducts } from './TopProducts';
-// import Dashboard from './Dashboard';
-// import DashboardComponent from './Dashboard';
-// import AboxNew from './AboxNew';
-// import AppBox from './AboxNew';
-// import CRMInventoryReport from './CRMInventoryReport';
-// import MoApp from './Amonn';
-// import SalesDashboard from './Aio';
-// import CollectionsDashboard from './CollectionsDashboard';
-// import UnitsSoldChart from './UnitsSoldChart';
-// import SalesDashboardmebox from './SalesDashboardmebox';
-// import SalesDashboardmeboxmy from './SalesDashboardmeboxmy';
-// import UnitsSoldDashboardmemybox from './UnitsSoldDashboardmemybox';
+import ProjectCards from './ProjectCards';
+
 
 
 
@@ -486,6 +464,10 @@ const CustomTooltip = ({ active, payload }) => {
 
 
 
+
+<div className="col-span-full bg-white rounded-lg shadow-lg p-6">
+<ProjectCards/>
+  </div>
 
 
 

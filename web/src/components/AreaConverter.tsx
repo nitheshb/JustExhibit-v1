@@ -1,10 +1,6 @@
 import { InputAdornment, TextField as MuiTextField } from '@mui/material'
-
 import { areaConversions } from 'src/constants/projects'
-import { CustomSelect } from 'src/util/formFields/selectBoxField'
-import { TextField } from 'src/util/formFields/TextField'
 import { sqmtConverter } from 'src/util/sqmtConverter'
-
 import NoBorderDropDown from './comps/noBorderDropDown'
 
 export const AreaConverter = ({ formik, hideField, fieldName,textPrimaryName, textSecondaryName, dropDownPrimaryName, dropdownSecondaryName }) => {

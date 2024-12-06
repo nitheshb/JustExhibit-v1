@@ -1,13 +1,6 @@
 import { useEffect, useState } from 'react'
-
-import { Tabs } from '@material-ui/core'
-import { Tab } from '@material-ui/core'
-import { TabList } from '@mui/lab'
-import { Box as Section, Card, Grid, styled } from '@mui/material'
-import { useTranslation } from 'react-i18next' // styled components
-
-import { prettyDate } from 'src/util/dateConverter'
-
+import { Box as Section, Card, Grid } from '@mui/material'
+import { useTranslation } from 'react-i18next' 
 import LLeadsTableBody from '../LLeadsTableBody/LLeadsTableBody'
 import LogSkelton from '../shimmerLoaders/logSkelton'
 

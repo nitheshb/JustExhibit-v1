@@ -1,13 +1,9 @@
 import { useState, useEffect } from 'react'
-
-import { ChatBubble, Edit, Flag } from '@mui/icons-material'
-import { Box, Card, Divider, Grid, LinearProgress } from '@mui/material'
 import { useTranslation } from 'react-i18next'
-
 import { prettyDateTime } from 'src/util/dateConverter'
 
 const RecentActivity = ({ title, userTodayPerfA }) => {
-  // change navbar title
+
 
   const { t } = useTranslation()
   const [recActA, setRecActA] = useState([])

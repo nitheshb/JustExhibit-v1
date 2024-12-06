@@ -2,25 +2,11 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 // import { Link, routes } from '@redwoodjs/router'
 
-import { Fragment, useState, useEffect } from 'react'
-
-// import { XIcon } from '@heroicons/react/outline'
-import { DragDropContext, Droppable } from 'react-beautiful-dnd'
-
+import { useState, useEffect } from 'react'
 import { MetaTags } from '@redwoodjs/web'
-
-import LLeadsTableView from 'src/components/LLeadsTableView/LLeadsTableView'
-import { USER_ROLES } from 'src/constants/userRoles'
 import { getFinanceTransactionsByStatus } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-import { CustomSelect } from 'src/util/formFields/selectBoxField'
-
-import CircleProgress from '../Charts_Graphs/CircleProgress'
-import SemiCircleProgress from '../Charts_Graphs/SemiCircleProgress'
-import CardItem from '../leadsCard'
 import SiderForm from '../SiderForm/SiderForm'
-
-import FinanceTableView from './financeTableView'
 
 const CrmRepHomePageView1 = ({ leadsTyper }) => {
   const { user } = useAuth()

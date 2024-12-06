@@ -2,11 +2,8 @@
 import React, { useState } from 'react'
 import { updateProfile } from 'firebase/auth'
 import { getDownloadURL, ref, uploadBytesResumable } from 'firebase/storage'
-import { Pencil } from 'lucide-react'
 import { v4 as uuidv4 } from 'uuid'
 import EditIcon from '@material-ui/icons/Edit';
-
-
 import { storage, auth } from 'src/context/firebaseConfig'
 import { useAuth } from 'src/context/firebase-auth-context'
 import { updateUserAvatar } from 'src/context/dbQueryFirebase'

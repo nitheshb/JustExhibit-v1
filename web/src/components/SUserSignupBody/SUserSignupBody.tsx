@@ -19,12 +19,10 @@ import axios from 'axios'
 import Loader from '../Loader/Loader'
 import { DEPARTMENT_LIST, ROLES_LIST } from 'src/constants/userRoles'
 import { PhoneNoField } from 'src/util/formFields/phNoField'
-import DatePicker from 'react-datepicker'
 import { setHours, setMinutes } from 'date-fns'
 import CustomDatePicker from 'src/util/formFields/CustomDatePicker'
 
-// import Select from 'react-select'
-// import SelectSearch from 'react-select-search'
+
 
 const SUserSignupBody = ({ title, dialogOpen, empData }) => {
   const d = new window.Date()

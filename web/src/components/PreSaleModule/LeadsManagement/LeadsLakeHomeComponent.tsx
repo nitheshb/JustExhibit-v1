@@ -4,23 +4,11 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import * as React from 'react'
 import { useState, useEffect } from 'react'
-
-
-import DeleteIcon from '@mui/icons-material/Delete'
-import EventNoteTwoToneIcon from '@mui/icons-material/EventNoteTwoTone'
-import IconButton from '@mui/material/IconButton'
-import { alpha } from '@mui/material/styles'
-import Toolbar from '@mui/material/Toolbar'
-import Tooltip from '@mui/material/Tooltip'
-import Typography from '@mui/material/Typography'
-import PropTypes from 'prop-types'
-import { startOfWeek, startOfDay, startOfMonth, subMonths } from 'date-fns'
-
+import { startOfMonth } from 'date-fns'
 import LeadBankSourceStats from 'src/components/Charts_Graphs/LeadBankSourceStats'
 import RecentActivity from 'src/components/Charts_Graphs/RecentActivity'
 import LogSkelton from 'src/components/shimmerLoaders/logSkelton'
 import SiderForm from 'src/components/SiderForm/SiderForm'
-
 import {
   getAllProjects,
   getLeadsDataLake,

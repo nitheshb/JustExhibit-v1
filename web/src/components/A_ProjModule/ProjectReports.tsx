@@ -3,25 +3,16 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import { useEffect, useState } from 'react'
-
 import {
   PaperClipIcon,
-  PlusCircleIcon,
-  TrashIcon,
   UsersIcon,
 } from '@heroicons/react/outline'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/solid'
-import PencilIcon from '@heroicons/react/solid/PencilIcon'
-import SendTwoToneIcon from '@mui/icons-material/SendTwoTone'
 import { startOfDay } from 'date-fns'
 import { useSnackbar } from 'notistack'
 
-import { sourceListItems } from 'src/constants/projects'
 import {
-  deleteBankAccount,
-  steamBankDetailsList,
   steamUsersList,
-  steamVirtualAccountsList,
   streamGetAllParticipantTasks,
   streamGetAllTaskManTasks,
 } from 'src/context/dbQueryFirebase'
@@ -35,13 +26,11 @@ import {
   prettyDateTime,
 } from 'src/util/dateConverter'
 import {
-  SlimSelectBox,
   VerySlimSelectBox,
 } from 'src/util/formFields/slimSelectBoxField'
 
 import SiderForm from '../SiderForm/SiderForm'
 
-import SourceAddTemplate from './SourceAddTemplate'
 
 import ProjectSummaryReport from './ProjectSummaryReport'
 import AnalyticsDashboard from './AnalyticsDashboard'

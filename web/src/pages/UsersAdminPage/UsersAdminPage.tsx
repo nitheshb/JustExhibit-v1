@@ -1,9 +1,6 @@
 import { useState } from 'react'
-
 import { Switch } from '@headlessui/react'
-
 import { MetaTags } from '@redwoodjs/web'
-
 import HrModuleHome from 'src/components/A_HrModule/HrModuleHome'
 import SlimSideMenuBar from 'src/components/A_SideMenu/slimSideMenu'
 import HeadNavBar2 from 'src/components/HeadNavBar/HeadNavBar2'

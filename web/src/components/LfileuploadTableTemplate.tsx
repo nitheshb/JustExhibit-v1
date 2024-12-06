@@ -1,5 +1,4 @@
 import * as React from 'react'
-
 import { Timestamp } from '@firebase/firestore'
 import DoneIcon from '@material-ui/icons/DoneAllTwoTone'
 import RevertIcon from '@material-ui/icons/NotInterestedOutlined'

@@ -1,17 +1,12 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-import { Fragment, useState } from 'react'
-
+import { useState } from 'react'
 import { MetaTags } from '@redwoodjs/web'
-
 import TodayLeadsActivityListHomeView from './TodayLeadsAcivityListHome'
 import AdminPage from './AdminPage'
-// import CardItem from '../../components/leadsCard'
-// import BoardData from '../../components/board-data.json'
 
 const TodayLeadsHomePage = ({ taskType }) => {
   const [, setisImportLeadsOpen] = useState(false)
 
-  // kanban board
   const [ready, setReady] = useState(false)
   const [addLeadsTypes, setAddLeadsTypes] = useState('')
 

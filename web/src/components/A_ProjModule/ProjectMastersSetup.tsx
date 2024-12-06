@@ -2,27 +2,12 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-import { useEffect, useState } from 'react'
-import { Facebook, Instagram, Twitter, Search, Settings, Bell, Plus, Download, ExternalLink } from 'lucide-react';
-
-import { PlusCircleIcon, TrashIcon } from '@heroicons/react/outline'
-import PencilIcon from '@heroicons/react/solid/PencilIcon'
-import SendTwoToneIcon from '@mui/icons-material/SendTwoTone'
+import { useState } from 'react'
+import { Plus, Download } from 'lucide-react';
 import { useSnackbar } from 'notistack'
-
-import { sourceListItems } from 'src/constants/projects'
-import {
-  deleteBankAccount,
-  steamBankDetailsList,
-  steamVirtualAccountsList,
-} from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-import { sendWhatAppTextSms1 } from 'src/util/axiosWhatAppApi'
-
 import EditableTable from '../comps/EditableComp'
 import SiderForm from '../SiderForm/SiderForm'
-
-import SourceAddTemplate from './SourceAddTemplate'
 import MastersEditableTable from '../comps/MastersEditableComp'
 import TermsConditionsEditableTable from '../comps/TermsConditionsEditableComp'
 

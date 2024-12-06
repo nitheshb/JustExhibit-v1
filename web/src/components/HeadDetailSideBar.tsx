@@ -1,15 +1,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { spawnSync } from 'child_process'
-
 import { useEffect, useState } from 'react'
-
-import { checkActionCode } from '@firebase/auth'
-import { UserGroupIcon } from '@heroicons/react/outline'
-
-import { Link, routes } from '@redwoodjs/router'
-
+import { Link } from '@redwoodjs/router'
 import { USER_ROLES } from 'src/constants/userRoles'
 import { useAuth } from 'src/context/firebase-auth-context'
 const HeadSideBarDetailView = ({

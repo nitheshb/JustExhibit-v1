@@ -1,25 +1,12 @@
 import React, { useEffect, useState } from 'react'
-
-import { Dialog } from '@headlessui/react'
 import { Alert, AlertTitle } from '@mui/lab'
 import { useSnackbar } from 'notistack'
-import Select from 'react-select'
-
 import { MaterialCRUDTable } from 'src/components/MaterialCRUDTable'
 import {
-  costSheetAdditionalChargesA,
-  csConstruAdditionalChargesA,
-  gstValesA,
-  sourceListItems,
-  unitsCancellation,
-} from 'src/constants/projects'
-import {
   addNewSourceComp,
-  addPhaseAdditionalCharges,
   deleteSourceList,
   getAllSources,
   updateLeadSourcesItem,
-  updatePhaseAdditionalCharges,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 

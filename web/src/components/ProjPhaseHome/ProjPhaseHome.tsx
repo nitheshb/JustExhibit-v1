@@ -1,14 +1,8 @@
 import { useState, useEffect } from 'react'
-
 import {
-  PencilIcon,
-  EyeIcon,
-  EyeOffIcon,
   PlusIcon,
 } from '@heroicons/react/outline'
-
 import { useParams } from '@redwoodjs/router'
-
 import Blockdetails from 'src/components/Blockdetails/Blockdetails'
 import DummyBodyLayout from 'src/components/DummyBodyLayout/DummyBodyLayout'
 import SiderForm from 'src/components/SiderForm/SiderForm'
@@ -17,29 +11,21 @@ import {
   getBlocksByPhase,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-
 import ConstructHomeList from '../A_ProjModule/ConstructHomeList'
 import CRMHomeList from '../A_ProjModule/CRMHomeList'
-import FinanceHomeList from '../A_ProjModule/FinanceHomeList'
 import LegalHomeList from '../A_ProjModule/LegalHomeList'
 import MarketingHomeList from '../A_ProjModule/MarketingHomeList'
 import ProjectAccessHomeList from '../A_ProjModule/ProjectAccessHomeListAc'
 import ProjectAuditHome from '../A_ProjModule/ProjectAuditHome'
-import SalesHomeList from '../A_ProjModule/SalesHomeList'
 import TemplatesHomeList from '../A_ProjModule/TemplatesHomeList'
-import AdditionalChargesForm from '../AdditionalChargesForm/AdditionalChargesForm'
-import AssigedToDropComp from '../assignedToDropComp'
-import BlockingUnitForm from '../BlockingUnitForm'
 import CostBreakUpSheet from '../costBreakUpSheet'
 import CostSheetSetup from '../costSheetSetup'
-import DropCompUnitStatus from '../dropDownUnitStatus'
 import Floordetails from '../Floordetails/Floordetails'
 import MoreDetailsPhaseForm from '../MoreDetailsPhaseForm/MoreDetailsPhaseForm'
 import PaymentScheduleForm from '../PaymentScheduleForm/PaymentScheduleForm'
 import PaymentLeadAccess from '../PaymentScheduleForm/ProjectLeadAccess'
 import PaymentScheduleSetup from '../paymentScheduleSetup'
 import PlanDiagramView from '../planDiagramView'
-import DialogFormBody from '../DialogFormBody/DialogFormBody'
 
 const ProjPhaseHome = ({
   ref,

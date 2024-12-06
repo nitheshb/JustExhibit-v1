@@ -1,18 +1,12 @@
-import { pid } from 'process'
-
-import { Fragment, useState } from 'react'
-
+import { Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/outline'
 import { useDispatch } from 'react-redux'
-
 import {
   searchValue as searchedVal,
   searchData as searchResponse,
 } from 'src/state/actions/search'
 import CostBreakUpPdfPreview from 'src/util/costBreakUpPdfPreview'
-
-import CrmCustomerSummary from '../A_CrmModule/A_CrmCustomerSummary'
 import UnitBookingCancelCRM from '../A_CrmModule/A_UnitCancel.tsx/CrmUnitCancel'
 import CustomerSideViewCRM from '../A_CrmModule/CrmCustomerSideView'
 import AddNewDemand from '../A_CrmModule/CrmNewDemand'
@@ -23,7 +17,6 @@ import LegalHomeList from '../A_ProjModule/LegalHomeList'
 import NotificationsSetupForm from '../A_ProjModule/NotificatoinsSetupFromHome'
 import ProjectAccessSideView from '../A_ProjModule/ProjectAccessSideView'
 import ProjectDetailsFlowBody from '../A_ProjModule/ProjectDetails'
-import ProjectsDocsListView from '../A_ProjModule/viewLegalDocument'
 import AddTaskForm from '../A_TaskMan/AddTaskForm'
 import ViewEditTaskManForm from '../A_TaskMan/ViewEditTaskManForm'
 import AddBankDetailsForm from '../addBankDetailsForm'
@@ -34,7 +27,6 @@ import AddPhaseForm from '../AddPhaseForm/AddPhaseForm'
 import AddUnit from '../AddUnit'
 import ConstructUnitsDetails from '../ConstructModule/ConstructUnitsDetails'
 import CrmUnitSideView from '../crmUnitSideView'
-import DialogFormBody from '../DialogFormBody/DialogFormBody'
 import InventoryViewSideForm from '../DialogFormBody/InventoryViewSideView'
 import CaptureUnitPayment from '../FinanceModule/CapturePayment'
 import LeadProfileSideView from '../LeadProfileSideView'

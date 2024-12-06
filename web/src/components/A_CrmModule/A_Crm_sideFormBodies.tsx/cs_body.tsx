@@ -1,20 +1,10 @@
-import { useState, useEffect, createRef, useRef } from 'react'
-
-import { InformationCircleIcon } from '@heroicons/react/outline'
-import { PDFExport } from '@progress/kendo-react-pdf'
+import { useState, useEffect, createRef } from 'react'
 import { Timestamp } from 'firebase/firestore'
-import { Form, Formik } from 'formik'
+import { Formik } from 'formik'
 import * as Yup from 'yup'
-
-import CrmUnitHeader from 'src/components/A_CrmModule/CrmUnitHeader'
 import { useAuth } from 'src/context/firebase-auth-context'
 import { computeTotal } from 'src/util/computeCsTotals'
-import { TextFieldFlat } from 'src/util/formFields/TextFieldFlatType'
-
-// import { TextFieldFlat } from './formFields/TextFieldFlatType'
-
 import "src/styles/myStyles.css"
-import { getPhasesByProject } from 'src/context/dbQueryFirebase'
 
 const CSBody = ({
   csMode,

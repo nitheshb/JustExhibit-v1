@@ -97,9 +97,9 @@ const customStyles = {
     border: '0px solid #000',
     fontSize: '12px',
 
-    // borderBottom: '1px solid #718096', // Set the desired border styles here
+  
     borderRadius: '0', // Remove rounded corners
-    boxShadow: 'none', // Remove the box shadow
+    boxShadow: 'none', 
   }),
 
   valueContainer: (provided, state) => ({

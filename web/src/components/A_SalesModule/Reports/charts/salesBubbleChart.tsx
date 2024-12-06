@@ -3,9 +3,9 @@ import BubbleChart from '@weknow/react-bubble-chart-d3';
 
 const BubbleChartComponent = () => {
   const data = [
-    { label: 'Desktop', value: 20, color: '#ff6347' }, // Red
-    { label: 'Mobile', value: 30, color: '#4682b4' }, // Blue
-    { label: 'Others', value: 40, color: '#32cd32' }, // Green
+    { label: 'Desktop', value: 20, color: '#ff6347' }, 
+    { label: 'Mobile', value: 30, color: '#4682b4' }, 
+    { label: 'Others', value: 40, color: '#32cd32' }, 
   ];
   const [chartData, setChartData] = useState([]);
   useEffect(() => {
@@ -13,7 +13,7 @@ const BubbleChartComponent = () => {
 
     const fetchData = async () => {
       try {
-        // Simulate data fetching
+
         const data = [
           { label: 'Desktop', value: 20, color: '#ff6347' },
           { label: 'Mobile', value: 30, color: '#4682b4' },

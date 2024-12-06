@@ -1,14 +1,10 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useState, useEffect } from 'react'
-
 import { MetaTags } from '@redwoodjs/web'
-
 import { getLeadsByStatus } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-
 import SiderForm from './SiderForm/SiderForm'
-// import CardItem from '../../components/leadsCard'
-// import BoardData from '../../components/board-data.json'
+
 
 const LeadsManagementHome = () => {
   const { user } = useAuth()

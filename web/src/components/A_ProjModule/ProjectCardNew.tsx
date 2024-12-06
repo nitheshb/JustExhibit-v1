@@ -1,15 +1,12 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from 'react'
-
-
 import { LinearProgress } from '@mui/material'
 import { Building2 } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-
 import { prettyDate } from 'src/util/dateConverter'
 import SiderForm from '../SiderForm/SiderForm'
-// import { StatusPipeline } from './StatusPipeline';
+
 
 type ProjectStats = {
   total: number

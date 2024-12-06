@@ -1,57 +1,36 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/prop-types */
 import * as React from 'react'
-
 import '../../styles/myStyles.css'
 import {
-  LinearProgress,
   Rating,
 } from '@mui/material'
 import Section from '@mui/material/Box'
-import Checkbox from '@mui/material/Checkbox'
-import FormControlLabel from '@mui/material/FormControlLabel'
 import IconButton from '@mui/material/IconButton'
-import Paper from '@mui/material/Paper'
-import { alpha } from '@mui/material/styles'
-import Switch from '@mui/material/Switch'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
 import PropTypes from 'prop-types'
-import DatePicker from 'react-datepicker'
-import { Search, Bell, Plus, Filter, ArrowRight } from 'lucide-react';
-
 import { useAuth } from 'src/context/firebase-auth-context'
 import {
   getDifferenceInDays,
   getDifferenceInHours,
   getDifferenceInMinutes,
 } from 'src/util/dateConverter'
-
 import 'react-datepicker/dist/react-datepicker.css'
-import { setHours, setMinutes } from 'date-fns'
 import TableCell from '@mui/material/TableCell'
 import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
-import TablePagination from '@mui/material/TablePagination'
 import TableRow from '@mui/material/TableRow'
 import TableSortLabel from '@mui/material/TableSortLabel'
-import Toolbar from '@mui/material/Toolbar'
-import Typography from '@mui/material/Typography'
 import Tooltip from '@mui/material/Tooltip'
 import DeleteIcon from '@mui/icons-material/Delete'
-import FileDownloadIcon from '@mui/icons-material/FileDownload'
 import { visuallyHidden } from '@mui/utils'
 import Highlighter from 'react-highlight-words'
-
 import CSVDownloader from '../../util/csvDownload'
-import { timeConv, prettyDate } from '../../util/dateConverter'
+import { prettyDate } from '../../util/dateConverter'
 import DropCompUnitStatus from '../dropDownUnitStatus'
 
-import CalendarMonthTwoToneIcon from '@mui/icons-material/CalendarMonthTwoTone'
-import EventNoteTwoToneIcon from '@mui/icons-material/EventNoteTwoTone'
-import { ConnectingAirportsOutlined } from '@mui/icons-material'
 
-import LogSkelton from '../shimmerLoaders/logSkelton'
 
 // function createData(
 //   Date,

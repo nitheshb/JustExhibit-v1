@@ -5,11 +5,6 @@
 // import ProjectStatsCard from '../ProjectStatsCard/ProjectStatsCard'
 // import PhaseDetailsCard from '../PhaseDetailsCard/PhaseDetailsCard'
 import { useState, useEffect } from 'react'
-
-import { Link } from '@redwoodjs/router'
-
-import DropCompUnitStatus from 'src/components/dropDownUnitStatus'
-import DummyBodyLayout from 'src/components/DummyBodyLayout/DummyBodyLayout'
 import SiderForm from 'src/components/SiderForm/SiderForm'
 import { getAllProjects, getPhasesByProject } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
@@ -18,7 +13,6 @@ import DropDownSearchBar from 'src/components/dropDownSearchBar'
 
 import { PlusIcon } from '@heroicons/react/outline'
 
-import Floordetails from '../Floordetails/Floordetails'
 import ProjPhaseHome from '../ProjPhaseHome/ProjPhaseHome'
 
 import ConstructProjectUnitsDisplay from './Const_ProjectUnitsDisplay'

@@ -2,15 +2,6 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useEffect, useState } from 'react'
-
-import ChevronDoubleLeftIcon from '@heroicons/react/solid/ChevronDoubleLeftIcon'
-import ChevronDoubleRightIcon from '@heroicons/react/solid/ChevronDoubleRightIcon'
-
-import CSVDownloader from 'src/util/csvDownload'
-import { SlimSelectBox } from 'src/util/formFields/slimSelectBoxField'
-
-import Bargraph from './Bargraph'
-import LineGraph from './LineGraph'
 import PieChartComp from './PieChart'
 
 const LeadsCoversionGraphs = ({

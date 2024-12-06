@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-
 import { useAuth } from 'src/context/firebase-auth-context'
 
 const CrmUnitHeader = ({ projectDetails }) => {

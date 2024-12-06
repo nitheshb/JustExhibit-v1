@@ -1,54 +1,27 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { useState, useEffect, Fragment } from 'react'
-
-import { Dialog, Listbox, Transition } from '@headlessui/react'
-import { RadioGroup } from '@headlessui/react'
+import { useState, useEffect } from 'react'
 import { CalendarIcon } from '@heroicons/react/outline'
-import { CheckIcon, SelectorIcon, FireIcon } from '@heroicons/react/solid'
-import Checkbox from '@mui/material/Checkbox'
+import { FireIcon } from '@heroicons/react/solid'
 import { setHours, setMinutes } from 'date-fns'
-import { Timestamp } from 'firebase/firestore'
 import { Form, Formik, Field, ErrorMessage } from 'formik'
-import DatePicker from 'react-datepicker'
-import NumberFormat from 'react-number-format'
-import Select from 'react-select'
 import * as Yup from 'yup'
 import { useSnackbar } from 'notistack'
-
-import { Label, InputField, TextAreaField, FieldError } from '@redwoodjs/forms'
-import { useRouterStateSetter } from '@redwoodjs/router/dist/router-context'
-
 import {
-  leadBinReasonList,
   sourceList,
-  sourceListItems,
 } from 'src/constants/projects'
 import {
   addCampaign,
-  addStallLeads,
-  addTaskBusiness,
   checkIfCampaignAlreadyExists,
-  checkIfLeadAlreadyExists,
   getAllProjects,
   steamUsersList,
-  steamUsersListByRole,
   updateCampaign,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-import {
-  sendWhatAppMediaSms,
-  sendWhatAppTextSms,
-} from 'src/util/axiosWhatAppApi'
-import { PhoneNoField } from 'src/util/formFields/phNoField'
 import { CustomSelect } from 'src/util/formFields/selectBoxField'
 import { CustomSelectNew } from 'src/util/formFields/selectBoxFieldNew'
-import { SlimSelectBox } from 'src/util/formFields/slimSelectBoxField'
 import { TextField } from 'src/util/formFields/TextField'
-import { TextField2 } from 'src/util/formFields/TextField2'
-
-import Loader from '../Loader/Loader'
 import CustomDatePicker from 'src/util/formFields/CustomDatePicker'
 
 const people = [

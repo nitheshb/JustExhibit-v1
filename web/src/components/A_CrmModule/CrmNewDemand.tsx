@@ -1,41 +1,28 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import { useState, useEffect, useRef } from 'react'
-
-import { ExclamationCircleIcon, CheckCircleIcon } from '@heroicons/react/solid'
 import { AttachFile } from '@mui/icons-material'
 import { format } from 'date-fns'
 import { setHours, setMinutes } from 'date-fns'
-import { arrayUnion } from 'firebase/firestore'
 import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage'
 import { Form, Formik } from 'formik'
 import { useSnackbar } from 'notistack'
-import DatePicker from 'react-datepicker'
 import { v4 as uuidv4 } from 'uuid'
-import * as Yup from 'yup'
-
 import { useParams } from '@redwoodjs/router'
-
 import Confetti from 'src/components/shared/confetti'
-import { demandMode, paymentMode, statesList } from 'src/constants/projects'
+import { demandMode } from 'src/constants/projects'
 import {
   addNewUnitDemand,
   addPaymentReceivedEntry,
   addPaymentReceivedEntrySup,
-  createBookedCompany,
   createNewCustomerS,
   steamBankDetailsList,
   steamUsersProjAccessList,
-  updateLeadStatus,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import { storage } from 'src/context/firebaseConfig'
-import { CustomSelect } from 'src/util/formFields/selectBoxField'
-import { MultiSelectMultiLineField } from 'src/util/formFields/selectBoxMultiLineField'
 import { TextField2 } from 'src/util/formFields/TextField2'
 
-import Loader from '../Loader/Loader'
-import { validate_capturePayment } from '../Schemas'
 
 const AddNewDemand = ({
   title,

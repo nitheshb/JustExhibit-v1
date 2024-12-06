@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 import { Dialog } from '@headlessui/react'
-import { Button, Card, CardContent, Grid } from '@material-ui/core'
+import { Grid } from '@material-ui/core'
 import csv from 'csvtojson'
 import { Form, Formik } from 'formik'
 import { parse } from 'papaparse'
-import { array, object, string } from 'yup'
-
 import { MultipleFileUploadField } from './MultipleFileUploadField'
 import { DownloadIcon } from '@heroicons/react/solid'
 

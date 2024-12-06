@@ -1,16 +1,10 @@
 import { useEffect, useState } from 'react'
-
 import { useParams } from '@redwoodjs/router'
-
 import SlimSideMenuBar from 'src/components/A_SideMenu/slimSideMenu'
 import HeadNavBar2 from 'src/components/HeadNavBar/HeadNavBar2'
 import { getProjectByUid } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-
 import DummyBodyLayout from '../../components/DummyBodyLayout/DummyBodyLayout'
-import HeadNavBar from '../../components/HeadNavBar/HeadNavBar'
-import HeadSideBar from '../../components/HeadSideBar/HeadSideBar'
-import ProjectsMHomeBody from '../../components/ProjectsMHomeBody/ProjectsMHomeBody'
 import ProjPhaseHome from '../../components/ProjPhaseHome/ProjPhaseHome'
 import SiderForm from '../../components/SiderForm/SiderForm'
 import EachProjectDashboard from 'src/components/A_ProjModule/EachProjectDashboard'

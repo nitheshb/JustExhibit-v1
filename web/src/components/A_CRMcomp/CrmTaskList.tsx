@@ -1,33 +1,17 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
-// import { Link, routes } from '@redwoodjs/router'
-import { Fragment, useState, useEffect } from 'react'
-
+import { useState, useEffect } from 'react'
 import { useSnackbar } from 'notistack'
-import { DragDropContext, Droppable } from 'react-beautiful-dnd'
-
 import { MetaTags } from '@redwoodjs/web'
-
-import LLeadsTableView from 'src/components/LLeadsTableView/LLeadsTableView'
-
-// import { XIcon } from '@heroicons/react/outline'
-
 import { USER_ROLES } from 'src/constants/userRoles'
 import {
   getAllProjects,
   getCRMCustomerByProject,
-  updateLeadStatus,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-import { CustomSelect } from 'src/util/formFields/selectBoxField'
 
-import CardItem from '../leadsCard'
 import SiderForm from '../SiderForm/SiderForm'
-import FinanceTableView from '../TableComp/financeTableView'
 
-// import CustomerProfileSideView from './customerProfileSideView'
-// import CardItem from '../../components/leadsCard'
-// import BoardData from '../../components/board-data.json'
 const BoardData = [
   {
     name: 'New',

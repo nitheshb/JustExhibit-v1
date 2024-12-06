@@ -6,6 +6,7 @@ import Alert from '@mui/material/Alert'
 //   message: string
 //   severity: AlertColor
 // }
+
 export default function ToastMessage({
   duration = 3000,
   toastInfo = {

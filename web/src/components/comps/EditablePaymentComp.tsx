@@ -1,35 +1,22 @@
 import React, { useState, useEffect } from 'react'
-
 import { Select as SelectMAT, MenuItem } from '@material-ui/core'
-import { Rowing, Widgets } from '@mui/icons-material'
 import { styled } from '@mui/material/styles'
-import { gridColumnsTotalWidthSelector } from '@mui/x-data-grid'
 import { useSnackbar } from 'notistack'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
-import Select from 'react-select'
 import { v4 as uuidv4 } from 'uuid'
 
+
+
 import {
-  costSheetAdditionalChargesA,
-  csSections,
-  gstValesA,
-  paymentScheduleA,
-  paymetScheduleConstruct,
   unitsCancellation,
 } from 'src/constants/projects'
 import {
-  addCostSheetMaster,
-  addPhasePartAtax,
-  addPhaseFullCs,
-  steamBankDetailsList,
   streamProjectCSMaster,
   addPhasePaymentScheduleCharges,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import { formatIndianNumber } from 'src/util/formatIndianNumberTextBox'
-import { MultiSelectMultiLineField } from 'src/util/formFields/selectBoxMultiLineField'
 
-import { gstValesPartA } from '../../../../../RedefineV2/web/src/constants/projects'
 
 // import './styles.css'
 const StyledSelect = styled(SelectMAT)(({ theme }) => ({

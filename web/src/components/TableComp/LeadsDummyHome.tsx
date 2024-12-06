@@ -2,14 +2,8 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 // import { Link, routes } from '@redwoodjs/router'
 
-import { Fragment, useState, useEffect } from 'react'
-
-// import { XIcon } from '@heroicons/react/outline'
-import { DragDropContext, Droppable } from 'react-beautiful-dnd'
-
+import { useState, useEffect } from 'react'
 import { MetaTags } from '@redwoodjs/web'
-
-import LLeadsTableView from 'src/components/LLeadsTableView/LLeadsTableView'
 import { USER_ROLES } from 'src/constants/userRoles'
 import {
   getFinanceTransactionsByStatus,
@@ -17,12 +11,7 @@ import {
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import { prettyDate } from 'src/util/dateConverter'
-import { CustomSelect } from 'src/util/formFields/selectBoxField'
-
-import CardItem from '../leadsCard'
 import SiderForm from '../SiderForm/SiderForm'
-
-import FinanceTableView from './financeTableView'
 
 const LeadsDummyHome = ({ leadsTyper }) => {
   const { user } = useAuth()

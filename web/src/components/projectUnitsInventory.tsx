@@ -1,12 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-// import { useState } from 'react'
-// import ProjectStatsCard from '../ProjectStatsCard/ProjectStatsCard'
-// import PhaseDetailsCard from '../PhaseDetailsCard/PhaseDetailsCard'
 import { useState, useEffect } from 'react'
-
-import { CalendarIcon, EyeIcon, DownloadIcon } from '@heroicons/react/outline'
 import { Link, routes } from '@redwoodjs/router'
 import ProjectStatsCard from './ProjectStatsCard/ProjectStatsCard'
 import { getAllProjects } from 'src/context/dbQueryFirebase'

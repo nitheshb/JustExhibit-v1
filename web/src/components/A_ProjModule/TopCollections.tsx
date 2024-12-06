@@ -8,7 +8,7 @@ import {
   CartesianGrid,
   Tooltip, 
 } from 'recharts';
-import { ArrowUpRight, TrendingUp } from 'lucide-react';
+import { TrendingUp } from 'lucide-react';
 
 const TopCollections = () => {
   const data = [

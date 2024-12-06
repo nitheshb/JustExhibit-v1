@@ -11,13 +11,8 @@ import {
   Image,
   Font,
 } from '@react-pdf/renderer'
-import { format, getTime, formatDistanceToNow } from 'date-fns'
-import { Timestamp } from 'firebase/firestore'
+import { format } from 'date-fns'
 import numeral from 'numeral'
-
-import { useAuth } from 'src/context/firebase-auth-context'
-
-import { computeTotal } from './computeCsTotals'
 import { prettyDate } from './dateConverter'
 
 Font.register({

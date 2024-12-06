@@ -1,4 +1,3 @@
-import { PlusIcon } from '@heroicons/react/outline'
 import { useEffect, useState } from 'react'
 
 const UnitOverView = ({ data }) => {

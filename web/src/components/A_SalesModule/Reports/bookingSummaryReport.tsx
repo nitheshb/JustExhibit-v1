@@ -1,16 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState, useEffect } from 'react'
-
-import Paper from '@material-ui/core/Paper'
-import TableCell from '@material-ui/core/TableCell'
-import TableHead from '@material-ui/core/TableHead'
-import TableRow from '@material-ui/core/TableRow'
-
 import '../../../styles/myStyles.css'
-import { GoTrue } from '@redwoodjs/auth/dist/authClients/goTrue'
-
-import CrmProjectionReport from 'src/components/A_CrmModule/Reports/CrmProjectionReport'
 import { CountUpComp } from 'src/components/comps/countUpComp'
 import ReportSideWindow from 'src/components/SiderForm/ReportSideView'
 import { sourceListItems } from 'src/constants/projects'
@@ -20,11 +11,9 @@ import {
   steamUsersListByRole,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-
 import ProjectBookingSummaryTable from './bookingSummaryTable'
 import BookingsMonthlyStackedChart from './charts/bookingsMonthlyStackedChart'
 import PieChartComponent from './charts/salePieChart'
-import BubbleChartComponent from './charts/salesBubbleChart'
 import StackedLeadsChart from './charts/salesStackedChart'
 import EmployeeBookingSummaryTable from './empBookingSummaryTable'
 import SourceBookingSummaryTable from './sourceBookingSummaryTable'
