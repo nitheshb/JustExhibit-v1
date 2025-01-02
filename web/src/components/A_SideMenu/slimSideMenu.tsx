@@ -82,7 +82,7 @@ const SlimSideMenuBar = (props) => {
                       </g>
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px] pl-1">Home</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Home</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -127,7 +127,7 @@ const SlimSideMenuBar = (props) => {
                       ></path>
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px]  pl-1">Stalls</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Stalls</span>
                 </span>
               </span>
             </li>
@@ -163,7 +163,7 @@ const SlimSideMenuBar = (props) => {
                       />
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px]  pl-1">Bookings</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Bookings</span>
                 </span>
               </span>
             </li>
@@ -205,7 +205,7 @@ const SlimSideMenuBar = (props) => {
                       ></path>
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px] pl-1">
+                  <span className="text-[9px] font-bold tracking-[0.7px] pl-1">
                     Stall Enquiry
                   </span>
                 </span>
@@ -247,7 +247,7 @@ const SlimSideMenuBar = (props) => {
                         />
                       </svg>
                     </span>
-                    <span className="text-[11px] font-bebas tracking-[0.7px]  pl-1">
+                    <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">
                       Online Enquiry
                     </span>
                   </span>
@@ -291,7 +291,7 @@ const SlimSideMenuBar = (props) => {
                       />
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px]  pl-1">Leads Transfer</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Leads Transfer</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -329,7 +329,7 @@ const SlimSideMenuBar = (props) => {
 
                     <UserGroupIcon className="h-5 w-5 " aria-hidden="true" />
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px] pl-1">Exhibitors</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Exhibitors</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -375,7 +375,7 @@ const SlimSideMenuBar = (props) => {
                     </svg>
                   </span>
 
-                  <span className="text-[11px] font-bebas tracking-[0.7px]  pl-1">Reports</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Reports</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -420,7 +420,7 @@ const SlimSideMenuBar = (props) => {
                       ></path>
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px]  pl-1">
+                  <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">
                     Events
                   </span>
                 </span>
@@ -473,7 +473,7 @@ const SlimSideMenuBar = (props) => {
                       </g>
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px] pl-1">Tasks</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Tasks</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -518,7 +518,7 @@ const SlimSideMenuBar = (props) => {
                       ></path>
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px] pl-1">Stalls</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Stalls</span>
                 </span>
               </span>
             </li>
@@ -555,7 +555,7 @@ const SlimSideMenuBar = (props) => {
                       />
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px]  pl-1">Modify</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Modify</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -596,7 +596,7 @@ const SlimSideMenuBar = (props) => {
                       />
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px] pl-1">Gallery</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Gallery</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -641,7 +641,7 @@ const SlimSideMenuBar = (props) => {
                     </svg>
                   </span>
 
-                  <span className="text-[11px] font-bebas tracking-[0.7px]  pl-1">Reports</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Reports</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -693,7 +693,7 @@ const SlimSideMenuBar = (props) => {
                       ></path>
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px] pl-1">Events</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Events</span>
                 </span>
               </span>
             </li>
@@ -731,7 +731,7 @@ const SlimSideMenuBar = (props) => {
                       />
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px] pl-1">
+                  <span className="text-[9px] font-bold tracking-[0.7px] pl-1">
                     Connect
                   </span>
                 </span>
@@ -772,7 +772,7 @@ const SlimSideMenuBar = (props) => {
                       />
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px] pl-1">Masters</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Masters</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -808,7 +808,7 @@ const SlimSideMenuBar = (props) => {
 
                     <UserGroupIcon className="h-5 w-5 " aria-hidden="true" />
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px] pl-1">Templates</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Templates</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -848,7 +848,7 @@ const SlimSideMenuBar = (props) => {
                       />
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px] pl-1">Bank</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Bank</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -894,7 +894,7 @@ const SlimSideMenuBar = (props) => {
                     </svg>
                   </span>
 
-                  <span className="text-[11px] font-bebas tracking-[0.7px]  pl-1">Reports</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Reports</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -948,7 +948,7 @@ const SlimSideMenuBar = (props) => {
                       </g>
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px] pl-1">Tasks</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Tasks</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -995,7 +995,7 @@ const SlimSideMenuBar = (props) => {
                     </svg>
                   </span>
 
-                  <span className="text-[11px] font-bebas tracking-[0.7px]  pl-1">Marketing</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Marketing</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -1045,7 +1045,7 @@ const SlimSideMenuBar = (props) => {
                       </svg>
                     </span>
 
-                    <span className="text-[11px] font-bebas tracking-[0.7px]  pl-1">Reports</span>
+                    <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Reports</span>
                   </span>
                   <span className="flex ml-auto items-bottom">
                     <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -1100,7 +1100,7 @@ const SlimSideMenuBar = (props) => {
                       </g>
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px] pl-1">Home</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Home</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -1145,7 +1145,7 @@ const SlimSideMenuBar = (props) => {
                       ></path>
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px]  pl-1">
+                  <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">
                     Visitors
                   </span>
                 </span>
@@ -1180,7 +1180,7 @@ const SlimSideMenuBar = (props) => {
 
                     <UserGroupIcon className="h-5 w-5 " aria-hidden="true" />
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px] pl-1">Archieve</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Archieve</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -1227,7 +1227,7 @@ const SlimSideMenuBar = (props) => {
                       ></path>
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px]  pl-1">Stalls</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Stalls</span>
                 </span>
               </span>
             </li>
@@ -1274,7 +1274,7 @@ const SlimSideMenuBar = (props) => {
                       </svg>
                     </span>
 
-                    <span className="text-[11px] font-bebas tracking-[0.7px]  pl-1">
+                    <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">
                       Visitor Report
                     </span>
                   </span>
@@ -1331,7 +1331,7 @@ const SlimSideMenuBar = (props) => {
                       </g>
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px]">Tasks</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px]">Tasks</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -1376,7 +1376,7 @@ const SlimSideMenuBar = (props) => {
                       ></path>
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px]  pl-1">Documents</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Documents</span>
                 </span>
               </span>
             </li>
@@ -1418,7 +1418,7 @@ const SlimSideMenuBar = (props) => {
                     </svg>
                   </span>
 
-                  <span className="text-[11px] font-bebas tracking-[0.7px]  pl-1">
+                  <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">
                     Team Reports
                   </span>
                 </span>
@@ -1475,7 +1475,7 @@ const SlimSideMenuBar = (props) => {
                       </g>
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px] pl-1">Tasks</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Tasks</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -1520,7 +1520,7 @@ const SlimSideMenuBar = (props) => {
                       ></path>
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px]  pl-1">Payments</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Payments</span>
                 </span>
               </span>
             </li>
@@ -1556,7 +1556,7 @@ const SlimSideMenuBar = (props) => {
                       />
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px] pl-1">Bank</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Bank</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -1602,7 +1602,7 @@ const SlimSideMenuBar = (props) => {
                     </svg>
                   </span>
 
-                  <span className="text-[11px] font-bebas tracking-[0.7px]  pl-1">Reports</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Reports</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -1656,7 +1656,7 @@ const SlimSideMenuBar = (props) => {
                       </g>
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px] pl-1">Tasks</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Tasks</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -1693,7 +1693,7 @@ const SlimSideMenuBar = (props) => {
 
                     <UserGroupIcon className="h-5 w-5 " aria-hidden="true" />
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px]  pl-1">Employees</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Employees</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -1738,7 +1738,7 @@ const SlimSideMenuBar = (props) => {
                       ></path>
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px] pl-1">Assets</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Assets</span>
                 </span>
               </span>
             </li>
@@ -1775,7 +1775,7 @@ const SlimSideMenuBar = (props) => {
                       />
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px] pl-1">Bank</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Bank</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -1816,7 +1816,7 @@ const SlimSideMenuBar = (props) => {
                       />
                     </svg>
                   </span>
-                  <span className="text-[11px] font-bebas tracking-[0.7px] pl-1">Access</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Access</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
@@ -1861,7 +1861,7 @@ const SlimSideMenuBar = (props) => {
                     </svg>
                   </span>
 
-                  <span className="text-[11px] font-bebas tracking-[0.7px]  pl-1">Reports</span>
+                  <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Reports</span>
                 </span>
                 <span className="flex ml-auto items-bottom">
                   <span className="flex ml-auto items-bottom text-xs mt-2"></span>
