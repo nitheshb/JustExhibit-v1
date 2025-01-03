@@ -351,7 +351,7 @@ const DialogFormBody = ({
 
                             <div className="flex flex-col mt-0  bg-white  ">
 
-                          <p className="text-sm text-gray-800 ">
+                          <p className="text-sm text-gray-800">
                             Event Name*
                           </p>
                           <TextField label="" name="eventName" type="text" />
@@ -363,7 +363,7 @@ const DialogFormBody = ({
                           <div className=" flex-1">
 
 
-                                  <label className="label font-regular block mb-1">
+                                  <label className="label font-regular text-sm text-gray-800  block mb-1">
                                     Start Date*
                                   </label>
                                   <CustomDatePicker
@@ -390,7 +390,7 @@ const DialogFormBody = ({
                                   />
                                 </div>
                               <div className="flex-1 ">
-                                <label className="label font-regular block mb-1">
+                                <label className="label text-sm text-gray-800  font-regular block mb-1">
                                   End Date*
                                 </label>
                                 <DatePicker
