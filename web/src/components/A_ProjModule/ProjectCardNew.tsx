@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useState } from 'react'
 import { LinearProgress } from '@mui/material'
-import { Building2 } from 'lucide-react'
+import { Ticket  } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { prettyDate } from 'src/util/dateConverter'
 import SiderForm from '../SiderForm/SiderForm'
@@ -63,7 +63,7 @@ export function ProjectCard({
       <section className="flex flex-row justify-between">
         <div className="p-6 flex items-center gap-4 border-b border-gray-100">
           <div className="bg-indigo-50 bg-gradient-to-r from-indigo-400 to-cyan-400 p-3 rounded-lg">
-            <Building2 className="w-12 h-12 text-indigo-600" />
+            <Ticket className="w-12 h-12 text-indigo-600" />
           </div>
           <div className="flex-grow">
             <h3 className="font-semibold text-gray-900">
