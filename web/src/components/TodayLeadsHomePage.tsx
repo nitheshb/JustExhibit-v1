@@ -20,6 +20,14 @@ const TodayLeadsHomePage = ({ taskType }) => {
       <div className="flex  flex-row  text-gray-700">
         <div className="flex-1 overflow-auto">
           <div className="pr-2">
+
+
+          <TodayLeadsActivityListHomeView
+setisImportLeadsOpen={setisImportLeadsOpen}
+selUserProfileF={selUserProfileF}
+taskType={taskType}
+/> 
+
             {/* <div className="flex items-center justify-between py-2 ">
               <div>
                 <h2 className="text-2xl font-semibold text-gray-900 leading-light">
@@ -30,18 +38,24 @@ const TodayLeadsHomePage = ({ taskType }) => {
                 <h1> hello</h1>
               </div>
             </div> */}
-
+{/* 
             <MetaTags title="ExecutiveHome" description="ExecutiveHome page" />
             {!ready && (
-              <TodayLeadsActivityListHomeView
-                setisImportLeadsOpen={setisImportLeadsOpen}
-                selUserProfileF={selUserProfileF}
-                taskType={taskType}
-              />
-            )}
-  <div className='bg-[#fff] rounded-2xl'>
+
+
+
+
+
+       
+
+
+
+      
+    
+            )} */}
+  {/* <div className='bg-[#fff] rounded-2xl'>
   <AdminPage/>
-</div>
+</div> */}
 
           </div>
         </div>

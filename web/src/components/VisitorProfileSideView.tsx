@@ -2207,7 +2207,7 @@ export default function VisitorProfileSideView({
                   {selFeature == 'qrCode' && (
                     <>
                          <div className="mt-8 flex flex-col items-center">
-            <div ref={qrRef} className="p-4 bg-white border-2 border-gray-200 rounded-lg">
+            {/* <div ref={qrRef} className="p-4 bg-white border-2 border-gray-200 rounded-lg">
               <QRCodeSVG
                 value={JSON.stringify({name: customerDetails?.Name, email: customerDetails?.Email})}
                 size={200}
@@ -2228,12 +2228,94 @@ export default function VisitorProfileSideView({
                 className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors"
               >
                 <Copy className="w-4 h-4" />
-                Copy Data
+                Copy Data box
               </button>
             </div>
 
 <p>Data: {JSON.stringify({name: customerDetails?.Name, email: customerDetails?.Email})}</p>
+            </div> */}
+
+            <div ref={qrRef} className="p-4  bg-white  rounded-lg">
+
+            <div className="min-h-screen flex items-center justify-center ">
+      <div className="w-full max-w-md my-4 bg-white rounded-lg overflow-hidden shadow-xl">
+       
+        <div className="bg-[#ED9800] h-16"></div>
+        
+
+        <div className="p-6 space-y-6">
+
+          {/* <div className="flex items-center gap-4">
+
+          </div> */}
+
+
+          {/* <div className="text-center space-y-2">
+            <div className="flex items-center justify-center gap-2">
+
             </div>
+      
+
+          </div> */}
+
+
+          <div className="text-center text-[16px] text-[#000000] font-thin">
+            27, 28 & 29 January - 2025
+          </div>
+
+     
+          <div className="text-center space-y-4">
+            <div className="text-4xl font-bold">{customerDetails?.Name}</div>
+            {/* <div className="text-4xl font-bold">REDDY</div> */}
+            <div className="text-2xl font-normal uppercase">kite Festival Exhibition</div>
+            <div className="text-2xl">INDIA</div>
+          </div>
+
+   
+          <div className="flex flex-col items-center space-y-2">
+            <div className="w-22 h-22 bg-gray-900">
+            <QRCodeSVG
+                value={JSON.stringify({name: customerDetails?.Name, email: customerDetails?.Email})}
+                size={200}
+                level="H"
+                includeMargin={true}
+              />
+            </div>
+            <div className="text-sm">PIV-IN-2025-934325</div>
+          </div>
+        </div>
+
+
+        <div className="bg-[#ED9800] p-4">
+          <div className="text-white text-center text-[34px] font-bold">
+            VISITOR
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    
+<div className="mt-4 flex gap-4">
+              <button
+                onClick={handleDownload}
+                className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
+              >
+                <Download className="w-4 h-4" />
+                Download
+              </button>
+              <button
+                onClick={handleCopy}
+                className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors"
+              >
+                <Copy className="w-4 h-4" />
+                Copy Data box
+              </button>
+            </div>
+
+    
+
+    </div>
 
           </div>
                     </>

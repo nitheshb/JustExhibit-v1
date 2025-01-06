@@ -711,9 +711,9 @@ export default function TodayLeadsActivitySearchView({
   else if (hrs >= 17 && hrs <= 24) greet = 'Good Evening'
   return (
     <>
-      <div className="mt-1">
+      <div className="mt-2 ">
         {/* <Header /> */}
-        <div className="flex justify-center items-center text-gray-900"></div>
+        <div className="flex  justify-center items-center text-gray-900"></div>
         <div className=" justify-center items-center text-gray-900">
           {/* <h1 className="font-Playfair box-border px-0 pt-0 pb-2  md:pb-4 m-0 text-3xl font-bold tracking-wide  text-gray-900 align-baseline border-0 xl:text-3xl xl:tracking-normal md:text-3xl md:tracking-tight">
             {greet}, {user?.displayName?.toLocaleUpperCase()}
@@ -1046,8 +1046,9 @@ export default function TodayLeadsActivitySearchView({
 
 
 
-                 <div className="w-2/3  h-[450px]">
-=========
+                 <div className="w-2/3  h-[100px]">
+
+
             {/* <div className="mt-1 w-[400px] border shadow rounded-xl">
                         <RecentActivity
                           title={'My Activity'}
@@ -1063,14 +1064,14 @@ export default function TodayLeadsActivitySearchView({
 
 
                   </div>
-                  <div className="w-2/12 flex flex-col">
+                  {/* <div className="w-2/12 flex flex-col">
                     <section className="bg-white rounded-xl shadow border  flex flex-col p-4 ml-1 mb-1 w-100 ">
                       <h5 className="text-sm">{greet}...!🖐</h5>
                       <h2 className="text-md font-semibold text-black leading-light font-Playfair pb-1">
                         {user?.displayName?.toLocaleUpperCase()}
                       </h2>
 
-                      {/* <h2 className="text-sm text-gray-700 ">
+                      <h2 className="text-sm text-gray-700 ">
                     You've got {'  '}
                    <span className="inline-flex text-md leading-5 font-semibold rounded-full  text-green-800">
 
@@ -1084,7 +1085,7 @@ export default function TodayLeadsActivitySearchView({
                     </span>{' '}
                    tasks
 
-                   </h2> */}
+                   </h2>
                     </section>
                     <section className="ml-1">
                     <EventCalendar />
@@ -1103,10 +1104,12 @@ export default function TodayLeadsActivitySearchView({
                         />
                       </div>
                     </section>
-                  </div>
+                  </div> */}
+
+
                 </div>
                 <div className="flex flex-wrap">
-                  <div className="w-10/12">
+                  {/* <div className="w-10/12">
                     <TodoListView
                       moduleName={moduleName}
                       taskListA={schFetCleanData}
@@ -1120,15 +1123,15 @@ export default function TodayLeadsActivitySearchView({
                       searchKey={searchKey}
                       setSearchKey={setSearchKey}
                     />
-                  </div>
-                  <div className="w-2/12 flex flex-col">
+                  </div> */}
+                  {/* <div className="w-2/12 flex flex-col">
                     <section className="bg-white rounded  flex flex-col p-4 ml-1 mb-1 w-100 ">
                       <h5 className="text-sm">{greet}...!🖐</h5>
                       <h2 className="text-md font-semibold text-black leading-light font-Playfair pb-1">
                         {user?.displayName?.toLocaleUpperCase()}
                       </h2>
 
-                      {/* <h2 className="text-sm text-gray-700 ">
+                      <h2 className="text-sm text-gray-700 ">
                     You've got {'  '}
                    <span className="inline-flex text-md leading-5 font-semibold rounded-full  text-green-800">
 
@@ -1142,7 +1145,7 @@ export default function TodayLeadsActivitySearchView({
                     </span>{' '}
                    tasks
 
-                   </h2> */}
+                   </h2>
                     </section>
                     <section className="ml-1">
                       <TaskProgress userTodayPerfA={userTodayPerfA} />
@@ -1160,7 +1163,7 @@ export default function TodayLeadsActivitySearchView({
                         />
                       </div>
                     </section>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </>

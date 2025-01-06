@@ -52,8 +52,8 @@ const AdministrationTeamPage = (props) => {
             <div
               className={`${
                 showDetailedSideBar
-                  ? 'flex flex-row overflow-auto w-[20vw]  overflow-auto no-scrollbar text-gray-700 '
-                  : 'flex flex-row overflow-auto overflow-auto no-scrollbar  text-gray-700 '
+                  ? 'flex flex-row  w-[20vw]   no-scrollbar text-gray-700 '
+                  : 'flex flex-row  no-scrollbar  text-gray-700 '
               }`}
             >
               <SlimSideMenuBar

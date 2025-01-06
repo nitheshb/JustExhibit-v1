@@ -418,7 +418,8 @@ const HomePage = () => {
       <div className="flex w-screen h-screen text-gray-700">
         <div className="flex flex-col flex-grow">
           {/* <HeadNavBar /> */}
-          <div className="flex overflow-y-hidden flex-row overflow-auto h-[100vh]   text-gray-700 bg-gradient-to-tr from-blue-200 via-indigo-200 to-pink-200 bg-gradient-to-tr from-blue-500 from-0% via-transparent via-10% to-transparent to-40% [background-position:0%_100%,100%_0%] [background-size:50%_50%,50%_50%] [background-repeat:no-repeat]">
+          <div className="flex flex-row  h-[100vh]  text-gray-700 bg-gradient-to-tr from-blue-200 via-indigo-200 to-pink-200">
+          {/* <div className="flex overflow-y-hidden flex-row overflow-auto h-[100vh]   text-gray-700 bg-gradient-to-tr from-blue-200 via-indigo-200 to-pink-200 bg-gradient-to-tr from-blue-500 from-0% via-transparent via-10% to-transparent to-40% [background-position:0%_100%,100%_0%] [background-size:50%_50%,50%_50%] [background-repeat:no-repeat]"> */}
             {/* <HeadSideBar pgName={'home'} /> */}
             <SlimSideMenuBar
               pgName={'projectModule'}
@@ -810,7 +811,7 @@ const HomePage = () => {
                                     </section>
                                     <section className="mx-3 w-[25%] flex flex-col gap-8 ">
                                       {' '}
-                                      <div className="border shadow rounded-xl">
+                                      <div className="border bg-white shadow rounded-xl">
                                         <CalendarHome />
                                       </div>{' '}
                                     </section>

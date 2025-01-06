@@ -62,8 +62,8 @@ const MarketingModulePage = (props) => {
             <div
               className={`${
                 showDetailedSideBar
-                  ? 'flex flex-row overflow-auto w-[20vw]  overflow-auto no-scrollbar text-gray-700 '
-                  : 'flex flex-row overflow-auto overflow-auto no-scrollbar  text-gray-700 '
+                  ? 'flex flex-row  w-[20vw]   no-scrollbar text-gray-700 '
+                  : 'flex flex-row no-scrollbar  text-gray-700 '
               }`}
             >
               <SlimSideMenuBar
@@ -75,7 +75,7 @@ const MarketingModulePage = (props) => {
               />
             </div>
 
-            <div className="flex-grow  items-center overflow-y-auto  overflow-auto no-scrollbar px-300  py-300">
+            <div className="flex-grow  items-center overflow-y-auto   no-scrollbar px-300  py-300">
             <HeadNavBar2 selModule={selModule} setSelModule={setSelModule}  setViewable={setViewable} />
             {viewable === 'userProfile' && <ProfileSummary />}
 
