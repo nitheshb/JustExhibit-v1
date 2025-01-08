@@ -2309,7 +2309,7 @@ export default function VisitorProfileSideView({
                 className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors"
               >
                 <Copy className="w-4 h-4" />
-                Copy Data box
+                Copy Data
               </button>
             </div>
 

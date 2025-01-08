@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from 'src/context/firebase-auth-context'
+import PdfInvoiceGenerator from 'src/util/PdfInvoiceGenerator'
 
-const CrmUnitCostSheetView = ({ selCustomerPayload, assets, totalIs }) => {
+const CrmUnitCostSheetView = ({ selCustomerPayload, assets, totalIs,selUnitDetails,newPlotCostSheetA,   newPlotPS, }) => {
   const { user } = useAuth()
   const { orgId } = user
   const [partATotal, setPartA] = useState(0)
@@ -12,6 +13,12 @@ const CrmUnitCostSheetView = ({ selCustomerPayload, assets, totalIs }) => {
   const [addOnTotal, setPartAddOn] = useState(0)
   const [unitTotal, setUnitTotal] = useState(0)
   const [grossUnitTotal, setGrossTotal] = useState(0)
+
+  const [partATotals, setPartATotal] = useState(0)
+
+  const [netTotal, setNetTotal] = useState(0)
+ 
+
 
   console.log('payload is ', selCustomerPayload)
   useEffect(() => {
@@ -183,6 +190,28 @@ const CrmUnitCostSheetView = ({ selCustomerPayload, assets, totalIs }) => {
             </div>
           </div>
         </section>
+
+         <div  className='mt-2'>
+          
+        {/* <PdfInvoiceGenerator
+          user={user}
+          selUnitDetails={selUnitDetails}
+          myObj={newPlotCostSheetA}
+          newPlotPS={newPlotPS}
+
+          netTotal={netTotal}
+        setNetTotal={setNetTotal}
+        partATotal={partATotals}
+        partBTotal={0}
+        setPartATotal={setPartATotal}
+        
+          projectDetails={{}}
+                                      /> */}
+         </div>
+
+
+
+      
       </div>
 
     </>

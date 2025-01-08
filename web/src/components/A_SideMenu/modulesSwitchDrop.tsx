@@ -31,10 +31,10 @@ export default function ModuleSwitchDrop({
     return null
   }
   return (
-    <div className="text-right inline-block ml-2 mt-[px] ">
+    <div className="text-right inline-block ml-2  ">
       <Menu as="div" className="relative inline-block text-left">
         <div>
-          <Menu.Button className="inline-flex justify-center w-[148px] px-0 py-0 text-sm font-semibold text-black-500 bg- rounded-full bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 bg-slate-400/10 dark:highlight-white/5 flex font-semibold hover:bg-slate-400/20 items-center leading-5 px-3 py-1 rounded-full space-x-2 text-xs px-4 py-1.5">
+          <Menu.Button className="inline-flex justify-center w-[174px] ptext-sm font-semibold text-black-500 bg- rounded-full bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 bg-slate-400/10 dark:highlight-white/5   hover:bg-slate-400/20 items-center leading-5   space-x-2 text-xs px-4 py-1.5">
             <span className=" w-[130px]  text-[12px] leading-[10px] tracking-wide text-[#0091ae]  ">
               <span className="flex flex-row w-[25px]">
                 <span>{`${type} `} </span>{' '}

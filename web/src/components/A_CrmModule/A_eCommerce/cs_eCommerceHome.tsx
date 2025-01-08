@@ -21,7 +21,7 @@ const productData = [
     id: 1,
     name: "Chair",
     description: "Black chairs, outdoor",
-    price: 5990,
+    price: 999,
     image: '/chair1.png'
   },
 
@@ -29,14 +29,14 @@ const productData = [
     id: 2,
     name: "POANG",
     description: "Armchair, birch",
-    price: 12990,
+    price: 999,
     image: '/chair.png'
   },
   {
     id: 3,
     name: "BILLY",
     description: "Bookcase, white/oak",
-    price: 8990,
+    price: 999,
     image: '/table.png'
   },
   {
@@ -50,49 +50,49 @@ const productData = [
     id: 5,
     name: "KALLAX",
     description: "Shelf unit, white",
-    price: 7990,
+    price: 999,
     image: '/chair4'
   },
   {
     id: 6,
     name: "KALLAX",
     description: "Shelf unit, white",
-    price: 7990,
+    price: 999,
     image: '/chair4'
   },
   {
     id: 7,
     name: "KALLAX",
     description: "Shelf unit, white",
-    price: 7990,
+    price: 999,
     image: '/chair4'
   },
   {
     id: 8,
     name: "KALLAX",
     description: "Shelf unit, white",
-    price: 7990,
+    price: 999,
     image: '/chair4'
   },
   {
     id: 9,
     name: "KALLAX",
     description: "Shelf unit, white",
-    price: 7990,
+    price: 999,
     image: '/chair4'
   },
   {
     id: 10,
     name: "KALLAX",
     description: "Shelf unit, white",
-    price: 7990,
+    price: 999,
     image: '/chair4'
   },
   {
     id: 11,
     name: "KALLAX",
     description: "Shelf unit, white",
-    price: 7990,
+    price: 999,
     image: '/chair4'
   },
 

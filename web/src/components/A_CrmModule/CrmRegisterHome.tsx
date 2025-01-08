@@ -33,6 +33,7 @@ import {
   getBookedUnitsByProject,
   getAllProjects,
   getUnassignedCRMunits,
+  capturePaymentS,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import { computeTotal } from 'src/util/computeCsTotals'
@@ -131,7 +132,7 @@ const modifyItems = [
     status: 'pending',
   },
 ]
-const CrmRegisterModeHome = ({ leadsTyper }) => {
+const CrmRegisterModeHome = ({ leadsTyper, selCustomerPayload }) => {
   const d = new window.Date()
   const { t } = useTranslation()
   const { user } = useAuth()
@@ -209,6 +210,8 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
   const [unassignedA, setUnAssignedA] = useState([])
   const [unqueriesA, setQueriesA] = useState([])
 
+  const [openCapturePayment, setOpenCapturePayment] = useState(false)
+
   const [bookingReviewCo, setBookingReviewCo] = useState([])
   const [paidCo, setPaidCo] = useState(0)
   const [unPaidCo, setUnPaidCo] = useState(0)
@@ -280,6 +283,57 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
     //   bookingReviewA
     // )
   }
+
+
+
+
+
+
+
+
+
+  const openPaymentFun = () => {
+    setOpenCapturePayment(true)
+  }
+
+
+
+  const paymentCaptureFun = async (data, resetForm) => {
+    const {
+      pId: projectId,
+      id: unitId,
+      phaseId,
+      customerDetailsObj,
+    } = selCustomerPayload
+    
+    const customLeadObj = { Name: customerDetailsObj?.customerName1 }
+    data.attchUrl = data?.fileUploader?.url || ''
+    data.category = 'Payment'
+    
+    const x = await capturePaymentS(
+      orgId,
+      true,
+      projectId,
+      unitId,
+      8,
+      customLeadObj,
+      data,
+      user?.email,
+      enqueueSnackbar
+    )
+  }
+
+
+
+
+
+
+
+
+
+
+
+
 
   useEffect(() => {
     if(selCategory === 'paid'){
@@ -1476,7 +1530,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                     onClick={() => {
                                       setSelUnitDetails(finData)
                                       setIsSubTopicOpen(true)
-                                      setIsSubTopic('crm_KYC')
+                                      setIsSubTopic('capturePayment')
                                     }}
                                   >
                                     <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
@@ -1494,10 +1548,20 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         />
                                       </div>
                                       <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                        Payment
+                                        Payment 
                                       </h6>
                                     </div>
                                   </div>
+
+
+                                  {/* <section
+  className="text-center px-[10px] py-[2px] pt-[3px] h-[24px] bg-gradient-to-r from-[#E7E7E7] to-[#E7E7E7] text-black rounded-3xl items-center align-middle text-xs cursor-pointer hover:underline"
+  onClickCapture={() => {
+    openPaymentFun()
+  }}
+>
+  CAPTURE PAYMENT box
+</section> */}
                                   </section>}
                                    {[ 'agreement_pipeline'].includes(selCategory) &&
                                  <section>
@@ -2032,6 +2096,17 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
         selSubMenu={selSubMenu}
         selSubMenu2={selSubMenu1}
       />
+
+<SiderForm
+  open={openCapturePayment}
+  setOpen={setOpenCapturePayment}
+  title={'capturePayment'}
+  unitsViewMode={false}
+  widthClass="max-w-xl"
+  selUnitDetails={selCustomerPayload}
+  paymentCaptureFun={paymentCaptureFun}
+/>
+
       <CrmSiderForm
         open={isSubTopicOpen}
         setOpen={setIsSubTopicOpen}

@@ -79,6 +79,7 @@ const useStyles = () =>
         mr2: { marginRight: 10, paddingRight: 10 },
         ml4: { marginLeft: 20 },
         ml5: { marginLeft: 30 },
+        pt3: { paddingTop: 5 },
         pl1: { paddingLeft: 5 },
         pl2: { paddingLeft: 10 },
         pl3: { paddingLeft: 15 },
@@ -133,6 +134,18 @@ const useStyles = () =>
           borderBottom: 1,
           borderStyle: 'dashed',
           borderColor: '#DFE3E8',
+        },
+
+        
+        topBoderRadiusnew: {
+          borderTopLeftRadius: '15px',
+          borderTopRightRadius: '15px',
+        },
+
+        
+        bottomBorderRadius: {
+          borderBottomLeftRadius: '16px',
+          borderBottomRightRadius: '16px',
         },
         table: {
           display: 'flex',
@@ -252,6 +265,16 @@ const useStyles = () =>
         cellBgHead: {
           backgroundColor: '#E8E6FE',
         },
+
+
+        label: {
+          // fontWeight: 'bold',
+          color: '#000000', 
+        },
+        data: {
+          color: '#6A6A6A', 
+        },
+   
       }),
     []
   )
@@ -370,6 +393,10 @@ const MyDocument = ({
   partATotal,
   partBTotal,
   leadDetailsObj1,
+  streamUnitDetails,
+  customerInfo,
+  customerDetails,
+  selCustomerPayload,
 
   setPartATotal,
   setPartBTotal,
@@ -418,36 +445,69 @@ const MyDocument = ({
         </View>
 
         <View style={[styles.gridContainer, styles.mb10]}>
+
+
+
+
+
+
+
+
           <View
             style={[
               styles.col4,
               styles.ml4,
+              styles.mb2,
               styles.cellBgHead,
               styles.AllsmallFitter,
             ]}
           >
-            <Text style={[styles.subtitle2, styles.mb4]}>Invoice To</Text>
-            <Text style={styles.body2}>{leadDetailsObj1?.Name}</Text>
-            <Text style={styles.body2}>{leadDetailsObj1?.Address}</Text>
-            <Text style={styles.body2}>{leadDetailsObj1?.Email}</Text>
-            <Text style={styles.body2}>{leadDetailsObj1?.Mobile}</Text>
+
+
+            
+            {/* <Text style={[styles.subtitle2, styles.mb2]}>Applicant Name: {selUnitDetails?.co_Name1}</Text>
+            <Text style={[styles.subtitle2, styles.mb2]}>Company Name: {selUnitDetails?.companyName}</Text>
+            <Text style={[styles.subtitle2, styles.mb2]}>Phone Number: {selUnitDetails?.phoneNo1}</Text>
+            <Text style={[styles.subtitle2, styles.mb2]}>Email Address: {selUnitDetails?.email1}</Text> */}
+
+<Text  style={[styles.subtitle2 ,styles.mb2]}>
+  <Text style={[styles.label, styles.mb2]}>Applicant Name: </Text>
+  <Text style={[styles.data, styles.mb2]}>{selUnitDetails?.co_Name1}</Text>
+</Text>
+
+<Text  style={[styles.subtitle2 ,styles.mb2]}>
+  <Text style={[styles.label, styles.mb2]}>Company Name: </Text>
+  <Text style={[styles.data, styles.mb2]}>{selUnitDetails?.companyName}</Text>
+</Text>
+
+<Text style={[styles.subtitle2 ,styles.mb2]}>
+  <Text style={[styles.label, styles.mb2]}>Phone Number: </Text>
+  <Text style={[styles.data, styles.mb2]}>{selUnitDetails?.phoneNo1}</Text>
+</Text>
+
+<Text  style={[styles.subtitle2 ,styles.mb2]}>
+  <Text style={[styles.label, styles.mb2]}>Email Address: </Text>
+  <Text style={[styles.data, styles.mb2]}>{selUnitDetails?.email1}</Text>
+</Text>
+
+        
           </View>
 
-          <View style={[styles.col4, styles.cellBgHead, styles.AllsmallFitter]}>
+          {/* <View style={[styles.col4, styles.cellBgHead, styles.AllsmallFitter]}>
             <Text style={[styles.subtitle2, styles.mb4]}>Invoice From</Text>
-            <Text style={styles.body2}>{user?.displayName || user?.name}</Text>
-            {/* <Text style={styles.body2}>
-              {user?.role[0]}
-            </Text> */}
-            <Text style={styles.body2}>Phone:{user?.phone}</Text>
-            <Text style={styles.body2}>Maa Homes,HSR Layout,</Text>
-            <Text style={styles.body2}>Banglore.</Text>
-          </View>
+            <Text style={styles.body2}>
+            {selCustomerPayload?.co_Name1}
+            </Text>
+
+            <Text style={styles.body2}>Phone:{selUnitDetails?.charges}</Text>
+            <Text style={styles.body2}>{selUnitDetails?.gstValue}</Text>
+            <Text style={styles.body2}>{selUnitDetails?.co_Name1}</Text>
+          </View> */}
           <View style={[styles.col4, styles.cellBgHead, styles.AllsmallFitter]}>
             <View>
               <Text style={[styles.subtitle2, styles.mb2]}>
                 Date create:{' '}
-                <Text style={styles.body2}>
+                <Text style={[styles.data,styles.body2 , styles.mb2]}>
                   {fDate(prettyDate(Timestamp.now().toMillis()))}
                 </Text>
               </Text>
@@ -455,13 +515,13 @@ const MyDocument = ({
             <View style={styles.col8}>
               <Text style={[styles.subtitle2, styles.mb2]}>
                 Stall No:{' '}
-                <Text style={styles.body2}>{selUnitDetails?.unit_no}</Text>
+                <Text style={[styles.data,styles.body2 , styles.mb2]}>{selUnitDetails?.unit_no}</Text>
               </Text>
               <Text style={[styles.subtitle2, styles.mb2]}>
                 Size:{' '}
                 <Text style={styles.body2}>
                   {selUnitDetails?.size}
-                  <Text style={styles.body2}>
+                  <Text style={[styles.data,styles.body2 , styles.mb2]}>
                     {'('}
                     {selUnitDetails?.area}sqft{')'}
                   </Text>
@@ -469,26 +529,14 @@ const MyDocument = ({
               </Text>
               <Text style={[styles.subtitle2, styles.mb2]}>
                 Facing:{' '}
-                <Text style={styles.body2}>{selUnitDetails?.facing}</Text>
+                <Text style={[styles.data,styles.body2 , styles.mb2]}>{selUnitDetails?.facing}</Text>
               </Text>
             </View>
           </View>
         </View>
 
-        {/* <View style={[styles.gridContainer, styles.mb40]}>
-          <View style={styles.col6}>
-            <Text style={[styles.subtitle2, styles.mb4]}>Date create</Text>
-            <Text style={styles.body2}>
-              {fDate(invoiceDet[i].createDate)}
-            </Text>
-          </View>
-          <View style={styles.col6}>
-            <Text style={[styles.subtitle2, styles.mb4]}>Due date</Text>
-            <Text style={styles.body2}>{fDate(invoiceDet[i].dueDate)}</Text>
-          </View>
-        </View> */}
+
         <View style={[styles.topBoderRadius, styles.bg1, {  paddingBottom: '16px' }] }>
-        {/* <View style={[styles.topBoderRadius, styles.bg1, { borderBottomLeftRadius: 10, borderBottomRightRadius: 10, marginBottom: 20 }]}> */}
 
           <View style={[styles.ml4, styles.pt2, styles.mT1]}>
             <Text
@@ -503,7 +551,7 @@ const MyDocument = ({
               Cost Sheet
             </Text>
           </View>
-{/* part-1 */}
+
           <View style={[styles.fitter]}>
             <View style={[{ border: '1 solid #e5e7eb ', borderRadius: 8 }]}>
               <View
@@ -573,12 +621,12 @@ const MyDocument = ({
                   <View
                     style={[styles.tableCell_20, styles.alignRight, styles.p12]}
                   >
-                    <Text style={styles.subtitle2}>Total</Text>
+                    <Text style={styles.subtitle2}>Total </Text>
                   </View>
                 </View>
               </View>
-              <View>
-                {myObj?.map((item, index) => (
+              {/* <View>
+                {selUnitDetails?.map((item, index) => (
                   <View
                     style={[
                       styles.tableRow,
@@ -604,7 +652,7 @@ const MyDocument = ({
 
                     <View style={[styles.tableCell_35]}>
                       <Text style={styles.subtitle2}>
-                        {item?.component?.label}
+                      {selUnitDetails?.co_Name1}
                       </Text>
                     </View>
 
@@ -628,16 +676,20 @@ const MyDocument = ({
                   </View>
                 ))}
 
-                {/* part 2 */}
+        
+              </View> */}
+
+
+
+
+            {/* <View  style={[styles.totalRow, styles.mT0]}>
+              <View style={styles.tableCell_1}>
+              <Text style={styles.body2}>{selUnitDetails?.companyName}</Text>
               </View>
 
-
-
-
-            <View  style={[styles.totalRow, styles.mT0]}>
-              <View style={styles.tableCell_1}></View>
-
-              <View style={[styles.tableCell_35, styles.p10]}></View>
+              <View style={[styles.tableCell_35, styles.p10]}>
+              <Text style={styles.body2}>{selUnitDetails?.companyName}</Text>
+              </View>
 
               <View style={[styles.tableCell_20, styles.alignRight]}></View>
 
@@ -654,7 +706,74 @@ const MyDocument = ({
               >
                 <Text>{fCurrency(partATotal)}</Text>
               </View>
-            </View>
+            </View> */}
+
+
+<View
+                style={[
+                  styles.subtitle1,
+                  
+                ]}
+              >
+                <View
+                  style={[
+                    styles.tableHeader,
+                    styles.p4,
+                    { paddingBottom: '2px' },
+                  ]}
+                >
+                  <View style={[styles.tableCell_1, styles.p11]}>
+                    <Text style={styles.subtitle2}></Text>
+                  </View>
+
+                  <View style={[styles.tableCell_35, styles.p12]}>
+                    <Text style={styles.subtitle2}>
+                    <Text style={[styles.subtitle2, styles.pt2]}>{projectDetails?.projectType?.name === 'Apartment'
+                        ? 'Flat'
+                        : 'Stall'} Cost</Text>
+                    </Text>
+                  </View>
+
+                  <View
+                    style={[
+                      styles.tableCell_20,
+                      styles.alignRight,
+                      styles.p12,
+                      styles.pr4,
+                    ]}
+                  >
+                    <Text style={styles.subtitle2}> {fCurrency(selUnitDetails?.charges)}</Text>
+                  </View>
+
+                  <View
+                    style={[
+                      styles.tableCell_20,
+                      styles.alignRight,
+                      styles.p12,
+                      styles.pr4,
+                    ]}
+                  >
+                    <Text style={styles.subtitle2}>{fCurrency(selUnitDetails?.gstValue)} </Text>
+                  </View>
+
+                  <View
+                        style={[
+                          styles.tableCell_20,
+                          styles.alignRight,
+                          styles.p12,
+                          styles.pr4,
+                        ]}
+                  >
+                    <Text style={styles.subtitle2}>{fCurrency(selUnitDetails?.gstValue)}</Text>
+                  </View>
+
+                  <View
+                    style={[styles.tableCell_20, styles.alignRight, styles.p12]}
+                  >
+                    <Text style={styles.subtitle2}>{fCurrency(selUnitDetails?.TotalNetSaleValueGsT)}</Text>
+                  </View>
+                </View>
+              </View>
 
 
 
@@ -1611,6 +1730,7 @@ const PdfInvoiceGenerator = ({
   setPartBTotal,
   projectDetails,
   leadDetailsObj1,
+  customerDetails,
 }) => {
   console.log('overall cost sheet is ', newPlotPS)
   return (
