@@ -422,10 +422,10 @@ const MyDocument = ({
           <View
             style={[styles.col6, styles.smallFitter, styles.pr3, styles.ml1]}
           >
-            <Image source="/ps_logo.png" style={{ width: 85, height: 35 }} />
-            <Text style={[styles.h4, styles.ml1]}>
+            {/* <Image source="/ps_logo.png" style={{ width: 85, height: 35 }} /> */}
+            {/* <Text style={[styles.h4, styles.ml1]}>
               {projectDetails?.eventName}
-            </Text>
+            </Text> */}
             {/* <Text>{myObj} </Text> */}
           </View>
           <View style={[styles.col6]}>
