@@ -60,7 +60,7 @@ const CrmHome = ({ setisImportLeadsOpen, selUserProfileF, taskType }) => {
               let pro
               let y = []
               setTodaySchL([])
-              console.log('git values is 0', querySnapshot.docs[0].id)
+              console.log('git values is 0', querySnapshot.docs[0]?.id)
               const projects = querySnapshot.docs.map(async (docSnapshot) => {
                 const x = docSnapshot.data()
                 const { staDA } = x

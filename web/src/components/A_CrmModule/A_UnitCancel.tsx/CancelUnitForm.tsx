@@ -27,6 +27,18 @@ const CancelUnitForm = ({ selUnitDetails, bookCompSteps, bookCurentStep }) => {
   const [selDays, setSelDays] = useState(5)
   const [bookingProgress, setBookingProgress] = useState(true)
   const [unitTransactionsA, setUnitTransactionsA] = useState([])
+  const [selectedReason, setSelectedReason] = useState('')
+  const [showOtherReason, setShowOtherReason] = useState(false)
+
+  const cancellationReasons = [
+    'Payment Not Received',
+    'Stall No Longer Available',
+    'Payment Confirmation Pending',
+    'Interested in other expo',
+    'Lead Requested Cancellation',
+    'Awaiting Client Response',
+    'Other reasons'
+  ]
 
   useEffect(() => {
     getAllTransactionsUnit()
@@ -128,6 +140,25 @@ const CancelUnitForm = ({ selUnitDetails, bookCompSteps, bookCurentStep }) => {
     })
   }
 
+  const handleReasonSelection = (reason, formik) => {
+    if (reason === 'Other reasons') {
+      setShowOtherReason(true)
+      setSelectedReason(reason)
+      formik.setFieldValue('blockReason', '')
+    } else {
+      setShowOtherReason(false)
+      setSelectedReason(reason)
+      formik.setFieldValue('blockReason', reason)
+    }
+  }
+
+  const handleClearSelection = (formik) => {
+    setSelectedReason('')
+    setShowOtherReason(false)
+    formik.setFieldValue('blockReason', '')
+    formik.resetForm()
+  }
+
   const initialState = {
     blockReason: '',
   }
@@ -140,20 +171,20 @@ const CancelUnitForm = ({ selUnitDetails, bookCompSteps, bookCurentStep }) => {
   }
   return (
     <>
-      <section className="bg-blueGray-50 ">
+      <section className="">
         <div className="w-full  mx-auto ">
-          <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-[#F9FBFB] border-0 ">
-            <div className="rounded-t bg-[#F1F5F9] mb-0 px-3 py-2">
-              <div className="text-center flex justify-between">
-                <p className="text-xs font-extrabold tracking-tight uppercase font-body my-1">
-                  Block Unit
-                </p>
-              </div>
-            </div>
+          <div className="relative flex flex-col min-w-0 break-words w-full mb-6  ">
             <div className="mx-2 o my-10 mt-4 ">
               <div className="bg-white p-10 rounded-xl">
-                <h1 className="text-center text-xl font-semibold text-gray-500">
-                  Are you Sure to Canel this booking?
+                <div className="flex items-center justify-center mb-6">
+                  <div className="flex items-center bg-gray-50 px-4 py-2 rounded-lg">
+                    <span className="text-lg mr-2">₹</span>
+                    <span className="text-gray-600">Refund amount will be added to customer wallet for withdrawal</span>
+                  </div>
+                </div>
+
+                <h1 className="text-center text-xl font-semibold text-gray-500 mb-6">
+                  Are you Sure to Cancel this booking?
                 </h1>
 
                 <Formik
@@ -167,26 +198,65 @@ const CancelUnitForm = ({ selUnitDetails, bookCompSteps, bookCurentStep }) => {
                 >
                   {(formik) => (
                     <Form className="mt-8">
-                      <div className="flex justify-center border-2 py-2 px-6 rounded-xl">
-                        <input
-                          type="text"
-                          name="blockReason"
-                          placeholder="Write Cancellation Reason"
-                          className="w-full outline-none text-gray-700 text-lg"
-                          onChange={(e) => {
-                            formik.setFieldValue('blockReason', e.target.value)
-                          }}
-                        />
+                      <div className="mb-6">
+                        <h3 className="text-lg font-semibold text-gray-800 mb-4">Reason for cancellation</h3>
+                        
+                        <div className="grid grid-cols-2 gap-3 mb-6">
+                          {cancellationReasons.map((reason, index) => (
+                            <div 
+                              key={index}
+                              className="flex items-center cursor-pointer py-1"
+                              onClick={() => handleReasonSelection(reason, formik)}
+                            >
+                              <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center mr-3 ${
+                                selectedReason === reason 
+                                  ? 'border-orange-500 bg-white' 
+                                  : 'border-orange-500 bg-white'
+                              }`}>
+                                {selectedReason === reason && (
+                                  <div className="w-3 h-3 rounded-full bg-orange-500"></div>
+                                )}
+                              </div>
+                              <span className="text-gray-700 text-sm">{reason}</span>
+                            </div>
+                          ))}
+                        </div>
+
+                        {showOtherReason && (
+                          <div className="mb-4 mt-4">
+                            <input
+                              type="text"
+                              name="blockReason"
+                              placeholder="Type your reason here..."
+                              className="w-full p-3 border border-gray-300 rounded-lg outline-none text-gray-700 focus:border-orange-500 focus:ring-1 focus:ring-orange-500"
+                              onChange={(e) => {
+                                formik.setFieldValue('blockReason', e.target.value)
+                              }}
+                              value={formik.values.blockReason}
+                            />
+                          </div>
+                        )}
+
                         <ErrorMessage
                           component="div"
                           name={'blockReason'}
-                          className="error-message text-red-700 text-xs p-1 mx-auto"
+                          className="error-message text-red-600 text-sm mt-1"
                         />
+                      </div>
+
+                      <div className="flex justify-between items-center pt-4">
+                        <button
+                          type="button"
+                          onClick={() => handleClearSelection(formik)}
+                          className="text-gray-600 font-medium px-8 py-3 rounded-lg text-md hover:bg-gray-50 border border-gray-300"
+                        >
+                          Clear
+                        </button>
                         <button
                           type="submit"
-                          className="bg-[#FFCD3E]  text-green-50 font-semibold px-6 py-2 rounded-xl text-md"
+                          className="bg-orange-500 hover:bg-orange-600 text-white font-medium px-8 py-3 rounded-lg text-md shadow-sm"
                         >
-                          Cancel Booking
+                          Cancel booking
                         </button>
                       </div>
                     </Form>
@@ -195,7 +265,7 @@ const CancelUnitForm = ({ selUnitDetails, bookCompSteps, bookCurentStep }) => {
               </div>
             </div>
 
-            {bookingProgress && (
+            {/* {bookingProgress && (
               <section className="mb-3">
                 <div className="mx-auto flex mt-6 flex-row  ">
                   <section className="ml-3 w-[300px]">
@@ -217,7 +287,6 @@ const CancelUnitForm = ({ selUnitDetails, bookCompSteps, bookCurentStep }) => {
                       </span>
                     </div>
                   </section>
-                  {/*  */}
                   <section className="ml-3 w-[300px]">
                     <div className="flex items-center">
                       {bookCompSteps?.includes('CS_updated') && (
@@ -254,7 +323,7 @@ const CancelUnitForm = ({ selUnitDetails, bookCompSteps, bookCurentStep }) => {
                       </span>
                     </div>
                   </section>
-                  {/*  */}
+   
                   <section className="ml-3 w-[300px]">
                     <div className="flex items-center">
                       {bookCompSteps?.includes('customer_created') && (
@@ -295,7 +364,7 @@ const CancelUnitForm = ({ selUnitDetails, bookCompSteps, bookCurentStep }) => {
                       </span>
                     </div>
                   </section>
-                  {/*  */}
+            
                   <section className="ml-4 w-[300px]">
                     <div className="flex items-center">
                       {bookCompSteps?.includes('notify_to_manager') && (
@@ -317,7 +386,7 @@ const CancelUnitForm = ({ selUnitDetails, bookCompSteps, bookCurentStep }) => {
                   </section>
                 </div>
               </section>
-            )}
+            )} */}
           </div>
         </div>
       </section>

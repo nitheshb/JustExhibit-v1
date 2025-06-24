@@ -47,15 +47,19 @@ const AdministrationTeamPage = (props) => {
       <div className="flex w-screen h-screen text-gray-700">
         <div className="flex flex-col flex-grow">
           {/* <HeadNavBar /> */}
-          {}
-          <div className="flex flex-row  h-[100vh]  text-gray-700 bg-gradient-to-tr from-blue-200 via-indigo-200 to-pink-200">
-            <div
+          { }
+          <div className="flex flex-col text-gray-700  overflow-hidden [scrollbar-width:none] [-ms-overflow-style:none] ">
+            {/* <div
               className={`${
                 showDetailedSideBar
                   ? 'flex flex-row  w-[20vw]   no-scrollbar text-gray-700 '
                   : 'flex flex-row  no-scrollbar  text-gray-700 '
               }`}
-            >
+            > */}
+
+
+            <HeadNavBar2 selModule={selModule} setSelModule={setSelModule} setViewable={setViewable} />
+            <div className='flex overflow-y-auto mb-1'>
               <SlimSideMenuBar
                 pgName={'marketingModule'}
                 sourceLink={'marketingModule'}
@@ -63,20 +67,17 @@ const AdministrationTeamPage = (props) => {
                 setViewable={setViewable}
                 viewable={viewable}
               />
-            </div>
+              <div className="flex-grow  items-center overflow-y-auto  overflow-auto no-scrollbar px-300  py-300">
+                {viewable === 'userProfile' && <ProfileSummary />}
 
-            <div className="flex-grow  items-center overflow-y-auto  overflow-auto no-scrollbar px-300  py-300">
-            <HeadNavBar2 selModule={selModule} setSelModule={setSelModule}  setViewable={setViewable} />
-            {viewable === 'userProfile' && <ProfileSummary />}
-
-              {viewable === 'Today1' && (
-                <AdminSupportHome leadsTyper={undefined} />
-              )}
-                       {viewable === 'Team Lead Report' && (
-                <>
-                <AdminSummaryReport/>
-                  {/* <ReportMain /> */}
-                  {/* <LeadsTeamReportBody
+                {viewable === 'Today1' && (
+                  <AdminSupportHome leadsTyper={undefined} />
+                )}
+                {viewable === 'Team Lead Report' && (
+                  <>
+                    <AdminSummaryReport />
+                    {/* <ReportMain /> */}
+                    {/* <LeadsTeamReportBody
                     project={{
                       area: 1000,
                       builderName: 'hello',
@@ -86,10 +87,11 @@ const AdministrationTeamPage = (props) => {
                     }}
                     isEdit={false}
                   /> */}
-                </>
-              )}
+                  </>
+                )}
+              </div>
             </div>
-
+            {/* </div> */}
           </div>
         </div>
       </div>

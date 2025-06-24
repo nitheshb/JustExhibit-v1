@@ -342,8 +342,13 @@ const FinanceHomePagePage = () => {
       <div className="flex w-screen h-screen text-gray-700">
         <div className="flex flex-col flex-grow">
           {/* <HeadNavBar /> */}
-          <div className="flex flex-row  text-gray-700 bg-gradient-to-tr from-blue-200 via-indigo-200 to-pink-200">
-            <SlimSideMenuBar
+          <div className="flex flex-col text-gray-700  overflow-hidden [scrollbar-width:none] [-ms-overflow-style:none] ">
+
+            <HeadNavBar2 selModule={selModule} setSelModule={setSelModule}  setViewable={setViewable} />
+
+
+               <div className='flex overflow-y-auto mb-1'>
+                            <SlimSideMenuBar
               pgName={'financeModule'}
               sourceLink={'financeModule'}
               showSideView1={undefined}
@@ -351,12 +356,15 @@ const FinanceHomePagePage = () => {
               viewable={viewable}
             />
 
-            <div className="w-full flex-grow  my- border-t  items-center overflow-y-auto bg-blue h-[98%]  py-300">
+
+                          <div className="flex-grow items-center">
+
+
+                                      <div className="w-full flex-grow  items-center">
               {/* <HeadNavBarAccounts
                 selModule={selModule}
                 setSelModule={setSelModule}
               />   */}
-              <HeadNavBar2 selModule={selModule} setSelModule={setSelModule}  setViewable={setViewable} />
               {viewable === 'userProfile' && <ProfileSummary />}
               {(viewable === 'Today1' || viewable === 'Home') && (
                 <FinanceHome leadsTyper={undefined} />
@@ -1048,6 +1056,13 @@ const FinanceHomePagePage = () => {
               data={project}
               widthClass="max-w-2xl"
             />
+</div>
+
+  
+               </div>
+
+
+
           </div>
           <MetaTags title="ExecutiveHome" description="ExecutiveHome page" />
         </div>

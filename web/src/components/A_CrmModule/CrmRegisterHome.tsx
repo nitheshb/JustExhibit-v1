@@ -21,7 +21,7 @@ import {
   InformationCircleIcon,
 } from '@heroicons/react/solid'
 import CalendarMonthTwoToneIcon from '@mui/icons-material/CalendarMonthTwoTone'
-import {} from '@heroicons/react/solid'
+import { } from '@heroicons/react/solid'
 import { Box, LinearProgress, useTheme } from '@mui/material'
 import { startOfDay } from 'date-fns'
 import { useTranslation } from 'react-i18next'
@@ -282,7 +282,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
   }
 
   useEffect(() => {
-    if(selCategory === 'paid'){
+    if (selCategory === 'paid') {
       setFilteredDataA()
     }
     getLeadsDataFun(projectList, ['booked', 'Booked'])
@@ -415,7 +415,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
           return a.unit_no - b.unit_no
         })
 
-           // usersListA.sort((a, b) => {
+        // usersListA.sort((a, b) => {
         //   return b?.booked_on || 0 - b?.booked_on || 0
         // })
 
@@ -432,15 +432,15 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
 
           await setQueryResult(usersListA)
           await setFilteredDataA(usersListA)
-          await setPaidA(usersListA?.filter((d) =>  d.T_balance<=0))
-          await setunPaidA(usersListA?.filter((d) =>  d.T_balance>0))
+          await setPaidA(usersListA?.filter((d) => d.T_balance <= 0))
+          await setunPaidA(usersListA?.filter((d) => d.T_balance > 0))
 
-           await setPaidCo(usersListA?.filter((d) =>  d.T_balance<=0).length)
-          await setUnPaidCo(usersListA?.filter((d) =>  d.T_balance>0).length)
+          await setPaidCo(usersListA?.filter((d) => d.T_balance <= 0).length)
+          await setUnPaidCo(usersListA?.filter((d) => d.T_balance > 0).length)
           await setSearchKeyField('')
 
         }
-        else if(statusFil.includes('paid')){
+        else if (statusFil.includes('paid')) {
           await setFilteredDataA(usersListA)
 
         }
@@ -488,19 +488,19 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
   const searchLogic = async (searchKey, fetchedArray) => {
     if (!searchKey) return setFilteredDataA(fetchedArray)
 
-      const lowerSearchKey = searchKey.toLowerCase()
+    const lowerSearchKey = searchKey.toLowerCase()
 
-      const z = fetchedArray.filter((item) => {
-        return (
-          (item?.customerDetailsObj?.customerName1 &&
-            item?.customerDetailsObj?.customerName1
-              ?.toLowerCase()
-              ?.includes(lowerSearchKey)) ||
-          (item?.unit_no &&
-            item?.unit_no?.toString()?.toLowerCase()?.includes(lowerSearchKey))
-        )
-      })
-      await setFilteredDataA(z)
+    const z = fetchedArray.filter((item) => {
+      return (
+        (item?.customerDetailsObj?.customerName1 &&
+          item?.customerDetailsObj?.customerName1
+            ?.toLowerCase()
+            ?.includes(lowerSearchKey)) ||
+        (item?.unit_no &&
+          item?.unit_no?.toString()?.toLowerCase()?.includes(lowerSearchKey))
+      )
+    })
+    await setFilteredDataA(z)
   }
   const searchBar = async (searchKey) => {
     // if (statusFil === 'booked') {
@@ -512,13 +512,13 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
     //   return a.unit_no - b.unit_no
     // })
     console.log('iam in searchKey', searchKey, !searchKey)
-    if(selCategory === 'booked'){
+    if (selCategory === 'booked') {
       searchLogic(searchKey, queryResult)
     }
-    if(selCategory === 'unPaid'){
+    if (selCategory === 'unPaid') {
       searchLogic(searchKey, unPaidA)
     }
-    if(selCategory === 'paid'){
+    if (selCategory === 'paid') {
       searchLogic(searchKey, paidA)
     }
     else if (selCategory === 'agreement_pipeline') {
@@ -530,9 +530,9 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
     else if (selCategory === 'registered') {
       searchLogic(searchKey, registeredA)
     }
-     else if (selCategory === 'possession') {
+    else if (selCategory === 'possession') {
       searchLogic(searchKey, posessionA)
-     }
+    }
     else if (selCategory === 'unassigned') {
       // searchLogic(searchKey, unassignedA)
       searchLogic(searchKey, crmCustomersDBData)
@@ -574,15 +574,12 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
   }
   return (
     <>
-      <div className=" font-rubikF mt-2 bg-white rounded-t-lg  max-w-7xl mx-auto ">
+      <div className="mt-2   mx-auto ">
         <div className="">
-          <div
-            className="
-            "
-          >
-            <div className="flex items-center flex-row flex-wrap justify-between py-1 pb-5  px-3 py-3 bg-gray-50 rounded-t-md ">
-              <h2 className="text-md font-semibold text-black leading-light font-Playfair">
-                Stalls
+          <div className="mx-2">
+            <div className="flex items-center flex-row flex-wrap justify-between py-1 pb-5  px-3 py-3  ">
+              <h2 className="font-manrope font-bold text-xl leading-[100%] tracking-normal text-[#1A1A1A]">
+                Bookings
               </h2>
 
               <div className="flex">
@@ -637,7 +634,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                 </h2>
               </div> */}
 
-              <div className=" border-gray-900  bg-[#F1F5F9] rounded-t-lg flex flex-row justify-between">
+              <div className=" border-gray-900 flex flex-row justify-between">
                 <ul
                   className="flex   rounded-t-lg "
                   id="myTab"
@@ -658,35 +655,33 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                         role="presentation"
                       >
                         <button
-                          className={`inline-block py-3 mr-3 px-1 text-sm font-medium  font-rubikF text-center text-black rounded-t-lg border-b-2  hover:text-black hover:border-gray-300   ${
-                            selCategory === d.val
+                          className={`inline-block py-3 mr-3 px-1 text-sm font-medium  font-rubikF text-center text-black rounded-t-lg border-b-2  hover:text-black hover:border-gray-300   ${selCategory === d.val
                               ? 'border-black text-black'
                               : 'border-transparent'
-                          }`}
+                            }`}
                           type="button"
                           role="tab"
                           onClick={() => setSelCategory(d.val)}
                         >
                           {`${d.lab} `}
-                          <span className="border border-gray-300 text-gray-800 px-1 py-1 rounded-full ml-[4px] text-[10px] ">
-                            {d.val === 'booked' && (
-                              <span>{bookingReviewCo}</span>
-                            )}
-                            {d.val === 'paid' && (
-                              <span>{paidCo}</span>
-                            )}
-                            {d.val === 'unpaid' && <span>{unPaidCo}</span>}
-                            {d.val === 'registered' && (
-                              <span>{registeredCo}</span>
-                            )}
-                            {d.val === 'possession' && (
-                              <span>{posessionCo}</span>
-                            )}
-                            {d.val === 'unAssigned_crm' && (
-                              <span>{unassignedCo}</span>
-                            )}
-                            {d.val === 'queries' && <span>{unassignedCo}</span>}
+
+
+
+                          <span className="text-gray-800 px-1 py-1 rounded-full ml-[1px] text-[14px]">
+                            {d.val === 'booked' && `(${bookingReviewCo})`}
+                            {d.val === 'paid' && `(${paidCo})`}
+                            {d.val === 'unpaid' && `(${unPaidCo})`}
+                            {d.val === 'registered' && `(${registeredCo})`}
+                            {d.val === 'possession' && `(${posessionCo})`}
+                            {d.val === 'unAssigned_crm' && `(${unassignedCo})`}
+                            {d.val === 'queries' && `(${unassignedCo})`}
                           </span>
+
+
+
+
+
+
                           {/* <span className="bg-gray-100 px-2 py-1 rounded-full">
                           {/* {rowsCounter(leadsFetchedData, d.val).length} */}
                         </button>
@@ -716,9 +711,8 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                 </div>
               </div>
               <div
-                className={`${
-                  showSettings ? 'hidden' : ''
-                } flex flex-row py-2 justify-between `}
+                className={`${showSettings ? 'hidden' : ''
+                  } flex flex-row py-2 justify-between `}
               >
                 <div className="flex flex-row w-full">
                   <span className="flex ml-2 mr-2 h-[34px] bg-gray-50 border border-gray-300 border-solid box-border w-1/3 rounded-md">
@@ -775,7 +769,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                     />
                   </div> */}
 
-                  <span className="mt-2 ml-2 text-red-400 cursor-pointer text-xs" onClick={()=> setSearchKeyField('')}>
+                  <span className="mt-2 ml-2 text-red-400 cursor-pointer text-xs" onClick={() => setSearchKeyField('')}>
                     {' '}
                     Clear
                   </span>
@@ -792,9 +786,8 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                 {leadsTyper == 'inProgress' && (
                   <span className="inline-flex p-1 border bg-gray-200 rounded-md">
                     <button
-                      className={`px-2 py-1  rounded ${
-                        ready ? 'bg-white shadow' : ''
-                      }`}
+                      className={`px-2 py-1  rounded ${ready ? 'bg-white shadow' : ''
+                        }`}
                       onClick={() => setReady(true)}
                     >
                       <svg
@@ -813,9 +806,8 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                       </svg>
                     </button>
                     <button
-                      className={`px-2 py-1  rounded ${
-                        !ready ? 'bg-white shadow' : ''
-                      }`}
+                      className={`px-2 py-1  rounded ${!ready ? 'bg-white shadow' : ''
+                        }`}
                       onClick={() => setReady(false)}
                     >
                       <svg
@@ -879,7 +871,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                 )
                               }
                             >
-                              <div className="m-1 pt- pb-3 bg-white rounded-lg border border-gray-200">
+                              <div className="m-1 pt- pb-3 bg-white rounded-lg">
                                 <section className="flex flex-row px-3  pt-2 justify-between">
                                   <div className="flex flex-row">
                                     <section className="bg-violet-100  items-center rounded-2xl shadow-xs flex flex-col px-2 py-1">
@@ -959,21 +951,21 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                               _this + val.TotalNetSaleValueGsT
                                             )
                                           },
-                                          0) || 0) +
-                                            finData?.addChargesCS?.reduce(
-                                              (partialSum, obj) =>
-                                                partialSum +
-                                                Number(
-                                                  computeTotal(
-                                                    obj,
-                                                    finData?.super_built_up_area ||
-                                                      finData?.area
-                                                        ?.toString()
-                                                        ?.replace(',', '')
-                                                  )
-                                                ),
-                                              0
-                                            ) || 0
+                                            0) || 0) +
+                                          finData?.addChargesCS?.reduce(
+                                            (partialSum, obj) =>
+                                              partialSum +
+                                              Number(
+                                                computeTotal(
+                                                  obj,
+                                                  finData?.super_built_up_area ||
+                                                  finData?.area
+                                                    ?.toString()
+                                                    ?.replace(',', '')
+                                                )
+                                              ),
+                                            0
+                                          ) || 0
                                         )?.toLocaleString('en-IN')}
                                       </div>
                                     </div>
@@ -991,7 +983,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                       {(
                                         (finData?.T_review || 0) +
                                         (finData?.T_approved || 0)
-                                        (finData?.T_paid || 0)
+                                          (finData?.T_paid || 0)
                                       )?.toLocaleString('en-IN')}
                                     </div>
                                   </section>
@@ -1068,13 +1060,12 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
 
                                 <div className="w-[253px] mx-4 left-[25px] mt-3 ml-4 justify-start items-center gap-2 inline-flex">
                                   <div
-                                    className={`grow shrink basis-0 px-2.5 py-1.5 rounded-[16px] flex-col justify-center items-center gap-2 inline-flex ${
-                                      finData?.man_cs_approval == 'approved'
+                                    className={`grow shrink basis-0 px-2.5 py-1.5 rounded-[16px] flex-col justify-center items-center gap-2 inline-flex ${finData?.man_cs_approval == 'approved'
                                         ? 'bg-[#CCC5F7]'
                                         : finData?.man_cs_approval == 'rejected'
-                                        ? 'bg-[#ffdbdb]'
-                                        : 'bg-[#F1F5F9] '
-                                    }  p-3 rounded-md mx-1`}
+                                          ? 'bg-[#ffdbdb]'
+                                          : 'bg-[#F1F5F9] '
+                                      }  p-3 rounded-md mx-1`}
                                     style={{
                                       display: 'inline-block',
                                       alignSelf: 'flex-end',
@@ -1092,13 +1083,12 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                     </div>
                                   </div>
                                   <div
-                                    className={`grow shrink basis-0 px-2.5 py-1.5 bg-gray-200 rounded-[16px] flex-col justify-center items-center gap-2 inline-flex ${
-                                      finData?.kyc_status == 'approved'
+                                    className={`grow shrink basis-0 px-2.5 py-1.5 bg-gray-200 rounded-[16px] flex-col justify-center items-center gap-2 inline-flex ${finData?.kyc_status == 'approved'
                                         ? 'bg-[#CCC5F7]'
                                         : finData?.kyc_status == 'rejected'
-                                        ? 'bg-[#ffdbdb]'
-                                        : 'bg-[#F1F5F9] '
-                                    }  p-3 rounded-md mx-1`}
+                                          ? 'bg-[#ffdbdb]'
+                                          : 'bg-[#F1F5F9] '
+                                      }  p-3 rounded-md mx-1`}
                                     style={{
                                       display: 'inline-block',
                                       alignSelf: 'flex-end',
@@ -1121,7 +1111,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                       </li>
                     </ul>
                   )}
-                  {['booked','unpaid','paid', 'agreement_pipeline', 'agreement', 'registered','construction', 'possession', 'unAssigned_crm', 'queries'].includes(selCategory) &&
+                  {['booked', 'unpaid', 'paid', 'agreement_pipeline', 'agreement', 'registered', 'construction', 'possession', 'unAssigned_crm', 'queries'].includes(selCategory) &&
                     !horizontalMode &&
                     filteredDataA.map((finData, c) => {
                       const {
@@ -1141,7 +1131,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                       } = finData
                       // console.log('fin data is ', finData)
                       return (
-                        <section key={c} className="border border-b-0 ">
+                        <section key={c} className=" ">
                           <section className="flex flex-row bg-gradient-to-r from-[#Fff] to-[#fff]">
                             <div className="w-[387px]">
                               <div className="flex flex-row   ">
@@ -1218,7 +1208,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                               <span className="  text-[10px] h-[20px]  text-[#005E36] font-bodyLato font-[600] mt-[2px] border border-[#ECFDF5]  py-[2px] rounded-xl mr-1 ">
                                                 {projName}{' '}
                                               </span>
-{/*
+                                              {/*
                                               <span className="  text-[10px] h-[20px] text-[#005E36] font-bodyLato font-[600] mt-[2px] border border-[#ECFDF5] px-[6px] py-[2px] rounded-xl mr-1 ">
                                                 Booked:{' '}
                                                 {prettyDate(
@@ -1281,8 +1271,8 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                     <div className="text-zinc-800 text-[12px]  font-['Lato'] tracking-wide">
                                       ₹
                                       {(
-                                            finData?.T_total || finData?.T_Total
-                                          )?.toLocaleString('en-IN')}
+                                        finData?.T_total || finData?.T_Total
+                                      )?.toLocaleString('en-IN')}
                                     </div>
                                   </section>
                                   {/* section-2 */}
@@ -1303,10 +1293,10 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                     <div className="text-zinc-800 text-[12px] font-bold font-['Lato'] tracking-wide">
                                       ₹
                                       {(
-                                            (finData?.T_review || 0) +
-                                            (finData?.T_approved || 0) +
-                                            (finData?.T_paid || 0)
-                                          ).toLocaleString('en-IN') || 0}
+                                        (finData?.T_review || 0) +
+                                        (finData?.T_approved || 0) +
+                                        (finData?.T_paid || 0)
+                                      ).toLocaleString('en-IN') || 0}
                                     </div>
                                   </section>
                                   {/* section- 3 */}
@@ -1317,20 +1307,20 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                     <div className="text-zinc-800 text-[12px] font-bold font-['Lato'] tracking-wide">
                                       ₹
                                       {finData?.T_balance?.toLocaleString(
-                                            'en-IN'
-                                          )}
+                                        'en-IN'
+                                      )}
                                     </div>
                                   </section>
                                 </div>
                                 <div className="flex flex-row mx-1 pt-">
-                                <RoundedProgressBar progress={
-                                      ((finData?.T_review || 0) +
+                                  <RoundedProgressBar progress={
+                                    ((finData?.T_review || 0) +
                                       (finData?.T_approved || 0) +
-                                      (finData?.T_paid || 0)/ (
+                                      (finData?.T_paid || 0) / (
                                         finData?.T_total || finData?.T_Total
                                       )) *
-                                      100
-                                    }/>
+                                    100
+                                  } />
                                 </div>
                               </div>
                             </div>
@@ -1347,7 +1337,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                   />
                                   <section className="font-bodyLato font-semibold text-xs m-1 w-[61%] ">
                                     <section className="flex flex-col  w-full mt-">
-                                    <p className="flex flex-row justify-between text-zinc-500 text-[11px] font-normal font-['Lato'] tracking-wide">
+                                      <p className="flex flex-row justify-between text-zinc-500 text-[11px] font-normal font-['Lato'] tracking-wide">
                                         Total Cost: ₹
                                         <div>
                                           {(
@@ -1385,351 +1375,333 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                               <div className="flex flex-col   rounded-md  py-1 ">
                                 <div className="flex flex-row  px-1">
                                   {/* section 2 */}
-                                 {['booked','unpaid','paid', 'selCategory'].includes(selCategory) &&
-                                 <section>
-                                 <div
-                                    className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
-                                      finData?.man_cs_approval == 'approved'
-                                        ? 'bg-[#CCC5F7]'
-                                        : finData?.man_cs_approval == 'rejected'
-                                        ? 'bg-[#ffdbdb]'
-                                        : 'bg-[#F1F5F9] '
-                                    }  p-3 rounded-md mx-1`}
-                                    style={{
-                                      display: 'inline-block',
-                                      alignSelf: 'flex-end',
-                                    }}
-                                    onClick={() => {
-                                      setSelUnitDetails(finData)
-                                      setIsSubTopicOpen(true)
-                                      setIsSubTopic('crm_cs_approval')
-                                    }}
-                                  >
-                                    <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
-                                      <div className="flex flex-none items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
-                                        <ShoppingCartIcon
-                                          className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
-                                            finData?.man_cs_approval ===
-                                            'approved'
-                                              ? 'text-green-900'
-                                              : 'text-gray-600 '
-                                          }`}
-                                          aria-hidden="true"
-                                        />
-                                      </div>
-                                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                        AddOns
-                                      </h6>
-                                    </div>
-                                  </div>
-                                  {/* section 3*/}
-                                  <div
-                                    className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
-                                      finData?.kyc_status == 'approved'
-                                        ? 'bg-[#CCC5F7]'
-                                        : finData?.kyc_status == 'rejected'
-                                        ? 'bg-[#ffdbdb]'
-                                        : 'bg-[#F1F5F9] '
-                                    }  p-3 rounded-md mx-1`}
-                                    style={{
-                                      display: 'inline-block',
-                                      alignSelf: 'flex-end',
-                                    }}
-                                    onClick={() => {
-                                      setSelUnitDetails(finData)
-                                      setIsSubTopicOpen(true)
-                                      setIsSubTopic('crm_KYC')
-                                    }}
-                                  >
-                                    <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
-                                      <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                        <NewspaperIcon
-                                          className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
-                                            finData?.kyc_status == 'approved'
-                                              ? 'bg-[#CCC5F7]'
-                                              : finData?.kyc_status ==
-                                                'rejected'
+                                  {['booked', 'unpaid', 'paid', 'selCategory'].includes(selCategory) &&
+                                    <section>
+                                      <div
+                                        className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${finData?.man_cs_approval == 'approved'
+                                            ? 'bg-[#CCC5F7]'
+                                            : finData?.man_cs_approval == 'rejected'
                                               ? 'bg-[#ffdbdb]'
                                               : 'bg-[#F1F5F9] '
-                                          }`}
-                                          aria-hidden="true"
-                                        />
+                                          }  p-3 rounded-md mx-1`}
+                                        style={{
+                                          display: 'inline-block',
+                                          alignSelf: 'flex-end',
+                                        }}
+                                        onClick={() => {
+                                          setSelUnitDetails(finData)
+                                          setIsSubTopicOpen(true)
+                                          setIsSubTopic('crm_cs_approval')
+                                        }}
+                                      >
+                                        <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
+                                          <div className="flex flex-none items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
+                                            <ShoppingCartIcon
+                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.man_cs_approval ===
+                                                  'approved'
+                                                  ? 'text-green-900'
+                                                  : 'text-gray-600 '
+                                                }`}
+                                              aria-hidden="true"
+                                            />
+                                          </div>
+                                          <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
+                                            AddOns
+                                          </h6>
+                                        </div>
                                       </div>
-                                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                        KYC
-                                      </h6>
-                                    </div>
-                                  </div>
-                                   {/* section 4*/}
-                                   <div
-                                    className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
-                                      finData?.kyc_status == 'approved'
-                                        ? 'bg-[#CCC5F7]'
-                                        : finData?.kyc_status == 'rejected'
-                                        ? 'bg-[#ffdbdb]'
-                                        : 'bg-[#F1F5F9] '
-                                    }  p-3 rounded-md mx-1`}
-                                    style={{
-                                      display: 'inline-block',
-                                      alignSelf: 'flex-end',
-                                    }}
-                                    onClick={() => {
-                                      setSelUnitDetails(finData)
-                                      setIsSubTopicOpen(true)
-                                      setIsSubTopic('crm_KYC')
-                                    }}
-                                  >
-                                    <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
-                                      <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                        <NewspaperIcon
-                                          className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
-                                            finData?.kyc_status == 'approved'
-                                              ? 'bg-[#CCC5F7]'
-                                              : finData?.kyc_status ==
-                                                'rejected'
+                                      {/* section 3*/}
+                                      <div
+                                        className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${finData?.kyc_status == 'approved'
+                                            ? 'bg-[#CCC5F7]'
+                                            : finData?.kyc_status == 'rejected'
                                               ? 'bg-[#ffdbdb]'
                                               : 'bg-[#F1F5F9] '
-                                          }`}
-                                          aria-hidden="true"
-                                        />
+                                          }  p-3 rounded-md mx-1`}
+                                        style={{
+                                          display: 'inline-block',
+                                          alignSelf: 'flex-end',
+                                        }}
+                                        onClick={() => {
+                                          setSelUnitDetails(finData)
+                                          setIsSubTopicOpen(true)
+                                          setIsSubTopic('crm_KYC')
+                                        }}
+                                      >
+                                        <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
+                                          <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                            <NewspaperIcon
+                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.kyc_status == 'approved'
+                                                  ? 'bg-[#CCC5F7]'
+                                                  : finData?.kyc_status ==
+                                                    'rejected'
+                                                    ? 'bg-[#ffdbdb]'
+                                                    : 'bg-[#F1F5F9] '
+                                                }`}
+                                              aria-hidden="true"
+                                            />
+                                          </div>
+                                          <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
+                                            KYC
+                                          </h6>
+                                        </div>
                                       </div>
-                                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                        Payment
-                                      </h6>
-                                    </div>
-                                  </div>
-                                  </section>}
-                                   {[ 'agreement_pipeline'].includes(selCategory) &&
-                                 <section>
-                                 <div
-                                    className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
-                                      finData?.man_ats_approval == 'approved'
-                                        ? 'bg-[#CCC5F7]'
-                                        : finData?.man_ats_approval == 'rejected'
-                                        ? 'bg-[#ffdbdb]'
-                                        : 'bg-[#F1F5F9] '
-                                    }  p-3 rounded-md mx-1`}
-                                    style={{
-                                      display: 'inline-block',
-                                      alignSelf: 'flex-end',
-                                    }}
-                                    onClick={() => {
-                                      setSelUnitDetails(finData)
-                                      setIsSubTopicOpen(true)
-                                      setIsSubTopic('crm_ATS_Draft')
-                                    }}
-                                  >
-                                    <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
-                                      <div className="flex flex-none items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
-                                      <ChartPieIcon
-                                          className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
-                                            finData?.man_ats_approval ==
-                                            'approved'
-                                              ? 'bg-[#CCC5F7]'
-                                              : finData?.man_ats_approval ==
-                                                'rejected'
+                                      {/* section 4*/}
+                                      <div
+                                        className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${finData?.kyc_status == 'approved'
+                                            ? 'bg-[#CCC5F7]'
+                                            : finData?.kyc_status == 'rejected'
                                               ? 'bg-[#ffdbdb]'
                                               : 'bg-[#F1F5F9] '
-                                          }`}
-                                          aria-hidden="true"
-                                        />
+                                          }  p-3 rounded-md mx-1`}
+                                        style={{
+                                          display: 'inline-block',
+                                          alignSelf: 'flex-end',
+                                        }}
+                                        onClick={() => {
+                                          setSelUnitDetails(finData)
+                                          setIsSubTopicOpen(true)
+                                          setIsSubTopic('crm_KYC')
+                                        }}
+                                      >
+                                        <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
+                                          <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                            <NewspaperIcon
+                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.kyc_status == 'approved'
+                                                  ? 'bg-[#CCC5F7]'
+                                                  : finData?.kyc_status ==
+                                                    'rejected'
+                                                    ? 'bg-[#ffdbdb]'
+                                                    : 'bg-[#F1F5F9] '
+                                                }`}
+                                              aria-hidden="true"
+                                            />
+                                          </div>
+                                          <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
+                                            Payment
+                                          </h6>
+                                        </div>
                                       </div>
-                                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                      ATS Draft
-                                      </h6>
-                                    </div>
-                                  </div>
-                                  {/* section 3*/}
-                                  <div
-                                    className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
-                                      finData?.kyc_status == 'approved'
-                                        ? 'bg-[#CCC5F7]'
-                                        : finData?.kyc_status == 'rejected'
-                                        ? 'bg-[#ffdbdb]'
-                                        : 'bg-[#F1F5F9] '
-                                    }  p-3 rounded-md mx-1`}
-                                    style={{
-                                      display: 'inline-block',
-                                      alignSelf: 'flex-end',
-                                    }}
-                                    onClick={() => {
-                                      setSelUnitDetails(finData)
-                                      setIsSubTopicOpen(true)
-                                      setIsSubTopic('crm_KYC')
-                                    }}
-                                  >
-                                    <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
-                                      <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                        <NewspaperIcon
-                                          className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
-                                            finData?.kyc_status == 'approved'
-                                              ? 'bg-[#CCC5F7]'
-                                              : finData?.kyc_status ==
-                                                'rejected'
+                                    </section>}
+                                  {['agreement_pipeline'].includes(selCategory) &&
+                                    <section>
+                                      <div
+                                        className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${finData?.man_ats_approval == 'approved'
+                                            ? 'bg-[#CCC5F7]'
+                                            : finData?.man_ats_approval == 'rejected'
                                               ? 'bg-[#ffdbdb]'
                                               : 'bg-[#F1F5F9] '
-                                          }`}
-                                          aria-hidden="true"
-                                        />
+                                          }  p-3 rounded-md mx-1`}
+                                        style={{
+                                          display: 'inline-block',
+                                          alignSelf: 'flex-end',
+                                        }}
+                                        onClick={() => {
+                                          setSelUnitDetails(finData)
+                                          setIsSubTopicOpen(true)
+                                          setIsSubTopic('crm_ATS_Draft')
+                                        }}
+                                      >
+                                        <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
+                                          <div className="flex flex-none items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
+                                            <ChartPieIcon
+                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.man_ats_approval ==
+                                                  'approved'
+                                                  ? 'bg-[#CCC5F7]'
+                                                  : finData?.man_ats_approval ==
+                                                    'rejected'
+                                                    ? 'bg-[#ffdbdb]'
+                                                    : 'bg-[#F1F5F9] '
+                                                }`}
+                                              aria-hidden="true"
+                                            />
+                                          </div>
+                                          <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
+                                            ATS Draft
+                                          </h6>
+                                        </div>
                                       </div>
-                                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                        KYC
-                                      </h6>
-                                    </div>
-                                  </div>
-                                  </section>}
-                                   {['agreement'].includes(selCategory) &&
-                                 <section>
-                                 <div
-                                    className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
-                                      finData?.both_sd_approval == 'approved'
-                                        ? 'bg-[#CCC5F7]'
-                                        : finData?.both_sd_approval == 'rejected'
-                                        ? 'bg-[#ffdbdb]'
-                                        : 'bg-[#F1F5F9] '
-                                    }  p-3 rounded-md mx-1`}
-                                    style={{
-                                      display: 'inline-block',
-                                      alignSelf: 'flex-end',
-                                    }}
-                                    onClick={() => {
-                                      setSelUnitDetails(finData)
-                                      setIsSubTopicOpen(true)
-                                      setIsSubTopic('crm_SD_Approval')
-                                    }}
-                                  >
-                                    <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
-                                      <div className="flex flex-none items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
-                                        <ChartPieIcon
-                                          className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
-                                            finData?.both_sd_approval ===
-                                            'approved'
-                                              ? 'text-green-900'
-                                              : 'text-gray-600 '
-                                          }`}
-                                          aria-hidden="true"
-                                        />
-                                      </div>
-                                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                        SD Approval
-                                      </h6>
-                                    </div>
-                                  </div>
-                                  {/* section 3*/}
-                                  <div
-                                    className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
-                                      finData?.kyc_status == 'approved'
-                                        ? 'bg-[#CCC5F7]'
-                                        : finData?.kyc_status == 'rejected'
-                                        ? 'bg-[#ffdbdb]'
-                                        : 'bg-[#F1F5F9] '
-                                    }  p-3 rounded-md mx-1`}
-                                    style={{
-                                      display: 'inline-block',
-                                      alignSelf: 'flex-end',
-                                    }}
-                                    onClick={() => {
-                                      setSelUnitDetails(finData)
-                                      setIsSubTopicOpen(true)
-                                      setIsSubTopic('crm_KYC')
-                                    }}
-                                  >
-                                    <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
-                                      <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                        <NewspaperIcon
-                                          className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
-                                            finData?.kyc_status == 'approved'
-                                              ? 'bg-[#CCC5F7]'
-                                              : finData?.kyc_status ==
-                                                'rejected'
+                                      {/* section 3*/}
+                                      <div
+                                        className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${finData?.kyc_status == 'approved'
+                                            ? 'bg-[#CCC5F7]'
+                                            : finData?.kyc_status == 'rejected'
                                               ? 'bg-[#ffdbdb]'
                                               : 'bg-[#F1F5F9] '
-                                          }`}
-                                          aria-hidden="true"
-                                        />
+                                          }  p-3 rounded-md mx-1`}
+                                        style={{
+                                          display: 'inline-block',
+                                          alignSelf: 'flex-end',
+                                        }}
+                                        onClick={() => {
+                                          setSelUnitDetails(finData)
+                                          setIsSubTopicOpen(true)
+                                          setIsSubTopic('crm_KYC')
+                                        }}
+                                      >
+                                        <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
+                                          <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                            <NewspaperIcon
+                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.kyc_status == 'approved'
+                                                  ? 'bg-[#CCC5F7]'
+                                                  : finData?.kyc_status ==
+                                                    'rejected'
+                                                    ? 'bg-[#ffdbdb]'
+                                                    : 'bg-[#F1F5F9] '
+                                                }`}
+                                              aria-hidden="true"
+                                            />
+                                          </div>
+                                          <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
+                                            KYC
+                                          </h6>
+                                        </div>
                                       </div>
-                                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                        Loan
-                                      </h6>
-                                    </div>
-                                  </div>
-                                  </section>}
-                                  {[ 'registered', 'possession'].includes(selCategory) &&
-                                 <section>
-                                 <div
-                                    className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
-                                      finData?.both_sd_approval == 'approved'
-                                        ? 'bg-[#CCC5F7]'
-                                        : finData?.both_sd_approval == 'rejected'
-                                        ? 'bg-[#ffdbdb]'
-                                        : 'bg-[#F1F5F9] '
-                                    }  p-3 rounded-md mx-1`}
-                                    style={{
-                                      display: 'inline-block',
-                                      alignSelf: 'flex-end',
-                                    }}
-                                    onClick={() => {
-                                      setSelUnitDetails(finData)
-                                      setIsSubTopicOpen(true)
-                                      setIsSubTopic('crm_posession')
-                                    }}
-                                  >
-                                    <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
-                                      <div className="flex flex-none items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
-                                        <ChartPieIcon
-                                          className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
-                                            finData?.both_sd_approval ===
-                                            'approved'
-                                              ? 'text-green-900'
-                                              : 'text-gray-600 '
-                                          }`}
-                                          aria-hidden="true"
-                                        />
-                                      </div>
-                                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                      Posession
-                                      </h6>
-                                    </div>
-                                  </div>
-                                  {/* section 3*/}
-                                  <div
-                                    className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
-                                      finData?.kyc_status == 'approved'
-                                        ? 'bg-[#CCC5F7]'
-                                        : finData?.kyc_status == 'rejected'
-                                        ? 'bg-[#ffdbdb]'
-                                        : 'bg-[#F1F5F9] '
-                                    }  p-3 rounded-md mx-1`}
-                                    style={{
-                                      display: 'inline-block',
-                                      alignSelf: 'flex-end',
-                                    }}
-                                    onClick={() => {
-                                      setSelUnitDetails(finData)
-                                      setIsSubTopicOpen(true)
-                                      setIsSubTopic('crm_KYC')
-                                    }}
-                                  >
-                                    <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
-                                      <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                        <NewspaperIcon
-                                          className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
-                                            finData?.kyc_status == 'approved'
-                                              ? 'bg-[#CCC5F7]'
-                                              : finData?.kyc_status ==
-                                                'rejected'
+                                    </section>}
+                                  {['agreement'].includes(selCategory) &&
+                                    <section>
+                                      <div
+                                        className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${finData?.both_sd_approval == 'approved'
+                                            ? 'bg-[#CCC5F7]'
+                                            : finData?.both_sd_approval == 'rejected'
                                               ? 'bg-[#ffdbdb]'
                                               : 'bg-[#F1F5F9] '
-                                          }`}
-                                          aria-hidden="true"
-                                        />
+                                          }  p-3 rounded-md mx-1`}
+                                        style={{
+                                          display: 'inline-block',
+                                          alignSelf: 'flex-end',
+                                        }}
+                                        onClick={() => {
+                                          setSelUnitDetails(finData)
+                                          setIsSubTopicOpen(true)
+                                          setIsSubTopic('crm_SD_Approval')
+                                        }}
+                                      >
+                                        <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
+                                          <div className="flex flex-none items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
+                                            <ChartPieIcon
+                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.both_sd_approval ===
+                                                  'approved'
+                                                  ? 'text-green-900'
+                                                  : 'text-gray-600 '
+                                                }`}
+                                              aria-hidden="true"
+                                            />
+                                          </div>
+                                          <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
+                                            SD Approval
+                                          </h6>
+                                        </div>
                                       </div>
-                                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                        Loan
-                                      </h6>
-                                    </div>
-                                  </div>
-                                  </section>}
+                                      {/* section 3*/}
+                                      <div
+                                        className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${finData?.kyc_status == 'approved'
+                                            ? 'bg-[#CCC5F7]'
+                                            : finData?.kyc_status == 'rejected'
+                                              ? 'bg-[#ffdbdb]'
+                                              : 'bg-[#F1F5F9] '
+                                          }  p-3 rounded-md mx-1`}
+                                        style={{
+                                          display: 'inline-block',
+                                          alignSelf: 'flex-end',
+                                        }}
+                                        onClick={() => {
+                                          setSelUnitDetails(finData)
+                                          setIsSubTopicOpen(true)
+                                          setIsSubTopic('crm_KYC')
+                                        }}
+                                      >
+                                        <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
+                                          <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                            <NewspaperIcon
+                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.kyc_status == 'approved'
+                                                  ? 'bg-[#CCC5F7]'
+                                                  : finData?.kyc_status ==
+                                                    'rejected'
+                                                    ? 'bg-[#ffdbdb]'
+                                                    : 'bg-[#F1F5F9] '
+                                                }`}
+                                              aria-hidden="true"
+                                            />
+                                          </div>
+                                          <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
+                                            Loan
+                                          </h6>
+                                        </div>
+                                      </div>
+                                    </section>}
+                                  {['registered', 'possession'].includes(selCategory) &&
+                                    <section>
+                                      <div
+                                        className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${finData?.both_sd_approval == 'approved'
+                                            ? 'bg-[#CCC5F7]'
+                                            : finData?.both_sd_approval == 'rejected'
+                                              ? 'bg-[#ffdbdb]'
+                                              : 'bg-[#F1F5F9] '
+                                          }  p-3 rounded-md mx-1`}
+                                        style={{
+                                          display: 'inline-block',
+                                          alignSelf: 'flex-end',
+                                        }}
+                                        onClick={() => {
+                                          setSelUnitDetails(finData)
+                                          setIsSubTopicOpen(true)
+                                          setIsSubTopic('crm_posession')
+                                        }}
+                                      >
+                                        <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
+                                          <div className="flex flex-none items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
+                                            <ChartPieIcon
+                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.both_sd_approval ===
+                                                  'approved'
+                                                  ? 'text-green-900'
+                                                  : 'text-gray-600 '
+                                                }`}
+                                              aria-hidden="true"
+                                            />
+                                          </div>
+                                          <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
+                                            Posession
+                                          </h6>
+                                        </div>
+                                      </div>
+                                      {/* section 3*/}
+                                      <div
+                                        className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${finData?.kyc_status == 'approved'
+                                            ? 'bg-[#CCC5F7]'
+                                            : finData?.kyc_status == 'rejected'
+                                              ? 'bg-[#ffdbdb]'
+                                              : 'bg-[#F1F5F9] '
+                                          }  p-3 rounded-md mx-1`}
+                                        style={{
+                                          display: 'inline-block',
+                                          alignSelf: 'flex-end',
+                                        }}
+                                        onClick={() => {
+                                          setSelUnitDetails(finData)
+                                          setIsSubTopicOpen(true)
+                                          setIsSubTopic('crm_KYC')
+                                        }}
+                                      >
+                                        <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
+                                          <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
+                                            <NewspaperIcon
+                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.kyc_status == 'approved'
+                                                  ? 'bg-[#CCC5F7]'
+                                                  : finData?.kyc_status ==
+                                                    'rejected'
+                                                    ? 'bg-[#ffdbdb]'
+                                                    : 'bg-[#F1F5F9] '
+                                                }`}
+                                              aria-hidden="true"
+                                            />
+                                          </div>
+                                          <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
+                                            Loan
+                                          </h6>
+                                        </div>
+                                      </div>
+                                    </section>}
                                   {/* section 4*/}
                                 </div>
                               </div>
@@ -2025,7 +1997,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
         title={'unitDetails_crm_view'}
         customerDetails={selUnitDetails}
         setSelUnitDetails={setSelUnitDetails}
-        widthClass="max-w-4xl"
+        widthClass="max-w-5xl"
         transactionData={transactionData}
         unitsViewMode={false}
         selCustomerPayload={selUnitDetails}

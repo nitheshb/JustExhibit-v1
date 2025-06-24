@@ -724,7 +724,7 @@ const CaptureUnitPayment = ({
                                     <article className="">
 
                                       <div className="flex flex-row justify-between">
-                                        <section className="flex flex-row">
+                                        {/* <section className="flex flex-row">
                                           <span className="text-[38px] mt-[2px]">
                                             🎊
                                           </span>
@@ -742,7 +742,7 @@ const CaptureUnitPayment = ({
                 </div>
                                             <div className="border-t-4 mt-1 rounded-xl w-100 border-[#8B5CF6]"></div>
                                           </div>
-                                        </section>
+                                        </section> */}
 
 
                                         <section className="flex flex-col ">
@@ -776,1052 +776,677 @@ const CaptureUnitPayment = ({
                                       {/* <hr className="mt-1 border-b-1 border-blueGray-300" /> */}
                                     </article>
 
-                                    <div className=" border rounded-xl mt-4">
-                                    {!bookingProgress  && (
-                                      <section>
-                                        <div className="flex flex-wrap mt-3">
-                                          <div className="justify-center w-full mx-auto"></div>
-
-                                          <section className="border rounded-md w-full lg:w-12/12 mx-3 mb-3">
-                                            {title!=='capturePayment' && (
-                                              <div className="border-y-1 rounded-t-md  overflow-hidden ">
-                                                <table className="min-w-full divide-y ">
-                                                  <thead>
-                                                    <tr className="h-8 mb-1 border-none w-[100%] bg-[#E8E6FE] text-[#0D027D]  font-[600] ">
-                                                      <th className="min-w-[35%] px-2  text-[12px] text-left text-[#0D027D]  tracking-wide">
-                                                        Stall Charges (
-                                                        {selUnitDetails?.area?.toLocaleString(
-                                                          'en-IN'
-                                                        ) || 0}{' '}
-                                                        sqm)
-                                                      </th>
-                                                      <th className="w-[15%] px-2 text-[12px] text-right  tracking-wide">
-                                                        Rate/Sqm
-                                                      </th>
-                                                      <th
-                                                        className={`${
-                                                          !true ? 'hidden' : ''
-                                                        } w-[15%] px-2 text-[12px] text-right  tracking-wide `}
-                                                      >
-                                                        Cost
-                                                      </th>
-                                                      <th
-                                                        className={`${
-                                                          !true ? 'hidden' : ''
-                                                        }  w-[15%] px-2 text-[12px] text-right  tracking-wide `}
-                                                      >
-                                                        GST
-                                                      </th>
-                                                      <th className="w-[15%] px-2 text-[12px] text-right  tracking-wide ">
-                                                        Total
-                                                      </th>
-                                                    </tr>
-                                                  </thead>
-                                                  <tbody className="divide-y divide-gray-200 ">
-                                                    {' '}
-                                                    {costSheetA?.map(
-                                                      (d1, inx) => (
-                                                        <tr
-                                                          key={inx}
-                                                          className="py-1 my-2 h-[32px]  py-[24px]"
-                                                        >
-                                                          <th className="w-[40%] px-2 text-[12px] text-left  font-normal  ">
-                                                            {
-                                                              d1?.component
-                                                                ?.label
-                                                            }
-                                                          </th>
-                                                          <td className="w-[15%]  px-2 text-[12px] text-right  ">
-                                                            <TextFieldFlat
-                                                              label=""
-                                                              className="w-[90%] text-[12px] text-right font-semibold border-b  border-[#B76E00]  pr-1 py-[4px] text-[#B76E00]"
-                                                              name="ratePerSqft"
-                                                              onChange={(e) => {
-                                                                // setNewSqftPrice(e.target.value)
-                                                                console.log(
-                                                                  'iam hre'
-                                                                )
-                                                                if (
-                                                                  d1?.component
-                                                                    ?.value ===
-                                                                  'unit_cost_charges'
-                                                                ) {
-                                                                  formik.setFieldValue(
-                                                                    'unit_cost_charges',
-                                                                    e.target
-                                                                      .value
-                                                                  )
-                                                                }
-                                                                if (
-                                                                  d1?.component
-                                                                    ?.value ===
-                                                                  'plc_cost_sqft'
-                                                                ) {
-                                                                  formik.setFieldValue(
-                                                                    'plc_cost_sqft',
-                                                                    e.target
-                                                                      .value
-                                                                  )
-                                                                }
-                                                                setNewSqftPrice(
-                                                                  Number(
-                                                                    e.target
-                                                                      .value
-                                                                  )
-                                                                )
-                                                                changeOverallCostFun(
-                                                                  inx,
-                                                                  d1,
-                                                                  e.target.value
-                                                                )
-                                                              }}
-                                                              // value={formik.values[`unit_cost_charges`]}
-                                                              value={
-                                                                d1?.charges
-                                                              }
-                                                              // value={newSqftPrice}
-                                                              // type="number"
-                                                            />
-                                                            <TextFieldFlat
-                                                              className=" hidden  "
-                                                              label=""
-                                                              name={
-                                                                d1?.component
-                                                                  ?.value
-                                                              }
-                                                              type="number"
-                                                            />
-                                                          </td>
-                                                          <td
-                                                            className={`${
-                                                              !true
-                                                                ? 'hidden'
-                                                                : ''
-                                                            } w-[15%] px-2 text-[12px] text-right text-slate-500  `}
-                                                          >
-                                                            ₹
-                                                            {d1?.TotalSaleValue?.toLocaleString(
-                                                              'en-IN'
-                                                            )}
-                                                          </td>
-                                                          <td
-                                                            className={`${
-                                                              !true
-                                                                ? 'hidden'
-                                                                : ''
-                                                            } w-[15%] px-2 text-[12px] text-right text-slate-500  `}
-                                                          >
-                                                            ₹
-                                                            {d1?.gstValue?.toLocaleString(
-                                                              'en-IN'
-                                                            )}
-                                                          </td>
-                                                          <td className="w-[15%] px-2 text-[12px] text-right text-slate-900  ">
-                                                            ₹
-                                                            {d1?.TotalNetSaleValueGsT?.toLocaleString(
-                                                              'en-IN'
-                                                            )}
-                                                          </td>
-                                                        </tr>
-                                                      )
-                                                    )}
-                                                    {/* for construction cost  */}
-                                                    <tr className=" border-[#fab56c]   h-[32px]">
-                                                      <th className="w-[40%] text-[11px] font-semibold text-left text-[#0D027D] pl-2 ">
-                                                        Stall Total (A)
-                                                      </th>
-                                                      <td className="w-[15%] px-2 font-semibold text-[12px] text-right text-gray-600 pr-3"></td>
-                                                      <td
-                                                        className={`${
-                                                          !true ? 'hidden' : ''
-                                                        } w-[15%] px-2 font-semibold  text-[12px] text-right text-gray-500 `}
-                                                      >
-                                                        ₹
-                                                        {costSheetA
-                                                          .reduce(
-                                                            (partialSum, obj) =>
-                                                              partialSum +
-                                                              Number(
-                                                                obj?.TotalSaleValue
-                                                              ),
-                                                            0
-                                                          )
-                                                          ?.toLocaleString(
-                                                            'en-IN'
-                                                          )}
-                                                      </td>
-                                                      <td
-                                                        className={`${
-                                                          !true ? 'hidden' : ''
-                                                        } w-[15%] px-2 font-semibold  text-[12px] text-right text-gray-500 `}
-                                                      >
-                                                        ₹
-                                                        {costSheetA
-                                                          .reduce(
-                                                            (partialSum, obj) =>
-                                                              partialSum +
-                                                              Number(
-                                                                obj?.gstValue
-                                                              ),
-                                                            0
-                                                          )
-                                                          ?.toLocaleString(
-                                                            'en-IN'
-                                                          )}
-                                                      </td>
-                                                      <td className="w-[15%] px-2  font-semibold text-[12px] text-right  text-[#0D027D] ">
-                                                        ₹
-                                                        {partATotal?.toLocaleString(
-                                                          'en-IN'
-                                                        )}
-                                                      </td>
-                                                    </tr>
-                                                  </tbody>
-                                                </table>
-                                              </div>
-                                            )}
-                                          </section>
-                                          <section className="border rounded-md w-full lg:w-12/12 mx-3 mb-3">
-                                            <article className="border-b w-full bg-[#F9FAFB] px-3 py-1 rounded-t-md">
-                                              <span className="text-sm font-semibold text-gray-500">
-                                                Payment Details
-                                              </span>
-                                            </article>
-                                            <div className="w-full lg:w-12/12 px-3">
-                                              <div className="relative w-full mb-3">
-                                                <TextField2
-                                                  label="Paying"
-                                                  name="amount"
-                                                  type="number"
-                                                  // onChange={(e) => {
-                                                  //   setAmount(e.target.value)
-                                                  //   console.log('changed value is ', e.target.value)
-                                                  //   formik.setFieldValue('amount', e.target.value)
-                                                  // }}
-                                                />
-                                              </div>
-                                            </div>
-
-                                            <div className="text-xs px-3 mb-3">
-                                              {' '}
-                                              Paying{' '}
-                                              <RupeeInWords
-                                                amount={
-                                                  formik?.values?.amount || 0
-                                                }
-                                              />
-                                            </div>
-
-                                            {/* section -2 */}
-                                            <div className="w-full px-3 mb-4 mt-8 flex flex-row gap-x-6">
-                                              {paymentMode.map((dat, i) => {
-                                                return (
-                                                  // <span
-                                                  //   className={` mr-2 border rounded-xl px-2 py-2 cursor-pointer hover:bg-violet-400 hover:text-white text-sm ${
-                                                  //     paymentModex == dat.value
-                                                  //       ? 'bg-violet-400 text-white'
-                                                  //       : ''
-                                                  //   }`}
-                                                  //   key={i}
-                                                  //   onClick={() => {
-                                                  //     setPaymentModex(dat.value)
-                                                  //     formik.setFieldValue(
-                                                  //       'mode',
-                                                  //       dat.value
-                                                  //     )
-                                                  //   }}
-                                                  // >
-                                                  //   {dat.label}
-                                                  // </span>
-                                                  <div
-                                                    className="flex items-center gap-x-1"
-                                                    key={i}
-                                                    onClick={() => {
-                                                      setPaymentModex(dat.value)
-                                                      formik.setFieldValue(
-                                                        'mode',
-                                                        dat.value
-                                                      )
-                                                    }}
-                                                  >
-                                                    <input
-                                                      id="push-everything"
-                                                      name="push-notifications"
-                                                      type="radio"
-                                                      checked={
-                                                        paymentModex ==
-                                                        dat.value
-                                                      }
-                                                      className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                                                    />
-                                                    <label
-                                                      htmlFor="push-everything"
-                                                      className="block text-sm font-medium leading-6 text-gray-900"
-                                                    >
-                                                      {dat.label}
-                                                    </label>
-                                                  </div>
-                                                )
-                                              })}
-                                            </div>
-
-                                            {/* section last */}
-
-                                            <section className="flex flex-row">
-                                              <div className="w-full lg:w-10/12 px-3">
-                                                <div className="relative w-full mb-5">
-                                                  <TextField2
-                                                    label="Cheque/Ref No"
-                                                    name="bank_ref_no"
-                                                    type="text"
-                                                  />
-                                                </div>
-                                              </div>
-                                              <div className="w-full mt-3 lg:w-4/12 px-  ">
-                                                <div className="relative w-full mb-5 mt-[-1px] ">
-                                                  <span className="inline">
-                                                    <CustomDatePicker
-                                                      className="h-8 outline-none border-t-0 border-l-0 border-r-0 border-b border-gray-500  border-solid mt-[-4px] pb-1  min-w-[125px]  inline  text-[#0091ae]   lg:w-11/12 w-full flex bg-grey-lighter text-grey-darker border border-[#cccccc] "
-                                                      label="Dated"
-                                                      name="dated"
-                                                      // selected={startDate}
-                                                      selected={
-                                                        formik.values.dated
-                                                      }
-                                                      onChange={(date) => {
-                                                        // setFieldValue('dated')
-                                                        formik.setFieldValue(
-                                                          'dated',
-                                                          date.getTime()
-                                                        )
-                                                        // setStartDate(date)
-                                                        console.log(startDate)
-                                                      }}
-                                                      timeFormat="HH:mm"
-                                                      injectTimes={[
-                                                        setHours(
-                                                          setMinutes(d, 1),
-                                                          0
-                                                        ),
-                                                        setHours(
-                                                          setMinutes(d, 5),
-                                                          12
-                                                        ),
-                                                        setHours(
-                                                          setMinutes(d, 59),
-                                                          23
-                                                        ),
-                                                      ]}
-                                                      //dateFormat="MMM d, yyyy"
-                                                      dateFormat="MMM dd, yyyy"
-                                                    />
-                                                  </span>
-                                                </div>
-                                              </div>
-                                            </section>
-
-                                            <div className="w-full  px-3 pb-4">
-                                              <div className="relative w-full mb-3">
-                                                <TextField2
-                                                  label="Notes"
-                                                  name="payReason"
-                                                  type="text"
-                                                />
-                                              </div>
-                                            </div>
-                                          </section>
-                                          {title!=='capturePayment' && <section className="border rounded-md w-full lg:w-12/12 mx-3 mb-3">
-                                            <article className="border-b w-full bg-[#F9FAFB] px-3 py-1 rounded-t-md">
-                                              <span className="text-sm font-semibold text-gray-500">
-                                                Customer Details
-                                              </span>
-                                            </article>
-
-                                            {/* customer details */}
-                                            <section className=" px-4  bg-white   ">
-                                              <section className="flex flex-row  pt-2 mt-1 ">
-                                                <div className="border-2  h-3 rounded-xl  mt-[2px] w-1  border-[#8b5cf6]"></div>
-                                                <span className="ml-1 leading-[15px] ">
-                                                  <label className="font-semibold text-[#053219]  text-[13px] leading-[15px] mb-1  ">
-                                                    Company Details
-                                                    <abbr title="required"></abbr>
-                                                  </label>
-                                                </span>
-                                              </section>
-                                              {/* row 1 */}
-                                              <div className="md:flex flex-row md:space-x-4 w-full text-xs mt-4 ">
-                                                <div className="space-y-2 w-full text-xs mt-">
-                                                  <TextField
-                                                    label="Company Name*"
-                                                    name="companyName"
-                                                    type="text"
-                                                  />
-                                                </div>
-                                              </div>
-                                              {/* row 2 */}
-                                              <div className="md:flex flex-row md:space-x-4 w-full text-xs mt-2 ">
-                                                <div className=" space-y-2 w-full text-xs mt- lg:w-6/12">
-                                                  <div className="relative ">
-                                                    <label className="label font-regular text-[12px] block mb-1 mt- text-gray-700">
-                                                      Contact Person 1{' '}
-                                                    </label>
-                                                    <MuiTextField
-                                                      id="area"
-                                                      className={`w-full bg-grey-lighter text-grey-darker border border-[#cccccc] rounded-md h-10 mt-1 p-0`}
-                                                      size="small"
-                                                      InputProps={{
-                                                        style: {
-                                                          height: '2rem',
-                                                          paddingLeft: '7px',
-                                                        },
-                                                        startAdornment: (
-                                                          <InputAdornment
-                                                            position="start"
-                                                            style={{
-                                                              height: '32px',
-                                                            }}
-                                                          >
-                                                            <NoBorderDropDown
-                                                              name="relation1"
-                                                              label=""
-                                                              className="input  min-w-[85px] h-[32px]"
-                                                              onChange={(
-                                                                value
-                                                              ) => {
-                                                                formik.setFieldValue(
-                                                                  'relation1',
-                                                                  value
-                                                                )
-                                                              }}
-                                                              value={
-                                                                formik?.values
-                                                                  ?.relation1
-                                                                  ?.value
-                                                              }
-                                                              options={[
-                                                                {
-                                                                  label: 'Mr',
-                                                                  value: 'mr',
-                                                                },
-                                                                {
-                                                                  label: 'Mrs',
-                                                                  value: 'mrs',
-                                                                },
-                                                                {
-                                                                  label: 'Miss',
-                                                                  value: 'miss',
-                                                                },
-                                                              ]}
-                                                            />
-                                                          </InputAdornment>
-                                                        ),
-                                                      }}
-                                                      label=""
-                                                      name="co_Name1"
-                                                      type="text"
-                                                      value={
-                                                        formik.values.co_Name1
-                                                      }
-                                                      onChange={
-                                                        formik.handleChange
-                                                      }
-                                                    />
-                                                  </div>
-                                                </div>
-                                                <div className="w-full lg:w-3/12 mb-2 ">
-                                                  <div className="relative w-full">
-                                                    <div className="space-y-1 w-full text-xs">
-                                                      <label
-                                                        htmlFor="countryCode"
-                                                        className="inline-block"
-                                                      >
-                                                        Primary Phone No
-                                                      </label>
-
-                                                      <div className="flex border mb-6 mt-0 border-[#cccccc] rounded-md">
-                                                        <div className="inline-block">
-                                                          <input
-                                                            type="text"
-                                                            id="countryCode1"
-                                                            name="countryCode1"
-                                                            value={
-                                                              formik.values
-                                                                .countryCode1
-                                                            }
-                                                            onChange={(e) =>
-                                                              formik.setFieldValue(
-                                                                'countryCode1',
-                                                                e.target.value
-                                                              )
-                                                            }
-                                                            onBlur={
-                                                              formik.handleBlur
-                                                            }
-                                                            className="w-11 bg-grey-lighter text-grey-darker h-7 px-2 border-none rounded-l-md focus:outline-none"
-                                                            placeholder="+91"
-                                                            style={{
-                                                              margin: '0',
-                                                              padding: '0',
-                                                              paddingLeft:
-                                                                '0.5rem', // Add padding-left
-                                                            }}
-                                                          />
-                                                          {formik.errors
-                                                            .countryCode1 &&
-                                                            formik.touched
-                                                              .countryCode1 && (
-                                                              <div className="text-red-500 text-xs ml-2">
-                                                                {
-                                                                  formik.errors
-                                                                    .countryCode1
-                                                                }
-                                                              </div>
-                                                            )}
-                                                        </div>
-
-                                                        <div className="border-l border-gray-400 mt-1 mb-1"></div>
-
-                                                        <PhoneNoField
-                                                          name="phoneNo1"
-                                                          // type="text"
-                                                          value={
-                                                            formik.values
-                                                              .phoneNo1
-                                                          }
-                                                          customStyles={
-                                                            customPhoneNoFieldStyles
-                                                          }
-                                                          onChange={(value) => {
-                                                            // formik.setFieldValue('mobileNo', value.value)
-                                                            formik.setFieldValue(
-                                                              'phoneNo1',
-                                                              value.value
-                                                            )
-                                                          }}
-                                                          // value={formik.values.mobileNo}
-                                                          options={{}}
-                                                          labelSize="text-[11px]"
-                                                          textSize="text-[12px]"
-                                                          txtPad="px-2"
-                                                          className="text-[10px]"
-                                                        />
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-
-                                                <div className="w-full lg:w-3/12 ">
-                                                  <div className="relative w-full">
-                                                    <TextField
-                                                      label="Email"
-                                                      name="email1"
-                                                      type="text"
-                                                    />
-                                                  </div>
-                                                </div>
-                                              </div>
-                                              {/* row 2 */}
-                                              <div className="md:flex flex-row md:space-x-4 w-full text-xs mt-2 ">
-                                                <div className=" space-y-2 w-full text-xs mt- lg:w-6/12">
-                                                  <div className="relative ">
-                                                    <label className="label font-regular text-[12px] block mb-1 mt- text-gray-700">
-                                                      Contact Person 2{' '}
-                                                    </label>
-                                                    <MuiTextField
-                                                      id="area"
-                                                      className={`w-full bg-grey-lighter text-grey-darker border border-[#cccccc] rounded-md h-10 mt-1 p-0`}
-                                                      size="small"
-                                                      InputProps={{
-                                                        style: {
-                                                          height: '2rem',
-                                                          paddingLeft: '7px',
-                                                        },
-                                                        startAdornment: (
-                                                          <InputAdornment
-                                                            position="start"
-                                                            style={{
-                                                              height: '32px',
-                                                            }}
-                                                          >
-                                                            <NoBorderDropDown
-                                                              name="relation2"
-                                                              label=""
-                                                              className="input  min-w-[85px] h-[32px]"
-                                                              onChange={(
-                                                                value
-                                                              ) => {
-                                                                formik.setFieldValue(
-                                                                  'relation2',
-                                                                  value
-                                                                )
-                                                              }}
-                                                              value={
-                                                                formik?.values
-                                                                  ?.relation2
-                                                                  ?.value
-                                                              }
-                                                              options={[
-                                                                {
-                                                                  label: 'Mr',
-                                                                  value: 'mr',
-                                                                },
-                                                                {
-                                                                  label: 'Mrs',
-                                                                  value: 'mrs',
-                                                                },
-                                                                {
-                                                                  label: 'Miss',
-                                                                  value: 'miss',
-                                                                },
-                                                              ]}
-                                                            />
-                                                          </InputAdornment>
-                                                        ),
-                                                      }}
-                                                      label=""
-                                                      name="co_Name2"
-                                                      type="text"
-                                                      value={
-                                                        formik.values.co_Name2
-                                                      }
-                                                      onChange={
-                                                        formik.handleChange
-                                                      }
-                                                    />
-                                                  </div>
-                                                </div>
-                                                <div className="w-full lg:w-3/12 mb-2 ">
-                                                  <div className="relative w-full">
-                                                    <div className="space-y-1 w-full text-xs">
-                                                      <label
-                                                        htmlFor="countryCode"
-                                                        className="inline-block"
-                                                      >
-                                                        Primary Phone No
-                                                      </label>
-
-                                                      <div className="flex border mb-6 mt-0 border-[#cccccc] rounded-md">
-                                                        <div className="inline-block">
-                                                          <input
-                                                            type="text"
-                                                            id="countryCode2"
-                                                            name="countryCode2"
-                                                            value={
-                                                              formik.values
-                                                                .countryCode2
-                                                            }
-                                                            onChange={(e) =>
-                                                              formik.setFieldValue(
-                                                                'countryCode2',
-                                                                e.target.value
-                                                              )
-                                                            }
-                                                            onBlur={
-                                                              formik.handleBlur
-                                                            }
-                                                            className="w-11 bg-grey-lighter text-grey-darker h-7 px-2 border-none rounded-l-md focus:outline-none"
-                                                            placeholder="+91"
-                                                            style={{
-                                                              margin: '0',
-                                                              padding: '0',
-                                                              paddingLeft:
-                                                                '0.5rem', // Add padding-left
-                                                            }}
-                                                          />
-                                                          {formik.errors
-                                                            .countryCode2 &&
-                                                            formik.touched
-                                                              .countryCode2 && (
-                                                              <div className="text-red-500 text-xs ml-2">
-                                                                {
-                                                                  formik.errors
-                                                                    .countryCode2
-                                                                }
-                                                              </div>
-                                                            )}
-                                                        </div>
-
-                                                        <div className="border-l border-gray-400 mt-1 mb-1"></div>
-
-                                                        <PhoneNoField
-                                                          name="phoneNo1"
-                                                          // type="text"
-                                                          value={
-                                                            formik.values
-                                                              .phoneNo2
-                                                          }
-                                                          customStyles={
-                                                            customPhoneNoFieldStyles
-                                                          }
-                                                          onChange={(value) => {
-                                                            // formik.setFieldValue('mobileNo', value.value)
-                                                            formik.setFieldValue(
-                                                              'phoneNo2',
-                                                              value.value
-                                                            )
-                                                          }}
-                                                          // value={formik.values.mobileNo}
-                                                          options={{}}
-                                                          labelSize="text-[11px]"
-                                                          textSize="text-[12px]"
-                                                          txtPad="px-2"
-                                                          className="text-[10px]"
-                                                        />
-                                                      </div>
-                                                    </div>
-                                                  </div>
-                                                </div>
-
-                                                <div className="w-full lg:w-3/12 ">
-                                                  <div className="relative w-full">
-                                                    <TextField
-                                                      label="Email"
-                                                      name="email2"
-                                                      type="text"
-                                                    />
-                                                  </div>
-                                                </div>
-                                              </div>
-                                              {/* row 3 */}
-
-                                            </section>
-                                            {/* section-2 */}
-
-                                            {/* section-3 */}
-                                            <section className="mt-2 px-4  py-2 bg-white ">
-                                              <section className="flex flex-row  mt-1 ">
-                                                <div className="border-2  h-3 rounded-xl  mt-[2px] w-1  border-[#8b5cf6]"></div>
-                                                <span className="ml-1 leading-[15px] ">
-                                                  <label className="font-semibold text-[#053219]  text-[13px] leading-[15px] mb-1  ">
-                                                    Address
-                                                    <abbr title="required"></abbr>
-                                                  </label>
-                                                </span>
-                                              </section>
-                                              {/* row 1 */}
-                                              <div className="w-full lg:w-12/12 ">
-                                                <div className="relative w-full mb-3 mt-2">
-                                                  <TextField
-                                                    label="Address"
-                                                    name="address1"
-                                                    type="text"
-                                                  />
-                                                </div>
-                                              </div>
-                                              <div className="w-full  flex flex-row lg:w-12/12 mt-1">
-                                                <div className="w-full lg:w-12/12 px- ">
-                                                  <div className="relative w-full mb-3 mt-">
-                                                    <TextField
-                                                      label="City"
-                                                      name="city1"
-                                                      type="text"
-                                                    />
-                                                  </div>
-                                                </div>
-                                                <div className="w-full lg:w-12/12 pl-4">
-                                                  <div className="relative w-full mb-3 mt-">
-                                                    <div className="w-full flex flex-col mb-3">
-                                                      <CustomSelect
-                                                        name="state1"
-                                                        label="State"
-                                                        className="input"
-                                                        onChange={(value) => {
-                                                          formik.setFieldValue(
-                                                            'state1',
-                                                            value.value
-                                                          )
-                                                        }}
-                                                        value={
-                                                          formik.values.state1
-                                                        }
-                                                        options={statesListA}
-                                                      />
-                                                      <p
-                                                        className="text-sm text-red-500 hidden mt-3"
-                                                        id="error"
-                                                      >
-                                                        Please fill out this
-                                                        field.
-                                                      </p>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <div className="w-full lg:w-12/12 pl-4">
-                                                  {/* Pincode 2 */}
-                                                  <div className="relative w-full mb-3">
-                                                    <TextField
-                                                      label="Pincode"
-                                                      name="pincode1"
-                                                      type="text"
-                                                    />
-                                                  </div>
-                                                </div>
-                                              </div>
 
 
-                                            </section>
-                                          </section>}
-                                        </div>
-                                        <div>
-                                          <label
-                                            htmlFor="formFile1"
-                                            className="form-label cursor-pointer inline-block mt-2  font-regular text-xs bg-gray-300 rounded-2xl  py-1 "
-                                          >
-                                            <AttachFile
-                                              className="w-4 h-4 text-[18px]"
-                                              style={{ fontSize: '18px' }}
-                                            />
-                                          </label>
 
-                                          <input
-                                            type="file"
-                                            className="hidden"
-                                            id="formFile1"
-                                            name="fileUploader"
-                                            onChange={(e) => {
-                                              formik.setFieldValue(
-                                                'fileUploader',
-                                                e.target.files[0]
-                                              )
-                                              // handleFileUploadFun(
-                                              //   e.target.files[0],
-                                              //   'panCard1'
-                                              // )
-                                            }}
-                                          />
-                                        </div>
-                                        {formik.values.fileUploader && (
-                                          <img
-                                            src={URL.createObjectURL(
-                                              formik.values.fileUploader
-                                            )}
-                                            alt="Uploaded File"
-                                            className="img-preview"
-                                          />
-                                        )}
-                                      </section>
-                                    )}
-                                    {title != 'capturePayment' &&
-                                      bookingProgress && (
-                                        <section className="mb-3">
-                                          <div className="mx-auto flex mt-6 flex-row  ">
-                                            <section className="ml-3 w-[300px]">
-                                              <div className="flex items-center">
-                                                {bookCompSteps.includes(
-                                                  'payment_captured'
-                                                ) && (
-                                                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-100 ">
-                                                    <CheckCircleIcon className="h-6 w-6 text-violet-500 " />
-                                                  </div>
-                                                )}
-                                                {!bookCompSteps.includes(
-                                                  'payment_captured'
-                                                ) &&
-                                                  !bookCurentStep.includes(
-                                                    'payment_captured'
-                                                  ) && (
-                                                    <ExclamationCircleIcon className="w-6 h-6 cursor-pointer ml-1 mb-[3px] mr-2 inline-block text-gray-400 " />
-                                                  )}
-                                                {bookCurentStep.includes(
-                                                  'payment_captured'
-                                                ) && <Loader />}
-                                                <span className="ml-2 text-md font-bold text-navy-700 ">
-                                                  Payment Confirmed
-                                                </span>
-                                              </div>
-                                            </section>
-                                            {/*  */}
-                                            <section className="ml-3 w-[300px]">
-                                              <div className="flex items-center">
-                                                {bookCompSteps.includes(
-                                                  'CS_updated'
-                                                ) && (
-                                                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-100 ">
-                                                    <CheckCircleIcon className="h-6 w-6 text-violet-500 " />
-                                                  </div>
-                                                )}
-                                                {!bookCompSteps.includes(
-                                                  'CS_updated'
-                                                ) &&
-                                                  !bookCurentStep.includes(
-                                                    'CS_updated'
-                                                  ) && (
-                                                    <ExclamationCircleIcon className="w-6 h-6 cursor-pointer ml-1 mb-[3px] mr-2 inline-block text-gray-400 " />
-                                                  )}
-                                                {bookCurentStep.includes(
-                                                  'CS_updated'
-                                                ) && <Loader />}
-                                                <span className="ml-4 text-md font-bold text-navy-700 ">
-                                                  Costsheet & Payment Updated
-                                                </span>
-                                              </div>
-                                            </section>
-                                          </div>
-                                          <div className="mx-auto flex mt-6 flex flex-row  ">
-                                            <section className="ml-3 w-[300px]">
-                                              <div className="flex items-center">
-                                                {bookCompSteps.includes(
-                                                  'unit_booked'
-                                                ) && (
-                                                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-100 ">
-                                                    <CheckCircleIcon className="h-6 w-6 text-violet-500 " />
-                                                  </div>
-                                                )}
-                                                {!bookCompSteps.includes(
-                                                  'unit_booked'
-                                                ) &&
-                                                  !bookCurentStep.includes(
-                                                    'unit_booked'
-                                                  ) && (
-                                                    <ExclamationCircleIcon className="w-6 h-6 cursor-pointer ml-1 mb-[3px] mr-2 inline-block text-gray-400 " />
-                                                  )}
-                                                {bookCurentStep.includes(
-                                                  'unit_booked'
-                                                ) && <Loader />}
-                                                <span className="ml-2 text-md font-bold text-navy-700 ">
-                                                  Unit Booked
-                                                </span>
-                                              </div>
-                                            </section>
-                                            {/*  */}
-                                            <section className="ml-3 w-[300px]">
-                                              <div className="flex items-center">
-                                                {bookCompSteps.includes(
-                                                  'customer_created'
-                                                ) && (
-                                                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-100 ">
-                                                    <CheckCircleIcon className="h-6 w-6 text-violet-500 " />
-                                                  </div>
-                                                )}
-                                                {!bookCompSteps.includes(
-                                                  'customer_created'
-                                                ) &&
-                                                  !bookCurentStep.includes(
-                                                    'customer_created'
-                                                  ) && (
-                                                    <ExclamationCircleIcon className="w-6 h-6 cursor-pointer ml-1 mb-[3px] mr-2 inline-block text-gray-400 " />
-                                                  )}
-                                                {bookCurentStep.includes(
-                                                  'customer_created'
-                                                ) && <Loader />}
-                                                <span className="ml-2 text-md font-bold text-navy-700 ">
-                                                  Customer Created
-                                                </span>
-                                              </div>
-                                            </section>
-                                          </div>
-                                          <div className="mx-auto flex mt-6 flex flex-row  ">
-                                            <section className="ml-3 w-[300px]">
-                                              <div className="flex items-center">
-                                                {bookCompSteps.includes(
-                                                  'customer_email_send'
-                                                ) && (
-                                                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-100 ">
-                                                    <CheckCircleIcon className="h-6 w-6 text-violet-500 " />
-                                                  </div>
-                                                )}
-                                                {!bookCompSteps.includes(
-                                                  'customer_email_send'
-                                                ) &&
-                                                  !bookCurentStep.includes(
-                                                    'customer_email_send'
-                                                  ) && (
-                                                    <ExclamationCircleIcon className="w-6 h-6 cursor-pointer ml-1 mb-[3px] mr-2 inline-block text-gray-400 " />
-                                                  )}
-                                                {bookCurentStep.includes(
-                                                  'customer_email_send'
-                                                ) && <Loader />}
-                                                <span className="ml-2 text-md font-bold text-navy-700 ">
-                                                  Send Welcome E-mail
-                                                </span>
-                                              </div>
-                                            </section>
-                                            {/*  */}
-                                            <section className="ml-4 w-[300px]">
-                                              <div className="flex items-center">
-                                                {bookCompSteps.includes(
-                                                  'notify_to_manager'
-                                                ) && (
-                                                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-100 ">
-                                                    <CheckCircleIcon className="h-6 w-6 text-violet-500 " />
-                                                  </div>
-                                                )}
-                                                {!bookCompSteps.includes(
-                                                  'notify_to_manager'
-                                                ) &&
-                                                  !bookCurentStep.includes(
-                                                    'notify_to_manager'
-                                                  ) && (
-                                                    <ExclamationCircleIcon className="w-6 h-6 cursor-pointer ml-1 mb-[3px] mr-2 inline-block text-gray-400 " />
-                                                  )}
-                                                {bookCurentStep.includes(
-                                                  'notify_to_manager'
-                                                ) && <Loader />}
-                                                <span className="ml-2 text-md font-bold text-navy-700 ">
-                                                  Notified to Manager
-                                                </span>
-                                              </div>
-                                            </section>
-                                          </div>
-                                        </section>
-                                      )}
-                                    {formik?.file?.fileUploader}
+                                    <div className="border rounded-xl mt-4">
+  {!bookingProgress && (
+    <div className="stepper-wrapper">
+      {/* Step 1: Stall Charges */}
+      {/* <div className="stepper-item">
+        <div className="stepper-header">
+          <div className="stepper-number">1</div>
+          <div className="stepper-title">Stall Charges box</div>
+        </div>
+        <div className="stepper-content">
+          <section className="border rounded-md w-full lg:w-12/12 mx-3 mb-3">
+            {title !== 'capturePayment' && (
+              <div className="border-y-1 rounded-t-md overflow-hidden">
+                <table className="min-w-full divide-y">
+                  <thead>
+                    <tr className="h-8 mb-1 border-none w-[100%] bg-[#E8E6FE] text-[#0D027D] font-[600]">
+                      <th className="min-w-[35%] px-2 text-[12px] text-left text-[#0D027D] tracking-wide">
+                        Stall Charges (
+                        {selUnitDetails?.area?.toLocaleString('en-IN') || 0} sqm)
+                      </th>
+                      <th className="w-[15%] px-2 text-[12px] text-right tracking-wide">
+                        Rate/Sqm
+                      </th>
+                      <th className={`${!true ? 'hidden' : ''} w-[15%] px-2 text-[12px] text-right tracking-wide`}>
+                        Cost
+                      </th>
+                      <th className={`${!true ? 'hidden' : ''} w-[15%] px-2 text-[12px] text-right tracking-wide`}>
+                        GST
+                      </th>
+                      <th className="w-[15%] px-2 text-[12px] text-right tracking-wide">
+                        Total
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-200">
+                    {costSheetA?.map((d1, inx) => (
+                      <tr key={inx} className="py-1 my-2 h-[32px] py-[24px]">
+                        <th className="w-[40%] px-2 text-[12px] text-left font-normal">
+                          {d1?.component?.label}
+                        </th>
+                        <td className="w-[15%] px-2 text-[12px] text-right">
+                          <TextFieldFlat
+                            label=""
+                            className="w-[90%] text-[12px] text-right font-semibold border-b border-[#B76E00] pr-1 py-[4px] text-[#B76E00]"
+                            name="ratePerSqft"
+                            onChange={(e) => {
+                              if (d1?.component?.value === 'unit_cost_charges') {
+                                formik.setFieldValue('unit_cost_charges', e.target.value)
+                              }
+                              if (d1?.component?.value === 'plc_cost_sqft') {
+                                formik.setFieldValue('plc_cost_sqft', e.target.value)
+                              }
+                              setNewSqftPrice(Number(e.target.value))
+                              changeOverallCostFun(inx, d1, e.target.value)
+                            }}
+                            value={d1?.charges}
+                          />
+                          <TextFieldFlat
+                            className="hidden"
+                            label=""
+                            name={d1?.component?.value}
+                            type="number"
+                          />
+                        </td>
+                        <td className={`${!true ? 'hidden' : ''} w-[15%] px-2 text-[12px] text-right text-slate-500`}>
+                          ₹{d1?.TotalSaleValue?.toLocaleString('en-IN')}
+                        </td>
+                        <td className={`${!true ? 'hidden' : ''} w-[15%] px-2 text-[12px] text-right text-slate-500`}>
+                          ₹{d1?.gstValue?.toLocaleString('en-IN')}
+                        </td>
+                        <td className="w-[15%] px-2 text-[12px] text-right text-slate-900">
+                          ₹{d1?.TotalNetSaleValueGsT?.toLocaleString('en-IN')}
+                        </td>
+                      </tr>
+                    ))}
+                    <tr className="border-[#fab56c] h-[32px]">
+                      <th className="w-[40%] text-[11px] font-semibold text-left text-[#0D027D] pl-2">
+                        Stall Total (A)
+                      </th>
+                      <td className="w-[15%] px-2 font-semibold text-[12px] text-right text-gray-600 pr-3"></td>
+                      <td className={`${!true ? 'hidden' : ''} w-[15%] px-2 font-semibold text-[12px] text-right text-gray-500`}>
+                        ₹{costSheetA.reduce((partialSum, obj) => partialSum + Number(obj?.TotalSaleValue), 0)?.toLocaleString('en-IN')}
+                      </td>
+                      <td className={`${!true ? 'hidden' : ''} w-[15%] px-2 font-semibold text-[12px] text-right text-gray-500`}>
+                        ₹{costSheetA.reduce((partialSum, obj) => partialSum + Number(obj?.gstValue), 0)?.toLocaleString('en-IN')}
+                      </td>
+                      <td className="w-[15%] px-2 font-semibold text-[12px] text-right text-[#0D027D]">
+                        ₹{partATotal?.toLocaleString('en-IN')}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            )}
+          </section>
+        </div>
+      </div> */}
 
-                                    {/* <hr className="mt-6 border-b-1 border-blueGray-300" /> */}
+      {/* Step 2: Payment Details */}
+      <div className="stepper-item">
+        <div className="stepper-header">
+          <div className="stepper-number">2</div>
+          <div className="stepper-title">Payment Details</div>
+        </div>
+        <div className="stepper-content">
+          <section className="border rounded-md w-full lg:w-12/12 mx-3 mb-3">
+            <article className="border-b w-full bg-[#F9FAFB] px-3 py-1 rounded-t-md">
+              <span className="text-sm font-semibold text-gray-500">
+                Payment Details
+              </span>
+            </article>
+            <div className="w-full lg:w-12/12 px-3">
+              <div className="relative w-full mb-3">
+                <TextField2
+                  label="Paying"
+                  name="amount"
+                  type="number"
+                />
+              </div>
+            </div>
 
-                                    {/* <h6 className="text-blueGray-400 text-sm mt-3 ml-3 pt-4 mb-6 font-bold uppercase">
-                                Source Of Booking
-                              </h6> */}
-                                    {/* <div className="flex flex-wrap">
-                                <div className="w-full lg:w-12/12 px-4">
-                                  <div className="relative w-full mb-3">
-                                    <TextField2
-                                      label="Source"
-                                      name="bookingSource"
-                                      type="text"
-                                    />
-                                  </div>
-                                </div>
-                                <div className="w-full lg:w-12/12 px-4">
-                                  <div className="relative w-full mb-3">
-                                    <TextField2
-                                      label="Booked By"
-                                      name="bookedBy"
-                                      type="text"
-                                    />
-                                  </div>
-                                </div>
-                              </div> */}
-                                    {!bookingProgress && (
-                                      <div className="text-center space-x-4 my-6">
-                                        <button
-                                          className="bg-[#8B5CF6] translate-y-1 text-[#fff] sm:text-lg text-xs font-bold py-2.5 px-6  rounded-full inline-flex items-center"
-                                          type="submit"
-                                          disabled={loading}
-                                        >
-                                          <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            viewBox="0 0 24 24"
-                                            fill="currentColor"
-                                            className="w-6 h-6"
-                                          >
-                                            <path
-                                              fillRule="evenodd"
-                                              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"
-                                              clipRule="evenodd"
-                                            />
-                                          </svg>
-                                          &nbsp; &nbsp;
-                                          <span>
-                                            {' '}
-                                            {title === 'capturePayment'
-                                              ? 'Confirm Payment'
-                                              : 'Book Unit '}{' '}
-                                          </span>
-                                        </button>
-                                      </div>
-                                    )}
+            <div className="text-xs px-3 mb-3">
+              Paying <RupeeInWords amount={formik?.values?.amount || 0} />
+            </div>
+
+            <div className="w-full px-3 mb-4 mt-8 flex flex-row gap-x-6">
+              {paymentMode.map((dat, i) => (
+                <div
+                  className="flex items-center gap-x-1"
+                  key={i}
+                  onClick={() => {
+                    setPaymentModex(dat.value)
+                    formik.setFieldValue('mode', dat.value)
+                  }}
+                >
+                  <input
+                    id={`payment-mode-${i}`}
+                    name="push-notifications"
+                    type="radio"
+                    checked={paymentModex == dat.value}
+                    className="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                  />
+                  <label
+                    htmlFor={`payment-mode-${i}`}
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    {dat.label}
+                  </label>
+                </div>
+              ))}
+            </div>
+
+            <section className="flex flex-row">
+              <div className="w-full lg:w-10/12 px-3">
+                <div className="relative w-full mb-5">
+                  <TextField2
+                    label="Cheque/Ref No"
+                    name="bank_ref_no"
+                    type="text"
+                  />
+                </div>
+              </div>
+              <div className="w-full mt-3 lg:w-4/12 px-">
+                <div className="relative w-full mb-5 mt-[-1px]">
+                  <span className="inline">
+                    <CustomDatePicker
+                      className="h-8 outline-none border-t-0 border-l-0 border-r-0 border-b border-gray-500 border-solid mt-[-4px] pb-1 min-w-[125px] inline text-[#0091ae] lg:w-11/12 w-full flex bg-grey-lighter text-grey-darker border border-[#cccccc]"
+                      label="Dated"
+                      name="dated"
+                      selected={formik.values.dated}
+                      onChange={(date) => {
+                        formik.setFieldValue('dated', date.getTime())
+                      }}
+                      timeFormat="HH:mm"
+                      injectTimes={[
+                        setHours(setMinutes(d, 1), 0),
+                        setHours(setMinutes(d, 5), 12),
+                        setHours(setMinutes(d, 59), 23),
+                      ]}
+                      dateFormat="MMM dd, yyyy"
+                    />
+                  </span>
+                </div>
+              </div>
+            </section>
+
+            <div className="w-full px-3 pb-4">
+              <div className="relative w-full mb-3">
+                <TextField2
+                  label="Notes"
+                  name="payReason"
+                  type="text"
+                />
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      {/* Step 3: Customer Details */}
+      {title !== 'capturePayment' && (
+        <div className="stepper-item">
+          <div className="stepper-header">
+            <div className="stepper-number">3</div>
+            <div className="stepper-title">Customer Details</div>
+          </div>
+          <div className="stepper-content">
+            <section className="border rounded-md w-full lg:w-12/12 mx-3 mb-3">
+              <article className="border-b w-full bg-[#F9FAFB] px-3 py-1 rounded-t-md">
+                <span className="text-sm font-semibold text-gray-500">
+                  Customer Details
+                </span>
+              </article>
+
+              <section className="px-4 bg-white">
+                <section className="flex flex-row pt-2 mt-1">
+                  <div className="border-2 h-3 rounded-xl mt-[2px] w-1 border-[#8b5cf6]"></div>
+                  <span className="ml-1 leading-[15px]">
+                    <label className="font-semibold text-[#053219] text-[13px] leading-[15px] mb-1">
+                      Company Details
+                      <abbr title="required"></abbr>
+                    </label>
+                  </span>
+                </section>
+                
+                <div className="md:flex flex-row md:space-x-4 w-full text-xs mt-4">
+                  <div className="space-y-2 w-full text-xs mt-">
+                    <TextField
+                      label="Company Name*"
+                      name="companyName"
+                      type="text"
+                    />
+                  </div>
+                </div>
+
+                <div className="md:flex flex-row md:space-x-4 w-full text-xs mt-2">
+                  <div className="space-y-2 w-full text-xs mt- lg:w-6/12">
+                    <div className="relative">
+                      <label className="label font-regular text-[12px] block mb-1 mt- text-gray-700">
+                        Contact Person 1
+                      </label>
+                      <MuiTextField
+                        id="area"
+                        className={`w-full bg-grey-lighter text-grey-darker border border-[#cccccc] rounded-md h-10 mt-1 p-0`}
+                        size="small"
+                        InputProps={{
+                          style: { height: '2rem', paddingLeft: '7px' },
+                          startAdornment: (
+                            <InputAdornment position="start" style={{ height: '32px' }}>
+                              <NoBorderDropDown
+                                name="relation1"
+                                label=""
+                                className="input min-w-[85px] h-[32px]"
+                                onChange={(value) => {
+                                  formik.setFieldValue('relation1', value)
+                                }}
+                                value={formik?.values?.relation1?.value}
+                                options={[
+                                  { label: 'Mr', value: 'mr' },
+                                  { label: 'Mrs', value: 'mrs' },
+                                  { label: 'Miss', value: 'miss' },
+                                ]}
+                              />
+                            </InputAdornment>
+                          ),
+                        }}
+                        label=""
+                        name="co_Name1"
+                        type="text"
+                        value={formik.values.co_Name1}
+                        onChange={formik.handleChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="w-full lg:w-3/12 mb-2">
+                    <div className="relative w-full">
+                      <div className="space-y-1 w-full text-xs">
+                        <label htmlFor="countryCode" className="inline-block">
+                          Primary Phone No
+                        </label>
+                        <div className="flex border mb-6 mt-0 border-[#cccccc] rounded-md">
+                          <div className="inline-block">
+                            <input
+                              type="text"
+                              id="countryCode1"
+                              name="countryCode1"
+                              value={formik.values.countryCode1}
+                              onChange={(e) => formik.setFieldValue('countryCode1', e.target.value)}
+                              onBlur={formik.handleBlur}
+                              className="w-11 bg-grey-lighter text-grey-darker h-7 px-2 border-none rounded-l-md focus:outline-none"
+                              placeholder="+91"
+                              style={{ margin: '0', padding: '0', paddingLeft: '0.5rem' }}
+                            />
+                            {formik.errors.countryCode1 && formik.touched.countryCode1 && (
+                              <div className="text-red-500 text-xs ml-2">
+                                {formik.errors.countryCode1}
+                              </div>
+                            )}
+                          </div>
+                          <div className="border-l border-gray-400 mt-1 mb-1"></div>
+                          <PhoneNoField
+                            name="phoneNo1"
+                            value={formik.values.phoneNo1}
+                            customStyles={customPhoneNoFieldStyles}
+                            onChange={(value) => {
+                              formik.setFieldValue('phoneNo1', value.value)
+                            }}
+                            options={{}}
+                            labelSize="text-[11px]"
+                            textSize="text-[12px]"
+                            txtPad="px-2"
+                            className="text-[10px]"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="w-full lg:w-3/12">
+                    <div className="relative w-full">
+                      <TextField
+                        label="Email"
+                        name="email1"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Similar structure for Contact Person 2 */}
+                <div className="md:flex flex-row md:space-x-4 w-full text-xs mt-2">
+                  <div className="space-y-2 w-full text-xs mt- lg:w-6/12">
+                    <div className="relative">
+                      <label className="label font-regular text-[12px] block mb-1 mt- text-gray-700">
+                        Contact Person 2
+                      </label>
+                      <MuiTextField
+                        id="area"
+                        className={`w-full bg-grey-lighter text-grey-darker border border-[#cccccc] rounded-md h-10 mt-1 p-0`}
+                        size="small"
+                        InputProps={{
+                          style: { height: '2rem', paddingLeft: '7px' },
+                          startAdornment: (
+                            <InputAdornment position="start" style={{ height: '32px' }}>
+                              <NoBorderDropDown
+                                name="relation2"
+                                label=""
+                                className="input min-w-[85px] h-[32px]"
+                                onChange={(value) => {
+                                  formik.setFieldValue('relation2', value)
+                                }}
+                                value={formik?.values?.relation2?.value}
+                                options={[
+                                  { label: 'Mr', value: 'mr' },
+                                  { label: 'Mrs', value: 'mrs' },
+                                  { label: 'Miss', value: 'miss' },
+                                ]}
+                              />
+                            </InputAdornment>
+                          ),
+                        }}
+                        label=""
+                        name="co_Name2"
+                        type="text"
+                        value={formik.values.co_Name2}
+                        onChange={formik.handleChange}
+                      />
+                    </div>
+                  </div>
+                  <div className="w-full lg:w-3/12 mb-2">
+                    <div className="relative w-full">
+                      <div className="space-y-1 w-full text-xs">
+                        <label htmlFor="countryCode" className="inline-block">
+                          Primary Phone No
+                        </label>
+                        <div className="flex border mb-6 mt-0 border-[#cccccc] rounded-md">
+                          <div className="inline-block">
+                            <input
+                              type="text"
+                              id="countryCode2"
+                              name="countryCode2"
+                              value={formik.values.countryCode2}
+                              onChange={(e) => formik.setFieldValue('countryCode2', e.target.value)}
+                              onBlur={formik.handleBlur}
+                              className="w-11 bg-grey-lighter text-grey-darker h-7 px-2 border-none rounded-l-md focus:outline-none"
+                              placeholder="+91"
+                              style={{ margin: '0', padding: '0', paddingLeft: '0.5rem' }}
+                            />
+                            {formik.errors.countryCode2 && formik.touched.countryCode2 && (
+                              <div className="text-red-500 text-xs ml-2">
+                                {formik.errors.countryCode2}
+                              </div>
+                            )}
+                          </div>
+                          <div className="border-l border-gray-400 mt-1 mb-1"></div>
+                          <PhoneNoField
+                            name="phoneNo1"
+                            value={formik.values.phoneNo2}
+                            customStyles={customPhoneNoFieldStyles}
+                            onChange={(value) => {
+                              formik.setFieldValue('phoneNo2', value.value)
+                            }}
+                            options={{}}
+                            labelSize="text-[11px]"
+                            textSize="text-[12px]"
+                            txtPad="px-2"
+                            className="text-[10px]"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="w-full lg:w-3/12">
+                    <div className="relative w-full">
+                      <TextField
+                        label="Email"
+                        name="email2"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Address Section */}
+                <section className="mt-2 px-4 py-2 bg-white">
+                  <section className="flex flex-row mt-1">
+                    <div className="border-2 h-3 rounded-xl mt-[2px] w-1 border-[#8b5cf6]"></div>
+                    <span className="ml-1 leading-[15px]">
+                      <label className="font-semibold text-[#053219] text-[13px] leading-[15px] mb-1">
+                        Address
+                        <abbr title="required"></abbr>
+                      </label>
+                    </span>
+                  </section>
+                  <div className="w-full lg:w-12/12">
+                    <div className="relative w-full mb-3 mt-2">
+                      <TextField
+                        label="Address"
+                        name="address1"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div className="w-full flex flex-row lg:w-12/12 mt-1">
+                    <div className="w-full lg:w-12/12 px-">
+                      <div className="relative w-full mb-3 mt-">
+                        <TextField
+                          label="City"
+                          name="city1"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                    <div className="w-full lg:w-12/12 pl-4">
+                      <div className="relative w-full mb-3 mt-">
+                        <div className="w-full flex flex-col mb-3">
+                          <CustomSelect
+                            name="state1"
+                            label="State"
+                            className="input"
+                            onChange={(value) => {
+                              formik.setFieldValue('state1', value.value)
+                            }}
+                            value={formik.values.state1}
+                            options={statesListA}
+                          />
+                          <p className="text-sm text-red-500 hidden mt-3" id="error">
+                            Please fill out this field.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="w-full lg:w-12/12 pl-4">
+                      <div className="relative w-full mb-3">
+                        <TextField
+                          label="Pincode"
+                          name="pincode1"
+                          type="text"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </section>
+            </section>
+          </div>
+        </div>
+      )}
+
+      {/* Step 4: Attachments */}
+      <div className="stepper-item">
+        <div className="stepper-header">
+          <div className="stepper-number">4</div>
+          <div className="stepper-title">Attachments</div>
+        </div>
+        <div className="stepper-content">
+          <div>
+            <label
+              htmlFor="formFile1"
+              className="form-label cursor-pointer inline-block mt-2 font-regular text-xs bg-gray-300 rounded-2xl py-1"
+            >
+              <AttachFile
+                className="w-4 h-4 text-[18px]"
+                style={{ fontSize: '18px' }}
+              />
+            </label>
+            <input
+              type="file"
+              className="hidden"
+              id="formFile1"
+              name="fileUploader"
+              onChange={(e) => {
+                formik.setFieldValue('fileUploader', e.target.files[0])
+              }}
+            />
+          </div>
+          {formik.values.fileUploader && (
+            <img
+              src={URL.createObjectURL(formik.values.fileUploader)}
+              alt="Uploaded File"
+              className="img-preview"
+            />
+          )}
+        </div>
+      </div>
+
+      {/* Submit Button */}
+      <div className="text-center space-x-4 my-6">
+        <button
+          className="bg-[#8B5CF6] translate-y-1 text-[#fff] sm:text-lg text-xs font-bold py-2.5 px-6 rounded-full inline-flex items-center"
+          type="submit"
+          disabled={loading}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            className="w-6 h-6"
+          >
+            <path
+              fillRule="evenodd"
+              d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zM12.75 9a.75.75 0 00-1.5 0v2.25H9a.75.75 0 000 1.5h2.25V15a.75.75 0 001.5 0v-2.25H15a.75.75 0 000-1.5h-2.25V9z"
+              clipRule="evenodd"
+            />
+          </svg>
+          &nbsp; &nbsp;
+          <span>
+            {title === 'capturePayment' ? 'Confirm Payment' : 'Book Unit'}
+          </span>
+        </button>
+      </div>
+    </div>
+  )}
+
+  {/* Booking Progress Section */}
+  {title != 'capturePayment' && bookingProgress && (
+    <section className="mb-3">
+      <div className="mx-auto flex mt-6 flex-row">
+        <section className="ml-3 w-[300px]">
+          <div className="flex items-center">
+            {bookCompSteps.includes('payment_captured') && (
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-100">
+                <CheckCircleIcon className="h-6 w-6 text-violet-500" />
+              </div>
+            )}
+            {!bookCompSteps.includes('payment_captured') &&
+              !bookCurentStep.includes('payment_captured') && (
+                <ExclamationCircleIcon className="w-6 h-6 cursor-pointer ml-1 mb-[3px] mr-2 inline-block text-gray-400" />
+              )}
+            {bookCurentStep.includes('payment_captured') && <Loader />}
+            <span className="ml-2 text-md font-bold text-navy-700">
+              Payment Confirmed
+            </span>
+          </div>
+        </section>
+        <section className="ml-3 w-[300px]">
+          <div className="flex items-center">
+            {bookCompSteps.includes('CS_updated') && (
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-100">
+                <CheckCircleIcon className="h-6 w-6 text-violet-500" />
+              </div>
+            )}
+            {!bookCompSteps.includes('CS_updated') &&
+              !bookCurentStep.includes('CS_updated') && (
+                <ExclamationCircleIcon className="w-6 h-6 cursor-pointer ml-1 mb-[3px] mr-2 inline-block text-gray-400" />
+              )}
+            {bookCurentStep.includes('CS_updated') && <Loader />}
+            <span className="ml-4 text-md font-bold text-navy-700">
+              Costsheet & Payment Updated
+            </span>
+          </div>
+        </section>
+      </div>
+      <div className="mx-auto flex mt-6 flex flex-row">
+        <section className="ml-3 w-[300px]">
+          <div className="flex items-center">
+            {bookCompSteps.includes('unit_booked') && (
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-100">
+                <CheckCircleIcon className="h-6 w-6 text-violet-500" />
+              </div>
+            )}
+            {!bookCompSteps.includes('unit_booked') &&
+              !bookCurentStep.includes('unit_booked') && (
+                <ExclamationCircleIcon className="w-6 h-6 cursor-pointer ml-1 mb-[3px] mr-2 inline-block text-gray-400" />
+              )}
+            {bookCurentStep.includes('unit_booked') && <Loader />}
+            <span className="ml-2 text-md font-bold text-navy-700">
+              Unit Booked
+            </span>
+          </div>
+        </section>
+        <section className="ml-3 w-[300px]">
+          <div className="flex items-center">
+            {bookCompSteps.includes('customer_created') && (
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-100">
+                <CheckCircleIcon className="h-6 w-6 text-violet-500" />
+              </div>
+            )}
+            {!bookCompSteps.includes('customer_created') &&
+              !bookCurentStep.includes('customer_created') && (
+                <ExclamationCircleIcon className="w-6 h-6 cursor-pointer ml-1 mb-[3px] mr-2 inline-block text-gray-400" />
+              )}
+            {bookCurentStep.includes('customer_created') && <Loader />}
+            <span className="ml-2 text-md font-bold text-navy-700">
+              Customer Created
+            </span>
+          </div>
+        </section>
+      </div>
+      <div className="mx-auto flex mt-6 flex flex-row">
+        <section className="ml-3 w-[300px]">
+          <div className="flex items-center">
+            {bookCompSteps.includes('customer_email_send') && (
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-100">
+                <CheckCircleIcon className="h-6 w-6 text-violet-500" />
+              </div>
+            )}
+            {!bookCompSteps.includes('customer_email_send') &&
+              !bookCurentStep.includes('customer_email_send') && (
+                <ExclamationCircleIcon className="w-6 h-6 cursor-pointer ml-1 mb-[3px] mr-2 inline-block text-gray-400" />
+              )}
+            {bookCurentStep.includes('customer_email_send') && <Loader />}
+            <span className="ml-2 text-md font-bold text-navy-700">
+              Send Welcome E-mail
+            </span>
+          </div>
+        </section>
+        <section className="ml-4 w-[300px]">
+          <div className="flex items-center">
+            {bookCompSteps.includes('notify_to_manager') && (
+              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-indigo-100">
+                <CheckCircleIcon className="h-6 w-6 text-violet-500" />
+              </div>
+            )}
+            {!bookCompSteps.includes('notify_to_manager') &&
+              !bookCurentStep.includes('notify_to_manager') && (
+                <ExclamationCircleIcon className="w-6 h-6 cursor-pointer ml-1 mb-[3px] mr-2 inline-block text-gray-400" />
+              )}
+            {bookCurentStep.includes('notify_to_manager') && <Loader />}
+            <span className="ml-2 text-md font-bold text-navy-700">
+              Notified to Manager
+            </span>
+          </div>
+        </section>
+      </div>
+    </section>
+  )}
 </div>
+
                                     <Confetti ref={confettiRef} />
                                   </section>
                                 </div>
