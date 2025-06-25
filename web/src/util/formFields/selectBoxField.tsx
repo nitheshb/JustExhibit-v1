@@ -5,15 +5,15 @@ const customStyles = {
   control: (provided, state) => ({
     ...provided,
     background: '#fff',
-    // borderColor: '#9e9e9e',
-    minHeight: '32px',
-    height: '32px',
+    borderColor: '#E5E5E5',
+    minHeight: '42px',
+    height: '42px',
     boxShadow: state.isFocused ? null : null,
   }),
 
   valueContainer: (provided, state) => ({
     ...provided,
-    height: '30px',
+    height: '40px',
     padding: '0 6px'
   }),
 
@@ -26,7 +26,7 @@ const customStyles = {
   }),
   indicatorsContainer: (provided, state) => ({
     ...provided,
-    height: '30px',
+    height: '40px',
   }),
   menu: (provided) => ({ ...provided, zIndex: 9999 }),
 }
@@ -50,9 +50,9 @@ export const CustomSelect = ({
 
   return (
     <label>
-      <div className={className}>
+      <div className={`flex flex-col space-y-[10px] ${className}`}>
         {(label != '' || label != 'Assigned To') && (
-          <label className="label font-regular text-[12px] block pb-1 text-gray-700">{label}</label>
+          <label className="label font-semibold font-manrope text-[14px] leading-[20px] tracking-[0] text-[#333333]">{label}</label>
         )}
         <label>
           <Select

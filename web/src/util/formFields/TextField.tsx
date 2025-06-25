@@ -6,9 +6,10 @@ export const TextField = ({ label, ...props }) => {
   const [field, meta] = useField(props)
   return (
     <div className="mb-2 w-full">
+      <div className='flex flex-col space-y-[10px]'>
       <label
         htmlFor={field.name}
-        className="label font-regular text-[12px] block mb-1 text-gray-700"
+        className="label font-semibold font-manrope  text-[14px] leading-[20px] tracking-[0] text-[#333333]"
       >
         {label}
       </label>
@@ -19,18 +20,21 @@ export const TextField = ({ label, ...props }) => {
       /> */}
       <input
         className={` ${meta.touched && meta.error && 'is-invalid'} ${
-          field.name === 'blockName' ? 'rounded-xs' : ' h-8 rounded-md '
+          field.name === 'blockName' ? 'rounded-xs' : ' h-[42px] rounded-md '
         }
-           w-full min-w-full flex bg-grey-lighter text-grey-darker border border-[#cccccc] px-4`}
+           w-full min-w-full flex bg-grey-lighter text-grey-darker border border-[#E5E5E5] px-4`}
         {...field}
         {...props}
         autoComplete="off"
       />
+      </div>
       <ErrorMessage
         component="div"
         name={field.name}
         className="error-message text-red-700 text-xs p-1"
       />
+
+
     </div>
     // <div className="mb-3 space-y-2 w-full text-xs">
     //   <Label

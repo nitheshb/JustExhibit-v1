@@ -1651,7 +1651,7 @@ export default function UnitSideViewCRM({
         setOpen={setOpenCapturePayment}
         title={'capturePayment'}
         unitsViewMode={false}
-        widthClass="max-w-xl"
+        widthClass="max-w-2xl"
         selUnitDetails={selCustomerPayload}
         paymentCaptureFun={paymentCaptureFun}
       />

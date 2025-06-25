@@ -435,7 +435,7 @@ console.log('customer info', myBookingPayload)
           <article className="overflow-hidden">
             <div className=" rounded-b-md">
               <section className="flex flex-row-reverse">
-                {['unitBookingMode', 'unitBlockMode'].includes(actionMode) && (
+                {/* {['unitBookingMode', 'unitBlockMode'].includes(actionMode) && (
                   <div className="flex flex-col  w-[250px] pt-4 px-2 bg-white h-screen">
                     <div className="mt-1">
                       <div className="flex flex-row align-middle justify-between  mb-1">
@@ -480,9 +480,7 @@ console.log('customer info', myBookingPayload)
                               <span className="text-[11px] font-bold">
                                 {i + 1}
                               </span>
-                              {/* <svg className="w-3.5 h-3.5 text-green-500 dark:text-green-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 12">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5.917 5.724 10.5 15 1.5"/>
-            </svg> */}
+     
                             </span>
                             <div className="ml-1">
                               <span className="text-[12px]  font-bold    -[2px] rounded-lg flex flex-row text-[#000] ">
@@ -496,28 +494,15 @@ console.log('customer info', myBookingPayload)
                               <p className=" text-[9px]">
                                 {statusFlowObj?.text}
                               </p>
-                              {/* {statusFlowObj.value == 'costsheet' && (
-                              <div className="text-zinc-800 text-[12px] font-bold font-['Lato'] tracking-wide">
-                                {netTotal && !isNaN(netTotal)
-                                  ? `₹${netTotal.toLocaleString('en-IN')} `
-                                  : ''}
-                              </div>
-                            )}
-                            {statusFlowObj.value == 'customerDetails' && (
-                              <MyComponent data={customerInfo} />
-                            )}
-                            {statusFlowObj.value == 'payment_schedule' && (
-                              <PaymentScheduleStats newPlotPS={newPlotPS} />
-                            )}*/}
+      
                             </div>
                           </li>
                         )
                       })}
                     </ol>
 
-                    {/* <ScrollHighlightNabbar navHeader={reviewLinks} /> */}
                   </div>
-                )}
+                )} */}
                 <div className="w-full">
 
 

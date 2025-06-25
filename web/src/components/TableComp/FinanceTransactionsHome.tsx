@@ -707,7 +707,7 @@ const FinanceTransactionsHome = ({ leadsTyper }) => {
         setOpen={setOpenTransactionDetails}
         title={'Transaction'}
         customerDetails={selUserProfile}
-        widthClass="max-w-md"
+        widthClass="max-w-4xl"
         transactionData={transactionData}
       />
       <SiderForm
@@ -715,7 +715,7 @@ const FinanceTransactionsHome = ({ leadsTyper }) => {
         setOpen={setisImportLeadsOpen}
         title={'New Transaction'}
         customerDetails={selUserProfile}
-        widthClass="max-w-2xl"
+        widthClass="max-w-4xl"
         transactionData={transactionData}
       />
     </>
