@@ -18,21 +18,32 @@ export const TextField = ({ label, ...props }) => {
         className="label font-regular text-sm"
         errorClassName="label font-regular text-sm"
       /> */}
-      <input
-        className={` ${meta.touched && meta.error && 'is-invalid'} ${
-          field.name === 'blockName' ? 'rounded-xs' : ' h-[42px] rounded-md '
-        }
-           w-full min-w-full flex bg-grey-lighter text-grey-darker border border-[#E5E5E5] px-4`}
-        {...field}
-        {...props}
-        autoComplete="off"
-      />
+
+            <input
+  className={` 
+    ${meta.touched && meta.error && 'is-invalid'} 
+    ${field.name === 'blockName' ? 'rounded-[8px]' : 'h-[42px] rounded-[8px]'} 
+    w-full min-w-full flex bg-grey-lighter text-grey-darker border border-[#E5E5E5] px-4
+    placeholder:font-manrope placeholder:font-normal placeholder:text-[14px] 
+    placeholder:leading-[24px] placeholder:tracking-[0%] placeholder:text-[#CCCCCC]
+  `}
+  {...field}
+  {...props}
+  autoComplete="off"
+/>
+
       </div>
       <ErrorMessage
         component="div"
         name={field.name}
         className="error-message text-red-700 text-xs p-1"
       />
+
+
+
+
+
+
 
 
     </div>

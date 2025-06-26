@@ -462,14 +462,14 @@ const CrmHomePage = () => {
                       isEdit={undefined}
                     />
                   )}
-                  {viewable === 'MyCustomers-II' && (
+                  {/* {viewable === 'MyCustomers-II' && (
                     <CustomersSearchHome2
                       project={{
                         eventName: 'Events',
                       }}
                       isEdit={undefined}
                     />
-                  )}
+                  )} */}
                   {viewable === 'units_inventory' && (
                     <UnitsInventoryHome
                       project={{

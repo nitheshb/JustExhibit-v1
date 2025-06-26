@@ -616,7 +616,7 @@ const FloordetailsSearch = ({
                     <div className="mt-6">
                       {/* 1 */}
                       <div
-                        className="p-2 mb-1  mx-1 inline-block"
+                        className="p-2 mb-1  mx-2 inline-block"
                         style={{ minWidth: '30%' }}
                         onClick={() => selReportFun(unitStatsData)}
                       >
@@ -964,13 +964,13 @@ const FloordetailsSearch = ({
                           {/* <section className="px-8 bg-red-100 w-[130px] rounded-r-2xl">
                           Fl-{floorDat}
                         </section> */}
-                          <div className=" px-8 mt-6">
+                          <div className=" px-4 mt-6">
                             {filteredUnits
                               ?.filter((da) => da?.floor != i)
                               .map((data, index) => {
                                 return unitShrink ? (
                                   <div
-                                    className=" mb-1  mx-1 inline-block"
+                                    className=" mb-1  mx-3 inline-block"
                                     key={index}
                                     // onClick={() => handleDetailView_Close(data)}
                                     onClick={() => {
@@ -1315,7 +1315,7 @@ const FloordetailsSearch = ({
                                                         Details
                                                       </h3>
                                                       <h3
-                                                        className="m-0 mr-2 ml-2 mt- text-sm leading-tight tracking-tight text-blue-800 border-0 border-blue-200"
+                                                        className="m-0 px-1 text-sm leading-tight tracking-tight text-blue-800 border-0 border-blue-200"
                                                         onClick={() => {
                                                           setisUnitDetailsOpen(true)
                                                         }}

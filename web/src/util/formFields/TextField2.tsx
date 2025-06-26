@@ -27,18 +27,22 @@ export const TextField2 = ({ label,onChange, ...props }) => {
 
 
 
-<input
-  type="text"
-  name="name"
-  className={`${meta.touched && meta.error ? 'is-invalid' : ''} ${
-    field.name === 'blockName' ? 'rounded-xs' : 'h-[42px] rounded-md'
-  } w-full min-w-full flex bg-grey-lighter text-grey-darker border border-[#E5E5E5] px-4`}
-  placeholder=" "
-  autoComplete="off"
-  {...field}
-  {...props}
-  onChange={onChange || field.onChange}
-/>
+        <input
+          type="text"
+          name={field.name}
+          className={`${
+            meta.touched && meta.error ? 'is-invalid' : ''
+          } ${field.name === 'blockName' ? 'rounded-xs' : 'h-[42px] rounded-md'}
+            w-full min-w-full flex bg-grey-lighter text-grey-darker border border-[#E5E5E5] px-4
+            placeholder:font-manrope placeholder:font-normal
+            placeholder:text-[14px] placeholder:leading-[24px]
+            placeholder:tracking-[0%] placeholder:text-[#CCCCCC]`}
+          placeholder="Enter text"
+          autoComplete="off"
+          {...field}
+          {...props}
+          onChange={onChange || field.onChange}
+        />
 
 
       </div>

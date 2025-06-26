@@ -128,21 +128,21 @@ const UnitsSmallViewCard = ({ kind, feedData, bg, setSelUnitDetails,
 
   useEffect(() => {
     if (kind.status === "available") {
-      setBuildingColor("#FCC8BA")
-      setRoofColor("#F44D21")
-      setFontColor("#000")
+      setBuildingColor(" #F0F0F0")
+      setRoofColor("#FAAD99")
+      setFontColor("#000000")
     } else if (["booked", 'agreement_pipeline', 'agreement', 'allotment', 'possession', 'construction', 'registered'].includes(kind.status)) {
-      setBuildingColor("#A7F3D0") // Light green for booked
-      setRoofColor("#059669") // Dark green roof
-      setFontColor("#065F46") // Dark green text
+      setBuildingColor("#FCC8BA") // Light green for booked
+      setRoofColor("#F44D21") // Dark green roof
+      setFontColor("#000000") // Dark green text
     } else if (["blocked", 'customer_blocked', 'management_blocked'].includes(kind.status)) {
-      setBuildingColor("#D1D5DB") // Gray for blocked
+      setBuildingColor("#F0F0F0") // Gray for blocked
       setRoofColor("#6B7280") // Dark gray roof
-      setFontColor("#374151") // Dark gray text
+      setFontColor("#000000") // Dark gray text
     } else {
       setBuildingColor("#FDE68A") // Light yellow for others
       setRoofColor("#B45309") // Dark yellow roof
-      setFontColor("#B76E00")
+      setFontColor("#000000")
     }
   }, [kind])
 
@@ -185,59 +185,47 @@ const UnitsSmallViewCard = ({ kind, feedData, bg, setSelUnitDetails,
         fill={roofColor}
       />
       
-      {/* Unit number text in the center of the building */}
-      <text
-        x="50%"
-        y="40%"
-        dominantBaseline="middle"
-        textAnchor="middle"
-        fill={fontColor}
-        fontFamily="Arial"
-        fontSize="24"
-        fontWeight="bold"
-      >
-        {kind?.unit_no}
-      </text>
-      
-      {/* Area information */}
-      <text
-        x="50%"
-        y="55%"
-        dominantBaseline="middle"
-        textAnchor="middle"
-        fill={fontColor}
-        fontFamily="Arial"
-        fontSize="12"
-      >
-        {kind?.super_built_up_area || kind?.area || 0} sqm
-      </text>
-      
-      {/* Size information */}
-      <text
-        x="50%"
-        y="65%"
-        dominantBaseline="middle"
-        textAnchor="middle"
-        fill={fontColor}
-        fontFamily="Arial"
-        fontSize="12"
-      >
-        {/* {kind?.size || kind?.size || 0} */}
-      </text>
-      
-      {/* Status information */}
-      <text
-        x="50%"
-        y="75%"
-        dominantBaseline="middle"
-        textAnchor="middle"
-        fill={fontColor}
-        fontFamily="Arial"
-        fontSize="10"
-        fontStyle="italic"
-      >
-        {/* {kind?.status || ''} */}
-      </text>
+{/* Unit number - Centered */}
+<text
+  x="50%"
+  y="50%"
+  dominantBaseline="middle"
+  textAnchor="middle"
+  fill={fontColor}
+  fontFamily="Arial"
+  fontSize="24"
+  fontWeight="bold"
+>
+  {kind?.unit_no}
+</text>
+
+{/* Area info - Bottom left */}
+<text
+  x="10%"
+  y="75%"
+  dominantBaseline="middle"
+  textAnchor="start"
+  fill={fontColor}
+  fontFamily="Arial"
+  fontSize="10"
+>
+  {(kind?.super_built_up_area || kind?.area || 0) + ' sqm'}
+</text>
+
+{/* Status info - Bottom right */}
+<text
+  x="90%"
+  y="75%"
+  dominantBaseline="middle"
+  textAnchor="end"
+  fill={fontColor}
+  fontFamily="Arial"
+  fontSize="10"
+  fontStyle="italic"
+>
+  {kind?.status || ''}
+</text>
+
     </svg>
   )
 

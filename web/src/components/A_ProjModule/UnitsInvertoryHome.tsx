@@ -474,6 +474,9 @@ const UnitsInventoryHome = ({ project }) => {
                   selProjectIs={projectDetails}
                   dropDownItemsA={customerRawData}
                 />
+
+                  <div className="w-[1px] h-[58px] bg-[#E4E6E8] mx-2" />
+
                 {/* <DropDownSearchBar
                       type={'All Phases'}
                       id={'id'}
@@ -494,6 +497,9 @@ const UnitsInventoryHome = ({ project }) => {
                   dropDownItemsA={availStatusA}
                 />
 
+                  <div className="w-[1px] h-[58px] bg-[#E4E6E8] mx-2" />
+
+
                 <DropDownSearchBar
                   label={'Dimension'}
                   type={'All'}
@@ -504,6 +510,9 @@ const UnitsInventoryHome = ({ project }) => {
                   selProjectIs={selUnitType}
                   dropDownItemsA={typeA}
                 />
+
+                  <div className="w-[1px] h-[58px] bg-[#E4E6E8] mx-2" />
+
               
                 <DropDownSearchBar
                   label={'Size'}

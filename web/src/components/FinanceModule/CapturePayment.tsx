@@ -726,13 +726,13 @@ const CaptureUnitPayment = ({
                                 </div> */}
 
                                 {/* Hidden Booking Confirmation Section - can be enabled by removing the false && */}
-{false && (
-  <div className='px-3 my-3'>
-    <h2 className='font-manrope font-semibold text-[20px] leading-[20px] tracking-[0] text-[#F44D21]'>
-      Booking conformation
-    </h2>
-  </div>
-)}
+                                {false && (
+                                  <div className='px-3 my-3'>
+                                    <h2 className='font-manrope font-semibold text-[20px] leading-[20px] tracking-[0] text-[#F44D21]'>
+                                      Booking conformation
+                                    </h2>
+                                  </div>
+                                )}
 
                                 <div className=" flex flex-row px-0 py-2  overflow-y-scroll overflow-auto no-scrollbar">
                                   <section className=" p- rounded-md  ">
@@ -791,29 +791,41 @@ const CaptureUnitPayment = ({
                                     <div className="  mt-4">
                                       {!bookingProgress && (
                                         <section>
-                                          <div className="flex flex-wrap mt-3">
+                                          <div className="flex flex-wrap mt-1">
                                             <div className="justify-center w-full mx-auto"></div>
 
 
-                                            <section className=' w-full lg:w-12/12 mx-3 mb-3'>
+                                            <section className=' w-full lg:w-12/12  mb-3'>
                                               {title !== 'capturePayment' && <section className=" ">
 
                                                 <div className="flex items-center gap-3 mb-4">
                                                   <div className="w-[30px] h-[30px]  rounded-[7.5px] border border-[#E5E5E5] shadow-[0px_0.75px_4px_0px_#0000001A] text-white flex items-center justify-center">
-                                                    <div className="w-2.5 h-2.5 bg-orange-500 rounded-sm"></div>
+                                                    <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                      <path d="M1.3335 7C1.3335 4.17157 1.3335 2.75736 2.30981 1.87868C3.28612 1 4.85747 1 8.00016 1C11.1429 1 12.7142 1 13.6905 1.87868C14.6668 2.75736 14.6668 4.17157 14.6668 7C14.6668 9.82843 14.6668 11.2426 13.6905 12.1213C12.7142 13 11.1429 13 8.00016 13C4.85747 13 3.28612 13 2.30981 12.1213C1.3335 11.2426 1.3335 9.82843 1.3335 7Z" stroke="#F44D21" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                                                      <path d="M5.6 4.3335H5.06667C4.56384 4.3335 4.31242 4.3335 4.15621 4.48971C4 4.64592 4 4.89733 4 5.40016V5.9335C4 6.43633 4 6.68774 4.15621 6.84395C4.31242 7.00016 4.56384 7.00016 5.06667 7.00016H5.6C6.10283 7.00016 6.35425 7.00016 6.51046 6.84395C6.66667 6.68774 6.66667 6.43633 6.66667 5.9335V5.40016C6.66667 4.89733 6.66667 4.64592 6.51046 4.48971C6.35425 4.3335 6.10283 4.3335 5.6 4.3335Z" stroke="#F44D21" stroke-width="1.25" stroke-linejoin="round" />
+                                                      <path d="M4 9.6665H6.66667" stroke="#F44D21" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                                                      <path d="M9.3335 4.3335H12.0002" stroke="#F44D21" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                                                      <path d="M9.3335 7H12.0002" stroke="#F44D21" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                                                      <path d="M9.3335 9.6665H12.0002" stroke="#F44D21" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+
                                                   </div>
                                                   <h2 className="font-playfair font-bold text-[12px] leading-[20px] tracking-[2px] uppercase text-[#1A1A1A]"> Customer Details</h2>
                                                 </div>
 
-                                                <div className='border border-[#E5E5E5] p-4  rounded-[12px]'>
+                                                <div className='border border-[#E5E5E5] p-[20px]  rounded-[12px]'>
 
                                                   {/* customer details */}
                                                   <section className="bg-white   ">
-                                                    <section className="flex flex-row  pt-2 mt-1 ">
-                                                      <span className="ml-1 leading-[15px] ">
-                                                        <div className="flex items-center gap-2 mb-4">
-                                                          <Building2 className="w-4 h-4 text-orange-600" />
-                                                          <span className="text-sm font-semibold text-gray-800">Company details</span>
+                                                    <section className="flex flex-row  ">
+                                                      <span className=" ">
+                                                        <div className="flex items-center gap-2 ">
+                                                          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M5 8C5.53043 8 6.03914 7.78929 6.41421 7.41421C6.78929 7.03914 7 6.53043 7 6C7 5.46957 6.78929 4.96086 6.41421 4.58579C6.03914 4.21071 5.53043 4 5 4C4.46957 4 3.96086 4.21071 3.58579 4.58579C3.21071 4.96086 3 5.46957 3 6C3 6.53043 3.21071 7.03914 3.58579 7.41421C3.96086 7.78929 4.46957 8 5 8ZM9 5.5C9 5.36739 9.05268 5.24021 9.14645 5.14645C9.24021 5.05268 9.36739 5 9.5 5H13.5C13.6326 5 13.7598 5.05268 13.8536 5.14645C13.9473 5.24021 14 5.36739 14 5.5C14 5.63261 13.9473 5.75979 13.8536 5.85355C13.7598 5.94732 13.6326 6 13.5 6H9.5C9.36739 6 9.24021 5.94732 9.14645 5.85355C9.05268 5.75979 9 5.63261 9 5.5ZM9 8C9 7.86739 9.05268 7.74021 9.14645 7.64645C9.24021 7.55268 9.36739 7.5 9.5 7.5H13.5C13.6326 7.5 13.7598 7.55268 13.8536 7.64645C13.9473 7.74021 14 7.86739 14 8C14 8.13261 13.9473 8.25979 13.8536 8.35355C13.7598 8.44732 13.6326 8.5 13.5 8.5H9.5C9.36739 8.5 9.24021 8.44732 9.14645 8.35355C9.05268 8.25979 9 8.13261 9 8ZM10 10.5C10 10.3674 10.0527 10.2402 10.1464 10.1464C10.2402 10.0527 10.3674 10 10.5 10H13.5C13.6326 10 13.7598 10.0527 13.8536 10.1464C13.9473 10.2402 14 10.3674 14 10.5C14 10.6326 13.9473 10.7598 13.8536 10.8536C13.7598 10.9473 13.6326 11 13.5 11H10.5C10.3674 11 10.2402 10.9473 10.1464 10.8536C10.0527 10.7598 10 10.6326 10 10.5Z" fill="#AD3717" />
+                                                            <path d="M2 2C1.46957 2 0.960859 2.21071 0.585786 2.58579C0.210714 2.96086 0 3.46957 0 4L0 12C0 12.5304 0.210714 13.0391 0.585786 13.4142C0.960859 13.7893 1.46957 14 2 14H14C14.5304 14 15.0391 13.7893 15.4142 13.4142C15.7893 13.0391 16 12.5304 16 12V4C16 3.46957 15.7893 2.96086 15.4142 2.58579C15.0391 2.21071 14.5304 2 14 2H2ZM1 4C1 3.73478 1.10536 3.48043 1.29289 3.29289C1.48043 3.10536 1.73478 3 2 3H14C14.2652 3 14.5196 3.10536 14.7071 3.29289C14.8946 3.48043 15 3.73478 15 4V12C15 12.2652 14.8946 12.5196 14.7071 12.7071C14.5196 12.8946 14.2652 13 14 13H8.96C8.98667 12.8367 9 12.67 9 12.5C9 10.567 7.21 9 5 9C2.914 9 1.2 10.398 1.016 12.181C1.00518 12.1213 0.999829 12.0607 1 12V4Z" fill="#AD3717" />
+                                                          </svg>
+
+                                                          <span className="font-manrope font-semibold text-sm leading-5 tracking-normal text-[#AD3717]">Company Details</span>
                                                         </div>
 
                                                       </span>
@@ -825,6 +837,8 @@ const CaptureUnitPayment = ({
                                                           label="Company Name*"
                                                           name="companyName"
                                                           type="text"
+                                                          placeholder="Enter company name"
+
                                                         />
                                                       </div>
                                                     </div>
@@ -837,12 +851,21 @@ const CaptureUnitPayment = ({
                                                           </label>
                                                           <MuiTextField
                                                             id="area"
-                                                            className={`w-full bg-grey-lighter text-grey-darker border border-[#cccccc] rounded-md h-10 mt-1 p-0`}
+                                                            className={`w-ful text-grey-darker border border-[#E5E5E5] rounded-[8px] h-10 mt-1 p-0`}
                                                             size="small"
+                                                            placeholder="Enter contact person name"
                                                             InputProps={{
                                                               style: {
                                                                 height: 42,
                                                                 paddingLeft: '7px',
+                                                                borderRadius: '8px',
+                                                                fontFamily: 'Manrope',
+                                                                fontWeight: 400,
+                                                                fontSize: '14px',
+                                                                lineHeight: '24px',
+                                                                letterSpacing: '0%',
+                                                                color: '#1A1A1A',
+
                                                               },
                                                               startAdornment: (
                                                                 <InputAdornment
@@ -893,6 +916,33 @@ const CaptureUnitPayment = ({
                                                             onChange={
                                                               formik.handleChange
                                                             }
+
+
+
+                                                            sx={{
+                                                              '& .MuiOutlinedInput-root': {
+                                                                borderRadius: '8px',
+                                                                borderColor: '#E5E5E5',
+                                                                backgroundColor: '#fff',
+                                                              },
+                                                              '& .MuiOutlinedInput-notchedOutline': {
+                                                                borderColor: '#E5E5E5',
+                                                              },
+                                                              '&:hover .MuiOutlinedInput-notchedOutline': {
+                                                                borderColor: '#E5E5E5',
+                                                              },
+                                                              '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                                                borderColor: '#E5E5E5',
+                                                              },
+                                                              '& input::placeholder': {
+                                                                fontFamily: 'Manrope',
+                                                                fontWeight: 400,
+                                                                fontSize: '14px',
+                                                                lineHeight: '24px',
+                                                                letterSpacing: '0%',
+                                                                color: '#CCCCCC',
+                                                              },
+                                                            }}
                                                           />
                                                         </div>
                                                       </div>
@@ -906,7 +956,7 @@ const CaptureUnitPayment = ({
                                                               Primary Phone No
                                                             </label>
 
-                                                            <div className="flex border mb-6 mt-0 border-[#cccccc] rounded-md">
+                                                            <div className="flex border mb-6 mt-0 border-[#E5E5E5] rounded-[8px]">
                                                               <div className="inline-block">
                                                                 <input
                                                                   type="text"
@@ -925,14 +975,20 @@ const CaptureUnitPayment = ({
                                                                   onBlur={
                                                                     formik.handleBlur
                                                                   }
-                                                                  className="w-11 bg-grey-lighter text-grey-darker h-[40px] px-2 border-none rounded-l-md focus:outline-none"
+                                                                  className="
+    w-11 h-[40px] px-2 border-none rounded-l-md focus:outline-none
+    bg-grey-lighter text-grey-darker
+    placeholder:font-manrope placeholder:font-normal
+    placeholder:text-[14px] placeholder:leading-[24px]
+    placeholder:tracking-[0%] placeholder:text-[#000]
+  "
                                                                   placeholder="+91"
                                                                   style={{
                                                                     margin: '0',
                                                                     padding: '0',
-                                                                    paddingLeft:
-                                                                      '0.5rem', // Add padding-left
+                                                                    paddingLeft: '0.5rem',
                                                                   }}
+
                                                                 />
                                                                 {formik.errors
                                                                   .countryCode1 &&
@@ -984,6 +1040,7 @@ const CaptureUnitPayment = ({
                                                             label="Email"
                                                             name="email1"
                                                             type="text"
+                                                            placeholder="Enter email id"
                                                           />
                                                         </div>
                                                       </div>
@@ -997,13 +1054,23 @@ const CaptureUnitPayment = ({
                                                           </label>
                                                           <MuiTextField
                                                             id="area"
-                                                            className={`w-full bg-grey-lighter text-grey-darker border border-[#cccccc] rounded-md  mt-1 p-0`}
+                                                            className={`w-full  text-grey-darker border border-[#E5E5E5] rounded-[8px]  mt-1 p-0`}
                                                             size="small"
+                                                            placeholder="Enter contact person name"
                                                             InputProps={{
                                                               style: {
                                                                 height: 42,
                                                                 paddingLeft: '7px',
+                                                                borderRadius: '8px',
+                                                                fontFamily: 'Manrope',
+                                                                fontWeight: 400,
+                                                                fontSize: '14px',
+                                                                lineHeight: '24px',
+                                                                letterSpacing: '0%',
+                                                                color: '#1A1A1A',
+
                                                               },
+
                                                               startAdornment: (
                                                                 <InputAdornment
                                                                   position="start"
@@ -1041,6 +1108,7 @@ const CaptureUnitPayment = ({
                                                                         value: 'miss',
                                                                       },
                                                                     ]}
+
                                                                   />
                                                                 </InputAdornment>
                                                               ),
@@ -1054,6 +1122,33 @@ const CaptureUnitPayment = ({
                                                             onChange={
                                                               formik.handleChange
                                                             }
+
+
+
+                                                            sx={{
+                                                              '& .MuiOutlinedInput-root': {
+                                                                borderRadius: '8px',
+                                                                borderColor: '#E5E5E5',
+                                                                backgroundColor: '#fff',
+                                                              },
+                                                              '& .MuiOutlinedInput-notchedOutline': {
+                                                                borderColor: '#E5E5E5',
+                                                              },
+                                                              '&:hover .MuiOutlinedInput-notchedOutline': {
+                                                                borderColor: '#E5E5E5',
+                                                              },
+                                                              '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                                                                borderColor: '#E5E5E5',
+                                                              },
+                                                              '& input::placeholder': {
+                                                                fontFamily: 'Manrope',
+                                                                fontWeight: 400,
+                                                                fontSize: '14px',
+                                                                lineHeight: '24px',
+                                                                letterSpacing: '0%',
+                                                                color: '#CCCCCC',
+                                                              },
+                                                            }}
                                                           />
                                                         </div>
                                                       </div>
@@ -1067,7 +1162,7 @@ const CaptureUnitPayment = ({
                                                               Secondary Phone No
                                                             </label>
 
-                                                            <div className="flex border mb-6 mt-0 border-[#cccccc] rounded-md">
+                                                            <div className="flex border mb-6 mt-0 border-[#E5E5E5] rounded-[8px]">
                                                               <div className="inline-block">
                                                                 <input
                                                                   type="text"
@@ -1086,13 +1181,18 @@ const CaptureUnitPayment = ({
                                                                   onBlur={
                                                                     formik.handleBlur
                                                                   }
-                                                                  className="w-11 bg-grey-lighter text-grey-darker h-[40px] px-2 border-none rounded-l-md focus:outline-none"
+                                                                  className="
+    w-11 h-[40px] px-2 border-none rounded-l-md focus:outline-none
+    bg-grey-lighter text-grey-darker
+    placeholder:font-manrope placeholder:font-normal
+    placeholder:text-[14px] placeholder:leading-[24px]
+    placeholder:tracking-[0%] placeholder:text-[#000]
+  "
                                                                   placeholder="+91"
                                                                   style={{
                                                                     margin: '0',
                                                                     padding: '0',
-                                                                    paddingLeft:
-                                                                      '0.5rem', // Add padding-left
+                                                                    paddingLeft: '0.5rem',
                                                                   }}
                                                                 />
                                                                 {formik.errors
@@ -1112,6 +1212,7 @@ const CaptureUnitPayment = ({
 
                                                               <PhoneNoField
                                                                 name="phoneNo1"
+
                                                                 // type="text"
                                                                 value={
                                                                   formik.values
@@ -1132,7 +1233,7 @@ const CaptureUnitPayment = ({
                                                                 labelSize="text-[11px]"
                                                                 textSize="text-[12px]"
                                                                 txtPad="px-2"
-                                                                className="text-[10px] h-[40px]"
+                                                                className="text-[10px] h-[40px] flex items-center"
                                                               />
                                                             </div>
                                                           </div>
@@ -1145,6 +1246,7 @@ const CaptureUnitPayment = ({
                                                             label="Email"
                                                             name="email2"
                                                             type="text"
+                                                            placeholder="Enter email id"
                                                           />
                                                         </div>
                                                       </div>
@@ -1159,11 +1261,14 @@ const CaptureUnitPayment = ({
                                                   {/* section-3 */}
                                                   <section className="mt-2   py-2 bg-white ">
                                                     <section className="flex flex-row  mt-1 ">
-                                                      <span className="ml-1 leading-[15px] ">
+                                                      <span className=" leading-[15px] ">
 
-                                                        <div className="flex items-center gap-2 mb-4">
-                                                          <MapPin className="w-4 h-4 text-orange-600" />
-                                                          <span className="text-sm font-semibold text-gray-800">Address</span>
+                                                        <div className="flex items-center gap-2 mb-2">
+                                                          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M21.5 12H19.389M19.389 12C19.389 13.9598 18.611 15.8389 17.2252 17.2247C15.8394 18.6105 13.9598 19.389 12 19.389M19.389 12C19.389 10.0402 18.611 8.16013 17.2252 6.77433C15.8394 5.38853 13.9598 4.611 12 4.611M12 2.5V4.611M12 4.611C10.0403 4.611 8.16089 5.38848 6.77519 6.77419C5.38948 8.15989 4.611 10.0393 4.611 11.999C4.611 13.9587 5.38948 15.8381 6.77519 17.2238C8.16089 18.6095 10.0403 19.389 12 19.389M2.5 12H4.611M12 21.5V19.389" stroke="#AD3717" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" />
+                                                            <path d="M11.9998 16.2218C13.1196 16.2218 14.1935 15.777 14.9852 14.9852C15.777 14.1935 16.2218 13.1196 16.2218 11.9998C16.2218 10.8801 15.777 9.80621 14.9852 9.01443C14.1935 8.22265 13.1196 7.77783 11.9998 7.77783C10.8801 7.77783 9.80621 8.22265 9.01443 9.01443C8.22265 9.80621 7.77783 10.8801 7.77783 11.9998C7.77783 13.1196 8.22265 14.1935 9.01443 14.9852C9.80621 15.777 10.8801 16.2218 11.9998 16.2218Z" stroke="#AD3717" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" />
+                                                          </svg>
+                                                          <span className="font-manrope font-semibold text-sm leading-5 tracking-normal text-[#AD3717]">Address</span>
                                                         </div>
 
                                                       </span>
@@ -1175,6 +1280,7 @@ const CaptureUnitPayment = ({
                                                           label="Address"
                                                           name="address1"
                                                           type="text"
+                                                          placeholder="Enter Address"
                                                         />
                                                       </div>
                                                     </div>
@@ -1185,6 +1291,7 @@ const CaptureUnitPayment = ({
                                                             label="City"
                                                             name="city1"
                                                             type="text"
+                                                            placeholder="Enter city"
                                                           />
                                                         </div>
                                                       </div>
@@ -1195,6 +1302,7 @@ const CaptureUnitPayment = ({
                                                               name="state1"
                                                               label="State"
                                                               className="input h-[42px]"
+
                                                               onChange={(value) => {
                                                                 formik.setFieldValue(
                                                                   'state1',
@@ -1223,6 +1331,7 @@ const CaptureUnitPayment = ({
                                                             label="Pincode"
                                                             name="pincode1"
                                                             type="text"
+                                                            placeholder="Enter picode"
                                                           />
                                                         </div>
                                                       </div>
@@ -1242,7 +1351,7 @@ const CaptureUnitPayment = ({
 
                                             </section>
 
-                                            <section className=" rounded-md w-full lg:w-12/12 mx-3 my-3 mb-3">
+                                            <section className=" rounded-md w-full lg:w-12/12  mt-2 mb-1 ">
 
 
 
@@ -1252,7 +1361,15 @@ const CaptureUnitPayment = ({
                                                 <div>
                                                   <div className="flex items-center gap-3 mb-4">
                                                     <div className="w-[30px] h-[30px]  rounded-[7.5px] border border-[#E5E5E5] shadow-[0px_0.75px_4px_0px_#0000001A] text-white flex items-center justify-center">
-                                                      <div className="w-2.5 h-2.5 bg-orange-500 rounded-sm"></div>
+                                                      <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M1.3335 7C1.3335 4.17157 1.3335 2.75736 2.30981 1.87868C3.28612 1 4.85747 1 8.00016 1C11.1429 1 12.7142 1 13.6905 1.87868C14.6668 2.75736 14.6668 4.17157 14.6668 7C14.6668 9.82843 14.6668 11.2426 13.6905 12.1213C12.7142 13 11.1429 13 8.00016 13C4.85747 13 3.28612 13 2.30981 12.1213C1.3335 11.2426 1.3335 9.82843 1.3335 7Z" stroke="#F44D21" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                                                        <path d="M5.6 4.3335H5.06667C4.56384 4.3335 4.31242 4.3335 4.15621 4.48971C4 4.64592 4 4.89733 4 5.40016V5.9335C4 6.43633 4 6.68774 4.15621 6.84395C4.31242 7.00016 4.56384 7.00016 5.06667 7.00016H5.6C6.10283 7.00016 6.35425 7.00016 6.51046 6.84395C6.66667 6.68774 6.66667 6.43633 6.66667 5.9335V5.40016C6.66667 4.89733 6.66667 4.64592 6.51046 4.48971C6.35425 4.3335 6.10283 4.3335 5.6 4.3335Z" stroke="#F44D21" stroke-width="1.25" stroke-linejoin="round" />
+                                                        <path d="M4 9.6665H6.66667" stroke="#F44D21" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                                                        <path d="M9.3335 4.3335H12.0002" stroke="#F44D21" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                                                        <path d="M9.3335 7H12.0002" stroke="#F44D21" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                                                        <path d="M9.3335 9.6665H12.0002" stroke="#F44D21" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                                                      </svg>
+
                                                     </div>
                                                     <h2 className="font-playfair font-bold text-[12px] leading-[20px] tracking-[2px] uppercase text-[#1A1A1A]">Cost Sheet</h2>
                                                   </div>
@@ -1261,30 +1378,30 @@ const CaptureUnitPayment = ({
                                                   <div className="border-y-1 border border-[#E5E5E5] rounded-[12px]  overflow-hidden ">
                                                     <table className="min-w-full divide-y ">
                                                       <thead>
-                                                        <tr className="h-10 mb-1 border-none w-[100%] bg-[#FEEDE9] text-[#0D027D]">
-                                                          <th className="min-w-[35%] px-2 font-manrope text-[12px] text-left text-[#1A1A1A]  tracking-wide">
+                                                        <tr className=" mb-1 border-none w-[100%] bg-[#FEEDE9] text-[#0D027D]">
+                                                          <th className="min-w-[35%] py-[13px] px-[20px] font-manrope text-[14px] text-left text-[#1A1A1A]  tracking-wide">
                                                             Stall Charges (
                                                             {selUnitDetails?.area?.toLocaleString(
                                                               'en-IN'
                                                             ) || 0}{' '}
                                                             sqm)
                                                           </th>
-                                                          <th className="w-[15%] font-manrope px-2 text-[12px] text-right text-[#1A1A1A] tracking-wide">
+                                                          <th className="w-[15%] font-manrope py-[13px] px-[20px] text-[14px] text-right text-[#1A1A1A] tracking-wide">
                                                             Rate/Sqm
                                                           </th>
                                                           <th
                                                             className={`${!true ? 'hidden' : ''
-                                                              } w-[15%] font-manrope px-2 text-[12px] text-right text-[#1A1A1A] tracking-wide `}
+                                                              } w-[15%] font-manrope py-[13px] px-[20px] text-[14px] text-right text-[#1A1A1A] tracking-wide `}
                                                           >
                                                             Cost
                                                           </th>
                                                           <th
                                                             className={`${!true ? 'hidden' : ''
-                                                              }  w-[15%] font-manrope px-2 text-[12px] text-right text-[#1A1A1A]  tracking-wide `}
+                                                              }  w-[15%] font-manrope py-[13px] px-[20px] text-[14px] text-right text-[#1A1A1A]  tracking-wide `}
                                                           >
                                                             GST
                                                           </th>
-                                                          <th className="w-[15%] font-manrope px-2 text-[12px] text-right text-[#1A1A1A]  tracking-wide ">
+                                                          <th className="w-[15%] font-manrope py-[13px] px-[20px] text-[14px] text-right text-[#1A1A1A]  tracking-wide ">
                                                             Total
                                                           </th>
                                                         </tr>
@@ -1297,16 +1414,16 @@ const CaptureUnitPayment = ({
                                                               key={inx}
                                                               className="py-1 my-2 h-10  py-[24px]"
                                                             >
-                                                              <th className="w-[40%] px-2 text-[12px] text-left  font-normal  ">
+                                                              <th className="w-[40%] py-[13px] px-[20px] text-[14px] text-left  font-manrope font-medium text-sm leading-[100%] tracking-normal text-[#1A1A1A]  ">
                                                                 {
                                                                   d1?.component
                                                                     ?.label
                                                                 }
                                                               </th>
-                                                              <td className="w-[15%]  px-2 text-[12px] text-right  ">
+                                                              <td className="w-[15%]  py-[13px] px-[20px] text-[12px] text-right  ">
                                                                 <TextFieldFlat
                                                                   label=""
-                                                                  className="w-[90%] text-[12px] text-right font-semibold border-b  border-[#B76E00]  pr-1 py-[4px] text-[#B76E00]"
+                                                                  className="w-[90%] text-[14px] text-right font-semibold border-b  border-[#666666]  pr-1 py-[4px] text-[#666666]"
                                                                   name="ratePerSqft"
                                                                   onChange={(e) => {
                                                                     // setNewSqftPrice(e.target.value)
@@ -1368,7 +1485,7 @@ const CaptureUnitPayment = ({
                                                                 className={`${!true
                                                                   ? 'hidden'
                                                                   : ''
-                                                                  } w-[15%] px-2 text-[12px] text-right text-slate-500  `}
+                                                                  } w-[15%] py-[13px] px-[20px] text-[14px] text-right text-[#666666] `}
                                                               >
                                                                 ₹
                                                                 {d1?.TotalSaleValue?.toLocaleString(
@@ -1379,14 +1496,14 @@ const CaptureUnitPayment = ({
                                                                 className={`${!true
                                                                   ? 'hidden'
                                                                   : ''
-                                                                  } w-[15%] px-2 text-[12px] text-right text-slate-500  `}
+                                                                  } w-[15%] py-[13px] px-[20px] text-[14px] text-right text-[#666666]  `}
                                                               >
                                                                 ₹
                                                                 {d1?.gstValue?.toLocaleString(
                                                                   'en-IN'
                                                                 )}
                                                               </td>
-                                                              <td className="w-[15%] px-2 text-[12px] text-right text-slate-900  ">
+                                                              <td className="w-[15%] py-[13px] px-[20px] text-[14px] text-right text-[#666666]  ">
                                                                 ₹
                                                                 {d1?.TotalNetSaleValueGsT?.toLocaleString(
                                                                   'en-IN'
@@ -1397,13 +1514,13 @@ const CaptureUnitPayment = ({
                                                         )}
                                                         {/* for construction cost  */}
                                                         <tr className=" border-[#fab56c]   h-10">
-                                                          <th className="w-[40%] text-[11px] font-semibold text-left text-[#1A1A1A] font-bold pl-2 ">
-                                                            Stall Total (A)
+                                                          <th className="w-[40%] text-[14px] py-[13px] px-[20px]  text-left text-[#1A1A1A] font-semibold  ">
+                                                            Total
                                                           </th>
-                                                          <td className="w-[15%] px-2 font-semibold text-[12px] text-right text-gray-600 pr-3"></td>
+                                                          <td className="w-[15%] px-2 font-semibold text-[12px] text-right text-gray-600 "></td>
                                                           <td
                                                             className={`${!true ? 'hidden' : ''
-                                                              } w-[15%] px-2 font-semibold  text-[12px] text-right text-gray-500 `}
+                                                              } w-[15%] px-2 font-semibold  py-[13px] px-[20px] text-[14px] text-right text-[#1A1A1A] `}
                                                           >
                                                             ₹
                                                             {costSheetA
@@ -1421,7 +1538,7 @@ const CaptureUnitPayment = ({
                                                           </td>
                                                           <td
                                                             className={`${!true ? 'hidden' : ''
-                                                              } w-[15%] px-2 font-semibold  text-[12px] text-right text-gray-500 `}
+                                                              } w-[15%] px-2 font-semibold  text-[14px] text-right text-[#1A1A1A] `}
                                                           >
                                                             ₹
                                                             {costSheetA
@@ -1437,7 +1554,7 @@ const CaptureUnitPayment = ({
                                                                 'en-IN'
                                                               )}
                                                           </td>
-                                                          <td className="w-[15%] px-2  font-semibold text-[12px] text-right  text-[#0D027D] ">
+                                                          <td className="w-[15%] py-[13px] px-[20px] font-semibold text-[12px] text-right  text-[#1A1A1A] ">
                                                             ₹
                                                             {partATotal?.toLocaleString(
                                                               'en-IN'
@@ -1456,12 +1573,20 @@ const CaptureUnitPayment = ({
                                               )}
                                             </section>
 
-                                            <div className='w-full lg:w-12/12 mx-3 my-4 mb-3'>
+                                            <div className='w-full lg:w-12/12  mt-2 mb-1'>
 
 
                                               <div className="flex items-center gap-3 mb-4">
                                                 <div className="w-[30px] h-[30px]  rounded-[7.5px] border border-[#E5E5E5] shadow-[0px_0.75px_4px_0px_#0000001A] text-white flex items-center justify-center">
-                                                  <div className="w-2.5 h-2.5 bg-orange-500 rounded-sm"></div>
+                                                  <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M1.3335 7C1.3335 4.17157 1.3335 2.75736 2.30981 1.87868C3.28612 1 4.85747 1 8.00016 1C11.1429 1 12.7142 1 13.6905 1.87868C14.6668 2.75736 14.6668 4.17157 14.6668 7C14.6668 9.82843 14.6668 11.2426 13.6905 12.1213C12.7142 13 11.1429 13 8.00016 13C4.85747 13 3.28612 13 2.30981 12.1213C1.3335 11.2426 1.3335 9.82843 1.3335 7Z" stroke="#F44D21" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path d="M5.6 4.3335H5.06667C4.56384 4.3335 4.31242 4.3335 4.15621 4.48971C4 4.64592 4 4.89733 4 5.40016V5.9335C4 6.43633 4 6.68774 4.15621 6.84395C4.31242 7.00016 4.56384 7.00016 5.06667 7.00016H5.6C6.10283 7.00016 6.35425 7.00016 6.51046 6.84395C6.66667 6.68774 6.66667 6.43633 6.66667 5.9335V5.40016C6.66667 4.89733 6.66667 4.64592 6.51046 4.48971C6.35425 4.3335 6.10283 4.3335 5.6 4.3335Z" stroke="#F44D21" stroke-width="1.25" stroke-linejoin="round" />
+                                                    <path d="M4 9.6665H6.66667" stroke="#F44D21" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path d="M9.3335 4.3335H12.0002" stroke="#F44D21" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path d="M9.3335 7H12.0002" stroke="#F44D21" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path d="M9.3335 9.6665H12.0002" stroke="#F44D21" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />
+                                                  </svg>
+
                                                 </div>
                                                 <h2 className="font-playfair font-bold text-[12px] leading-[20px] tracking-[2px] uppercase text-[#1A1A1A]">Payment</h2>
                                               </div>
@@ -1473,8 +1598,9 @@ const CaptureUnitPayment = ({
                                               <section className="border p-4 rounded-[12px] border-[#E5E5E5] ">
 
                                                 <div className="flex items-center gap-2 mb-4">
-                                                  <Building2 className="w-4 h-4 text-orange-600" />
-                                                  <span className="text-sm font-semibold text-gray-800">Payment</span>
+
+
+                                                  <span className="font-manrope font-semibold text-sm leading-5 tracking-normal text-[#AD3717]">Payment</span>
                                                 </div>
 
                                                 <div className="w-full lg:w-12/12 px-3">
@@ -1483,6 +1609,7 @@ const CaptureUnitPayment = ({
                                                       label="Paying"
                                                       name="amount"
                                                       type="number"
+                                                      placeholder="00000"
                                                     // onChange={(e) => {
                                                     //   setAmount(e.target.value)
                                                     //   console.log('changed value is ', e.target.value)
@@ -1491,6 +1618,10 @@ const CaptureUnitPayment = ({
                                                     />
                                                   </div>
                                                 </div>
+
+
+                       
+
 
                                                 <div className="text-xs px-3 mb-3">
                                                   {' '}
@@ -1551,11 +1682,12 @@ const CaptureUnitPayment = ({
                                                               id="push-everything"
                                                               name="push-notifications"
                                                               type="radio"
+                                                              style={{ accentColor: '#F44D21' }}
                                                               checked={
                                                                 paymentModex ==
                                                                 dat.value
                                                               }
-                                                              className="h-4 w-4 border-[#E5E5E5] text-indigo-600 focus:ring-[#F44D21]"
+                                                              className="h-5 w-5 border-[#E5E5E5] text-[#F44D21] focus:ring-[#F44D21]"
                                                             />
                                                             <label
                                                               htmlFor="push-everything"
@@ -1649,6 +1781,7 @@ const CaptureUnitPayment = ({
                                                         label="Cheque/Ref No"
                                                         name="bank_ref_no"
                                                         type="text"
+                                                        placeholder="00000"
                                                       />
                                                     </div>
                                                   </div>

@@ -9,27 +9,45 @@ const customStyles = {
     minHeight: '42px',
     height: '42px',
     boxShadow: state.isFocused ? null : null,
+    borderRadius: '8px',
   }),
 
-  valueContainer: (provided, state) => ({
+  valueContainer: (provided) => ({
     ...provided,
     height: '40px',
-    padding: '0 6px'
+    padding: '0 6px',
   }),
 
-  input: (provided, state) => ({
+  input: (provided) => ({
     ...provided,
     margin: '0px',
   }),
-  indicatorSeparator: state => ({
+
+  placeholder: (provided) => ({
+    ...provided,
+    fontFamily: 'Manrope',
+    fontWeight: 400,
+    fontSize: '14px',
+    lineHeight: '24px',
+    letterSpacing: '0%',
+    color: '#CCCCCC',
+  }),
+
+  indicatorSeparator: () => ({
     display: 'none',
   }),
-  indicatorsContainer: (provided, state) => ({
+
+  indicatorsContainer: (provided) => ({
     ...provided,
     height: '40px',
   }),
-  menu: (provided) => ({ ...provided, zIndex: 9999 }),
+
+  menu: (provided) => ({
+    ...provided,
+    zIndex: 9999,
+  }),
 }
+
 
 
 export const CustomSelect = ({
@@ -52,7 +70,7 @@ export const CustomSelect = ({
     <label>
       <div className={`flex flex-col space-y-[10px] ${className}`}>
         {(label != '' || label != 'Assigned To') && (
-          <label className="label font-semibold font-manrope text-[14px] leading-[20px] tracking-[0] text-[#333333]">{label}</label>
+          <label className="label font-semibold  font-manrope text-[14px] leading-[20px] tracking-[0] text-[#333333]">{label}</label>
         )}
         <label>
           <Select
