@@ -9,7 +9,8 @@ import {
   getTodayTodoLeadsDataByUser,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-import JewelleryExpoDashboard from '../CrmoverviewReport';
+import JewelleryExpoDashboard from './crmOverview';
+
 
 
 const rowsCounter = (parent, searchKey) => {
@@ -301,7 +302,7 @@ const CrmHome = ({ setisImportLeadsOpen, selUserProfileF, taskType }) => {
 
 <div>
 
-
+<JewelleryExpoDashboard/>
 
 </div>
   )

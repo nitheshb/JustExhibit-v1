@@ -76,7 +76,7 @@ const LeadsManagerPage = (props) => {
               setSelModule={setSelModule}
               setViewable={setViewable}
             />
-            <div className="flex overflow-y-auto mb-1">
+            <div className="flex overflow-y-auto mb-1 mx-10">
               <SlimSideMenuBar
                 pgName={'salesModule'}
                 sourceLink={'salesModule'}

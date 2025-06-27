@@ -429,7 +429,7 @@ const HomePage = () => {
               setViewable={setViewable}
             />
 
-            <div className='flex overflow-y-auto mb-1'>
+            <div className='flex overflow-y-auto mb-1 mx12'>
 
               <SlimSideMenuBar
                 pgName={'projectModule'}

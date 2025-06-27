@@ -1595,7 +1595,7 @@ const CaptureUnitPayment = ({
 
 
 
-                                              <section className="border p-4 rounded-[12px] border-[#E5E5E5] ">
+                                              <section className="border p-[20px] rounded-[12px] border-[#E5E5E5] ">
 
                                                 <div className="flex items-center gap-2 mb-4">
 
@@ -1603,7 +1603,7 @@ const CaptureUnitPayment = ({
                                                   <span className="font-manrope font-semibold text-sm leading-5 tracking-normal text-[#AD3717]">Payment</span>
                                                 </div>
 
-                                                <div className="w-full lg:w-12/12 px-3">
+                                                <div className="w-full lg:w-12/12 ">
                                                   <div className="relative w-full mb-3">
                                                     <TextField2
                                                       label="Paying"
@@ -1623,7 +1623,7 @@ const CaptureUnitPayment = ({
                        
 
 
-                                                <div className="text-xs px-3 mb-3">
+                                                <div className="text-xs  mb-3">
                                                   {' '}
                                                   Paying{' '}
                                                   <RupeeInWords
@@ -1638,11 +1638,11 @@ const CaptureUnitPayment = ({
 
                                                 <div className='py-4'>
 
-                                                  <div className='px-3 '>
+                                                  <div className=' '>
                                                     <h2 className='font-semibold text-[14px] leading-[100%] tracking-[0] text-[#333333] font-manrope'>Mode of payment</h2>
                                                   </div>
 
-                                                  <div className="w-full px-3 mb-4 mt-8 flex flex-row gap-x-6">
+                                                  <div className="w-full  mb-4 mt-8 flex flex-row gap-x-6">
                                                     {paymentMode.map((dat, i) => {
                                                       return (
                                                         // <span
@@ -1773,7 +1773,7 @@ const CaptureUnitPayment = ({
                                                 </div>
                                               </section> */}
 
-                                                <section className="flex lg:w-12/12 px-3 flex-row gap-x-[25px]">
+                                                <section className="flex lg:w-12/12  flex-row gap-x-[25px]">
                                                   {/* Left Field */}
                                                   <div className="w-full">
                                                     <div className="relative w-full mb-5">
@@ -1819,8 +1819,8 @@ const CaptureUnitPayment = ({
                                                 </section>
 
 
-                                                <div className="w-full  px-3 pb-4">
-                                                  <div className="relative w-full mb-3">
+                                                <div className="w-full  ">
+                                                  <div className="relative w-full ">
                                                     <TextField2
                                                       label="Notes"
                                                       name="payReason"

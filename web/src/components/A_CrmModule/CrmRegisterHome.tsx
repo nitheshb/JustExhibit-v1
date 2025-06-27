@@ -48,6 +48,7 @@ import DoughnutChartWithRoundedSegments from '../A_SalesModule/Reports/charts/pi
 import CrmSiderForm from '../SiderForm/CRM_SideForm'
 import SiderForm from '../SiderForm/SiderForm'
 import RoundedProgressBar from './Reports/RoundedProgressBar'
+import RadialChart from './RadialChart'
 
 const agreementItems = [
   {
@@ -147,7 +148,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
   // kanban board
   const [ready, setReady] = useState(false)
   const [horizontalMode, setHorizontalMode] = useState(false)
-  const [showSettings, setShowSettings] = useState(true)
+  const [showSettings, setShowSettings] = useState(false)
   const [sourceDateRange, setSourceDateRange] = useState(
     startOfDay(d).getTime()
   )
@@ -572,6 +573,24 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
     setisUnitDetailsOpen(!isUnitDetailsOpen)
     setSelUnitDetails(docData)
   }
+
+
+
+  function formatIndianNumber(num) {
+    if (num >= 1_00_00_00_000) return (num / 1_00_00_00_000).toFixed(1) + 'Lcr+'
+    if (num >= 1_00_00_000) return (num / 1_00_00_000).toFixed(1) + 'Cr+'
+    if (num >= 1_00_000) return (num / 1_00_000).toFixed(1) + 'L+'
+    if (num >= 1_000) return (num / 1_000).toFixed(1) + 'K+'
+    return num.toString()
+  }
+
+
+
+
+
+
+
+
   return (
     <>
       <div className="mt-2   mx-auto ">
@@ -583,11 +602,13 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
               </h2>
 
               <div className="flex">
-                <div className=" flex flex-col mr-5  w-40">
+
+
+                <div className="flex flex-col mr-5  w-40">
                   <VerySlimSelectBox
                     name="project"
                     label=""
-                    className="input "
+                    className="input border border-[#E5E7EA] "
                     onChange={(value) => {
                       console.log('changed value is ', value.value)
                       setSelProject(value)
@@ -601,6 +622,8 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                     ]}
                   />
                 </div>
+
+
                 {access?.includes('manage_leads') && (
                   <div className=" flex flex-col   w-40">
                     <VerySlimSelectBox
@@ -634,7 +657,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                 </h2>
               </div> */}
 
-              <div className=" border-gray-900 flex flex-row justify-between">
+              <div className="border-b border-b-[1px] border-[#D8D8D8] flex flex-row justify-between">
                 <ul
                   className="flex   rounded-t-lg "
                   id="myTab"
@@ -651,13 +674,13 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                     return (
                       <li
                         key={b}
-                        className="mr-2 ml-2 text-sm font-bodyLato"
+                        className="mr-2  text-sm  font-bodyLato"
                         role="presentation"
                       >
                         <button
-                          className={`inline-block py-3 mr-3 px-1 text-sm font-medium  font-rubikF text-center text-black rounded-t-lg border-b-2  hover:text-black hover:border-gray-300   ${selCategory === d.val
-                              ? 'border-black text-black'
-                              : 'border-transparent'
+                          className={`inline-block py-[18px]  px-[32px] text-sm font-medium   text-center text-black rounded-t-lg border-b-2  hover:text-black hover:border-gray-300   ${selCategory === d.val
+                            ? 'border-black text-black'
+                            : 'border-transparent'
                             }`}
                           type="button"
                           role="tab"
@@ -689,8 +712,9 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                     )
                   })}
                 </ul>
-                <div className="flex flex-row mr-4 mt-2">
-                  <span
+
+
+                {/* <span
                     className="flex mt-[4px] mr-[8px] justify-center items-center w-6 h-6 bg-gradient-to-r from-violet-200 to-pink-200 rounded-full  cursor-pointer "
                     onClick={() => {
                       console.log('chek it', horizontalMode)
@@ -698,7 +722,11 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                     }}
                   >
                     <PuzzleIcon className=" w-3 h-3" />
-                  </span>
+                  </span> */}
+
+
+              </div>
+              {/* <div className="flex flex-row mr-4 mt-2">
                   <span
                     className="flex mt-[4px] mr-[0px] justify-center items-center w-6 h-6 bg-gradient-to-r from-violet-200 to-pink-200 rounded-full  cursor-pointer "
                     onClick={() => {
@@ -708,17 +736,19 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                   >
                     <SearchIcon className=" w-3 h-3" />
                   </span>
-                </div>
-              </div>
+                </div> */}
+
+
               <div
-                className={`${showSettings ? 'hidden' : ''
-                  } flex flex-row py-2 justify-between `}
+                className={` flex flex-row py-2 justify-between `}
               >
-                <div className="flex flex-row w-full">
-                  <span className="flex ml-2 mr-2 h-[34px] bg-gray-50 border border-gray-300 border-solid box-border w-1/3 rounded-md">
+                <div className="w-full flex items-center gap-1">
+                  <span
+                    className="flex w-[298px] h-[44px] gap-[6px] rounded-lg border-[1.5px] border-[#E5E7EA] px-3 items-center"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4  mt-[9px] mx-2"
+                      className="h-4 w-4 text-gray-500"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -737,9 +767,25 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                       onChange={(e) => setSearchKeyField(e.target.value)}
                       autoComplete="off"
                       value={searchKeyField}
-                      className="w-52 bg-transparent focus:border-transparent focus:ring-0 focus-visible:border-transparent focus-visible:ring-0 focus:outline-none text-sm leading-7 text-gray-900 w-4/5 relative"
+                      className="
+    w-4/5
+    bg-transparent
+    focus:border-transparent
+    focus:ring-0
+    focus:outline-none
+    text-sm
+    leading-7
+    text-gray-900
+    placeholder:font-Manrope
+    placeholder:font-medium
+    placeholder:text-[12px]
+    placeholder:leading-none
+    placeholder:tracking-[0]
+    placeholder:text-[#AEAEAE]
+  "
                     />
                   </span>
+
                   {/* <div className=" mr-2">
                     <SlimSelectBox
                       name="project"
@@ -769,18 +815,25 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                     />
                   </div> */}
 
-                  <span className="mt-2 ml-2 text-red-400 cursor-pointer text-xs" onClick={() => setSearchKeyField('')}>
+                  <span className="cursor-pointer w-[50px] h-[43px]  flex items-center justify-center cursor-pointer text-xs bg-[#F44D21] rounded-[8px] text-white" onClick={() => setSearchKeyField('')}>
                     {' '}
                     Clear
                   </span>
                 </div>
-                <span style={{ display: '' }}>
+                <span>
                   <CSVDownloader
                     className="mr-6 h-[20px] w-[20px] mt-2"
                     downloadRows={bookingReviewA}
-                    style={{ height: '20px', width: '20px' }}
+                    style={{
+                      height: '20px',
+                      width: '20px',
+                      color: '#F44D21',
+                      fill: '#F44D21',
+                    }}
                   />
+
                 </span>
+
               </div>
               <div className="flex px-6">
                 {leadsTyper == 'inProgress' && (
@@ -1059,10 +1112,10 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                 <div className="w-[253px] mx-4 left-[25px] mt-3 ml-4 justify-start items-center gap-2 inline-flex">
                                   <div
                                     className={`grow shrink basis-0 px-2.5 py-1.5 rounded-[16px] flex-col justify-center items-center gap-2 inline-flex ${finData?.man_cs_approval == 'approved'
-                                        ? 'bg-[#CCC5F7]'
-                                        : finData?.man_cs_approval == 'rejected'
-                                          ? 'bg-[#ffdbdb]'
-                                          : 'bg-[#F1F5F9] '
+                                      ? 'bg-[#CCC5F7]'
+                                      : finData?.man_cs_approval == 'rejected'
+                                        ? 'bg-[#ffdbdb]'
+                                        : 'bg-[#F1F5F9] '
                                       }  p-3 rounded-md mx-1`}
                                     style={{
                                       display: 'inline-block',
@@ -1082,10 +1135,10 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                   </div>
                                   <div
                                     className={`grow shrink basis-0 px-2.5 py-1.5 bg-gray-200 rounded-[16px] flex-col justify-center items-center gap-2 inline-flex ${finData?.kyc_status == 'approved'
-                                        ? 'bg-[#CCC5F7]'
-                                        : finData?.kyc_status == 'rejected'
-                                          ? 'bg-[#ffdbdb]'
-                                          : 'bg-[#F1F5F9] '
+                                      ? 'bg-[#CCC5F7]'
+                                      : finData?.kyc_status == 'rejected'
+                                        ? 'bg-[#ffdbdb]'
+                                        : 'bg-[#F1F5F9] '
                                       }  p-3 rounded-md mx-1`}
                                     style={{
                                       display: 'inline-block',
@@ -1130,11 +1183,11 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                       // console.log('fin data is ', finData)
                       return (
                         <section key={c} className=" ">
-                          <section className="flex flex-row bg-gradient-to-r from-[#Fff] to-[#fff]">
-                            <div className="w-[387px]">
+                          <section className="flex flex-row items-center justify-between p-[12px]  rounded-[20px] bg-gradient-to-r my-2 border border-[#E5E5E5] from-[#Fff] to-[#fff]">
+                            <div className="">
                               <div className="flex flex-row   ">
                                 <div
-                                  className="flex flex-col bg-gradient-to-r text-black  py-1 rounded-sm w-[437px] "
+                                  className="flex flex-col bg-gradient-to-r text-black  py-1 rounded-sm "
                                   // className="flex flex-col bg-gradient-to-r from-[#d8daff] to-[#9ae8fd] text-black p-1 rounded-sm w-[220px] h-[96px]"
                                   onClick={() =>
                                     viewTransaction(
@@ -1148,257 +1201,208 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                     <section className="flex flex-col ml-2 mt-[3px] w-[100%]">
                                       <section className="flex flex-row justify-between">
                                         {/* <section className="flex flex-col">
-                                          <section className="flex flex-row justify-between">
-                                            <span className=" text-[14px] text-black font-[500] ml-[2px]">
-                                              Unit-{unit_no}
-                                              {finData?.unit_type ===
-                                                'apartment' && (
-                                                <span className=" text-[10px] text-black font-[500] ml-[2px]">
-                                                  Block-{finData?.blockId}
-                                                </span>
-                                              )}
-                                              <span className=" text-[10px] text-black font-[500] ml-[2px]">
-                                                Phase-{finData?.phaseId}{' '}
+                <section className="flex flex-row justify-between">
+                  <span className=" text-[14px] text-black font-[500] ml-[2px]">
+                    Unit-{unit_no}
+                    {finData?.unit_type ===
+                      'apartment' && (
+                      <span className=" text-[10px] text-black font-[500] ml-[2px]">
+                        Block-{finData?.blockId}
+                      </span>
+                    )}
+                    <span className=" text-[10px] text-black font-[500] ml-[2px]">
+                      Phase-{finData?.phaseId}{' '}
 
-                                              </span>
-                                            </span>
-                                          </section>
-                                          <span className=" text-[12px] text-[#036046] font-[400] ml-[2px]">
-                                            {projName}
-                                          </span>
-                                        </section> */}
-                                        <div className="flex flex-row w-full">
+                    </span>
+                  </span>
+                </section>
+                <span className=" text-[12px] text-[#036046] font-[400] ml-[2px]">
+                  {projName}
+                </span>
+              </section> */}
+                                        <div className="flex gap-[12px] flex-row w-full items-center justify-center">
                                           {/* <section className="bg-violet-100  items-center rounded-2xl shadow-xs flex flex-col px-2 py-1 min-w-[100px]">
-                                            <div className="font-semibold text-[#053219]  text-[22px]  mb-[1] tracking-wide">
-                                              {unit_no}
-                                            </div>
-                                            <span
-                                              className={`items-center h-6   text-xs font-semibold text-gray-500  rounded-full`}
-                                            >
-                                              Stall No
-                                            </span>
-                                          </section> */}
-
-
-                                                      <section className="flex flex-row  items-center gap-6">
-              {/* <div className="bg-violet-100  items-center rounded-2xl shadow-xs flex flex-col px-2 py-1"> */}
-
-              <div className="relative w-[50px] h-[50px]">
-                <svg width="50" height="50" viewBox="0 0 119 119" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M26.0061 0H92.3734C95.2974 0 97.9884 1.59524 99.3918 4.16045L113.289 29.5641C113.933 30.7413 114.271 32.0617 114.271 33.4036L114.271 99.7936C114.271 103.619 111.17 106.72 107.345 106.72V112.281C107.345 115.991 104.338 118.997 100.629 118.997C96.9194 118.997 93.9125 115.991 93.9125 112.281V106.72H24.6969V112.224C24.6969 115.965 21.6641 118.997 17.9231 118.997C14.1821 118.997 11.1493 115.965 11.1493 112.224V106.72C7.41371 106.72 4.38538 103.691 4.38538 99.9557V31.9416C4.38538 30.5546 4.74602 29.1913 5.43191 27.9857L19.0526 4.04408C20.4749 1.54406 23.1298 0 26.0061 0Z" fill="#FCC8BA" />
-                  <path d="M101.705 27.7051C101.705 32.3855 97.9109 36.1795 93.2305 36.1797C88.5498 36.1797 84.7552 32.3856 84.7549 27.7051C84.7545 32.3856 80.9599 36.1796 76.2793 36.1797C71.7447 36.1797 68.0415 32.6188 67.8145 28.1406L67.8037 27.7051C67.8033 32.3856 64.0088 36.1797 59.3281 36.1797C54.6475 36.1797 50.8529 32.3856 50.8525 27.7051C50.8522 32.3856 47.0576 36.1797 42.377 36.1797C37.6964 36.1795 33.9017 32.3855 33.9014 27.7051C33.901 32.3855 30.1072 36.1795 25.4268 36.1797C20.7461 36.1797 16.9515 32.3856 16.9512 27.7051C16.9508 32.3856 13.1562 36.1796 8.47559 36.1797C3.79494 36.1797 0.000359783 32.3856 0 27.7051V18.1689H101.705V27.7051ZM118.656 27.7051C118.656 32.3856 114.861 36.1797 110.181 36.1797C105.5 36.1795 101.706 32.3855 101.706 27.7051V18.1689H118.656V27.7051ZM118.656 18.168H0L22.0684 0H96.707L118.656 18.168ZM30.209 2.13281C29.5894 2.13288 29.0046 2.41977 28.626 2.91016L20.9824 12.8145C19.9683 14.1292 20.9058 16.0361 22.5664 16.0361H33.2197C33.9636 16.036 34.6461 15.6228 34.9912 14.9639L40.1748 5.05957C40.8714 3.72812 39.906 2.13311 38.4033 2.13281H30.209ZM55.9199 2.13281C54.929 2.13296 54.0881 2.85874 53.9424 3.83887L52.4707 13.7422C52.2915 14.9503 53.2278 16.0361 54.4492 16.0361H65.5557C66.8397 16.0361 67.7914 14.8427 67.5059 13.5908L65.2441 3.6875C65.0364 2.77803 64.2278 2.13294 63.2949 2.13281H55.9199ZM80.2539 2.13281C78.7511 2.1328 77.785 3.72803 78.4814 5.05957L83.665 14.9639C84.0102 15.623 84.6934 16.0361 85.4375 16.0361H96.0908C97.7514 16.036 98.6881 14.1292 97.6738 12.8145L90.0312 2.91016C89.6526 2.41959 89.067 2.13283 88.4473 2.13281H80.2539Z" fill="#F44D21" />
-                </svg>
-
-                <div className="absolute inset-0 flex items-center mt-2 justify-center">
-                  <div className="font-bold text-[#1e1e1e] text-[16px] tracking-wide">
+                  <div className="font-semibold text-[#053219]  text-[22px]  mb-[1] tracking-wide">
                     {unit_no}
                   </div>
-                </div>
-              </div>
+                  <span
+                    className={`items-center h-6   text-xs font-semibold text-gray-500  rounded-full`}
+                  >
+                    Stall No
+                  </span>
+                </section> */}
 
 
+                                          <section className="flex flex-row  items-center gap-6">
+                                            {/* <div className="bg-violet-100  items-center rounded-2xl shadow-xs flex flex-col px-2 py-1"> */}
 
+                                            <div className="relative w-[79px] h-[80px]">
+                                              <svg width="79" height="80" viewBox="0 0 119 119" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M26.0061 0H92.3734C95.2974 0 97.9884 1.59524 99.3918 4.16045L113.289 29.5641C113.933 30.7413 114.271 32.0617 114.271 33.4036L114.271 99.7936C114.271 103.619 111.17 106.72 107.345 106.72V112.281C107.345 115.991 104.338 118.997 100.629 118.997C96.9194 118.997 93.9125 115.991 93.9125 112.281V106.72H24.6969V112.224C24.6969 115.965 21.6641 118.997 17.9231 118.997C14.1821 118.997 11.1493 115.965 11.1493 112.224V106.72C7.41371 106.72 4.38538 103.691 4.38538 99.9557V31.9416C4.38538 30.5546 4.74602 29.1913 5.43191 27.9857L19.0526 4.04408C20.4749 1.54406 23.1298 0 26.0061 0Z" fill="#FCC8BA" />
+                                                <path d="M101.705 27.7051C101.705 32.3855 97.9109 36.1795 93.2305 36.1797C88.5498 36.1797 84.7552 32.3856 84.7549 27.7051C84.7545 32.3856 80.9599 36.1796 76.2793 36.1797C71.7447 36.1797 68.0415 32.6188 67.8145 28.1406L67.8037 27.7051C67.8033 32.3856 64.0088 36.1797 59.3281 36.1797C54.6475 36.1797 50.8529 32.3856 50.8525 27.7051C50.8522 32.3856 47.0576 36.1797 42.377 36.1797C37.6964 36.1795 33.9017 32.3855 33.9014 27.7051C33.901 32.3855 30.1072 36.1795 25.4268 36.1797C20.7461 36.1797 16.9515 32.3856 16.9512 27.7051C16.9508 32.3856 13.1562 36.1796 8.47559 36.1797C3.79494 36.1797 0.000359783 32.3856 0 27.7051V18.1689H101.705V27.7051ZM118.656 27.7051C118.656 32.3856 114.861 36.1797 110.181 36.1797C105.5 36.1795 101.706 32.3855 101.706 27.7051V18.1689H118.656V27.7051ZM118.656 18.168H0L22.0684 0H96.707L118.656 18.168ZM30.209 2.13281C29.5894 2.13288 29.0046 2.41977 28.626 2.91016L20.9824 12.8145C19.9683 14.1292 20.9058 16.0361 22.5664 16.0361H33.2197C33.9636 16.036 34.6461 15.6228 34.9912 14.9639L40.1748 5.05957C40.8714 3.72812 39.906 2.13311 38.4033 2.13281H30.209ZM55.9199 2.13281C54.929 2.13296 54.0881 2.85874 53.9424 3.83887L52.4707 13.7422C52.2915 14.9503 53.2278 16.0361 54.4492 16.0361H65.5557C66.8397 16.0361 67.7914 14.8427 67.5059 13.5908L65.2441 3.6875C65.0364 2.77803 64.2278 2.13294 63.2949 2.13281H55.9199ZM80.2539 2.13281C78.7511 2.1328 77.785 3.72803 78.4814 5.05957L83.665 14.9639C84.0102 15.623 84.6934 16.0361 85.4375 16.0361H96.0908C97.7514 16.036 98.6881 14.1292 97.6738 12.8145L90.0312 2.91016C89.6526 2.41959 89.067 2.13283 88.4473 2.13281H80.2539Z" fill="#F44D21" />
+                                              </svg>
 
+                                              <div className="absolute inset-0 flex flex-col  mt-2 gap-1 items-center justify-center">
+                                                <div className="font-manrope font-normal text-[10px] leading-[100%] mt-1 tracking-[0%] text-center text-[#666666]">
+                                                  Stall No
+                                                </div>
+                                                <div className="font-bold text-[16px] text-[#1e1e1e] leading-none">
+                                                  {unit_no}
+                                                </div>
 
+                                              </div>
+                                            </div>
+                                          </section>
 
-
-
-            </section>
-
-
-
-
-                                          <div className="flex flex-col w-full  ml-2 item-right  px-2  mr-2 rounded-lg">
+                                          <div className="flex flex-col w-full   item-right   rounded-lg">
                                             <span
-                                              className={`items-center h-1 mt-[2px] mb-2  text-xs font-semibold text-green-600
-                      `}
+                                              className={`font-manrope font-bold text-[14px] leading-[20px] tracking-[0px] text-[#0A0A0A]
+      `}
                                             >
                                               {finData?.companyName ||
                                                 'NA'}
                                             </span>
                                             <span
-                                              className={`items-center h-1 mt-[6px] mb-2  text-xs
-                      `}
+                                              className={`font-manrope font-medium text-[12px] leading-[16px] tracking-[0px] text-[#666666]
+      `}
                                             >
                                               {finData?.co_Name1 ||
                                                 'NA'}
                                             </span>
                                             <span
-                                              className={`items-center h-1 mt-[6px] mb-2  text-xs
-                      `}
+                                              className={`font-manrope font-medium text-[12px] leading-[16px] tracking-[0px] text-[#666666]
+      `}
                                             >
                                               {finData?.phoneNo1 ||
                                                 'NA'}
                                             </span>
 
                                             <section className="flex flex-row justify-between">
-                                              <span className="  text-[10px] h-[20px]  text-[#005E36] font-bodyLato font-[600] mt-[2px] border border-[#ECFDF5]  py-[2px] rounded-xl mr-1 ">
+                                              <span className="font-manrope font-medium text-[12px] leading-[16px] tracking-[0px] text-[#336519] ">
                                                 {projName}{' '}
                                               </span>
                                               {/*
-                                              <span className="  text-[10px] h-[20px] text-[#005E36] font-bodyLato font-[600] mt-[2px] border border-[#ECFDF5] px-[6px] py-[2px] rounded-xl mr-1 ">
-                                                Booked:{' '}
-                                                {prettyDate(
-                                                  finData?.booked_on ||
-                                                    finData?.ct ||
-                                                    0
-                                                )}
-                                              </span> */}
+                    <span className="  text-[10px] h-[20px] text-[#005E36] font-bodyLato font-[600] mt-[2px] border border-[#ECFDF5] px-[6px] py-[2px] rounded-xl mr-1 ">
+                      Booked:{' '}
+                      {prettyDate(
+                        finData?.booked_on ||
+                          finData?.ct ||
+                          0
+                      )}
+                    </span> */}
                                             </section>
                                           </div>
                                         </div>
                                       </section>
-                                      {/* <span className=" text-[10px] h-[20px]  text-[#823d00] font-bodyLato font-[600] mt-[2px] bg-[#ffeccf] px-[6px] py-[2px] rounded-xl  mr-1">
-                                          {finData?.unit_type}
-
-                                        </span> */}
-                                      {/* <section className="flex flex-row mt-  ">
-
-                                        <section>
-                                          <span className="  text-[10px] h-[20px]  text-[#823d00] font-bodyLato font-[600] mt-[2px] bg-[#ffeccf] px-[6px] py-[2px] rounded-xl mr-1 ">
-
-                                            {finData?.area?.toLocaleString(
-                                              'en-IN'
-                                            )}{' '}
-                                            sqft
-                                          </span>
-
-                                          <span className="  text-[10px] h-[20px] text-[#823d00] font-bodyLato font-[600] mt-[2px] bg-[#ffeccf] px-[6px] py-[2px] rounded-xl mr-1 ">
-                                            {finData?.facing}
-                                          </span>
-                                          <span className=" text-[10px] h-[20px] text-[#823d00] font-bodyLato font-[600] mt-[2px] bg-[#ffeccf] px-[6px] py-[2px] rounded-xl mr-1 ">
-
-                                            ₹{' '}
-                                            {finData?.sqft_rate?.toLocaleString(
-                                              'en-IN'
-                                            )}
-                                            /sqft
-                                          </span>
-                                        </section>
-                                        <span className=" truncate text-[10px] h-[18px] text-[#823d00] font-bodyLato font-[600] mt-[5px] bg-[#ffeccf] px-[6px] py-[2px] rounded-xl mr-1 ">
-                                          {finData?.assignedToObj?.name ||
-                                            'Not Assigned'}
-                                        </span>
-
-                                      </section> */}
                                     </section>
                                   </section>
                                 </div>
                               </div>
                             </div>
 
-                            {/* check it  */}
-                            <div>
-                              <div className="flex flex-col  border rounded-lg my-1  px-2  pb-4 min-w-[340px] justify-between mr-1">
-                                <div className="flex flex-row justify-between mx- mb-1">
-                                  <section className="font-bodyLato font-semibold text-xs m-1 w-full">
-                                    <div className="mb-[2px] text-zinc-500 text-sm font-medium font-['Lato'] tracking-wide">
-                                      Total Cost
+                            <div className="border-l border-gray-200 mx-2 w-1 h-[60px] rounded-[4px]"></div>
+
+                            <div className=" flex flex-col  items-center">
+                              <div className="flex flex-row w-full gap-[20px] my-1 items-center justify-between">
+                                <div className="flex-shrink-0">
+                                  <RadialChart
+                                    progress={(finData?.T_paid / finData?.T_total) * 100}
+                                  />
+                                </div>
+
+                                <div className="flex flex-col w-[217px] justify-between ml-2 mb-1">
+                                  {/* Total Cost Section */}
+                                  <section className="flex justify-between gap-[12px] items-center font-semibold text-xs my-1 w-full">
+                                    <div className="font-manrope font-medium text-[12px] leading-[16px] tracking-[0px] text-[#1A1A1A]">
+                                      Stall Cost:
                                     </div>
-                                    <div className="text-zinc-800 text-[12px]  font-['Lato'] tracking-wide">
-                                      ₹
-                                      {(
-                                        finData?.T_total || finData?.T_Total
-                                      )?.toLocaleString('en-IN')}
-                                    </div>
-                                  </section>
-                                  {/* section-2 */}
-                                  <section className="font-bodyLato font-semibold text-xs m-1 w-full">
-                                    <div className="mb-[2px] text-zinc-500 text-sm font-medium font-['Lato'] tracking-wide">
-                                      Paid
-                                      <span
-                                        title={`₹ ${(
-                                          finData?.T_review || 0
-                                        )?.toLocaleString(
-                                          'en-IN'
-                                        )} is in accounts review`}
-                                        className="ml-2 "
-                                      >
-                                        <InformationCircleIcon className="h-4 w-4 inline text-zinc-400" />
+                                    <div className="relative flex flex-col items-center group" style={{ alignItems: 'start' }}>
+                                      <div className="absolute bottom-0 flex-col items-center hidden mb-6 group-hover:flex" style={{ alignItems: 'start', width: '300px' }}>
+                                        <span className="rounded italian relative mr-3 z-100000 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg" style={{ color: 'white', background: '#213343', maxWidth: '300px' }}>
+                                          <span className="italic">
+                                            ₹{Math.round(finData?.T_total || 0).toLocaleString('en-IN')}
+                                          </span>
+                                        </span>
+                                        <div className="w-3 h-3 ml-1 -mt-2 rotate-45 bg-black" style={{ background: '#213343', marginRight: '12px' }}></div>
+                                      </div>
+                                      <span className="font-bold text-[14px] leading-[20px] tracking-[0px] text-right text-[#1A1A1A] font-manrope">
+                                        {/* ₹{formatIndianNumber?.(Math.round(finData?.T_total || 0))} */}
+                                        ₹ {Math.round(finData?.T_total || 0).toLocaleString('en-IN')}
+
                                       </span>
                                     </div>
-                                    <div className="text-zinc-800 text-[12px] font-bold font-['Lato'] tracking-wide">
-                                      ₹
-                                      {(
-                                        (finData?.T_review || 0) +
-                                        (finData?.T_approved || 0) +
-                                        (finData?.T_paid || 0)
-                                      ).toLocaleString('en-IN') || 0}
+                                  </section>
+
+                                  {/* Paid Section */}
+                                  <section className="flex justify-between gap-[12px] items-center font-semibold text-xs my-1 w-full">
+                                    <div className="flex items-center">
+                                      <div className="h-3 w-3 bg-[#F8886A] mr-2"></div>
+                                      <div className="font-manrope font-medium text-[12px] leading-[16px] tracking-[0px] text-[#1A1A1A]">
+                                        Paid:
+                                      </div>
+                                    </div>
+                                    <div className="relative flex flex-col items-center group" style={{ alignItems: 'start' }}>
+                                      <div className="absolute bottom-0 flex-col items-center hidden mb-6 group-hover:flex" style={{ alignItems: 'start', width: '300px' }}>
+                                        <span className="rounded italian relative mr-3 z-100000 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg" style={{ color: 'white', background: '#213343', maxWidth: '300px' }}>
+                                          <span className="italic">
+                                            ₹{Math.round(
+                                              (finData?.T_review || 0) +
+                                              (finData?.T_approved || 0) +
+                                              (finData?.T_paid || 0)
+                                            ).toLocaleString('en-IN') || 0}
+                                          </span>
+                                        </span>
+                                        <div className="w-3 h-3 ml-1 -mt-2 rotate-45 bg-black" style={{ background: '#213343', marginRight: '12px' }}></div>
+                                      </div>
+                                      <span className="font-bold text-[14px] leading-[20px] tracking-[0px] text-right text-[#1A1A1A] font-manrope">
+                                        {/* ₹{formatIndianNumber?.(
+                Math.round(
+                  (finData?.T_review || 0) +
+                  (finData?.T_approved || 0) +
+                  (finData?.T_paid || 0)
+                )
+              ) || 0} */}
+                                        ₹ {Math.round(
+                                          (finData?.T_review || 0) +
+                                          (finData?.T_approved || 0) +
+                                          (finData?.T_paid || 0)
+                                        ).toLocaleString('en-IN')}
+
+                                      </span>
                                     </div>
                                   </section>
-                                  {/* section- 3 */}
-                                  <section className="font-bodyLato font-semibold text-xs m-1 w-full">
-                                    <div className="mb-[2px] text-zinc-500 text-sm font-medium font-['Lato'] tracking-wide">
-                                      Balance
+
+                                  {/* Balance Section */}
+                                  <section className="flex justify-between gap-[12px] items-center font-semibold text-xs my-1 w-full">
+                                    <div className="flex items-center">
+                                      <div className="h-3 w-3 bg-gray-300 mr-2"></div>
+                                      <div className="font-manrope font-medium text-[12px] leading-[16px] tracking-[0px] text-[#1A1A1A]">
+                                        Balance:
+                                      </div>
                                     </div>
-                                    <div className="text-zinc-800 text-[12px] font-bold font-['Lato'] tracking-wide">
-                                      ₹
-                                      {finData?.T_balance?.toLocaleString(
-                                        'en-IN'
-                                      )}
+                                    <div className="relative flex flex-col items-center group" style={{ alignItems: 'start' }}>
+                                      <div className="absolute bottom-0 flex-col items-center hidden mb-6 group-hover:flex" style={{ alignItems: 'start', width: '300px' }}>
+                                        <span className="rounded italian relative mr-3 z-100000 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg" style={{ color: 'white', background: '#213343', maxWidth: '300px' }}>
+                                          <span className="italic">
+                                            ₹{finData?.T_balance?.toLocaleString('en-IN')}
+                                          </span>
+                                        </span>
+                                        <div className="w-3 h-3 ml-1 -mt-2 rotate-45 bg-black" style={{ background: '#213343', marginRight: '12px' }}></div>
+                                      </div>
+                                      <span className="font-bold text-[14px] leading-[20px] tracking-[0px] text-right text-[#EE443F] font-manrope ">
+                                        {/* ₹{formatIndianNumber?.(Math.round(finData?.T_balance || 0))} */}
+                                        ₹ {Math.round(finData?.T_balance || 0).toLocaleString('en-IN')}
+
+                                      </span>
                                     </div>
                                   </section>
-                                </div>
-                                <div className="flex flex-row mx-1 pt-">
-                                  <RoundedProgressBar progress={
-                                    ((finData?.T_review || 0) +
-                                      (finData?.T_approved || 0) +
-                                      (finData?.T_paid || 0) / (
-                                        finData?.T_total || finData?.T_Total
-                                      )) *
-                                    100
-                                  } />
                                 </div>
                               </div>
                             </div>
 
-                            {/* other one */}
-                            <div>
-                              <div className="flex flex-col border rounded-xl my-1  px-2  py-2 pb-4 min-w-[140px] h-[75px] w-[240px] justify-between mx-">
-                                <div className="flex flex-row justify-between mx- mb-2">
-                                  <DoughnutChartWithRoundedSegments
-                                    progress={
-                                      (finData?.T_paid / finData?.T_total) *
-                                      100
-                                    }
-                                  />
-                                  <section className="font-bodyLato font-semibold text-xs m-1 w-[61%] ">
-                                    <section className="flex flex-col  w-full mt-">
-                                      <p className="flex flex-row justify-between text-zinc-500 text-[11px] font-normal font-['Lato'] tracking-wide">
-                                        Total Cost: ₹
-                                        <div>
-                                          {(
-                                            finData?.T_total || finData?.T_Total
-                                          )?.toLocaleString('en-IN')}
-                                        </div>
-                                      </p>
+                            <div className="border-l border-gray-200 mx-2 w-1 h-[60px] rounded-[4px]"></div>
 
-                                      <div className="text-zinc-500 flex flex-row justify-between text-[11px] font-normal font-['Lato'] tracking-wide">
-                                        Paid: ₹
-                                        <div>
-                                          {' '}
-                                          {(
-                                            (finData?.T_review || 0) +
-                                            (finData?.T_approved || 0) +
-                                            (finData?.T_paid || 0)
-                                          ).toLocaleString('en-IN') || 0}
-                                        </div>
-                                      </div>
-
-                                      <div className="text-zinc-800 flex flex-row justify-between text-[11px] font-normal font-['Lato'] tracking-wide">
-                                        Balance:₹
-                                        <div className="text-zinc-900 text-[11px] font-bold  tracking-wide">
-                                          {finData?.T_balance?.toLocaleString(
-                                            'en-IN'
-                                          )}
-                                        </div>
-                                      </div>
-                                    </section>
-                                  </section>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="w-2/4  ">
+                            <div className="  ">
                               <div className="flex flex-col   rounded-md  py-1 ">
                                 <div className="flex flex-row  px-1">
                                   {/* section 2 */}
@@ -1408,10 +1412,10 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
 
                                       <div
                                         className={` cursor-pointer   h-[92px] w-[100px] border   rounded-xl ${finData?.man_cs_approval == 'approved'
-                                            ? 'bg-[#F0F0F0]'
-                                            : finData?.man_cs_approval == 'rejected'
-                                              ? 'bg-[#ffdbdb]'
-                                              : 'bg-[#F1F5F9] '
+                                          ? 'bg-[#F0F0F0]'
+                                          : finData?.man_cs_approval == 'rejected'
+                                            ? 'bg-[#ffdbdb]'
+                                            : 'bg-[#F0F0F0]'
                                           }  p-3 mx-1 flex flex-col items-center justify-center`}
                                         // style={{
                                         //   display: 'inline-block',
@@ -1426,15 +1430,15 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         <div className="flex flex-col items-center justify-center">
                                           <div className="flex items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
                                             <ShoppingCartIcon
-                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.man_cs_approval ===
-                                                  'approved'
-                                                  ? 'text-green-900'
-                                                  : 'text-gray-600 '
+                                              className={`h-4 w-4 text-[#1A1A1A] group-hover:text-indigo-600 hover:text-green-600 ${finData?.man_cs_approval ===
+                                                'approved'
+                                                ? 'text-green-900'
+                                                : 'text-gray-600 '
                                                 }`}
                                               aria-hidden="true"
                                             />
                                           </div>
-                                          <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
+                                          <h6 className="font-manrope font-semibold text-[12px] leading-none tracking-[0] text-center text-[#666666] mt-1">
                                             AddOns
                                           </h6>
                                         </div>
@@ -1444,10 +1448,10 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                       {/* section 3*/}
                                       <div
                                         className={` cursor-pointer  h-[92px] w-[100px] border   rounded-xl ${finData?.kyc_status == 'approved'
-                                            ? 'bg-[#CCC5F7]'
-                                            : finData?.kyc_status == 'rejected'
-                                              ? 'bg-[#ffdbdb]'
-                                              : 'bg-[#F1F5F9] '
+                                          ? 'bg-[#CCC5F7]'
+                                          : finData?.kyc_status == 'rejected'
+                                            ? 'bg-[#ffdbdb]'
+                                            : 'bg-[#F0F0F0]'
                                           }  p-3 rounded-md mx-1 flex flex-col items-center justify-center`}
 
                                         onClick={() => {
@@ -1459,17 +1463,17 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         <div className="flex flex-col items-center justify-center">
                                           <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                             <NewspaperIcon
-                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.kyc_status == 'approved'
-                                                  ? 'bg-[#CCC5F7]'
-                                                  : finData?.kyc_status ==
-                                                    'rejected'
-                                                    ? 'bg-[#ffdbdb]'
-                                                    : 'bg-[#F1F5F9] '
+                                              className={`h-4 w-4 text-[#1A1A1A] group-hover:text-indigo-600 hover:text-green-600 ${finData?.kyc_status == 'approved'
+                                                ? 'bg-[#CCC5F7]'
+                                                : finData?.kyc_status ==
+                                                  'rejected'
+                                                  ? 'bg-[#ffdbdb]'
+                                                  : 'bg-[#F1F5F9] '
                                                 }`}
                                               aria-hidden="true"
                                             />
                                           </div>
-                                          <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
+                                          <h6 className="font-manrope font-semibold text-[12px] leading-none tracking-[0] text-center text-[#666666] mt-1">
                                             KYC
                                           </h6>
                                         </div>
@@ -1478,52 +1482,52 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                       {/* section 4*/}
                                       <div
                                         className={` cursor-pointer  h-[92px] w-[100px] border   rounded-xl ${finData?.kyc_status == 'approved'
-                                            ? 'bg-[#CCC5F7]'
-                                            : finData?.kyc_status == 'rejected'
-                                              ? 'bg-[#ffdbdb]'
-                                              : 'bg-[#F1F5F9] '
-                                          }  p-3 rounded-md mx-1`}
-                                        style={{
-                                          display: 'inline-block',
-                                          alignSelf: 'flex-end',
-                                        }}
+                                          ? 'bg-[#CCC5F7]'
+                                          : finData?.kyc_status == 'rejected'
+                                            ? 'bg-[#ffdbdb]'
+                                            : 'bg-[#F0F0F0]'
+                                          }  p-3 rounded-md mx-1 flex flex-col items-center justify-center`}
+                                        // style={{
+                                        //   display: 'inline-block',
+                                        //   alignSelf: 'flex-end',
+                                        // }}
                                         onClick={() => {
                                           setSelUnitDetails(finData)
                                           setIsSubTopicOpen(true)
                                           setIsSubTopic('crm_KYC')
                                         }}
                                       >
-                                        <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
+                                        <div className="flex flex-col items-center justify-center">
                                           <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                             <NewspaperIcon
-                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.kyc_status == 'approved'
-                                                  ? 'bg-[#CCC5F7]'
-                                                  : finData?.kyc_status ==
-                                                    'rejected'
-                                                    ? 'bg-[#ffdbdb]'
-                                                    : 'bg-[#F1F5F9] '
+                                              className={`h-4 w-4 text-[#1A1A1A] group-hover:text-indigo-600 hover:text-green-600 ${finData?.kyc_status == 'approved'
+                                                ? 'bg-[#CCC5F7]'
+                                                : finData?.kyc_status ==
+                                                  'rejected'
+                                                  ? 'bg-[#ffdbdb]'
+                                                  : 'bg-[#F1F5F9] '
                                                 }`}
                                               aria-hidden="true"
                                             />
                                           </div>
-                                          <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
+                                          <h6 className="font-manrope font-semibold text-[12px] leading-none tracking-[0] text-center text-[#666666] mt-1">
                                             Payment
                                           </h6>
                                         </div>
                                       </div>
                                     </section>
-                                    
-                                    }
+
+                                  }
                                   {['agreement_pipeline'].includes(selCategory) &&
                                     <section>
                                       <div
                                         className={` cursor-pointer   h-[92px] w-[100px] border   rounded-xl ${finData?.man_ats_approval == 'approved'
-                                            ? 'bg-[#CCC5F7]'
-                                            : finData?.man_ats_approval == 'rejected'
-                                              ? 'bg-[#ffdbdb]'
-                                              : 'bg-[#F1F5F9] '
+                                          ? 'bg-[#CCC5F7]'
+                                          : finData?.man_ats_approval == 'rejected'
+                                            ? 'bg-[#ffdbdb]'
+                                            : 'bg-[#F1F5F9] '
                                           }  p-3 rounded-md mx-1`}
-                         
+
                                         onClick={() => {
                                           setSelUnitDetails(finData)
                                           setIsSubTopicOpen(true)
@@ -1534,12 +1538,12 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                           <div className="flex flex-none items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
                                             <ChartPieIcon
                                               className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.man_ats_approval ==
-                                                  'approved'
-                                                  ? 'bg-[#CCC5F7]'
-                                                  : finData?.man_ats_approval ==
-                                                    'rejected'
-                                                    ? 'bg-[#ffdbdb]'
-                                                    : 'bg-[#F1F5F9] '
+                                                'approved'
+                                                ? 'bg-[#CCC5F7]'
+                                                : finData?.man_ats_approval ==
+                                                  'rejected'
+                                                  ? 'bg-[#ffdbdb]'
+                                                  : 'bg-[#F1F5F9] '
                                                 }`}
                                               aria-hidden="true"
                                             />
@@ -1552,10 +1556,10 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                       {/* section 3*/}
                                       <div
                                         className={` cursor-pointer  h-[92px] w-[100px] border   rounded-xl ${finData?.kyc_status == 'approved'
-                                            ? 'bg-[#CCC5F7]'
-                                            : finData?.kyc_status == 'rejected'
-                                              ? 'bg-[#ffdbdb]'
-                                              : 'bg-[#F1F5F9] '
+                                          ? 'bg-[#CCC5F7]'
+                                          : finData?.kyc_status == 'rejected'
+                                            ? 'bg-[#ffdbdb]'
+                                            : 'bg-[#F1F5F9] '
                                           }  p-3 rounded-md mx-1`}
                                         style={{
                                           display: 'inline-block',
@@ -1571,11 +1575,11 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                           <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                             <NewspaperIcon
                                               className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.kyc_status == 'approved'
-                                                  ? 'bg-[#CCC5F7]'
-                                                  : finData?.kyc_status ==
-                                                    'rejected'
-                                                    ? 'bg-[#ffdbdb]'
-                                                    : 'bg-[#F1F5F9] '
+                                                ? 'bg-[#CCC5F7]'
+                                                : finData?.kyc_status ==
+                                                  'rejected'
+                                                  ? 'bg-[#ffdbdb]'
+                                                  : 'bg-[#F1F5F9] '
                                                 }`}
                                               aria-hidden="true"
                                             />
@@ -1590,10 +1594,10 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                     <section>
                                       <div
                                         className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${finData?.both_sd_approval == 'approved'
-                                            ? 'bg-[#CCC5F7]'
-                                            : finData?.both_sd_approval == 'rejected'
-                                              ? 'bg-[#ffdbdb]'
-                                              : 'bg-[#F1F5F9] '
+                                          ? 'bg-[#CCC5F7]'
+                                          : finData?.both_sd_approval == 'rejected'
+                                            ? 'bg-[#ffdbdb]'
+                                            : 'bg-[#F1F5F9] '
                                           }  p-3 rounded-md mx-1`}
                                         style={{
                                           display: 'inline-block',
@@ -1609,9 +1613,9 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                           <div className="flex flex-none items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
                                             <ChartPieIcon
                                               className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.both_sd_approval ===
-                                                  'approved'
-                                                  ? 'text-green-900'
-                                                  : 'text-gray-600 '
+                                                'approved'
+                                                ? 'text-green-900'
+                                                : 'text-gray-600 '
                                                 }`}
                                               aria-hidden="true"
                                             />
@@ -1624,10 +1628,10 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                       {/* section 3*/}
                                       <div
                                         className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${finData?.kyc_status == 'approved'
-                                            ? 'bg-[#CCC5F7]'
-                                            : finData?.kyc_status == 'rejected'
-                                              ? 'bg-[#ffdbdb]'
-                                              : 'bg-[#F1F5F9] '
+                                          ? 'bg-[#CCC5F7]'
+                                          : finData?.kyc_status == 'rejected'
+                                            ? 'bg-[#ffdbdb]'
+                                            : 'bg-[#F1F5F9] '
                                           }  p-3 rounded-md mx-1`}
                                         style={{
                                           display: 'inline-block',
@@ -1643,11 +1647,11 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                           <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                             <NewspaperIcon
                                               className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.kyc_status == 'approved'
-                                                  ? 'bg-[#CCC5F7]'
-                                                  : finData?.kyc_status ==
-                                                    'rejected'
-                                                    ? 'bg-[#ffdbdb]'
-                                                    : 'bg-[#F1F5F9] '
+                                                ? 'bg-[#CCC5F7]'
+                                                : finData?.kyc_status ==
+                                                  'rejected'
+                                                  ? 'bg-[#ffdbdb]'
+                                                  : 'bg-[#F1F5F9] '
                                                 }`}
                                               aria-hidden="true"
                                             />
@@ -1662,10 +1666,10 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                     <section>
                                       <div
                                         className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${finData?.both_sd_approval == 'approved'
-                                            ? 'bg-[#CCC5F7]'
-                                            : finData?.both_sd_approval == 'rejected'
-                                              ? 'bg-[#ffdbdb]'
-                                              : 'bg-[#F1F5F9] '
+                                          ? 'bg-[#CCC5F7]'
+                                          : finData?.both_sd_approval == 'rejected'
+                                            ? 'bg-[#ffdbdb]'
+                                            : 'bg-[#F1F5F9] '
                                           }  p-3 rounded-md mx-1`}
                                         style={{
                                           display: 'inline-block',
@@ -1681,9 +1685,9 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                           <div className="flex flex-none items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
                                             <ChartPieIcon
                                               className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.both_sd_approval ===
-                                                  'approved'
-                                                  ? 'text-green-900'
-                                                  : 'text-gray-600 '
+                                                'approved'
+                                                ? 'text-green-900'
+                                                : 'text-gray-600 '
                                                 }`}
                                               aria-hidden="true"
                                             />
@@ -1696,10 +1700,10 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                       {/* section 3*/}
                                       <div
                                         className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${finData?.kyc_status == 'approved'
-                                            ? 'bg-[#CCC5F7]'
-                                            : finData?.kyc_status == 'rejected'
-                                              ? 'bg-[#ffdbdb]'
-                                              : 'bg-[#F1F5F9] '
+                                          ? 'bg-[#CCC5F7]'
+                                          : finData?.kyc_status == 'rejected'
+                                            ? 'bg-[#ffdbdb]'
+                                            : 'bg-[#F1F5F9] '
                                           }  p-3 rounded-md mx-1`}
                                         style={{
                                           display: 'inline-block',
@@ -1715,11 +1719,11 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                           <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                             <NewspaperIcon
                                               className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.kyc_status == 'approved'
-                                                  ? 'bg-[#CCC5F7]'
-                                                  : finData?.kyc_status ==
-                                                    'rejected'
-                                                    ? 'bg-[#ffdbdb]'
-                                                    : 'bg-[#F1F5F9] '
+                                                ? 'bg-[#CCC5F7]'
+                                                : finData?.kyc_status ==
+                                                  'rejected'
+                                                  ? 'bg-[#ffdbdb]'
+                                                  : 'bg-[#F1F5F9] '
                                                 }`}
                                               aria-hidden="true"
                                             />
@@ -1734,8 +1738,6 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                 </div>
                               </div>
                             </div>
-
-
                           </section>
                         </section>
                       )

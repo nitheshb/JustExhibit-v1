@@ -72,7 +72,7 @@ const MarketingModulePage = (props) => {
 
 
 
-            <div className='flex overflow-y-auto mb-1'>
+            <div className='flex overflow-y-auto mb-1 mx-11'>
 
                             <SlimSideMenuBar
                 pgName={'marketingModule'}

@@ -46,7 +46,7 @@ const UsersAdminPage = () => {
 
           <div className="flex flex-col text-gray-700  overflow-hidden [scrollbar-width:none] [-ms-overflow-style:none] ">
             <HeadNavBar2 selModule={selModule} setSelModule={setSelModule} setViewable={setViewable} />
-            <div className='flex overflow-y-auto mb-1'>
+            <div className='flex overflow-y-auto mb-1 mx-15'>
               <SlimSideMenuBar
                 pgName={'hrModule'}
                 sourceLink={'hrModule'}

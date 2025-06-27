@@ -59,7 +59,7 @@ const AdministrationTeamPage = (props) => {
 
 
             <HeadNavBar2 selModule={selModule} setSelModule={setSelModule} setViewable={setViewable} />
-            <div className='flex overflow-y-auto mb-1'>
+            <div className='flex overflow-y-auto mb-1 mx-14'>
               <SlimSideMenuBar
                 pgName={'marketingModule'}
                 sourceLink={'marketingModule'}
