@@ -818,7 +818,7 @@ export default function CrmUnitSideView({
                       return (
                         <li key={i} className="mr-2" role="presentation">
                           <button
-                            className={`inline-block py-3 px-4 text-sm font-medium text-center text-black rounded-t-lg border-b-2  hover:text-black hover:border-gray-300   ${
+                            className={`inline-block px-[30px] text-sm font-medium text-center rounded-t-lg border-b-2 font-manrope font-semibold text-[18px] leading-[28px] tracking-[0px] text-center align-middle text-[#1A1A1A]  hover:text-black hover:border-gray-300   ${
                               selFeature === d.val
                                 ? 'border-black text-black'
                                 : 'border-transparent'

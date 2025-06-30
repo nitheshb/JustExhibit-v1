@@ -36,6 +36,8 @@ const SlimSideMenuBar = (props) => {
           )}
         <section className="mb-4"></section>
 
+        {/* Same Menu Card */}
+
         {['crmModule'].includes(sourceLink) && (
           <>
             <ul className="w-full">
@@ -819,389 +821,259 @@ const SlimSideMenuBar = (props) => {
         )}
 
 
-        {['marketingModule'].includes(sourceLink) && (
-          <>
-            <ul className="w-full">
-              <li className="relative justify-center ">
-                <span
-                  className={
-                    'flex items-center justify-center text-sm py-1  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'Today1'
-                      ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
-                      : '')
-                  }
-                  onClick={() => setViewable('Today1')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col pt-[8px]">
-                    <span style={{ color: '#058527' }}>
-                      <svg width="24" height="24" viewBox="0 0 24 24">
-                        <g fill="currentColor" fillRule="evenodd">
-                          <path
-                            fillRule="nonzero"
-                            d="M6 4.5h12A1.5 1.5 0 0 1 19.5 6v2.5h-15V6A1.5 1.5 0 0 1 6 4.5z"
-                            opacity=".1"
-                          ></path>
-                          <path
-                            fillRule="nonzero"
-                            d="M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H6zm1 3h10a.5.5 0 1 1 0 1H7a.5.5 0 0 1 0-1z"
-                          ></path>
-                          <text
-                            fontFamily="-apple-system, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
-                            fontSize="9"
-                            transform="translate(4 2)"
-                            fontWeight="500"
-                          >
-                            <tspan x="8" y="15" textAnchor="middle">
-                              28
-                            </tspan>
-                          </text>
-                        </g>
-                      </svg>
-                    </span>
-                    <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Tasks</span>
-                  </span>
-                  <span className="flex ml-auto items-bottom">
-                    <span className="flex ml-auto items-bottom text-xs mt-2"></span>
-                  </span>
+{['marketingModule'].includes(sourceLink) && (
+  <>
+    <ul className="w-full">
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'Today1' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('Today1')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
+              <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.5 2H2.5C1.94772 2 1.5 2.44772 1.5 3V14C1.5 14.5523 1.94772 15 2.5 15H14.5C15.0523 15 15.5 14.5523 15.5 14V3C15.5 2.44772 15.0523 2 14.5 2Z" fill={viewable === 'Today1' ? 'white' : 'black'} stroke={viewable === 'Today1' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M1.5 6H15.5" stroke={viewable === 'Today1' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M5.5 1V3" stroke={viewable === 'Today1' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M11.5 1V3" stroke={viewable === 'Today1' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+            <span
+              className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${viewable === 'Today1' ? 'text-[#FAFAFA]' : 'text-black'}`}
+            >
+              Tasks
+            </span>
+          </span>
+        </span>
+      </li>
+
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'MarketingSocial' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('MarketingSocial')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
+              <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5 15C11.8137 15 14.5 12.3137 14.5 9C14.5 5.68629 11.8137 3 8.5 3C5.18629 3 2.5 5.68629 2.5 9C2.5 12.3137 5.18629 15 8.5 15Z" fill={viewable === 'MarketingSocial' ? 'white' : 'black'} stroke={viewable === 'MarketingSocial' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12.5 5C13.0523 5 13.5 4.55228 13.5 4C13.5 3.44772 13.0523 3 12.5 3C11.9477 3 11.5 3.44772 11.5 4C11.5 4.55228 11.9477 5 12.5 5Z" fill={viewable === 'MarketingSocial' ? 'white' : 'black'} stroke={viewable === 'MarketingSocial' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M5.5 12C6.05228 12 6.5 11.5523 6.5 11C6.5 10.4477 6.05228 10 5.5 10C4.94772 10 4.5 10.4477 4.5 11C4.5 11.5523 4.94772 12 5.5 12Z" fill={viewable === 'MarketingSocial' ? 'white' : 'black'} stroke={viewable === 'MarketingSocial' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M11.5 12C12.0523 12 12.5 11.5523 12.5 11C12.5 10.4477 12.0523 10 11.5 10C10.9477 10 10.5 10.4477 10.5 11C10.5 11.5523 10.9477 12 11.5 12Z" fill={viewable === 'MarketingSocial' ? 'white' : 'black'} stroke={viewable === 'MarketingSocial' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+            <span
+              className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${viewable === 'MarketingSocial' ? 'text-[#FAFAFA]' : 'text-black'}`}
+            >
+              Marketing
+            </span>
+          </span>
+        </span>
+      </li>
+
+      {(user?.role?.includes(USER_ROLES.MARKETING_MANAGER) ||
+        user?.role?.includes(USER_ROLES.MARKETING_EXECUTIVE) ||
+        user?.role?.includes(USER_ROLES.ADMIN)) && (
+          <li className="relative mt-1 pt-1">
+            <span
+              className={
+                'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+                (viewable === 'Team Lead Report' ? 'bg-[#F44D21] w-100' : '')
+              }
+              onClick={() => setViewable('Team Lead Report')}
+              style={{
+                display: 'block',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            >
+              <span className="flex items-center flex-col">
+                <span>
+                  <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.5 2H13.5V0H11.5V2H5.5V0H3.5V2H1.5C0.95 2 0.5 2.45 0.5 3V15C0.5 15.55 0.95 16 1.5 16H15.5C16.05 16 16.5 15.55 16.5 15V3C16.5 2.45 16.05 2 15.5 2ZM14.5 14H2.5V7H14.5V14ZM14.5 5H2.5V4H14.5V5Z" fill={viewable === 'Team Lead Report' ? 'white' : 'black'}/>
+                  </svg>
                 </span>
-              </li>
-              {/* start  */}
-
-              <li className="relative mt-1">
                 <span
-                  className={
-                    'flex items-center text-sm py-1  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'MarketingSocial'
-                      ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
-                      : '')
-                  }
-                  onClick={() => setViewable('MarketingSocial')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
+                  className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${viewable === 'Team Lead Report' ? 'text-[#FAFAFA]' : 'text-black'}`}
                 >
-                  <span className="flex items-center flex-col pt-[8px]">
-                    <span style={{ color: '#692fc2' }}>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                      >
-                        <g fill="none" fillRule="evenodd">
-                          <g fill="currentColor" fillRule="nonzero">
-                            <g>
-                              <g>
-                                <path
-                                  d="M12 3c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9zm0 1c-4.418 0-8 3.582-8 8 0 .702.09 1.383.26 2.031l2.886-2.885c.196-.195.512-.195.708 0l2.646 2.647 4.793-4.794L13 9c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h3.52l.052.005L16.5 8c.036 0 .071.004.105.011l.046.012.04.015c.014.005.027.012.04.019.013.006.025.013.036.02l.035.025c.014.01.027.02.04.033l.012.011.011.013c.012.012.023.025.033.039l-.044-.052c.026.027.05.056.069.087l.02.034.02.042.014.04c.005.015.009.03.012.046l.006.033.005.051V12c0 .276-.224.5-.5.5s-.5-.224-.5-.5V9.706l-5.146 5.148c-.196.195-.512.195-.708 0L7.5 12.207 4.618 15.09C5.827 17.974 8.677 20 12 20c4.418 0 8-3.582 8-8s-3.582-8-8-8z"
-                                  transform="translate(-564 -480) translate(528 444) translate(36 36)"
-                                ></path>
-                              </g>
-                            </g>
-                          </g>
-                        </g>
-                      </svg>
-                    </span>
-
-                    <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Marketing</span>
-                  </span>
-                  <span className="flex ml-auto items-bottom">
-                    <span className="flex ml-auto items-bottom text-xs mt-2"></span>
-                  </span>
+                  Reports
                 </span>
-              </li>
-
-              {/* end */}
-              {(user?.role?.includes(USER_ROLES.MARKETING_MANAGER) ||
-                user?.role?.includes(USER_ROLES.MARKETING_EXECUTIVE) ||
-                user?.role?.includes(USER_ROLES.ADMIN)) && (
-                  <li className="relative mt-1">
-                    <span
-                      className={
-                        'flex items-center text-sm py-1  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
-                        (viewable === 'Team Lead Report'
-                          ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
-                          : '')
-                      }
-                      onClick={() => setViewable('Team Lead Report')}
-                      style={{
-                        display: 'block',
-                        marginLeft: 'auto',
-                        marginRight: 'auto',
-                      }}
-                    >
-                      <span className="flex items-center flex-col pt-[8px]">
-                        <span style={{ color: '#692fc2' }}>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                          >
-                            <g fill="none" fillRule="evenodd">
-                              <g fill="currentColor" fillRule="nonzero">
-                                <g>
-                                  <g>
-                                    <path
-                                      d="M12 3c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9zm0 1c-4.418 0-8 3.582-8 8 0 .702.09 1.383.26 2.031l2.886-2.885c.196-.195.512-.195.708 0l2.646 2.647 4.793-4.794L13 9c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h3.52l.052.005L16.5 8c.036 0 .071.004.105.011l.046.012.04.015c.014.005.027.012.04.019.013.006.025.013.036.02l.035.025c.014.01.027.02.04.033l.012.011.011.013c.012.012.023.025.033.039l-.044-.052c.026.027.05.056.069.087l.02.034.02.042.014.04c.005.015.009.03.012.046l.006.033.005.051V12c0 .276-.224.5-.5.5s-.5-.224-.5-.5V9.706l-5.146 5.148c-.196.195-.512.195-.708 0L7.5 12.207 4.618 15.09C5.827 17.974 8.677 20 12 20c4.418 0 8-3.582 8-8s-3.582-8-8-8z"
-                                      transform="translate(-564 -480) translate(528 444) translate(36 36)"
-                                    ></path>
-                                  </g>
-                                </g>
-                              </g>
-                            </g>
-                          </svg>
-                        </span>
-
-                        <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Reports</span>
-                      </span>
-                      <span className="flex ml-auto items-bottom">
-                        <span className="flex ml-auto items-bottom text-xs mt-2"></span>
-                      </span>
-                    </span>
-                  </li>
-                )}
-            </ul>
-          </>
+              </span>
+            </span>
+          </li>
         )}
-        {['salesModule'].includes(sourceLink) && (
-          <>
-            <ul className="w-full">
-              <li className="relative justify-center ">
-                <span
-                  className={
-                    'flex items-center justify-center text-sm py-1  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'Today1'
-                      ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
-                      : '')
-                  }
-                  onClick={() => setViewable('Today1')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col pt-[8px]">
-                    <span style={{ color: '#058527' }}>
-                      <svg width="24" height="24" viewBox="0 0 24 24">
-                        <g fill="currentColor" fillRule="evenodd">
-                          <path
-                            fillRule="nonzero"
-                            d="M6 4.5h12A1.5 1.5 0 0 1 19.5 6v2.5h-15V6A1.5 1.5 0 0 1 6 4.5z"
-                            opacity=".1"
-                          ></path>
-                          <path
-                            fillRule="nonzero"
-                            d="M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H6zm1 3h10a.5.5 0 1 1 0 1H7a.5.5 0 0 1 0-1z"
-                          ></path>
-                          <text
-                            fontFamily="-apple-system, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
-                            fontSize="9"
-                            transform="translate(4 2)"
-                            fontWeight="500"
-                          >
-                            <tspan x="8" y="15" textAnchor="middle">
-                              28
-                            </tspan>
-                          </text>
-                        </g>
-                      </svg>
-                    </span>
-                    <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Home</span>
-                  </span>
-                  <span className="flex ml-auto items-bottom">
-                    <span className="flex ml-auto items-bottom text-xs mt-2"></span>
-                  </span>
-                </span>
-              </li>
-              <li className="relative mt-1 pt-1">
-                <span
-                  className={
-                    'flex items-center text-sm py-1  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'inProgress'
-                      ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
-                      : '')
-                  }
-                  onClick={() => setViewable('inProgress')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col pt-[8px]">
-                    <span style={{ color: '#eb8909' }}>
-                      <svg
-                        width="24"
-                        height="24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          opacity="0.1"
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M13 6.5A1.5 1.5 0 0114.5 5h3A1.5 1.5 0 0119 6.5v3a1.5 1.5 0 01-1.5 1.5h-3A1.5 1.5 0 0113 9.5v-3zM6.5 13A1.5 1.5 0 005 14.5v3A1.5 1.5 0 006.5 19h3a1.5 1.5 0 001.5-1.5v-3A1.5 1.5 0 009.5 13h-3zm8 0a1.5 1.5 0 00-1.5 1.5v3a1.5 1.5 0 001.5 1.5h3a1.5 1.5 0 001.5-1.5v-3a1.5 1.5 0 00-1.5-1.5h-3zm-8-8A1.5 1.5 0 005 6.5v3A1.5 1.5 0 006.5 11h3A1.5 1.5 0 0011 9.5v-3A1.5 1.5 0 009.5 5h-3z"
-                          fill="currentColor"
-                        ></path>
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M17.5 6h-3a.5.5 0 00-.5.5v3a.5.5 0 00.5.5h3a.5.5 0 00.5-.5v-3a.5.5 0 00-.5-.5zm-3-1A1.5 1.5 0 0013 6.5v3a1.5 1.5 0 001.5 1.5h3A1.5 1.5 0 0019 9.5v-3A1.5 1.5 0 0017.5 5h-3zm-8 9h3a.5.5 0 01.5.5v3a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5zm-1.5.5A1.5 1.5 0 016.5 13h3a1.5 1.5 0 011.5 1.5v3A1.5 1.5 0 019.5 19h-3A1.5 1.5 0 015 17.5v-3zm9.5-.5h3a.5.5 0 01.5.5v3a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5zm-1.5.5a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5v3a1.5 1.5 0 01-1.5 1.5h-3a1.5 1.5 0 01-1.5-1.5v-3zM6.5 6h3a.5.5 0 01.5.5v3a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5zM5 6.5A1.5 1.5 0 016.5 5h3A1.5 1.5 0 0111 6.5v3A1.5 1.5 0 019.5 11h-3A1.5 1.5 0 015 9.5v-3z"
-                          fill="currentColor"
-                        ></path>
-                      </svg>
-                    </span>
-                    <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">
-                      Visitors
-                    </span>
-                  </span>
-                </span>
-              </li>
-              <li className="relative mt-1">
-                <span
-                  className={
-                    'flex items-center text-sm py-1  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'archieveLeads'
-                      ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
-                      : '')
-                  }
-                  onClick={() => setViewable('archieveLeads')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col pt-[8px]">
-                    <span style={{ color: '#058527' }}>
-                      {/* <svg width="24" height="24" viewBox="0 0 24 24">
-                            <g fill="currentColor" fillRule="nonzero">
-                              <path
-                                d="M10 14.5a2 2 0adfaf 104 0h5.5V18a1.5 1.5 0 01-1.5 1.5H6A1.5 1.5 0 014.5 18v-3.5H10z"
-                                opacity="0.1"
-                              ></path>
-                              <path d="M8.062 adfafafafa4h7.876a2 2 0 011.94 1.515l2.062 8.246a2 2 0 01.06.485V18a2 2 0 01-2 2H6a2 2 0 01-2-2v-3.754a2 2 0 01.06-.485l2.06-8.246A2 2 0 018.061 4zm0 1a1 1 0 00-.97.757L5.03 14.004a1 1 0 00-.03.242V18a1 1 0 001 1h12a1 1 0 001-1v-3.754a1 1 0 00-.03-.242l-2.06-8.247A1 1 0 0015.94 5H8.061zM12 17.25A2.75 2.75 0 019.295 15H7a.5.5 0 110-1h2.75a.5.5 0 01.5.5 1.75 1.75 0 003.5 0 .5.5 0 01.5-.5H17a.5.5 0 110 1h-2.295A2.75 2.75 0 0112 17.25z"></path>
-                            </g>
-                          </svg> */}
+    </ul>
+  </>
+)}
+{['salesModule'].includes(sourceLink) && (
+  <>
+    <ul className="w-full">
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'Today1' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('Today1')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
+              <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.49999 8.58309C5.07125 8.58309 5.50436 8.57686 5.87792 8.67684C6.82671 8.93107 7.56781 9.67248 7.82226 10.6212C7.89735 10.9014 7.91312 11.2154 7.91601 11.5958V12.4034C7.91313 12.7839 7.89732 13.0977 7.82226 13.378C7.56797 14.327 6.82692 15.0681 5.87792 15.3223C5.59759 15.3974 5.28382 15.4132 4.90331 15.4161H4.09569C3.71535 15.4132 3.40132 15.3974 3.12108 15.3223C2.17238 15.0679 1.43098 14.3268 1.17675 13.378C1.07677 13.0045 1.083 12.5713 1.083 12.0001C1.083 11.4285 1.07662 10.9949 1.17675 10.6212C1.4311 9.67249 2.1724 8.93119 3.12108 8.67684C3.49476 8.57671 3.92846 8.58309 4.49999 8.58309ZM12.5 8.58309C13.0713 8.58309 13.5044 8.57686 13.8779 8.67684C14.8267 8.93107 15.5678 9.67247 15.8223 10.6212C15.8973 10.9014 15.9131 11.2154 15.916 11.5958V12.4034C15.9131 12.7839 15.8973 13.0977 15.8223 13.378C15.568 14.327 14.8269 15.0681 13.8779 15.3223C13.5976 15.3974 13.2838 15.4132 12.9033 15.4161H12.0957C11.7154 15.4132 11.4013 15.3974 11.1211 15.3223C10.1724 15.0679 9.43098 14.3268 9.17675 13.378C9.07677 13.0045 9.083 12.5713 9.083 12.0001C9.083 11.4285 9.07662 10.9949 9.17675 10.6212C9.4311 9.67249 10.1724 8.93119 11.1211 8.67684C11.4948 8.57671 11.9285 8.58309 12.5 8.58309ZM4.49999 0.58309C5.07125 0.583087 5.50436 0.576861 5.87792 0.67684C6.82671 0.931068 7.56781 1.67248 7.82226 2.62118C7.89735 2.90141 7.91312 3.21544 7.91601 3.59579V4.4034C7.91313 4.78391 7.89732 5.09768 7.82226 5.37801C7.56797 6.32702 6.82692 7.06806 5.87792 7.32235C5.59759 7.39742 5.28382 7.41322 4.90331 7.4161H4.09569C3.71535 7.41321 3.40132 7.39744 3.12108 7.32235C2.17238 7.0679 1.43098 6.3268 1.17675 5.37801C1.07677 5.00445 1.083 4.57135 1.083 4.00008C1.083 3.42855 1.07662 2.99485 1.17675 2.62118C1.4311 1.67249 2.1724 0.931188 3.12108 0.67684C3.49476 0.576713 3.92846 0.583087 4.49999 0.58309ZM12.5 0.58309C13.0713 0.583087 13.5044 0.576861 13.8779 0.67684C14.8267 0.931068 15.5678 1.67248 15.8223 2.62118C15.8973 2.90141 15.9131 3.21544 15.916 3.59579V4.4034C15.9131 4.78391 15.8973 5.09768 15.8223 5.37801C15.568 6.32702 14.8269 7.06806 13.8779 7.32235C13.5976 7.39742 13.2838 7.41322 12.9033 7.4161H12.0957C11.7154 7.41321 11.4013 7.39744 11.1211 7.32235C10.1724 7.0679 9.43098 6.3268 9.17675 5.37801C9.07677 5.00445 9.083 4.57135 9.083 4.00008C9.083 3.42855 9.07662 2.99485 9.17675 2.62118C9.4311 1.67249 10.1724 0.931188 11.1211 0.67684C11.4948 0.576713 11.9285 0.583087 12.5 0.58309Z"
+                fill={viewable === 'Today1' ? 'white' : 'black'}
+              />
+              </svg>
+            </span>
+            <span
+              className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${viewable === 'Today1' ? 'text-[#FAFAFA]' : 'text-black'}`}
+            >
+              Home
+            </span>
+          </span>
+        </span>
+      </li>
 
-                      <UserGroupIcon className="h-5 w-5 " aria-hidden="true" />
-                    </span>
-                    <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Archieve</span>
-                  </span>
-                  <span className="flex ml-auto items-bottom">
-                    <span className="flex ml-auto items-bottom text-xs mt-2"></span>
-                  </span>
-                </span>
-              </li>
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'inProgress' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('inProgress')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
+              <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5 15C12.0899 15 15 12.0899 15 8.5C15 4.91015 12.0899 2 8.5 2C4.91015 2 2 4.91015 2 8.5C2 12.0899 4.91015 15 8.5 15Z" fill={viewable === 'inProgress' ? 'white' : 'black'} stroke={viewable === 'inProgress' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M8.5 4.5V8.5L11.5 10.5" fill={viewable === 'inProgress' ? 'white' : 'black'} stroke={viewable === 'inProgress' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+            <span
+              className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${viewable === 'inProgress' ? 'text-[#FAFAFA]' : 'text-black'}`}
+            >
+              Visitors
+            </span>
+          </span>
+        </span>
+      </li>
 
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'archieveLeads' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('archieveLeads')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
+              <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.5 3H3.5C2.94772 3 2.5 3.44772 2.5 4V13C2.5 13.5523 2.94772 14 3.5 14H13.5C14.0523 14 14.5 13.5523 14.5 13V4C14.5 3.44772 14.0523 3 13.5 3Z" fill={viewable === 'archieveLeads' ? 'white' : 'black'} stroke={viewable === 'archieveLeads' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M2.5 6H14.5" stroke={viewable === 'archieveLeads' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M6.5 1V3" stroke={viewable === 'archieveLeads' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M10.5 1V3" stroke={viewable === 'archieveLeads' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+            <span
+              className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${viewable === 'archieveLeads' ? 'text-[#FAFAFA]' : 'text-black'}`}
+            >
+              Archive
+            </span>
+          </span>
+        </span>
+      </li>
 
-              <li className="relative mt-1 pt-1">
-                <span
-                  className={
-                    'flex items-center text-sm py-1  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'units_inventory'
-                      ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
-                      : '')
-                  }
-                  onClick={() => setViewable('units_inventory')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col pt-[8px]">
-                    <span style={{ color: '#eb8909' }}>
-                      <svg
-                        width="24"
-                        height="24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          opacity="0.1"
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M13 6.5A1.5 1.5 0 0114.5 5h3A1.5 1.5 0 0119 6.5v3a1.5 1.5 0 01-1.5 1.5h-3A1.5 1.5 0 0113 9.5v-3zM6.5 13A1.5 1.5 0 005 14.5v3A1.5 1.5 0 006.5 19h3a1.5 1.5 0 001.5-1.5v-3A1.5 1.5 0 009.5 13h-3zm8 0a1.5 1.5 0 00-1.5 1.5v3a1.5 1.5 0 001.5 1.5h3a1.5 1.5 0 001.5-1.5v-3a1.5 1.5 0 00-1.5-1.5h-3zm-8-8A1.5 1.5 0 005 6.5v3A1.5 1.5 0 006.5 11h3A1.5 1.5 0 0011 9.5v-3A1.5 1.5 0 009.5 5h-3z"
-                          fill="currentColor"
-                        ></path>
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M17.5 6h-3a.5.5 0 00-.5.5v3a.5.5 0 00.5.5h3a.5.5 0 00.5-.5v-3a.5.5 0 00-.5-.5zm-3-1A1.5 1.5 0 0013 6.5v3a1.5 1.5 0 001.5 1.5h3A1.5 1.5 0 0019 9.5v-3A1.5 1.5 0 0017.5 5h-3zm-8 9h3a.5.5 0 01.5.5v3a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5zm-1.5.5A1.5 1.5 0 016.5 13h3a1.5 1.5 0 011.5 1.5v3A1.5 1.5 0 019.5 19h-3A1.5 1.5 0 015 17.5v-3zm9.5-.5h3a.5.5 0 01.5.5v3a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5zm-1.5.5a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5v3a1.5 1.5 0 01-1.5 1.5h-3a1.5 1.5 0 01-1.5-1.5v-3zM6.5 6h3a.5.5 0 01.5.5v3a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5zM5 6.5A1.5 1.5 0 016.5 5h3A1.5 1.5 0 0111 6.5v3A1.5 1.5 0 019.5 11h-3A1.5 1.5 0 015 9.5v-3z"
-                          fill="currentColor"
-                        ></path>
-                      </svg>
-                    </span>
-                    <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Stalls box2</span>
-                  </span>
-                </span>
-              </li>
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'units_inventory' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('units_inventory')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M1.08767 0C0.961667 0 0.849333 0.0873334 0.806 0.218667L0.0366667 2.55567C0.0123752 2.62957 -1.7756e-06 2.70687 1.91059e-10 2.78467V3.71433C1.91059e-10 4.24 0.383667 4.66667 0.857 4.66667C1.33033 4.66667 1.71433 4.24 1.71433 3.71433C1.71433 4.24033 2.098 4.66667 2.57133 4.66667C3.04467 4.66667 3.42867 4.24 3.42867 3.71433C3.42867 4.24033 3.81233 4.66667 4.28567 4.66667C4.759 4.66667 5.14233 4.24067 5.143 3.715C5.143 4.24067 5.52667 4.66667 6 4.66667C6.47333 4.66667 6.857 4.24 6.857 3.71433C6.857 4.24033 7.241 4.66667 7.71433 4.66667C8.18767 4.66667 8.571 4.24067 8.57133 3.715C8.57167 4.24067 8.95533 4.66667 9.42867 4.66667C9.902 4.66667 10.2857 4.24 10.2857 3.71433C10.2857 4.24033 10.6693 4.66667 11.143 4.66667C11.6163 4.66667 12 4.24 12 3.71433V2.78467C12 2.70687 11.9876 2.62957 11.9633 2.55567L11.194 0.219C11.1507 0.0873333 11.0383 0 10.9123 0H1.08767Z" fill={viewable === 'units_inventory' ? 'white' : 'black'}/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M1.33333 5.07659V7.66658H0.499999C0.455796 7.66658 0.413404 7.68414 0.382148 7.7154C0.350892 7.74666 0.333332 7.78905 0.333332 7.83325V8.16658C0.333332 8.21079 0.350892 8.25318 0.382148 8.28444C0.413404 8.31569 0.455796 8.33325 0.499999 8.33325H11.5C11.5442 8.33325 11.5866 8.31569 11.6178 8.28444C11.6491 8.25318 11.6667 8.21079 11.6667 8.16658V7.83325C11.6667 7.78905 11.6491 7.74666 11.6178 7.7154C11.5866 7.68414 11.5442 7.66658 11.5 7.66658H10.6667V5.07659C10.5271 5.02107 10.3982 4.94179 10.2857 4.84225C10.1991 4.91833 10.1031 4.98286 10 5.03425V7.66658H2V5.03425C1.89688 4.98286 1.80086 4.91833 1.71433 4.84225C1.60233 4.94059 1.47433 5.02059 1.33333 5.07659ZM10 4.42425C10.0282 4.39603 10.0549 4.3657 10.08 4.33325H10V4.42425ZM10.4913 4.33325C10.5419 4.39841 10.6008 4.45658 10.6667 4.50625V4.33325H10.4913ZM1.33333 4.50625C1.39971 4.45723 1.45876 4.39897 1.50867 4.33325H1.33333V4.50625ZM1.92 4.33325H2V4.42425C1.97152 4.39556 1.9448 4.36517 1.92 4.33325ZM0.833332 8.99992C0.789129 8.99992 0.746737 9.01748 0.715481 9.04873C0.684225 9.07999 0.666665 9.12238 0.666665 9.16658V11.6666C0.666665 11.755 0.701784 11.8398 0.764297 11.9023C0.826809 11.9648 0.911593 11.9999 0.999999 11.9999H11C11.0884 11.9999 11.1732 11.9648 11.2357 11.9023C11.2982 11.8398 11.3333 11.755 11.3333 11.6666V9.16658C11.3333 9.12238 11.3158 9.07999 11.2845 9.04873C11.2533 9.01748 11.2109 8.99992 11.1667 8.99992H0.833332Z" fill={viewable === 'units_inventory' ? 'white' : 'black'}/>
+                <path d="M2.66667 6.83341C2.66667 6.78921 2.68423 6.74682 2.71548 6.71556C2.74674 6.68431 2.78913 6.66675 2.83333 6.66675H3.83333C3.87754 6.66675 3.91993 6.68431 3.95119 6.71556C3.98244 6.74682 4 6.78921 4 6.83341V7.50008C4 7.54428 3.98244 7.58668 3.95119 7.61793C3.91993 7.64919 3.87754 7.66675 3.83333 7.66675H2.83333C2.78913 7.66675 2.74674 7.64919 2.71548 7.61793C2.68423 7.58668 2.66667 7.54428 2.66667 7.50008V6.83341Z" fill={viewable === 'units_inventory' ? 'white' : 'black'}/>
+                <path d="M3.33333 7.16675C3.33333 7.12255 3.35089 7.08015 3.38215 7.0489C3.4134 7.01764 3.4558 7.00008 3.5 7.00008H4.5C4.5442 7.00008 4.58659 7.01764 4.61785 7.0489C4.64911 7.08015 4.66667 7.12255 4.66667 7.16675V7.50008C4.66667 7.54428 4.64911 7.58668 4.61785 7.61793C4.58659 7.64919 4.5442 7.66675 4.5 7.66675H3.5C3.4558 7.66675 3.4134 7.64919 3.38215 7.61793C3.35089 7.58668 3.33333 7.54428 3.33333 7.50008V7.16675ZM6 7.16675C6 7.29936 5.94732 7.42653 5.85355 7.5203C5.75978 7.61407 5.63261 7.66675 5.5 7.66675C5.36739 7.66675 5.24021 7.61407 5.14645 7.5203C5.05268 7.42653 5 7.29936 5 7.16675C5 7.03414 5.05268 6.90696 5.14645 6.81319C5.24021 6.71943 5.36739 6.66675 5.5 6.66675C5.63261 6.66675 5.75978 6.71943 5.85355 6.81319C5.94732 6.90696 6 7.03414 6 7.16675Z" fill={viewable === 'units_inventory' ? 'white' : 'black'}/>
+              </svg>
+            </span>
+            <span
+              className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${viewable === 'units_inventory' ? 'text-[#FAFAFA]' : 'text-black'}`}
+            >
+              Stalls
+            </span>
+          </span>
+        </span>
+      </li>
 
-
-
-
-
-              <li className="relative mt-1">
-                <span
-                  className={
-                    'flex items-center text-sm py-1  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'Team Lead Report'
-                      ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
-                      : '')
-                  }
-                  onClick={() => setViewable('Team Lead Report')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col pt-[8px]">
-                    <span style={{ color: '#692fc2' }}>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                      >
-                        <g fill="none" fillRule="evenodd">
-                          <g fill="currentColor" fillRule="nonzero">
-                            <g>
-                              <g>
-                                <path
-                                  d="M12 3c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9zm0 1c-4.418 0-8 3.582-8 8 0 .702.09 1.383.26 2.031l2.886-2.885c.196-.195.512-.195.708 0l2.646 2.647 4.793-4.794L13 9c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h3.52l.052.005L16.5 8c.036 0 .071.004.105.011l.046.012.04.015c.014.005.027.012.04.019.013.006.025.013.036.02l.035.025c.014.01.027.02.04.033l.012.011.011.013c.012.012.023.025.033.039l-.044-.052c.026.027.05.056.069.087l.02.034.02.042.014.04c.005.015.009.03.012.046l.006.033.005.051V12c0 .276-.224.5-.5.5s-.5-.224-.5-.5V9.706l-5.146 5.148c-.196.195-.512.195-.708 0L7.5 12.207 4.618 15.09C5.827 17.974 8.677 20 12 20c4.418 0 8-3.582 8-8s-3.582-8-8-8z"
-                                  transform="translate(-564 -480) translate(528 444) translate(36 36)"
-                                ></path>
-                              </g>
-                            </g>
-                          </g>
-                        </g>
-                      </svg>
-                    </span>
-
-                    <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">
-                      Visitor Report
-                    </span>
-                  </span>
-                  <span className="flex ml-auto items-bottom">
-                    <span className="flex ml-auto items-bottom text-xs mt-2"></span>
-                  </span>
-                </span>
-              </li>
-
-            </ul>
-          </>
-        )}
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'Team Lead Report' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('Team Lead Report')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
+              <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.5 2H13.5V0H11.5V2H5.5V0H3.5V2H1.5C0.95 2 0.5 2.45 0.5 3V15C0.5 15.55 0.95 16 1.5 16H15.5C16.05 16 16.5 15.55 16.5 15V3C16.5 2.45 16.05 2 15.5 2ZM14.5 14H2.5V7H14.5V14ZM14.5 5H2.5V4H14.5V5Z" fill={viewable === 'Team Lead Report' ? 'white' : 'black'}/>
+              </svg>
+            </span>
+            <span
+              className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${viewable === 'Team Lead Report' ? 'text-[#FAFAFA]' : 'text-black'}`}
+            >
+              Visitor Report
+            </span>
+          </span>
+        </span>
+      </li>
+    </ul>
+  </>
+)}
         {['legalModule'].includes(sourceLink) && (
           <>
             <ul className="w-full">
@@ -1346,446 +1218,330 @@ const SlimSideMenuBar = (props) => {
           </>
         )}
 
-        {['financeModule'].includes(sourceLink) && (
-          <>
-            <ul className="w-full">
-              <li className="relative justify-center ">
-                <span
-                  className={
-                    'flex items-center justify-center text-sm py-1  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'Today1'
-                      ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
-                      : '')
-                  }
-                  onClick={() => setViewable('Today1')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col pt-[8px]">
-                    <span style={{ color: '#058527' }}>
-                      <svg width="24" height="24" viewBox="0 0 24 24">
-                        <g fill="currentColor" fillRule="evenodd">
-                          <path
-                            fillRule="nonzero"
-                            d="M6 4.5h12A1.5 1.5 0 0 1 19.5 6v2.5h-15V6A1.5 1.5 0 0 1 6 4.5z"
-                            opacity=".1"
-                          ></path>
-                          <path
-                            fillRule="nonzero"
-                            d="M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H6zm1 3h10a.5.5 0 1 1 0 1H7a.5.5 0 0 1 0-1z"
-                          ></path>
-                          <text
-                            fontFamily="-apple-system, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
-                            fontSize="9"
-                            transform="translate(4 2)"
-                            fontWeight="500"
-                          >
-                            <tspan x="8" y="15" textAnchor="middle">
-                              28
-                            </tspan>
-                          </text>
-                        </g>
-                      </svg>
-                    </span>
-                    <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Tasks</span>
-                  </span>
-                  <span className="flex ml-auto items-bottom">
-                    <span className="flex ml-auto items-bottom text-xs mt-2"></span>
-                  </span>
-                </span>
-              </li>
-              <li className="relative mt-1 pt-1">
-                <span
-                  className={
-                    'flex items-center text-sm py-1  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'Payments'
-                      ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
-                      : '')
-                  }
-                  onClick={() => setViewable('Payments')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col pt-[8px]">
-                    <span style={{ color: '#eb8909' }}>
-                      <svg
-                        width="24"
-                        height="24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          opacity="0.1"
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M13 6.5A1.5 1.5 0 0114.5 5h3A1.5 1.5 0 0119 6.5v3a1.5 1.5 0 01-1.5 1.5h-3A1.5 1.5 0 0113 9.5v-3zM6.5 13A1.5 1.5 0 005 14.5v3A1.5 1.5 0 006.5 19h3a1.5 1.5 0 001.5-1.5v-3A1.5 1.5 0 009.5 13h-3zm8 0a1.5 1.5 0 00-1.5 1.5v3a1.5 1.5 0 001.5 1.5h3a1.5 1.5 0 001.5-1.5v-3a1.5 1.5 0 00-1.5-1.5h-3zm-8-8A1.5 1.5 0 005 6.5v3A1.5 1.5 0 006.5 11h3A1.5 1.5 0 0011 9.5v-3A1.5 1.5 0 009.5 5h-3z"
-                          fill="currentColor"
-                        ></path>
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M17.5 6h-3a.5.5 0 00-.5.5v3a.5.5 0 00.5.5h3a.5.5 0 00.5-.5v-3a.5.5 0 00-.5-.5zm-3-1A1.5 1.5 0 0013 6.5v3a1.5 1.5 0 001.5 1.5h3A1.5 1.5 0 0019 9.5v-3A1.5 1.5 0 0017.5 5h-3zm-8 9h3a.5.5 0 01.5.5v3a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5zm-1.5.5A1.5 1.5 0 016.5 13h3a1.5 1.5 0 011.5 1.5v3A1.5 1.5 0 019.5 19h-3A1.5 1.5 0 015 17.5v-3zm9.5-.5h3a.5.5 0 01.5.5v3a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5zm-1.5.5a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5v3a1.5 1.5 0 01-1.5 1.5h-3a1.5 1.5 0 01-1.5-1.5v-3zM6.5 6h3a.5.5 0 01.5.5v3a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5zM5 6.5A1.5 1.5 0 016.5 5h3A1.5 1.5 0 0111 6.5v3A1.5 1.5 0 019.5 11h-3A1.5 1.5 0 015 9.5v-3z"
-                          fill="currentColor"
-                        ></path>
-                      </svg>
-                    </span>
-                    <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Payments</span>
-                  </span>
-                </span>
-              </li>
-              <li className="relative mt-1">
-                <span
-                  className={
-                    'flex items-center text-sm py-1  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'Bank Accounts'
-                      ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
-                      : '')
-                  }
-                  onClick={() => setViewable('Bank Accounts')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col pt-[8px]">
-                    <span style={{ color: '#058527' }}>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
-                        />
-                      </svg>
-                    </span>
-                    <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Bank</span>
-                  </span>
-                  <span className="flex ml-auto items-bottom">
-                    <span className="flex ml-auto items-bottom text-xs mt-2"></span>
-                  </span>
-                </span>
-              </li>
+   {['financeModule'].includes(sourceLink) && (
+  <>
+    <ul className="w-full">
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'Today1' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('Today1')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
+              <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.5 2H2.5C1.94772 2 1.5 2.44772 1.5 3V14C1.5 14.5523 1.94772 15 2.5 15H14.5C15.0523 15 15.5 14.5523 15.5 14V3C15.5 2.44772 15.0523 2 14.5 2Z" fill={viewable === 'Today1' ? 'white' : 'black'} stroke={viewable === 'Today1' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M1.5 6H15.5" stroke={viewable === 'Today1' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M5.5 1V3" stroke={viewable === 'Today1' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M11.5 1V3" stroke={viewable === 'Today1' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+            <span
+              className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${viewable === 'Today1' ? 'text-[#FAFAFA]' : 'text-black'}`}
+            >
+              Tasks
+            </span>
+          </span>
+        </span>
+      </li>
 
-              <li className="relative mt-1">
-                <span
-                  className={
-                    'flex items-center text-sm py-1  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'Dashboard'
-                      ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
-                      : '')
-                  }
-                  onClick={() => setViewable('Dashboard')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col pt-[8px]">
-                    <span style={{ color: '#692fc2' }}>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                      >
-                        <g fill="none" fillRule="evenodd">
-                          <g fill="currentColor" fillRule="nonzero">
-                            <g>
-                              <g>
-                                <path
-                                  d="M12 3c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9zm0 1c-4.418 0-8 3.582-8 8 0 .702.09 1.383.26 2.031l2.886-2.885c.196-.195.512-.195.708 0l2.646 2.647 4.793-4.794L13 9c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h3.52l.052.005L16.5 8c.036 0 .071.004.105.011l.046.012.04.015c.014.005.027.012.04.019.013.006.025.013.036.02l.035.025c.014.01.027.02.04.033l.012.011.011.013c.012.012.023.025.033.039l-.044-.052c.026.027.05.056.069.087l.02.034.02.042.014.04c.005.015.009.03.012.046l.006.033.005.051V12c0 .276-.224.5-.5.5s-.5-.224-.5-.5V9.706l-5.146 5.148c-.196.195-.512.195-.708 0L7.5 12.207 4.618 15.09C5.827 17.974 8.677 20 12 20c4.418 0 8-3.582 8-8s-3.582-8-8-8z"
-                                  transform="translate(-564 -480) translate(528 444) translate(36 36)"
-                                ></path>
-                              </g>
-                            </g>
-                          </g>
-                        </g>
-                      </svg>
-                    </span>
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'Payments' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('Payments')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
+              <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.5 4H1.5C0.947715 4 0.5 4.44772 0.5 5V13C0.5 13.5523 0.947715 14 1.5 14H15.5C16.0523 14 16.5 13.5523 16.5 13V5C16.5 4.44772 16.0523 4 15.5 4Z" fill={viewable === 'Payments' ? 'white' : 'black'} stroke={viewable === 'Payments' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M8.5 10C9.60457 10 10.5 9.10457 10.5 8C10.5 6.89543 9.60457 6 8.5 6C7.39543 6 6.5 6.89543 6.5 8C6.5 9.10457 7.39543 10 8.5 10Z" fill={viewable === 'Payments' ? 'white' : 'black'} stroke={viewable === 'Payments' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M0.5 8H3.5" stroke={viewable === 'Payments' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M13.5 8H16.5" stroke={viewable === 'Payments' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+            <span
+              className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${viewable === 'Payments' ? 'text-[#FAFAFA]' : 'text-black'}`}
+            >
+              Payments
+            </span>
+          </span>
+        </span>
+      </li>
 
-                    <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Reports</span>
-                  </span>
-                  <span className="flex ml-auto items-bottom">
-                    <span className="flex ml-auto items-bottom text-xs mt-2"></span>
-                  </span>
-                </span>
-              </li>
-            </ul>
-          </>
-        )}
-        {['hrModule'].includes(sourceLink) && (
-          <>
-            <ul className="w-full">
-              <li className="relative justify-center ">
-                <span
-                  className={
-                    'flex items-center justify-center text-sm py-1  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'MyHR'
-                      ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
-                      : '')
-                  }
-                  onClick={() => setViewable('MyHR')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col pt-[8px]">
-                    <span style={{ color: '#058527' }}>
-                      <svg width="24" height="24" viewBox="0 0 24 24">
-                        <g fill="currentColor" fillRule="evenodd">
-                          <path
-                            fillRule="nonzero"
-                            d="M6 4.5h12A1.5 1.5 0 0 1 19.5 6v2.5h-15V6A1.5 1.5 0 0 1 6 4.5z"
-                            opacity=".1"
-                          ></path>
-                          <path
-                            fillRule="nonzero"
-                            d="M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H6zm1 3h10a.5.5 0 1 1 0 1H7a.5.5 0 0 1 0-1z"
-                          ></path>
-                          <text
-                            fontFamily="-apple-system, system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'"
-                            fontSize="9"
-                            transform="translate(4 2)"
-                            fontWeight="500"
-                          >
-                            <tspan x="8" y="15" textAnchor="middle">
-                              28
-                            </tspan>
-                          </text>
-                        </g>
-                      </svg>
-                    </span>
-                    <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Tasks</span>
-                  </span>
-                  <span className="flex ml-auto items-bottom">
-                    <span className="flex ml-auto items-bottom text-xs mt-2"></span>
-                  </span>
-                </span>
-              </li>
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'Bank Accounts' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('Bank Accounts')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
+              <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14.5 2H2.5C1.94772 2 1.5 2.44772 1.5 3V13C1.5 13.5523 1.94772 14 2.5 14H14.5C15.0523 14 15.5 13.5523 15.5 13V3C15.5 2.44772 15.0523 2 14.5 2Z" fill={viewable === 'Bank Accounts' ? 'white' : 'black'} stroke={viewable === 'Bank Accounts' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M1.5 6H15.5" stroke={viewable === 'Bank Accounts' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M4.5 9H6.5" stroke={viewable === 'Bank Accounts' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M8.5 9H10.5" stroke={viewable === 'Bank Accounts' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12.5 9H14.5" stroke={viewable === 'Bank Accounts' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+            <span
+              className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${viewable === 'Bank Accounts' ? 'text-[#FAFAFA]' : 'text-black'}`}
+            >
+              Bank
+            </span>
+          </span>
+        </span>
+      </li>
 
-              <li className="relative mt-1">
-                <span
-                  className={
-                    'flex items-center text-sm py-1  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'User Management'
-                      ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
-                      : '')
-                  }
-                  onClick={() => setViewable('User Management')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col pt-[8px]">
-                    <span style={{ color: '#058527' }}>
-                      {/* <svg width="24" height="24" viewBox="0 0 24 24">
-                            <g fill="currentColor" fillRule="nonzero">
-                              <path
-                                d="M10 14.5a2 2 0adfaf 104 0h5.5V18a1.5 1.5 0 01-1.5 1.5H6A1.5 1.5 0 014.5 18v-3.5H10z"
-                                opacity="0.1"
-                              ></path>
-                              <path d="M8.062 adfafafafa4h7.876a2 2 0 011.94 1.515l2.062 8.246a2 2 0 01.06.485V18a2 2 0 01-2 2H6a2 2 0 01-2-2v-3.754a2 2 0 01.06-.485l2.06-8.246A2 2 0 018.061 4zm0 1a1 1 0 00-.97.757L5.03 14.004a1 1 0 00-.03.242V18a1 1 0 001 1h12a1 1 0 001-1v-3.754a1 1 0 00-.03-.242l-2.06-8.247A1 1 0 0015.94 5H8.061zM12 17.25A2.75 2.75 0 019.295 15H7a.5.5 0 110-1h2.75a.5.5 0 01.5.5 1.75 1.75 0 003.5 0 .5.5 0 01.5-.5H17a.5.5 0 110 1h-2.295A2.75 2.75 0 0112 17.25z"></path>
-                            </g>
-                          </svg> */}
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'Dashboard' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('Dashboard')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
+              <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M8.5 15C11.8137 15 14.5 12.3137 14.5 9C14.5 5.68629 11.8137 3 8.5 3C5.18629 3 2.5 5.68629 2.5 9C2.5 12.3137 5.18629 15 8.5 15Z" fill={viewable === 'Dashboard' ? 'white' : 'black'} stroke={viewable === 'Dashboard' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M8.5 7V9" stroke={viewable === 'Dashboard' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M8.5 13C10.1569 13 11.5 11.6569 11.5 10C11.5 8.34315 10.1569 7 8.5 7C6.84315 7 5.5 8.34315 5.5 10C5.5 11.6569 6.84315 13 8.5 13Z" fill={viewable === 'Dashboard' ? 'white' : 'black'} stroke={viewable === 'Dashboard' ? 'white' : 'black'} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+            </span>
+            <span
+              className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${viewable === 'Dashboard' ? 'text-[#FAFAFA]' : 'text-black'}`}
+            >
+              Reports
+            </span>
+          </span>
+        </span>
+      </li>
+    </ul>
+  </>
+)}
+        
+{['hrModule'].includes(sourceLink) && (
+  <>
+    <ul className="w-full">
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'MyHR' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('MyHR')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
+              <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" 
+                fill={viewable === 'MyHR' ? 'white' : 'black'} />
+              </svg>
+            </span>
+            <span
+              className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
+                viewable === 'MyHR' ? 'text-[#FAFAFA]' : 'text-black'
+              }`}
+            >
+              My HR
+            </span>
+          </span>
+        </span>
+      </li>
 
-                      <UserGroupIcon className="h-5 w-5 " aria-hidden="true" />
-                    </span>
-                    <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Employees</span>
-                  </span>
-                  <span className="flex ml-auto items-bottom">
-                    <span className="flex ml-auto items-bottom text-xs mt-2"></span>
-                  </span>
-                </span>
-              </li>
-              <li className="relative mt-1 pt-1">
-                <span
-                  className={
-                    'flex items-center text-sm py-1  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'AssetsManagement'
-                      ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
-                      : '')
-                  }
-                  onClick={() => setViewable('AssetsManagement')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col pt-[8px]">
-                    <span style={{ color: '#eb8909' }}>
-                      <svg
-                        width="24"
-                        height="24"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          opacity="0.1"
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M13 6.5A1.5 1.5 0 0114.5 5h3A1.5 1.5 0 0119 6.5v3a1.5 1.5 0 01-1.5 1.5h-3A1.5 1.5 0 0113 9.5v-3zM6.5 13A1.5 1.5 0 005 14.5v3A1.5 1.5 0 006.5 19h3a1.5 1.5 0 001.5-1.5v-3A1.5 1.5 0 009.5 13h-3zm8 0a1.5 1.5 0 00-1.5 1.5v3a1.5 1.5 0 001.5 1.5h3a1.5 1.5 0 001.5-1.5v-3a1.5 1.5 0 00-1.5-1.5h-3zm-8-8A1.5 1.5 0 005 6.5v3A1.5 1.5 0 006.5 11h3A1.5 1.5 0 0011 9.5v-3A1.5 1.5 0 009.5 5h-3z"
-                          fill="currentColor"
-                        ></path>
-                        <path
-                          fillRule="evenodd"
-                          clipRule="evenodd"
-                          d="M17.5 6h-3a.5.5 0 00-.5.5v3a.5.5 0 00.5.5h3a.5.5 0 00.5-.5v-3a.5.5 0 00-.5-.5zm-3-1A1.5 1.5 0 0013 6.5v3a1.5 1.5 0 001.5 1.5h3A1.5 1.5 0 0019 9.5v-3A1.5 1.5 0 0017.5 5h-3zm-8 9h3a.5.5 0 01.5.5v3a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5zm-1.5.5A1.5 1.5 0 016.5 13h3a1.5 1.5 0 011.5 1.5v3A1.5 1.5 0 019.5 19h-3A1.5 1.5 0 015 17.5v-3zm9.5-.5h3a.5.5 0 01.5.5v3a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5zm-1.5.5a1.5 1.5 0 011.5-1.5h3a1.5 1.5 0 011.5 1.5v3a1.5 1.5 0 01-1.5 1.5h-3a1.5 1.5 0 01-1.5-1.5v-3zM6.5 6h3a.5.5 0 01.5.5v3a.5.5 0 01-.5.5h-3a.5.5 0 01-.5-.5v-3a.5.5 0 01.5-.5zM5 6.5A1.5 1.5 0 016.5 5h3A1.5 1.5 0 0111 6.5v3A1.5 1.5 0 019.5 11h-3A1.5 1.5 0 015 9.5v-3z"
-                          fill="currentColor"
-                        ></path>
-                      </svg>
-                    </span>
-                    <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Assets</span>
-                  </span>
-                </span>
-              </li>
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'User Management' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('User Management')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
+              <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 3c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9zm0 1c-4.418 0-8 3.582-8 8 0 .702.09 1.383.26 2.031l2.886-2.885c.196-.195.512-.195.708 0l2.646 2.647 4.793-4.794L13 9c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h3.52l.052.005L16.5 8c.036 0 .071.004.105.011l.046.012.04.015c.014.005.027.012.04.019.013.006.025.013.036.02l.035.025c.014.01.027.02.04.033l.012.011.011.013c.012.012.023.025.033.039l-.044-.052c.026.027.05.056.069.087l.02.034.02.042.014.04c.005.015.009.03.012.046l.006.033.005.051V12c0 .276-.224.5-.5.5s-.5-.224-.5-.5V9.706l-5.146 5.148c-.196.195-.512.195-.708 0L7.5 12.207 4.618 15.09C5.827 17.974 8.677 20 12 20c4.418 0 8-3.582 8-8s-3.582-8-8-8z" 
+                fill={viewable === 'User Management' ? 'white' : 'black'} />
+              </svg>
+            </span>
+            <span
+              className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
+                viewable === 'User Management' ? 'text-[#FAFAFA]' : 'text-black'
+              }`}
+            >
+              Employees
+            </span>
+          </span>
+        </span>
+      </li>
 
-              <li className="relative mt-1">
-                <span
-                  className={
-                    'flex items-center text-sm py-1  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'Bank Accounts'
-                      ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
-                      : '')
-                  }
-                  onClick={() => setViewable('Bank Accounts')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col pt-[8px]">
-                    <span style={{ color: '#058527' }}>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
-                        />
-                      </svg>
-                    </span>
-                    <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Bank</span>
-                  </span>
-                  <span className="flex ml-auto items-bottom">
-                    <span className="flex ml-auto items-bottom text-xs mt-2"></span>
-                  </span>
-                </span>
-              </li>
-              <li className="relative mt-1">
-                <span
-                  className={
-                    'flex items-center text-sm py-1  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'Roles Management'
-                      ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
-                      : '')
-                  }
-                  onClick={() => setViewable('Roles Management')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col pt-[8px]">
-                    <span style={{ color: '#058527' }}>
-                      <svg
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        className="w-5 h-5"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                        />
-                      </svg>
-                    </span>
-                    <span className="text-[9px] font-bold tracking-[0.7px] pl-1">Access</span>
-                  </span>
-                  <span className="flex ml-auto items-bottom">
-                    <span className="flex ml-auto items-bottom text-xs mt-2"></span>
-                  </span>
-                </span>
-              </li>
-              <li className="relative mt-1">
-                <span
-                  className={
-                    'flex items-center text-sm py-1  overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded  rounded-tl-[30px] rounded-bl-[30px]  hover:text-blue-600 hover:bg-[#ecdbd1] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'projectReports'
-                      ? 'bg-[#ecdbd1] w-100 rounded-tl-[30px] rounded-bl-[30px] '
-                      : '')
-                  }
-                  onClick={() => setViewable('projectReports')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col pt-[8px]">
-                    <span style={{ color: '#692fc2' }}>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                      >
-                        <g fill="none" fillRule="evenodd">
-                          <g fill="currentColor" fillRule="nonzero">
-                            <g>
-                              <g>
-                                <path
-                                  d="M12 3c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9zm0 1c-4.418 0-8 3.582-8 8 0 .702.09 1.383.26 2.031l2.886-2.885c.196-.195.512-.195.708 0l2.646 2.647 4.793-4.794L13 9c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h3.52l.052.005L16.5 8c.036 0 .071.004.105.011l.046.012.04.015c.014.005.027.012.04.019.013.006.025.013.036.02l.035.025c.014.01.027.02.04.033l.012.011.011.013c.012.012.023.025.033.039l-.044-.052c.026.027.05.056.069.087l.02.034.02.042.014.04c.005.015.009.03.012.046l.006.033.005.051V12c0 .276-.224.5-.5.5s-.5-.224-.5-.5V9.706l-5.146 5.148c-.196.195-.512.195-.708 0L7.5 12.207 4.618 15.09C5.827 17.974 8.677 20 12 20c4.418 0 8-3.582 8-8s-3.582-8-8-8z"
-                                  transform="translate(-564 -480) translate(528 444) translate(36 36)"
-                                ></path>
-                              </g>
-                            </g>
-                          </g>
-                        </g>
-                      </svg>
-                    </span>
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'AssetsManagement' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('AssetsManagement')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
+              <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 6.5A1.5 1.5 0 0114.5 5h3A1.5 1.5 0 0119 6.5v3a1.5 1.5 0 01-1.5 1.5h-3A1.5 1.5 0 0113 9.5v-3zM6.5 13A1.5 1.5 0 005 14.5v3A1.5 1.5 0 006.5 19h3a1.5 1.5 0 001.5-1.5v-3A1.5 1.5 0 009.5 13h-3zm8 0a1.5 1.5 0 00-1.5 1.5v3a1.5 1.5 0 001.5 1.5h3a1.5 1.5 0 001.5-1.5v-3a1.5 1.5 0 00-1.5-1.5h-3zm-8-8A1.5 1.5 0 005 6.5v3A1.5 1.5 0 006.5 11h3A1.5 1.5 0 0011 9.5v-3A1.5 1.5 0 009.5 5h-3z" 
+                fill={viewable === 'AssetsManagement' ? 'white' : 'black'} />
+              </svg>
+            </span>
+            <span
+              className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
+                viewable === 'AssetsManagement' ? 'text-[#FAFAFA]' : 'text-black'
+              }`}
+            >
+              Assets
+            </span>
+          </span>
+        </span>
+      </li>
 
-                    <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">Reports</span>
-                  </span>
-                  <span className="flex ml-auto items-bottom">
-                    <span className="flex ml-auto items-bottom text-xs mt-2"></span>
-                  </span>
-                </span>
-              </li>
-            </ul>
-          </>
-        )}
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'Bank Accounts' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('Bank Accounts')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
+              <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" 
+                fill={viewable === 'Bank Accounts' ? 'white' : 'black'} />
+              </svg>
+            </span>
+            <span
+              className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
+                viewable === 'Bank Accounts' ? 'text-[#FAFAFA]' : 'text-black'
+              }`}
+            >
+              Bank Accounts
+            </span>
+          </span>
+        </span>
+      </li>
+
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'Roles Management' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('Roles Management')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
+              <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" 
+                fill={viewable === 'Roles Management' ? 'white' : 'black'} />
+              </svg>
+            </span>
+            <span
+              className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
+                viewable === 'Roles Management' ? 'text-[#FAFAFA]' : 'text-black'
+              }`}
+            >
+              Roles
+            </span>
+          </span>
+        </span>
+      </li>
+
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'projectReports' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('projectReports')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
+              <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 3c4.97 0 9 4.03 9 9s-4.03 9-9 9-9-4.03-9-9 4.03-9 9-9zm0 1c-4.418 0-8 3.582-8 8 0 .702.09 1.383.26 2.031l2.886-2.885c.196-.195.512-.195.708 0l2.646 2.647 4.793-4.794L13 9c-.276 0-.5-.224-.5-.5s.224-.5.5-.5h3.52l.052.005L16.5 8c.036 0 .071.004.105.011l.046.012.04.015c.014.005.027.012.04.019.013.006.025.013.036.02l.035.025c.014.01.027.02.04.033l.012.011.011.013c.012.012.023.025.033.039l-.044-.052c.026.027.05.056.069.087l.02.034.02.042.014.04c.005.015.009.03.012.046l.006.033.005.051V12c0 .276-.224.5-.5.5s-.5-.224-.5-.5V9.706l-5.146 5.148c-.196.195-.512.195-.708 0L7.5 12.207 4.618 15.09C5.827 17.974 8.677 20 12 20c4.418 0 8-3.582 8-8s-3.582-8-8-8z" 
+                fill={viewable === 'projectReports' ? 'white' : 'black'} />
+              </svg>
+            </span>
+            <span
+              className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
+                viewable === 'projectReports' ? 'text-[#FAFAFA]' : 'text-black'
+              }`}
+            >
+              Reports
+            </span>
+          </span>
+        </span>
+      </li>
+    </ul>
+  </>
+)}
+
+
+
 
         {/* <Link
         className={

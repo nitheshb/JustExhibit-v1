@@ -347,7 +347,7 @@ const FinanceHomePagePage = () => {
             <HeadNavBar2 selModule={selModule} setSelModule={setSelModule}  setViewable={setViewable} />
 
 
-               <div className='flex overflow-y-auto mb-1 mx-13'>
+               <div className='flex overflow-y-auto mb-1'>
                             <SlimSideMenuBar
               pgName={'financeModule'}
               sourceLink={'financeModule'}

@@ -1523,7 +1523,7 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
 
         customerDetails={selUnitDetails}
         setSelUnitDetails={setSelUnitDetails}
-        widthClass="max-w-4xl"
+        widthClass="max-w-[900px]"
         transactionData={transactionData}
         unitsViewMode={false}
         selCustomerPayload={selUnitDetails}

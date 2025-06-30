@@ -786,7 +786,7 @@ export default function UnitFullSummary({
   <section className="flex flex-col h-full">
     <div className="flex flex-col h-full bg-white">
       {/* Top Bar */}
-      <div className="flex justify-between items-center px-4 py-3 ">
+      <div className="flex justify-between items-center px-[30px]  ">
         {/* Left - Summary Title (clickable) */}
         <button 
           className={`font-manrope font-semibold text-[15px] leading-7 tracking-normal text-center ${
@@ -813,9 +813,9 @@ export default function UnitFullSummary({
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 overflow-auto">
+      <div className="">
         {/* Left Content - Scrollable area */}
-        <div className="h-full p-4">
+        <div className="h-full px-[30px]">
           {selFeature === 'summary' && (
             <CrmUnitSummary
               selCustomerPayload={selCustomerPayload}

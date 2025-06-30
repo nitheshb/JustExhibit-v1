@@ -4556,7 +4556,7 @@ const LeadsTeamReportBody = ({ project, onSliderOpen = () => {}, isEdit }) => {
             setOpen={setisImportLeadsOpen}
             title={'User Profile'}
             customerDetails={customerDetails}
-            widthClass="max-w-4xl"
+            widthClass="max-w-5xl"
             pId={undefined}
             phaseFeed={undefined}
             BlockFeed={undefined}
