@@ -34,14 +34,14 @@ export default function ModuleSwitchDrop({
     <div className="text-right inline-block ml-2 mt-[px] ">
       <Menu as="div" className="relative inline-block text-left">
         <div>
-          <Menu.Button className="inline-flex justify-center w-[148px] px-0 py-0 text-sm font-semibold text-black-500 bg- rounded-full bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 bg-slate-400/10 dark:highlight-white/5 flex font-semibold hover:bg-slate-400/20 items-center leading-5 px-3 py-1 rounded-full space-x-2 text-xs px-4 py-1.5">
-            <span className=" w-[130px]  text-[12px] leading-[10px] tracking-wide text-[#0091ae]  ">
-              <span className="flex flex-row w-[25px]">
+          <Menu.Button className="inline-flex justify-center w-[243px] h-[48px]  text-sm font-semibold text-black-500  rounded-[20px] focus:outline-none  border  border-[#E5E7EA] flex font-semibold  items-center leading-5 p-[12px] rounded-full space-x-2 text-xs ">
+            <span className=" w-[243px]  text-[12px] leading-[10px] tracking-wide text-[#0091ae]  ">
+              <span className="flex flex-row w-[25px] font-manrope font-bold text-[14px] leading-[16px] align-middle text-[#DE461E]">
                 <span>{`${type} `} </span>{' '}
-                <span className="ml-[2px]">Module</span>
+                <span className="ml-[2px] font-manrope font-bold text-[14px] leading-[16px] align-middle text-[#DE461E]">Module</span>
               </span>
             </span>
-            <ChevronDownIcon className="w-5 h-5 mr-3 mt-[2px] inline text-[#058527]" />
+            <ChevronDownIcon className="w-7 h-7 mr-3 mt-[2px] inline text-[#DE461E]" />
           </Menu.Button>
         </div>
         <Transition

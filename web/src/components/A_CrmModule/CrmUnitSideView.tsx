@@ -1442,7 +1442,7 @@ export default function UnitSideViewCRM({
                     }}>
                     Capture Payment
                   </button>
-                  <button className="border-2 border-[#F44D21] text-[#F44D21] hover:bg-[#F44D21]  font-medium px-4 py-2 rounded-[10px] text-sm transition-colors flex items-center">
+                  <button className="border-2 border-[#F44D21] text-[#F44D21]   font-medium px-4 py-2 rounded-[10px] text-sm transition-colors flex items-center">
                     <PhoneIcon className="h-4 w-4 mr-2" aria-hidden="true" />
                     Call
                   </button>

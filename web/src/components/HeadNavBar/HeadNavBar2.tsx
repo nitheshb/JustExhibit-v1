@@ -43,7 +43,9 @@ const HeadNavBar2 = ({ selModule, setSelModule, setViewable }) => {
         className="flex items-center flex-shrink-0 h-[76px] px-[20px] pl-0 bg-white shadow-[0_0_23.2px_0_rgba(0,0,0,0.12)]"
 
       >
-        <span
+       
+       <div className='flex gap-[24px]'>
+                <span
           style={{}}
           className="relative z-10 flex items-center text-md font-extrabold ml-4 gap-3 leading-none text-black select-none pl-0 ml-4 "
         >
@@ -66,6 +68,7 @@ const HeadNavBar2 = ({ selModule, setSelModule, setViewable }) => {
             pickedValue={selModule}
           />
         </section>
+       </div>
         {/* <GlobalSearchBar /> */}
 
 
