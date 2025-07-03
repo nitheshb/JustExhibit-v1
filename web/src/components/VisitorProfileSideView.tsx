@@ -1642,7 +1642,7 @@ export default function VisitorProfileSideView({
                   <div>
                     <div className="flex items-center space-x-2">
                       <h1 className="font-manrope font-bold text-[18px] leading-[100%] tracking-[0%] text-[#1A1A1A]">{Name}</h1>
-                      <Edit className="w-4 h-4 text-orange-500 cursor-pointer" />
+                      {/* <Edit className="w-4 h-4 text-orange-500 cursor-pointer" /> */}
         
                     </div>
         

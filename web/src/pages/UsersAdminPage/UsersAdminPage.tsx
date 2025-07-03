@@ -46,7 +46,7 @@ const UsersAdminPage = () => {
 
           <div className="flex flex-col text-gray-700  overflow-hidden [scrollbar-width:none] [-ms-overflow-style:none] ">
             <HeadNavBar2 selModule={selModule} setSelModule={setSelModule} setViewable={setViewable} />
-            <div className='flex overflow-y-auto mb-1 mx-15'>
+            <div className='flex overflow-y-auto mb-1 '>
               <SlimSideMenuBar
                 pgName={'hrModule'}
                 sourceLink={'hrModule'}
@@ -57,31 +57,36 @@ const UsersAdminPage = () => {
               <div className="flex-grow items-center">
                 {/* <HeadNavBar /> */}
                 {viewable === 'userProfile' && <ProfileSummary />}
-                <div className=" px-6">
+                <div className=" px-1">
                   <div className=" mt-2  ">
                     {/* <h1 className="text-lg font-medium">redefine.</h1> */}
 
 
                     {viewable === 'User Management' && (
-                      <div className="flex flex-row">
-                        <div className="flex flex-row mt-2 mr-2">
-                          <span className="text-[10px] mt-1 mr-1">Show InActive</span>
-                          <Switch
-                            checked={showCompletedTasks}
-                            onChange={changeFun}
-                            className={`${showCompletedTasks ? 'bg-blue-600' : 'bg-gray-200'
-                              } relative inline-flex h-6 w-11 items-center rounded-full`}
-                          >
-                            <span
-                              className={`${showCompletedTasks ? 'translate-x-6' : 'translate-x-1'
-                                } inline-block h-4 w-4 transform rounded-full bg-white transition`}
-                            />
-                          </Switch>
-                        </div>
+                      <div className="flex flex-row px-[20px] py-[20px]">
+     <div className="flex flex-row items-center mt-2 mr-2 gap-3">
+  <span className="font-inter font-medium text-[18px] leading-[28px] tracking-[0] text-[#101828]">
+    Show InActive
+  </span>
+  <Switch
+    checked={showCompletedTasks}
+    onChange={changeFun}
+    className={`${
+      showCompletedTasks ? 'bg-[#F44D21]' : 'bg-gray-200'
+    } relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 ease-in-out`}
+  >
+    <span
+      className={`${
+        showCompletedTasks ? 'translate-x-6' : 'translate-x-1'
+      } inline-block h-4 w-4 transform rounded-full bg-white transition`}
+    />
+  </Switch>
+</div>
+
 
                         <button
                           onClick={() => editEmployeeFun({})}
-                          className="flex items-center justify-center h-10 px-4  bg-gray-200 ml-auto text-sm font-medium rounded hover:bg-gray-300"
+                          className="flex items-center justify-center h-10 px-4 w-[164px] h-[40px] gap-2 rounded-[8px] px-4 py-[10px] border bg-[#F44D21] ml-auto text-sm font-medium text-white"
                         >
                           <svg
                             className="w-5 h-5"
@@ -102,14 +107,14 @@ const UsersAdminPage = () => {
                       </div>
                     )}
                     {viewable === 'AssetsManagement' && (
-                      <div className="flex flex-row">
-                        <div className="flex flex-row mt-2 mr-2">
-                          <span className="text-[10px] mt-1 mr-1">Show InActive</span>
+                      <div className="flex flex-row px-[20px] py-[20px] ">
+                        <div className="">
+                          <span className="font-inter font-medium text-[18px] leading-[28px] tracking-[0] text-[#101828]">Show InActive</span>
                           <Switch
                             checked={showCompletedTasks}
                             onChange={changeFun}
-                            className={`${showCompletedTasks ? 'bg-blue-600' : 'bg-gray-200'
-                              } relative inline-flex h-6 w-11 items-center rounded-full`}
+                            className={`${showCompletedTasks ? 'bg-[#F44D21]' : 'bg-gray-200'
+                              } relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 ease-in-out`}
                           >
                             <span
                               className={`${showCompletedTasks ? 'translate-x-6' : 'translate-x-1'
@@ -147,12 +152,18 @@ const UsersAdminPage = () => {
                       showCompletedTasks={showCompletedTasks}
                     />
                   )}
+
+                  
+
                   {viewable === 'User Management' && (
                     <UserManageTable
                       editEmployeeFun={editEmployeeFun}
                       showCompletedTasks={showCompletedTasks}
                     />
                   )}
+
+
+            
                   {viewable === 'MyHR' && <HrModuleHome leadsTyper={undefined} />}
                   {viewable === 'Roles Management' && (
                     <>

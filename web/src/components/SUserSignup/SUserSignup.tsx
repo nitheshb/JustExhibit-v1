@@ -24,7 +24,7 @@ const SUserSignup = ({ open, setOpen, title, empData }) => {
           >
             <Dialog.Overlay className="absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
           </Transition.Child>
-          <div className="fixed inset-y-0 right-0 pl-10 max-w-full flex">
+          <div className="fixed inset-y-0 right-0 pl-10 w-[50%] flex">
             <Transition.Child
               as={Fragment}
               enter="transform transition ease-in-out duration-500 sm:duration-700"
@@ -34,7 +34,7 @@ const SUserSignup = ({ open, setOpen, title, empData }) => {
               leaveFrom="translate-x-0"
               leaveTo="translate-x-full"
             >
-              <div className="relative w-screen max-w-lg">
+              <div className="relative w-[100%] max-w-7x1">
                 <Transition.Child
                   as={Fragment}
                   enter="ease-in-out duration-500"

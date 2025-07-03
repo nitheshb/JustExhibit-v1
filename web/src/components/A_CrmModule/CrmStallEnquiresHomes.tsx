@@ -633,7 +633,7 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
         <div className=" ">
           <div className="  ">
             <div className="flex items-center flex-row flex-wrap justify-between my-5 mx-4">
-              <h2 className="font-manrope font-bold text-[24px] leading-none tracking-[0] text-[#1A1A1A] ">
+              <h2 className="font-manrope font-bold text-[24px] leading-none tracking-[0] text-[#1A1A1A]">
                 Stall Enquiries
               </h2>
 

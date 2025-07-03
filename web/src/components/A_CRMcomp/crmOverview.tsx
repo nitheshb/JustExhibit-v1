@@ -1,8 +1,10 @@
 import React from 'react';
 
-import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, AreaChart, Area } from 'recharts';
-import { Calendar, ExternalLink } from 'lucide-react';
+import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, AreaChart, Area, CartesianGrid } from 'recharts';
+import { ArrowUpRight, Calendar, ExternalLink } from 'lucide-react';
 import { Card, CardContent,  CardHeader, CardTitle } from '../ui/card';
+import FinancialSemicircleChart from '../A_CrmModule/FinancialSemicircleChart';
+import VisitMetricsChart from 'src/StallBookingOverview';
 
 const JewelleryExpoDashboard = () => {
   // Sample data for enquiry trend
@@ -24,15 +26,30 @@ const JewelleryExpoDashboard = () => {
     { name: 'Jun', active: 120, booked: 55, notInterested: 35 }
   ];
 
+
+  const data = [
+  { month: 'Jan', value: 70 },
+  { month: 'Feb', value: 95 },
+  { month: 'Mar', value: 25 },
+  { month: 'Apr', value: 80 },
+  { month: 'May', value: 100 }
+];
+
+
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen  p-6">
+
+
+
+
+
+      <div className="max-w-8xl mx-auto">
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <div>
-            <h1 className="text-2xl font-normal text-gray-900 mb-4">Good Morning, Rubi !</h1>
+            <h1 className="font-manrope font-normal text-[20px] leading-[28px] tracking-[0px] text-[#1A1A1A] mb-4">Good Morning, Rubi !</h1>
             <div className="flex items-center space-x-4">
-              <h2 className="text-2xl font-semibold text-gray-900">Jewellery expo - 2025</h2>
+              <h2 className="font-manrope font-semibold text-[30px] leading-[40px] tracking-[0px] text-[#1A1A1A]">Jewellery expo - 2025</h2>
               <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-orange-100 text-orange-800 border border-orange-200">
                 ● Active
               </span>
@@ -47,218 +64,293 @@ const JewelleryExpoDashboard = () => {
           </div>
         </div>
 
+
+
+        <div className="flex flex-wrap justify-between my-4">
+  {/* Original Ticket */}
+  <div className="relative inline-block">
+    <img 
+      src="/ticket.svg" 
+      alt="Ticket" 
+      className="w-full h-auto" 
+    />
+    <div className="absolute bottom-6 left-6 flex flex-col gap-[7px]">
+      <p className="m-0 font-playfair font-bold text-[16px] leading-[24px] tracking-[2px] uppercase text-[#1A1A1A]">
+        Tickets
+      </p>
+      <p className="m-0 font-number font-bold text-[29.93px] leading-[22px] tracking-[1.87px] uppercase text-[#1A1A1A]">
+        110
+      </p>
+    </div>
+  </div>
+
+  {/* Ticket 2 */}
+  <div className="relative inline-block">
+    <img 
+      src="/ticket.svg" 
+      alt="Ticket" 
+      className="w-full h-auto" 
+    />
+    <div className="absolute bottom-6 left-6 flex flex-col gap-[7px]">
+      <p className="m-0 font-playfair font-bold text-[16px] leading-[24px] tracking-[2px] uppercase text-[#1A1A1A]">
+        Tickets
+      </p>
+      <p className="m-0 font-number font-bold text-[29.93px] leading-[22px] tracking-[1.87px] uppercase text-[#1A1A1A]">
+        75
+      </p>
+    </div>
+  </div>
+
+  {/* Ticket 3 */}
+  <div className="relative inline-block">
+    <img 
+      src="/ticket.svg" 
+      alt="Ticket" 
+      className="w-full h-auto" 
+    />
+    <div className="absolute bottom-6 left-6 flex flex-col gap-[7px]">
+      <p className="m-0 font-playfair font-bold text-[16px] leading-[24px] tracking-[2px] uppercase text-[#1A1A1A]">
+        Tickets
+      </p>
+      <p className="m-0 font-number font-bold text-[29.93px] leading-[22px] tracking-[1.87px] uppercase text-[#1A1A1A]">
+        42
+      </p>
+    </div>
+  </div>
+
+  {/* Ticket 4 */}
+  <div className="relative inline-block">
+    <img 
+      src="/ticket.svg" 
+      alt="Ticket" 
+      className="w-full h-auto" 
+    />
+    <div className="absolute bottom-6 left-6 flex flex-col gap-[7px]">
+      <p className="m-0 font-playfair font-bold text-[16px] leading-[24px] tracking-[2px] uppercase text-[#1A1A1A]">
+        Tickets
+      </p>
+      <p className="m-0 font-number font-bold text-[29.93px] leading-[22px] tracking-[1.87px] uppercase text-[#1A1A1A]">
+        89
+      </p>
+    </div>
+  </div>
+
+  {/* Ticket 5 */}
+  <div className="relative inline-block">
+    <img 
+      src="/ticket.svg" 
+      alt="Ticket" 
+      className="w-full h-auto" 
+    />
+    <div className="absolute bottom-6 left-6 flex flex-col gap-[7px]">
+      <p className="m-0 font-playfair font-bold text-[16px] leading-[24px] tracking-[2px] uppercase text-[#1A1A1A]">
+        Tickets
+      </p>
+      <p className="m-0 font-number font-bold text-[29.93px] leading-[22px] tracking-[1.87px] uppercase text-[#1A1A1A]">
+        63
+      </p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
         {/* Top Row Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          {/* Stall Insight */}
-          <Card className="relative bg-white shadow-sm border border-gray-200">
-            <CardHeader className="pb-3">
-              <div className="flex justify-between items-center">
-                <CardTitle className="text-sm font-medium text-gray-700 uppercase tracking-wider">
-                  STALL INSIGHT
-                </CardTitle>
-                <ExternalLink className="h-4 w-4 text-gray-400" />
-              </div>
-            </CardHeader>
-            <CardContent>
-              <div className="text-center">
-                <p className="text-sm text-gray-600 mb-6">
-                  Booked Stalls <span className="font-medium">vs</span> Expected stalls<br />till now
-                </p>
-                
-                {/* Custom Circular Progress */}
-                <div className="relative w-40 h-40 mx-auto mb-6">
-                  <svg className="w-40 h-40 transform -rotate-90" viewBox="0 0 42 42">
-                    <circle
-                      cx="21"
-                      cy="21"
-                      r="18"
-                      fill="none"
-                      stroke="#e5e7eb"
-                      strokeWidth="3"
-                    />
-                    <circle
-                      cx="21"
-                      cy="21"
-                      r="18"
-                      fill="none"
-                      stroke="#ef4444"
-                      strokeWidth="3"
-                      strokeDasharray={`${10 * 1.13} ${100 * 1.13}`}
-                      strokeLinecap="round"
-                    />
-                  </svg>
-                  <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <div className="text-3xl font-bold text-orange-500">10%</div>
-                    <div className="text-sm text-orange-500 font-medium">Stalls</div>
-                    <div className="text-sm text-orange-500 font-medium">Booked</div>
-                  </div>
-                </div>
-                
-                <div className="flex justify-between items-end">
-                  <div className="text-left">
-                    <div className="text-4xl font-bold text-orange-500">20</div>
-                    <div className="text-xs text-gray-500">Till 12/06/2025</div>
-                  </div>
-                  <div className="text-right">
-                    <div className="text-4xl font-bold text-gray-900">200</div>
-                    <div className="text-xs text-gray-500">Due 12/08/2025</div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Payment Insight */}
-          <Card className="relative bg-white shadow-sm border border-gray-200">
-            <CardHeader className="pb-3">
-              <div className="flex justify-between items-center">
-                <CardTitle className="text-sm font-medium text-gray-700 uppercase tracking-wider">
-                  PAYMENT INSIGHT
-                </CardTitle>
-                <ExternalLink className="h-4 w-4 text-gray-400" />
-              </div>
-            </CardHeader>
-            <CardContent>
-              <div className="text-center">
-                <div className="bg-orange-50 rounded-full w-56 h-56 mx-auto flex items-center justify-center mb-4 relative">
-                  <div className="text-center">
-                    <p className="text-sm text-gray-600 mb-3">Till Today</p>
-                    <div className="text-4xl font-bold text-orange-500 mb-2">₹2,00,000</div>
-                    <p className="text-sm text-gray-600 mb-4">Received payment</p>
-                    <div className="border-t pt-3">
-                      <p className="text-xs text-gray-500">out of</p>
-                      <p className="text-xl font-bold text-gray-900">₹3,00,000</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Enquiry Insight */}
-          <Card className="relative bg-white shadow-sm border border-gray-200">
-            <CardHeader className="pb-3">
-              <div className="flex justify-between items-center">
-                <CardTitle className="text-sm font-medium text-gray-700 uppercase tracking-wider">
-                  ENQUIRY INSIGHT
-                </CardTitle>
-                <ExternalLink className="h-4 w-4 text-gray-400" />
-              </div>
-            </CardHeader>
-            <CardContent>
-              <div className="text-center mb-6">
-                <div className="text-6xl font-bold text-orange-500 mb-2">200</div>
-                <p className="text-sm text-gray-600">enquiries</p>
-              </div>
-              <div className="h-32">
-                <ResponsiveContainer width="100%" height="100%">
-                  <LineChart data={enquiryData}>
-                    <Line 
-                      type="monotone" 
-                      dataKey="value" 
-                      stroke="#f97316" 
-                      strokeWidth={3}
-                      dot={false}
-                    />
-                    <XAxis 
-                      dataKey="name" 
-                      axisLine={false}
-                      tickLine={false}
-                      tick={{ fontSize: 12, fill: '#6b7280' }}
-                    />
-                    <YAxis hide />
-                  </LineChart>
-                </ResponsiveContainer>
-              </div>
-            </CardContent>
-          </Card>
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+  {/* Stall Insight - Modified to match others */}
+  <Card className="relative bg-white border border-gray-200 rounded-[8px] p-6 shadow-sm h-96">
+    {/* <CardHeader className="pb-3">
+      <div className="flex justify-between items-center">
+        <CardTitle className="text-base font-medium text-gray-900 tracking-widest">
+          STALL INSIGHT
+        </CardTitle>
+        <ExternalLink className="h-4 w-4 text-gray-600" />
+      </div>
+    </CardHeader> */}
+        <div className="flex justify-between items-center mb-8">
+      <h2 className="font-playfair font-bold text-[16px] leading-[24px] tracking-[2px] uppercase text-[#1A1A1A]">
+        STALL INSIGHT
+      </h2>
+      <ArrowUpRight className="w-4 h-4 text-gray-600" />
+    </div>
+    <div>
+      <div className="text-center">
+        <p className="text-gray-600 text-lg font-normal mb-6">
+          Booked Stalls <span className="font-medium">vs</span> Expected stalls<br />till now
+        </p>
+        
+        <FinancialSemicircleChart
+          paidValue={0}
+          remainingValue={0}
+          size={270}
+        />
+        
+        <div className="flex justify-between items-end mt-4">
+          <div className="text-left">
+            <div className="font-manrope font-bold text-[40px] leading-none tracking-[0px] text-center  text-[#F44D21]">20</div>
+            <div className="text-xs text-gray-500">Till 12/06/2025</div>
+          </div>
+          <div className="text-right">
+            <div className="font-manrope font-bold text-[40px] leading-none tracking-[0px] text-center  text-[#F44D21]">200</div>
+            <div className="text-xs text-gray-500">Due 12/08/2025</div>
+          </div>
         </div>
+      </div>
+    </div>
+  </Card>
 
+  {/* Payment Insight - Already properly sized */}
+  <Card className="relative bg-white border border-gray-200 rounded-[8px] p-6 shadow-sm h-96">
+    <div className="flex justify-between items-center mb-8">
+      <h2 className="font-playfair font-bold text-[16px] leading-[24px] tracking-[2px] uppercase text-[#1A1A1A]">
+        PAYMENT INSIGHT
+      </h2>
+      <ArrowUpRight className="w-4 h-4 text-gray-600" />
+    </div>
+
+    <div className="relative mx-auto w-80 h-72 mb-0 overflow-hidden">
+      <div className="absolute inset-0 top-0 w-80 h-80 rounded-full border-2 border-red-300 bg-red-50/40">
+        <div className="flex flex-col items-center justify-center h-72 text-center px-4 py-6">
+          <div className="mb-4">
+            <p className="text-gray-600 text-lg font-normal">Till Today</p>
+          </div>
+          <div className="mb-2">
+            <p className="font-manrope font-bold text-[40px] leading-none tracking-[0px]  text-[#F44D21]">
+              ₹2,00,000
+            </p>
+          </div>
+          <div className="mb-4">
+            <p className="text-gray-700 text-sm font-medium">
+              Received payment
+            </p>
+          </div>
+          <div className="text-center">
+            <p className="text-gray-600 text-xs mb-1">out of</p>
+            <p className="text-gray-900 text-lg font-semibold">
+              ₹3,00,000
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none"></div>
+    </div>
+  </Card>
+
+  {/* Enquiry Insight - Already properly sized */}
+  <Card className="relative bg-white border border-gray-200 rounded-[8px] p-6 shadow-sm h-96">
+    <div className="flex justify-between items-center mb-8">
+      <h2 className="font-playfair font-bold text-[16px] leading-[24px] tracking-[2px] uppercase text-[#1A1A1A]">
+        ENQUIRY INSIGHT
+      </h2>
+      <ArrowUpRight className="w-4 h-4 text-gray-600" />
+    </div>
+
+    <div className="mb-1">
+      <h1 className="font-manrope font-bold text-[40px] leading-none tracking-[0px]  text-[#F44D21]">
+        200
+      </h1>
+    </div>
+    
+    <div className="mb-8">
+      <p className="text-gray-700 text-lg font-normal">
+        enquires
+      </p>
+    </div>
+
+    <div className="h-48 relative">
+      <ResponsiveContainer width="100%" height="100%">
+        <AreaChart
+          data={data}
+          margin={{
+            top: 5,
+            right: 10,
+            left: 10,
+            bottom: 30,
+          }}
+        >
+          <defs>
+            <linearGradient id="colorGradient" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stopColor="#fca5a5" stopOpacity={0.6} />
+              <stop offset="100%" stopColor="#fca5a5" stopOpacity={0.1} />
+            </linearGradient>
+          </defs>
+          
+          <CartesianGrid 
+            strokeDasharray="3 3" 
+            vertical={false} 
+            stroke="#e5e7eb" 
+            horizontal={true}
+          />
+          
+          <XAxis 
+            dataKey="month" 
+            axisLine={{ stroke: '#e5e7eb', strokeWidth: 1 }}
+            tickLine={false}
+            tick={{ fontSize: 14, fill: '#9ca3af', fontWeight: 'normal' }}
+            dy={10}
+            interval={0}
+          />
+          
+          <YAxis 
+            domain={[0, 100]} 
+            hide={true}
+          />
+          
+          <Area
+            type="monotone"
+            dataKey="value"
+            stroke="#ef4444"
+            strokeWidth={2.5}
+            fill="url(#colorGradient)"
+            fillOpacity={1}
+          />
+        </AreaChart>
+      </ResponsiveContainer>
+    </div>
+  </Card>
+</div>
         {/* Bottom Chart */}
-        <Card className="relative bg-white shadow-sm border border-gray-200">
+        <Card className="relative bg-white shadow-sm border rounded-[8px] border-gray-200">
           <CardHeader className="pb-4">
             <div className="flex justify-between items-center">
-              <CardTitle className="text-sm font-medium text-gray-700 uppercase tracking-wider">
+              <CardTitle className="font-playfair font-bold text-[16px] leading-[24px] tracking-[2px] uppercase text-[#1A1A1A]">
                 STALL BOOKING OVERVIEW
               </CardTitle>
               <ExternalLink className="h-4 w-4 text-gray-400" />
             </div>
           </CardHeader>
-          <CardContent>
-            <div className="flex items-center space-x-8 mb-6">
-              <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-                <span className="text-sm text-gray-600">Active leads</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                <span className="text-sm text-gray-600">Booked leads</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                <span className="text-sm text-gray-600">Not interested leads</span>
-              </div>
-            </div>
-            
-            {/* Lead Summary Box */}
-            <div className="absolute top-20 right-6 bg-white rounded-lg shadow-md border p-4 z-10">
-              <div className="space-y-2 text-sm">
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 rounded-full bg-blue-500"></div>
-                  <span className="font-medium">Active</span>
-                  <span className="font-bold">12</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                  <span className="font-medium">Booked</span>
-                  <span className="font-bold">34</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <div className="w-2 h-2 rounded-full bg-red-500"></div>
-                  <span className="font-medium">Not Interested</span>
-                  <span className="font-bold">24</span>
-                </div>
-              </div>
+
+                    {/* <CardContent> */}
+<div className="flex justify-center items-center space-x-8 mb-6">
+  <div className="flex items-center space-x-2">
+    <div className="w-3 h-3 rounded-full bg-blue-500"></div>
+    <span className="text-sm text-gray-600">Active leads</span>
+  </div>
+  <div className="flex items-center space-x-2">
+    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+    <span className="text-sm text-gray-600">Booked leads</span>
+  </div>
+  <div className="flex items-center space-x-2">
+    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+    <span className="text-sm text-gray-600">Not interested leads</span>
+  </div>
+</div>
+
+          
+
+            <div>
+              <VisitMetricsChart/>
             </div>
 
-            <div className="h-96 mt-4">
-              <ResponsiveContainer width="100%" height="100%">
-                <AreaChart data={stallBookingData}>
-                  <XAxis 
-                    dataKey="name" 
-                    axisLine={false}
-                    tickLine={false}
-                    tick={{ fontSize: 12, fill: '#6b7280' }}
-                  />
-                  <YAxis hide />
-                  <Area
-                    type="monotone"
-                    dataKey="active"
-                    stackId="1"
-                    stroke="#3b82f6"
-                    fill="#93c5fd"
-                    fillOpacity={0.7}
-                  />
-                  <Area
-                    type="monotone"
-                    dataKey="notInterested"
-                    stackId="1"
-                    stroke="#ef4444"
-                    fill="#fca5a5"
-                    fillOpacity={0.7}
-                  />
-                  <Area
-                    type="monotone"
-                    dataKey="booked"
-                    stackId="1"
-                    stroke="#22c55e"
-                    fill="#86efac"
-                    fillOpacity={0.7}
-                  />
-                </AreaChart>
-              </ResponsiveContainer>
-            </div>
-          </CardContent>
+          {/* </CardContent> */}
+
+
+
+
         </Card>
       </div>
     </div>

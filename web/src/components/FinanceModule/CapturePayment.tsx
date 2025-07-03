@@ -1794,7 +1794,7 @@ const CaptureUnitPayment = ({
                                                           htmlFor="countryCode"
                                                           className="inline-block font-semibold font-manrope text-[14px] leading-[20px] tracking-[0] text-[#333333]"
                                                         >
-                                                          Primary Phone No
+                                                         Date
                                                         </label>
 
                                                         <CustomDatePicker

@@ -14,6 +14,7 @@ module.exports = {
         lato: ['Lato', 'sans-serif'],
         manrope: ['Manrope', 'sans-serif'],
         playfair: ['"Playfair Display"', 'serif'],
+        outfit: ['Outfit', 'sans-serif'],
       },
     },
   },
