@@ -237,7 +237,18 @@ function EnhancedTableHead(props) {
               'aria-label': 'select all desserts',
             }}
           /> */}
-          <TableSortLabel>S.No</TableSortLabel>
+          <TableSortLabel
+  sx={{
+    color: '#1A1A1A',
+    '&.Mui-active': {
+      color: '#1A1A1A',
+    },
+  }}
+  className="font-body font-bold text-[12px] leading-4 tracking-[0]"
+>
+  S.No
+</TableSortLabel>
+
         </TableCell>
         {headCells.map((headCell) => (
           <>
@@ -261,11 +272,11 @@ function EnhancedTableHead(props) {
                 onClick={createSortHandler(headCell.id)}
                 style={{
                   // backgroundColor: '#F7F9FB',
-                  color: '#1a91eb',
+                  color: '#fff',
                   fontFamily: 'inherit',
                 }}
               >
-                <span className="text-black font-bodyLato whitespace-nowrap">
+                <span className="font-body font-bold text-[12px] leading-4 tracking-[0] text-[#1A1A1A]">
                   {headCell.label}
                 </span>
                 {orderBy === headCell.id ? (
@@ -399,31 +410,32 @@ React.useEffect(()=>{
     // setRows(rowsR)
   }
   return (
-    <section className="flex flex-row justify-between pb py-1 rounded px-3 bg-gray-50 mb-1">
-      <span className="flex flex-row">
-        <span className="relative  p- border rounded h-7 mt-1">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-3 w-3 absolute left-0 ml-1 mt-2"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-            />
-          </svg>
-          <input
-            type="text"
-            placeholder={`Search...${selStatus}`}
-            onChange={searchKeyField}
-            value={searchKey}
-            className="ml-6 bg-transparent text-xs focus:border-transparent focus:ring-0 focus-visible:border-transparent focus-visible:ring-0 focus:outline-none"
-          />
-        </span>
+    <section className="flex flex-row justify-between  rounded p-4">
+      <span className="w-full flex items-center ">
+    <span className="flex w-[298px] h-[44px] gap-[6px] rounded-lg border-[1.5px] border-[#E5E7EA] px-3 items-center">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className="h-4 w-4 text-gray-500"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth={2}
+      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+    />
+  </svg>
+  <input
+    type="text"
+    placeholder={`Search...${selStatus}`}
+    onChange={searchKeyField}
+    value={searchKey}
+    className="w-4/5 bg-transparent focus:border-transparent focus:ring-0 focus:outline-none text-sm leading-7 text-gray-900 placeholder:font-Manrope placeholder:font-medium placeholder:text-[12px] placeholder:leading-none placeholder:tracking-[0] placeholder:text-[#AEAEAE]"
+  />
+</span>
+
         {/* <span className="max-h-[42px] mt-[2px] ml-3">
 
           <label className="bg-green   pl-   flex flex-row cursor-pointer">
@@ -485,7 +497,7 @@ React.useEffect(()=>{
         </Typography>
       )} */}
       <span style={{ display: 'flex' }}>
-        <section className="pt-1">
+        {/* <section className="pt-1">
           <DropCompUnitStatus
             type={'show'}
             id={'id'}
@@ -493,7 +505,7 @@ React.useEffect(()=>{
             viewUnitStatusA={viewUnitStatusA}
             pickCustomViewer={pickCustomViewer}
           />
-        </section>
+        </section> */}
         {/* <Tooltip title={`Download ${rowsAfterSearchKey.length} Rows`}>
 
           <IconButton className="bg-gray-200 ">
@@ -765,6 +777,7 @@ export default function LStallSalesBody({
         setViewUnitStatusA={setViewUnitStatusA}
         leadsFetchedData={leadsFetchedData}
         searchVal={searchVal}
+        
       />
 
 {/* <div className="bg-white rounded-xl p-6">
@@ -924,12 +937,10 @@ export default function LStallSalesBody({
         </table>
       </div>
     </div> */}
-      <section
-        style={{ borderTop: '1px solid #efefef', background: '#fefafb' }}
-      >
-        <TableContainer sx={{ maxHeight: 640 }}>
+      <section>
+        <TableContainer sx={{ maxHeight: 370 }}>
           <Table
-            sx={{ minWidth: 750, minHeight: 260 }}
+            sx={{ minWidth: 750 }}
             aria-labelledby="tableTitle"
             size={dense ? 'small' : 'medium'}
             stickyHeader
@@ -1010,7 +1021,7 @@ export default function LStallSalesBody({
                           padding="none"
                         >
                           <section>
-                            <span className="font-bodyLato">
+                            <span className="font-manrope font-medium text-[14px] leading-5 tracking-[0] text-[#666666]">
                               {prettyDate(row.Date).toLocaleString()}
                             </span>
 
@@ -1025,7 +1036,7 @@ export default function LStallSalesBody({
                           padding="none"
                         >
                           <section>
-                            <span className="font-bodyLato">
+                            <span className="font-manrope font-medium text-[14px] leading-5 tracking-[0] text-[#666666]">
                             {row.assignT != undefined
                           ? prettyDate(row.assignT)
                           : prettyDate(row.Date)}
@@ -1058,13 +1069,13 @@ export default function LStallSalesBody({
                                     }}
                                   >
                                     <div className="italic flex flex-col">
-                                      <div className="font-bodyLato">
+                                      <div className="font-manrope font-medium text-[14px] leading-5 tracking-[0] text-[#666666]">
                                         <HighlighterStyle
                                           searchKey={searchKey}
                                           source={row?.Name?.toString()}
                                         />
                                       </div>
-                                      <div className="font-bodyLato">
+                                      <div className="font-manrope font-medium text-[14px] leading-5 tracking-[0] text-[#666666]">
                                         <HighlighterStyle
                                           searchKey={searchKey}
                                           source={row?.Email?.toString()}
@@ -1074,7 +1085,7 @@ export default function LStallSalesBody({
 
 
 
-                                      <span className="font-bodyLato">
+                                      <span className="font-manrope font-medium text-[14px] leading-5 tracking-[0] text-[#666666]">
     <HighlighterStyle
       searchKey={searchKey}
       source={row?.countryCode}
@@ -1082,7 +1093,7 @@ export default function LStallSalesBody({
   </span>
   {' '}
 
-                                      <span className="font-bodyLato">
+                                      <span className="font-manrope font-medium text-[14px] leading-5 tracking-[0] text-[#666666]">
                                           <HighlighterStyle
                                             searchKey={searchKey}
                                             source={row?.Mobile?.toString()?.replace(
@@ -1105,7 +1116,7 @@ export default function LStallSalesBody({
                                     }}
                                   ></div>
                                 </div>
-                                <span className="font-bodyLato">
+                                <span className="font-manrope font-medium text-[14px] leading-5 tracking-[0] text-[#666666]">
                                   <HighlighterStyle
                                     searchKey={searchKey}
                                     source={row?.Name?.toString()}
@@ -1127,7 +1138,7 @@ export default function LStallSalesBody({
                               <div>
 
 
-                              <span className="font-bodyLato">
+                              <span className="font-manrope font-medium text-[14px] leading-5 tracking-[0] text-[#666666]">
     <HighlighterStyle
       searchKey={searchKey}
       source={row?.countryCode}
@@ -1135,7 +1146,7 @@ export default function LStallSalesBody({
   </span>
 
   {' '}
-                                <span className="font-bodyLato">
+                                <span className="font-manrope font-medium text-[14px] leading-5 tracking-[0] text-[#666666]">
                                   <HighlighterStyle
                                     searchKey={searchKey}
                                     source={row?.Mobile?.toString()?.replace(
@@ -1151,7 +1162,7 @@ export default function LStallSalesBody({
                           </section>
                         </TableCell>
 
-                        <TableCell align="left">{row?.Event}</TableCell>
+                        <TableCell align="font-manrope font-medium text-[14px] leading-5 tracking-[0] text-[#666666]">{row?.Event}</TableCell>
                         {/* display:
                   viewUnitStatusA.includes('Assigned To') &&
                   headCell.id === 'Assigned'
@@ -1163,7 +1174,7 @@ export default function LStallSalesBody({
                         searchKey={searchKey}
                         source={row.Assignedto}
                       /> */}
-                            <span className="font-bodyLato">
+                            <span className="font-manrope font-medium text-[14px] leading-5 tracking-[0] text-[#666666]">
                               {row?.assignedToObj?.label}
                             </span>
                           </TableCell>
@@ -1171,10 +1182,10 @@ export default function LStallSalesBody({
 
                         <TableCell align="center">
                           <section className="flex flex-col">
-                            <span className="px-2 uppercase inline-flex text-[11px] text-black-900  ">
+                            <span className="inline-flex font-manrope font-medium text-[14px] leading-5 tracking-[0] text-[#666666]  ">
                               {row?.Source?.toString() || 'NA'}
                             </span>
-                            <Rating name="size-small half-rating-read" defaultValue={2.5} size="small" precision={0.5} readOnly />
+                            {/* <Rating name="size-small half-rating-read" defaultValue={2.5} size="small" precision={0.5} readOnly /> */}
 
                           </section>
                         </TableCell>
@@ -1182,7 +1193,7 @@ export default function LStallSalesBody({
                         <TableCell align="left">
 
 
-                          <span className="px-2 uppercase inline-flex text-[10px] leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                          <span className=" px-[8px] py-[6px] bg-[#FCC8BA]  rounded-[8px] text-[#F44D21] font-manrope font-semibold text-[10px] leading-[12px] tracking-[0] text-center align-middle">
                             <HighlighterStyle
                               searchKey={searchKey}
                               source={row?.Status?.toString()}
@@ -1200,7 +1211,7 @@ export default function LStallSalesBody({
                               {/* <span className="font-bodyLato">
                           {prettyDate(row?.stsUpT || row.Date).toLocaleString()}
                         </span> */}
-                              <span className="px- py-[1px]  min-w-[100px] inline-flex text-xs leading-5 tracking-wide  rounded-full  text-green-800">
+                              <span className="px- py-[1px]  min-w-[100px] inline-flex text-xs font-manrope font-medium text-[14px] leading-5 tracking-[0] text-[#666666]">
                                 {Math.abs(
                                   getDifferenceInMinutes(
                                     (row?.leadUpT || row?.stsUpT),
@@ -1245,7 +1256,7 @@ export default function LStallSalesBody({
                             {/* <span className="font-bodyLato">
                           {prettyDate(row?.stsUpT || row.Date).toLocaleString()}
                         </span> */}
-                            <span className="px- py-[1px]  min-w-[100px] inline-flex text-xs leading-5 tracking-wide  rounded-full  text-green-800">
+                            <span className="px- py-[1px]  min-w-[100px] inline-flex font-manrope font-medium text-[14px] leading-5 tracking-[0] text-[#666666] ">
                               {Math.abs(
                                 getDifferenceInMinutes(
                                   (row?.schTime),
@@ -1285,7 +1296,7 @@ export default function LStallSalesBody({
                           style={{ maxWidth: '100px', maxHeight: '100px', textOverflow: 'ellipsis' }}
                         >
                           {' '}
-                          <span className="font-bodyLato" style={{ maxWidth: '100px', maxHeight: '100px', textOverflow: 'ellipsis' }}>{row?.Remarks || row?.Note}</span>
+                          <span className="font-manrope font-medium text-[14px] leading-5 tracking-[0] text-[#666666]" style={{ maxWidth: '100px', maxHeight: '100px', textOverflow: 'ellipsis' }}>{row?.Remarks || row?.Note}</span>
                         </TableCell>
                       </TableRow>
                     )

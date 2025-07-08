@@ -629,19 +629,16 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
   }
   return (
     <>
-      <div className=" font-rubikF mt-2 bg-white rounded-t-lg ">
-        <div className="">
-          <div
-            className="
-            "
-          >
-            <div className="flex items-center flex-row flex-wrap justify-between py-1 pb-5  px-3 py-3 bg-gray-50 rounded-t-md ">
-              <h2 className="text-md font-semibold text-black leading-light ">
+      <div className="">
+        <div className=" ">
+          <div className="  ">
+            <div className="flex items-center flex-row flex-wrap justify-between my-5 mx-4">
+              <h2 className="font-manrope font-bold text-[24px] leading-none tracking-[0] text-[#1A1A1A]">
                 Stall Enquiries
               </h2>
 
               <div className="flex">
-                <div className=" flex flex-col mr-5  w-40">
+                <div className=" flex flex-col   w-40">
                   <VerySlimSelectBox
                     name="project"
                     label=""
@@ -684,9 +681,9 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
                   </div>
                 )}
 
-<button
+                  <button
                     onClick={() => setIsOpenAddLead(true)}
-                    className={`flex items-center ml-5 pl-2 pr-4  max-h-[30px] mt-[2px] text-sm font-medium text-white bg-gray-800 rounded-[4px] hover:bg-gray-700  `}
+                    className={`flex items-center ml-5 pl-2 pr-4  max-h-[30px] mt-[2px] text-sm font-medium text-white bg-[#F44D21] rounded-[8px] hover:bg-gray-700  `}
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -708,7 +705,7 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
 
                     <button
                       onClick={() => setIsOpenBulkLead(true)}
-                      className={`flex items-center ml-5 pl-2 pr-4 py-1 max-h-[30px] mt-[2px]  text-sm font-medium text-white bg-gray-800 rounded-[4px] hover:bg-gray-700  `}
+                      className={`flex items-center ml-5 pl-2 pr-4 py-1 max-h-[30px] mt-[2px]  text-sm font-medium text-white bg-[#F44D21] rounded-[8px] hover:bg-gray-700  `}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -730,16 +727,18 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
 
               </div>
             </div>
-            <div className="items-center justify-between  my-1 bg-white rounded-lg  ">
+
+
+            <div className="items-center justify-between  my-1 bg-white rounded-lg">
               {/* <div>
                 <h2 className="text-lg font-semibold text-gray-900 leading-light py-2 ">
                   Accounts Transactions Space
                 </h2>
               </div> */}
 
-              <div className=" border-gray-900  bg-[#F1F5F9] rounded-t-lg flex flex-row justify-between">
+              <div className="border-b border-b-[1px] border-[#D8D8D8] flex flex-row justify-between">
                 <ul
-                  className="flex   rounded-t-lg "
+                  className="flex rounded-t-lg "
                   id="myTab"
                   data-tabs-toggle="#myTabContent"
                   role="tablist"
@@ -754,11 +753,11 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
                     return (
                       <li
                         key={b}
-                        className="mr-2 ml-2 text-sm font-bodyLato"
+                        className=" text-sm font-bodyLato"
                         role="presentation"
                       >
                         <button
-                          className={`inline-block py-3 mr-3 px-1 text-sm font-medium  font-rubikF text-center text-black rounded-t-lg border-b-2  hover:text-black hover:border-gray-300   ${
+                          className={`inline-block py-[18px]  px-[32px] text-sm font-medium   text-center text-black rounded-t-lg border-b-2  hover:text-black hover:border-gray-300    ${
                             selCategory === d.val
                               ? 'border-black text-black'
                               : 'border-transparent'
@@ -767,26 +766,23 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
                           role="tab"
                           onClick={() => setSelCategory(d.val)}
                         >
-                          {`${d.lab} `}
-                          <span className="border border-gray-300 text-gray-800 px-1 py-1 rounded-full ml-[4px] text-[10px] ">
-                            {d.val === 'booked' && (
-                              <span>{bookingReviewCo}</span>
-                            )}
-                            {d.val === 'paid' && (
-                              <span>{paidCo}</span>
-                            )}
-                            {d.val === 'unpaid' && <span>{unPaidCo}</span>}
-                            {d.val === 'registered' && (
-                              <span>{registeredCo}</span>
-                            )}
-                            {d.val === 'possession' && (
-                              <span>{posessionCo}</span>
-                            )}
-                            {d.val === 'unAssigned_crm' && (
-                              <span>{unassignedCo}</span>
-                            )}
-                            {d.val === 'queries' && <span>{unassignedCo}</span>}
-                          </span>
+{`${d.lab} `}
+{(
+  <>
+    (
+    <span className="text-gray-800 px-1 py-1 rounded-full ml-[1px] text-[14px]">
+      {d.val === 'booked' && <>{bookingReviewCo}</>}
+      {d.val === 'paid' && <>{paidCo}</>}
+      {d.val === 'unpaid' && <>{unPaidCo}</>}
+      {d.val === 'registered' && <>{registeredCo}</>}
+      {d.val === 'possession' && <>{posessionCo}</>}
+      {d.val === 'unAssigned_crm' && <>{unassignedCo}</>}
+      {d.val === 'queries' && <>{unassignedCo}</>}
+    </span>
+    )
+  </>
+)}
+
                           {/* <span className="bg-gray-100 px-2 py-1 rounded-full">
                           {/* {rowsCounter(leadsFetchedData, d.val).length} */}
                         </button>
@@ -794,7 +790,7 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
                     )
                   })}
                 </ul>
-                <div className="flex flex-row mr-4 mt-2">
+                {/* <div className="flex flex-row mr-4 mt-2">
                   <span
                     className="flex mt-[4px] mr-[8px] justify-center items-center w-6 h-6 bg-gradient-to-r from-violet-200 to-pink-200 rounded-full  cursor-pointer "
                     onClick={() => {
@@ -813,12 +809,12 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
                   >
                     <SearchIcon className=" w-3 h-3" />
                   </span>
-                </div>
+                </div> */}
               </div>
               <div
                 className={`${
                   showSettings ? 'hidden' : ''
-                } flex flex-row py-2 justify-between `}
+                } flex flex-row py-2 justify-between  `}
               >
                 <div className="flex flex-row w-full">
                   <span className="flex ml-2 mr-2 h-[34px] bg-gray-50 border border-gray-300 border-solid box-border w-1/3 rounded-md">
@@ -1222,7 +1218,10 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
                     </ul>
                   )}
 
-                  <LStallSalesBody
+
+                  <div className='border border-[#EAECF0] rounded-[8px] my-[20px]'>
+
+                                     <LStallSalesBody
         fetchLeadsLoader={fetchLeadsLoader}
         selStatus={'all'}
         rowsParent={[]}
@@ -1232,6 +1231,10 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
         mySelRows={filteredDataA}
         searchVal={searchValue}
                   />
+
+                  </div>
+
+ 
 
 
 
@@ -1520,7 +1523,7 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
 
         customerDetails={selUnitDetails}
         setSelUnitDetails={setSelUnitDetails}
-        widthClass="max-w-4xl"
+        widthClass="max-w-[900px]"
         transactionData={transactionData}
         unitsViewMode={false}
         selCustomerPayload={selUnitDetails}

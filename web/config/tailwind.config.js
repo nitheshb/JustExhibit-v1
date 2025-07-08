@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        Playfair: ['Playfair Display', 'serif'],
+        // Playfair: ['Playfair Display', 'serif'],
         // bodyLato: ['Lato', 'sans-serif'],
         montF: ['Montserrat', 'sans-serif'],
         rubikF: ['Rubik', 'sans-serif'],
@@ -11,6 +11,10 @@ module.exports = {
         sanF: ['Public Sans', 'sans-serif'],
         interF: ['Inter', 'sans-serif'],
         bebas: ['Bebas Neue', 'sans-serif'],
+        lato: ['Lato', 'sans-serif'],
+        manrope: ['Manrope', 'sans-serif'],
+        playfair: ['"Playfair Display"', 'serif'],
+        outfit: ['Outfit', 'sans-serif'],
       },
     },
   },

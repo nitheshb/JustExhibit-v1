@@ -1,3 +1,6 @@
+
+
+
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
@@ -103,7 +106,7 @@ const productData = [
 
 
 
-export default function EcommerceHome({ type, setStatusFun , selUnitPayload}) {
+export default function EcommerceHome({ type, setStatusFun, selUnitPayload }) {
 
 
   const { user } = useAuth()
@@ -138,136 +141,125 @@ export default function EcommerceHome({ type, setStatusFun , selUnitPayload}) {
           return [...acc, { ...item, quantity: newQuantity }];
         }
         return [...acc, item];
-      }, [] );
+      }, []);
     });
   };
 
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
   return (
-    <section className="bg-white w-full md:px-10 md:mb-20 pb-[250px] overflow-auto no-scrollbar  h-[100%] overflow-y-scroll">
-      <div className="max-w-3xl mx-auto py-4 text-sm text-gray-700">
+    <section className="bg-white w-full  pb-[2px] overflow-auto no-scrollbar  h-[100%] overflow-y-scroll">
+      <div className="max-w-7xl mx-auto shadow-[0px_4px_30px_0px_#00000014]  text-sm text-gray-700">
 
-        <div className="mt-1">
-          <div className="p-2 bg-gradient-to-r from-violet-50 to-pink-50 rounded-md flex flex-row justify-between">
-          <section>
-                  <section className="flex flex-row">
+        <div className="px-[40px] py-[20px]">
+          <div className="p-[12px] bg-white rounded-[16px] border border-[#E5E5E5] flex flex-row justify-between items-center">
+            <section>
+          <section className="flex flex-row gap-[12px] items-center">
+  <section
+    className="grid place-items-center bg-[linear-gradient(223.88deg,_#EA9681_6.2%,_#BDD5F1_129.74%)] text-black rounded-[10px] shadow-xs h-[64px] min-w-[64px] overflow-hidden"
+  >
+    <div className="flex flex-col items-center">
+      <span className="font-manrope font-medium text-[12px] leading-[100%] tracking-[0] text-[#0A0A0A] truncate">
+        Stall No
+      </span>
+      <div className="font-manrope font-medium text-[16px] leading-[100%] tracking-[0] text-[#0A0A0A] tracking-wide truncate">
+        {selUnitPayload?.unit_no || '132'}
+      </div>
+    </div>
+  </section>
 
-                           <section className="bg-[#EC1066]  items-center rounded-2xl shadow-xs flex flex-col px-2 py-4 min-w-[100px]">
-                                            <div className="font-semibold text-white  text-[22px]  mb-[1] tracking-wide">
-                                            {selUnitPayload?.unit_no}
-                                            </div>
-                                            <span
-                                              className={`items-center h-6   text-xs font-semibold text-white  rounded-full
-                      `}
-                                            >
-                                              Stall No
-                                            </span>
-                                          </section>
-
-
-                                          <div className="flex flex-col w-full  ml-2 item-right  px-2  mr-2 rounded-lg">
-                                            <span
-                                              className={`items-center  mt-[2px] mb-1  text-xl uppercase font-semibold text-black
-                      `}
-                                            >
-                                              {selUnitPayload?.companyName ||
-                                                'NA'}
-                                            </span>
-                                            <span
-                                              className={`items-center   mb-1  text-xs
-                      `}
-                                            >
-                                              {selUnitPayload?.co_Name1 ||
-                                                'NA'}
-                                            </span>
-                                            <span
-                                              className={`items-center  mb-1  text-xs flex flex-row
-                      `}
-                                            >
-                                              {/* {selUnitPayload?.phoneNo1 ||
-                                                'NA'} */}
-
-<PhoneIcon className="h-4 w-4 mt-1 mr-1" aria-hidden="true" />{' '}
-         <span className='mt-[2px]'>   {selUnitPayload?.phoneNo1?.toString()?.replace(
-              /(\d{3})(\d{3})(\d{4})/,
-              '$1-$2-$3'
-            )}</span>
-                                            </span>
+  <div className="flex flex-col w-full   rounded-lg">
+    <span
+      className="font-manrope font-semibold text-[18px] leading-[100%] tracking-[0] text-[#414141]"
+    >
+      {selUnitPayload?.co_Name1 || 'NA'}
+    </span>
+  </div>
+</section>
 
 
 
-                                          </div>
+            </section>
 
-                  </section>
-
-
-                </section>
-
-            <h2 className="font-medium flex-grow text-right mr-2">Ecommerce</h2>
-            {/* <p className="text-md text-[10px] flex-grow text-right">
-              Waiting for {' '} {cart.length} || {total}
-            </p> */}
+            <button className="border border-[#F44D21] text-[#F44D21] hover:bg-[#F44D21]  font-medium px-4 py-2 rounded-[10px] text-sm transition-colors flex items-center">
+                    <PhoneIcon className="h-4 w-4 mr-2" aria-hidden="true" />
+                                  Call
+            </button>
           </div>
         </div>
       </div>
-      <div className="max-w-3xl mx-auto py-4 text-sm text-gray-700">
+      <div className="max-w-7xl mx-auto  text-sm text-gray-700">
+
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  p-[24px]">
+            {productData.map((product) => (
+              <div key={product.id} className="flex flex-col bg-white border border-gray-200  overflow-hidden">
+
+                <div className="relative aspect-square bg-white p-6">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+
+                <div className=" p-4">
+<div className="flex justify-between mb-2 items-start">
+  <div>
+    <h2 className="font-bold text-[16px] leading-[24px] tracking-[0] text-[#252C32]">
+      {product.name}
+    </h2>
+    <p className="font-manrope font-medium text-[12px] leading-[16px] tracking-[0] text-[#5B6871]">
+      {product.description}
+    </p>
+  </div>
+
+  <div className="flex items-baseline space-x-1 pt-1">
+    <span className="font-manrope font-semibold text-[18px] leading-[24px] tracking-[-0.014em] text-[#252C32]">
+      Rs.{product.price.toLocaleString()}
+    </span>
+  </div>
+</div>
 
 
-
-
-<div className="max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 bg-white">
-        {productData.map((product) => (
-          <div key={product.id} className="flex flex-col bg-white hover:shadow-lg transition-shadow duration-200 rounded-lg">
-
-            <div className="relative aspect-square bg-gray-50">
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-full object-contain"
-              />
-
-            </div>
-
-
-            <div className="space-y-2 p-4">
-              <h2 className="text-lg font-semibold text-gray-900 line-clamp-1">{product.name}</h2>
-              <p className="text-sm text-gray-600 line-clamp-2">{product.description}</p>
-
-
-              <div className="flex items-baseline space-x-1 pt-1">
-                <span className="text-sm font-medium text-gray-900">Rs.</span>
-                <span className="text-xl font-bold text-gray-900">{product.price.toLocaleString()}</span>
+                  {cart.find(item => item.id === product.id) ? (
+                    <div className="flex items-center justify-center space-x-4 border border-[#F44D21] rounded-[8px] py-2 px-4">
+                      <button 
+                        className="w-[16px] h-[16px] rounded flex items-center justify-center text-[#F44D21]"
+                        onClick={() => updateQuantity(product.id, -1)}
+                      >
+                        −
+                      </button>
+                      <span className="font-medium  min-w-[16px] text-center  text-[] text-[#F44D21]">
+                        {cart.find(item => item.id === product.id)?.quantity || 0}
+                      </span>
+                      <button 
+                        className="w-[16px] h-[16px] rounded flex items-center justify-center  text-[#F44D21]"
+                        onClick={() => updateQuantity(product.id, 1)}
+                      >
+                        +
+                      </button>
+                    </div>
+                  ) : (
+                    <button className="w-full rounded-[8px] bg-[#F44D21] text-white px-4 py-2.5 text-sm font-medium hover:bg-orange-600 transition-colors flex items-center justify-center space-x-2"
+                      onClick={() => addToCart(product)}
+                    >
+                      <span>🛒</span>
+                      <span>Add to cart</span>
+                    </button>
+                  )}
+                </div>
               </div>
-
-
-
-
-              <button className="w-full rounded-lg bg-blue-600 text-white px-4 py-2.5 text-sm font-medium hover:bg-blue-700 transition-colors mt-4"
-                 onClick={() => addToCart(product)}
-              >
-                Add to cart
-              </button>
-            </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
 
-
-
-
-
-<section className='max-w-7xl'>
-
-    <Cart
-        cart={cart}
-        onUpdateQuantity={updateQuantity}
-        total={total}
-      />
-      </section>
-
-
+        <section className='pb-2'>
+          <Cart
+            cart={cart}
+            onUpdateQuantity={updateQuantity}
+            total={total}
+          />
+        </section>
 
       </div>
 

@@ -13,28 +13,44 @@ export const TextField2 = ({ label,onChange, ...props }) => {
   const [field, meta] = useField(props)
   return (
     <div className="relative z-0 text-sm">
-      <input
-        type="text"
-        name="name"
-        className={`${
-          meta.touched && meta.error && 'is-invalid'
-        } peer block w-full appearance-none border-0 border-b border-gray-500 bg-transparent py-2.5 px-0 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0`}
-        placeholder=" "
-        autoComplete="off"
-        {...field}
-        {...props}
-        onChange={onChange || field.onChange}
 
-      />
+      <div className='flex flex-col space-y-[10px]'>
 
-
-       <label
+                     <label
         htmlFor={field.name}
-        className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-md text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-blue-600 peer-focus:dark:text-blue-500"
+        className="label font-semibold font-manrope text-[14px] leading-[20px] tracking-[0] text-[#333333]"
       >
         {label}
 
       </label>
+
+
+
+
+        <input
+          type="text"
+          name={field.name}
+          className={`${
+            meta.touched && meta.error ? 'is-invalid' : ''
+          } ${field.name === 'blockName' ? 'rounded-xs' : 'h-[42px] rounded-md'}
+            w-full min-w-full flex bg-grey-lighter text-grey-darker border border-[#E5E5E5] px-4
+            placeholder:font-manrope placeholder:font-normal
+            placeholder:text-[14px] placeholder:leading-[24px]
+            placeholder:tracking-[0%] placeholder:text-[#CCCCCC]`}
+          placeholder="Enter text"
+          autoComplete="off"
+          {...field}
+          {...props}
+          onChange={onChange || field.onChange}
+        />
+
+
+      </div>
+
+
+
+
+
       <ErrorMessage
           component="div"
           name={field.name}

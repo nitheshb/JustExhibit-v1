@@ -609,7 +609,7 @@ const Floordetails = ({
                     <div className="mt-6">
                       {/* 1 */}
                       <div
-                        className="p-2 mb-1  mx-1 inline-block"
+                        className="p-2 mb-1  mx-6 inline-block "
                         style={{ minWidth: '30%' }}
                         onClick={() => selReportFun(unitStatsData)}
                       >
@@ -1226,7 +1226,7 @@ const Floordetails = ({
                                         </div>
                                       </div>
                                       <div className="front">
-                                        <div className="image">
+                                        <div className="image ">
                                           <UnitsSmallViewCard
                                             kind={data}
                                             feedData={unitFeedData}

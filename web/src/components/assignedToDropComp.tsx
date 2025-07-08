@@ -15,18 +15,24 @@ export default function AssigedToDropComp({
         <div>
           <Menu.Button className="inline-flex justify-center w-full px-0 py-0 text-sm font-semibold text-black-500 bg- rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
             {id === 'id' ? (
-              <span className="tracking-wide text-black-600 text-sm font-bold">
-                {assignerName}
-              </span>
+         <div className="flex items-center justify-center">
+  <span className="truncate max-w-[120px] font-medium text-[12px] leading-[16px] tracking-normal align-middle text-[#1A1A1A]">
+    {assignerName}
+  </span>
+</div>
+
             ) : (
-              <span className="font-medium tracking-wide text-[#053219] text-left">
-                {assignerName}
-              </span>
+  <div className="flex items-center justify-center">
+  <span className="truncate max-w-[120px] font-medium text-[12px] leading-[16px] tracking-normal align-middle text-[#1A1A1A]">
+    {assignerName}
+  </span>
+</div>
+
             )}
             {id === 'id' ? (
-              <ChevronDownIcon className="w-5 h-5 mr-3 mt-[2px] inline text-[#058527]" />
+              <ChevronDownIcon className="w-5 h-5 mx-1 mt-[2px] inline text-[#058527]" />
             ) : (
-              <ChevronDownIcon className="w-5 h-5 mr-3 mt-[1px] inline text-[#058527]" />
+              <ChevronDownIcon className="w-5 h-5 mx-1 mt-[1px] inline text-[#058527]" />
             )}
           </Menu.Button>
         </div>

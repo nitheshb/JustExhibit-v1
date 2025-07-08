@@ -439,7 +439,7 @@ const UnitsInventoryHome = ({ project }) => {
   }
 
   return (
-    <section className=" mt-2  py-6 mb-8 leading-7 text-gray-900 bg-white  rounded-lg  ">
+    <section className=" mt-2  py-6 mb-8 leading-7">
       <div className="box-border px-4 mx-auto border-solid sm:px-6 md:px-6 lg:px-8 max-w-full  ">
         <div className="flex flex-col  leading-7  text-gray-900 border-0 border-gray-200 flex flex-col justify-center items-center ">
           <div className="flex items-center flex-shrink-0  px-0  pl-0   mb-1">
@@ -447,18 +447,24 @@ const UnitsInventoryHome = ({ project }) => {
               className="flex items-center"
               // to={routes.projectEdit({ uid })}
             >
-              <span className="relative z-10 flex items-center w-auto text-md font-bold leading-none pl-0">
+              <span className="relative z-10 flex font-manrope font-bold text-[24px] leading-[100%] tracking-[0] text-[#1A1A1A] text-center">
                 Inventory
               </span>
             </Link>
           </div>
         </div>
+
+
         <div className="mt-1 ">
           {/* <form className=""> */}
           <div className="flex justify-center items-center  flex flex-col">
             <div className="relative  p-2.5 pb-6">
-              <section className=" top-0 left-0  flex flex-row  border bg-white border-[#dddddd] rounded-full custom-shadow">
-                <DropDownSearchBar
+              <section className=" top-0 left-0  flex flex-row  border bg-white border-[#dddddd] py-2 px-1 rounded-[14px]  custom-shadow">
+
+
+
+                <div className='flex   justify-center items-center'>
+                    <DropDownSearchBar
                   label={'Events'}
                   type={'All Events'}
                   id={'id'}
@@ -468,6 +474,9 @@ const UnitsInventoryHome = ({ project }) => {
                   selProjectIs={projectDetails}
                   dropDownItemsA={customerRawData}
                 />
+
+                  <div className="w-[1px] h-[58px] bg-[#E4E6E8] mx-2" />
+
                 {/* <DropDownSearchBar
                       type={'All Phases'}
                       id={'id'}
@@ -488,6 +497,9 @@ const UnitsInventoryHome = ({ project }) => {
                   dropDownItemsA={availStatusA}
                 />
 
+                  <div className="w-[1px] h-[58px] bg-[#E4E6E8] mx-2" />
+
+
                 <DropDownSearchBar
                   label={'Dimension'}
                   type={'All'}
@@ -498,6 +510,9 @@ const UnitsInventoryHome = ({ project }) => {
                   selProjectIs={selUnitType}
                   dropDownItemsA={typeA}
                 />
+
+                  <div className="w-[1px] h-[58px] bg-[#E4E6E8] mx-2" />
+
               
                 <DropDownSearchBar
                   label={'Size'}
@@ -525,11 +540,14 @@ const UnitsInventoryHome = ({ project }) => {
                     placeholder={` Search Stall No, Customer name, Phone no, Dues, Review.....`}
                     required
                   /> */}
-                <button
+
+
+
+                             <button
                   onClick={() => {
                     console.log('clicked')
                   }}
-                  className=" mr-4 h-[45px] w-[45px]  mt-[8px] p-[12px] ml-2 text-sm font-medium text-white bg-blue-700 rounded-full border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 "
+                  className=" mr-4 h-[45px] w-[45px]  mt-[8px] p-[12px] ml-2 rounded-[8px] text-sm font-medium text-white bg-[#F44D21] "
                 >
                   <svg
                     aria-hidden="true"
@@ -547,12 +565,21 @@ const UnitsInventoryHome = ({ project }) => {
                     ></path>
                   </svg>
                   <span className="sr-only">Search</span>
-                </button>
+              </button>
+
+
+                </div>
+
+
+
+  
+
               </section>
             </div>
           </div>
           {/* </form> */}
         </div>
+
         {projectDetails == undefined && (
           <div className="py-8 px-8 mt-10 flex flex-col items-center bg-red-100 rounded">
             <div className="font-md font-medium text-xs mb-4 text-gray-800 items-center">

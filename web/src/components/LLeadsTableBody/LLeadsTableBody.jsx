@@ -209,8 +209,13 @@ function EnhancedTableHead(props) {
 
   }
   return (
-    <TableHead style={{ height: '10px' }}>
-      <TableRow selected={true}>
+    <TableHead style={{ height: '5px' }}>
+      <TableRow selected={true}
+          sx={{
+        height: '5px',
+        maxHeight: '5px',
+      }}
+      >
         <TableCell
           align="center"
           component="th"
@@ -218,14 +223,14 @@ function EnhancedTableHead(props) {
           padding="none"
           size="small"
           style={{
-            // backgroundColor: '#F7F9FB',
+            backgroundColor: '#FAFAFA',
             color: '#1a91eb',
-            maxHeight: '10px',
-            height: '10px',
-            lineHeight: '10px',
-            maxWidth: '52px',
-            minWidth: '25px',
-            paddingLeft: '14px',
+            maxHeight: '5px',
+            height: '5px',
+            lineHeight: '5px',
+            maxWidth: '5px',
+            minWidth: '5px',
+            paddingLeft: '34px',
             paddingRight: '29px',
             marginRight: '10px',
           }}
@@ -239,7 +244,19 @@ function EnhancedTableHead(props) {
               'aria-label': 'select all desserts',
             }}
           /> */}
-          <TableSortLabel>S.No</TableSortLabel>
+          <TableSortLabel
+            sx={{
+    color: '#1A1A1A',
+    '&.Mui-active': {
+      color: '#1A1A1A',
+      backgroundColor: '#FAFAFA',
+       height: '5px',
+                maxHeight: '5px',
+    },
+  }}
+  className="font-inter font-medium text-[12px] leading-[18px] tracking-[0] text-black"
+          
+          >S.No</TableSortLabel>
         </TableCell>
         {headCells.map((headCell) => (
           <>
@@ -249,11 +266,11 @@ function EnhancedTableHead(props) {
               padding={headCell.disablePadding ? 'none' : 'normal'}
               sortDirection={orderBy === headCell.id ? order : false}
               style={{
-                // backgroundColor: '#F7F9FB',
+                  backgroundColor: '#FAFAFA',
                 color: '#1a91eb',
-                height: '10px',
+                height: '5px',
                 maxHeight: '10px',
-                lineHeight: '7px',
+                lineHeight: '10px',
                 display: displayHeadersFun(headCell.id)
               }}
             >
@@ -267,7 +284,7 @@ function EnhancedTableHead(props) {
                   fontFamily: 'inherit',
                 }}
               >
-                <span className="text-black font-bodyLato whitespace-nowrap">
+                <span className="font-inter font-medium text-[12px] leading-[18px] tracking-[0] text-black whitespace-nowrap">
                   {headCell.label}
                 </span>
                 {orderBy === headCell.id ? (
@@ -401,9 +418,9 @@ React.useEffect(()=>{
     // setRows(rowsR)
   }
   return (
-    <section className="flex flex-row justify-between pb py-1 rounded px-3 bg-gray-50 mb-1">
-      <span className="flex flex-row">
-        <span className="relative  p- border rounded h-7 mt-1">
+    <section className="flex flex-row justify-between  rounded p-4">
+      <span className="w-full flex items-center ">
+        <span className="flex w-[298px] h-[44px] gap-[6px] rounded-lg border-[1.5px] border-[#E5E7EA] px-3 items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-3 w-3 absolute left-0 ml-1 mt-2"
@@ -423,7 +440,7 @@ React.useEffect(()=>{
             placeholder={`Search...${selStatus}`}
             onChange={searchKeyField}
             value={searchKey}
-            className="ml-6 bg-transparent text-xs focus:border-transparent focus:ring-0 focus-visible:border-transparent focus-visible:ring-0 focus:outline-none"
+            className="w-4/5 bg-transparent focus:border-transparent focus:ring-0 focus:outline-none text-sm leading-7 text-gray-900 placeholder:font-Manrope placeholder:font-medium placeholder:text-[12px] placeholder:leading-none placeholder:tracking-[0] placeholder:text-[#AEAEAE]"
           />
         </span>
         {/* <span className="max-h-[42px] mt-[2px] ml-3">
@@ -750,7 +767,10 @@ export default function LLeadsTableBody({
   }
 
   return (
-    <Section sx={{ width: '100%' }} style={{ border: 'none', radius: 0 }}>
+    <Section 
+      sx={{ width: '100%', mx: 'auto' }}
+  style={{ border: 'none', borderRadius: 0 }}
+    >
       <EnhancedTableToolbar
         numSelected={selected.length}
         selStatus={selStatus}
@@ -901,13 +921,13 @@ export default function LLeadsTableBody({
                                     }}
                                   >
                                     <div className="italic flex flex-col">
-                                      <div className="font-bodyLato">
+                                      <div className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
                                         <HighlighterStyle
                                           searchKey={searchKey}
                                           source={row.Name.toString()}
                                         />
                                       </div>
-                                      <div className="font-bodyLato">
+                                      <div className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
                                         <HighlighterStyle
                                           searchKey={searchKey}
                                           source={row.Email.toString()}
@@ -917,7 +937,7 @@ export default function LLeadsTableBody({
 
 
 
-                                      <span className="font-bodyLato">
+                                      <span className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
     <HighlighterStyle
       searchKey={searchKey}
       source={row?.countryCode}
@@ -925,7 +945,7 @@ export default function LLeadsTableBody({
   </span>
   {' '}
 
-                                      <span className="font-bodyLato">
+                                      <span className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
                                           <HighlighterStyle
                                             searchKey={searchKey}
                                             source={row?.Mobile?.toString()?.replace(
@@ -934,7 +954,7 @@ export default function LLeadsTableBody({
                                             )}
                                           />
                                         </span>
-                                        <span className="font-bodyLato">
+                                        <span className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
                                           <HighlighterStyle
                                             searchKey={searchKey}
                                             source={row?.assignedToObj?.label}
@@ -955,7 +975,7 @@ export default function LLeadsTableBody({
                                     }}
                                   ></div>
                                 </div>
-                                <span className="font-bodyLato">
+                                <span className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
                                   <HighlighterStyle
                                     searchKey={searchKey}
                                     source={row.Name.toString()}
@@ -965,7 +985,7 @@ export default function LLeadsTableBody({
                             </div>
                             {viewUnitStatusA.includes('Email Id') && (
                               <div>
-                                <span className="font-bodyLato">
+                                <span className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
                                   <HighlighterStyle
                                     searchKey={searchKey}
                                     source={row.Email.toString()}
@@ -977,7 +997,7 @@ export default function LLeadsTableBody({
                               <div>
 
 
-                              <span className="font-bodyLato">
+                              <span className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
     <HighlighterStyle
       searchKey={searchKey}
       source={row?.countryCode}
@@ -985,7 +1005,7 @@ export default function LLeadsTableBody({
   </span>
 
   {' '}
-                                <span className="font-bodyLato">
+                                <span className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
                                   <HighlighterStyle
                                     searchKey={searchKey}
                                     source={row?.Mobile?.toString()?.replace(
@@ -999,7 +1019,7 @@ export default function LLeadsTableBody({
 
                               </div>
                             )}
-                            {   <span className="font-bodyLato">
+                            {   <span className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
                                   <HighlighterStyle
                                     searchKey={searchKey}
                                     source={row?.assignedToObj?.label}
@@ -1020,7 +1040,7 @@ export default function LLeadsTableBody({
                         searchKey={searchKey}
                         source={row.Assignedto}
                       /> */}
-                            <span className="font-bodyLato">
+                            <span className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
                               {row?.assignedToObj?.label}
                             </span>
                           </TableCell>
@@ -1028,10 +1048,10 @@ export default function LLeadsTableBody({
 
                         <TableCell align="center">
                           <section className="flex flex-col">
-                            <span className="px-2 uppercase inline-flex text-[11px] text-black-900  ">
+                            <span className="px-2 font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]  ">
                               {row?.Source?.toString() || 'NA'}
                             </span>
-                            <Rating name="size-small half-rating-read" defaultValue={2.5} size="small" precision={0.5} readOnly />
+                            {/* <Rating name="size-small half-rating-read" defaultValue={2.5} size="small" precision={0.5} readOnly /> */}
 
                           </section>
                         </TableCell>
@@ -1039,7 +1059,7 @@ export default function LLeadsTableBody({
                         <TableCell align="left">
 
 
-                          <span className="px-2 uppercase inline-flex text-[10px] leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                          <span className="px-2 font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
                             <HighlighterStyle
                               searchKey={searchKey}
                               source={row?.assignedToObj?.label.toString()}
@@ -1057,7 +1077,7 @@ export default function LLeadsTableBody({
                               {/* <span className="font-bodyLato">
                           {prettyDate(row?.stsUpT || row.Date).toLocaleString()}
                         </span> */}
-                        <span className="px-2 uppercase inline-flex text-[10px] leading-5 font-semibold rounded-full  text-green-800">
+                        <span className="px-2 font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
                             <HighlighterStyle
                               searchKey={searchKey}
                               source={row?.by}

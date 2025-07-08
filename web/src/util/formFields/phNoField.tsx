@@ -16,14 +16,23 @@ export const PhoneNoField = ({
   labelSize,
   textSize,
   txtPad,
-  customStyles
+  customStyles,
+  placeholder = "Mobile Number",
 }) => {
   return (
     <div className={className}>
       <label className={`label font-regular  mb-2 ${labelSize === undefined ? 'text-sm': labelSize}`}>{label}</label>
       <NumberFormat
         // label="Mobile No*"
-        className={`w-full min-w-full flex bg-grey-lighter text-grey-darker border border-[#cccccc] rounded-md h-[2rem] px-4  ${textSize} ${txtPad}`}
+                className={`
+          w-full min-w-full flex items-center
+          bg-grey-lighter text-grey-darker border border-[#cccccc] rounded-md h-[2rem]
+          px-4 ${textSize} ${txtPad}
+          placeholder:font-manrope placeholder:font-normal
+          placeholder:text-[14px] placeholder:leading-[24px]
+          placeholder:tracking-[0%] placeholder:text-[#CCCCCC]
+        `}
+      
         name="mobileNo"
         value={value}
         //value={value || '+91'}
@@ -35,7 +44,7 @@ export const PhoneNoField = ({
         //format="###-###-####"
         format="###-###-####"
         mask=""
-        placeholder="Mobile No"
+        placeholder={placeholder}
         style={customStyles}
       />
       <ErrorMessage

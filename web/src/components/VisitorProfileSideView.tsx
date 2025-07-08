@@ -6,7 +6,7 @@ import { Fragment, useEffect, useState, useRef } from 'react'
 import { Menu } from '@headlessui/react'
 import { Listbox, Transition } from '@headlessui/react'
 import { QRCodeSVG } from 'qrcode.react';
-import { QrCode, Download, Copy } from 'lucide-react';
+import { QrCode, Download, Copy, ChevronRight, Phone, User, Edit } from 'lucide-react';
 
 import {
   ArrowRightIcon,
@@ -1623,225 +1623,172 @@ export default function VisitorProfileSideView({
         </div>
       </div> */}
       <div className="h-screen overflow-y-auto">
-        <div className=" pb-[2px] px-3  mt-0 rounded-xs  bg-[#F2F5F8]">
-          <div className="-mx-3 flex  sm:-mx-4 px-3 flex justify-between">
-            <div className="w-full pl-1 pt-[2px] xl:w-4/12  ">
-              <div className="">
-                <div className="font-semibold text-[#053219]  text-sm  mt-3 mb-1  tracking-wide font-bodyLato">
-                  <div className="flex flex-row">
-                    {/* <div className="w-7 h-7 mt-[3px] rounded-full bg-gradient-to-r from-violet-200 to-pink-200 "></div> */}
-                    <div className="flex flex-col ml-[6px]">
-                      <div className=" flex flex-row">
-                        <span className="  text-[16px] uppercase">{Name}</span>
-                        <div className=" text-sm  ml-[4px]  px-[3px] pt-[px] rounded  text-[#FF8C02] ">
-                          {currentStatusDispFun(leadDetailsObj?.Status)}{' '}
-                        </div>
-                      </div>
-                      <div className="flex flex-row">
-                        <div className="font-md text-sm text-gray-500 mb-[2] tracking-wide ">
-                          <DeviceMobileIcon className="w-3 h-3 inline text-[#058527] " />{' '}
-                          <span className="mr-[2px] mt-[1px] text-[12px]">
-                            {Mobile?.replace(
-                              /(\d{3})(\d{3})(\d{4})/,
-                              '$1-$2-$3'
-                            )}
-                          </span>
-                        </div>
-                        <div className="font-md text-sm text-gray-500 mb-[2] ml-[6px] tracking-wide">
-                          <MailIcon className="w-3 h-3 inline text-[#058527] " />{' '}
-                          {Email}
-                        </div>
-                      </div>
-                    </div>
+
+
+        
+                <div className='bg-white'>
+        
+                  
+          <div className="max-w-6xl flex flex-col gap-4 mx-auto p-6 bg-white ">
+        
+        
+           <div className='border border-[#E5E5E5] rounded-[16px]'>
+      
+              <div className="flex items-center justify-between px-[24px] py-[12px]">
+                <div className="flex items-center space-x-4">
+                  <div className="w-8 h-8 bg-gradient-to-br from-orange-400 to-orange-600 rounded-full flex items-center justify-center">
+                    <span className="font-manrope font-bold text-[18px] leading-[100%] tracking-[0%] text-[#1A1A1A]"> {Name?.[0]}</span>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div className=" px-1 mt-[10px] mb-1 bg-white rounded shadow pl-3 py-2 ">
-              <div className="flex flex-row ">
-                <section>
-                  <div className="font-md text-xs text-gray-500 mb-[px] tracking-wide mr-4">
-                    Assigned To {}
-                  </div>
-                  {!user?.role?.includes(USER_ROLES.CP_AGENT) && (
-                    <div>
-                      <AssigedToDropComp
-                        assignerName={assignerName}
-                        id={id}
-                        setAssigner={setAssigner}
-                        usersList={usersList}
-                        align={undefined}
-                      />
-                    </div>
-                  )}
-                  {user?.role?.includes(USER_ROLES.CP_AGENT) && (
-                    <span className="text-left text-sm"> {assignerName}</span>
-                  )}
-                </section>
-                <section className=" ml-2">
-                  <div className="flex flex-row ">
-                    <div className="font-md text-xs text-gray-500 mb-[2px] tracking-wide mr-4">
-                      Event {}
-                    </div>
-                  </div>
-                  <div className="font-semibold text-sm text-slate-900 tracking-wide overflow-ellipsis">
-                    {/* {Event} */}
-                    {/* projectList */}
-                    <AssigedToDropComp
-                      assignerName={selProjectIs?.eventName || Event}
-                      id={id}
-                      align="right"
-                      setAssigner={setNewProject}
-                      usersList={projectList}
-                    />
-                  </div>
-                </section>
-                <section>
                   <div>
-                    <div className="text-center items-center mr-2 mt-[1px]">
-                      <div
-                        className="text-center p-[10px] bg-gradient-to-r from-violet-200 to-pink-200 text-black rounded-3xl items-center align-middle text-xs cursor-pointer hover:underline"
-                        onClickCapture={() => {
-                          setUnitsViewMode(!unitsViewMode)
-                        }}
-                      >
-                        {selProjectIs?.uid?.length > 4 &&
-                          (unitsViewMode ? (
-                            // <XIcon
-                            //   className="h-4 w-4  inline text-white"
-                            //   aria-hidden="true"
-                            // />
-                            <span className="px-[3px]   text-black  text-[10px] text-[#] font-semibold whitespace-nowrap">
-                              {' '}
-                              Show Lead
-                            </span>
-                          ) : (
-                            // <ViewGridIcon
-                            //   className="h-4 w-4 mr-1 mb-[2px] inline text-blue-600"
-                            //   aria-hidden="true"
-                            // />
-                            <span className="px-[3px]   text-white-300  text-[10px] text-[#] font-semibold whitespace-nowrap">
-                              {' '}
-                              Cost sheet
-                            </span>
-                          ))}
-                      </div>
+                    <div className="flex items-center space-x-2">
+                      <h1 className="font-manrope font-bold text-[18px] leading-[100%] tracking-[0%] text-[#1A1A1A]">{Name}</h1>
+                      {/* <Edit className="w-4 h-4 text-orange-500 cursor-pointer" /> */}
+        
                     </div>
+        
+                         
                   </div>
-                </section>
-              </div>
+ 
+                </div>
+        
+        
+        
+        
+                   
+                
+                <div className="flex items-center space-x-2">
+        <section className="flex items-center border border-[#E5E5E5] p-1.5  rounded-[8px]">
+          <div className="flex items-center mr-1">
+            <User className="w-4 h-4 text-gray-500" />
+          </div>
+          {!user?.role?.includes(USER_ROLES.CP_AGENT) && (
+            <div className='font-body font-medium text-[12px] leading-[16px] tracking-normal align-middle text-[#1A1A1A]'>
+              <AssigedToDropComp
+                assignerName={assignerName}
+                id={id}
+                setAssigner={setAssigner}
+                usersList={usersList}
+                align={undefined}
+              />
+            </div>
+          )}
+          {user?.role?.includes(USER_ROLES.CP_AGENT) && (
+            <span className="font-body font-medium text-[12px] leading-[16px] tracking-normal align-middle text-[#1A1A1A]">{assignerName}</span>
+          )}
+        </section>
+        
+        
+        
+        
+        <section className="flex items-center space-x-2  border border-[#E5E5E5]  rounded-[8px] p-1.5">
+          <div className="flex  items-center">
+            <div className="flex items-center ">
+              <svg
+                width="20"
+                height="21"
+                viewBox="0 0 20 21"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M2.9156 3.62121C1.99143 3.77704 1.23143 4.44621 0.929766 5.36871C0.8581 5.58871 0.8531 5.66454 0.8406 6.72204C0.826433 7.93537 0.8356 8.01954 0.9981 8.24454C1.15477 8.46037 1.34393 8.55204 1.70643 8.58621C2.10393 8.62454 2.30727 8.68704 2.55227 8.84537C2.8976 9.06616 3.15016 9.40575 3.26223 9.80002C3.37431 10.1943 3.33816 10.6159 3.1606 10.9854C3.03143 11.2504 2.68893 11.6062 2.44143 11.7312C2.2231 11.842 1.93227 11.9187 1.73143 11.9187C1.38977 11.9187 1.09977 12.0762 0.939766 12.3487L0.849766 12.502V13.6854C0.849766 14.8329 0.852266 14.8762 0.9281 15.1187C1.0513 15.5206 1.27115 15.8862 1.56839 16.1834C1.86563 16.4807 2.2312 16.7005 2.6331 16.8237L2.8831 16.902H17.1164L17.3664 16.8237C17.7683 16.7005 18.1339 16.4807 18.4311 16.1834C18.7284 15.8862 18.9482 15.5206 19.0714 15.1187C19.1473 14.8762 19.1498 14.8329 19.1498 13.6854V12.502L19.0598 12.3487C18.8998 12.0762 18.6098 11.9187 18.2681 11.9187C17.5931 11.9187 16.9056 11.3695 16.7273 10.6879C16.5398 9.96954 16.8173 9.26037 17.4473 8.84704C17.6914 8.68704 17.8939 8.62454 18.2931 8.58621C18.6556 8.55204 18.8448 8.46037 19.0014 8.24454C19.1639 8.01954 19.1731 7.93537 19.1589 6.72204C19.1464 5.66454 19.1414 5.58871 19.0698 5.36871C18.9437 4.97394 18.7248 4.61514 18.4315 4.3224C18.1382 4.02965 17.7789 3.81149 17.3839 3.6862L17.1164 3.60204L10.0998 3.59704C6.2406 3.59454 3.00727 3.60537 2.9156 3.62121ZM16.9248 5.30287C17.0481 5.34105 17.1593 5.41086 17.2473 5.50537C17.4656 5.72371 17.5039 5.88037 17.4923 6.51621L17.4831 7.02371L17.2664 7.09954C16.7124 7.2883 16.2177 7.61941 15.832 8.05966C15.4463 8.49991 15.1832 9.03383 15.0689 9.60787C14.7498 11.1729 15.6298 12.7779 17.1164 13.3445C17.2631 13.4004 17.4098 13.4545 17.4414 13.4645C17.4939 13.4812 17.4998 13.537 17.4998 13.9954C17.4998 14.717 17.4156 14.942 17.0698 15.1454L16.9164 15.2354H3.0831L2.92977 15.1454C2.83834 15.0896 2.75646 15.0196 2.68727 14.9379C2.5281 14.7287 2.49977 14.5912 2.49977 14.0137C2.49977 13.5379 2.5056 13.4812 2.5581 13.4645C3.6181 13.127 4.36393 12.457 4.7531 11.492C5.46643 9.72287 4.5531 7.73704 2.7331 7.09954L2.51643 7.02371L2.50727 6.51621C2.4956 5.88037 2.53393 5.72371 2.75227 5.50454C2.83773 5.41436 2.94342 5.34581 3.0606 5.30454C3.19393 5.26371 4.19143 5.25621 9.9856 5.25454C15.9531 5.25204 16.7748 5.25787 16.9248 5.30287ZM7.2456 6.96454C7.04718 7.03189 6.87952 7.16821 6.7731 7.34871C6.69727 7.47871 6.6831 7.54037 6.6831 7.75204C6.6831 7.96621 6.69643 8.02454 6.77727 8.16204C7.20893 8.89704 8.33143 8.60037 8.33143 7.75204C8.3324 7.59961 8.29129 7.44988 8.21263 7.31931C8.13397 7.18875 8.0208 7.08242 7.8856 7.01204C7.68374 6.92444 7.45818 6.9077 7.2456 6.96454ZM12.1998 6.97537C12.0706 7.01954 11.6964 7.37954 9.4556 9.61454C7.97477 11.092 6.8231 12.2662 6.77227 12.352C6.69643 12.4787 6.6831 12.5404 6.6831 12.752C6.6831 12.9662 6.69643 13.0245 6.77727 13.162C6.8856 13.347 7.08477 13.5029 7.27977 13.5562C7.4481 13.6012 7.72143 13.5762 7.8706 13.5012C8.02477 13.4245 13.1139 8.34121 13.2273 8.15204C13.3031 8.02537 13.3164 7.96371 13.3164 7.75204C13.3164 7.54037 13.3023 7.47871 13.2264 7.34871C13.1269 7.17527 12.9693 7.04264 12.7814 6.97431C12.5935 6.90598 12.3874 6.90635 12.1998 6.97537ZM12.2456 11.9645C12.0472 12.0319 11.8795 12.1682 11.7731 12.3487C11.6973 12.4787 11.6831 12.5404 11.6831 12.752C11.6831 12.9662 11.6964 13.0245 11.7773 13.162C12.2089 13.897 13.3314 13.6004 13.3314 12.752C13.3324 12.5996 13.2913 12.4499 13.2126 12.3193C13.134 12.1887 13.0208 12.0824 12.8856 12.012C12.6837 11.9244 12.4582 11.9077 12.2456 11.9645Z"
+                  fill="#666666"
+                />
+              </svg>
             </div>
           </div>
-          <div className="flex flex-row justify-between">
-            <div className=" py-2 flex flex-row  text-xs  border-t border-[#ebebeb] font-thin   font-bodyLato text-[12px]  py-[6px] ">
-              Recent Comments:{' '}
-              <span className="text-[#867777] ml-1 ">
-                {' '}
-                {leadDetailsObj?.Remarks || 'NA'}
-              </span>
-            </div>
-            <div
-              className="relative flex flex-col  group"
-              // style={{ alignItems: 'end' }}
-            >
-              <div
-                className="absolute bottom-0 right-0 flex-col items-center hidden mb-6 group-hover:flex"
-                // style={{  width: '300px' }}
-                style={{ zIndex: '9999' }}
-              >
-                <span
-                  className="rounded italian relative mr-2 z-100000 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg"
-                  style={{
-                    color: 'black',
-                    background: '#e2c062',
-                    maxWidth: '300px',
-                  }}
-                >
-                  <div className="italic flex flex-col">
-                    <div className="font-bodyLato">
-                      {Source?.toString() || 'NA'}
-                    </div>
-                  </div>
-                </span>
-                <div
-                  className="w-3 h-3  -mt-2 rotate-45 bg-black"
-                  style={{ background: '#e2c062', marginRight: '12px' }}
-                ></div>
-              </div>
-              <div className=" flex flex-row ">
-                <span className="font-bodyLato text-[#867777] text-xs mt-2">
-                  {/* <HighlighterStyle
-                            searchKey={searchKey}
-                            source={row.Source.toString()}
-                          /> */}
-
-                  {Source?.toString() || 'NA'}
-                </span>
-                <div
-                  className=" cursor-pointer hover:underline"
-                  onClickCapture={() => {
-                    setTimeHide(!timeHide)
-                  }}
-                >
-                  {selProjectIs?.uid?.length > 4 &&
-                    (timeHide ? (
-                      <XIcon
-                        className="h-4 w-4  inline text-green"
-                        aria-hidden="true"
-                      />
-                    ) : (
-                      <span className="px-[3px]  ml-1  text-[#318896]  text-[10px] text-[#] font-semibold">
-                        {' '}
-                        <AdjustmentsIcon
-                          className="h-4 w-4  inline text-[#318896] "
-                          aria-hidden="true"
-                        />
-                      </span>
-                    ))}
+          <div className="font-body font-medium text-[12px] leading-[16px] tracking-normal align-middle text-[#1A1A1A]">
+            <AssigedToDropComp
+              assignerName={selProjectIs?.eventName || Event}
+              id={id}
+              align="right"
+              setAssigner={setNewProject}
+              usersList={projectList}
+            />
+          </div>
+        </section>
+        
+        
+                  <button className="w-[88px] h-[34px] flex gap-2 rounded-[10px] bg-[#F44D21] px-3 py-2 text-[#F44D21]">
+                    <span className='font-manrope font-medium text-[14px] leading-[100%] tracking-[-0.006em] text-white'>Download</span>
+                  </button>
                 </div>
               </div>
-            </div>
+               <div className='border-b border-[#E5E5E5]'></div>
+        
+     
+        
+        <div className="flex justify-around p-4 text-sm text-gray-600">
+     
+          <div className="flex items-center gap-2">
+            <span className="font-manrope font-medium text-[12px] leading-[100%] tracking-[0%] text-[#444444]">
+              Phone number:
+            </span>
+            <span className="font-manrope font-medium text-[12px] leading-[100%] tracking-[0%] text-[#444444]">
+              {Mobile?.replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3")}
+            </span>
           </div>
+        
 
-          {timeHide && (
-            <>
-              <div className="w-full border-b border-[#ebebeb]"></div>
-              <div className=" w-full  pt-1 font-md text-xs text-gray-500 mb-[2px] tracking-wide mr-4 flex flex-row justify-between">
-                {' '}
-                <section>
-                  <span className="font-thin   font-bodyLato text-[9px]  py-[6px]">
-                    Created On
-                    <span className="text-[#867777] ck ml-2">
-                      {CT != undefined
-                        ? prettyDateTime(CT)
-                        : prettyDateTime(Date)}
-                    </span>
-                  </span>
-                </section>
-                <section>
-                  <span className="font-thin   font-bodyLato text-[9px]  py-[6px]">
-                    Updated On :
-                    <span className="text-[#867777] ck ml-2">
-                      {stsUpT === undefined
-                        ? 'NA'
-                        : prettyDateTime(stsUpT) || 'NA'}
-                    </span>
-                  </span>
-                </section>
-                <section>
-                  <span className="font-thin text-[#867777]   font-bodyLato text-[9px]  py-[6px]">
-                    Assigned On
-                    <span className="text-[#867777] ck ml-2">
-                      {assignT != undefined
-                        ? prettyDateTime(assignT)
-                        : prettyDateTime(Date)}
-                    </span>
-                  </span>
-                </section>
-              </div>
-            </>
-          )}
+          <div className="h-4 w-px bg-gray-300 mx-4"></div>
+        
+
+          <div className="flex items-center gap-2">
+            <span className="font-manrope font-medium text-[12px] text-[#444444]">
+              Shop name:
+            </span>
+            <span className="font-manrope font-medium text-[12px] text-[#444444]">
+              GRT Jewellery
+            </span>
+          </div>
+        
+       
+          <div className="h-4 w-px bg-gray-300 mx-4"></div>
+        
+     
+          <div className="flex items-center gap-2">
+            <span className="font-manrope font-medium text-[12px] leading-[100%] tracking-[0%] text-[#444444]">
+              Email ID:
+            </span>
+            <span className="font-manrope font-medium text-[12px] leading-[100%] tracking-[0%] text-[#444444]">
+              {Email || "-"}
+            </span>
+          </div>
+        
+
+          <div className="h-4 w-px bg-gray-300 mx-4"></div>
+        
+        
+          <div className="flex items-center gap-2">
+            <span className="font-manrope font-medium text-[12px] leading-[100%] tracking-[0%] text-[#444444]">
+              Location:
+            </span>
+            <span className="font-manrope font-medium text-[12px] leading-[100%] tracking-[0%] text-[#444444]">
+              Karnataka
+            </span>
+          </div>
         </div>
+        
+        
+        </div>
+        
+        
+         
+        
+
+            </div>
+                </div>
+
+
+
+
+
+
+
+
+
 
         {/* <div
           className="flex flex-row justify-between   py-3 px-3  mt-[0.5px] mb-0 rounded-xs bg-[#F2F5F8]"
@@ -1984,7 +1931,7 @@ export default function VisitorProfileSideView({
         )}
         {!unitsViewMode && (
           <>
-            <section className=" pb-8 pt-1 px-2 mt-[0.5px] rounded-xs bg-[#F2F5F8]">
+            <section className=" pb-8 pt-1 px-2 mt-[0.5px] rounded-xs bg-[#FFFFFF]">
               <div className="">
                 <div className="">
                   {/* <div className="font-md font-medium text-xs  text-gray-800">
@@ -1993,7 +1940,7 @@ export default function VisitorProfileSideView({
 
                   <div className="flex flex-row justify-between border-gray-200">
                     <ul
-                      className="flex   rounded-t-lg border-b mx-2"
+                      className="flex   rounded-t-lg  mx-2"
                       id="myTab"
                       data-tabs-toggle="#myTabContent"
                       role="tablist"
@@ -2002,16 +1949,16 @@ export default function VisitorProfileSideView({
                         { lab: 'QR Code', val: 'qrCode' },
                         { lab: 'Tasks', val: 'appointments' },
                         { lab: 'Notes', val: 'notes' },
-                        // { lab: 'Notes', val: 'notes' },
-                        // { lab: 'Documents', val: 'documents' },
-                        // { lab: 'Phone', val: 'phone' },
+                        { lab: 'Notes', val: 'notes' },
+                        { lab: 'Documents', val: 'documents' },
+                        { lab: 'Phone', val: 'phone' },
                         { lab: 'Email', val: 'email' },
                         { lab: 'Activity Log', val: 'timeline' },
                       ].map((d, i) => {
                         return (
                           <li key={i} className="mr-4" role="presentation">
                             <button
-                              className={`inline-block pb-1 mr-3 text-sm font-medium text-center text-black rounded-t-lg border-b-2  hover:text-black hover:border-gray-300   ${
+                              className={`inline-block pb-1 mr-3 text-sm font-medium text-center text-black rounded-t-lg  hover:text-black hover:border-gray-300   ${
                                 selFeature === d.val
                                   ? 'border-black'
                                   : 'border-transparent'
@@ -2020,7 +1967,7 @@ export default function VisitorProfileSideView({
                               role="tab"
                               onClick={() => setFeature(d.val)}
                             >
-                              {`${d.lab} `}
+                              {/* {`${d.lab} `} */}
                               {/* <span className="bg-gray-100 px-2 py-1 rounded-full">
                           {/* {rowsCounter(leadsFetchedData, d.val).length} */}
                             </button>
@@ -2028,14 +1975,14 @@ export default function VisitorProfileSideView({
                         )
                       })}
                     </ul>
-                    {selFeature != 'lead_strength' && (
+                    {/* {selFeature != 'lead_strength' && (
                       <span
                         className="font-bodyLato text-xs text-blue-400 mr-2 mt-2 cursor-pointer"
                         onClick={() => setFeature('lead_strength')}
                       >
                         LEAD STRENGTH
                       </span>
-                    )}
+                    )} */}
                     {selFeature == 'lead_strength' && (
                       <span
                         className="font-bodyLato text-xs text-red-400 mr-2 mt-2 cursor-pointer"
@@ -2198,15 +2145,15 @@ export default function VisitorProfileSideView({
                       </Formik>
                     </>
                   )}
-                  {selFeature == 'email' && (
+                  {/* {selFeature == 'email' && (
                     <>
                       <EmailForm />
                     </>
-                  )}
+                  )} */}
 
                   {selFeature == 'qrCode' && (
                     <>
-                         <div className="mt-8 flex flex-col items-center">
+                         <div className="flex flex-col items-center">
             {/* <div ref={qrRef} className="p-4 bg-white border-2 border-gray-200 rounded-lg">
               <QRCodeSVG
                 value={JSON.stringify({name: customerDetails?.Name, email: customerDetails?.Email})}
@@ -2245,18 +2192,7 @@ export default function VisitorProfileSideView({
 
         <div className="p-6 space-y-6">
 
-          {/* <div className="flex items-center gap-4">
 
-          </div> */}
-
-
-          {/* <div className="text-center space-y-2">
-            <div className="flex items-center justify-center gap-2">
-
-            </div>
-      
-
-          </div> */}
 
 
           <div className="text-center text-[16px] text-[#000000] font-thin">

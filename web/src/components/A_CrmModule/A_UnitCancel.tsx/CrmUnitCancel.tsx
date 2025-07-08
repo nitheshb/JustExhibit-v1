@@ -1086,7 +1086,7 @@ export default function UnitBookingCancelCRM({
         setOpen={setOpenCapturePayment}
         title={'capturePayment'}
         unitsViewMode={false}
-        widthClass="max-w-xl"
+        widthClass="w-3xl"
         selUnitDetails={selCustomerPayload}
         paymentCaptureFun={paymentCaptureFun}
       />

@@ -60,18 +60,23 @@ const LeadsManagerPage = (props) => {
           showSideView1={showSideView1}
           setViewable={setViewable}
         /> */}
-
         <div className="flex flex-col flex-grow">
           {/* <HeadNavBar /> */}
-          {}
-          <div className="flex flex-row  h-[100vh]  text-gray-700 bg-gradient-to-tr from-blue-200 via-indigo-200 to-pink-200">
-            <div
+          { }
+          <div className="flex flex-col text-gray-700  overflow-hidden [scrollbar-width:none] [-ms-overflow-style:none]">
+            {/* <div
               className={`${
                 showDetailedSideBar
                   ? 'flex flex-row  w-[20vw]   no-scrollbar text-gray-700 '
                   : 'flex flex-row no-scrollbar  text-gray-700 '
               }`}
-            >
+            > */}
+            <HeadNavBar2
+              selModule={selModule}
+              setSelModule={setSelModule}
+              setViewable={setViewable}
+            />
+            <div className="flex overflow-y-auto mb-1">
               <SlimSideMenuBar
                 pgName={'salesModule'}
                 sourceLink={'salesModule'}
@@ -79,148 +84,137 @@ const LeadsManagerPage = (props) => {
                 setViewable={setViewable}
                 viewable={viewable}
               />
-            </div>
-
-            <div className="flex-grow  items-center overflow-y-auto  overflow-auto no-scrollbar px-300  py-300">
-              <HeadNavBar2
-                selModule={selModule}
-                setSelModule={setSelModule}
-                setViewable={setViewable}
-              />
-
-            {/* <div className='mb-4'>
+              {/* <div className='mb-4'>
               <FinanceChart/>
             </div> */}
-
-
-
-              {viewable === 'userProfile' && <ProfileSummary />}
-{/*
+              <div className='flex-grow items-cente'>
+                {viewable === 'userProfile' && <ProfileSummary />}
+                {/*
             <div className='bg-[#fff]'>
               <AdminPage/>
             </div> */}
 
-              {viewable === 'inProgress' && (
-                <ExecutiveHomeViewerPage
-                  leadsTyper={'inProgress'}
-                  isClicked={isClicked}
-                  setIsClicked={setIsClicked}
-                />
-              )}
-              {viewable === 'booked' && (
-                <ExecutiveHomeViewerPage leadsTyper={'booked'} />
-              )}
-              {viewable === 'archieveLeads' && (
-                <ExecutiveHomeViewerPage leadsTyper={'archieveLeads'} />
-              )}
-
-          
-              {viewable === 'units_inventory' && (
-                <UnitsInventoryHome
-                  project={{
-                    eventName: 'Events',
-                  }}
-                  isEdit={undefined}
-                />
-              )}
-              {viewable === 'Today1' && (
-                <TodayLeadsHomePage taskType={viewable} />
-              )}
-              {viewable === 'Upcoming' && (
-                <TodayLeadsHomePage taskType={viewable} />
-              )}
-              {viewable === 'Today1Team' && (
-                <TodayLeadsHomePage taskType={viewable} />
-              )}
-              {viewable === 'UpcomingTeam' && (
-                <TodayLeadsHomePage taskType={viewable} />
-              )}
+                {viewable === 'inProgress' && (
+                  <ExecutiveHomeViewerPage
+                    leadsTyper={'inProgress'}
+                    isClicked={isClicked}
+                    setIsClicked={setIsClicked}
+                  />
+                )}
+                {viewable === 'booked' && (
+                  <ExecutiveHomeViewerPage leadsTyper={'booked'} />
+                )}
+                {viewable === 'archieveLeads' && (
+                  <ExecutiveHomeViewerPage leadsTyper={'archieveLeads'} />
+                )}
 
 
+                {viewable === 'units_inventory' && (
+                  <UnitsInventoryHome
+                    project={{
+                      eventName: 'Events',
+                    }}
+                    isEdit={undefined}
+                  />
+                )}
+                {viewable === 'Today1' && (
+                  <TodayLeadsHomePage taskType={viewable} />
+                )}
+                {viewable === 'Upcoming' && (
+                  <TodayLeadsHomePage taskType={viewable} />
+                )}
+                {viewable === 'Today1Team' && (
+                  <TodayLeadsHomePage taskType={viewable} />
+                )}
+                {viewable === 'UpcomingTeam' && (
+                  <TodayLeadsHomePage taskType={viewable} />
+                )}
 
 
-              {viewable === 'unitsInventory' && (
-                <ProjectsUnitInventory
-                  project={{
-                    eventName: 'Events',
-                  }}
-                  isEdit={undefined}
-                />
-              )}
 
-              {viewable === 'LeadsManagerHome' && <LeadsManagementHome />}
-              {viewable === 'Team Lead Report' && (
-                <>
-                  {/* <ReportMain /> */}
+
+                {viewable === 'unitsInventory' && (
+                  <ProjectsUnitInventory
+                    project={{
+                      eventName: 'Events',
+                    }}
+                    isEdit={undefined}
+                  />
+                )}
+
+                {viewable === 'LeadsManagerHome' && <LeadsManagementHome />}
+                {viewable === 'Team Lead Report' && (
+                  <>
+                    {/* <ReportMain /> */}
+                    <LeadsTeamReportBody
+                      project={{
+                        area: 1000,
+                        builderName: 'hello',
+                        location: 'local',
+                        eventName: 'Team Leads Report',
+                        projectType: 'aprtment',
+                      }}
+                      isEdit={false}
+                    />
+                  </>
+                )}
+
+                {viewable === 'My Lead Report' && (
+                  <MyLeadsReportHome
+                    project={{
+                      area: 1000,
+                      builderName: 'hello',
+                      location: 'local',
+                      eventName: 'My Leads Report',
+                      projectType: 'aprtment',
+                    }}
+                    isEdit={false}
+                  />
+                )}
+                {viewable === 'Attendance' && (
+                  <MyAttedanceHomeBody
+                    project={{
+                      area: 1000,
+                      builderName: 'hello',
+                      location: 'local',
+                      eventName: 'Attendance',
+                      projectType: 'aprtment',
+                    }}
+                    isEdit={false}
+                  />
+                )}
+                {viewable === 'Pay' && (
+                  <MyPayHomeBody
+                    project={{
+                      area: 1000,
+                      builderName: 'hello',
+                      location: 'local',
+                      eventName: 'Pay',
+                      projectType: 'aprtment',
+                    }}
+                    isEdit={false}
+                  />
+                )}
+                {viewable === 'LinkWhatsApp' && (
                   <LeadsTeamReportBody
                     project={{
                       area: 1000,
                       builderName: 'hello',
                       location: 'local',
-                      eventName: 'Team Leads Report',
+                      eventName: 'Pay',
                       projectType: 'aprtment',
                     }}
                     isEdit={false}
                   />
-                </>
-              )}
+                )}
+              </div>
 
-              {viewable === 'My Lead Report' && (
-                <MyLeadsReportHome
-                  project={{
-                    area: 1000,
-                    builderName: 'hello',
-                    location: 'local',
-                    eventName: 'My Leads Report',
-                    projectType: 'aprtment',
-                  }}
-                  isEdit={false}
-                />
-              )}
-              {viewable === 'Attendance' && (
-                <MyAttedanceHomeBody
-                  project={{
-                    area: 1000,
-                    builderName: 'hello',
-                    location: 'local',
-                    eventName: 'Attendance',
-                    projectType: 'aprtment',
-                  }}
-                  isEdit={false}
-                />
-              )}
-              {viewable === 'Pay' && (
-                <MyPayHomeBody
-                  project={{
-                    area: 1000,
-                    builderName: 'hello',
-                    location: 'local',
-                    eventName: 'Pay',
-                    projectType: 'aprtment',
-                  }}
-                  isEdit={false}
-                />
-              )}
-              {viewable === 'LinkWhatsApp' && (
-                <LeadsTeamReportBody
-                  project={{
-                    area: 1000,
-                    builderName: 'hello',
-                    location: 'local',
-                    eventName: 'Pay',
-                    projectType: 'aprtment',
-                  }}
-                  isEdit={false}
-                />
-              )}
-            </div>
-
-            {/* <div className="flex-grow mx-4  my-2 items-center overflow-y-auto  h-screen  px-300  py-300"> */}
-            {/* {viewable === 'Today' && <ExecutiveHomeViewerPage />} *SS/}
+              {/* <div className="flex-grow mx-4  my-2 items-center overflow-y-auto  h-screen  px-300  py-300"> */}
+              {/* {viewable === 'Today' && <ExecutiveHomeViewerPage />} *SS/}
             {/* {viewable === 'Today1' && <TodayLeadsHomePage />} */}
-            {/* {viewable === 'LeadsManagerHome' && <LeadsManagementHome />} */}
-            {/* </div> */}
-            {/* <div
+              {/* {viewable === 'LeadsManagerHome' && <LeadsManagementHome />} */}
+              {/* </div> */}
+              {/* <div
               flex-grow
               p-6
               overflow-auto
@@ -235,11 +229,11 @@ const LeadsManagerPage = (props) => {
               {viewable === 'Today1' && <TodayLeadsHomePage />}
               {viewable === 'LeadsManagerHome' && <LeadsManagementHome />}
             </div> */}
+              {/* </div> */}
+            </div>
           </div>
         </div>
       </div>
-
-
     </>
   )
 }
