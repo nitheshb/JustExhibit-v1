@@ -1062,7 +1062,7 @@ export default function LLeadsTableBody({
                           <span className="px-2 font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
                             <HighlighterStyle
                               searchKey={searchKey}
-                              source={row?.assignedToObj?.label.toString()}
+                              source={row?.assignedToObj?.label?.toString()}
                             />
                           </span>
                         </TableCell>

@@ -63,7 +63,7 @@ const FinanceTransactionsHome = ({ leadsTyper }) => {
       setFinSelData(finFetchedData)
     }else{
 
-    const x =  finFetchedData.filter((d) => d.status === value)
+    const x =  finFetchedData?.filter((d) => d.status === value)
     setFinSelData(x)
 
     }
@@ -126,7 +126,7 @@ const FinanceTransactionsHome = ({ leadsTyper }) => {
   }
 
   const totalAmountCounter = (parent, searchKey) => {
-    return searchKey === 'all' ? finFetchedData.reduce((a, b) => a + b.totalAmount, 0) : parent?.filter((item) => item?.status?.toLowerCase() === searchKey.toLowerCase()).reduce((a, b) => a + b.totalAmount, 0)
+    return searchKey === 'all' ? finFetchedData?.reduce((a, b) => a + b.totalAmount, 0) : parent?.filter((item) => item?.status?.toLowerCase() === searchKey?.toLowerCase())?.reduce((a, b) => a + b.totalAmount, 0)
 
   }
 
