@@ -6,6 +6,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import * as React from 'react'
 import { useState, useEffect } from 'react'
+
 import DeleteIcon from '@mui/icons-material/Delete'
 import EventNoteTwoToneIcon from '@mui/icons-material/EventNoteTwoTone'
 import Box from '@mui/material/Box'
@@ -22,6 +23,7 @@ import Typography from '@mui/material/Typography'
 import { visuallyHidden } from '@mui/utils'
 import PropTypes from 'prop-types'
 import Highlighter from 'react-highlight-words'
+
 import {
   getAllProjects,
   steamUsersListByRole,
@@ -34,18 +36,21 @@ import {
   getDifferenceInHours,
   getDifferenceInMinutes,
 } from 'src/util/dateConverter'
+
+import CountChart from './A_SalesModule/Reports/CountChart'
+import AttendanceChart from './AttendanceChart'
+import { VisitSourceChart } from './Charts_Graphs/BarChart'
+import SalesLineChart from './Charts_Graphs/BarsChart'
+import { StatisticsDonutChart } from './Charts_Graphs/DonutChart'
 import RecentActivity from './Charts_Graphs/RecentActivity'
 import TaskProgress from './Charts_Graphs/TaskProgress'
+import EventCalendar from './EventCalendar'
 import LogSkelton from './shimmerLoaders/logSkelton'
 import SiderForm from './SiderForm/SiderForm'
+import StackedVisitSourceChart from './StackedVisitSourceChart'
+import TicketCard from './TicketCard'
 import TodoListView from './todoList'
 import UserCard from './UserCard'
-import EventCalendar from './EventCalendar'
-import AttendanceChart from './AttendanceChart'
-import CountChart from './A_SalesModule/Reports/CountChart'
-import { StatisticsDonutChart } from './Charts_Graphs/DonutChart'
-import { StatisticsBarChart } from './Charts_Graphs/BarChart'
-import SalesLineChart from './Charts_Graphs/BarsChart'
 
 const headCells = [
   {
@@ -272,7 +277,10 @@ const EnhancedTableToolbar = (props) => {
             <CSVDownloader />
           </IconButton> */}
 
-            <CSVDownloader className="mr-6" downloadRows={rowsAfterSearchKey} />
+            <CSVDownloader
+              downloadRows={rowsAfterSearchKey}
+              sourceTab={'leadsList'}
+            />
           </Tooltip>
         )}
       </span>
@@ -368,7 +376,10 @@ export default function TodayLeadsActivitySearchView({
     // }
   }, [selStatus, rowsParent])
   useEffect(() => {
-    getMyTodayProgress()
+    const myFun = async () => {
+      await getMyTodayProgress()
+    }
+    myFun()
   }, [])
 
   const getMyTodayProgress = async () => {
@@ -856,314 +867,44 @@ export default function TodayLeadsActivitySearchView({
             <>
               <div className="bg-[#fff] rounded-2xl">
                 <div className=" flex flex-row p-2">
-                  <div className="w-10/12 flex-col">
-                    <div className="flex gap-4 justify-between flex-wrap">
-                      <UserCard type="Active Events" count="09"/>
-                      <UserCard type="Stalls" count="110" />
-                      <UserCard type="Exhibitors" count="100" />
-                      <UserCard type="Expected Visitors" count="10,000" />
-                      <UserCard type="Expected Visitors" count="10,000" />
+                  <div className="w-full flex-col">
+                    {/* Ticket-style cards row */}
+                    <div className="flex gap-4 justify-between flex-wrap mb-6">
+                      <TicketCard label="Active Events" count="110" />
+                      <TicketCard label="Stalls" count="06" percent="15.34" />
+                      <TicketCard label="Exhibitors" count="100" />
+                      <TicketCard label="Expected Visitors" count="10,000" />
+                      <TicketCard label="Total Visitors" count="9,000" />
                     </div>
 
-               <div className='grid grid-cols-3 sm:grid-cols-2 gap-2 mt-3'>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                      <div className="border shadow rounded-xl h-[400px]">
+                        <VisitSourceChart />
+                      </div>
+                      <div className="border shadow rounded-xl h-[400px]">
+                        <SalesLineChart />
+                      </div>
+                      <div className="border shadow rounded-xl h-[400px]">
+                        <StatisticsDonutChart />
+                      </div>
+                      <div className="border shadow rounded-xl h-[400px]">
+                        {/* <StatisticsDonutChart /> */}
+                        <CountChart />
+                      </div>
+                    </div>
 
-          {/* <div className="w-[700px] border shadow rounded-xl"> <TaskProgress />
-          </div> */}
+                    <div className="flex flex-row justify-between mt-3 gap-4">
+                      <div className="flex-1 border shadow rounded-xl h-[400px]">
+                        {/* <TaskProgress /> */}
+                        <AttendanceChart />
+                      </div>
+                      <div className="flex-1 border shadow rounded-xl h-[400px]">
+                        <StackedVisitSourceChart />
+                      </div>
+                    </div>
 
-
-          <div className=" border shadow rounded-xl">
-          <StatisticsBarChart />
-            </div>
-            <div className=" border shadow rounded-xl">
-            <SalesLineChart />
-            </div>
-            <div className=" border shadow rounded-xl">
-            <CountChart />
-            </div>
-              <div className=" border shadow rounded-xl  ">
-            <AttendanceChart />
-          </div>
-
-
-
-        
-                </div> 
-
-
-
-
-
-
-                <div className="flex flex-row justify-between mt-3 gap-4">
-  <div className="flex-1 border shadow rounded-xl h-[400px]">
-  {/* <TaskProgress /> */}
-  <AttendanceChart />
-
-  </div>
-  <div className="flex-1 border shadow rounded-xl h-[400px]">
-
-  <CountChart />
-  </div>
-</div>
-
-
-
-
-<div className="flex flex-row justify-between mt-3 gap-4">
-  <div className="flex-1 border shadow rounded-xl h-[400px]">
-  <StatisticsBarChart />
-  </div>
-  <div className="flex-1 border shadow rounded-xl h-[400px]">
-
-  <StatisticsDonutChart />
-  </div>
-</div>
-
-
-<div className="flex flex-row justify-between mt-3 gap-4">
-  <div className="flex-1 border shadow rounded-xl h-[400px]">
-    {/* <CustomBarChart/> */}
-    <SalesLineChart/>
-  </div>
-
-
-{/* <div className="flex-1 border shadow rounded-xl h-[400px] p-4">
-  <section className="flex flex-row flex-wrap gap-2 h-full">
-    <section className="w-[55%] border-[#e7e5eb] bg-white rounded-lg p-4 h-full overflow-auto">
-      <div className="text-[#1f2937] font-[600] text-xl mb-2 ml-2">
-        Location
-      </div>
-      <table className="w-full text-sm text-left rtl:text-right text-gray-500">
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50">
-          <tr>
-            <th scope="col" className="px-6 py-3">Product name</th>
-            <th scope="col" className="px-6 py-3 w-[200px]">Color</th>
-            <th scope="col" className="px-6 py-3">Price</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="bg-white border-b">
-            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-              Apple MacBook Pro 17
-            </th>
-            <td className="px-6 py-4 flex justify-end">
-              <div className="w-full mt-2 h-[6px] rounded-md bg-[#6366F1]"></div>
-            </td>
-            <td className="px-6 py-4">$2999</td>
-          </tr>
-          <tr className="bg-white border-b">
-            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-              Microsoft Surface Pro
-            </th>
-            <td className="px-6 py-4 flex justify-end">
-              <div className="w-[50%] mt-2 h-[6px] rounded-md bg-[#6366F1]"></div>
-            </td>
-            <td className="px-6 py-4">$1999</td>
-          </tr>
-          <tr className="bg-white">
-            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-              Magic Mouse 2
-            </th>
-            <td className="px-6 py-4 flex justify-end">
-              <div className="w-[25%] mt-2 h-[6px] rounded-md bg-[#6366F1]"></div>
-            </td>
-            <td className="px-6 py-4">$99</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-  </section>
-</div> */}
-
-
-<div className="flex-1 border shadow rounded-xl h-[400px] w-full p-4">
-  <section className="flex flex-row flex-wrap gap-2 h-full w-full">
-    <section className="border-[#e7e5eb] bg-white rounded-lg p-4 h-full w-full overflow-auto">
-      <div className="text-[#1f2937] font-[600] text-xl mb-2 ml-2">
-        Location
-      </div>
-      <table className="w-full text-sm text-left rtl:text-right text-gray-500">
-        <thead className="text-xs text-gray-700 uppercase bg-gray-50">
-          <tr>
-            <th scope="col" className="px-6 py-3">Product name</th>
-            <th scope="col" className="px-6 py-3 w-[200px]">Color</th>
-            <th scope="col" className="px-6 py-3">Count</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="bg-white border-b">
-            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-            Hyderabad(With in State)
-            </th>
-            <td className="px-6 py-4 flex justify-end">
-              <div className="w-full mt-2 h-[6px] rounded-md bg-[#6366F1]"></div>
-            </td>
-            <td className="px-6 py-4">2000</td>
-          </tr>
-          <tr className="bg-white border-b">
-            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-            Out of State
-            </th>
-            <td className="px-6 py-4 flex justify-end">
-              <div className="w-[50%] mt-2 h-[6px] rounded-md bg-[#6366F1]"></div>
-            </td>
-            <td className="px-6 py-4">1999</td>
-          </tr>
-          <tr className="bg-white">
-            <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-              Out Of India
-            </th>
-            <td className="px-6 py-4 flex justify-end">
-              <div className="w-[25%] mt-2 h-[6px] rounded-md bg-[#6366F1]"></div>
-            </td>
-            <td className="px-6 py-4">99</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-  </section>
-</div>
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                 <div className="w-2/3  h-[100px]">
-
-
-            {/* <div className="mt-1 w-[400px] border shadow rounded-xl">
-                        <RecentActivity
-                          title={'My Activity'}
-                          userTodayPerfA={userTodayPerfA}
-                        />
-                      </div> */}
-                </div>
-                 {/* <div className="w-2/3  h-[450px]">
->>>>>>>>> Temporary merge branch 2
-
-          </div> */}
-                       {/* ATTENDANCE CHART */}
-
-
+                    <div className="w-2/3  h-[100px]"></div>
                   </div>
-                  {/* <div className="w-2/12 flex flex-col">
-                    <section className="bg-white rounded-xl shadow border  flex flex-col p-4 ml-1 mb-1 w-100 ">
-                      <h5 className="text-sm">{greet}...!🖐</h5>
-                      <h2 className="text-md font-semibold text-black leading-light font-Playfair pb-1">
-                        {user?.displayName?.toLocaleUpperCase()}
-                      </h2>
-
-                      <h2 className="text-sm text-gray-700 ">
-                    You've got {'  '}
-                   <span className="inline-flex text-md leading-5 font-semibold rounded-full  text-green-800">
-
-                    {
-                    schFetCleanData?.filter(
-                      (d) =>
-                        searchKey.includes(d['sts']) ||
-                        searchKey.includes('upcoming')
-                    ).length
-                   }
-                    </span>{' '}
-                   tasks
-
-                   </h2>
-                    </section>
-                    <section className="ml-1">
-                    <EventCalendar />
-                      <TaskProgress userTodayPerfA={userTodayPerfA} />
-                      <div className="mt-1">
-                        <RecentActivity
-                          title={'My Activity'}
-                          userTodayPerfA={userTodayPerfA}
-                        />
-                      </div>
-
-                      <div className="mt-1">
-                        <RecentActivity
-                          title={'Team Activity'}
-                          userTodayPerfA={userTodayPerfA}
-                        />
-                      </div>
-                    </section>
-                  </div> */}
-
-
-                </div>
-                <div className="flex flex-wrap">
-                  {/* <div className="w-10/12">
-                    <TodoListView
-                      moduleName={moduleName}
-                      taskListA={schFetCleanData}
-                      setisImportLeadsOpen={setisImportLeadsOpen}
-                      selUserProfileF={selUserProfileF}
-                      selTaskManObjF={selTaskManObjF}
-                      leadsFetchedData={undefined}
-                      leadsTyper={undefined}
-                      leadByViewLayout={leadByViewLayout}
-                      setLeadByViewLayout={setLeadByViewLayout}
-                      searchKey={searchKey}
-                      setSearchKey={setSearchKey}
-                    />
-                  </div> */}
-                  {/* <div className="w-2/12 flex flex-col">
-                    <section className="bg-white rounded  flex flex-col p-4 ml-1 mb-1 w-100 ">
-                      <h5 className="text-sm">{greet}...!🖐</h5>
-                      <h2 className="text-md font-semibold text-black leading-light font-Playfair pb-1">
-                        {user?.displayName?.toLocaleUpperCase()}
-                      </h2>
-
-                      <h2 className="text-sm text-gray-700 ">
-                    You've got {'  '}
-                   <span className="inline-flex text-md leading-5 font-semibold rounded-full  text-green-800">
-
-                    {
-                    schFetCleanData?.filter(
-                      (d) =>
-                        searchKey.includes(d['sts']) ||
-                        searchKey.includes('upcoming')
-                    ).length
-                   }
-                    </span>{' '}
-                   tasks
-
-                   </h2>
-                    </section>
-                    <section className="ml-1">
-                      <TaskProgress userTodayPerfA={userTodayPerfA} />
-                      <div className="mt-1">
-                        <RecentActivity
-                          title={'My Activity'}
-                          userTodayPerfA={userTodayPerfA}
-                        />
-                      </div>
-
-                      <div className="mt-1">
-                        <RecentActivity
-                          title={'Team Activity'}
-                          userTodayPerfA={userTodayPerfA}
-                        />
-                      </div>
-                    </section>
-                  </div> */}
                 </div>
               </div>
             </>
@@ -1461,6 +1202,43 @@ export default function TodayLeadsActivitySearchView({
         title={addLeadsTypes}
         customerDetails={selUserProfile}
         widthClass="max-w-4xl"
+        mode={undefined}
+        BlockFeed={undefined}
+        blockDetails={undefined}
+        csMode={undefined}
+        costSheetA={undefined}
+        headerContent={undefined}
+        myBlock={undefined}
+        newPlotCostSheetA={undefined}
+        newPlotCostSheetB={undefined}
+        newPlotPS={undefined}
+        paymentCaptureFun={undefined}
+        pId={undefined}
+        pdfExportComponent={undefined}
+        phaseFeed={undefined}
+        projectDetails={undefined}
+        phaseDetails={undefined}
+        projectsList={undefined}
+        leadDetailsObj={undefined}
+        setUnitsViewMode={undefined}
+        selCustomerPayload={undefined}
+        setProject={undefined}
+        selUnitDetails={undefined}
+        setSelUnitDetails={undefined}
+        selPhaseObj={undefined}
+        selSubMenu={undefined}
+        selSubMenu2={undefined}
+        setIsClicked={undefined}
+        subView={undefined}
+        taskManObj={undefined}
+        transactionData={undefined}
+        unitViewerrr={undefined}
+        unitsViewMode={undefined}
+        unitViewActionType={undefined}
+        viewLegalDocData={undefined}
+        viewUnitConstData={undefined}
+        wbPayload={undefined}
+        campaignPaylaod={undefined}
       />
       <SiderForm
         open={isImportLeadsOpen1}
@@ -1468,6 +1246,43 @@ export default function TodayLeadsActivitySearchView({
         title={'Add Task'}
         customerDetails={selUserProfile}
         widthClass="max-w-4xl"
+        mode={undefined}
+        BlockFeed={undefined}
+        blockDetails={undefined}
+        csMode={undefined}
+        costSheetA={undefined}
+        headerContent={undefined}
+        myBlock={undefined}
+        newPlotCostSheetA={undefined}
+        newPlotCostSheetB={undefined}
+        newPlotPS={undefined}
+        paymentCaptureFun={undefined}
+        pId={undefined}
+        pdfExportComponent={undefined}
+        phaseFeed={undefined}
+        projectDetails={undefined}
+        phaseDetails={undefined}
+        projectsList={undefined}
+        leadDetailsObj={undefined}
+        setUnitsViewMode={undefined}
+        selCustomerPayload={undefined}
+        setProject={undefined}
+        selUnitDetails={undefined}
+        setSelUnitDetails={undefined}
+        selPhaseObj={undefined}
+        selSubMenu={undefined}
+        selSubMenu2={undefined}
+        setIsClicked={undefined}
+        subView={undefined}
+        taskManObj={undefined}
+        transactionData={undefined}
+        unitViewerrr={undefined}
+        unitsViewMode={undefined}
+        unitViewActionType={undefined}
+        viewLegalDocData={undefined}
+        viewUnitConstData={undefined}
+        wbPayload={undefined}
+        campaignPaylaod={undefined}
       />
       <SiderForm
         open={isViewTaskMan}
@@ -1475,6 +1290,43 @@ export default function TodayLeadsActivitySearchView({
         title={'view_task_man'}
         taskManObj={selTaskMan}
         widthClass="max-w-4xl"
+        mode={undefined}
+        BlockFeed={undefined}
+        blockDetails={undefined}
+        customerDetails={{}}
+        csMode={undefined}
+        costSheetA={undefined}
+        headerContent={undefined}
+        myBlock={undefined}
+        newPlotCostSheetA={undefined}
+        newPlotCostSheetB={undefined}
+        newPlotPS={undefined}
+        paymentCaptureFun={undefined}
+        pId={undefined}
+        pdfExportComponent={undefined}
+        phaseFeed={undefined}
+        projectDetails={undefined}
+        phaseDetails={undefined}
+        projectsList={undefined}
+        leadDetailsObj={undefined}
+        setUnitsViewMode={undefined}
+        selCustomerPayload={undefined}
+        setProject={undefined}
+        selUnitDetails={undefined}
+        setSelUnitDetails={undefined}
+        selPhaseObj={undefined}
+        selSubMenu={undefined}
+        selSubMenu2={undefined}
+        setIsClicked={undefined}
+        subView={undefined}
+        transactionData={undefined}
+        unitViewerrr={undefined}
+        unitsViewMode={undefined}
+        unitViewActionType={undefined}
+        viewLegalDocData={undefined}
+        viewUnitConstData={undefined}
+        wbPayload={undefined}
+        campaignPaylaod={undefined}
       />
     </>
   )

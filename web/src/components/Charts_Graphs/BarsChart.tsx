@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react'
+
 import {
   XAxis,
   YAxis,
@@ -7,14 +8,16 @@ import {
   ResponsiveContainer,
   Bar,
   ComposedChart,
-} from 'recharts';
+} from 'recharts'
 
 const data = [
-  { time: 'Instagram Ad', sales: 0, orders: 5 },
-  { time: 'Hoardings', sales: 0, orders: 10 },
-  { time: 'Google Adwords', sales: 0, orders: 20 },
+  { name: "Instagram Ad's", value: 9 },
+  { name: 'Hoardings', value: 17 },
+  { name: 'Google Adwords', value: 12 },
+  { name: 'Others', value: 5 },
+]
 
-];
+const DROPDOWN_OPTIONS = ['Palace Ground', 'Option 2', 'Option 3']
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
@@ -27,68 +30,110 @@ const CustomTooltip = ({ active, payload, label }: any) => {
           </p>
         ))}
       </div>
-    );
+    )
   }
-  return null;
-};
+  return null
+}
 
 const SalesLineChart = () => {
+  const [selected, setSelected] = useState(DROPDOWN_OPTIONS[0])
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-lg font-semibold mb-2">Visit Source*
-      </h2>
-      <p className="text-2xl font-bold mb-4">₹0.00</p>
-      <div className="h-[300px] w-full">
+    <div className="w-full h-full flex flex-col bg-white border-[#e5e7eb] rounded-[14px] p-5">
+      <div className="flex justify-between items-start mb-3">
+        <div>
+          <h2
+            className="tracking-[2px] uppercase"
+            style={{
+              fontFamily: 'var(--font-heading, Inter, serif)',
+              fontWeight: 700,
+              fontSize: 16,
+              lineHeight: '24px',
+              color: '#0D0A1E',
+              marginBottom: 0,
+            }}
+          >
+            Visit Source*
+          </h2>
+          <div
+            style={{
+              fontFamily: 'Manrope, sans-serif',
+              fontWeight: 500,
+              fontSize: 21,
+              lineHeight: '100%',
+              color: '#0D0A1E',
+              marginTop: 2,
+              textAlign: 'left',
+            }}
+          >
+            ₹2,132
+          </div>
+        </div>
+        <select
+          className="border border-gray-200 rounded px-3 py-1 text-sm focus:outline-none"
+          style={{
+            fontFamily: 'Manrope, sans-serif',
+            fontWeight: 500,
+            fontSize: 12,
+            color: '#333333',
+            background: 'white',
+          }}
+          value={selected}
+          onChange={(e) => setSelected(e.target.value)}
+        >
+          {DROPDOWN_OPTIONS.map((opt) => (
+            <option key={opt} value={opt} style={{ color: '#333333' }}>
+              {opt}
+            </option>
+          ))}
+        </select>
+      </div>
+      <div className="flex-1 w-full flex items-center">
         <ResponsiveContainer width="100%" height="100%">
           <ComposedChart
             data={data}
-            margin={{ top: 5, right: 20, left: 20, bottom: 5 }}
+            margin={{ top: 10, right: 20, left: 0, bottom: 0 }}
           >
-            <CartesianGrid strokeDasharray="3 3" vertical={false} />
+            <CartesianGrid
+              strokeDasharray="3 3"
+              vertical={false}
+              stroke="#e5e7eb"
+            />
             <XAxis
-              dataKey="time"
+              dataKey="name"
               axisLine={false}
               tickLine={false}
-              tick={{ fontSize: 12 }}
+              tickMargin={10}
+              tick={{
+                fontFamily: 'Manrope, sans-serif',
+                fontWeight: 500,
+                fontSize: 12,
+                fill: '#999999',
+              }}
             />
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fontSize: 12 }}
-              tickFormatter={(value) => `₹${value}`}
+              tick={{
+                fontFamily: 'Manrope, sans-serif',
+                fontWeight: 500,
+                fontSize: 14,
+                fill: '#999999',
+              }}
+              tickFormatter={(v) => `₹${v}`}
             />
             <Tooltip content={<CustomTooltip />} />
             <Bar
-              dataKey="orders"
-              fill="#90caf9"
-              radius={[4, 4, 0, 0]}
-              barSize={30}
+              dataKey="value"
+              fill="#F8886A"
+              radius={4}
+              barSize={48}
               name="Orders"
             />
-            {/* <Line
-              type="monotone"
-              dataKey="sales"
-              stroke="#2563eb"
-              strokeWidth={2}
-              name="Sales"
-              dot={{
-                stroke: '#2563eb',
-                strokeWidth: 2,
-                fill: '#ffffff',
-                r: 4,
-              }}
-              activeDot={{
-                stroke: '#2563eb',
-                strokeWidth: 2,
-                fill: '#ffffff',
-                r: 6,
-              }}
-            /> */}
           </ComposedChart>
         </ResponsiveContainer>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SalesLineChart;
+export default SalesLineChart
