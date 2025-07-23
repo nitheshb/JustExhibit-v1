@@ -74,7 +74,7 @@ const Floordetails = ({
       label: 'Available',
       value: availableCount || 0,
       pic: '',
-      color: 'hsl(35, 70%, 50%)',
+      color: '#00c9a7',
     },
     {
       id: 'Sold',
@@ -833,7 +833,7 @@ const Floordetails = ({
                       setFilSelStatus(['available'])
                     }}
                   >
-                    <span className="ml-2 w-3 h-3 mt-[4px] rounded-md mr-1 bg-[#E8A190] inline-block"></span>{' '}
+                    <span className="ml-2 w-3 h-3 mt-[4px] rounded-md mr-1 bg-[#00c9a7] inline-block"></span>{' '}
                     <span className="mr-1 text-[10px] ">Available</span>
                     {unitsFeed?.filter((d) => d?.status == 'available').length}
                   </section>
@@ -845,7 +845,7 @@ const Floordetails = ({
                       setFilSelStatus(['booked'])
                     }}
                   >
-                    <span className="w-3 h-3 ml-1 mt-[4px] rounded-md mr-1 bg-[#D3F6E3]"></span>{' '}
+                    <span className="w-3 h-3 ml-1 mt-[4px] rounded-md mr-1 bg-[#b0a8b9]"></span>{' '}
                     <span className="mr-1 text-[10px] ">Booked</span>
                     <section className="mr-1">
                       {unitsFeed?.filter((d) => d?.status == 'booked').length}
@@ -863,7 +863,7 @@ const Floordetails = ({
                       ])
                     }}
                   >
-                    <span className="w-3 h-3 ml-2 mr-2 mt-[4px] rounded-md mr-1 bg-[#E9E9E9]"></span>{' '}
+                    <span className="w-3 h-3 ml-2 mr-2 mt-[4px] rounded-md mr-1 bg-[#FAAD99]"></span>{' '}
                     <span className="mr-1 text-[10px]"> Blocked</span>
                     {
                       unitsFeed?.filter((d) =>

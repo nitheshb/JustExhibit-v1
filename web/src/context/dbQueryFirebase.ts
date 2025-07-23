@@ -1555,7 +1555,7 @@ export const getFinanceForUnit = (orgId, snapshot, data, error) => {
   console.log('hello ', unitId)
   const itemsQuery = query(
     collection(db, `${orgId}_fincance`),
-    // where('custId', '==', unitId)
+     where('unitId', '==', unitId)
   )
   console.log('hello ', unitId, itemsQuery)
   return onSnapshot(itemsQuery, snapshot, error)

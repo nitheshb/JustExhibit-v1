@@ -238,7 +238,7 @@ const CrmUnitSummary = ({
         className="py-1  mt-[1px]"
       >
 
-        
+
  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       {/* Left column - Stall Cost and Transaction History */}
       <div className='grid gap-4'>
@@ -254,9 +254,9 @@ const CrmUnitSummary = ({
           <div className="flex items-center justify-between">
             <div className="flex flex-col items-center">
               <FinancialSemicircleChart
-                paidValue={(selUnitPayload?.T_review || 0) + (selUnitPayload?.T_approved || 0)}
-                remainingValue={selUnitPayload?.T_elgible - ((selUnitPayload?.T_review || 0) + (selUnitPayload?.T_approved || 0))}
-                balance={selUnitPayload?.T_elgible_balance < 0 ? 0 : selUnitPayload?.T_elgible_balance}
+                paidValue={(selUnitPayload?.T_paid || 0) + (selUnitPayload?.T_approved || 0)}
+                remainingValue={selUnitPayload?.T_elgible - ((selUnitPayload?.T_review || 0) + (selUnitPayload?.T_balance || 0))}
+                balance={selUnitPayload?.T_balance < 0 ? 0 : selUnitPayload?.T_balance}
                 filledColor="#DBD3FD"
                 emptyColor="#E5E7EB"
                 showPercentage={true}
@@ -265,29 +265,33 @@ const CrmUnitSummary = ({
             </div>
 
             <div className="space-y-3">
-              <div className="text-right flex gap-1">
-                <div className="font-normal text-[14px] leading-[16px] tracking-[0] text-[#808080] font-body">Stall Cost:</div>
-                <div className="font-normal text-[14px] leading-[16px] tracking-[0] text-[#1A1A1A] font-body">₹ 22,12,22,32,000</div>
-              </div>
-              <div className="text-right flex gap-1">
-                <div className="font-normal text-[14px] leading-[16px] tracking-[0] text-[#808080] font-body">Unit Cost:</div>
-                <div className="font-normal text-[14px] leading-[16px] tracking-[0] text-[#1A1A1A] font-body">₹ 22,12,22,32,000</div>
-              </div>
+              <div className="flex items-center gap-2 justify-between">
+              <section className='flex flex-row'>
+              <div className="w-3 h-3 bg-orange-300 rounded-sm mt-[4px]"></div>
+              <span className="text-sm text-gray-600 ml-2">Stall Cost:</span>
+              </section>
+              <span className="text-sm font-medium text-red-500 ml-2">₹ {selUnitPayload?.TotalNetSaleValueGsT?.toLocaleString('en-IN')}</span>
+            </div>
+            <div className="flex items-center gap-2 justify-between">
+              <section className='flex flex-row'>
+              <div className="w-3 h-3 bg-green-500 rounded-sm mt-[4px]"></div>
+              <span className="text-sm text-gray-600 ml-2">Paid:</span>
+              </section>
+              <span className="text-sm font-medium text-red-500 ml-2">₹ {selUnitPayload?.T_paid?.toLocaleString('en-IN')}</span>
+            </div>
+            <div className="flex items-center gap-2 justify-between">
+              <section className='flex flex-row'>
+              <div className="w-3 h-3 bg-gray-300 rounded-sm mt-[4px]"></div>
+              <span className="text-sm text-gray-600 ml-2">Balance:</span>
+              </section>
+              <span className="text-sm font-medium text-red-500 ml-2">₹ {selUnitPayload?.T_balance?.toLocaleString('en-IN')}</span>
+            </div>
+
+
             </div>
           </div>
 
-          <div className="flex justify-between mt-4">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-orange-500 rounded-sm"></div>
-              <span className="text-sm text-gray-600">Paid:</span>
-              <span className="text-sm font-medium text-gray-800 ml-2">₹ 22,12,22,32,000</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-gray-300 rounded-sm"></div>
-              <span className="text-sm text-gray-600">Balance:</span>
-              <span className="text-sm font-medium text-red-500 ml-2">₹ 1,22,32,000</span>
-            </div>
-          </div>
+
         </div>
 
         {/* Box 3 - Transaction History */}
@@ -384,7 +388,7 @@ const CrmUnitSummary = ({
               </div>
               <div>
                 <p className="font-manrope font-medium text-[12px] leading-[100%] tracking-normal text-[#666666] mb-1">Stall No</p>
-                <p className="font-manrope font-medium text-[16px] leading-[100%] tracking-normal text-[#1A1A1A]">25</p>
+                <p className="font-manrope font-medium text-[16px] leading-[100%] tracking-normal text-[#1A1A1A]">{selUnitPayload?.unit_no}</p>
               </div>
             </div>
 
@@ -400,7 +404,7 @@ const CrmUnitSummary = ({
               </div>
               <div>
                 <p className="font-manrope font-medium text-[12px] leading-[100%] tracking-normal text-[#666666] mb-1">Sqft</p>
-                <p className="font-manrope font-medium text-[16px] leading-[100%] tracking-normal text-[#1A1A1A]">1200</p>
+                <p className="font-manrope font-medium text-[16px] leading-[100%] tracking-normal text-[#1A1A1A]">{selUnitPayload?.area?.toLocaleString('en-IN')}</p>
               </div>
             </div>
 
@@ -415,8 +419,8 @@ const CrmUnitSummary = ({
 
               </div>
               <div>
-                <p className="font-manrope font-medium text-[12px] leading-[100%] tracking-normal text-[#666666]mb-1">Facing</p>
-                <p className="font-manrope font-medium text-[16px] leading-[100%] tracking-normal text-[#1A1A1A]">North</p>
+                <p className="font-manrope font-medium text-[12px] leading-[100%] tracking-normal text-[#666666]mb-1">Booked By</p>
+                <p className="font-manrope font-medium text-[16px] leading-[100%] tracking-normal text-[#1A1A1A] mt-1">Nithesh</p>
               </div>
             </div>
           </div>
@@ -522,7 +526,7 @@ const CrmUnitSummary = ({
                 />
               </div>
             </div>
-       
+
           </div> */}
           <div className="w-full">
 

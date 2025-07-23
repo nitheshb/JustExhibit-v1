@@ -1477,7 +1477,7 @@ export default function UnitSideViewCRM({
                     <span className="font-manrope font-medium text-[12px] leading-[100%] tracking-[0%] text-[#444444]">
                       {prettyDate(
                         selCustomerPayload?.booked_on ||
-                        selCustomerPayload?.ct ||
+                        selCustomerPayload?.Date ||
                         0
                       ) || 'NA'}
                     </span>

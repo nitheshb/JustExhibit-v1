@@ -1313,8 +1313,11 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                 <div className="flex flex-col w-[217px] justify-between ml-2 mb-1">
                                   {/* Total Cost Section */}
                                   <section className="flex justify-between gap-[12px] items-center font-semibold text-xs my-1 w-full">
-                                    <div className="font-manrope font-medium text-[12px] leading-[16px] tracking-[0px] text-[#1A1A1A]">
-                                      Stall Cost:
+                                    <div className="flex items-center">
+                                      <div className="h-3 w-3 bg-orange-300 mr-2"></div>
+                                      <div className="font-manrope font-medium text-[12px] leading-[16px] tracking-[0px] text-[#1A1A1A]">
+                                        Stall Cost:
+                                      </div>
                                     </div>
                                     <div className="relative flex flex-col items-center group" style={{ alignItems: 'start' }}>
                                       <div className="absolute bottom-0 flex-col items-center hidden mb-6 group-hover:flex" style={{ alignItems: 'start', width: '300px' }}>
@@ -1336,7 +1339,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                   {/* Paid Section */}
                                   <section className="flex justify-between gap-[12px] items-center font-semibold text-xs my-1 w-full">
                                     <div className="flex items-center">
-                                      <div className="h-3 w-3 bg-[#F8886A] mr-2"></div>
+                                      <div className="h-3 w-3 bg-green-300 mr-2"></div>
                                       <div className="font-manrope font-medium text-[12px] leading-[16px] tracking-[0px] text-[#1A1A1A]">
                                         Paid:
                                       </div>
@@ -1346,8 +1349,8 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         <span className="rounded italian relative mr-3 z-100000 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg" style={{ color: 'white', background: '#213343', maxWidth: '300px' }}>
                                           <span className="italic">
                                             ₹{Math.round(
-                                              (finData?.T_review || 0) +
-                                              (finData?.T_approved || 0) +
+                                              // (finData?.T_review || 0) +
+                                              // (finData?.T_approved || 0) +
                                               (finData?.T_paid || 0)
                                             ).toLocaleString('en-IN') || 0}
                                           </span>
@@ -1363,8 +1366,8 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                 )
               ) || 0} */}
                                         ₹ {Math.round(
-                                          (finData?.T_review || 0) +
-                                          (finData?.T_approved || 0) +
+                                          // (finData?.T_review || 0) +
+                                          // (finData?.T_approved || 0) +
                                           (finData?.T_paid || 0)
                                         ).toLocaleString('en-IN')}
 
@@ -1375,7 +1378,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                   {/* Balance Section */}
                                   <section className="flex justify-between gap-[12px] items-center font-semibold text-xs my-1 w-full">
                                     <div className="flex items-center">
-                                      <div className="h-3 w-3 bg-gray-300 mr-2"></div>
+                                      <div className="h-3 w-3 bg-[#f44d21] mr-2"></div>
                                       <div className="font-manrope font-medium text-[12px] leading-[16px] tracking-[0px] text-[#1A1A1A]">
                                         Balance:
                                       </div>

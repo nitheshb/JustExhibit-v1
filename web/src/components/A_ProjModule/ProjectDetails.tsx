@@ -105,7 +105,7 @@ const ProjectDetailsFlowBody = ({ setProject, title, dialogOpen, project }) => {
     // setSubmitForm(() => submitFormFunction);
   }
   return (
-    <div className="h-full flex flex-col  py-6  shadow-xl overflow-y-scroll bg-gradient-to-r from-blue-300 to-cyan-300">
+    <div className="h-full flex flex-col  py-6 pb-10  shadow-xl overflow-y-scroll bg-gradient-to-r from-blue-300 to-cyan-300">
       <div className="px-2 sm:px-6  z-10 absolute top-0  w-full  py-2 bg-gradient-to-r from-blue-300 to-cyan-300">
         <Dialog.Title className=" font-semibold text-xl mr-auto    tracking-wider text-[14px]">
           Event Information
@@ -216,7 +216,7 @@ const ProjectDetailsFlowBody = ({ setProject, title, dialogOpen, project }) => {
                 setProject={setProject}
               />
             )}
-           
+
 
             <ProjPhaseHome
               projectDetails={project}

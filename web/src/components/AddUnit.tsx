@@ -294,9 +294,10 @@ useEffect(() => {
 
 
   const sharingTypeOptions = [
-    { value: 'Builder', label: 'Builder' },
-    { value: 'Land Owner', label: 'Land Owner' },
-    { value: 'Investor', label: 'Investor' },
+    { value: 'organiser', label: 'Organiser' },
+    { value: 'hall_owner', label: 'Hall Owner' },
+    { value: 'investor', label: 'Investor' },
+
   ];
 
 
@@ -447,7 +448,7 @@ useEffect(() => {
       phaseId: phaseDetails?.uid || 1,
       blockId: blockDetails?.uid || 1,
       Date: Timestamp.now().toMillis(),
-      unit_no: unit_no,
+            unit_no: unit_no,
       // survey_no: survey_no,
 
       // Katha_no: Katha_no,
@@ -1330,7 +1331,7 @@ useEffect(() => {
                           </div>
                         </section>
 
-                        <section className="mt-1 px-4 rounded-lg bg-white border border-gray-100 shadow">
+                        {/* <section className="mt-1 px-4 rounded-lg bg-white border border-gray-100 shadow">
                           <section className="flex flex-row  pt-2 ">
                             <div className="border-2  h-3 rounded-xl  mt-[2px] w-1  border-cyan-200"></div>
 
@@ -1371,7 +1372,7 @@ useEffect(() => {
                               />
                             </div>
                           </div>
-                        </section>
+                        </section> */}
 
                         <section className="mt-1 px-4 rounded-lg bg-white border border-gray-100 shadow">
                           <section className="flex flex-row  pt-2 ">
@@ -1485,40 +1486,7 @@ useEffect(() => {
 
                         </section>
 
-                        <section className="mt-1 px-4 rounded-lg bg-white border border-gray-100 shadow">
-                          <section className="flex flex-row  pt-2 ">
-                            <div className="border-2  h-3 rounded-xl  mt-[2px] w-1  border-cyan-200"></div>
 
-                            <span className="ml-1 leading-[15px] ">
-                              <label className="font-semibold text-[#053219]  text-[13px] leading-[15px] mb-1  ">
-                                Additonal Details<abbr title="required"></abbr>
-                              </label>
-                            </span>
-                          </section>
-                          <div className="md:flex flex-row md:space-x-4 w-full text-xs mt-2 ">
-                            <div className=" space-y-2 w-full text-xs ">
-                              <TextField
-                                label="Survey No"
-                                name="survey_no"
-                                type="text"
-                              />
-                            </div>
-                            <div className=" space-y-2 w-full text-xs ">
-                              <TextField
-                                label="Katha No"
-                                name="Katha_no"
-                                type="text"
-                              />
-                            </div>
-                            <div className=" space-y-2 w-full text-xs ">
-                              <TextField
-                                label="PID No"
-                                name="PID_no"
-                                type="text"
-                              />
-                            </div>
-                          </div>
-                        </section>
                       </section>
                       {/* 6 */}
 
@@ -1560,7 +1528,7 @@ useEffect(() => {
                             Reset
                           </button>
                           <button
-                            className="mb-2 pb-[5px] md:mb-0 bg-gradient-to-r from-indigo-400 to-cyan-400 px-5 py-1 text-sm shadow-sm font-medium tracking-wider text-white  rounded-lg hover:shadow-lg hover:bg-green-500"
+                            className="mb-2  md:mb-0 bg-gradient-to-r from-indigo-400 to-cyan-400 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white  rounded-lg hover:shadow-lg hover:bg-green-500"
                             type="submit"
                             disabled={loading}
                           >
