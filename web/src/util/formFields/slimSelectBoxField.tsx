@@ -5,6 +5,7 @@ import { startOfWeek, startOfDay, startOfMonth, subMonths } from 'date-fns'
 import { setLabels } from 'react-chartjs-2/dist/utils'
 import DatePicker from 'react-datepicker'
 import Select from 'react-select'
+
 import CustomDatePicker from './CustomDatePicker'
 const customStyles = {
   control: (base) => ({
@@ -30,19 +31,19 @@ const customStyles = {
   menu: (provided) => ({ ...provided, marginTop: 0, zIndex: 9999 }),
 }
 
-
 const customStylesVerySmall = {
   control: (base, state) => ({
     ...base,
-    height: 30,
-    minHeight: 30,
-    padding: 0,
-    borderColor: '#E5E7EA',
+    height: 46,
+    minHeight: 46,
+    borderColor: '#F0F0F0',
+    borderWidth: 1,
     borderRadius: 8,
-    boxShadow: state.isFocused ? '0 0 0 1px #E5E7EA' : base.boxShadow,
+    boxShadow: state.isFocused ? '0 0 0 1px #F0F0F0' : base.boxShadow,
     '&:hover': {
-      borderColor: '#E5E7EA',
+      borderColor: '#F0F0F0',
     },
+    padding: 0,
   }),
   valueContainer: (base) => ({
     ...base,
@@ -69,46 +70,41 @@ const customStylesVerySmall = {
   }),
   placeholder: (base) => ({
     ...base,
+    fontFamily: 'Inter, sans-serif',
     fontWeight: 400,
-    fontSize: '12px',
-    lineHeight: '16px',
-    verticalAlign: 'middle',
-    letterSpacing: '0px',
-    color: '#131927',
+    fontSize: '14px',
+    lineHeight: '24px',
+    color: '#999999',
   }),
   option: (base, state) => ({
     ...base,
     // display: 'flex',                // Enable flexbox
     // alignItems: 'center',           // Vertical center
     // justifyContent: 'center',       // Horizontal center
+    fontFamily: 'Inter, sans-serif',
     fontWeight: 400,
-    fontSize: '12px',
-    lineHeight: '16px',
+    fontSize: '14px',
+    lineHeight: '24px',
     // verticalAlign: 'middle',
     letterSpacing: '0px',
-    color: '#131927',
+    color: '#999999',
     backgroundColor: state.isSelected
       ? '#efefef'
       : state.isFocused
-        ? '#f5f5f5'
-        : 'white',
+      ? '#f5f5f5'
+      : 'white',
     cursor: 'pointer',
   }),
 
   singleValue: (base) => ({
     ...base,
+    fontFamily: 'Inter, sans-serif',
     fontWeight: 400,
-    fontSize: '12px',
-    lineHeight: '16px',
-    verticalAlign: 'middle',
-    letterSpacing: '0px',
-    color: '#131927',
+    fontSize: '14px',
+    lineHeight: '24px',
+    color: '#999999',
   }),
-};
-
-
-
-
+}
 
 export const SlimSelectBox = ({
   onChange,
@@ -139,8 +135,9 @@ export const SlimSelectBox = ({
           onChange(value)
         }}
         options={options}
-        className={`text-sm  ${label != '' ? 'mt-1' : ''
-          } border-transparent p-0`}
+        className={`text-sm  ${
+          label != '' ? 'mt-1' : ''
+        } border-transparent p-0`}
         classNamePrefix="react-select"
         styles={customStyles}
       />
@@ -183,8 +180,9 @@ export const VerySlimSelectBox = ({
           onChange(value)
         }}
         options={options}
-        className={`text-sm font-semibold mt-0  ${label != '' ? '' : ''
-          } border-transparent p-0`}
+        className={`text-sm font-semibold mt-0  ${
+          label != '' ? '' : ''
+        } border-transparent p-0`}
         classNamePrefix="react-select"
         styles={customStylesVerySmall}
         theme={(theme) => ({
@@ -211,7 +209,7 @@ export const SlimDateSelectBox = ({
   // className,
 }) => {
   {
-    ; <label className="label font-regular text-sm ">{label}</label>
+    ;<label className="label font-regular text-sm ">{label}</label>
   }
   //   const defaultValue = (options, value) => {
   //     return (
@@ -286,8 +284,9 @@ export const SlimDateSelectBox = ({
             }
           }}
           options={options}
-          className={`text-sm  ${label != '' ? 'mt-1' : ''
-            } border-transparent p-0`}
+          className={`text-sm  ${
+            label != '' ? 'mt-1' : ''
+          } border-transparent p-0`}
           classNamePrefix="react-select"
           styles={customStyles}
         />

@@ -2,6 +2,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 
 import { Fragment, useState, useEffect } from 'react'
+
 import DatePicker from 'react-datepicker'
 import {
   PhoneIcon,
@@ -21,7 +22,7 @@ import {
   InformationCircleIcon,
 } from '@heroicons/react/solid'
 import CalendarMonthTwoToneIcon from '@mui/icons-material/CalendarMonthTwoTone'
-import { } from '@heroicons/react/solid'
+import {} from '@heroicons/react/solid'
 import { Box, LinearProgress, useTheme } from '@mui/material'
 import { startOfDay } from 'date-fns'
 import { useTranslation } from 'react-i18next'
@@ -47,8 +48,9 @@ import {
 import DoughnutChartWithRoundedSegments from '../A_SalesModule/Reports/charts/piechartRounded'
 import CrmSiderForm from '../SiderForm/CRM_SideForm'
 import SiderForm from '../SiderForm/SiderForm'
-import RoundedProgressBar from './Reports/RoundedProgressBar'
+
 import RadialChart from './RadialChart'
+import RoundedProgressBar from './Reports/RoundedProgressBar'
 
 const agreementItems = [
   {
@@ -201,7 +203,6 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
   const [bookingReviewA, setBookingReviewA] = useState([])
   const [paidA, setPaidA] = useState([])
   const [unPaidA, setunPaidA] = useState([])
-
 
   const [agreePipeA, setAgreePipeA] = useState([])
   const [sdPipeA, setSdPipeA] = useState([])
@@ -420,7 +421,6 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
         //   return b?.booked_on || 0 - b?.booked_on || 0
         // })
 
-
         if (statusFil.includes('booked')) {
           // await console.log(
           //   'my Array data is ',
@@ -439,21 +439,15 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
           await setPaidCo(usersListA?.filter((d) => d.T_balance <= 0).length)
           await setUnPaidCo(usersListA?.filter((d) => d.T_balance > 0).length)
           await setSearchKeyField('')
-
-        }
-        else if (statusFil.includes('paid')) {
+        } else if (statusFil.includes('paid')) {
           await setFilteredDataA(usersListA)
-
-        }
-        else if (statusFil.includes('unpaid')) {
+        } else if (statusFil.includes('unpaid')) {
           await setAgreePipeA(usersListA)
           await setAgreePipeCo(usersListA.length)
-        }
-        else if (statusFil.includes('paid')) {
+        } else if (statusFil.includes('paid')) {
           await setAgreePipeA(usersListA)
           await setAgreePipeCo(usersListA.length)
-        }
-        else if (statusFil.includes('agreement_pipeline')) {
+        } else if (statusFil.includes('agreement_pipeline')) {
           await setAgreePipeA(usersListA)
           await setAgreePipeCo(usersListA.length)
         } else if (statusFil.includes('agreement')) {
@@ -521,26 +515,19 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
     }
     if (selCategory === 'paid') {
       searchLogic(searchKey, paidA)
-    }
-    else if (selCategory === 'agreement_pipeline') {
+    } else if (selCategory === 'agreement_pipeline') {
       searchLogic(searchKey, agreePipeA)
-    }
-    else if (selCategory === 'agreement') {
+    } else if (selCategory === 'agreement') {
       searchLogic(searchKey, sdPipeA)
-    }
-    else if (selCategory === 'registered') {
+    } else if (selCategory === 'registered') {
       searchLogic(searchKey, registeredA)
-    }
-    else if (selCategory === 'possession') {
+    } else if (selCategory === 'possession') {
       searchLogic(searchKey, posessionA)
-    }
-    else if (selCategory === 'unassigned') {
+    } else if (selCategory === 'unassigned') {
       // searchLogic(searchKey, unassignedA)
       searchLogic(searchKey, crmCustomersDBData)
     }
-
   }
-
 
   const serealizeData = (array) => {
     // let newData =
@@ -574,8 +561,6 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
     setSelUnitDetails(docData)
   }
 
-
-
   function formatIndianNumber(num) {
     if (num >= 1_00_00_00_000) return (num / 1_00_00_00_000).toFixed(1) + 'Lcr+'
     if (num >= 1_00_00_000) return (num / 1_00_00_000).toFixed(1) + 'Cr+'
@@ -583,13 +568,6 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
     if (num >= 1_000) return (num / 1_000).toFixed(1) + 'K+'
     return num.toString()
   }
-
-
-
-
-
-
-
 
   return (
     <>
@@ -602,8 +580,6 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
               </h2>
 
               <div className="flex">
-
-
                 <div className="flex flex-col mr-5  w-40">
                   <VerySlimSelectBox
                     name="project"
@@ -622,7 +598,6 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                     ]}
                   />
                 </div>
-
 
                 {access?.includes('manage_leads') && (
                   <div className=" flex flex-col   w-40">
@@ -659,7 +634,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
 
               <div className="border-b border-b-[1px] border-[#D8D8D8] flex flex-row justify-between">
                 <ul
-                  className="flex   rounded-t-lg "
+                  className="flex justify-start rounded-t-lg ml-[-16px]"
                   id="myTab"
                   data-tabs-toggle="#myTabContent"
                   role="tablist"
@@ -678,17 +653,16 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                         role="presentation"
                       >
                         <button
-                          className={`inline-block py-[18px]  px-[32px] text-sm font-medium   text-center text-black rounded-t-lg border-b-2  hover:text-black hover:border-gray-300   ${selCategory === d.val
-                            ? 'border-black text-black'
-                            : 'border-transparent'
-                            }`}
+                          className={`inline-block py-[18px]  px-[32px] text-sm font-medium   text-center text-black rounded-t-lg border-b-2  hover:text-black hover:border-gray-300   ${
+                            selCategory === d.val
+                              ? 'border-black text-black'
+                              : 'border-transparent'
+                          }`}
                           type="button"
                           role="tab"
                           onClick={() => setSelCategory(d.val)}
                         >
                           {`${d.lab} `}
-
-
 
                           <span className="text-gray-800 px-1 py-1 rounded-full ml-[1px] text-[14px]">
                             {d.val === 'booked' && `(${bookingReviewCo})`}
@@ -700,11 +674,6 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                             {d.val === 'queries' && `(${unassignedCo})`}
                           </span>
 
-
-
-
-
-
                           {/* <span className="bg-gray-100 px-2 py-1 rounded-full">
                           {/* {rowsCounter(leadsFetchedData, d.val).length} */}
                         </button>
@@ -712,7 +681,6 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                     )
                   })}
                 </ul>
-
 
                 {/* <span
                     className="flex mt-[4px] mr-[8px] justify-center items-center w-6 h-6 bg-gradient-to-r from-violet-200 to-pink-200 rounded-full  cursor-pointer "
@@ -723,8 +691,6 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                   >
                     <PuzzleIcon className=" w-3 h-3" />
                   </span> */}
-
-
               </div>
               {/* <div className="flex flex-row mr-4 mt-2">
                   <span
@@ -738,14 +704,9 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                   </span>
                 </div> */}
 
-
-              <div
-                className={` flex flex-row py-2 justify-between `}
-              >
+              <div className={` flex flex-row py-2 justify-between `}>
                 <div className="w-full flex items-center gap-1">
-                  <span
-                    className="flex w-[298px] h-[44px] gap-[6px] rounded-lg border-[1.5px] border-[#E5E7EA] px-3 items-center"
-                  >
+                  <span className="flex w-[298px] h-[44px] gap-[6px] rounded-lg border-[1.5px] border-[#E5E7EA] px-3 items-center">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-4 w-4 text-gray-500"
@@ -815,7 +776,10 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                     />
                   </div> */}
 
-                  <span className="cursor-pointer w-[50px] h-[43px]  flex items-center justify-center cursor-pointer text-xs bg-[#F44D21] rounded-[8px] text-white" onClick={() => setSearchKeyField('')}>
+                  <span
+                    className="cursor-pointer w-[50px] h-[43px]  flex items-center justify-center cursor-pointer text-xs bg-[#F44D21] rounded-[8px] text-white"
+                    onClick={() => setSearchKeyField('')}
+                  >
                     {' '}
                     Clear
                   </span>
@@ -831,16 +795,15 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                       fill: '#F44D21',
                     }}
                   />
-
                 </span>
-
               </div>
               <div className="flex px-6">
                 {leadsTyper == 'inProgress' && (
                   <span className="inline-flex p-1 border bg-gray-200 rounded-md">
                     <button
-                      className={`px-2 py-1  rounded ${ready ? 'bg-white shadow' : ''
-                        }`}
+                      className={`px-2 py-1  rounded ${
+                        ready ? 'bg-white shadow' : ''
+                      }`}
                       onClick={() => setReady(true)}
                     >
                       <svg
@@ -859,8 +822,9 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                       </svg>
                     </button>
                     <button
-                      className={`px-2 py-1  rounded ${!ready ? 'bg-white shadow' : ''
-                        }`}
+                      className={`px-2 py-1  rounded ${
+                        !ready ? 'bg-white shadow' : ''
+                      }`}
                       onClick={() => setReady(false)}
                     >
                       <svg
@@ -1002,21 +966,21 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                               _this + val.TotalNetSaleValueGsT
                                             )
                                           },
-                                            0) || 0) +
-                                          finData?.addChargesCS?.reduce(
-                                            (partialSum, obj) =>
-                                              partialSum +
-                                              Number(
-                                                computeTotal(
-                                                  obj,
-                                                  finData?.super_built_up_area ||
-                                                  finData?.area
-                                                    ?.toString()
-                                                    ?.replace(',', '')
-                                                )
-                                              ),
-                                            0
-                                          ) || 0
+                                          0) || 0) +
+                                            finData?.addChargesCS?.reduce(
+                                              (partialSum, obj) =>
+                                                partialSum +
+                                                Number(
+                                                  computeTotal(
+                                                    obj,
+                                                    finData?.super_built_up_area ||
+                                                      finData?.area
+                                                        ?.toString()
+                                                        ?.replace(',', '')
+                                                  )
+                                                ),
+                                              0
+                                            ) || 0
                                         )?.toLocaleString('en-IN')}
                                       </div>
                                     </div>
@@ -1033,8 +997,9 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                       Paid: ₹
                                       {(
                                         (finData?.T_review || 0) +
-                                        (finData?.T_approved || 0)
-                                          (finData?.T_paid || 0)
+                                        (finData?.T_approved || 0)(
+                                          finData?.T_paid || 0
+                                        )
                                       )?.toLocaleString('en-IN')}
                                     </div>
                                   </section>
@@ -1111,12 +1076,13 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
 
                                 <div className="w-[253px] mx-4 left-[25px] mt-3 ml-4 justify-start items-center gap-2 inline-flex">
                                   <div
-                                    className={`grow shrink basis-0 px-2.5 py-1.5 rounded-[16px] flex-col justify-center items-center gap-2 inline-flex ${finData?.man_cs_approval == 'approved'
-                                      ? 'bg-[#CCC5F7]'
-                                      : finData?.man_cs_approval == 'rejected'
+                                    className={`grow shrink basis-0 px-2.5 py-1.5 rounded-[16px] flex-col justify-center items-center gap-2 inline-flex ${
+                                      finData?.man_cs_approval == 'approved'
+                                        ? 'bg-[#CCC5F7]'
+                                        : finData?.man_cs_approval == 'rejected'
                                         ? 'bg-[#ffdbdb]'
                                         : 'bg-[#F1F5F9] '
-                                      }  p-3 rounded-md mx-1`}
+                                    }  p-3 rounded-md mx-1`}
                                     style={{
                                       display: 'inline-block',
                                       alignSelf: 'flex-end',
@@ -1134,12 +1100,13 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                     </div>
                                   </div>
                                   <div
-                                    className={`grow shrink basis-0 px-2.5 py-1.5 bg-gray-200 rounded-[16px] flex-col justify-center items-center gap-2 inline-flex ${finData?.kyc_status == 'approved'
-                                      ? 'bg-[#CCC5F7]'
-                                      : finData?.kyc_status == 'rejected'
+                                    className={`grow shrink basis-0 px-2.5 py-1.5 bg-gray-200 rounded-[16px] flex-col justify-center items-center gap-2 inline-flex ${
+                                      finData?.kyc_status == 'approved'
+                                        ? 'bg-[#CCC5F7]'
+                                        : finData?.kyc_status == 'rejected'
                                         ? 'bg-[#ffdbdb]'
                                         : 'bg-[#F1F5F9] '
-                                      }  p-3 rounded-md mx-1`}
+                                    }  p-3 rounded-md mx-1`}
                                     style={{
                                       display: 'inline-block',
                                       alignSelf: 'flex-end',
@@ -1162,9 +1129,25 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                       </li>
                     </ul>
                   )}
-                  {['booked', 'unpaid', 'paid', 'agreement_pipeline', 'agreement', 'registered', 'construction', 'possession', 'unAssigned_crm', 'queries'].includes(selCategory) &&
+                  {[
+                    'booked',
+                    'unpaid',
+                    'paid',
+                    'agreement_pipeline',
+                    'agreement',
+                    'registered',
+                    'construction',
+                    'possession',
+                    'unAssigned_crm',
+                    'queries',
+                  ].includes(selCategory) &&
                     !horizontalMode &&
-                    filteredDataA.map((finData, c) => {
+                    (selCategory === 'paid'
+                      ? paidA
+                      : selCategory === 'unpaid'
+                      ? unPaidA
+                      : filteredDataA
+                    ).map((finData, c) => {
                       const {
                         uid,
                         assets,
@@ -1232,14 +1215,25 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                   </span>
                 </section> */}
 
-
                                           <section className="flex flex-row  items-center gap-6">
                                             {/* <div className="bg-violet-100  items-center rounded-2xl shadow-xs flex flex-col px-2 py-1"> */}
 
                                             <div className="relative w-[79px] h-[80px]">
-                                              <svg width="79" height="80" viewBox="0 0 119 119" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M26.0061 0H92.3734C95.2974 0 97.9884 1.59524 99.3918 4.16045L113.289 29.5641C113.933 30.7413 114.271 32.0617 114.271 33.4036L114.271 99.7936C114.271 103.619 111.17 106.72 107.345 106.72V112.281C107.345 115.991 104.338 118.997 100.629 118.997C96.9194 118.997 93.9125 115.991 93.9125 112.281V106.72H24.6969V112.224C24.6969 115.965 21.6641 118.997 17.9231 118.997C14.1821 118.997 11.1493 115.965 11.1493 112.224V106.72C7.41371 106.72 4.38538 103.691 4.38538 99.9557V31.9416C4.38538 30.5546 4.74602 29.1913 5.43191 27.9857L19.0526 4.04408C20.4749 1.54406 23.1298 0 26.0061 0Z" fill="#FCC8BA" />
-                                                <path d="M101.705 27.7051C101.705 32.3855 97.9109 36.1795 93.2305 36.1797C88.5498 36.1797 84.7552 32.3856 84.7549 27.7051C84.7545 32.3856 80.9599 36.1796 76.2793 36.1797C71.7447 36.1797 68.0415 32.6188 67.8145 28.1406L67.8037 27.7051C67.8033 32.3856 64.0088 36.1797 59.3281 36.1797C54.6475 36.1797 50.8529 32.3856 50.8525 27.7051C50.8522 32.3856 47.0576 36.1797 42.377 36.1797C37.6964 36.1795 33.9017 32.3855 33.9014 27.7051C33.901 32.3855 30.1072 36.1795 25.4268 36.1797C20.7461 36.1797 16.9515 32.3856 16.9512 27.7051C16.9508 32.3856 13.1562 36.1796 8.47559 36.1797C3.79494 36.1797 0.000359783 32.3856 0 27.7051V18.1689H101.705V27.7051ZM118.656 27.7051C118.656 32.3856 114.861 36.1797 110.181 36.1797C105.5 36.1795 101.706 32.3855 101.706 27.7051V18.1689H118.656V27.7051ZM118.656 18.168H0L22.0684 0H96.707L118.656 18.168ZM30.209 2.13281C29.5894 2.13288 29.0046 2.41977 28.626 2.91016L20.9824 12.8145C19.9683 14.1292 20.9058 16.0361 22.5664 16.0361H33.2197C33.9636 16.036 34.6461 15.6228 34.9912 14.9639L40.1748 5.05957C40.8714 3.72812 39.906 2.13311 38.4033 2.13281H30.209ZM55.9199 2.13281C54.929 2.13296 54.0881 2.85874 53.9424 3.83887L52.4707 13.7422C52.2915 14.9503 53.2278 16.0361 54.4492 16.0361H65.5557C66.8397 16.0361 67.7914 14.8427 67.5059 13.5908L65.2441 3.6875C65.0364 2.77803 64.2278 2.13294 63.2949 2.13281H55.9199ZM80.2539 2.13281C78.7511 2.1328 77.785 3.72803 78.4814 5.05957L83.665 14.9639C84.0102 15.623 84.6934 16.0361 85.4375 16.0361H96.0908C97.7514 16.036 98.6881 14.1292 97.6738 12.8145L90.0312 2.91016C89.6526 2.41959 89.067 2.13283 88.4473 2.13281H80.2539Z" fill="#F44D21" />
+                                              <svg
+                                                width="79"
+                                                height="80"
+                                                viewBox="0 0 119 119"
+                                                fill="none"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                              >
+                                                <path
+                                                  d="M26.0061 0H92.3734C95.2974 0 97.9884 1.59524 99.3918 4.16045L113.289 29.5641C113.933 30.7413 114.271 32.0617 114.271 33.4036L114.271 99.7936C114.271 103.619 111.17 106.72 107.345 106.72V112.281C107.345 115.991 104.338 118.997 100.629 118.997C96.9194 118.997 93.9125 115.991 93.9125 112.281V106.72H24.6969V112.224C24.6969 115.965 21.6641 118.997 17.9231 118.997C14.1821 118.997 11.1493 115.965 11.1493 112.224V106.72C7.41371 106.72 4.38538 103.691 4.38538 99.9557V31.9416C4.38538 30.5546 4.74602 29.1913 5.43191 27.9857L19.0526 4.04408C20.4749 1.54406 23.1298 0 26.0061 0Z"
+                                                  fill="#FCC8BA"
+                                                />
+                                                <path
+                                                  d="M101.705 27.7051C101.705 32.3855 97.9109 36.1795 93.2305 36.1797C88.5498 36.1797 84.7552 32.3856 84.7549 27.7051C84.7545 32.3856 80.9599 36.1796 76.2793 36.1797C71.7447 36.1797 68.0415 32.6188 67.8145 28.1406L67.8037 27.7051C67.8033 32.3856 64.0088 36.1797 59.3281 36.1797C54.6475 36.1797 50.8529 32.3856 50.8525 27.7051C50.8522 32.3856 47.0576 36.1797 42.377 36.1797C37.6964 36.1795 33.9017 32.3855 33.9014 27.7051C33.901 32.3855 30.1072 36.1795 25.4268 36.1797C20.7461 36.1797 16.9515 32.3856 16.9512 27.7051C16.9508 32.3856 13.1562 36.1796 8.47559 36.1797C3.79494 36.1797 0.000359783 32.3856 0 27.7051V18.1689H101.705V27.7051ZM118.656 27.7051C118.656 32.3856 114.861 36.1797 110.181 36.1797C105.5 36.1795 101.706 32.3855 101.706 27.7051V18.1689H118.656V27.7051ZM118.656 18.168H0L22.0684 0H96.707L118.656 18.168ZM30.209 2.13281C29.5894 2.13288 29.0046 2.41977 28.626 2.91016L20.9824 12.8145C19.9683 14.1292 20.9058 16.0361 22.5664 16.0361H33.2197C33.9636 16.036 34.6461 15.6228 34.9912 14.9639L40.1748 5.05957C40.8714 3.72812 39.906 2.13311 38.4033 2.13281H30.209ZM55.9199 2.13281C54.929 2.13296 54.0881 2.85874 53.9424 3.83887L52.4707 13.7422C52.2915 14.9503 53.2278 16.0361 54.4492 16.0361H65.5557C66.8397 16.0361 67.7914 14.8427 67.5059 13.5908L65.2441 3.6875C65.0364 2.77803 64.2278 2.13294 63.2949 2.13281H55.9199ZM80.2539 2.13281C78.7511 2.1328 77.785 3.72803 78.4814 5.05957L83.665 14.9639C84.0102 15.623 84.6934 16.0361 85.4375 16.0361H96.0908C97.7514 16.036 98.6881 14.1292 97.6738 12.8145L90.0312 2.91016C89.6526 2.41959 89.067 2.13283 88.4473 2.13281H80.2539Z"
+                                                  fill="#F44D21"
+                                                />
                                               </svg>
 
                                               <div className="absolute inset-0 flex flex-col  mt-2 gap-1 items-center justify-center">
@@ -1249,7 +1243,6 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                                 <div className="font-bold text-[16px] text-[#1e1e1e] leading-none">
                                                   {unit_no}
                                                 </div>
-
                                               </div>
                                             </div>
                                           </section>
@@ -1259,22 +1252,19 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                               className={`font-manrope font-bold text-[14px] leading-[20px] tracking-[0px] text-[#0A0A0A]
       `}
                                             >
-                                              {finData?.companyName ||
-                                                'NA'}
+                                              {finData?.companyName || 'NA'}
                                             </span>
                                             <span
                                               className={`font-manrope font-medium text-[12px] leading-[16px] tracking-[0px] text-[#666666]
       `}
                                             >
-                                              {finData?.co_Name1 ||
-                                                'NA'}
+                                              {finData?.co_Name1 || 'NA'}
                                             </span>
                                             <span
                                               className={`font-manrope font-medium text-[12px] leading-[16px] tracking-[0px] text-[#666666]
       `}
                                             >
-                                              {finData?.phoneNo1 ||
-                                                'NA'}
+                                              {finData?.phoneNo1 || 'NA'}
                                             </span>
 
                                             <section className="flex flex-row justify-between">
@@ -1306,7 +1296,10 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                               <div className="flex flex-row w-full gap-[20px] my-1 items-center justify-between">
                                 <div className="flex-shrink-0">
                                   <RadialChart
-                                    progress={(finData?.T_received / finData?.T_total) * 100}
+                                    progress={
+                                      (finData?.T_received / finData?.T_total) *
+                                      100
+                                    }
                                   />
                                 </div>
 
@@ -1319,19 +1312,46 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         Stall Cost:
                                       </div>
                                     </div>
-                                    <div className="relative flex flex-col items-center group" style={{ alignItems: 'start' }}>
-                                      <div className="absolute bottom-0 flex-col items-center hidden mb-6 group-hover:flex" style={{ alignItems: 'start', width: '300px' }}>
-                                        <span className="rounded italian relative mr-3 z-100000 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg" style={{ color: 'white', background: '#213343', maxWidth: '300px' }}>
+                                    <div
+                                      className="relative flex flex-col items-center group"
+                                      style={{ alignItems: 'start' }}
+                                    >
+                                      <div
+                                        className="absolute bottom-0 flex-col items-center hidden mb-6 group-hover:flex"
+                                        style={{
+                                          alignItems: 'start',
+                                          width: '300px',
+                                        }}
+                                      >
+                                        <span
+                                          className="rounded italian relative mr-3 z-100000 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg"
+                                          style={{
+                                            color: 'white',
+                                            background: '#213343',
+                                            maxWidth: '300px',
+                                          }}
+                                        >
                                           <span className="italic">
-                                            ₹{Math.round(finData?.T_total || 0).toLocaleString('en-IN')}
+                                            ₹
+                                            {Math.round(
+                                              finData?.T_total || 0
+                                            ).toLocaleString('en-IN')}
                                           </span>
                                         </span>
-                                        <div className="w-3 h-3 ml-1 -mt-2 rotate-45 bg-black" style={{ background: '#213343', marginRight: '12px' }}></div>
+                                        <div
+                                          className="w-3 h-3 ml-1 -mt-2 rotate-45 bg-black"
+                                          style={{
+                                            background: '#213343',
+                                            marginRight: '12px',
+                                          }}
+                                        ></div>
                                       </div>
                                       <span className="font-bold text-[14px] leading-[20px] tracking-[0px] text-right text-[#1A1A1A] font-manrope">
                                         {/* ₹{formatIndianNumber?.(Math.round(finData?.T_total || 0))} */}
-                                        ₹ {Math.round(finData?.T_total || 0).toLocaleString('en-IN')}
-
+                                        ₹{' '}
+                                        {Math.round(
+                                          finData?.T_total || 0
+                                        ).toLocaleString('en-IN')}
                                       </span>
                                     </div>
                                   </section>
@@ -1344,18 +1364,41 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         Paid:
                                       </div>
                                     </div>
-                                    <div className="relative flex flex-col items-center group" style={{ alignItems: 'start' }}>
-                                      <div className="absolute bottom-0 flex-col items-center hidden mb-6 group-hover:flex" style={{ alignItems: 'start', width: '300px' }}>
-                                        <span className="rounded italian relative mr-3 z-100000 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg" style={{ color: 'white', background: '#213343', maxWidth: '300px' }}>
+                                    <div
+                                      className="relative flex flex-col items-center group"
+                                      style={{ alignItems: 'start' }}
+                                    >
+                                      <div
+                                        className="absolute bottom-0 flex-col items-center hidden mb-6 group-hover:flex"
+                                        style={{
+                                          alignItems: 'start',
+                                          width: '300px',
+                                        }}
+                                      >
+                                        <span
+                                          className="rounded italian relative mr-3 z-100000 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg"
+                                          style={{
+                                            color: 'white',
+                                            background: '#213343',
+                                            maxWidth: '300px',
+                                          }}
+                                        >
                                           <span className="italic">
-                                            ₹{Math.round(
+                                            ₹
+                                            {Math.round(
                                               // (finData?.T_review || 0) +
                                               // (finData?.T_approved || 0) +
-                                              (finData?.T_received || 0)
+                                              finData?.T_received || 0
                                             ).toLocaleString('en-IN') || 0}
                                           </span>
                                         </span>
-                                        <div className="w-3 h-3 ml-1 -mt-2 rotate-45 bg-black" style={{ background: '#213343', marginRight: '12px' }}></div>
+                                        <div
+                                          className="w-3 h-3 ml-1 -mt-2 rotate-45 bg-black"
+                                          style={{
+                                            background: '#213343',
+                                            marginRight: '12px',
+                                          }}
+                                        ></div>
                                       </div>
                                       <span className="font-bold text-[14px] leading-[20px] tracking-[0px] text-right text-[#1A1A1A] font-manrope">
                                         {/* ₹{formatIndianNumber?.(
@@ -1365,12 +1408,12 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                   (finData?.T_paid || 0)
                 )
               ) || 0} */}
-                                        ₹ {Math.round(
+                                        ₹{' '}
+                                        {Math.round(
                                           // (finData?.T_review || 0) +
                                           // (finData?.T_approved || 0) +
-                                          (finData?.T_paid || 0)
+                                          finData?.T_received || 0
                                         ).toLocaleString('en-IN')}
-
                                       </span>
                                     </div>
                                   </section>
@@ -1383,19 +1426,46 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         Balance:
                                       </div>
                                     </div>
-                                    <div className="relative flex flex-col items-center group" style={{ alignItems: 'start' }}>
-                                      <div className="absolute bottom-0 flex-col items-center hidden mb-6 group-hover:flex" style={{ alignItems: 'start', width: '300px' }}>
-                                        <span className="rounded italian relative mr-3 z-100000 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg" style={{ color: 'white', background: '#213343', maxWidth: '300px' }}>
+                                    <div
+                                      className="relative flex flex-col items-center group"
+                                      style={{ alignItems: 'start' }}
+                                    >
+                                      <div
+                                        className="absolute bottom-0 flex-col items-center hidden mb-6 group-hover:flex"
+                                        style={{
+                                          alignItems: 'start',
+                                          width: '300px',
+                                        }}
+                                      >
+                                        <span
+                                          className="rounded italian relative mr-3 z-100000 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg"
+                                          style={{
+                                            color: 'white',
+                                            background: '#213343',
+                                            maxWidth: '300px',
+                                          }}
+                                        >
                                           <span className="italic">
-                                            ₹{finData?.T_balance?.toLocaleString('en-IN')}
+                                            ₹
+                                            {finData?.T_balance?.toLocaleString(
+                                              'en-IN'
+                                            )}
                                           </span>
                                         </span>
-                                        <div className="w-3 h-3 ml-1 -mt-2 rotate-45 bg-black" style={{ background: '#213343', marginRight: '12px' }}></div>
+                                        <div
+                                          className="w-3 h-3 ml-1 -mt-2 rotate-45 bg-black"
+                                          style={{
+                                            background: '#213343',
+                                            marginRight: '12px',
+                                          }}
+                                        ></div>
                                       </div>
                                       <span className="font-bold text-[14px] leading-[20px] tracking-[0px] text-right text-[#EE443F] font-manrope ">
                                         {/* ₹{formatIndianNumber?.(Math.round(finData?.T_balance || 0))} */}
-                                        ₹ {Math.round(finData?.T_balance || 0).toLocaleString('en-IN')}
-
+                                        ₹{' '}
+                                        {Math.round(
+                                          finData?.T_balance || 0
+                                        ).toLocaleString('en-IN')}
                                       </span>
                                     </div>
                                   </section>
@@ -1409,17 +1479,22 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                               <div className="flex flex-col   rounded-md  py-1 ">
                                 <div className="flex flex-row  px-1">
                                   {/* section 2 */}
-                                  {['booked', 'unpaid', 'paid', 'selCategory'].includes(selCategory) &&
-                                    <section className='flex gap-2'>
-
-
+                                  {[
+                                    'booked',
+                                    'unpaid',
+                                    'paid',
+                                    'selCategory',
+                                  ].includes(selCategory) && (
+                                    <section className="flex gap-2">
                                       <div
-                                        className={` cursor-pointer   h-[92px] w-[100px] border   rounded-xl ${finData?.man_cs_approval == 'approved'
-                                          ? 'bg-[#F0F0F0]'
-                                          : finData?.man_cs_approval == 'rejected'
+                                        className={` cursor-pointer   h-[92px] w-[100px] border   rounded-xl ${
+                                          finData?.man_cs_approval == 'approved'
+                                            ? 'bg-[#F0F0F0]'
+                                            : finData?.man_cs_approval ==
+                                              'rejected'
                                             ? 'bg-[#ffdbdb]'
                                             : 'bg-[#F0F0F0]'
-                                          }  p-3 mx-1 flex flex-col items-center justify-center`}
+                                        }  p-3 mx-1 flex flex-col items-center justify-center`}
                                         // style={{
                                         //   display: 'inline-block',
                                         //   alignSelf: 'flex-end',
@@ -1433,11 +1508,12 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         <div className="flex flex-col items-center justify-center">
                                           <div className="flex items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
                                             <ShoppingCartIcon
-                                              className={`h-4 w-4 text-[#1A1A1A] group-hover:text-indigo-600 hover:text-green-600 ${finData?.man_cs_approval ===
+                                              className={`h-4 w-4 text-[#1A1A1A] group-hover:text-indigo-600 hover:text-green-600 ${
+                                                finData?.man_cs_approval ===
                                                 'approved'
-                                                ? 'text-green-900'
-                                                : 'text-gray-600 '
-                                                }`}
+                                                  ? 'text-green-900'
+                                                  : 'text-gray-600 '
+                                              }`}
                                               aria-hidden="true"
                                             />
                                           </div>
@@ -1447,16 +1523,15 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         </div>
                                       </div>
 
-
                                       {/* section 3*/}
                                       <div
-                                        className={` cursor-pointer  h-[92px] w-[100px] border   rounded-xl ${finData?.kyc_status == 'approved'
-                                          ? 'bg-[#CCC5F7]'
-                                          : finData?.kyc_status == 'rejected'
+                                        className={` cursor-pointer  h-[92px] w-[100px] border   rounded-xl ${
+                                          finData?.kyc_status == 'approved'
+                                            ? 'bg-[#CCC5F7]'
+                                            : finData?.kyc_status == 'rejected'
                                             ? 'bg-[#ffdbdb]'
                                             : 'bg-[#F0F0F0]'
-                                          }  p-3 rounded-md mx-1 flex flex-col items-center justify-center`}
-
+                                        }  p-3 rounded-md mx-1 flex flex-col items-center justify-center`}
                                         onClick={() => {
                                           setSelUnitDetails(finData)
                                           setIsSubTopicOpen(true)
@@ -1466,13 +1541,15 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         <div className="flex flex-col items-center justify-center">
                                           <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                             <NewspaperIcon
-                                              className={`h-4 w-4 text-[#1A1A1A] group-hover:text-indigo-600 hover:text-green-600 ${finData?.kyc_status == 'approved'
-                                                ? 'bg-[#CCC5F7]'
-                                                : finData?.kyc_status ==
-                                                  'rejected'
+                                              className={`h-4 w-4 text-[#1A1A1A] group-hover:text-indigo-600 hover:text-green-600 ${
+                                                finData?.kyc_status ==
+                                                'approved'
+                                                  ? 'bg-[#CCC5F7]'
+                                                  : finData?.kyc_status ==
+                                                    'rejected'
                                                   ? 'bg-[#ffdbdb]'
                                                   : 'bg-[#F1F5F9] '
-                                                }`}
+                                              }`}
                                               aria-hidden="true"
                                             />
                                           </div>
@@ -1484,12 +1561,13 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
 
                                       {/* section 4*/}
                                       <div
-                                        className={` cursor-pointer  h-[92px] w-[100px] border   rounded-xl ${finData?.kyc_status == 'approved'
-                                          ? 'bg-[#CCC5F7]'
-                                          : finData?.kyc_status == 'rejected'
+                                        className={` cursor-pointer  h-[92px] w-[100px] border   rounded-xl ${
+                                          finData?.kyc_status == 'approved'
+                                            ? 'bg-[#CCC5F7]'
+                                            : finData?.kyc_status == 'rejected'
                                             ? 'bg-[#ffdbdb]'
                                             : 'bg-[#F0F0F0]'
-                                          }  p-3 rounded-md mx-1 flex flex-col items-center justify-center`}
+                                        }  p-3 rounded-md mx-1 flex flex-col items-center justify-center`}
                                         // style={{
                                         //   display: 'inline-block',
                                         //   alignSelf: 'flex-end',
@@ -1503,13 +1581,15 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         <div className="flex flex-col items-center justify-center">
                                           <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                             <NewspaperIcon
-                                              className={`h-4 w-4 text-[#1A1A1A] group-hover:text-indigo-600 hover:text-green-600 ${finData?.kyc_status == 'approved'
-                                                ? 'bg-[#CCC5F7]'
-                                                : finData?.kyc_status ==
-                                                  'rejected'
+                                              className={`h-4 w-4 text-[#1A1A1A] group-hover:text-indigo-600 hover:text-green-600 ${
+                                                finData?.kyc_status ==
+                                                'approved'
+                                                  ? 'bg-[#CCC5F7]'
+                                                  : finData?.kyc_status ==
+                                                    'rejected'
                                                   ? 'bg-[#ffdbdb]'
                                                   : 'bg-[#F1F5F9] '
-                                                }`}
+                                              }`}
                                               aria-hidden="true"
                                             />
                                           </div>
@@ -1519,18 +1599,21 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         </div>
                                       </div>
                                     </section>
-
-                                  }
-                                  {['agreement_pipeline'].includes(selCategory) &&
+                                  )}
+                                  {['agreement_pipeline'].includes(
+                                    selCategory
+                                  ) && (
                                     <section>
                                       <div
-                                        className={` cursor-pointer   h-[92px] w-[100px] border   rounded-xl ${finData?.man_ats_approval == 'approved'
-                                          ? 'bg-[#CCC5F7]'
-                                          : finData?.man_ats_approval == 'rejected'
+                                        className={` cursor-pointer   h-[92px] w-[100px] border   rounded-xl ${
+                                          finData?.man_ats_approval ==
+                                          'approved'
+                                            ? 'bg-[#CCC5F7]'
+                                            : finData?.man_ats_approval ==
+                                              'rejected'
                                             ? 'bg-[#ffdbdb]'
                                             : 'bg-[#F1F5F9] '
-                                          }  p-3 rounded-md mx-1`}
-
+                                        }  p-3 rounded-md mx-1`}
                                         onClick={() => {
                                           setSelUnitDetails(finData)
                                           setIsSubTopicOpen(true)
@@ -1540,14 +1623,15 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
                                           <div className="flex flex-none items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
                                             <ChartPieIcon
-                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.man_ats_approval ==
+                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
+                                                finData?.man_ats_approval ==
                                                 'approved'
-                                                ? 'bg-[#CCC5F7]'
-                                                : finData?.man_ats_approval ==
-                                                  'rejected'
+                                                  ? 'bg-[#CCC5F7]'
+                                                  : finData?.man_ats_approval ==
+                                                    'rejected'
                                                   ? 'bg-[#ffdbdb]'
                                                   : 'bg-[#F1F5F9] '
-                                                }`}
+                                              }`}
                                               aria-hidden="true"
                                             />
                                           </div>
@@ -1558,12 +1642,13 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                       </div>
                                       {/* section 3*/}
                                       <div
-                                        className={` cursor-pointer  h-[92px] w-[100px] border   rounded-xl ${finData?.kyc_status == 'approved'
-                                          ? 'bg-[#CCC5F7]'
-                                          : finData?.kyc_status == 'rejected'
+                                        className={` cursor-pointer  h-[92px] w-[100px] border   rounded-xl ${
+                                          finData?.kyc_status == 'approved'
+                                            ? 'bg-[#CCC5F7]'
+                                            : finData?.kyc_status == 'rejected'
                                             ? 'bg-[#ffdbdb]'
                                             : 'bg-[#F1F5F9] '
-                                          }  p-3 rounded-md mx-1`}
+                                        }  p-3 rounded-md mx-1`}
                                         style={{
                                           display: 'inline-block',
                                           alignSelf: 'flex-end',
@@ -1577,13 +1662,15 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
                                           <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                             <NewspaperIcon
-                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.kyc_status == 'approved'
-                                                ? 'bg-[#CCC5F7]'
-                                                : finData?.kyc_status ==
-                                                  'rejected'
+                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
+                                                finData?.kyc_status ==
+                                                'approved'
+                                                  ? 'bg-[#CCC5F7]'
+                                                  : finData?.kyc_status ==
+                                                    'rejected'
                                                   ? 'bg-[#ffdbdb]'
                                                   : 'bg-[#F1F5F9] '
-                                                }`}
+                                              }`}
                                               aria-hidden="true"
                                             />
                                           </div>
@@ -1592,16 +1679,20 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                           </h6>
                                         </div>
                                       </div>
-                                    </section>}
-                                  {['agreement'].includes(selCategory) &&
+                                    </section>
+                                  )}
+                                  {['agreement'].includes(selCategory) && (
                                     <section>
                                       <div
-                                        className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${finData?.both_sd_approval == 'approved'
-                                          ? 'bg-[#CCC5F7]'
-                                          : finData?.both_sd_approval == 'rejected'
+                                        className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
+                                          finData?.both_sd_approval ==
+                                          'approved'
+                                            ? 'bg-[#CCC5F7]'
+                                            : finData?.both_sd_approval ==
+                                              'rejected'
                                             ? 'bg-[#ffdbdb]'
                                             : 'bg-[#F1F5F9] '
-                                          }  p-3 rounded-md mx-1`}
+                                        }  p-3 rounded-md mx-1`}
                                         style={{
                                           display: 'inline-block',
                                           alignSelf: 'flex-end',
@@ -1615,11 +1706,12 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
                                           <div className="flex flex-none items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
                                             <ChartPieIcon
-                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.both_sd_approval ===
+                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
+                                                finData?.both_sd_approval ===
                                                 'approved'
-                                                ? 'text-green-900'
-                                                : 'text-gray-600 '
-                                                }`}
+                                                  ? 'text-green-900'
+                                                  : 'text-gray-600 '
+                                              }`}
                                               aria-hidden="true"
                                             />
                                           </div>
@@ -1630,12 +1722,13 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                       </div>
                                       {/* section 3*/}
                                       <div
-                                        className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${finData?.kyc_status == 'approved'
-                                          ? 'bg-[#CCC5F7]'
-                                          : finData?.kyc_status == 'rejected'
+                                        className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
+                                          finData?.kyc_status == 'approved'
+                                            ? 'bg-[#CCC5F7]'
+                                            : finData?.kyc_status == 'rejected'
                                             ? 'bg-[#ffdbdb]'
                                             : 'bg-[#F1F5F9] '
-                                          }  p-3 rounded-md mx-1`}
+                                        }  p-3 rounded-md mx-1`}
                                         style={{
                                           display: 'inline-block',
                                           alignSelf: 'flex-end',
@@ -1649,13 +1742,15 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
                                           <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                             <NewspaperIcon
-                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.kyc_status == 'approved'
-                                                ? 'bg-[#CCC5F7]'
-                                                : finData?.kyc_status ==
-                                                  'rejected'
+                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
+                                                finData?.kyc_status ==
+                                                'approved'
+                                                  ? 'bg-[#CCC5F7]'
+                                                  : finData?.kyc_status ==
+                                                    'rejected'
                                                   ? 'bg-[#ffdbdb]'
                                                   : 'bg-[#F1F5F9] '
-                                                }`}
+                                              }`}
                                               aria-hidden="true"
                                             />
                                           </div>
@@ -1664,16 +1759,22 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                           </h6>
                                         </div>
                                       </div>
-                                    </section>}
-                                  {['registered', 'possession'].includes(selCategory) &&
+                                    </section>
+                                  )}
+                                  {['registered', 'possession'].includes(
+                                    selCategory
+                                  ) && (
                                     <section>
                                       <div
-                                        className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${finData?.both_sd_approval == 'approved'
-                                          ? 'bg-[#CCC5F7]'
-                                          : finData?.both_sd_approval == 'rejected'
+                                        className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
+                                          finData?.both_sd_approval ==
+                                          'approved'
+                                            ? 'bg-[#CCC5F7]'
+                                            : finData?.both_sd_approval ==
+                                              'rejected'
                                             ? 'bg-[#ffdbdb]'
                                             : 'bg-[#F1F5F9] '
-                                          }  p-3 rounded-md mx-1`}
+                                        }  p-3 rounded-md mx-1`}
                                         style={{
                                           display: 'inline-block',
                                           alignSelf: 'flex-end',
@@ -1687,11 +1788,12 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
                                           <div className="flex flex-none items-center justify-center rounded-lg bg-green-50 group-hover:bg-white">
                                             <ChartPieIcon
-                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.both_sd_approval ===
+                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
+                                                finData?.both_sd_approval ===
                                                 'approved'
-                                                ? 'text-green-900'
-                                                : 'text-gray-600 '
-                                                }`}
+                                                  ? 'text-green-900'
+                                                  : 'text-gray-600 '
+                                              }`}
                                               aria-hidden="true"
                                             />
                                           </div>
@@ -1702,12 +1804,13 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                       </div>
                                       {/* section 3*/}
                                       <div
-                                        className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${finData?.kyc_status == 'approved'
-                                          ? 'bg-[#CCC5F7]'
-                                          : finData?.kyc_status == 'rejected'
+                                        className={` cursor-pointer  h-[73px] w-[75px] border   rounded-xl ${
+                                          finData?.kyc_status == 'approved'
+                                            ? 'bg-[#CCC5F7]'
+                                            : finData?.kyc_status == 'rejected'
                                             ? 'bg-[#ffdbdb]'
                                             : 'bg-[#F1F5F9] '
-                                          }  p-3 rounded-md mx-1`}
+                                        }  p-3 rounded-md mx-1`}
                                         style={{
                                           display: 'inline-block',
                                           alignSelf: 'flex-end',
@@ -1721,13 +1824,15 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                         <div className="flex flex-col items-center justify-center mr-1  mb-1 mt-[5px]">
                                           <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
                                             <NewspaperIcon
-                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${finData?.kyc_status == 'approved'
-                                                ? 'bg-[#CCC5F7]'
-                                                : finData?.kyc_status ==
-                                                  'rejected'
+                                              className={`h-4 w-4 text-gray-600 group-hover:text-indigo-600 hover:text-green-600 ${
+                                                finData?.kyc_status ==
+                                                'approved'
+                                                  ? 'bg-[#CCC5F7]'
+                                                  : finData?.kyc_status ==
+                                                    'rejected'
                                                   ? 'bg-[#ffdbdb]'
                                                   : 'bg-[#F1F5F9] '
-                                                }`}
+                                              }`}
                                               aria-hidden="true"
                                             />
                                           </div>
@@ -1736,7 +1841,8 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                           </h6>
                                         </div>
                                       </div>
-                                    </section>}
+                                    </section>
+                                  )}
                                   {/* section 4*/}
                                 </div>
                               </div>
@@ -1745,11 +1851,6 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                         </section>
                       )
                     })}
-
-
-
-
-
 
                   {selCategory === 'unAssigned_crm' &&
                     crmCustomersDBData.map((finData, t) => {

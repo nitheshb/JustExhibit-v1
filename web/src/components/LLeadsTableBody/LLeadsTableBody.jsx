@@ -3,6 +3,7 @@
 import * as React from 'react'
 
 import '../../styles/myStyles.css'
+import DeleteIcon from '@mui/icons-material/Delete'
 import {
   Rating,
 } from '@mui/material'
@@ -10,13 +11,7 @@ import Section from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
-import PropTypes from 'prop-types'
-import { useAuth } from 'src/context/firebase-auth-context'
-import {
-  getDifferenceInDays,
-  getDifferenceInHours,
-  getDifferenceInMinutes,
-} from 'src/util/dateConverter'
+
 import 'react-datepicker/dist/react-datepicker.css'
 import TableCell from '@mui/material/TableCell'
 import TableContainer from '@mui/material/TableContainer'
@@ -24,9 +19,16 @@ import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import TableSortLabel from '@mui/material/TableSortLabel'
 import Tooltip from '@mui/material/Tooltip'
-import DeleteIcon from '@mui/icons-material/Delete'
 import { visuallyHidden } from '@mui/utils'
+import PropTypes from 'prop-types'
 import Highlighter from 'react-highlight-words'
+
+import { useAuth } from 'src/context/firebase-auth-context'
+import {
+  getDifferenceInDays,
+  getDifferenceInHours,
+  getDifferenceInMinutes,
+} from 'src/util/dateConverter'
 
 import CSVDownloader from '../../util/csvDownload'
 import { prettyDate } from '../../util/dateConverter'
@@ -231,7 +233,7 @@ function EnhancedTableHead(props) {
             maxWidth: '5px',
             minWidth: '5px',
             paddingLeft: '34px',
-            paddingRight: '29px',
+            paddingRight: '45px', // increased from 29px to 40px for more gap
             marginRight: '10px',
           }}
         >
@@ -255,8 +257,15 @@ function EnhancedTableHead(props) {
     },
   }}
   className="font-inter font-medium text-[12px] leading-[18px] tracking-[0] text-black"
-          
-          >S.No</TableSortLabel>
+
+          >
+            <span
+              className="font-inter font-medium text-[14px] leading-[18px] text-black"
+              style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500, fontSize: '14px', lineHeight: '18px', color: '#000000' }}
+            >
+              S.No
+            </span>
+          </TableSortLabel>
         </TableCell>
         {headCells.map((headCell) => (
           <>
@@ -284,7 +293,7 @@ function EnhancedTableHead(props) {
                   fontFamily: 'inherit',
                 }}
               >
-                <span className="font-inter font-medium text-[12px] leading-[18px] tracking-[0] text-black whitespace-nowrap">
+                <span className="font-inter font-medium text-[12px] leading-[18px] text-black" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500, fontSize: '14px', lineHeight: '18px', color: '#000000' }}>
                   {headCell.label}
                 </span>
                 {orderBy === headCell.id ? (
@@ -418,9 +427,9 @@ React.useEffect(()=>{
     // setRows(rowsR)
   }
   return (
-    <section className="flex flex-row justify-between  rounded p-4">
-      <span className="w-full flex items-center ">
-        <span className="flex w-[298px] h-[44px] gap-[6px] rounded-lg border-[1.5px] border-[#E5E7EA] px-3 items-center">
+    <section>
+      {/* <span className="w-full flex items-center "> */}
+        {/* <span className="flex w-[298px] h-[44px] gap-[6px] rounded-lg border-[1.5px] border-[#E5E7EA] px-3 items-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-3 w-3 absolute left-0 ml-1 mt-2"
@@ -442,7 +451,7 @@ React.useEffect(()=>{
             value={searchKey}
             className="w-4/5 bg-transparent focus:border-transparent focus:ring-0 focus:outline-none text-sm leading-7 text-gray-900 placeholder:font-Manrope placeholder:font-medium placeholder:text-[12px] placeholder:leading-none placeholder:tracking-[0] placeholder:text-[#AEAEAE]"
           />
-        </span>
+        </span> */}
         {/* <span className="max-h-[42px] mt-[2px] ml-3">
 
           <label className="bg-green   pl-   flex flex-row cursor-pointer">
@@ -464,7 +473,7 @@ React.useEffect(()=>{
             </span>
           </label>
         </span> */}
-      </span>
+      {/* </span> */}
 
       {/* <span className="inline mt-[4px] pl-2">
                     <DatePicker
@@ -503,8 +512,8 @@ React.useEffect(()=>{
           </span>
         </Typography>
       )} */}
-      <span style={{ display: 'flex' }}>
-        <section className="pt-1">
+      {/* <span style={{ display: 'flex' }}> */}
+        {/* <section className="pt-1">
           <DropCompUnitStatus
             type={'show'}
             id={'id'}
@@ -512,7 +521,7 @@ React.useEffect(()=>{
             viewUnitStatusA={viewUnitStatusA}
             pickCustomViewer={pickCustomViewer}
           />
-        </section>
+        </section> */}
         {/* <Tooltip title={`Download ${rowsAfterSearchKey.length} Rows`}>
 
           <IconButton className="bg-gray-200 ">
@@ -523,7 +532,7 @@ React.useEffect(()=>{
           </IconButton>
         </Tooltip> */}
 
-        {numSelected > 0 ? (
+        {/* {numSelected > 0 ? (
           <Tooltip title="Delete">
             <IconButton className="bg-gray-200">
               <DeleteIcon
@@ -534,11 +543,6 @@ React.useEffect(()=>{
           </Tooltip>
         ) : (
           <Tooltip title={`Download ${leadsFetchedData?.length} Row`}>
-            {/* <IconButton>
-            <FileDownloadIcon />
-            <CSVDownloader />
-          </IconButton> */}
-
             <CSVDownloader
               className="mr-6 h-[20px] w-[20px]"
               downloadRows={leadsFetchedData}
@@ -546,8 +550,8 @@ React.useEffect(()=>{
               style={{ height: '20px', width: '20px' }}
             />
           </Tooltip>
-        )}
-      </span>
+        )} */}
+      {/* </span> */}
     </section>
   )
 }
@@ -573,6 +577,70 @@ const HighlighterStyle = (props) => {
     />
   )
 }
+
+function stringToColor(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  let color = '#';
+  for (let i = 0; i < 3; i++) {
+    const value = (hash >> (i * 8)) & 0xff;
+    color += ('00' + value.toString(16)).substr(-2);
+  }
+  return color;
+}
+
+const sourceIconMap = {
+  facebookad: '/facebookad.svg',
+  googleadwords: '/googleadwords.svg',
+  hoardings: '/hoardings.svg',
+  housingcom: '/housingcom.svg',
+  instagramad: '/instagramad.svg',
+  stallreference: '/stallreference.svg',
+  directcontact: '/directcontact.svg',
+  events: '/events.svg',
+  landingpage: '/landingpage.svg',
+  LiveChat: '/LiveChat.svg',
+  mygate: '/mygate.svg',
+  newspaper: '/newspaper.svg',
+  repp: '/repp.svg',
+  referral: '/referral.svg',
+  sms: '/sms.svg',
+  walkin: '/walkin.svg',
+  website: '/website.svg',
+  others: '/others.svg',
+};
+function getSourceIcon(source) {
+  if (!source) return sourceIconMap.others;
+  const key = Object.keys(sourceIconMap).find((k) => source.toLowerCase().includes(k));
+  return key ? sourceIconMap[key] : sourceIconMap.others;
+}
+
+// Helper function to get badge class based on status
+function getStatusBadgeClass(status) {
+  switch ((status || "").toLowerCase()) {
+    case "new":
+      return "bg-blue-100 text-blue-800";
+    case "interested":
+      return "bg-teal-100 text-teal-800";
+    case "waving":
+      return "bg-violet-100 text-violet-800";
+    case "attended":
+      return "bg-emerald-100 text-emerald-800";
+    case "old customer":
+      return "bg-slate-200 text-slate-800";
+    case "rejected":
+      return "bg-rose-100 text-rose-800";
+    case "in progress":
+      return "bg-amber-100 text-amber-800";
+    case "closed":
+      return "bg-green-100 text-green-800";
+    default:
+      return "bg-gray-200 text-gray-800";
+  }
+}
+
 export default function LLeadsTableBody({
   fetchLeadsLoader,
   selStatus,
@@ -767,7 +835,7 @@ export default function LLeadsTableBody({
   }
 
   return (
-    <Section 
+    <Section
       sx={{ width: '100%', mx: 'auto' }}
   style={{ border: 'none', borderRadius: 0 }}
     >
@@ -863,7 +931,9 @@ export default function LLeadsTableBody({
                           padding="none"
                           size="small"
                         >
-                          {index + 1}
+                          <span className="font-inter font-normal text-[14px] leading-[20px] text-[#667085]" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: '#667085' }}>
+                            {index + 1}
+                          </span>
                         </TableCell>
 
                         <TableCell
@@ -873,7 +943,7 @@ export default function LLeadsTableBody({
                           padding="none"
                         >
                           <section>
-                            <span className="font-bodyLato">
+                          <span className="font-inter font-normal text-[14px] leading-[20px] text-[#667085]" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: '#667085' }}>
                               {prettyDate(row.Date).toLocaleString()}
                             </span>
 
@@ -901,134 +971,33 @@ export default function LLeadsTableBody({
 
 
                         <TableCell align="left">
-                          <section>
-                            <div>
-                              <div
-                                className="relative flex flex-col  group"
-                              // style={{ alignItems: 'end' }}
-                              >
-                                <div
-                                  className="absolute bottom-0 flex-col items-center hidden mb-6 group-hover:flex"
-                                  // style={{  width: '300px' }}
-                                  style={{ 'zIndex': '9' }}
-                                >
-                                  <span
-                                    className="rounded italian relative mr-2 z-100000 p-2 text-xs leading-none text-white whitespace-no-wrap bg-black shadow-lg"
-                                    style={{
-                                      color: 'black',
-                                      background: '#e2c062',
-                                      maxWidth: '300px',
-                                    }}
-                                  >
-                                    <div className="italic flex flex-col">
-                                      <div className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
-                                        <HighlighterStyle
-                                          searchKey={searchKey}
-                                          source={row.Name.toString()}
-                                        />
-                                      </div>
-                                      <div className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
-                                        <HighlighterStyle
-                                          searchKey={searchKey}
-                                          source={row.Email.toString()}
-                                        />
-                                      </div>
-                                      <div>
-
-
-
-                                      <span className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
-    <HighlighterStyle
-      searchKey={searchKey}
-      source={row?.countryCode}
-    />
-  </span>
-  {' '}
-
-                                      <span className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
-                                          <HighlighterStyle
-                                            searchKey={searchKey}
-                                            source={row?.Mobile?.toString()?.replace(
-                                              /(\d{3})(\d{3})(\d{4})/,
-                                              '$1-$2-$3'
-                                            )}
-                                          />
-                                        </span>
-                                        <span className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
-                                          <HighlighterStyle
-                                            searchKey={searchKey}
-                                            source={row?.assignedToObj?.label}
-                                          />
-                                        </span>
-
-
-
-
-                                      </div>
-                                    </div>
-                                  </span>
-                                  <div
-                                    className="w-3 h-3  -mt-2 rotate-45 bg-black"
-                                    style={{
-                                      background: '#e2c062',
-                                      marginRight: '12px',
-                                    }}
-                                  ></div>
-                                </div>
-                                <span className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
-                                  <HighlighterStyle
-                                    searchKey={searchKey}
-                                    source={row.Name.toString()}
-                                  />
-                                </span>
-                              </div>
+                          <section className="flex items-center">
+                            {/* Dynamic avatar with initials and color */}
+                            <div
+                              className="w-10 h-10 rounded-full flex items-center justify-center mr-3 text-white font-bold text-lg uppercase"
+                              style={{ backgroundColor: stringToColor(row.Name || 'VN') }}
+                            >
+                              {(row.Name || 'VN').substring(0, 2)}
                             </div>
-                            {viewUnitStatusA.includes('Email Id') && (
-                              <div>
-                                <span className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
-                                  <HighlighterStyle
-                                    searchKey={searchKey}
-                                    source={row.Email.toString()}
-                                  />
-                                </span>
-                              </div>
-                            )}
-                            {viewUnitStatusA.includes('Phone No') && (
-                              <div>
-
-
-                              <span className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
-    <HighlighterStyle
-      searchKey={searchKey}
-      source={row?.countryCode}
-    />
-  </span>
-
-  {' '}
-                                <span className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
-                                  <HighlighterStyle
-                                    searchKey={searchKey}
-                                    source={row?.Mobile?.toString()?.replace(
-                                      /(\d{3})(\d{3})(\d{4})/,
-                                      '$1-$2-$3'
-                                    )}
-                                  />
-                                </span>
-
-
-
-                              </div>
-                            )}
-                            {   <span className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
-                                  <HighlighterStyle
-                                    searchKey={searchKey}
-                                    source={row?.assignedToObj?.label}
-                                  />
-                                </span>}
+                            <div className="flex flex-col">
+                              <span className="font-inter font-medium text-[14px] leading-[20px] text-[#101828]" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 500, fontSize: '14px', lineHeight: '20px', color: '#101828' }}>
+                                <HighlighterStyle searchKey={searchKey} source={row.Name.toString()} />
+                              </span>
+                              <span className="font-inter font-normal text-[14px] leading-[20px] text-[#667085]" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: '#667085' }}>
+                                {row.Mobile}
+                              </span>
+                              <span className="font-inter font-normal text-[14px] leading-[20px] text-[#667085]" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: '#667085' }}>
+                                {row.Email}
+                              </span>
+                            </div>
                           </section>
                         </TableCell>
 
-                        <TableCell align="left">{row.Event}</TableCell>
+                        <TableCell align="left">
+                          <span className="font-inter font-normal text-[14px] leading-[20px] text-[#667085]" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: '#667085' }}>
+                            {row.Event}
+                          </span>
+                        </TableCell>
                         {/* display:
                   viewUnitStatusA.includes('Assigned To') &&
                   headCell.id === 'Assigned'
@@ -1040,30 +1009,38 @@ export default function LLeadsTableBody({
                         searchKey={searchKey}
                         source={row.Assignedto}
                       /> */}
-                            <span className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
+                                                     <span className="font-inter font-normal text-[14px] leading-[20px] text-[#667085]" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: '#667085' }}>
+
                               {row?.assignedToObj?.label}
                             </span>
                           </TableCell>
                         )}
 
-                        <TableCell align="center">
-                          <section className="flex flex-col">
-                            <span className="px-2 font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]  ">
+                        <TableCell align="left" style={{ paddingLeft: 0 }}>
+                          <section className="flex flex-row items-center">
+                            <img
+                              src={getSourceIcon(row?.Source)}
+                              alt="source icon"
+                              className="w-6 h-6 mr-2"
+                              style={{ minWidth: 24 }}
+                            />
+                            <span className="font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085] text-left" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: '#667085', textAlign: 'left', paddingLeft: 0 }}>
                               {row?.Source?.toString() || 'NA'}
                             </span>
-                            {/* <Rating name="size-small half-rating-read" defaultValue={2.5} size="small" precision={0.5} readOnly /> */}
-
                           </section>
                         </TableCell>
 
                         <TableCell align="left">
 
 
-                          <span className="px-2 font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
-                            <HighlighterStyle
-                              searchKey={searchKey}
-                              source={row?.assignedToObj?.label?.toString()}
-                            />
+                        <span className="font-inter font-normal text-[14px] leading-[20px] text-[#667085]" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: '#667085' }}>
+
+                            <span
+                              className={`px-3 py-1 rounded-full font-medium text-xs ${getStatusBadgeClass(row.Status)}`}
+                              style={{ display: 'inline-block', minWidth: '70px', textAlign: 'center' }}
+                            >
+                              {row.Status}
+                            </span>
                           </span>
                         </TableCell>
                         {viewUnitStatusA.includes('Registerd By') && (
@@ -1077,7 +1054,8 @@ export default function LLeadsTableBody({
                               {/* <span className="font-bodyLato">
                           {prettyDate(row?.stsUpT || row.Date).toLocaleString()}
                         </span> */}
-                        <span className="px-2 font-inter font-normal text-[14px] leading-[20px] tracking-[0] text-[#667085]">
+                                                  <span className="font-inter font-normal text-[14px] leading-[20px] text-[#667085]" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: '#667085' }}>
+
                             <HighlighterStyle
                               searchKey={searchKey}
                               source={row?.by}
@@ -1085,70 +1063,36 @@ export default function LLeadsTableBody({
                           </span>
                             </>
                           </TableCell>)}
-                        {viewUnitStatusA.includes('Next Sch') && <TableCell
-                          component="th"
-                          id={labelId}
-                          scope="row"
-                          padding="none"
-                        >
-                          <>
-                            {/* <span className="font-bodyLato">
-                          {prettyDate(row?.stsUpT || row.Date).toLocaleString()}
-                        </span> */}
-                            <span className="px- py-[1px]  min-w-[100px] inline-flex text-xs leading-5 tracking-wide  rounded-full  text-green-800">
-                              {Math.abs(
-                                getDifferenceInMinutes(
-                                  (row?.schTime),
-                                  ''
-                                )
-                              ) > 60
-                                ? Math.abs(
-                                  getDifferenceInMinutes(
-                                    (row?.schTime),
-                                    ''
-                                  )
-                                ) > 1440
-                                  ? `${Math.abs(getDifferenceInDays(
-                                    (row?.schTime),
-                                    ''
-                                  ))} Days `
-                                  : `${Math.abs(getDifferenceInHours(
-                                    (row?.schTime),
-                                    ''
-                                  ))} Hours `
-                                : `${Math.abs(getDifferenceInMinutes(
-                                  (row?.schTime),
-                                  ''
-                                ))} Min`}{' '}
-                              {getDifferenceInMinutes(
-                                (row?.schTime),
-                                ''
-                              ) < 0
-                                ? 'ago'
-                                : 'Left'}
-                            </span>
-                          </>
-                        </TableCell>
-                        }
-                        <TableCell
-                          align="left"
-                          style={{ maxWidth: '100px', maxHeight: '100px', textOverflow: 'ellipsis' }}
-                        >
-                          {' '}
-                          <span className="font-bodyLato" style={{ maxWidth: '100px', maxHeight: '100px', textOverflow: 'ellipsis' }}>{row.Note}</span>
+                        {viewUnitStatusA.includes('Next Sch') && (
+                          <TableCell
+                            component="th"
+                            id={labelId}
+                            scope="row"
+                            padding="none"
+                          >
+                            <>
+                              {/* <span className="font-bodyLato">
+                                {prettyDate(row?.stsUpT || row.Date).toLocaleString()}
+                              </span> */}
+                              <span className="px- py-[1px]  min-w-[100px] inline-flex text-xs leading-5 tracking-wide  rounded-full  text-green-800">
+                                {Math.abs(getDifferenceInMinutes(row?.schTime, '')) > 60
+                                  ? Math.abs(getDifferenceInMinutes(row?.schTime, '')) > 1440
+                                    ? `${Math.abs(getDifferenceInDays(row?.schTime, ''))} Days `
+                                    : `${Math.abs(getDifferenceInHours(row?.schTime, ''))} Hours `
+                                  : `${Math.abs(getDifferenceInMinutes(row?.schTime, ''))} Min `}
+                                {getDifferenceInMinutes(row?.schTime, '') < 0 ? 'ago' : 'Left'}
+                              </span>
+                            </>
+                          </TableCell>
+                        )}
+                        <TableCell align="left">
+                          <span className="font-inter font-normal text-[14px] leading-[20px] text-[#667085] text-left" style={{ fontFamily: 'Inter, sans-serif', fontWeight: 400, fontSize: '14px', lineHeight: '20px', color: '#667085', textAlign: 'left' }}>
+                            {row.Note || row.Notes || row.Remarks || ''}
+                          </span>
                         </TableCell>
                       </TableRow>
                     )
                   })}
-              {emptyRows > 0 && (
-                <TableRow
-                  style={{
-                    height: (dense ? 33 : 53) * emptyRows,
-                  }}
-                >
-                  <TableCell colSpan={6} />
-                </TableRow>
-              )}
             </TableBody>
           </Table>
         </TableContainer>

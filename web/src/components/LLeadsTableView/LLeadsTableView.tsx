@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
+
 import { Box as Section, Card, Grid } from '@mui/material'
-import { useTranslation } from 'react-i18next' 
+import { useTranslation } from 'react-i18next'
+
 import LLeadsTableBody from '../LLeadsTableBody/LLeadsTableBody'
 import LogSkelton from '../shimmerLoaders/logSkelton'
 
@@ -350,6 +352,7 @@ const LLeadsTableView = ({
     }
   }, [value, leadsFetchedData])
   useEffect(() => {}, [leadsFetchedData])
+  const labelRefs = useRef([])
   return (
     <Section pb={4} pt={2}>
       <Card
@@ -359,15 +362,16 @@ const LLeadsTableView = ({
       >
         <Grid container>
           <Grid item xs={12}>
-            <div className="mb-1 border-b-[2px] border-[#e7eaee] ">
+            <div className="mb-4 border-b-[1px] border-[#D8D8D8] ">
               {/* bg-[#fdb7b7] */}
               <ul
-                className="flex flex-wrap -mb-px "
+                className="flex flex-wrap -mb-px pb-2"
                 id="myTab"
                 data-tabs-toggle="#myTabContent"
                 role="tablist"
               >
                 {tabHeadFieldsA.map((d, i) => {
+                  const isActive = value === d.val
                   return (
                     <ul
                       value={value}
@@ -377,12 +381,12 @@ const LLeadsTableView = ({
                       aria-label="secondary tabs example"
                       key={i}
                     >
-                      <li key={i} className="mr-2" role="presentation">
+                      <li key={i} className="mr-10" role="presentation">
                         <button
-                          className={`inline-block pb-1 px-2 pl-3  text-sm font-medium text-center text-gray-700 rounded-t-lg border-b-2   hover:text-gray-600 hover:border-black hover:border-b-2 dark:text-gray-400 dark:hover:text-gray-300  ${
-                            value === d.val
-                              ? 'border-black text-gray-900 '
-                              : 'border-transparent'
+                          className={`relative inline-block pb-3 px-2 pl-3 text-center rounded-t-lg font-body font-${
+                            isActive ? 'bold' : 'medium'
+                          } text-[14px] leading-[100%] ${
+                            isActive ? 'z-10 bg-white' : ''
                           }`}
                           type="button"
                           role="tab"
@@ -394,34 +398,34 @@ const LLeadsTableView = ({
                           }}
                         >
                           <span
-                            className={`font-PlayFair text-zinc-900 ${
-                              value === d.val
-                                ? 'text-[#0080ff] text-zinc-800 font-semibold'
-                                : ''
-                            }`}
+                            ref={(el) => (labelRefs.current[i] = el)}
+                            className={`font-body ${
+                              isActive
+                                ? 'font-bold'
+                                : 'font-medium text-[#48484B]'
+                            } text-[14px] leading-[100%] text-center align-middle`}
                           >
-                            {' '}
                             {`${d.lab} `}
                             <span
-                              className={`  text-zinc-900  text-[9px] px-[4px] py-[3px] rounded-md ml-[4px]  ${
-                                activeNeg === true
-                                  ? 'bg-gray-950  font-semibold '
-                                  : 'bg-gray-100 font-normal '
-                              } `}
+                              className={`ml-1 font-inter font-semibold text-[12px] leading-[18px] text-center align-middle rounded-full px-2 py-0.5 ${
+                                isActive
+                                  ? 'text-[#F44D21] bg-[#FEEDE9]'
+                                  : 'text-[#666666] bg-[#F0F0F0]'
+                              }`}
                             >
                               {rowsCounter(leadsFetchedData, d.val).length}
                             </span>
                           </span>
-
-                          {/* // <span className="bg-gray-100 text-black px-2 py-1 rounded-md ml-[4px]  ">
-                        //   {rowsCounter(leadsFetchedData, d.val).length}
-                        // </span> */}
-                          {/*
-                        <div className="px-2 mt-1 text-[9px] text-black  rounded-full">
-                          <span className="bg-gray-100 px-2 py-1 rounded-full">
-                            {rowsCounter(leadsFetchedData, d.val).length}
-                          </span>
-                        </div> */}
+                          {isActive && (
+                            <span
+                              className="absolute left-0 bottom-[-8px] h-[2px] bg-[#1A1A1A] rounded-full"
+                              style={{
+                                width: labelRefs.current[i]
+                                  ? labelRefs.current[i].offsetWidth
+                                  : '100%',
+                              }}
+                            ></span>
+                          )}
                         </button>
                       </li>
                     </ul>

@@ -2,11 +2,15 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 // import { Link, routes } from '@redwoodjs/router'
 import { useState, useEffect } from 'react'
+import React, { useRef } from 'react'
+
 import CalendarMonthTwoToneIcon from '@mui/icons-material/CalendarMonthTwoTone'
-import { RootStateOrAny, useSelector } from 'react-redux'
 import { useSnackbar } from 'notistack'
+import { RootStateOrAny, useSelector } from 'react-redux'
 import { v4 as uuidv4 } from 'uuid'
+
 import { MetaTags } from '@redwoodjs/web'
+
 import LLeadsTableView from 'src/components/LLeadsTableView/LLeadsTableView'
 import { USER_ROLES } from 'src/constants/userRoles'
 import {
@@ -20,9 +24,10 @@ import {
   steamUsersListByRole,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
-import { VerySlimSelectBox } from 'src/util/formFields/slimSelectBoxField'
-import SiderForm from './SiderForm/SiderForm'
 import CustomDatePicker from 'src/util/formFields/CustomDatePicker'
+import { VerySlimSelectBox } from 'src/util/formFields/slimSelectBoxField'
+
+import SiderForm from './SiderForm/SiderForm'
 
 // function createGuidId() {
 //   return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
@@ -115,9 +120,9 @@ const ExecutiveHomeViewerPage = ({ leadsTyper, isClicked, setIsClicked }) => {
     }
   }, [selLeadsOf])
 
-useEffect(() => {
-  getAdminAllLeads()
-}, [])
+  useEffect(() => {
+    getAdminAllLeads()
+  }, [])
 
   useEffect(() => {
     const unsubscribe = steamUsersListByRole(
@@ -238,15 +243,14 @@ useEffect(() => {
           //   y.coveredA = { a: data.coveredA }
           //   addLeadSupabase(data)
           // })
-          console.log('my valus are ', usersListA )
-        console.log('user list is ', usersListA)
+          console.log('my valus are ', usersListA)
+          console.log('user list is ', usersListA)
 
           await setLeadsFetchedRawData(usersListA)
           await serealizeData(usersListA)
         },
         {
-          status:
-          [
+          status: [
             'new',
             'followup',
             'unassigned',
@@ -255,7 +259,7 @@ useEffect(() => {
             // 'visitdone',
             // 'visitcancel',
             'negotiation',
-            'booked'
+            'booked',
             // 'reassign',
             // 'RNR',
           ],
@@ -285,7 +289,7 @@ useEffect(() => {
       },
       {
         status:
-        'inProgress' === 'inProgress'
+          'inProgress' === 'inProgress'
             ? [
                 'new',
                 'followup',
@@ -454,7 +458,6 @@ useEffect(() => {
       )
     }
   }
-
 
   const getUnassignedLeads = (otherData) => {
     const unsubscribe1 = getLeadsByUnassigned(
@@ -677,13 +680,22 @@ useEffect(() => {
       <div className="">
         <div className="">
           <div className="">
-            <div className="flex items-center flex-row flex-wrap justify-between my-5 mx-4">
-              <h2 className="font-manrope font-bold text-[24px] leading-none tracking-[0] text-[#1A1A1A]">
-                Visitors Management
-              </h2>
-
-              <div className="flex">
-                <div className=" flex flex-col mr-5  w-40">
+            <div className="flex flex-row flex-wrap justify-between items-start my-5 mx-4">
+              <div className="flex flex-col items-start">
+                <h2 className="font-inter font-medium text-[18px] leading-[28px] text-[#101828] flex items-center gap-2">
+                  Visitors Management
+                  <span className="ml-2 bg-[#FEEDE9] rounded-full px-1.5 py-0.5 flex items-center">
+                    <span className="px-2 py-0.5 rounded-full font-inter font-medium text-[12px] leading-[18px] text-[#F44D21]">
+                      {leadsFetchedData.length} vendors
+                    </span>
+                  </span>
+                </h2>
+                <div className="font-inter font-normal text-[14px] leading-[20px] text-[#667085] mt-1">
+                  Keep track of Visitors and their Entry.
+                </div>
+              </div>
+              <div className="flex items-center">
+                {/* <div className=" flex flex-col mr-5  w-40">
                   <VerySlimSelectBox
                     name="project"
                     label=""
@@ -700,7 +712,7 @@ useEffect(() => {
                       ...projectList,
                     ]}
                   />
-                </div>
+                </div> */}
                 {access?.includes('manage_leads') && (
                   <div className=" flex flex-col   w-40">
                     <VerySlimSelectBox
@@ -734,7 +746,7 @@ useEffect(() => {
     border-color: hsl(0, 0%, 80%);
     min-height: 31px;} */}
                   {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
-                  <label className="bg-green   pl-[2px] h-[28px]  flex flex-row cursor-pointer border border-[#ccc] rounded-[4px]">
+                  {/* <label className="bg-green   pl-[2px] h-[28px]  flex flex-row cursor-pointer border border-[#ccc] rounded-[4px]">
                     <CalendarMonthTwoToneIcon className="mr-1 mt-[2px] h-4 w-4" />
                     <span className="inline">
                       <CustomDatePicker
@@ -759,7 +771,7 @@ useEffect(() => {
                         dateFormat="MMM dd, yyyy"
                       />
                     </span>
-                  </label>
+                  </label> */}
                 </span>
                 {/* {leadsTyper == 'inProgress' && (
                   <span className="inline-flex p-1 border bg-gray-200 rounded-md">
@@ -810,7 +822,7 @@ useEffect(() => {
                 <>
                   <button
                     onClick={() => fSetLeadsType('Add Lead')}
-                    className={`flex items-center ml-5 pl-2 pr-4  max-h-[30px] mt-[2px] text-sm font-medium text-white bg-[#F44D21] rounded-[8px] hover:bg-gray-700`}
+                    className="flex items-center ml-5 w-[142px] h-[40px] px-4 py-2.5 rounded-[8px] bg-[#F44D21] font-inter font-medium text-[14px] leading-[20px] gap-2 text-white"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -826,13 +838,12 @@ useEffect(() => {
                         d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                       />
                     </svg>
-
-                    <span className="ml-1">Add Visitor</span>
+                    <span>Add Visitor</span>
                   </button>
                   {!user?.role?.includes(USER_ROLES.CP_AGENT) && (
                     <button
                       onClick={() => fSetLeadsType('Import Leads')}
-                      className={`flex items-center ml-5 pl-2 pr-4  max-h-[30px] mt-[2px] text-sm font-medium text-white bg-[#F44D21] rounded-[8px] hover:bg-gray-700  `}
+                      className="flex items-center ml-5 w-[160px] h-[40px] px-4 py-2.5 rounded-[8px] bg-[#F44D21] font-inter font-medium text-[14px] leading-[20px] gap-2 text-white"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -848,8 +859,7 @@ useEffect(() => {
                           d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                         />
                       </svg>
-
-                      <span className="ml-1">Import Visitors</span>
+                      <span>Import Visitors</span>
                     </button>
                   )}
                   {/* {isImportLeads && (
@@ -876,6 +886,121 @@ useEffect(() => {
                     </button>
                   )} */}
                 </>
+              </div>
+            </div>
+
+            {/* New search/filter row below heading and above filters/tabs */}
+            <div className="flex flex-row items-center justify-between bg-white rounded-lg px-4 py-3 mb-4">
+              {/* Search bar */}
+              <div className="flex-1 flex items-center mr-4">
+                <div className="flex items-center border border-[#F0F0F0] rounded-[8px] bg-white px-3 py-2 w-[320px]">
+                  <span className="text-gray-400 mr-2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-5 w-5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      />
+                    </svg>
+                  </span>
+                  <input
+                    type="text"
+                    placeholder={`Search...${selLeadsOf.label}`}
+                    className="bg-transparent focus:border-transparent focus:ring-0 focus:outline-none text-sm leading-7 text-gray-900 placeholder:font-inter placeholder:font-normal placeholder:text-[14px] placeholder:leading-none placeholder:text-[#AEAEAE] w-full"
+                    value={searchValue}
+                    onChange={(e) => {
+                      setSearchValue(e.target.value)
+                      const searchString = e.target.value.toLowerCase()
+                      const filtered = leadsFetchedRawData.filter((item) => {
+                        return (
+                          (item.Name &&
+                            item.Name.toLowerCase().includes(searchString)) ||
+                          (item.Email &&
+                            item.Email.toLowerCase().includes(searchString)) ||
+                          (item.Mobile &&
+                            item.Mobile.toLowerCase().includes(searchString))
+                        )
+                      })
+                      setLeadsFetchedData(filtered)
+                    }}
+                  />
+                </div>
+              </div>
+              {/* Calendar and All Events dropdown */}
+              <div className="flex items-center gap-2 min-w-[280px] justify-end">
+                <div className="flex flex-row items-center border border-[#F0F0F0] rounded-[4px] bg-white px-2 py-1 mr-2">
+                  <CustomDatePicker
+                    selected={startDate}
+                    onCalendarOpen={() => setIsOpened(true)}
+                    onCalendarClose={() => setIsOpened(false)}
+                    onChange={(update) => setDateRange(update)}
+                    selectsRange={true}
+                    startDate={startDate}
+                    endDate={endDate}
+                    isClearable={true}
+                    dateFormat="MMM dd, yyyy"
+                    popperPlacement="bottom-start"
+                    customInput={
+                      <button
+                        type="button"
+                        className={`flex items-center h-[36px] transition-all duration-200 ${
+                          startDate && endDate ? 'w-[240px]' : 'w-[160px]'
+                        }`}
+                        style={{
+                          background: 'none',
+                          border: 'none',
+                          boxShadow: 'none',
+                          padding: 0,
+                          margin: 0,
+                        }}
+                      >
+                        <CalendarMonthTwoToneIcon className="h-5 w-5 text-[#667085]" />
+                        {startDate && endDate ? (
+                          <span
+                            className="ml-2 text-[#667085] text-[14px] font-normal"
+                            style={{ fontFamily: 'Inter, sans-serif' }}
+                          >
+                            {`${startDate.toLocaleDateString('en-US', {
+                              month: 'short',
+                              day: '2-digit',
+                              year: 'numeric',
+                            })} - ${endDate.toLocaleDateString('en-US', {
+                              month: 'short',
+                              day: '2-digit',
+                              year: 'numeric',
+                            })}`}
+                          </span>
+                        ) : (
+                          <span
+                            className="ml-2 text-[#999999] text-[15px] font-normal"
+                            style={{ fontFamily: 'Inter, sans-serif' }}
+                          >
+                            Select date range
+                          </span>
+                        )}
+                      </button>
+                    }
+                  />
+                </div>
+                <VerySlimSelectBox
+                  name="project"
+                  label=""
+                  placeholder="All Events"
+                  className="input min-w-[140px] font-inter font-normal text-[14px] leading-[24px] text-[#999999]"
+                  onChange={(value) => setSelProject(value)}
+                  value={selProjectIs?.value}
+                  options={[
+                    ...[{ label: 'All Events', value: 'allprojects' }],
+                    ...projectList,
+                  ]}
+                />
               </div>
             </div>
 
@@ -976,7 +1101,6 @@ useEffect(() => {
         unitsViewMode={unitsViewMode}
         setUnitsViewMode={setUnitsViewMode}
         setIsClicked={setIsClicked}
-
       />
     </>
   )
