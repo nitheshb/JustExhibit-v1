@@ -254,7 +254,7 @@ const CrmUnitSummary = ({
           <div className="flex items-center justify-between">
             <div className="flex flex-col items-center">
               <FinancialSemicircleChart
-                paidValue={(selUnitPayload?.T_paid || 0) + (selUnitPayload?.T_approved || 0)}
+                paidValue={(selUnitPayload?.T_received || 0) + (selUnitPayload?.T_approved || 0)}
                 remainingValue={selUnitPayload?.T_elgible - ((selUnitPayload?.T_review || 0) + (selUnitPayload?.T_balance || 0))}
                 balance={selUnitPayload?.T_balance < 0 ? 0 : selUnitPayload?.T_balance}
                 filledColor="#DBD3FD"
@@ -277,7 +277,7 @@ const CrmUnitSummary = ({
               <div className="w-3 h-3 bg-green-500 rounded-sm mt-[4px]"></div>
               <span className="text-sm text-gray-600 ml-2">Paid:</span>
               </section>
-              <span className="text-sm font-medium text-red-500 ml-2">₹ {selUnitPayload?.T_paid?.toLocaleString('en-IN')}</span>
+              <span className="text-sm font-medium text-red-500 ml-2">₹ {selUnitPayload?.T_received?.toLocaleString('en-IN')}</span>
             </div>
             <div className="flex items-center gap-2 justify-between">
               <section className='flex flex-row'>
@@ -307,7 +307,7 @@ const CrmUnitSummary = ({
 
             </div>
             <h2 className="font-playfair font-bold text-[12px] leading-[20px] tracking-[2px] uppercase text-[#1A1A1A]">
-              TRANSACTION HISTORY
+              TRANSACTION HISTORY ({unitTransactionsA?.length })
             </h2>
           </div>
 

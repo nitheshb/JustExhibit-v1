@@ -3640,8 +3640,6 @@ export const addPaymentReceivedEntry = async (
     receivedBy: '',
     receivedByUid: '',
   }
-  console.log('Check', logPayload)
-  try {
     const updated = {
       ...customerDetails,
       ...paymentDetails,
@@ -3651,6 +3649,9 @@ export const addPaymentReceivedEntry = async (
       unitId: unitDocId,
       created: Timestamp.now().toMillis(),
     }
+  console.log('Check', logPayload)
+  try {
+
     // const ref = doc(db, `${orgId}_fincance', unitDocId)
     console.log('payment capture failed', updated)
 
@@ -3661,7 +3662,7 @@ export const addPaymentReceivedEntry = async (
     })
     return x.id
   } catch (e) {
-    console.log('payment capture failed', e)
+    console.log('payment capture failed', e, updated)
     enqueueSnackbar(e.message, {
       variant: 'error',
     })

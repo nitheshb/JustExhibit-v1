@@ -734,10 +734,10 @@ const HomePage = () => {
 
 
                                         {/* card to change */}
-                                        {/* 
+                                        {/*
                                       <div className="min-h-screen bg-[#FFFFFF] p-6 sm:p-8">
       <div className="max-w-7xl mx-auto">
-   
+
         <div className="mb-8 flex flex-col justify-center items-center">
           <h1 className="text-2xl font-normal  text-[#2BC2F6] mb-6">All Events</h1>
           <div className="flex gap-3">
@@ -757,14 +757,14 @@ const HomePage = () => {
           </div>
         </div>
 
- 
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {events.map((event) => (
             <div
               key={event.id}
               className="flex flex-col bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 hover:shadow-lg transition-shadow h-auto"
             >
-        
+
               <div className="relative">
                 <img
                   src={event.imageUrl}
@@ -795,7 +795,7 @@ const HomePage = () => {
                 </div>
               </div>
 
-         
+
               <div className="p-4 border-t border-gray-200">
                 <div className="flex items-baseline bg-[#F5FCFE] justify-between">
                   <div className="flex items-baseline ml-3">

@@ -334,13 +334,13 @@ const CaptureUnitPayment = ({
   const onSubmitSupabase = async (data, resetForm) => {
 
     if (title === 'capturePayment') {
-
+console.log('inside supabase capturePayment', selUnitDetails?.pId)
 
       capturePaymentS(
         orgId,
         true,
-        projectDetails?.uid,
-        selUnitDetails?.uid,
+        selUnitDetails?.pId,
+        selUnitDetails?.id,
         selUnitDetails?.companyDocId,
         leadDetailsObj2,
         data,
@@ -764,7 +764,7 @@ const CaptureUnitPayment = ({
 
 
                                           <div className="flex flex-col mr-2 mt-2">
-                          
+
                                             <span className="text-right text-[13px] font-normal">
                                               {format(new Date(), 'dd-MMMM-yy')}
                                             </span>
@@ -788,7 +788,7 @@ const CaptureUnitPayment = ({
                                       </div>
                                     </article> */}
 
-                                    <div className="  mt-4">
+                                    <div className="  mt-4 px-6">
                                       {!bookingProgress && (
                                         <section>
                                           <div className="flex flex-wrap mt-1">
@@ -1597,11 +1597,7 @@ const CaptureUnitPayment = ({
 
                                               <section className="border p-[20px] rounded-[12px] border-[#E5E5E5] ">
 
-                                                <div className="flex items-center gap-2 mb-4">
 
-
-                                                  <span className="font-manrope font-semibold text-sm leading-5 tracking-normal text-[#AD3717]">Payment</span>
-                                                </div>
 
                                                 <div className="w-full lg:w-12/12 ">
                                                   <div className="relative w-full mb-3">
@@ -1620,7 +1616,7 @@ const CaptureUnitPayment = ({
                                                 </div>
 
 
-                       
+
 
 
                                                 <div className="text-xs  mb-3">

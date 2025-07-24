@@ -36,7 +36,7 @@ const HeadNavBar = (props) => {
       'blocked',
     ])
 
-    const [selModule, setSelModule] = useState('Events')
+    const [selModule, setSelModule] = useState('Stalls')
 
     const open = Boolean(anchorEl)
     const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {

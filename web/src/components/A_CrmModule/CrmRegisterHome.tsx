@@ -1306,7 +1306,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                               <div className="flex flex-row w-full gap-[20px] my-1 items-center justify-between">
                                 <div className="flex-shrink-0">
                                   <RadialChart
-                                    progress={(finData?.T_paid / finData?.T_total) * 100}
+                                    progress={(finData?.T_received / finData?.T_total) * 100}
                                   />
                                 </div>
 
@@ -1351,7 +1351,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                             ₹{Math.round(
                                               // (finData?.T_review || 0) +
                                               // (finData?.T_approved || 0) +
-                                              (finData?.T_paid || 0)
+                                              (finData?.T_received || 0)
                                             ).toLocaleString('en-IN') || 0}
                                           </span>
                                         </span>

@@ -63,7 +63,7 @@ export default function ModuleSwitchDrop({
               <>
                 <div className="flex flex-row">
                   <div className="flex flex-col">
-                    <Menu.Item>
+                    {/* <Menu.Item>
                       {({ active }) => (
                         <Link to={routes.home()}>
                           <div
@@ -90,7 +90,7 @@ export default function ModuleSwitchDrop({
                           </div>
                         </Link>
                       )}
-                    </Menu.Item>
+                    </Menu.Item> */}
                     <Menu.Item>
                       {({ active }) => (
                         <Link to={routes.crmModule()}>

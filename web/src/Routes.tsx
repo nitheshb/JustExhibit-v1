@@ -71,7 +71,7 @@ const Routes = () => {
     console.log('am i hre at admin support', USER_ROLES.ADMIN)
     UpdatedRoutes = (
       <>
-        <Route path="/admin/home" page={HomePage} name="home" />
+        <Route path="/admin/home" page={CrmHomePage} name="home" />
         <Route path="/admin/users-admin" page={UsersAdminPage} name="usersAdmin" />
         <Route path="/admin/leads-manager" page={LeadsManagerPage} name="leadsManager" />
         <Route path="/marketing-module" page={MarketingModulePage} name="marketingModule" />
