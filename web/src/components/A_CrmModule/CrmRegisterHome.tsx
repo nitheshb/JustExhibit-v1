@@ -634,7 +634,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
 
               <div className="border-b border-b-[1px] border-[#D8D8D8] flex flex-row justify-between">
                 <ul
-                  className="flex justify-start rounded-t-lg ml-[-16px]"
+                  className="flex justify-start rounded-t-lg"
                   id="myTab"
                   data-tabs-toggle="#myTabContent"
                   role="tablist"
@@ -653,7 +653,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                         role="presentation"
                       >
                         <button
-                          className={`inline-block py-[18px]  px-[32px] text-sm font-medium   text-center text-black rounded-t-lg border-b-2  hover:text-black hover:border-gray-300   ${
+                          className={`inline-block py-[18px]  px-[16px] text-sm font-medium   text-center text-black rounded-t-lg border-b-2  hover:text-black hover:border-gray-300   ${
                             selCategory === d.val
                               ? 'border-black text-black'
                               : 'border-transparent'
@@ -1138,7 +1138,7 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                     'registered',
                     'construction',
                     'possession',
-                    'unAssigned_crm',
+                    'unassigned',
                     'queries',
                   ].includes(selCategory) &&
                     !horizontalMode &&
@@ -1146,6 +1146,10 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                       ? paidA
                       : selCategory === 'unpaid'
                       ? unPaidA
+                      : selCategory === 'unassigned'
+                      ? unassignedA
+                      : selCategory === 'queries'
+                      ? unqueriesA
                       : filteredDataA
                     ).map((finData, c) => {
                       const {
@@ -1844,274 +1848,6 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                                     </section>
                                   )}
                                   {/* section 4*/}
-                                </div>
-                              </div>
-                            </div>
-                          </section>
-                        </section>
-                      )
-                    })}
-
-                  {selCategory === 'unAssigned_crm' &&
-                    crmCustomersDBData.map((finData, t) => {
-                      const {
-                        uid,
-                        assets,
-                        customerDetailsObj,
-                        customerName1,
-                        phoneNo1,
-                        unit_no,
-                        T_balance,
-                        T_elgible,
-                        pId,
-                        projName,
-                      } = finData
-                      return (
-                        <section
-                          key={t}
-                          className="border mb-1 bg-[#f2f3f8] shadow rounded-md  shadow"
-                        >
-                          <section className="flex flex-row">
-                            <div className="">
-                              <div className="flex flex-row  mt- mr-[1px] py-1">
-                                <div
-                                  className="flex flex-col bg-gradient-to-r from-[#A798FF] to-[#c8c2f1] text-black p-2 rounded-sm py-4 w-[240px] h-[82px] ml-1"
-                                  onClick={() =>
-                                    viewTransaction(
-                                      finData,
-                                      'unit_information',
-                                      'unit_information'
-                                    )
-                                  }
-                                >
-                                  <section className="flex flex-row">
-                                    {/* <img
-                                      className="w-10 h-10 mr-2"
-                                      alt=""
-                                      src="/apart.svg"
-                                    ></img> */}
-                                    <section className="flex flex-col ml-2">
-                                      <span className="font-semibold text-sm app-color-black">
-                                        {/* {finData?.[`${assets[0]}_unitDetails`]
-                                          ?.unit_no || ''} */}
-                                        {unit_no}
-                                      </span>
-                                      <span className="text-xs">
-                                        {customerDetailsObj?.customerName1 ||
-                                          'NA'}
-                                      </span>
-                                      <span className="font-normal text-xs app-color-gray-1">
-                                        {projName}
-                                      </span>
-                                    </section>
-                                  </section>
-                                  {/* <span className="font-normal text-xs app-color-gray-1">
-                                  {finData?.ph}
-                                </span> */}
-                                </div>
-                              </div>
-                            </div>
-                            <div className="w-3/4 bg-[#f2f3f8] px-1">
-                              {' '}
-                              <Box>
-                                <>
-                                  <div className="flex flex-col bg-white shadow rounded-md my-1  px-2  py-2 min-w-[180px]">
-                                    <div className="flex flex-row justify-between mx-1">
-                                      <h6 className="font-bodyLato font-semibold text-xs m-1 mb-2">
-                                        {T_elgible}
-                                      </h6>
-                                      <h6 className="font-bodyLato font-semibold text-xs m-1 mb-2">
-                                        {T_balance}
-                                      </h6>
-                                    </div>
-                                    <div className="flex flex-row mx-1">
-                                      {[{ item: 'Total', value: 6 }].map(
-                                        (data, u) => (
-                                          <div
-                                            className=" w-3/4  "
-                                            style={{
-                                              display: 'inline-block',
-                                              alignSelf: 'flex-end',
-                                            }}
-                                            key={u}
-                                          >
-                                            <div className="">
-                                              <LinearProgress
-                                                sx={{
-                                                  backgroundColor: 'white',
-                                                  '& .MuiLinearProgress-bar': {
-                                                    backgroundColor: '#A798FF',
-                                                  },
-                                                }}
-                                                variant="determinate"
-                                                value={100}
-                                                style={{
-                                                  backgroundColor: '#E5EAF2',
-                                                  borderRadius: '3px',
-                                                  borderTopRightRadius: '0px',
-                                                  borderBottomRightRadius:
-                                                    '0px',
-                                                  height: `${data.value}px`,
-                                                  width: `100%`,
-                                                }}
-                                              />
-                                            </div>
-                                            <div className="flex  justify-left mr-1  mb-1 mt-[4px]">
-                                              <h6 className="font-bodyLato font-semibold text-xs mt-1">
-                                                {data.item}
-                                              </h6>
-                                            </div>
-                                          </div>
-                                        )
-                                      )}
-                                      {[{ item: 'Due', value: 6 }].map(
-                                        (data, v) => (
-                                          <div
-                                            className=" w-2/4  "
-                                            style={{
-                                              display: 'inline-block',
-                                              alignSelf: 'flex-end',
-                                            }}
-                                            key={v}
-                                          >
-                                            <div className="">
-                                              <LinearProgress
-                                                sx={{
-                                                  backgroundColor: 'white',
-                                                  '& .MuiLinearProgress-bar': {
-                                                    backgroundColor: '#E87F7F',
-                                                  },
-                                                }}
-                                                variant="determinate"
-                                                value={100}
-                                                style={{
-                                                  backgroundColor: '#E87F7F',
-                                                  borderRadius: '3px',
-                                                  borderTopLeftRadius: '0px',
-                                                  borderBottomLeftRadius: '0px',
-                                                  height: `${data.value}px`,
-                                                  width: `100%`,
-                                                }}
-                                              />
-                                            </div>
-                                            <div className="flex  justify-end mr-1  mb-1 mt-[4px]">
-                                              <h6 className="font-bodyLato font-semibold text-xs mt-1">
-                                                {data.item}
-                                              </h6>
-                                            </div>
-                                          </div>
-                                        )
-                                      )}
-                                    </div>
-                                  </div>
-                                </>
-                              </Box>
-                            </div>
-                            <div className="w-2/4 bg-[#f2f3f8] px-1">
-                              <div className="flex flex-col bg-white shadow rounded-md my-1  px-2  py-2">
-                                <div className="flex flex-row justify-between px-1">
-                                  <div
-                                    className=" w-[100px] bg-[#F1F5F9] p-3 rounded-md mx-1"
-                                    style={{
-                                      display: 'inline-block',
-                                      alignSelf: 'flex-end',
-                                    }}
-                                  >
-                                    <div className="flex flex-col items-center justify-center mr-1  mb-1 mt[2px]">
-                                      <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                        <ChartPieIcon
-                                          className="h-4 w-4 text-gray-600 group-hover:text-indigo-600"
-                                          aria-hidden="true"
-                                        />
-                                      </div>
-                                      <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                        {'Payment'}
-                                      </h6>
-                                    </div>
-                                  </div>
-                                  {[
-                                    {
-                                      item: 'Payment',
-                                      value: 78,
-                                      icon: ChartPieIcon,
-                                    },
-                                    {
-                                      item: 'Manager',
-                                      value: 78,
-                                      icon: ChartPieIcon,
-                                    },
-                                    {
-                                      item: 'KYC ',
-                                      value: 38,
-                                      icon: NewspaperIcon,
-                                    },
-                                    // {
-                                    //   item: 'Welcome ',
-                                    //   value: 58,
-                                    //   icon: ChartPieIcon,
-                                    // },
-                                  ].map((data, w) => (
-                                    <div
-                                      className=" w-[100px] bg-[#F1F5F9] p-3 rounded-md mx-1"
-                                      style={{
-                                        display: 'inline-block',
-                                        alignSelf: 'flex-end',
-                                      }}
-                                      key={w}
-                                    >
-                                      <div className="flex flex-col items-center justify-center mr-1  mb-1 mt[2px]">
-                                        <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                          <data.icon
-                                            className="h-4 w-4 text-gray-600 group-hover:text-indigo-600"
-                                            aria-hidden="true"
-                                          />
-                                        </div>
-                                        <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                          {data.item}
-                                        </h6>
-                                      </div>
-                                    </div>
-                                  ))}
-                                </div>
-                              </div>
-                            </div>
-                            <div className="w-2/4 bg-[#f2f3f8] px-1">
-                              <div className="flex flex-col bg-white shadow rounded-md my-1  px-2  py-2">
-                                <div className="flex flex-row justify-between px-1">
-                                  {[
-                                    {
-                                      item: 'CS Customer Approval',
-                                      value: 78,
-                                      icon: ChartPieIcon,
-                                    },
-
-                                    {
-                                      item: 'Loan',
-                                      value: 38,
-                                      icon: NewspaperIcon,
-                                    },
-                                  ].map((data, a) => (
-                                    <div
-                                      className=" w-[180px] bg-[#F1F5F9] p-3 rounded-md mx-1"
-                                      style={{
-                                        display: 'inline-block',
-                                        alignSelf: 'flex-end',
-                                      }}
-                                      key={a}
-                                    >
-                                      <div className="flex flex-col items-center justify-center mr-1  mb-1 mt[2px]">
-                                        <div className="flex flex-none items-center justify-center rounded-lg bg-gray-50 group-hover:bg-white">
-                                          <data.icon
-                                            className="h-4 w-4 text-gray-600 group-hover:text-indigo-600"
-                                            aria-hidden="true"
-                                          />
-                                        </div>
-                                        <h6 className="font-bodyLato text-[#828d9e] text-xs mt-1">
-                                          {data.item}
-                                        </h6>
-                                      </div>
-                                    </div>
-                                  ))}
                                 </div>
                               </div>
                             </div>
