@@ -94,6 +94,7 @@ import Container from '@mui/material/Container'
 import IconButton from '@mui/material/IconButton'
 import Paper, { PaperProps } from '@mui/material/Paper'
 import { alpha } from '@mui/material/styles'
+import zIndex from '@mui/material/styles/zIndex'
 import Tab from '@mui/material/Tab'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
@@ -168,7 +169,6 @@ import UserTableToolbar, {
   IUserTableFilters,
   IUserTableFilterValue,
 } from './_mock/comps/usersTable/user-table-toolbar'
-import zIndex from '@mui/material/styles/zIndex'
 
 // ----------------------------------------------------------------------
 
@@ -236,11 +236,6 @@ export default function UserListView() {
   })
   const [filters, setFilters] = useState(defaultFilters)
 
-
-
-
-
-
   const dataFiltered = applyFilter({
     inputData: tableData,
     comparator: getComparator(table.order, table.orderBy),
@@ -252,7 +247,7 @@ export default function UserListView() {
     table.page * table.rowsPerPage + table.rowsPerPage
   )
   useEffect(() => {
-    const z = dataFiltered.filter((data)=>  data?.pId == selProject?.value)
+    const z = dataFiltered.filter((data) => data?.pId == selProject?.value)
     console.log('filtered values are', z, dataFiltered)
     setDispRows(z)
   }, [dataFiltered, selProject])
@@ -326,7 +321,10 @@ export default function UserListView() {
           user.value = user.eventName
         })
         console.log('fetched proejcts list is', projectsListA)
-        let z = [{'label': 'All Events', value: 'allprojects'}, ...projectsListA]
+        const z = [
+          { label: 'All Events', value: 'allprojects' },
+          ...projectsListA,
+        ]
         setprojectList(z)
       },
       (error) => setprojectList([])
@@ -533,13 +531,13 @@ export default function UserListView() {
                   Clear
                 </span>
               </div>
-              <span style={{ display: '' }}>
+              {/* <span style={{ display: '' }}>
                 <CSVDownloader
                   className="mr-6 h-[20px] w-[20px] mt-2"
                   downloadRows={dataFiltered}
                   style={{ height: '20px', width: '20px' }}
                 />
-              </span>
+              </span> */}
             </div>
 
             {/* <UserTableToolbar
