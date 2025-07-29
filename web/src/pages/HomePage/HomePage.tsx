@@ -2,11 +2,18 @@ import { useState, useEffect } from 'react'
 
 // import { ResponsiveBar } from '@nivo/bar'
 import { PencilIcon } from '@heroicons/react/outline'
+import { Calendar, MapPin } from 'lucide-react'
+
 import { usePageLoadingContext } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
+
+import EventCard from 'src/components/A_ProjModule/EventCard'
 import MarkeingMessagesList from 'src/components/A_ProjModule/MarketingMessagesList'
+import { ProjectCard } from 'src/components/A_ProjModule/ProjectCardNew'
+import ProjectCards from 'src/components/A_ProjModule/ProjectCards'
 import ProjectMastersSetupHome from 'src/components/A_ProjModule/ProjectMastersSetup'
 import ProjectReportsBody from 'src/components/A_ProjModule/ProjectReports'
+import ProjectIntegrationsHome from 'src/components/A_ProjModule/ProjIntegrations'
 import ProjectsTaskHome from 'src/components/A_ProjModule/ProjTaskHome'
 import ProfileSummary from 'src/components/A_SalesModule/Reports/profileSummary'
 import SlimSideMenuBar from 'src/components/A_SideMenu/slimSideMenu'
@@ -19,13 +26,9 @@ import {
   getSalesReportsData,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
+
 import DummyBodyLayout from '../../components/DummyBodyLayout/DummyBodyLayout'
 import SiderForm from '../../components/SiderForm/SiderForm'
-import { ProjectCard } from 'src/components/A_ProjModule/ProjectCardNew'
-import ProjectIntegrationsHome from 'src/components/A_ProjModule/ProjIntegrations'
-import { Calendar, MapPin } from 'lucide-react'
-import ProjectCards from 'src/components/A_ProjModule/ProjectCards'
-import EventCard from 'src/components/A_ProjModule/EventCard'
 
 const HomePage = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -370,11 +373,6 @@ const HomePage = () => {
     setIsOpen(!isOpen)
   }
 
-
-
-
-
-
   const events = [
     {
       id: 1,
@@ -396,21 +394,18 @@ const HomePage = () => {
     },
     {
       id: 3,
-      title: 'Trendy Designer Wear with an Extensive Collection of Clothing Options',
+      title:
+        'Trendy Designer Wear with an Extensive Collection of Clothing Options',
       date: 'December 4, 2024',
       location: 'Vijayanagar, Bangalore',
       price: '11,111',
       imageUrl: 'https://images.unsplash.com/photo-1445205170230-053b83016050',
       category: 'FASHION',
     },
-  ];
+  ]
 
-
-
-
-
-  const [activeFilter, setActiveFilter] = React.useState('All');
-  const filters = ['All', 'Upcoming', 'Completed', 'Ongoing'];
+  const [activeFilter, setActiveFilter] = React.useState('All')
+  const filters = ['All', 'Upcoming', 'Completed', 'Ongoing']
 
   return (
     <>
@@ -422,15 +417,13 @@ const HomePage = () => {
             {/* <div className="flex overflow-y-hidden flex-row overflow-auto h-[100vh]   text-gray-700 bg-gradient-to-tr from-blue-200 via-indigo-200 to-pink-200 bg-gradient-to-tr from-blue-500 from-0% via-transparent via-10% to-transparent to-40% [background-position:0%_100%,100%_0%] [background-size:50%_50%,50%_50%] [background-repeat:no-repeat]"> */}
             {/* <HeadSideBar pgName={'home'} /> */}
 
-
             <HeadNavBar2
               selModule={selModule}
               setSelModule={setSelModule}
               setViewable={setViewable}
             />
 
-            <div className='flex overflow-y-auto mb-1'>
-
+            <div className="flex overflow-y-auto mb-1">
               <SlimSideMenuBar
                 pgName={'projectModule'}
                 sourceLink={'projectModule'}
@@ -440,7 +433,6 @@ const HomePage = () => {
               />
 
               <div className="flex-grow   items-center ">
-
                 {viewable === 'userProfile' && <ProfileSummary />}
 
                 {viewable === 'Setup' && (
@@ -490,63 +482,61 @@ const HomePage = () => {
                 )}
                 {(viewable === 'Bank Accounts' ||
                   viewable === 'Virtual Accounts') && (
-                    <>
-                      <div className="">
-                        <div className="flex items-center justify-between py-2  ">
-                          <span className="relative z-10 flex items-center w-auto text-2xl font-bold leading-none pl-0">
-                            {viewable}
-                          </span>
-                          <button className="flex items-center justify-center h-10 px-4  bg-transparent ml-auto text-sm font-medium rounded hover:bg-transparent"></button>
-                        </div>
+                  <>
+                    <div className="">
+                      <div className="flex items-center justify-between py-2  ">
+                        <span className="relative z-10 flex items-center w-auto text-2xl font-bold leading-none pl-0">
+                          {viewable}
+                        </span>
+                        <button className="flex items-center justify-center h-10 px-4  bg-transparent ml-auto text-sm font-medium rounded hover:bg-transparent"></button>
                       </div>
+                    </div>
 
-                      <div>
-                        <section className="w-full py-8 mb-8 leading-7 text-gray-900 bg-white sm:py-12 md:py-16 lg:py-18 rounded-lg">
-                          <div className="box-border px-4 mx-auto border-solid sm:px-6 md:px-6 lg:px-8 max-w-full ">
-                            <div className="flex flex-col  leading-7  text-gray-900 border-0 border-gray-200 ">
-                              <div className="flex items-center flex-shrink-0  px-0  pl-0 border-b border-grey  mb-2">
-                                <span className="flex items-center">
-                                  <img
-                                    className="w-16 h-16"
-                                    alt=""
-                                    src="/apart.svg"
-                                  ></img>
-                                  <span className="relative z-10 flex items-center w-auto text-4xl font-bold leading-none pl-0 mt-[18px]">
-                                    {viewable}
-                                  </span>
+                    <div>
+                      <section className="w-full py-8 mb-8 leading-7 text-gray-900 bg-white sm:py-12 md:py-16 lg:py-18 rounded-lg">
+                        <div className="box-border px-4 mx-auto border-solid sm:px-6 md:px-6 lg:px-8 max-w-full ">
+                          <div className="flex flex-col  leading-7  text-gray-900 border-0 border-gray-200 ">
+                            <div className="flex items-center flex-shrink-0  px-0  pl-0 border-b border-grey  mb-2">
+                              <span className="flex items-center">
+                                <img
+                                  className="w-16 h-16"
+                                  alt=""
+                                  src="/apart.svg"
+                                ></img>
+                                <span className="relative z-10 flex items-center w-auto text-4xl font-bold leading-none pl-0 mt-[18px]">
+                                  {viewable}
                                 </span>
-                                <section className="flex ml-auto mt-[18px]">
-                                  <button>
-                                    <span className="flex ml-2 items-center h-6 px-3 text-xs font-semibold text-green-800 bg-green-200 rounded-full">
-                                      <PencilIcon
-                                        className="h-3 w-3 mr-1"
-                                        aria-hidden="true"
-                                      />
-                                      Edit
-                                    </span>
-                                  </button>
-                                </section>
-                              </div>
-                              <AllBankDetailsView title={'Bank Accounts'} />
+                              </span>
+                              <section className="flex ml-auto mt-[18px]">
+                                <button>
+                                  <span className="flex ml-2 items-center h-6 px-3 text-xs font-semibold text-green-800 bg-green-200 rounded-full">
+                                    <PencilIcon
+                                      className="h-3 w-3 mr-1"
+                                      aria-hidden="true"
+                                    />
+                                    Edit
+                                  </span>
+                                </button>
+                              </section>
                             </div>
+                            <AllBankDetailsView title={'Bank Accounts'} />
                           </div>
-                        </section>
-                      </div>
-                    </>
-                  )}
+                        </div>
+                      </section>
+                    </div>
+                  </>
+                )}
                 {(viewable === 'Home' || viewable === 'MyProjectTasks') && (
                   <ProjectsTaskHome leadsTyper={undefined} />
                 )}
-                {(viewable === 'Integrations' || viewable === 'MyProjectTasks') && (
+                {(viewable === 'Integrations' ||
+                  viewable === 'MyProjectTasks') && (
                   // <ProjectsTaskHome leadsTyper={undefined} />
                   <ProjectIntegrationsHome />
-
                 )}
                 {viewable != 'inProgress' &&
                   viewable != 'Home' &&
                   viewable != 'Integrations' &&
-
-
                   viewable != 'MyProjectTasks' &&
                   viewable != 'Events Lead Report' &&
                   viewable != 'Campaign Budget Report' &&
@@ -608,11 +598,11 @@ const HomePage = () => {
                                                 </div>
                                               </div>
 
-
                                               {/* main content */}
                                               <section className="grid gap-6">
                                                 {projects.map((project) => (
-                                                  <ProjectCard key={project.uid}
+                                                  <ProjectCard
+                                                    key={project.uid}
                                                     project={project}
                                                     setProject={setProject}
                                                     onSliderOpen={() => {
@@ -621,26 +611,25 @@ const HomePage = () => {
                                                     }}
                                                     isEdit={false}
                                                     name="Esperanza"
-
                                                     type="Plots"
                                                     price="₹2,100/sqft"
                                                     stats={{
                                                       total: 3,
                                                       available: 1,
                                                       sold: 2,
-                                                      blocked: 0
+                                                      blocked: 0,
                                                     }}
                                                     pipeline={{
                                                       registration: 0,
                                                       booking: 1,
                                                       construction: 0,
-                                                      possession: 0
+                                                      possession: 0,
                                                     }}
                                                     transactions={{
-                                                      total: "₹0",
-                                                      sale: "₹0",
-                                                      balance: "₹2,000",
-                                                      refunds: "₹0"
+                                                      total: '₹0',
+                                                      sale: '₹0',
+                                                      balance: '₹2,000',
+                                                      refunds: '₹0',
                                                     }}
                                                   />
                                                   // <ProjectsMHomeBody
@@ -655,12 +644,12 @@ const HomePage = () => {
                                                   // />
                                                 ))}
                                               </section>
-
 
                                               {/* copy of upper section */}
                                               <section className="grid gap-6">
                                                 {projects.map((project) => (
-                                                  <ProjectCards key={project.uid}
+                                                  <ProjectCards
+                                                    key={project.uid}
                                                     project={project}
                                                     setProject={setProject}
                                                     onSliderOpen={() => {
@@ -669,26 +658,25 @@ const HomePage = () => {
                                                     }}
                                                     isEdit={false}
                                                     name="Esperanza"
-
                                                     type="Plots"
                                                     price="₹2,100/sqft"
                                                     stats={{
                                                       total: 3,
                                                       available: 1,
                                                       sold: 2,
-                                                      blocked: 0
+                                                      blocked: 0,
                                                     }}
                                                     pipeline={{
                                                       registration: 0,
                                                       booking: 1,
                                                       construction: 0,
-                                                      possession: 0
+                                                      possession: 0,
                                                     }}
                                                     transactions={{
-                                                      total: "₹0",
-                                                      sale: "₹0",
-                                                      balance: "₹2,000",
-                                                      refunds: "₹0"
+                                                      total: '₹0',
+                                                      sale: '₹0',
+                                                      balance: '₹2,000',
+                                                      refunds: '₹0',
                                                     }}
                                                   />
                                                   // <ProjectsMHomeBody
@@ -703,22 +691,7 @@ const HomePage = () => {
                                                   // />
                                                 ))}
                                               </section>
-
                                             </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                           ) : (
                                             <span
                                               onClick={() =>
@@ -729,9 +702,6 @@ const HomePage = () => {
                                             </span>
                                           )}
                                         </div>
-
-
-
 
                                         {/* card to change */}
                                         {/*
@@ -825,15 +795,6 @@ const HomePage = () => {
                                   </>
                                 )}
                             </div>
-
-
-
-
-
-
-
-
-
 
                             {viewable === 'Events Lead Report' && (
                               <>
@@ -1257,13 +1218,7 @@ const HomePage = () => {
                     </>
                   )}
               </div>
-
-
             </div>
-
-
-
-
           </div>
         </div>
       </div>

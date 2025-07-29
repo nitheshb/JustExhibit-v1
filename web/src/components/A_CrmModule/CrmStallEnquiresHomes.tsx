@@ -2,19 +2,16 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 
 import { useState, useEffect } from 'react'
-import {
-  PuzzleIcon,
-} from '@heroicons/react/outline'
-import {
-  ChartPieIcon,
-  SearchIcon,
-  NewspaperIcon,
-} from '@heroicons/react/solid'
+
+import { PuzzleIcon } from '@heroicons/react/outline'
+import { ChartPieIcon, SearchIcon, NewspaperIcon } from '@heroicons/react/solid'
 import {} from '@heroicons/react/solid'
 import { Box, LinearProgress } from '@mui/material'
 import { startOfDay } from 'date-fns'
 import { useTranslation } from 'react-i18next'
+
 import { MetaTags } from '@redwoodjs/web'
+
 import {
   getBookedUnitsByProject,
   getAllProjects,
@@ -23,13 +20,12 @@ import {
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import { computeTotal } from 'src/util/computeCsTotals'
-import CSVDownloader from 'src/util/csvDownload'
-import {
-  VerySlimSelectBox,
-} from 'src/util/formFields/slimSelectBoxField'
+import ExcelDownloader from 'src/util/excelDownload'
+import { VerySlimSelectBox } from 'src/util/formFields/slimSelectBoxField'
+
+import LStallSalesBody from '../1_StallModule/LLStallSalesBody'
 import CrmSiderForm from '../SiderForm/CRM_SideForm'
 import SiderForm from '../SiderForm/SiderForm'
-import LStallSalesBody from '../1_StallModule/LLStallSalesBody'
 
 const agreementItems = [
   {
@@ -123,7 +119,6 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
   const [isOpenAddLead, setIsOpenAddLead] = useState(false)
   const [isOpenBlukLead, setIsOpenBulkLead] = useState(false)
 
-
   const [isSubTopic, setIsSubTopic] = useState('')
   const [selProjectIs, setSelProject] = useState({
     label: 'All Events',
@@ -186,7 +181,6 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
   const [bookingReviewA, setBookingReviewA] = useState([])
   const [paidA, setPaidA] = useState([])
   const [unPaidA, setunPaidA] = useState([])
-
 
   const [agreePipeA, setAgreePipeA] = useState([])
   const [sdPipeA, setSdPipeA] = useState([])
@@ -274,13 +268,12 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
   }
 
   useEffect(() => {
-    if(selCategory === 'paid'){
+    if (selCategory === 'paid') {
       // setFilteredDataA()
       getAdminAllLeads()
     }
     getLeadsDataFun(projectList, ['booked', 'Booked'])
     getAdminAllLeads()
-
   }, [selCategory])
 
   const getProjectsListFun = () => {
@@ -387,61 +380,59 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
   const getAdminAllLeads = async () => {
     const { orgId } = user
 
-      const unsubscribe = getStallLeadsByAdminStatus(
-        orgId,
-        async (querySnapshot) => {
-          const usersListA = querySnapshot.docs.map((docSnapshot) => {
-            const x = docSnapshot.data()
-            x.id = docSnapshot.id
-            return x
-          })
-          // usersListA.map((data) => {
-          //   const y = data
-          //   delete y.Note
-          //   delete y.AssignedTo
-          //   delete y.AssignTo
-          //   delete y.AssignedBy
-          //   delete y['Country Code']
-          //   delete y.assignT
-          //   delete y.CT
-          //   delete y.visitDoneNotes
-          //   delete y.VisitDoneNotes
-          //   delete y.VisitDoneReason
-          //   delete y.EmpId
-          //   delete y.CountryCode
-          //   delete y.from
-          //   delete y['Followup date']
-          //   delete y.mode
-          //   delete y.notInterestedNotes
-          //   delete y.notInterestedReason
-          //   y.coveredA = { a: data.coveredA }
-          //   addLeadSupabase(data)
-          // })
-          console.log('my valus are ', usersListA )
-          await setFilteredDataA(usersListA)
-          await serealizeData(usersListA)
-        },
-        {
-          status:
-          [
-            'new',
-            'followup',
-            'unassigned',
-            'visitfixed',
-            '',
-            // 'visitdone',
-            // 'visitcancel',
-            'negotiation',
-            'booked'
-            // 'reassign',
-            // 'RNR',
-          ],
-          projAccessA: projAccessA,
-        },
-        (error) => setFilteredDataA([])
-      )
-      return unsubscribe
-
+    const unsubscribe = getStallLeadsByAdminStatus(
+      orgId,
+      async (querySnapshot) => {
+        const usersListA = querySnapshot.docs.map((docSnapshot) => {
+          const x = docSnapshot.data()
+          x.id = docSnapshot.id
+          return x
+        })
+        // usersListA.map((data) => {
+        //   const y = data
+        //   delete y.Note
+        //   delete y.AssignedTo
+        //   delete y.AssignTo
+        //   delete y.AssignedBy
+        //   delete y['Country Code']
+        //   delete y.assignT
+        //   delete y.CT
+        //   delete y.visitDoneNotes
+        //   delete y.VisitDoneNotes
+        //   delete y.VisitDoneReason
+        //   delete y.EmpId
+        //   delete y.CountryCode
+        //   delete y.from
+        //   delete y['Followup date']
+        //   delete y.mode
+        //   delete y.notInterestedNotes
+        //   delete y.notInterestedReason
+        //   y.coveredA = { a: data.coveredA }
+        //   addLeadSupabase(data)
+        // })
+        console.log('my valus are ', usersListA)
+        await setFilteredDataA(usersListA)
+        await serealizeData(usersListA)
+      },
+      {
+        status: [
+          'new',
+          'followup',
+          'unassigned',
+          'visitfixed',
+          '',
+          // 'visitdone',
+          // 'visitcancel',
+          'negotiation',
+          'booked',
+          // 'reassign',
+          // 'RNR',
+        ],
+        projAccessA: projAccessA,
+      },
+      (error) => setFilteredDataA([])
+    )
+    return unsubscribe
   }
   const getLeadsDataFun = async (projectList, statusFil) => {
     // console.log('login role detials', user)
@@ -470,10 +461,9 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
           return a.unit_no - b.unit_no
         })
 
-           // usersListA.sort((a, b) => {
+        // usersListA.sort((a, b) => {
         //   return b?.booked_on || 0 - b?.booked_on || 0
         // })
-
 
         if (statusFil.includes('booked')) {
           // await console.log(
@@ -487,27 +477,21 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
 
           await setQueryResult(usersListA)
           await setFilteredDataA(usersListA)
-          await setPaidA(usersListA?.filter((d) =>  d.T_balance<=0))
-          await setunPaidA(usersListA?.filter((d) =>  d.T_balance>0))
+          await setPaidA(usersListA?.filter((d) => d.T_balance <= 0))
+          await setunPaidA(usersListA?.filter((d) => d.T_balance > 0))
 
-           await setPaidCo(usersListA?.filter((d) =>  d.T_balance<=0).length)
-          await setUnPaidCo(usersListA?.filter((d) =>  d.T_balance>0).length)
+          await setPaidCo(usersListA?.filter((d) => d.T_balance <= 0).length)
+          await setUnPaidCo(usersListA?.filter((d) => d.T_balance > 0).length)
           await setSearchKeyField('')
-
-        }
-        else if(statusFil.includes('paid')){
+        } else if (statusFil.includes('paid')) {
           await setFilteredDataA(usersListA)
-
-        }
-        else if (statusFil.includes('unpaid')) {
+        } else if (statusFil.includes('unpaid')) {
           await setAgreePipeA(usersListA)
           await setAgreePipeCo(usersListA.length)
-        }
-        else if (statusFil.includes('paid')) {
+        } else if (statusFil.includes('paid')) {
           await setAgreePipeA(usersListA)
           await setAgreePipeCo(usersListA.length)
-        }
-        else if (statusFil.includes('agreement_pipeline')) {
+        } else if (statusFil.includes('agreement_pipeline')) {
           await setAgreePipeA(usersListA)
           await setAgreePipeCo(usersListA.length)
         } else if (statusFil.includes('agreement')) {
@@ -543,19 +527,19 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
   const searchLogic = async (searchKey, fetchedArray) => {
     if (!searchKey) return setFilteredDataA(fetchedArray)
 
-      const lowerSearchKey = searchKey.toLowerCase()
+    const lowerSearchKey = searchKey.toLowerCase()
 
-      const z = fetchedArray.filter((item) => {
-        return (
-          (item?.customerDetailsObj?.customerName1 &&
-            item?.customerDetailsObj?.customerName1
-              ?.toLowerCase()
-              ?.includes(lowerSearchKey)) ||
-          (item?.unit_no &&
-            item?.unit_no?.toString()?.toLowerCase()?.includes(lowerSearchKey))
-        )
-      })
-      await setFilteredDataA(z)
+    const z = fetchedArray.filter((item) => {
+      return (
+        (item?.customerDetailsObj?.customerName1 &&
+          item?.customerDetailsObj?.customerName1
+            ?.toLowerCase()
+            ?.includes(lowerSearchKey)) ||
+        (item?.unit_no &&
+          item?.unit_no?.toString()?.toLowerCase()?.includes(lowerSearchKey))
+      )
+    })
+    await setFilteredDataA(z)
   }
   const searchBar = async (searchKey) => {
     // if (statusFil === 'booked') {
@@ -567,34 +551,27 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
     //   return a.unit_no - b.unit_no
     // })
     console.log('iam in searchKey', searchKey, !searchKey)
-    if(selCategory === 'booked'){
+    if (selCategory === 'booked') {
       searchLogic(searchKey, queryResult)
     }
-    if(selCategory === 'unPaid'){
+    if (selCategory === 'unPaid') {
       searchLogic(searchKey, unPaidA)
     }
-    if(selCategory === 'paid'){
+    if (selCategory === 'paid') {
       searchLogic(searchKey, paidA)
-    }
-    else if (selCategory === 'agreement_pipeline') {
+    } else if (selCategory === 'agreement_pipeline') {
       searchLogic(searchKey, agreePipeA)
-    }
-    else if (selCategory === 'agreement') {
+    } else if (selCategory === 'agreement') {
       searchLogic(searchKey, sdPipeA)
-    }
-    else if (selCategory === 'registered') {
+    } else if (selCategory === 'registered') {
       searchLogic(searchKey, registeredA)
-    }
-     else if (selCategory === 'possession') {
+    } else if (selCategory === 'possession') {
       searchLogic(searchKey, posessionA)
-     }
-    else if (selCategory === 'unassigned') {
+    } else if (selCategory === 'unassigned') {
       // searchLogic(searchKey, unassignedA)
       searchLogic(searchKey, crmCustomersDBData)
     }
-
   }
-
 
   const serealizeData = (array) => {
     // let newData =
@@ -681,53 +658,51 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
                   </div>
                 )}
 
-                  <button
-                    onClick={() => setIsOpenAddLead(true)}
-                    className={`flex items-center ml-5 pl-2 pr-4  max-h-[30px] mt-[2px] text-sm font-medium text-white bg-[#F44D21] rounded-[8px] hover:bg-gray-700  `}
+                <button
+                  onClick={() => setIsOpenAddLead(true)}
+                  className={`flex items-center ml-5 pl-2 pr-4  max-h-[30px] mt-[2px] text-sm font-medium text-white bg-[#F44D21] rounded-[8px] hover:bg-gray-700  `}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 22 22"
+                    stroke="currentColor"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4"
-                      fill="none"
-                      viewBox="0 0 22 22"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                      />
-                    </svg>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    />
+                  </svg>
 
-                    <span className="ml-1">Add Lead</span>
-                  </button>
+                  <span className="ml-1">Add Lead</span>
+                </button>
 
-                    <button
-                      onClick={() => setIsOpenBulkLead(true)}
-                      className={`flex items-center ml-5 pl-2 pr-4 py-1 max-h-[30px] mt-[2px]  text-sm font-medium text-white bg-[#F44D21] rounded-[8px] hover:bg-gray-700  `}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4"
-                        fill="none"
-                        viewBox="0 0 22 22"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                        />
-                      </svg>
+                <button
+                  onClick={() => setIsOpenBulkLead(true)}
+                  className={`flex items-center ml-5 pl-2 pr-4 py-1 max-h-[30px] mt-[2px]  text-sm font-medium text-white bg-[#F44D21] rounded-[8px] hover:bg-gray-700  `}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-4 w-4"
+                    fill="none"
+                    viewBox="0 0 22 22"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    />
+                  </svg>
 
-                      <span className="ml-1">Import Lead</span>
-                    </button>
-
+                  <span className="ml-1">Import Lead</span>
+                </button>
               </div>
             </div>
-
 
             <div className="items-center justify-between  my-1 bg-white rounded-lg">
               {/* <div>
@@ -766,22 +741,24 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
                           role="tab"
                           onClick={() => setSelCategory(d.val)}
                         >
-{`${d.lab} `}
-{(
-  <>
-    (
-    <span className="text-gray-800 px-1 py-1 rounded-full ml-[1px] text-[14px]">
-      {d.val === 'booked' && <>{bookingReviewCo}</>}
-      {d.val === 'paid' && <>{paidCo}</>}
-      {d.val === 'unpaid' && <>{unPaidCo}</>}
-      {d.val === 'registered' && <>{registeredCo}</>}
-      {d.val === 'possession' && <>{posessionCo}</>}
-      {d.val === 'unAssigned_crm' && <>{unassignedCo}</>}
-      {d.val === 'queries' && <>{unassignedCo}</>}
-    </span>
-    )
-  </>
-)}
+                          {`${d.lab} `}
+                          {
+                            <>
+                              (
+                              <span className="text-gray-800 px-1 py-1 rounded-full ml-[1px] text-[14px]">
+                                {d.val === 'booked' && <>{bookingReviewCo}</>}
+                                {d.val === 'paid' && <>{paidCo}</>}
+                                {d.val === 'unpaid' && <>{unPaidCo}</>}
+                                {d.val === 'registered' && <>{registeredCo}</>}
+                                {d.val === 'possession' && <>{posessionCo}</>}
+                                {d.val === 'unAssigned_crm' && (
+                                  <>{unassignedCo}</>
+                                )}
+                                {d.val === 'queries' && <>{unassignedCo}</>}
+                              </span>
+                              )
+                            </>
+                          }
 
                           {/* <span className="bg-gray-100 px-2 py-1 rounded-full">
                           {/* {rowsCounter(leadsFetchedData, d.val).length} */}
@@ -871,15 +848,19 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
                     />
                   </div> */}
 
-                  <span className="mt-2 ml-2 text-red-400 cursor-pointer text-xs" onClick={()=> setSearchKeyField('')}>
+                  <span
+                    className="mt-2 ml-2 text-red-400 cursor-pointer text-xs"
+                    onClick={() => setSearchKeyField('')}
+                  >
                     {' '}
                     Clear
                   </span>
                 </div>
                 <span style={{ display: '' }}>
-                  <CSVDownloader
+                  <ExcelDownloader
                     className="mr-6 h-[20px] w-[20px] mt-2"
-                    downloadRows={bookingReviewA}
+                    downloadRows={filteredDataA}
+                    sourceTab="Stall Enquiries"
                     style={{ height: '20px', width: '20px' }}
                   />
                 </span>
@@ -1086,8 +1067,9 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
                                       Paid: ₹
                                       {(
                                         (finData?.T_review || 0) +
-                                        (finData?.T_approved || 0)
-                                        (finData?.T_paid || 0)
+                                        (finData?.T_approved || 0)(
+                                          finData?.T_paid || 0
+                                        )
                                       )?.toLocaleString('en-IN')}
                                     </div>
                                   </section>
@@ -1218,30 +1200,18 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
                     </ul>
                   )}
 
-
-                  <div className='border border-[#EAECF0] rounded-[8px] my-[20px]'>
-
-                                     <LStallSalesBody
-        fetchLeadsLoader={fetchLeadsLoader}
-        selStatus={'all'}
-        rowsParent={[]}
-        selUserProfileF={selUserProfileF}
-        newArray={[]}
-        leadsFetchedData={filteredDataA}
-        mySelRows={filteredDataA}
-        searchVal={searchValue}
-                  />
-
+                  <div className="border border-[#EAECF0] rounded-[8px] my-[20px]">
+                    <LStallSalesBody
+                      fetchLeadsLoader={fetchLeadsLoader}
+                      selStatus={'all'}
+                      rowsParent={[]}
+                      selUserProfileF={selUserProfileF}
+                      newArray={[]}
+                      leadsFetchedData={filteredDataA}
+                      mySelRows={filteredDataA}
+                      searchVal={searchValue}
+                    />
                   </div>
-
- 
-
-
-
-
-
-
-
 
                   {selCategory === 'unAssigned_crm' &&
                     crmCustomersDBData.map((finData, t) => {
@@ -1520,7 +1490,6 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
         open={isUnitDetailsOpen}
         setOpen={setisUnitDetailsOpen}
         title={'User Profile'}
-
         customerDetails={selUnitDetails}
         setSelUnitDetails={setSelUnitDetails}
         widthClass="max-w-[900px]"
@@ -1536,7 +1505,7 @@ const CrmStallEnquiriesHome = ({ leadsTyper }) => {
         title={'Add Stall Lead'}
         widthClass="max-w-4xl"
       />
-       <SiderForm
+      <SiderForm
         open={isOpenBlukLead}
         setOpen={setIsOpenBulkLead}
         title={'Import Stall Lead'}

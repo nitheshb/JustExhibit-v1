@@ -1,16 +1,14 @@
-
 import { useState, useEffect } from 'react'
+
 import { setHours, setMinutes } from 'date-fns'
 import { Form, Formik, useFormikContext } from 'formik'
 import { useSnackbar } from 'notistack'
 import DatePicker from 'react-datepicker'
 import { v4 as uuidv4 } from 'uuid'
 import * as Yup from 'yup'
+
 import Loader from 'src/components/Loader/Loader'
-import {
-  developmentTypes,
-  projectPlans,
-} from 'src/constants/projects'
+import { developmentTypes, projectPlans } from 'src/constants/projects'
 import {
   createProject,
   getProject,
@@ -19,17 +17,13 @@ import {
   updateProject,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
+import CustomDatePicker from 'src/util/formFields/CustomDatePicker'
 import { CustomRadioGroup } from 'src/util/formFields/CustomRadioGroup'
 import { CustomSelect } from 'src/util/formFields/selectBoxField'
 import { TextAreaField } from 'src/util/formFields/TextAreaField'
 import { TextField } from 'src/util/formFields/TextField'
 
-import CustomDatePicker from 'src/util/formFields/CustomDatePicker'
 import ProjectLogoUploader from '../A_ProjModule/projectLogoUploader'
-
-
-
-
 
 const DialogFormBody = ({
   title,
@@ -140,47 +134,36 @@ const DialogFormBody = ({
     // console.log('my eis ', e.target.value)
   }
 
-
   //const { statesList } = useMasterData();
 
-
   useEffect(() => {
-    const unsubscribe = streamMasters(
-      orgId,
-      (querySnapshot) => {
-        const bankA = querySnapshot.docs.map((docSnapshot) => {
-          const x = docSnapshot.data()
-          return x
-        })
+    const unsubscribe = streamMasters(orgId, (querySnapshot) => {
+      const bankA = querySnapshot.docs.map((docSnapshot) => {
+        const x = docSnapshot.data()
+        return x
+      })
 
-        console.log('fetched users list is', bankA)
-        // step 3: filter and set values to each title
-        if (bankA?.length > 0) {
-          const dA = bankA.filter((item) => item.title == 'State')
-          const eA = bankA.filter((item) => item.title == 'Planning Authority')
+      console.log('fetched users list is', bankA)
+      // step 3: filter and set values to each title
+      if (bankA?.length > 0) {
+        const dA = bankA.filter((item) => item.title == 'State')
+        const eA = bankA.filter((item) => item.title == 'Planning Authority')
 
-          setStatesList(dA.sort((a, b) => {
+        setStatesList(
+          dA.sort((a, b) => {
             return a.order - b.order
-          }))
-          setapprovalAuthority(eA.sort((a, b) => {
+          })
+        )
+        setapprovalAuthority(
+          eA.sort((a, b) => {
             return a.order - b.order
-          }))
-
-
-
-
-
-        }
-      },
-
-    )
+          })
+        )
+      }
+    })
 
     return unsubscribe
   }, [])
-
-
-
-
 
   const onSubmit = async (data, resetForm) => {
     const updatedData = {
@@ -207,20 +190,19 @@ const DialogFormBody = ({
     } else {
       console.log('selected value is ')
       const uid = uuidv4()
-      let fullCsA = []
-      await createProject(
-        orgId,
-        uid,
-        updatedData,
-        enqueueSnackbar,
-        resetForm
-      )
+      const fullCsA = []
+      await createProject(orgId, uid, updatedData, enqueueSnackbar, resetForm)
       setLoading1(false)
 
       const additionalUserInfo = await getProject(orgId, uid)
       await console.log('selected value is xxx ', additionalUserInfo)
       await setProject(additionalUserInfo)
       await console.log('selected value is ==> ', project)
+
+      // Close modal after successful creation
+      if (dialogOpen) {
+        dialogOpen(false)
+      }
     }
     setLoading1(false)
   }
@@ -259,18 +241,15 @@ const DialogFormBody = ({
     setAddNewBankStuff(false)
   }
 
-
-
-  const [statesListA, setStatesList] = useState([]);
+  const [statesListA, setStatesList] = useState([])
   const [approvalAuthorityA, setapprovalAuthority] = useState([])
-
-
 
   const initialState = {
     eventName: project?.eventName || '',
     eventEndDate: project?.eventEndDate || '',
     eventStartDate: project?.eventStartDate || '',
     webUrl: project?.webUrl || '',
+    status: project?.status || 'upcoming',
     location: project?.location || '',
     pincode: project?.pincode || '',
     state: project?.state || '',
@@ -288,6 +267,7 @@ const DialogFormBody = ({
       .matches(/^[0-9]+$/, 'Must be only digits')
       .length(6, 'Must be 6 digits'),
     city: Yup.string().required('Required'),
+    status: Yup.string().required('Required'),
     // state: Yup.string().required('Required'),
   })
   return (
@@ -317,52 +297,40 @@ const DialogFormBody = ({
                   // bindSubmitForm(formik.submitForm);
                   return (
                     <Form>
-
-     
-
-
                       <div className="p-4 ">
-
-
-
-                      <div className="mb-4  mt-4">
-                            <div className="inline">
-                              <div className="">
-                                <label className="font-semibold text-[#053219]  text-sm  mb-1  ">
-                                  Details<abbr title="required"></abbr>
-                                </label>
-                              </div>
-
-                              <div className="border-t-4 rounded-xl w-16 mt-1 border-[#57C0D0]"></div>
+                        <div className="mb-4  mt-4">
+                          <div className="inline">
+                            <div className="">
+                              <label className="font-semibold text-[#053219]  text-sm  mb-1  ">
+                                Details<abbr title="required"></abbr>
+                              </label>
                             </div>
+
+                            <div className="border-t-4 rounded-xl w-16 mt-1 border-[#57C0D0]"></div>
+                          </div>
+                        </div>
+
+                        <div className="grid grid-cols-4 gap-2 w-full">
+                          <div className="col-span-1 mt-1">
+                            <ProjectLogoUploader
+                              projectId={project?.uid}
+                              eventLogoURL={project?.eventLogoURL}
+                            />
                           </div>
 
-                        <div className='grid grid-cols-4 gap-2 w-full'>
-
-
-
-                        <div className='col-span-1 mt-1'>
-                            <ProjectLogoUploader projectId={project?.uid} eventLogoURL={project?.eventLogoURL}/>
-                            </div>
-
-
-                            <div className='col-span-3 items-start'>
-
-
+                          <div className="col-span-3 items-start">
                             <div className="flex flex-col mt-0  bg-white  ">
+                              <p className="text-sm text-gray-800">
+                                Event Name*
+                              </p>
+                              <TextField
+                                label=""
+                                name="eventName"
+                                type="text"
+                              />
 
-                          <p className="text-sm text-gray-800">
-                            Event Name*
-                          </p>
-                          <TextField label="" name="eventName" type="text" />
-
-                          
-                          <div className="flex space-x-4 w-full text-xs mt-2">
-
-
-                          <div className=" flex-1">
-
-
+                              <div className="flex space-x-4 w-full text-xs mt-2">
+                                <div className=" flex-1">
                                   <label className="label font-regular text-sm text-gray-800  block mb-1">
                                     Start Date*
                                   </label>
@@ -389,46 +357,44 @@ const DialogFormBody = ({
                                     dateFormat="MMM dd, yyyy"
                                   />
                                 </div>
-                              <div className="flex-1 ">
-                                <label className="label text-sm text-gray-800  font-regular block mb-1">
-                                  End Date*
-                                </label>
-                                <DatePicker
-                                  id="eventEndDate"
-                                  name="eventEndDate"
-                                  className="pl- px-1 h-8 rounded-md min-w-[289px] inline text-[#0091ae] flex bg-grey-lighter text-grey-darker border border-[#cccccc] px-2"
-                                  selected={endDate}
-                                  onChange={(date) => {
-                                    console.log(
-                                      'date',
-                                      date.getTime(),
-                                      date,
-                                      formik.values.hdmaStartDate,
-                                      date.getTime() > startDate
-                                    )
-                                    if (date.getTime() > startDate) {
-                                      formik.setFieldValue(
-                                        'eventEndDate',
-                                        date.getTime()
+                                <div className="flex-1 ">
+                                  <label className="label text-sm text-gray-800  font-regular block mb-1">
+                                    End Date*
+                                  </label>
+                                  <DatePicker
+                                    id="eventEndDate"
+                                    name="eventEndDate"
+                                    className="pl- px-1 h-8 rounded-md min-w-[289px] inline text-[#0091ae] flex bg-grey-lighter text-grey-darker border border-[#cccccc] px-2"
+                                    selected={endDate}
+                                    onChange={(date) => {
+                                      console.log(
+                                        'date',
+                                        date.getTime(),
+                                        date,
+                                        formik.values.hdmaStartDate,
+                                        date.getTime() > startDate
                                       )
-                                      setEndDate(date)
-                                    }
-                                  }}
-                                  timeFormat="HH:mm"
-                                  injectTimes={[
-                                    setHours(setMinutes(d, 1), 0),
-                                    setHours(setMinutes(d, 5), 12),
-                                    setHours(setMinutes(d, 59), 23),
-                                  ]}
-                                  // dateFormat="MMMM d, yyyy"
-                                  dateFormat="MMM dd, yyyy"
-                                />
+                                      if (date.getTime() > startDate) {
+                                        formik.setFieldValue(
+                                          'eventEndDate',
+                                          date.getTime()
+                                        )
+                                        setEndDate(date)
+                                      }
+                                    }}
+                                    timeFormat="HH:mm"
+                                    injectTimes={[
+                                      setHours(setMinutes(d, 1), 0),
+                                      setHours(setMinutes(d, 5), 12),
+                                      setHours(setMinutes(d, 59), 23),
+                                    ]}
+                                    // dateFormat="MMMM d, yyyy"
+                                    dateFormat="MMM dd, yyyy"
+                                  />
+                                </div>
                               </div>
 
-                          </div>
-
-
-                          <div className="mt-2 w-full">
+                              <div className="mt-2 w-full">
                                 <TextField
                                   label="Website Url"
                                   name="webUrl"
@@ -436,19 +402,25 @@ const DialogFormBody = ({
                                 />
                               </div>
 
-                        </div>
-
-
+                              <div className="mt-2 w-full">
+                                <CustomSelect
+                                  name="status"
+                                  label="Status*"
+                                  className="input mt-2"
+                                  onChange={({ value }) => {
+                                    formik.setFieldValue('status', value)
+                                  }}
+                                  value={formik.values.status}
+                                  options={[
+                                    { value: 'upcoming', label: 'Upcoming' },
+                                    { value: 'ongoing', label: 'Ongoing' },
+                                    { value: 'completed', label: 'Completed' },
+                                  ]}
+                                />
+                              </div>
                             </div>
-
-
-
-    
+                          </div>
                         </div>
-
-
-      
-
 
                         <div className="flex flex-col mt-2 rounded-lg pt-4 ">
                           <div className="mb-4 mt-2">
@@ -493,10 +465,7 @@ const DialogFormBody = ({
                                 }}
                                 value={formik.values.state}
                                 options={statesListA}
-
-
                               />
-
                             </div>
                           </div>
                           <div className="mt-2 w-full mb-10">
@@ -508,8 +477,6 @@ const DialogFormBody = ({
                           </div>
                         </div>
                       </div>
-
-
 
                       <div className="z-10 flex flex-row justify-between mt-4 pb-2 pr-6 bg-white shadow-lg absolute bottom-0  w-full">
                         <div></div>
