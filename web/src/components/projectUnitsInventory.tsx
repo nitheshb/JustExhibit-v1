@@ -2,12 +2,15 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState, useEffect } from 'react'
+
 import { Link, routes } from '@redwoodjs/router'
-import ProjectStatsCard from './ProjectStatsCard/ProjectStatsCard'
+
 import { getAllProjects } from 'src/context/dbQueryFirebase'
-import DummyBodyLayout from './DummyBodyLayout/DummyBodyLayout'
-import SiderForm from './SiderForm/SiderForm'
 import { useAuth } from 'src/context/firebase-auth-context'
+
+import DummyBodyLayout from './DummyBodyLayout/DummyBodyLayout'
+import ProjectStatsCard from './ProjectStatsCard/ProjectStatsCard'
+import SiderForm from './SiderForm/SiderForm'
 
 const projectFeedData = [
   { k: 'Total', v: 125, pic: '' },
@@ -239,10 +242,6 @@ const ProjectsUnitInventory = ({
         title={'Event Inventory'}
         projectDetails={projectDetails}
         unitsViewMode={true}
-
-
-
-
       />
     </div>
   )

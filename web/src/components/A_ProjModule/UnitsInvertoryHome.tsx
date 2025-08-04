@@ -2,7 +2,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { useState, useEffect } from 'react'
+
 import { Link } from '@redwoodjs/router'
+
 import {
   getAllProjects,
   getBlocksByPhase,
@@ -10,6 +12,7 @@ import {
   getUnits,
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
+
 import 'flowbite'
 import DropDownSearchBar from '../dropDownSearchBar'
 import 'src/styles/myStyles.css'
@@ -454,30 +457,26 @@ const UnitsInventoryHome = ({ project }) => {
           </div>
         </div>
 
-
         <div className="mt-1 ">
           {/* <form className=""> */}
           <div className="flex justify-center items-center  flex flex-col">
             <div className="relative  p-2.5 pb-6">
               <section className=" top-0 left-0  flex flex-row  border bg-white border-[#dddddd] py-2 px-1 rounded-[14px]  custom-shadow">
-
-
-
-                <div className='flex   justify-center items-center'>
-                    <DropDownSearchBar
-                  label={'Events'}
-                  type={'All Events'}
-                  id={'id'}
-                  setStatusFun={{}}
-                  viewUnitStatusA={[]}
-                  pickCustomViewer={selProjctFun}
-                  selProjectIs={projectDetails}
-                  dropDownItemsA={customerRawData}
-                />
+                <div className="flex   justify-center items-center">
+                  <DropDownSearchBar
+                    label={'Events'}
+                    type={'All Events'}
+                    id={'id'}
+                    setStatusFun={{}}
+                    viewUnitStatusA={[]}
+                    pickCustomViewer={selProjctFun}
+                    selProjectIs={projectDetails}
+                    dropDownItemsA={customerRawData}
+                  />
 
                   <div className="w-[1px] h-[58px] bg-[#E4E6E8] mx-2" />
 
-                {/* <DropDownSearchBar
+                  {/* <DropDownSearchBar
                       type={'All Phases'}
                       id={'id'}
                       setStatusFun={{}}
@@ -486,45 +485,43 @@ const UnitsInventoryHome = ({ project }) => {
                       selProjectIs={phaseDetails}
                       dropDownItemsA={phasesA}
                     /> */}
-                <DropDownSearchBar
-                  label={'Availablity'}
-                  type={'All Status'}
-                  id={'id'}
-                  setStatusFun={{}}
-                  viewUnitStatusA={[]}
-                  pickCustomViewer={selStatusFun}
-                  selProjectIs={availType}
-                  dropDownItemsA={availStatusA}
-                />
+                  <DropDownSearchBar
+                    label={'Availablity'}
+                    type={'All Status'}
+                    id={'id'}
+                    setStatusFun={{}}
+                    viewUnitStatusA={[]}
+                    pickCustomViewer={selStatusFun}
+                    selProjectIs={availType}
+                    dropDownItemsA={availStatusA}
+                  />
 
                   <div className="w-[1px] h-[58px] bg-[#E4E6E8] mx-2" />
 
-
-                <DropDownSearchBar
-                  label={'Dimension'}
-                  type={'All'}
-                  id={'id'}
-                  setStatusFun={{}}
-                  viewUnitStatusA={[]}
-                  pickCustomViewer={selTypeFun}
-                  selProjectIs={selUnitType}
-                  dropDownItemsA={typeA}
-                />
+                  <DropDownSearchBar
+                    label={'Dimension'}
+                    type={'All'}
+                    id={'id'}
+                    setStatusFun={{}}
+                    viewUnitStatusA={[]}
+                    pickCustomViewer={selTypeFun}
+                    selProjectIs={selUnitType}
+                    dropDownItemsA={typeA}
+                  />
 
                   <div className="w-[1px] h-[58px] bg-[#E4E6E8] mx-2" />
 
-              
-                <DropDownSearchBar
-                  label={'Size'}
-                  type={'All Status'}
-                  id={'id'}
-                  setStatusFun={{}}
-                  viewUnitStatusA={[]}
-                  pickCustomViewer={selSizeFun}
-                  selProjectIs={selsize}
-                  dropDownItemsA={sizeA}
-                />
-                {/* <DropDownSearchBar
+                  <DropDownSearchBar
+                    label={'Size'}
+                    type={'All Status'}
+                    id={'id'}
+                    setStatusFun={{}}
+                    viewUnitStatusA={[]}
+                    pickCustomViewer={selSizeFun}
+                    selProjectIs={selsize}
+                    dropDownItemsA={sizeA}
+                  />
+                  {/* <DropDownSearchBar
                       type={'All Payments'}
                       id={'id'}
                       setStatusFun={{}}
@@ -533,7 +530,7 @@ const UnitsInventoryHome = ({ project }) => {
                       selProjectIs={projectDetails}
                       dropDownItemsA={paymentsA}
                     /> */}
-                {/* <input
+                  {/* <input
                     type="search"
                     id="search-dropdown"
                     className="block p-2.5 w-full z-2 text-sm text-gray-900 bg-gray-100 "
@@ -541,39 +538,30 @@ const UnitsInventoryHome = ({ project }) => {
                     required
                   /> */}
 
-
-
-                             <button
-                  onClick={() => {
-                    console.log('clicked')
-                  }}
-                  className=" mr-4 h-[45px] w-[45px]  mt-[8px] p-[12px] ml-2 rounded-[8px] text-sm font-medium text-white bg-[#F44D21] "
-                >
-                  <svg
-                    aria-hidden="true"
-                    className="w-5 h-5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
+                  <button
+                    onClick={() => {
+                      console.log('clicked')
+                    }}
+                    className=" mr-4 h-[45px] w-[45px]  mt-[8px] p-[12px] ml-2 rounded-[8px] text-sm font-medium text-white bg-[#F44D21] "
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                    ></path>
-                  </svg>
-                  <span className="sr-only">Search</span>
-              </button>
-
-
+                    <svg
+                      aria-hidden="true"
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      ></path>
+                    </svg>
+                    <span className="sr-only">Search</span>
+                  </button>
                 </div>
-
-
-
-  
-
               </section>
             </div>
           </div>

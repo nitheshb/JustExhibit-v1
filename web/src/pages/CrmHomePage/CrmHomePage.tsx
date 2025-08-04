@@ -27,12 +27,13 @@ import AllBankDetailsView from 'src/components/All_BankDetailsView'
 import CalendarHome from 'src/components/comps/calendarHome'
 import DummyBodyLayout from 'src/components/DummyBodyLayout/DummyBodyLayout'
 import HeadNavBar2 from 'src/components/HeadNavBar/HeadNavBar2'
+import LeadsLakeHomePage from 'src/components/PreSaleModule/LeadsManagement/LeadsLakeHomePage'
 import ProjectsUnitInventory from 'src/components/projectUnitsInventory'
 import CrmBucketList from 'src/components/TableComp/CrmBuckets'
 import { getAllProjects } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
+
 import SiderForm from '../../components/SiderForm/SiderForm'
-import LeadsLakeHomePage from 'src/components/PreSaleModule/LeadsManagement/LeadsLakeHomePage'
 
 const CrmHomePage = () => {
   const { user } = useAuth()

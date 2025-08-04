@@ -37,8 +37,8 @@ import {
 } from 'src/context/dbQueryFirebase'
 import { useAuth } from 'src/context/firebase-auth-context'
 import { computeTotal } from 'src/util/computeCsTotals'
-import CSVDownloader from 'src/util/csvDownload'
 import { prettyDate, prettyDateTime, timeConv } from 'src/util/dateConverter'
+import ExcelDownloader from 'src/util/excelDownload'
 import {
   SlimDateSelectBox,
   SlimSelectBox,
@@ -785,15 +785,9 @@ const CrmRegisterModeHome = ({ leadsTyper }) => {
                   </span>
                 </div>
                 <span>
-                  <CSVDownloader
-                    className="mr-6 h-[20px] w-[20px] mt-2"
+                  <ExcelDownloader
                     downloadRows={bookingReviewA}
-                    style={{
-                      height: '20px',
-                      width: '20px',
-                      color: '#F44D21',
-                      fill: '#F44D21',
-                    }}
+                    sourceTab="Booking Summary"
                   />
                 </span>
               </div>

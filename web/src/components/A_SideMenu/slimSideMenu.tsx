@@ -66,13 +66,13 @@ const SlimSideMenuBar = (props) => {
           'constructModule',
           'legalModule',
         ].includes(sourceLink) && (
-          <a>
-            {/* <img
+            <a>
+              {/* <img
                 src="https://yt3.googleusercontent.com/f0Ffx-wDWloHZSxH2ksegEkJ-r3gQgDxMxwiyyYyYj7V-TCXwHicF4dcJcwnZ2MDQDQU7zW9=s160-c-k-c0x00ffffff-no-rj"
                 className="w-10 h-10 ml-4"
               /> */}
-          </a>
-        )}
+            </a>
+          )}
         <section className="mb-4"></section>
 
         {/* Same Menu Card */}
@@ -116,15 +116,15 @@ const SlimSideMenuBar = (props) => {
                       </svg>
                     </span>
                     {!isCollapsed && (
-                      <span
+                    <span
                         className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                           viewable === 'ongoing_projects'
                             ? 'text-[#FAFAFA]'
                             : 'text-black'
                         }`}
-                      >
-                        Events
-                      </span>
+                    >
+                      Events
+                    </span>
                     )}
                   </span>
                 </span>
@@ -185,18 +185,18 @@ const SlimSideMenuBar = (props) => {
                             viewable === 'units_inventory' ? 'white' : 'black'
                           }
                         />
-                      </svg>
+</svg>
                     </span>
                     {!isCollapsed && (
-                      <span
+                    <span
                         className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                           viewable === 'units_inventory'
                             ? 'text-[#FAFAFA]'
                             : 'text-black'
                         }`}
-                      >
-                        Stalls
-                      </span>
+                    >
+                      Stalls
+                    </span>
                     )}
                   </span>
                 </span>
@@ -294,15 +294,15 @@ const SlimSideMenuBar = (props) => {
                       </svg>
                     </span>
                     {!isCollapsed && (
-                      <span
+                    <span
                         className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                           viewable === 'crmSpace-I'
                             ? 'text-[#FAFAFA]'
                             : 'text-black'
                         }`}
-                      >
-                        Bookings
-                      </span>
+                    >
+                      Bookings
+                    </span>
                     )}
                   </span>
                 </span>
@@ -339,15 +339,15 @@ const SlimSideMenuBar = (props) => {
                       </svg>
                     </span>
                     {!isCollapsed && (
-                      <span
+                    <span
                         className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                           viewable === 'stallEnquiries'
                             ? 'text-[#FAFAFA]'
                             : 'text-black'
                         }`}
-                      >
-                        Enquiry
-                      </span>
+                    >
+                      Enquiry
+                    </span>
                     )}
                   </span>
                 </span>
@@ -355,21 +355,21 @@ const SlimSideMenuBar = (props) => {
 
               {(user?.role?.includes(USER_ROLES.SALES_MANAGER) ||
                 user?.role?.includes(USER_ROLES.ADMIN)) && (
-                <li className="relative mt-1 pt-1">
-                  <span
-                    className={
-                      'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
-                      (viewable === 'leadslake' ? 'bg-[#F44D21] w-100' : '')
-                    }
-                    onClick={() => setViewable('leadslake')}
-                    style={{
-                      display: 'block',
-                      marginLeft: 'auto',
-                      marginRight: 'auto',
-                    }}
-                  >
-                    <span className="flex items-center flex-col">
-                      <span>
+                  <li className="relative mt-1 pt-1">
+                    <span
+                      className={
+                        'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+                        (viewable === 'leadslake' ? 'bg-[#F44D21] w-100' : '')
+                      }
+                      onClick={() => setViewable('leadslake')}
+                      style={{
+                        display: 'block',
+                        marginLeft: 'auto',
+                        marginRight: 'auto',
+                      }}
+                    >
+                      <span className="flex items-center flex-col">
+                        <span>
                         <svg
                           width="17"
                           height="16"
@@ -381,24 +381,24 @@ const SlimSideMenuBar = (props) => {
                             d="M8.50001 1.6001C7.65132 1.6001 6.83739 1.93724 6.23727 2.53736C5.63715 3.13747 5.30001 3.9514 5.30001 4.8001C5.30001 5.64879 5.63715 6.46272 6.23727 7.06284C6.83739 7.66296 7.65132 8.0001 8.50001 8.0001C9.3487 8.0001 10.1626 7.66296 10.7628 7.06284C11.3629 6.46272 11.7 5.64879 11.7 4.8001C11.7 3.9514 11.3629 3.13747 10.7628 2.53736C10.1626 1.93724 9.3487 1.6001 8.50001 1.6001ZM12.392 13.4377C11.5352 13.9841 10.4288 14.2889 9.22241 14.3745C9.16219 14.2157 9.06894 14.0714 8.94881 13.9513L7.34881 12.3521C7.58018 11.8674 7.70017 11.3372 7.70001 10.8001C7.70009 10.0881 7.48906 9.39213 7.09361 8.8001H12.5C12.9244 8.8001 13.3313 8.96867 13.6314 9.26873C13.9314 9.56879 14.1 9.97575 14.1 10.4001C14.1 11.7529 13.4336 12.7729 12.392 13.4377ZM4.10001 13.6001C4.72881 13.6001 5.30961 13.3921 5.77681 13.0425L7.81681 15.0825C7.85395 15.1197 7.89805 15.1492 7.94659 15.1693C7.99513 15.1895 8.04717 15.1999 8.09973 15.1999C8.15229 15.2 8.20434 15.1896 8.25291 15.1696C8.30148 15.1495 8.34562 15.12 8.38281 15.0829C8.42 15.0458 8.44951 15.0017 8.46966 14.9531C8.48981 14.9046 8.5002 14.8525 8.50023 14.8C8.50027 14.7474 8.48996 14.6954 8.46988 14.6468C8.4498 14.5982 8.42035 14.5541 8.38321 14.5169L6.34321 12.4769C6.72082 11.9719 6.91693 11.3543 6.89978 10.724C6.88263 10.0936 6.65323 9.48756 6.24873 9.00386C5.84422 8.52016 5.28829 8.18715 4.67095 8.05876C4.05361 7.93037 3.41101 8.0141 2.84719 8.29642C2.28337 8.57873 1.83134 9.04308 1.56431 9.6143C1.29727 10.1855 1.23085 10.8301 1.37581 11.4438C1.52077 12.0575 1.86861 12.6042 2.36302 12.9956C2.85743 13.3869 3.46946 13.5999 4.10001 13.6001ZM4.10001 12.8001C3.56958 12.8001 3.06087 12.5894 2.6858 12.2143C2.31072 11.8392 2.10001 11.3305 2.10001 10.8001C2.10001 10.2697 2.31072 9.76096 2.6858 9.38588C3.06087 9.01081 3.56958 8.8001 4.10001 8.8001C4.63044 8.8001 5.13915 9.01081 5.51422 9.38588C5.8893 9.76096 6.10001 10.2697 6.10001 10.8001C6.10001 11.3305 5.8893 11.8392 5.51422 12.2143C5.13915 12.5894 4.63044 12.8001 4.10001 12.8001Z"
                             fill={viewable === 'leadslake' ? 'white' : 'black'}
                           />
-                        </svg>
-                      </span>
+                          </svg>
+                        </span>
                       {!isCollapsed && (
                         <span
                           className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                             viewable === 'leadslake'
                               ? 'text-[#FAFAFA]'
                               : 'text-black'
-                          }`}
+                            }`}
                         >
                           Online <br /> Enquiry
                         </span>
                       )}
+                      </span>
                     </span>
-                  </span>
-                </li>
-              )}
-              <li className="relative mt-1 pt-1">
+                  </li>
+                )}
+  <li className="relative mt-1 pt-1">
                 <span
                   className={
                     'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
@@ -422,20 +422,20 @@ const SlimSideMenuBar = (props) => {
                       >
                         <path
                           d="M4.49999 8.58309C5.07125 8.58309 5.50436 8.57686 5.87792 8.67684C6.82671 8.93107 7.56781 9.67248 7.82226 10.6212C7.89735 10.9014 7.91312 11.2154 7.91601 11.5958V12.4034C7.91313 12.7839 7.89732 13.0977 7.82226 13.378C7.56797 14.327 6.82692 15.0681 5.87792 15.3223C5.59759 15.3974 5.28382 15.4132 4.90331 15.4161H4.09569C3.71535 15.4132 3.40132 15.3974 3.12108 15.3223C2.17238 15.0679 1.43098 14.3268 1.17675 13.378C1.07677 13.0045 1.083 12.5713 1.083 12.0001C1.083 11.4285 1.07662 10.9949 1.17675 10.6212C1.4311 9.67249 2.1724 8.93119 3.12108 8.67684C3.49476 8.57671 3.92846 8.58309 4.49999 8.58309ZM12.5 8.58309C13.0713 8.58309 13.5044 8.57686 13.8779 8.67684C14.8267 8.93107 15.5678 9.67247 15.8223 10.6212C15.8973 10.9014 15.9131 11.2154 15.916 11.5958V12.4034C15.9131 12.7839 15.8973 13.0977 15.8223 13.378C15.568 14.327 14.8269 15.0681 13.8779 15.3223C13.5976 15.3974 13.2838 15.4132 12.9033 15.4161H12.0957C11.7154 15.4132 11.4013 15.3974 11.1211 15.3223C10.1724 15.0679 9.43098 14.3268 9.17675 13.378C9.07677 13.0045 9.083 12.5713 9.083 12.0001C9.083 11.4285 9.07662 10.9949 9.17675 10.6212C9.4311 9.67249 10.1724 8.93119 11.1211 8.67684C11.4948 8.57671 11.9285 8.58309 12.5 8.58309ZM4.49999 0.58309C5.07125 0.583087 5.50436 0.576861 5.87792 0.67684C6.82671 0.931068 7.56781 1.67248 7.82226 2.62118C7.89735 2.90141 7.91312 3.21544 7.91601 3.59579V4.4034C7.91313 4.78391 7.89732 5.09768 7.82226 5.37801C7.56797 6.32702 6.82692 7.06806 5.87792 7.32235C5.59759 7.39742 5.28382 7.41322 4.90331 7.4161H4.09569C3.71535 7.41321 3.40132 7.39744 3.12108 7.32235C2.17238 7.0679 1.43098 6.3268 1.17675 5.37801C1.07677 5.00445 1.083 4.57135 1.083 4.00008C1.083 3.42855 1.07662 2.99485 1.17675 2.62118C1.4311 1.67249 2.1724 0.931188 3.12108 0.67684C3.49476 0.576713 3.92846 0.583087 4.49999 0.58309ZM12.5 0.58309C13.0713 0.583087 13.5044 0.576861 13.8779 0.67684C14.8267 0.931068 15.5678 1.67248 15.8223 2.62118C15.8973 2.90141 15.9131 3.21544 15.916 3.59579V4.4034C15.9131 4.78391 15.8973 5.09768 15.8223 5.37801C15.568 6.32702 14.8269 7.06806 13.8779 7.32235C13.5976 7.39742 13.2838 7.41322 12.9033 7.4161H12.0957C11.7154 7.41321 11.4013 7.39744 11.1211 7.32235C10.1724 7.0679 9.43098 6.3268 9.17675 5.37801C9.07677 5.00445 9.083 4.57135 9.083 4.00008C9.083 3.42855 9.07662 2.99485 9.17675 2.62118C9.4311 1.67249 10.1724 0.931188 11.1211 0.67684C11.4948 0.576713 11.9285 0.583087 12.5 0.58309Z"
-                          fill={viewable === 'CrmHome' ? 'white' : 'black'}
+                        fill={viewable === 'CrmHome' ? 'white' : 'black'}
                         />
                       </svg>
                     </span>
                     {!isCollapsed && (
-                      <span
+                    <span
                         className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                           viewable === 'CrmHome'
                             ? 'text-[#FAFAFA]'
                             : 'text-black'
                         }`}
-                      >
-                        Overview
-                      </span>
+                    >
+                      Overview
+                    </span>
                     )}
                   </span>
                 </span>
@@ -856,21 +856,21 @@ const SlimSideMenuBar = (props) => {
           <>
             <ul className="w-full">
               {showMoreItems && (
-                <li className="relative mt-1 pt-1">
-                  <span
-                    className={
-                      'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
-                      (viewable === 'Integrations' ? 'bg-[#F44D21] w-100' : '')
-                    }
-                    onClick={() => setViewable('Integrations')}
-                    style={{
-                      display: 'block',
-                      marginLeft: 'auto',
-                      marginRight: 'auto',
-                    }}
-                  >
-                    <span className="flex items-center flex-col">
-                      <span>
+              <li className="relative mt-1 pt-1">
+                <span
+                  className={
+                    'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+                    (viewable === 'Integrations' ? 'bg-[#F44D21] w-100' : '')
+                  }
+                  onClick={() => setViewable('Integrations')}
+                  style={{
+                    display: 'block',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                  }}
+                >
+                  <span className="flex items-center flex-col">
+                    <span>
                         <svg
                           width="12"
                           height="12"
@@ -905,40 +905,40 @@ const SlimSideMenuBar = (props) => {
                               viewable === 'Integrations' ? 'white' : 'black'
                             }
                           />
-                        </svg>
-                      </span>
+                      </svg>
+                    </span>
                       {!isCollapsed && (
-                        <span
+                    <span
                           className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                             viewable === 'Integrations'
                               ? 'text-[#FAFAFA]'
                               : 'text-black'
-                          }`}
-                        >
-                          Connect
-                        </span>
-                      )}
+                        }`}
+                    >
+                      Connect
                     </span>
+                      )}
                   </span>
-                </li>
+                </span>
+              </li>
               )}
 
               {showMoreItems && (
-                <li className="relative mt-1 pt-1">
-                  <span
-                    className={
-                      'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
-                      (viewable === 'Setup' ? 'bg-[#F44D21] w-100' : '')
-                    }
-                    onClick={() => setViewable('Setup')}
-                    style={{
-                      display: 'block',
-                      marginLeft: 'auto',
-                      marginRight: 'auto',
-                    }}
-                  >
-                    <span className="flex items-center flex-col">
-                      <span>
+              <li className="relative mt-1 pt-1">
+                <span
+                  className={
+                    'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+                    (viewable === 'Setup' ? 'bg-[#F44D21] w-100' : '')
+                  }
+                  onClick={() => setViewable('Setup')}
+                  style={{
+                    display: 'block',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                  }}
+                >
+                  <span className="flex items-center flex-col">
+                    <span>
                         <svg
                           width="16"
                           height="16"
@@ -1003,9 +1003,9 @@ const SlimSideMenuBar = (props) => {
                               strokeLinecap="round"
                               strokeLinejoin="round"
                             />
-                          </g>
-                          <defs>
-                            <clipPath id="clip0_441_3688">
+                        </g>
+                        <defs>
+                          <clipPath id="clip0_441_3688">
                               <path
                                 d="M7 11.5C7 9.01472 9.01472 7 11.5 7C13.9853 7 16 9.01472 16 11.5C16 13.9853 13.9853 16 11.5 16C9.01472 16 7 13.9853 7 11.5Z"
                                 fill={
@@ -1014,42 +1014,42 @@ const SlimSideMenuBar = (props) => {
                                     : 'black'
                                 }
                               />
-                            </clipPath>
-                          </defs>
-                        </svg>
-                      </span>
+                          </clipPath>
+                        </defs>
+                      </svg>
+                    </span>
                       {!isCollapsed && (
-                        <span
+                    <span
                           className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                             viewable === 'Setup'
                               ? 'text-[#FAFAFA]'
                               : 'text-black'
-                          }`}
-                        >
-                          Masters
-                        </span>
-                      )}
+                        }`}
+                    >
+                      Masters
                     </span>
+                      )}
                   </span>
-                </li>
+                </span>
+              </li>
               )}
 
               {showMoreItems && (
-                <li className="relative mt-1 pt-1">
-                  <span
-                    className={
-                      'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
-                      (viewable === 'Marketing' ? 'bg-[#F44D21] w-100' : '')
-                    }
-                    onClick={() => setViewable('Marketing')}
-                    style={{
-                      display: 'block',
-                      marginLeft: 'auto',
-                      marginRight: 'auto',
-                    }}
-                  >
-                    <span className="flex items-center flex-col">
-                      <span>
+              <li className="relative mt-1 pt-1">
+                <span
+                  className={
+                    'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+                    (viewable === 'Marketing' ? 'bg-[#F44D21] w-100' : '')
+                  }
+                  onClick={() => setViewable('Marketing')}
+                  style={{
+                    display: 'block',
+                    marginLeft: 'auto',
+                    marginRight: 'auto',
+                  }}
+                >
+                  <span className="flex items-center flex-col">
+                    <span>
                         <svg
                           width="16"
                           height="16"
@@ -1061,22 +1061,22 @@ const SlimSideMenuBar = (props) => {
                             d="M8 1.6001C7.15131 1.6001 6.33738 1.93724 5.73726 2.53736C5.13714 3.13747 4.8 3.9514 4.8 4.8001C4.8 5.64879 5.13714 6.46272 5.73726 7.06284C6.33738 7.66296 7.15131 8.0001 8 8.0001C8.84869 8.0001 9.66263 7.66296 10.2627 7.06284C10.8629 6.46272 11.2 5.64879 11.2 4.8001C11.2 3.9514 10.8629 3.13747 10.2627 2.53736C9.66263 1.93724 8.84869 1.6001 8 1.6001ZM4.0072 8.8001C3.79648 8.79915 3.58765 8.83983 3.3927 8.91982C3.19774 8.9998 3.02051 9.11751 2.87117 9.26617C2.72184 9.41484 2.60334 9.59154 2.52248 9.78614C2.44162 9.98073 2.4 10.1894 2.4 10.4001C2.4 11.7529 3.0664 12.7729 4.108 13.4377C4.9704 13.9873 6.0856 14.2937 7.3 14.3769L7.592 13.4185C7.33324 12.8472 7.19958 12.2272 7.2 11.6001C7.2 10.5361 7.5776 9.5601 8.2056 8.8001H4.0072ZM15.2 11.6001C15.2001 12.2267 15.0367 12.8425 14.7258 13.3866C14.415 13.9307 13.9675 14.3842 13.4277 14.7023C12.8878 15.0204 12.2743 15.1922 11.6477 15.2005C11.0212 15.2088 10.4033 15.0534 9.8552 14.7497L8.4232 15.1849C8.36654 15.2018 8.30637 15.203 8.24906 15.1885C8.19175 15.174 8.13942 15.1443 8.09762 15.1025C8.05581 15.0607 8.02608 15.0084 8.01157 14.951C7.99707 14.8937 7.99832 14.8336 8.0152 14.7769L8.4504 13.3457C8.18433 12.8651 8.03179 12.3299 8.00446 11.7812C7.97713 11.2325 8.07574 10.6848 8.29275 10.1801C8.50975 9.67544 8.83938 9.2271 9.25639 8.86946C9.67341 8.51182 10.1667 8.25436 10.6986 8.11681C11.2305 7.97925 11.7868 7.96525 12.3249 8.07587C12.863 8.1865 13.3687 8.41881 13.8032 8.75502C14.2377 9.09123 14.5894 9.52242 14.8315 10.0156C15.0737 10.5087 15.1997 11.0507 15.2 11.6001ZM10 10.4001C9.89392 10.4001 9.79217 10.4422 9.71716 10.5173C9.64214 10.5923 9.6 10.694 9.6 10.8001C9.6 10.9062 9.64214 11.0079 9.71716 11.0829C9.79217 11.158 9.89392 11.2001 10 11.2001H13.2C13.3061 11.2001 13.4078 11.158 13.4828 11.0829C13.5579 11.0079 13.6 10.9062 13.6 10.8001C13.6 10.694 13.5579 10.5923 13.4828 10.5173C13.4078 10.4422 13.3061 10.4001 13.2 10.4001H10ZM9.6 12.4001C9.6 12.5062 9.64214 12.6079 9.71716 12.6829C9.79217 12.758 9.89392 12.8001 10 12.8001H11.6C11.7061 12.8001 11.8078 12.758 11.8828 12.6829C11.9579 12.6079 12 12.5062 12 12.4001C12 12.294 11.9579 12.1923 11.8828 12.1173C11.8078 12.0422 11.7061 12.0001 11.6 12.0001H10C9.89392 12.0001 9.79217 12.0422 9.71716 12.1173C9.64214 12.1923 9.6 12.294 9.6 12.4001Z"
                             fill="#4D4D4D"
                           />
-                        </svg>
-                      </span>
+                      </svg>
+                    </span>
                       {!isCollapsed && (
-                        <span
+                    <span
                           className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                             viewable === 'Marketing'
                               ? 'text-[#FAFAFA]'
                               : 'text-black'
-                          }`}
-                        >
-                          Templates
-                        </span>
-                      )}
+                        }`}
+                    >
+                      Templates
                     </span>
+                      )}
                   </span>
-                </li>
+                </span>
+              </li>
               )}
 
               {/* More Button - Show at bottom when items are expanded */}
@@ -1163,24 +1163,24 @@ const SlimSideMenuBar = (props) => {
           </>
         )}
 
-        {['marketingModule'].includes(sourceLink) && (
-          <>
-            <ul className="w-full">
-              <li className="relative mt-1 pt-1">
-                <span
-                  className={
-                    'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'Today1' ? 'bg-[#F44D21] w-100' : '')
-                  }
-                  onClick={() => setViewable('Today1')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col">
-                    <span>
+{['marketingModule'].includes(sourceLink) && (
+  <>
+    <ul className="w-full">
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'Today1' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('Today1')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
                       <svg
                         width="17"
                         height="16"
@@ -1217,38 +1217,38 @@ const SlimSideMenuBar = (props) => {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         />
-                      </svg>
-                    </span>
+              </svg>
+            </span>
                     {!isCollapsed && (
-                      <span
+            <span
                         className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                           viewable === 'Today1'
                             ? 'text-[#FAFAFA]'
                             : 'text-black'
                         }`}
-                      >
-                        Tasks
-                      </span>
+            >
+              Tasks
+            </span>
                     )}
-                  </span>
-                </span>
-              </li>
+          </span>
+        </span>
+      </li>
 
-              <li className="relative mt-1 pt-1">
-                <span
-                  className={
-                    'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'MarketingSocial' ? 'bg-[#F44D21] w-100' : '')
-                  }
-                  onClick={() => setViewable('MarketingSocial')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col">
-                    <span>
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'MarketingSocial' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('MarketingSocial')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
                       <svg
                         width="17"
                         height="16"
@@ -1304,43 +1304,43 @@ const SlimSideMenuBar = (props) => {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         />
-                      </svg>
-                    </span>
+              </svg>
+            </span>
                     {!isCollapsed && (
-                      <span
+            <span
                         className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                           viewable === 'MarketingSocial'
                             ? 'text-[#FAFAFA]'
                             : 'text-black'
                         }`}
-                      >
-                        Marketing
-                      </span>
+            >
+              Marketing
+            </span>
                     )}
-                  </span>
-                </span>
-              </li>
+          </span>
+        </span>
+      </li>
 
-              {(user?.role?.includes(USER_ROLES.MARKETING_MANAGER) ||
-                user?.role?.includes(USER_ROLES.MARKETING_EXECUTIVE) ||
-                user?.role?.includes(USER_ROLES.ADMIN)) && (
-                <li className="relative mt-1 pt-1">
-                  <span
-                    className={
-                      'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+      {(user?.role?.includes(USER_ROLES.MARKETING_MANAGER) ||
+        user?.role?.includes(USER_ROLES.MARKETING_EXECUTIVE) ||
+        user?.role?.includes(USER_ROLES.ADMIN)) && (
+          <li className="relative mt-1 pt-1">
+            <span
+              className={
+                'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
                       (viewable === 'Team Lead Report'
                         ? 'bg-[#F44D21] w-100'
                         : '')
-                    }
-                    onClick={() => setViewable('Team Lead Report')}
-                    style={{
-                      display: 'block',
-                      marginLeft: 'auto',
-                      marginRight: 'auto',
-                    }}
-                  >
-                    <span className="flex items-center flex-col">
-                      <span>
+              }
+              onClick={() => setViewable('Team Lead Report')}
+              style={{
+                display: 'block',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+              }}
+            >
+              <span className="flex items-center flex-col">
+                <span>
                         <svg
                           width="17"
                           height="16"
@@ -1356,44 +1356,44 @@ const SlimSideMenuBar = (props) => {
                                 : 'black'
                             }
                           />
-                        </svg>
-                      </span>
+                  </svg>
+                </span>
                       {!isCollapsed && (
-                        <span
+                <span
                           className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                             viewable === 'Team Lead Report'
                               ? 'text-[#FAFAFA]'
                               : 'text-black'
                           }`}
-                        >
-                          Reports
-                        </span>
-                      )}
-                    </span>
-                  </span>
-                </li>
-              )}
-            </ul>
-          </>
-        )}
-        {['salesModule'].includes(sourceLink) && (
-          <>
-            <ul className="w-full">
-              <li className="relative mt-1 pt-1">
-                <span
-                  className={
-                    'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'Today1' ? 'bg-[#F44D21] w-100' : '')
-                  }
-                  onClick={() => setViewable('Today1')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
                 >
-                  <span className="flex items-center flex-col">
-                    <span>
+                  Reports
+                </span>
+                      )}
+              </span>
+            </span>
+          </li>
+        )}
+    </ul>
+  </>
+)}
+{['salesModule'].includes(sourceLink) && (
+  <>
+    <ul className="w-full">
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'Today1' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('Today1')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
                       <svg
                         width="17"
                         height="16"
@@ -1403,40 +1403,40 @@ const SlimSideMenuBar = (props) => {
                       >
                         <path
                           d="M4.49999 8.58309C5.07125 8.58309 5.50436 8.57686 5.87792 8.67684C6.82671 8.93107 7.56781 9.67248 7.82226 10.6212C7.89735 10.9014 7.91312 11.2154 7.91601 11.5958V12.4034C7.91313 12.7839 7.89732 13.0977 7.82226 13.378C7.56797 14.327 6.82692 15.0681 5.87792 15.3223C5.59759 15.3974 5.28382 15.4132 4.90331 15.4161H4.09569C3.71535 15.4132 3.40132 15.3974 3.12108 15.3223C2.17238 15.0679 1.43098 14.3268 1.17675 13.378C1.07677 13.0045 1.083 12.5713 1.083 12.0001C1.083 11.4285 1.07662 10.9949 1.17675 10.6212C1.4311 9.67249 2.1724 8.93119 3.12108 8.67684C3.49476 8.57671 3.92846 8.58309 4.49999 8.58309ZM12.5 8.58309C13.0713 8.58309 13.5044 8.57686 13.8779 8.67684C14.8267 8.93107 15.5678 9.67247 15.8223 10.6212C15.8973 10.9014 15.9131 11.2154 15.916 11.5958V12.4034C15.9131 12.7839 15.8973 13.0977 15.8223 13.378C15.568 14.327 14.8269 15.0681 13.8779 15.3223C13.5976 15.3974 13.2838 15.4132 12.9033 15.4161H12.0957C11.7154 15.4132 11.4013 15.3974 11.1211 15.3223C10.1724 15.0679 9.43098 14.3268 9.17675 13.378C9.07677 13.0045 9.083 12.5713 9.083 12.0001C9.083 11.4285 9.07662 10.9949 9.17675 10.6212C9.4311 9.67249 10.1724 8.93119 11.1211 8.67684C11.4948 8.57671 11.9285 8.58309 12.5 8.58309ZM4.49999 0.58309C5.07125 0.583087 5.50436 0.576861 5.87792 0.67684C6.82671 0.931068 7.56781 1.67248 7.82226 2.62118C7.89735 2.90141 7.91312 3.21544 7.91601 3.59579V4.4034C7.91313 4.78391 7.89732 5.09768 7.82226 5.37801C7.56797 6.32702 6.82692 7.06806 5.87792 7.32235C5.59759 7.39742 5.28382 7.41322 4.90331 7.4161H4.09569C3.71535 7.41321 3.40132 7.39744 3.12108 7.32235C2.17238 7.0679 1.43098 6.3268 1.17675 5.37801C1.07677 5.00445 1.083 4.57135 1.083 4.00008C1.083 3.42855 1.07662 2.99485 1.17675 2.62118C1.4311 1.67249 2.1724 0.931188 3.12108 0.67684C3.49476 0.576713 3.92846 0.583087 4.49999 0.58309ZM12.5 0.58309C13.0713 0.583087 13.5044 0.576861 13.8779 0.67684C14.8267 0.931068 15.5678 1.67248 15.8223 2.62118C15.8973 2.90141 15.9131 3.21544 15.916 3.59579V4.4034C15.9131 4.78391 15.8973 5.09768 15.8223 5.37801C15.568 6.32702 14.8269 7.06806 13.8779 7.32235C13.5976 7.39742 13.2838 7.41322 12.9033 7.4161H12.0957C11.7154 7.41321 11.4013 7.39744 11.1211 7.32235C10.1724 7.0679 9.43098 6.3268 9.17675 5.37801C9.07677 5.00445 9.083 4.57135 9.083 4.00008C9.083 3.42855 9.07662 2.99485 9.17675 2.62118C9.4311 1.67249 10.1724 0.931188 11.1211 0.67684C11.4948 0.576713 11.9285 0.583087 12.5 0.58309Z"
-                          fill={viewable === 'Today1' ? 'white' : 'black'}
-                        />
-                      </svg>
-                    </span>
+                fill={viewable === 'Today1' ? 'white' : 'black'}
+              />
+              </svg>
+            </span>
                     {!isCollapsed && (
-                      <span
+            <span
                         className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                           viewable === 'Today1'
                             ? 'text-[#FAFAFA]'
                             : 'text-black'
                         }`}
-                      >
-                        Home
-                      </span>
+            >
+              Home
+            </span>
                     )}
-                  </span>
-                </span>
-              </li>
+          </span>
+        </span>
+      </li>
 
-              <li className="relative mt-1 pt-1">
-                <span
-                  className={
-                    'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'inProgress' ? 'bg-[#F44D21] w-100' : '')
-                  }
-                  onClick={() => setViewable('inProgress')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col">
-                    <span>
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'inProgress' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('inProgress')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
                       <svg
                         width="17"
                         height="16"
@@ -1460,38 +1460,38 @@ const SlimSideMenuBar = (props) => {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         />
-                      </svg>
-                    </span>
+              </svg>
+            </span>
                     {!isCollapsed && (
-                      <span
+            <span
                         className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                           viewable === 'inProgress'
                             ? 'text-[#FAFAFA]'
                             : 'text-black'
                         }`}
-                      >
-                        Visitors
-                      </span>
+            >
+              Visitors
+            </span>
                     )}
-                  </span>
-                </span>
-              </li>
+          </span>
+        </span>
+      </li>
 
-              <li className="relative mt-1 pt-1">
-                <span
-                  className={
-                    'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'archieveLeads' ? 'bg-[#F44D21] w-100' : '')
-                  }
-                  onClick={() => setViewable('archieveLeads')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col">
-                    <span>
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'archieveLeads' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('archieveLeads')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
                       <svg
                         width="17"
                         height="16"
@@ -1538,38 +1538,38 @@ const SlimSideMenuBar = (props) => {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         />
-                      </svg>
-                    </span>
+              </svg>
+            </span>
                     {!isCollapsed && (
-                      <span
+            <span
                         className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                           viewable === 'archieveLeads'
                             ? 'text-[#FAFAFA]'
                             : 'text-black'
                         }`}
-                      >
-                        Archive
-                      </span>
+            >
+              Archive
+            </span>
                     )}
-                  </span>
-                </span>
-              </li>
+          </span>
+        </span>
+      </li>
 
-              <li className="relative mt-1 pt-1">
-                <span
-                  className={
-                    'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'units_inventory' ? 'bg-[#F44D21] w-100' : '')
-                  }
-                  onClick={() => setViewable('units_inventory')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col">
-                    <span>
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'units_inventory' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('units_inventory')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
                       <svg
                         width="12"
                         height="12"
@@ -1605,40 +1605,40 @@ const SlimSideMenuBar = (props) => {
                             viewable === 'units_inventory' ? 'white' : 'black'
                           }
                         />
-                      </svg>
-                    </span>
+              </svg>
+            </span>
                     {!isCollapsed && (
-                      <span
+            <span
                         className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                           viewable === 'units_inventory'
                             ? 'text-[#FAFAFA]'
                             : 'text-black'
                         }`}
-                      >
-                        Stalls
-                      </span>
+            >
+              Stalls
+            </span>
                     )}
-                  </span>
-                </span>
-              </li>
+          </span>
+        </span>
+      </li>
 
-              <li className="relative mt-1 pt-1">
-                <span
-                  className={
-                    'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
                     (viewable === 'Team Lead Report'
                       ? 'bg-[#F44D21] w-100'
                       : '')
-                  }
-                  onClick={() => setViewable('Team Lead Report')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col">
-                    <span>
+          }
+          onClick={() => setViewable('Team Lead Report')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
                       <svg
                         width="17"
                         height="16"
@@ -1652,10 +1652,10 @@ const SlimSideMenuBar = (props) => {
                             viewable === 'Team Lead Report' ? 'white' : 'black'
                           }
                         />
-                      </svg>
-                    </span>
+              </svg>
+            </span>
                     {!isCollapsed && (
-                      <span
+            <span
                         className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                           viewable === 'Team Lead Report'
                             ? 'text-[#FAFAFA]'
@@ -1663,14 +1663,14 @@ const SlimSideMenuBar = (props) => {
                         }`}
                       >
                         Visitor <br /> Report
-                      </span>
+            </span>
                     )}
-                  </span>
-                </span>
-              </li>
-            </ul>
-          </>
-        )}
+          </span>
+        </span>
+      </li>
+    </ul>
+  </>
+)}
         {['legalModule'].includes(sourceLink) && (
           <>
             <ul className="w-full">
@@ -1811,9 +1811,9 @@ const SlimSideMenuBar = (props) => {
                     </span>
 
                     {!isCollapsed && (
-                      <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">
-                        Team Reports
-                      </span>
+                    <span className="text-[9px] font-bold tracking-[0.7px]  pl-1">
+                      Team Reports
+                    </span>
                     )}
                   </span>
                   <span className="flex ml-auto items-bottom">
@@ -1825,24 +1825,24 @@ const SlimSideMenuBar = (props) => {
           </>
         )}
 
-        {['financeModule'].includes(sourceLink) && (
-          <>
-            <ul className="w-full">
-              <li className="relative mt-1 pt-1">
-                <span
-                  className={
-                    'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'Today1' ? 'bg-[#F44D21] w-100' : '')
-                  }
-                  onClick={() => setViewable('Today1')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col">
-                    <span>
+   {['financeModule'].includes(sourceLink) && (
+  <>
+    <ul className="w-full">
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'Today1' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('Today1')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
                       <svg
                         width="17"
                         height="16"
@@ -1879,38 +1879,38 @@ const SlimSideMenuBar = (props) => {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         />
-                      </svg>
-                    </span>
+              </svg>
+            </span>
                     {!isCollapsed && (
-                      <span
+            <span
                         className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                           viewable === 'Today1'
                             ? 'text-[#FAFAFA]'
                             : 'text-black'
                         }`}
-                      >
-                        Tasks
-                      </span>
+            >
+              Tasks
+            </span>
                     )}
-                  </span>
-                </span>
-              </li>
+          </span>
+        </span>
+      </li>
 
-              <li className="relative mt-1 pt-1">
-                <span
-                  className={
-                    'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'Payments' ? 'bg-[#F44D21] w-100' : '')
-                  }
-                  onClick={() => setViewable('Payments')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col">
-                    <span>
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'Payments' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('Payments')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
                       <svg
                         width="17"
                         height="16"
@@ -1948,38 +1948,38 @@ const SlimSideMenuBar = (props) => {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         />
-                      </svg>
-                    </span>
+              </svg>
+            </span>
                     {!isCollapsed && (
-                      <span
+            <span
                         className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                           viewable === 'Payments'
                             ? 'text-[#FAFAFA]'
                             : 'text-black'
                         }`}
-                      >
-                        Payments
-                      </span>
+            >
+              Payments
+            </span>
                     )}
-                  </span>
-                </span>
-              </li>
+          </span>
+        </span>
+      </li>
 
-              <li className="relative mt-1 pt-1">
-                <span
-                  className={
-                    'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'Bank Accounts' ? 'bg-[#F44D21] w-100' : '')
-                  }
-                  onClick={() => setViewable('Bank Accounts')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col">
-                    <span>
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'Bank Accounts' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('Bank Accounts')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
                       <svg
                         width="17"
                         height="16"
@@ -2035,38 +2035,38 @@ const SlimSideMenuBar = (props) => {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         />
-                      </svg>
-                    </span>
+              </svg>
+            </span>
                     {!isCollapsed && (
-                      <span
+            <span
                         className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                           viewable === 'Bank Accounts'
                             ? 'text-[#FAFAFA]'
                             : 'text-black'
                         }`}
-                      >
-                        Bank
-                      </span>
+            >
+              Bank
+            </span>
                     )}
-                  </span>
-                </span>
-              </li>
+          </span>
+        </span>
+      </li>
 
-              <li className="relative mt-1 pt-1">
-                <span
-                  className={
-                    'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'Dashboard' ? 'bg-[#F44D21] w-100' : '')
-                  }
-                  onClick={() => setViewable('Dashboard')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col">
-                    <span>
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'Dashboard' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('Dashboard')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
                       <svg
                         width="17"
                         height="16"
@@ -2097,30 +2097,30 @@ const SlimSideMenuBar = (props) => {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         />
-                      </svg>
-                    </span>
+              </svg>
+            </span>
                     {!isCollapsed && (
-                      <span
+            <span
                         className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                           viewable === 'Dashboard'
                             ? 'text-[#FAFAFA]'
                             : 'text-black'
                         }`}
-                      >
-                        Reports
-                      </span>
+            >
+              Reports
+            </span>
                     )}
-                  </span>
-                </span>
-              </li>
-            </ul>
-          </>
-        )}
+          </span>
+        </span>
+      </li>
+    </ul>
+  </>
+)}
 
-        {['hrModule'].includes(sourceLink) && (
-          <>
-            <ul className="w-full">
-              {/* <li className="relative mt-1 pt-1">
+{['hrModule'].includes(sourceLink) && (
+  <>
+    <ul className="w-full">
+      {/* <li className="relative mt-1 pt-1">
         <span
           className={
             'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
@@ -2152,21 +2152,21 @@ const SlimSideMenuBar = (props) => {
         </span>
       </li> */}
 
-              <li className="relative mt-1 pt-1">
-                <span
-                  className={
-                    'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
-                    (viewable === 'User Management' ? 'bg-[#F44D21] w-100' : '')
-                  }
-                  onClick={() => setViewable('User Management')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col">
-                    <span>
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+            (viewable === 'User Management' ? 'bg-[#F44D21] w-100' : '')
+          }
+          onClick={() => setViewable('User Management')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
                       <svg
                         width="17"
                         height="16"
@@ -2181,39 +2181,39 @@ const SlimSideMenuBar = (props) => {
                           }
                         />
                       </svg>
-                    </span>
+            </span>
                     {!isCollapsed && (
-                      <span
-                        className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
+            <span
+              className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                           viewable === 'User Management'
                             ? 'text-[#FAFAFA]'
                             : 'text-black'
-                        }`}
-                      >
-                        Employees
-                      </span>
+              }`}
+            >
+              Employees
+            </span>
                     )}
-                  </span>
-                </span>
-              </li>
+          </span>
+        </span>
+      </li>
 
-              <li className="relative mt-1 pt-1">
-                <span
-                  className={
-                    'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
                     (viewable === 'AssetsManagement'
                       ? 'bg-[#F44D21] w-100'
                       : '')
-                  }
-                  onClick={() => setViewable('AssetsManagement')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col">
-                    <span>
+          }
+          onClick={() => setViewable('AssetsManagement')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
                       <svg
                         width="16"
                         height="16"
@@ -2226,41 +2226,41 @@ const SlimSideMenuBar = (props) => {
                           fill={
                             viewable === 'AssetsManagement' ? 'white' : 'black'
                           }
-                        />
-                      </svg>
-                    </span>
+/>
+</svg>
+            </span>
                     {!isCollapsed && (
-                      <span
-                        className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
+            <span
+              className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                           viewable === 'AssetsManagement'
                             ? 'text-[#FAFAFA]'
                             : 'text-black'
-                        }`}
-                      >
-                        Assets
-                      </span>
+              }`}
+            >
+              Assets
+            </span>
                     )}
-                  </span>
-                </span>
-              </li>
+          </span>
+        </span>
+      </li>
 
-              <li className="relative mt-1 pt-1">
-                <span
-                  className={
-                    'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
+      <li className="relative mt-1 pt-1">
+        <span
+          className={
+            'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
                     (viewable === 'Roles Management'
                       ? 'bg-[#F44D21] w-100'
                       : '')
-                  }
-                  onClick={() => setViewable('Roles Management')}
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    marginRight: 'auto',
-                  }}
-                >
-                  <span className="flex items-center flex-col">
-                    <span>
+          }
+          onClick={() => setViewable('Roles Management')}
+          style={{
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+          }}
+        >
+          <span className="flex items-center flex-col">
+            <span>
                       <svg
                         width="16"
                         height="16"
@@ -2273,25 +2273,25 @@ const SlimSideMenuBar = (props) => {
                           fill={
                             viewable === 'Roles Management' ? 'white' : 'black'
                           }
-                        />
-                      </svg>
-                    </span>
+/>
+</svg>
+            </span>
                     {!isCollapsed && (
-                      <span
-                        className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
+            <span
+              className={`text-[12px] font-manrope tracking-[0.7px] text-center pl-1 pt-1 ${
                           viewable === 'Roles Management'
                             ? 'text-[#FAFAFA]'
                             : 'text-black'
-                        }`}
-                      >
-                        Roles
-                      </span>
+              }`}
+            >
+              Roles
+            </span>
                     )}
-                  </span>
-                </span>
-              </li>
+          </span>
+        </span>
+      </li>
 
-              {/* <li className="relative mt-1 pt-1">
+      {/* <li className="relative mt-1 pt-1">
         <span
           className={
             'flex items-center text-sm px-2 py-4 overflow-hidden text-gray-700 text-ellipsis whitespace-nowrap rounded hover:text-blue-600 hover:bg-[#F44D21] transition duration-300 ease-in-out cursor-pointer ' +
@@ -2321,9 +2321,9 @@ const SlimSideMenuBar = (props) => {
           </span>
         </span>
       </li> */}
-            </ul>
-          </>
-        )}
+    </ul>
+  </>
+)}
 
         {/* <Link
         className={

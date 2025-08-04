@@ -16,8 +16,8 @@ import { useTranslation } from 'react-i18next' // styled components
 
 import DropCompUnitStatus from 'src/components/dropDownUnitStatus'
 import LogSkelton from 'src/components/shimmerLoaders/logSkelton'
-import CSVDownloader from 'src/util/csvDownload'
 import { prettyDate } from 'src/util/dateConverter'
+import ExcelDownloader from 'src/util/excelDownload'
 
 import UnitSummaryTableBody from './BookingSummaryTable'
 
@@ -440,11 +440,10 @@ const UnitBookingSummaryTableLayout = ({
                 />
                 {filLeadsA.length > 0 && (
                   <Tooltip title={`Download ${filLeadsA?.length} Row`}>
-                    <CSVDownloader
+                    <ExcelDownloader
                       className="mr-6 h-[20px] w-[20px]"
                       downloadRows={leadsFetchedData}
                       sourceTab="Booking Summary"
-
                       style={{ height: '20px', width: '20px' }}
                     />
                   </Tooltip>

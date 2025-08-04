@@ -883,7 +883,7 @@ const AddUnit = ({
                           </section>
 
                           <div className="md:flex flex-row md:space-x-4 w-full text-xs  ">
-                            <div className=" space-y-2 w-1/4 text-xs mt-2">
+                            <div className="space-y-2 w-1/4 text-xs mt-2">
                               <TextField
                                 label="Stall No*"
                                 name="unit_no"
@@ -892,7 +892,7 @@ const AddUnit = ({
                             </div>
                             {projectDetails?.projectType?.name ===
                               'Apartment' && (
-                              <div className="mb-3 space-y-2 w-full text-xs mt-2">
+                              <div className="mb-3 space-y-2 w-1/4 text-xs mt-2">
                                 <TextField
                                   label="Block"
                                   name="block_no"
@@ -902,7 +902,7 @@ const AddUnit = ({
                             )}
                             {projectDetails?.projectType?.name ===
                               'Apartment' && (
-                              <div className="mb-3 space-y-2 w-full text-xs mt-2">
+                              <div className="mb-3 space-y-2 w-1/4 text-xs mt-2">
                                 <TextField
                                   label="Tower"
                                   name="tower_no"
@@ -913,7 +913,7 @@ const AddUnit = ({
 
                             {projectDetails?.projectType?.name ===
                               'Apartment' && (
-                              <div className="mb-3 space-y-2 w-full text-xs mt-2">
+                              <div className="mb-3 space-y-2 w-1/4 text-xs mt-2">
                                 <TextField
                                   label="Floor"
                                   name="floor_no"
@@ -921,6 +921,35 @@ const AddUnit = ({
                                 />
                               </div>
                             )}
+
+                            <div className="space-y-2 w-1/4 text-xs mt-2">
+                              <TextField
+                                label={`${
+                                  ['Villas', 'Plots'].includes(
+                                    projectDetails?.projectType?.name
+                                  )
+                                    ? 'Land Area sqft*'
+                                    : 'Stall Area sqft'
+                                }`}
+                                name="area"
+                                type="number"
+                              />
+                            </div>
+
+                            <div className="space-y-2 w-1/4 text-xs mt-2">
+                              <TextField
+                                label="Price per sqft *"
+                                name="sqft_rate"
+                                type="number"
+                              />
+                            </div>
+                            <div className="space-y-2 w-1/4 text-xs mt-2">
+                              <TextField
+                                label="PLC per sqft*"
+                                name="plc_per_sqft"
+                                type="number"
+                              />
+                            </div>
 
                             {/* <div className="mb-3 space-y-2 w-full text-xs mt-2">
                               <TextField
@@ -1134,64 +1163,6 @@ const AddUnit = ({
                           </section>
                         )}
 
-                        <section className="mt-1 px-4 rounded-lg bg-white border border-gray-100 shadow">
-                          <section className="flex flex-row  pt-2 ">
-                            <div className="border-2  h-3 rounded-xl  mt-[2px] w-1  border-cyan-200"></div>
-                            <span className="ml-1 leading-[15px] ">
-                              <label className="font-semibold text-[#053219]  text-[13px] leading-[15px] mb-1  ">
-                                Pricing<abbr title="required"></abbr>
-                              </label>
-                            </span>
-                          </section>
-                          <div className="md:flex flex-row md:space-x-4 w-full text-xs mt-2 ">
-                            {/* <div className="space-y-2 w-full text-xs ">
-                              <TextField
-                                label={`${["Villas","Plots"].includes(projectDetails?.projectType?.name)? "Plot Area Sqft*" : "Super BUA"
-                                }`}
-                                name="area"
-                                type="number"
-                              />
-                            </div> */}
-
-                            <div className="space-y-2 w-full text-xs ">
-                              <TextField
-                                label={`${
-                                  ['Villas', 'Plots'].includes(
-                                    projectDetails?.projectType?.name
-                                  )
-                                    ? 'Land Area sqft*'
-                                    : 'Stall Area sqft'
-                                }`}
-                                name="area"
-                                type="number"
-                              />
-                            </div>
-
-                            <div className=" space-y-2 w-full text-xs mt-">
-                              <TextField
-                                label="Price per sqft *"
-                                name="sqft_rate"
-                                type="number"
-                              />
-                            </div>
-                            <div className="space-y-2 w-full text-xs mt-">
-                              <TextField
-                                label="PLC per sqft*"
-                                name="plc_per_sqft"
-                                type="number"
-                              />
-                            </div>
-
-                            <div className="mb-3 space-y-2 w-full text-xs mt-">
-                              <TextField
-                                label="Min Price per Sqft"
-                                name="min_rate_per_sqft"
-                                type="text"
-                              />
-                            </div>
-                          </div>
-                        </section>
-
                         {projectDetails?.projectType?.name === 'Villas' && (
                           <section className="mt-1 px-4 rounded-lg bg-white border border-gray-100 shadow">
                             <section className="flex flex-row  pt-2 ">
@@ -1396,30 +1367,32 @@ const AddUnit = ({
                         {/* Dimensions Section - Collapsible */}
                         <section className="mt-1 px-4 rounded-lg bg-white border border-gray-100 shadow">
                           <section
-                            className="flex flex-row pt-2 cursor-pointer select-none"
+                            className="flex flex-row justify-between items-center py-2 cursor-pointer select-none"
                             onClick={() => setShowDimensions((v) => !v)}
                           >
-                            <div className="border-2 h-3 rounded-xl mt-[2px] w-1 border-cyan-200"></div>
-                            <span className="ml-1 leading-[15px] flex items-center">
-                              <label className="font-semibold text-[#053219] text-[13px] leading-[15px] mb-1">
-                                Dimensions<abbr title="required"></abbr>
-                              </label>
-                              <svg
-                                className={`ml-1 mb-1 w-4 h-4 transition-transform duration-200 ${
-                                  showDimensions ? 'rotate-180' : ''
-                                }`}
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M19 9l-7 7-7-7"
-                                />
-                              </svg>
-                            </span>
+                            <div className="flex items-center">
+                              <div className="border-2 h-3 rounded-xl mt-[2px] w-1 border-cyan-200"></div>
+                              <span className="ml-1 leading-[15px]">
+                                <label className="font-semibold text-[#053219] text-[13px] leading-[15px]">
+                                  Dimensions<abbr title="required"></abbr>
+                                </label>
+                              </span>
+                            </div>
+                            <svg
+                              className={`w-4 h-4 transition-transform duration-200 ${
+                                showDimensions ? 'rotate-180' : ''
+                              }`}
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M19 9l-7 7-7-7"
+                              />
+                            </svg>
                           </section>
                           {showDimensions && (
                             <div className="md:flex flex-row md:space-x-4 w-full text-xs mt-2 ">
@@ -1473,13 +1446,16 @@ const AddUnit = ({
                           )}
                         </section>
                       </section>
+
+                      <div className="mt-4 mb-2 px-4">
+                        <p className="text-xs text-red-400">
+                          * fields are mandatory
+                        </p>
+                      </div>
+
                       {/* 6 */}
 
                       <div className=" z-10 flex flex-row justify-between mt-4 pb-2 pr-6 bg-white shadow-lg absolute bottom-0  w-full">
-                        <p className="text-xs text-red-400 text-right my-3 mt-10 mx-3">
-                          <abbr title="Required field">*</abbr> fields are
-                          mandatory
-                        </p>
                         {[
                           'Stall Added Successfully.',
                           'Saved Successfully..!',
