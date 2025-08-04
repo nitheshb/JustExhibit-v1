@@ -608,6 +608,7 @@ export const updateTransactionStatus = async (
       variant: 'success',
     })
   }
+
   if (status === 'received') {
     await updateDoc(doc(db, `${orgId}_stalls`, Uuid), {
       T_review: increment(-totalAmount),
@@ -1753,21 +1754,12 @@ export const getLedsData = async () => {
 export const getUnits = (orgId, snapshot, data, error) => {
   const { status, pId, blockId } = data
 
-  const conditions = []
-
-  // Only add valid where clauses
-  if (pId !== undefined) {
-    conditions.push(where('pId', '==', pId))
-  }
-
-  if (blockId !== undefined) {
-    conditions.push(where('blockId', '==', blockId))
-  }
-
-  // Always order by unit_no
-  conditions.push(orderBy('unit_no', 'asc'))
-
-  const itemsQuery = query(collection(db, `${orgId}_stalls`), ...conditions)
+  const itemsQuery = query(
+    collection(db, `${orgId}_stalls`),
+    where('pId', '==', pId),
+    // where('blockId', '==', blockId || 1),
+    orderBy('unit_no', 'asc')
+  )
 
   console.log('hello ', status, itemsQuery, data)
 
