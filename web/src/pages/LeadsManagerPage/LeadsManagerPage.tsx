@@ -23,7 +23,7 @@ const LeadsManagerPage = (props) => {
   const [showSideBar, setShowSideBar] = useState(false)
   const [showDetailedSideBar, setDetailedShowSideBar] = useState(false)
   const [viewable, setViewable] = useState(
-    props.type === 'inProgress' ? 'inProgress' : 'Today1'
+    props.type === 'inProgress' ? 'inProgress' : 'inProgress'
   )
   const [isClicked, setIsClicked] = useState(false)
   const [selModule, setSelModule] = useState('Registration')
@@ -44,7 +44,7 @@ const LeadsManagerPage = (props) => {
       if (user?.role?.includes(USER_ROLES.CP_AGENT)) {
         setViewable('inProgress')
       } else {
-        setViewable(props.type === 'inProgress' ? 'inProgress' : 'Today1')
+        setViewable(props.type === 'inProgress' ? 'inProgress' : 'inProgress')
       }
     }
   }, [user])
