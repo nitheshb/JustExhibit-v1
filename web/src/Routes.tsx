@@ -85,6 +85,8 @@ const Routes = () => {
         <Route path="/admin/administration-team" page={AdministrationTeamPage} name="administrationTeam" />
 
         <Route path="/privacyPolicy" page={PrivacyPolicyPage} name="privacyPolicy" />
+        <Route path="/addVisitor" page={AddVisitorPage} name="addVisitor" />
+
 
       </>
     )
